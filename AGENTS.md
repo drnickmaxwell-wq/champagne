@@ -1,715 +1,207 @@
-AGENTS.md
+# Champagne Repository Instructions
 
-Champagne OS — Canonical Agent Operating Rules
+**Status:** `ACTIVE_OPERATIONAL_CONSTRAINTS_NO_AUTHORITY`
 
-This repository is governed by the Champagne Canon.
-Agents operate as specialists under strict scope control.
-Violations are regressions, not “experiments”.
+These instructions constrain work in `drnickmaxwell-wq/champagne`. They do not
+grant branch, commit, pull-request, merge, deployment, publication, production,
+credential, Router, WEOS, chatbot-engine or cross-repository authority.
 
-1. Prime Directive
+## 1. Required inputs
+
+Before planning or changing Champagne, load:
+
+1. applicable platform and security policy;
+2. `docs/canon/programmes/CHAMPAGNE_CANON_PROGRAMME_INDEX_V1.md` and every
+   source in its required read order;
+3. the current exact Founder packet when mutation is requested;
+4. this root file;
+5. every scoped `AGENTS.md` applicable to each target path;
+6. the task or build packet.
+
+Missing, truncated, stale or conflicting input is a stop condition.
+
+## 2. Semantic roles — no universal precedence list
+
+Different inputs answer different questions:
+
+- platform/security policy supplies absolute constraints;
+- the Founder packet supplies an exact transaction gate and may contain an
+  explicit canon decision only when it clearly identifies itself as one;
+- mandatory Champagne canon controls product truth;
+- root and scoped `AGENTS.md` files supply operational constraints only;
+- a task packet describes a requested operation only;
+- machine policy specifies evaluator behaviour only;
+- historical records are inert and must not be loaded as active instructions.
+
+Do not collapse these roles into one precedence or priority array.
+
+## 3. Transaction-authority gate
+
+Read-only inspection, audit and planning do not imply mutation authority.
+
+Any mutation requires fresh exact stage-specific Founder authority naming the
+repository, ref or pull request, operation and paths. Authority does not inherit
+between stages or transactions. A role name, PASS label, old Director approval,
+historical exemption, task request, installed canon or repository file is not
+authority.
+
+A valid transaction must satisfy all of the following:
+
+- the requested operation is inside the exact Founder authority envelope;
+- every target path is inside the task and authority scope;
+- platform/security constraints are satisfied;
+- this root file and every applicable scoped file are satisfied.
+
+Implementation authority does not imply mark-ready, merge, deployment,
+publication or production authority. Those require separate exact Founder gates.
+
+## 4. Product-truth gate
+
+The proposed outcome must independently satisfy mandatory Champagne canon.
+Transaction authority does not silently amend product truth.
+
+The programme index controls canon loading and conflict behaviour:
+
+- the Stage 1 acceptance wrapper controls programme acceptance;
+- V2 remains `FOUNDER_REVIEW_DRAFT_NON_MUTATING` source direction;
+- the Master Truth Amendment is accepted, additive and product-local;
+- receipts are evidence only;
+- unresolved conflict means stop, preserve the sources and request Founder
+  resolution;
+- canon grants no transaction authority by itself.
+
+A Founder packet changes canon only when it explicitly declares a current-stage
+canon resolution or amendment and identifies the affected source or conflict.
+Silence, general implementation permission or path authority is not a canon
+change.
+
+Both the transaction-authority gate and product-truth gate must pass.
+
+## 5. Root and scoped constraint composition
+
+Root and scoped instructions accumulate constraints; they do not grant authority
+and do not compete for precedence.
+
+For every target path:
+
+- load root plus every applicable scoped file from repository root to target;
+- apply every constraint as a logical `AND` condition;
+- union prohibitions, required checks and stop conditions;
+- treat any path or capability list as a maximum boundary, never as authority;
+- scoped instructions may narrow but never expand;
+- root instructions may not weaken a scoped safeguard;
+- repository instructions may not contradict mandatory canon or
+  platform/security policy.
+
+The task and Founder envelope define positive transaction scope. Repository
+instructions can only restrict that scope. If monotonic narrowing or the final
+allowed operation cannot be determined unambiguously, stop.
+
+## 6. Champagne invariants
 
 Agents MUST:
 
-Preserve the Champagne Canon
-
-Protect the Sacred Hero Engine
-
-Respect token-only styling
-
-Leave the system more observable, never more fragile
+- preserve Champagne canon and truthful product semantics;
+- protect the Sacred Hero system;
+- preserve token-only styling and semantic surface meaning;
+- preserve accessibility, privacy and failure visibility;
+- leave the system more observable and no more fragile;
+- make the smallest authorised change.
 
 Agents MUST NOT:
 
-“Refactor” core engines
-
-Introduce raw colours, gradients, or styles
-
-Bypass guards
-
-Make visual guesses without diagnostics
-
-If uncertain, STOP and report.
-
-2. Sacred Zones (ABSOLUTE DO-NOT-TOUCH)
-
-The following paths are sacred.
-They MUST NOT be modified, renamed, refactored, or “cleaned up” by any agent unless the task explicitly states SACRED HERO SURGEON AUTHORITY.
-
-2.1 Sacred Hero Engine Core
-packages/champagne-hero/src/HeroAssetRegistry.ts
-packages/champagne-hero/src/hero-engine/HeroConfig.ts
-packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts
-packages/champagne-hero/src/hero-engine/HeroRuntime.ts
-packages/champagne-hero/src/hero-engine/HeroSurfaceMap.ts
-
-2.2 Sacred Hero Manifests
-packages/champagne-manifests/data/hero/sacred_*
-
-2.3 Sacred Render Entry
-apps/web/app/components/hero/HeroRenderer.tsx
-
-
-If any of these files are touched without explicit permission, the work is INVALID.
-
-3. Guard Enforcement (MANDATORY)
-
-Champagne OS uses guards. Guards are not optional.
-Passing builds without guards running is considered a failure state.
-
-3.1 Required Guards
-
-Agents MUST ensure the following commands exist and pass:
-
-npm run guard:hero
-npm run guard:canon
-npm run verify
-
-
-If any command does not exist, STOP and report:
-
-“Guard missing or not wired — cannot proceed.”
-
-3.2 Brand Canon Guard (guard:canon)
-
-The Brand Canon Guard enforces:
-
-❌ No raw hex colours (e.g. #RGB, #RRGGBB, 0xFFFFFF)
-
-❌ No rogue gradients
-
-❌ No inline colour literals
-
-✅ Token-only colour usage
-
-✅ Approved CSS variables only
-
-Agents MUST NOT introduce:
-
-Hard-coded colours
-
-Non-token Tailwind colour utilities
-
-Inline gradients
-
-3.3 Hero Guard (guard:hero)
-
-The Hero Guard enforces:
-
-Sacred hero files remain untouched
-
-Manifest → runtime → renderer alignment
-
-No silent fallback to gradient-only hero
-
-No bypass of PRM / motion / surface gating
-
-Agents MUST run this guard when:
-
-Touching hero preview
-
-Touching hero debug
-
-Touching any marketing hero renderer
-
-3.4 Residue Gate (token purity enforcement)
-
-All new component style work must be token-only.
-
-Token source files may contain literals; all runtime usage must be token-only.
-
-Any new exemption MUST:
-
-- List exact files in this AGENTS.md
-- Add those files to scripts/verify-token-purity.cjs targetFiles
-- Run: node scripts/verify-token-purity.cjs (must PASS)
-
-This is process law, not design law.
-
-4. CI & Visibility Requirements
-
-Guards MUST be visible in GitHub / CI.
-
-Agents modifying workflows MUST ensure:
-
-guard:hero runs as a named CI step
-
-guard:canon runs as a named CI step
-
-verify runs as a named CI step
-
-Green CI without guards running is NOT acceptable.
-
-5. Allowed Modification Zones
-
-Agents MAY modify:
-
-apps/web/app/champagne/hero-preview/**
-apps/web/app/champagne/hero-debug/**
-apps/web/app/champagne/hero-lab/**
-apps/web/app/_components/** (EXCEPT HeroRenderer.tsx)
-packages/champagne-guards/**
-.github/workflows/**
-
-EXEMPTION — PASS T1 Token Binding (Director-authorized)
-Agents MAY modify:
-- packages/champagne-tokens/styles/**
-
-Scope:
-- Token binding + theme variable mapping only (e.g. --bg-ink, --text-*, surface vars).
-- No component/layout edits, no globals.css edits, no hero changes.
-
-Hard prohibitions remain in force:
-- Sacred zones unchanged.
-- apps/web/app/layout.tsx is still forbidden.
-- apps/web/app/globals.css is still forbidden.
-- apps/web/app/components/layout/** is still forbidden.
-
-EXEMPTION — PASS T2 Surface Semantics (Director-authorized)
-Agents MAY modify:
-- apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx
-- apps/web/app/components/sections/SectionShell.tsx
-
-Scope:
-- Add data-surface / data-surface-tone attributes only.
-- No styling changes.
-- No component restructuring.
-
-Hard prohibitions remain in force:
-- Sacred zones unchanged.
-- apps/web/app/layout.tsx is still forbidden.
-- apps/web/app/globals.css is still forbidden.
-- apps/web/app/components/layout/** is still forbidden.
-- No header/footer edits.
-- No token edits.
-
-EXEMPTION — PASS T3 Section Semantics (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/Section_TextBlock.tsx
-
-Scope:
-- Remove raw hex/RGBA fallbacks in section styling.
-- Bind background/border/text to semantic tokens only:
-  --surface-0/1/2, --border-subtle, --shadow-soft, --text-high/medium/low
-- No layout changes, no copy changes, no manifest changes.
-
-Hard prohibitions remain:
-- Sacred zones unchanged.
-- No hero engine/manifests.
-- No apps/web/app/layout.tsx edits.
-- No apps/web/app/globals.css edits.
-- No header/footer edits.
-
-EXEMPTION — PASS T4 Section Semantics (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/Section_FeatureList.tsx
-- packages/champagne-sections/src/Section_PatientStoriesRail.tsx
-
-Scope:
-- Replace hardcoded colors/fallbacks with semantic tokens only:
-  background -> --surface-0/1/2 or --surface-glass (if intentionally glass)
-  border -> --border-subtle
-  shadow -> --shadow-soft
-  text -> --text-high/medium/low
-- No layout changes, no copy changes
-
-Hard prohibitions remain:
-- Sacred zones unchanged.
-- No hero engine/manifests.
-- No apps/web/app/layout.tsx edits.
-- No apps/web/app/globals.css edits.
-- No header/footer edits.
-
-EXEMPTION — PASS T6 Treatment Page Dark-Slab Removal (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/Section_TreatmentOverviewRich.tsx
-- packages/champagne-sections/src/Section_TreatmentMediaFeature.tsx
-- packages/champagne-sections/src/Section_FAQ.tsx
-- packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx
-- packages/champagne-sections/src/Section_TreatmentMidCTA.tsx
-
-Scope:
-- Semantic-token-only styling replacement (background/border/shadow/text) with no structural edits.
-- No copy changes.
-
-Hard prohibitions remain:
-- Sacred zones unchanged.
-- No hero engine/manifests.
-- No apps/web/app/layout.tsx edits.
-- No apps/web/app/globals.css edits.
-- No header/footer edits.
-
-EXEMPTION — PASS T8 Interactive States (Director-authorized)
-Agents MAY modify:
-- packages/champagne-cta/src/ChampagneCTAButton.tsx
-
-Scope:
-- Replace hardcoded interaction-state colors (hover/active/focus/disabled) with semantic tokens only.
-- No layout changes.
-- No structural refactors.
-- No copy changes.
-- No new tokens unless they are defined in packages/champagne-tokens/styles/** and contain no new hex.
-
-Hard prohibitions remain in force:
-- Sacred zones unchanged.
-- apps/web/app/layout.tsx is still forbidden.
-- apps/web/app/globals.css is still forbidden.
-- apps/web/app/components/layout/** is still forbidden.
-
-EXEMPTION — PASS T9 (Inputs + Accordions + Pills) (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/Section_FAQ.tsx
-- packages/champagne-sections/src/Section_FeatureList.tsx
-
-Scope:
-- Semantic-token-only interaction state replacement.
-
-Hard prohibitions remain in force:
-- Sacred zones unchanged.
-- apps/web/app/layout.tsx is still forbidden.
-- apps/web/app/globals.css is still forbidden.
-- apps/web/app/components/layout/** is still forbidden.
-
-EXEMPTION — PASS T10 (Form Controls Interaction + Token Purity) (Director-authorized)
-Agents MAY modify:
-- apps/web/app/components/layout/Footer.tsx
-- apps/web/app/components/layout/FooterLuxe.module.css
-
-Scope:
-- Semantic-token-only styling + interaction state replacement.
-
-Hard prohibitions remain in force:
-- Sacred zones unchanged.
-- apps/web/app/layout.tsx is still forbidden.
-- apps/web/app/globals.css is still forbidden.
-
-EXEMPTION — PASS T11 Tables & Data Surfaces (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx
-- scripts/verify-token-purity.cjs
-
-Scope:
-- Semantic-token-only styling replacement (background/border/shadow/text + hover/focus) for tables, fee grids, download lists, and comparison grids.
-- Verification coverage updates in scripts/verify-token-purity.cjs only.
-
-Hard prohibitions remain in force:
-- Sacred zones unchanged.
-- No hero engine/manifests.
-- No apps/web/app/layout.tsx edits.
-- No apps/web/app/globals.css edits.
-- No header/footer edits.
-- No token edits.
-
-EXEMPTION — PASS T12 Chip/Pill/Badge Token Purity (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/Section_GoogleReviews.tsx
-- scripts/verify-token-purity.cjs
-
-Scope:
-- Semantic-token-only styling replacement (background/border/shadow/text + interaction states) for chip/pill/badge/tag UI.
-- No layout changes.
-- No copy changes.
-
-Hard prohibitions remain in force:
-- Sacred zones unchanged.
-- No hero engine/manifests.
-- No apps/web/app/layout.tsx edits.
-- No apps/web/app/globals.css edits.
-- No header/footer edits.
-- No token edits.
-
-EXEMPTION — PASS T13 Chips/Pills/Badges (Director-authorized)
-Agents MAY modify:
-- AGENTS.md
-- scripts/verify-token-purity.cjs
-
-Scope:
-- Semantic-token-only styling replacement (background/border/shadow/text/outline)
-- No structural edits
-- No copy edits
-- No new literal colors
-
-Hard prohibitions remain in force:
-- Sacred zones unchanged.
-- No hero engine/manifests.
-- No apps/web/app/layout.tsx edits.
-- No apps/web/app/globals.css edits.
-- No header/footer edits.
-- No token edits.
-
-EXEMPTION — PASS T14 Forms & Inputs (Director-authorized)
-Agents MAY modify:
-- apps/web/app/components/layout/FooterLuxe.module.css
-(only add Footer.tsx if absolutely required, but prefer CSS-only)
-
-Scope:
-
-Unify focus-visible ring styling for newsletter input only.
-
-Semantic-token-only change. No layout/structure. No copy.
-
-Hard prohibitions remain unchanged.
-
-EXEMPTION — PASS T17 Tools Trio Token Purity (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/Section_TreatmentToolsTrio.tsx
-- scripts/verify-token-purity.cjs (ONLY if needed to include the file)
-
-Scope:
-- Semantic-token-only styling replacement (background/border/shadow/text).
-- No layout/structure edits.
-- No copy changes.
-
-Hard prohibitions remain:
-- No hero edits
-- No manifests edits
-- No globals.css
-- No header/footer edits
-
-
-EXEMPTION — PASS T18 Patient Stories Rail Token Purity (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/Section_PatientStoriesRail.tsx
-
-Scope:
-- Semantic-token-only styling replacement (background/border/shadow/text).
-- No layout/structure edits.
-- No copy changes.
-
-Hard prohibitions remain unchanged.
-
-EXEMPTION — PASS T19 Repo-wide literal colour residue scan + patch (Director-authorized)
-Agents MAY modify:
-- apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx
-- scripts/verify-token-purity.cjs
-
-Scope:
-- Semantic-token-only replacements.
-- No structure/layout changes.
-- No copy changes.
-- Hero is off-limits (do not touch hero renderer, manifests, or hero routes).
-
-Hard prohibitions remain unchanged.
-
-
-EXEMPTION — PASS T23 PeopleGrid Porcelain Contract (Director-authorized)
-Agents MAY modify:
-- packages/champagne-sections/src/sections/Section_PeopleGrid.tsx
-
-Scope:
-
-Semantic-token-only surface/border/shadow/text replacements.
-
-Remove ink-surface forcing inside porcelain sections.
-
-No layout/structure edits.
-
-No copy changes.
-
-Hard prohibitions unchanged:
-
-Sacred zones unchanged.
-
-No hero/manifests edits.
-
-No app layout/globals edits.
-
-
-Only within task scope.
-
-EXEMPTION — PASS T24 (MediaBlock Surface Contract) — Director-authorized
-Agents MAY modify:
-- packages/champagne-sections/src/Section_MediaBlock.tsx
-- scripts/verify-token-purity.cjs
-
-Scope:
-
-Replace default MediaBlock “glass slab” surfaces with porcelain semantic surfaces.
-
-Token-only (background/border/shadow/text only).
-
-No structure/layout changes.
-
-No copy changes.
-
-Hard prohibitions remain unchanged.
-
-EXEMPTION — PASS T25 (De-Glass Default Section Wrappers) — Director-authorized
-Agents MAY modify:
-- packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx
-- packages/champagne-sections/src/Section_TreatmentMediaFeature.tsx
-- scripts/verify-token-purity.cjs
-- AGENTS.md
-
-Scope:
-
-Replace default glass/glass-deep surfaces with porcelain ladder surfaces.
-
-Token-only styling replacement (background/border/shadow/text).
-
-No structural/layout edits.
-
-No copy changes.
-
-Hard prohibitions remain unchanged.
-
-EXEMPTION — PASS T32 Hero Residue Cleanup (Director-authorized)
-Agents MAY modify (token-only fallback removal only):
-
-apps/web/app/components/hero/HeroRenderer.tsx
-
-packages/champagne-hero/src/BaseChampagneSurface.tsx
-
-packages/champagne-hero/src/ChampagneHeroFrame.tsx
-
-packages/champagne-hero/src/HeroPreviewDebug.tsx
-
-Scope:
-
-Remove literal #hex, rgba or rgb, and gradient fallbacks from inline style strings by replacing them with semantic tokens already used elsewhere (--surface-*, --border-*, --text-*, --shadow-*, and existing hero tokens).
-
-Preserve the same property keys and component structure.
-
-If a fallback exists, remove the fallback portion (do not replace with a literal).
-
-Hard prohibitions remain:
-
-No edits to packages/champagne-manifests/data/hero/**
-
-No edits to apps/web/app/globals.css
-
-No edits to hero engine runtime config files beyond the 4 files listed.
-
-EXEMPTION — PASS T33 Footer Ink-Chrome Surface Contract (Director-authorized)
-Agents MAY modify:
-- AGENTS.md
-- apps/web/app/components/layout/FooterLuxe.module.css
-- apps/web/app/components/layout/Footer.tsx
-- scripts/verify-token-purity.cjs
-
-Scope:
-
-Replace porcelain ladder tokens in footer controls with ink-surface tokens/variables.
-
-Token-only. Preserve structure. No copy. No gradients/hex/rgba.
-
-CSS-first; Footer.tsx only if unavoidable.
-
-Hard prohibitions remain unchanged.
-
-EXEMPTION — PASS T34 Footer Controls Interaction Contract (Director-authorized)
-Agents MAY modify:
-- AGENTS.md
-- apps/web/app/components/layout/FooterLuxe.module.css
-- apps/web/app/components/layout/Footer.tsx
-- scripts/verify-token-purity.cjs
-
-Scope:
-
-Footer newsletter input + button interaction states (hover/active/focus/disabled/placeholder).
-Token-only replacements. CSS-first. Single-token focus-visible ring. No structure/copy/layout changes.
-
-Hard prohibitions remain unchanged.
-
-EXEMPTION — PASS T38 Token-Purity False-Positive Hardening (Director-authorized)
-Agents MAY modify:
-- AGENTS.md
-- scripts/verify-token-purity.cjs
-
-Scope:
-- Ignore svg fragment url(#...) matches from token-purity hex detection.
-- No other behavior or scope changes.
-
-Hard prohibitions remain unchanged.
-
-EXEMPTION — Champagne Stage C1 Surface Semantics Stabilization V2 (PR #860 only)
-
-This additive exemption applies only to the accepted Stage C1 sequence on PR #860.
-It expires automatically when PR #860 is merged, closed, or abandoned and grants
-no reusable authority to any later PR, branch, stage, or agent.
-
-Agents MAY modify exactly these cumulative PR paths:
-- .github/workflows/verify.yml
-- AGENTS.md
-- apps/web/app/components/layout/Footer.tsx
-- packages/champagne-guards/package.json
-- packages/champagne-guards/scripts/guard-surface-semantics.mjs
-- packages/champagne-tokens/src/index.ts
-- packages/champagne-tokens/styles/champagne/theme.css
-- packages/champagne-tokens/styles/champagne/time-of-day.css
-- packages/champagne-tokens/styles/champagne/tokens.css
-- scripts/verify-token-purity.cjs
-- tests/champagne-surface-semantics.spec.ts
-
-Scope:
-- Semantic surface ownership and export consistency.
-- Deterministic surface guards and browser evidence.
-- Footer semantic-painter binding through --surface-footer-emotion.
-- Dawn, dusk, and night canvas continuity through --surface-canvas.
-- Token-purity residue-gate coverage for the Stage C1 tokens.css and time-of-day.css token sources.
-
-Hard prohibitions remain in force:
-- Preserve every general modification-zone, sacred-zone, PASS T1, and PASS T2 rule.
-- No Persian selection or binding and no new material value.
-- No design, layout, content, Hero, manifest, dependency, or environment change.
-- No ready-state, merge, deployment, or production authority.
-
-DIRECTOR_SCOPE_OVERRIDE: SEO_JSONLD_V1
-
-Director-authorized one-time override for structured SEO work.
-
-Allowed files (and only these files):
-- apps/web/app/layout.tsx
-- apps/web/app/treatments/[slug]/page.tsx
-
-Allowed change types:
-- JSON-LD emission only (`<script type="application/ld+json">` payloads).
-- Metadata field updates only (e.g., `metadata`, `generateMetadata`, canonical/OpenGraph/Twitter metadata fields tied to SEO output).
-
-Hard prohibitions remain in force:
-- No token/theming edits.
-- No hero engine/hero renderer/manifests edits.
-- No routing behavior changes.
-- No UI/layout/stack changes.
-- No business logic changes.
-- No page copy/content rewrites.
-- No edits outside the two files listed above.
-
-Expiry / stop condition:
-- This override applies only to PACKET_ZONEA_016_JSONLD_MVP.
-- This override MUST NOT be reused for any later packet without fresh Director re-authorization.
-
-6. Role-Based Authority
-
-Agents operate under declared roles.
-Authority is role-dependent.
-
-6.1 Diagnostic Roles (READ-ONLY)
-
-Hero Diagnostics
-
-Runtime Inspection
-
-Manifest Validation
-
-❌ No code changes allowed
-✅ Logging, reporting, analysis only
-
-6.2 Integration Roles (LIMITED WRITE)
-
-Marketing Bridge
-
-Preview / Debug tooling
-
-CI / Guard wiring
-
-❌ Cannot touch Sacred Zones
-❌ Cannot change hero semantics
-
-6.3 Sacred Hero Surgeon (RARE)
-
-This role MUST be explicitly named in the task.
-
-Allowed ONLY to:
-
-Restore broken sacred hero rendering
-
-Repair manifest → runtime → renderer linkage
-
-Fix regressions without altering canon
-
-Must explain every change.
-
-7. Visual Changes Policy
-
-Visual changes MUST follow this order:
-
-Runtime diagnostics
-
-Layer stack inspection
-
-Asset resolution confirmation
-
-CSS binding verification
-
-Renderer paint confirmation
-
-Skipping steps = guessing = failure.
-
-8. Failure Protocol
-
-If something does not render:
-
-Agents MUST report:
-
-What data exists
-
-What layer is suppressed
-
-Why suppression occurs
-
-Where rendering breaks
-
-Agents MUST NOT:
-
-“Force visibility”
-
-Hard-code styles
-
-Bypass logic “just to see it”
-
-9. Summary Rule (Non-Negotiable)
-
-Champagne OS values truth over green ticks.
-
-If guards fail, visuals fail, or canon is violated:
-
-Stop
-
-Report
-
-Do not patch blindly
-
-Semantic Surface Contract (PASS T21)
-
-Statement: token purity ≠ semantic correctness.
-
-| Surface token | Intended meaning | Allowed contexts | Forbidden contexts |
-| --- | --- | --- | --- |
-| --surface-0 | Base porcelain canvas for primary content | Default page backgrounds, body sections, standard cards | Glass effects, high-contrast slabs, footer emotion treatments |
-| --surface-1 | Elevated porcelain for layered surfaces | Secondary sections, raised cards, inset panels | Glass effects, high-contrast slabs, footer emotion treatments |
-| --surface-2 | Highest porcelain elevation | Topmost cards, featured panels, modal shells | Glass effects, high-contrast slabs, footer emotion treatments |
-| --surface-glass | Translucent glass surface | Hero overlays, frosted panes, glass panels | Default cards, standard section backgrounds |
-| --surface-ink | Dark ink surfaces | High-contrast slabs, dark callouts, cinematic bands | Porcelain replacements, standard body content |
-| --surface-footer-emotion | Reserved footer emotional slab | Footer emotional sections only | Body content, cards, general sections |
+- refactor core engines without exact path authority;
+- introduce raw colours, rogue gradients or inline colour literals outside
+  approved token-source contracts;
+- bypass, weaken, hide or broadly exempt guards;
+- invent practice, clinical, fee, availability, booking or patient facts;
+- add PHI collection, diagnosis, triage, personalised clinical advice or
+  autonomous clinical/booking action;
+- mutate Router, WEOS, chatbot engine or another repository;
+- force visibility or patch visual failures without diagnostics.
+
+## 7. Sacred Hero surfaces
+
+These paths are sacred/high-risk:
+
+- `packages/champagne-hero/src/HeroAssetRegistry.ts`
+- `packages/champagne-hero/src/hero-engine/HeroConfig.ts`
+- `packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts`
+- `packages/champagne-hero/src/hero-engine/HeroRuntime.ts`
+- `packages/champagne-hero/src/hero-engine/HeroSurfaceMap.ts`
+- `packages/champagne-manifests/data/hero/sacred_*`
+- `apps/web/app/components/hero/HeroRenderer.tsx`
+
+Mutation requires fresh exact Founder authority naming the files and Hero scope,
+plus the Hero-scoped constraints. Otherwise the work is invalid.
+
+## 8. Semantic surface contract
+
+- `--surface-0`: base porcelain canvas for primary content;
+- `--surface-1`: elevated porcelain;
+- `--surface-2`: highest porcelain elevation;
+- `--surface-glass`: intentional translucent/glass surfaces only;
+- `--surface-ink`: intentional high-contrast ink surfaces only;
+- `--surface-footer-emotion`: footer emotional surface only.
 
 Hard rules:
-- glass ≠ default cards
-- ink ≠ porcelain replacement
-- footer emotion ≠ body content
 
-Note: Future enforcement may exist, but does not yet.
+- glass is not the default card surface;
+- ink is not a porcelain replacement;
+- footer emotion is not body content;
+- token purity does not by itself prove semantic correctness.
 
-## Champagne golden-tenant canon
+## 9. Required approach for visual work
 
-Before planning or changing Champagne website, content, design, media, SEO,
-accessibility, performance or chatbot integration, read:
+1. runtime diagnostics;
+2. layer-stack inspection;
+3. asset-resolution confirmation;
+4. CSS/token binding verification;
+5. renderer paint confirmation;
+6. smallest authorised repair;
+7. focused tests and applicable full proving ladder.
 
-1. `docs/canon/programmes/CHAMPAGNE_CANON_PROGRAMME_INDEX_V1.md`
-2. `ops/contracts/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json`
-3. `ops/contracts/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.json`
-4. `ops/contracts/CHAMPAGNE_AUTHORITY_AND_FREEZE_CONTRACT_V1.json`
+Skipping diagnostics is guessing and is a stop condition.
 
-Rules:
+## 10. Verification
 
-- Require exact stage-specific authority.
-- Exact Stage 0 authority may permit a documentation branch, documentation/canon
-  commits and a draft pull request only when explicitly granted.
-- Installed canon grants no future product/runtime mutation, merge, production
-  deployment, Stage B, Router, WEOS or chatbot-engine authority.
-- No stage inherits authority from another stage.
-- Preserve historical supplied freeze evidence; verified Git object identity
-  controls operational freeze comparison.
-- Stop on canon conflict, scope expansion or semantic uncertainty.
-- The V2 plan remains non-mutating draft source direction. The accepted Stage 1
-  wrapper controls programme acceptance and the Master Truth Amendment is
-  accepted and additive.
+Run focused tests for every changed surface and all applicable repository proving
+commands. The standard full ladder is:
+
+- `pnpm run guard:hero`
+- `pnpm run guard:canon`
+- `pnpm run guard:champagne-contracts`
+- `pnpm run lint`
+- `pnpm run typecheck`
+- `pnpm run build:web`
+- `pnpm run verify`
+
+A green build where an applicable guard did not run is failure.
+
+## 11. Evidence and revalidation
+
+Record loaded paths and hashes. Repository instruction files establish at most
+`CANON_ONLY` evidence; they do not prove Router discovery, injection, provider
+loading, cross-provider consistency or patch-time revalidation.
+
+Revalidate authority, canon, base/head, target paths and effective constraints
+immediately before patch application and again before any ready, merge or
+deployment operation. Any drift invalidates prior review and approval.
+
+## 12. Historical evidence exclusion
+
+`docs/governance/history/**` is evidence only and must be excluded from active
+instruction discovery and loading. Historical PASS blocks, Director grants,
+expired exemptions, role labels and prior approvals cannot be revived as current
+authority.
+
+## 13. Failure protocol
+
+On conflict, uncertainty, missing authority, scope expansion, semantic ambiguity,
+failed guard or stale evidence:
+
+1. stop;
+2. preserve the evidence;
+3. identify the exact conflict;
+4. report without patching blindly;
+5. request Founder resolution where required.
