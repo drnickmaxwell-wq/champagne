@@ -15,6 +15,10 @@ export default async function ChampagneDesignLabPage({
 }) {
   const params = (await searchParams) ?? {};
   const reducedMotion = params.labMotion === "reduce";
+  const compositionOnly = params.labView === "composition";
+  const route = typeof params.route === "string" ? params.route : "/";
+  const viewport = params.viewport === "tablet" || params.viewport === "mobile" ? params.viewport : "desktop";
+  const candidate = typeof params.candidate === "string" ? params.candidate : undefined;
   const heroProps = {
     mode: "home" as const,
     pageCategory: "home",
@@ -28,6 +32,10 @@ export default async function ChampagneDesignLabPage({
   return (
     <DesignChamber
       initialReducedMotion={reducedMotion}
+      compositionOnly={compositionOnly}
+      initialRoute={route}
+      initialViewport={viewport}
+      initialCandidateId={candidate}
       hero={
         <div data-hero-engine="v2" data-lab-engine-override="true" style={{ minHeight: "72vh" }}>
           <HeroRendererV2
