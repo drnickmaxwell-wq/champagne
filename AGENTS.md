@@ -40,10 +40,10 @@ Do not collapse these roles into one precedence or priority array.
 Read-only inspection, audit and planning do not imply mutation authority.
 
 Any mutation requires fresh exact stage-specific Founder authority naming the
-repository, ref or pull request, operation and paths. Authority does not inherit
-between stages or transactions. A role name, PASS label, old Director approval,
-historical exemption, task request, installed canon or repository file is not
-authority.
+repository, ref or pull request, operation, paths, stage and explicit expiry.
+Authority does not inherit between stages or transactions. A role name, PASS
+label, old Director approval, historical exemption, task request, installed
+canon or repository file is not authority.
 
 A valid transaction must satisfy all of the following:
 
