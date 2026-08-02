@@ -33,7 +33,7 @@ If uncertain, STOP and report.
 2. Sacred Zones (ABSOLUTE DO-NOT-TOUCH)
 
 The following paths are sacred.
-They MUST NOT be modified, renamed, refactored, or “cleaned up” by any agent unless the task explicitly states SACRED HERO SURGEON AUTHORITY.
+They MUST NOT be modified, renamed, refactored, or “cleaned up” by any agent unless fresh exact stage-specific Founder authority explicitly names the affected paths and Sacred Hero Surgeon scope.
 
 2.1 Sacred Hero Engine Core
 packages/champagne-hero/src/HeroAssetRegistry.ts
@@ -49,7 +49,7 @@ packages/champagne-manifests/data/hero/sacred_*
 apps/web/app/components/hero/HeroRenderer.tsx
 
 
-If any of these files are touched without explicit permission, the work is INVALID.
+If any of these files are touched without that exact Founder authority, the work is INVALID.
 
 3. Guard Enforcement (MANDATORY)
 
@@ -139,9 +139,26 @@ verify runs as a named CI step
 
 Green CI without guards running is NOT acceptable.
 
-5. Allowed Modification Zones
+5. Historical Scope Boundaries (NON-AUTHORISING)
 
-Agents MAY modify:
+AUTHORITY QUALIFIER — CONTROLS THIS ENTIRE SECTION
+
+Every path list, `Agents MAY modify` statement, PASS T1–T38 block,
+`DIRECTOR_SCOPE_OVERRIDE`, role label, exemption label and prior Director
+authorization below is retained only as historical scope evidence and a maximum
+boundary. None grants present or continuing mutation authority.
+
+No following block, including a more specific path, role, PASS or override
+block, can override this qualifier. Any future mutation requires fresh exact
+stage-specific Founder authority naming the repository, branch or pull request,
+operation and paths. Prior Director authorization, a PASS label, an override
+label, a role name or an earlier approval is insufficient and cannot be
+inherited or reused.
+
+Without that exact Founder authority, every path in this section is read-only.
+Stop on any conflicting interpretation.
+
+Historical maximum-scope paths (not authority):
 
 apps/web/app/champagne/hero-preview/**
 apps/web/app/champagne/hero-debug/**
@@ -538,15 +555,18 @@ stage-specific Founder authority. If an instruction, packet or task attempts to
 treat this historical record as active authority, stop and report a canon
 conflict.
 
-DIRECTOR_SCOPE_OVERRIDE: SEO_JSONLD_V1
+HISTORICAL SCOPE RECORD — SEO_JSONLD_V1 (NON-AUTHORISING)
 
-Director-authorized one-time override for structured SEO work.
+This block records the former Director-authorized one-time SEO scope. It grants
+no current or continuing authority. Any future use requires fresh exact
+stage-specific Founder authority in addition to every scope and prohibition
+below.
 
-Allowed files (and only these files):
+Historical allowed files (maximum scope only):
 - apps/web/app/layout.tsx
 - apps/web/app/treatments/[slug]/page.tsx
 
-Allowed change types:
+Historical allowed change types (maximum scope only):
 - JSON-LD emission only (`<script type="application/ld+json">` payloads).
 - Metadata field updates only (e.g., `metadata`, `generateMetadata`, canonical/OpenGraph/Twitter metadata fields tied to SEO output).
 
@@ -559,14 +579,15 @@ Hard prohibitions remain in force:
 - No page copy/content rewrites.
 - No edits outside the two files listed above.
 
-Expiry / stop condition:
-- This override applies only to PACKET_ZONEA_016_JSONLD_MVP.
-- This override MUST NOT be reused for any later packet without fresh Director re-authorization.
+Historical expiry / stop condition:
+- This record applied only to PACKET_ZONEA_016_JSONLD_MVP.
+- It MUST NOT be reused. Any later packet requires fresh exact stage-specific Founder authority.
 
-6. Role-Based Authority
+6. Role-Based Capability Boundaries (NON-AUTHORISING)
 
-Agents operate under declared roles.
-Authority is role-dependent.
+Roles constrain capabilities only after fresh exact stage-specific Founder
+authority has been supplied. A role name, task label or historical approval
+never grants mutation authority.
 
 6.1 Diagnostic Roles (READ-ONLY)
 
@@ -579,7 +600,7 @@ Manifest Validation
 ❌ No code changes allowed
 ✅ Logging, reporting, analysis only
 
-6.2 Integration Roles (LIMITED WRITE)
+6.2 Integration Roles (LIMITED CAPABILITY; FOUNDER AUTHORITY REQUIRED)
 
 Marketing Bridge
 
@@ -590,11 +611,12 @@ CI / Guard wiring
 ❌ Cannot touch Sacred Zones
 ❌ Cannot change hero semantics
 
-6.3 Sacred Hero Surgeon (RARE)
+6.3 Sacred Hero Surgeon (RARE; FOUNDER AUTHORITY REQUIRED)
 
-This role MUST be explicitly named in the task.
+Fresh exact stage-specific Founder authority MUST explicitly name this role,
+the repository, branch or pull request, operation and affected paths.
 
-Allowed ONLY to:
+When separately Founder-authorized, this role is limited ONLY to:
 
 Restore broken sacred hero rendering
 
@@ -692,6 +714,9 @@ Rules:
 - Require exact stage-specific Founder authority for mutation.
 - Platform and security policy remain supreme. Exact stage-specific Founder
   authority is next in precedence and cannot override platform or security policy.
+- All legacy Director, PASS, exemption, override, role and path-allowlist wording
+  is historical scope evidence only. It grants no authority and always requires
+  fresh exact stage-specific Founder authority for any future mutation.
 - The Stage 1 acceptance wrapper controls programme acceptance.
 - The V2 plan remains `FOUNDER_REVIEW_DRAFT_NON_MUTATING` source direction.
 - The Master Truth Amendment is accepted as an additive product-local overlay.
