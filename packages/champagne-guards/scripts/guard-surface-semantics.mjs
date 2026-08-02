@@ -13,6 +13,7 @@ const paths = {
   tokens: "packages/champagne-tokens/styles/champagne/tokens.css",
   theme: "packages/champagne-tokens/styles/champagne/theme.css",
   timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
+  criticalPaint: "packages/champagne-tokens/src/critical-paint.v1.json",
   exports: "packages/champagne-tokens/src/index.ts",
   footer: "apps/web/app/components/layout/Footer.tsx",
   guardPackage: "packages/champagne-guards/package.json",
@@ -43,6 +44,7 @@ const c1Paths = [
   paths.tokens,
   paths.theme,
   paths.timeOfDay,
+  paths.criticalPaint,
   paths.exports,
   paths.footer,
   "packages/champagne-guards/scripts/guard-surface-semantics.mjs",
@@ -66,6 +68,15 @@ function definitionValues(source, token) {
   return [...source.matchAll(/(--[a-z0-9-]+)\s*:\s*([^;]+);/gi)]
     .filter((match) => match[1] === token)
     .map((match) => match[2].trim());
+}
+
+function exactlyOneDefinition(source, token, sourcePath) {
+  const values = definitionValues(source, token);
+  if (values.length !== 1) {
+    errors.push(`${token} must be defined exactly once in ${sourcePath}; found ${values.length}`);
+    return "";
+  }
+  return values[0];
 }
 
 function exportedTokenCount(source, token) {
@@ -105,6 +116,7 @@ const primitives = read(paths.primitives);
 const tokens = read(paths.tokens);
 const theme = read(paths.theme);
 const timeOfDay = read(paths.timeOfDay);
+const criticalPaintSource = read(paths.criticalPaint);
 const exportsSource = read(paths.exports);
 const footerSource = read(paths.footer);
 const packageSource = read(paths.guardPackage);
@@ -128,6 +140,75 @@ for (const [token, expectedValue] of requiredRoles) {
 const bgInkValues = definitionValues(tokens, "--bg-ink");
 if (bgInkValues.length !== 1 || bgInkValues[0] !== "var(--surface-canvas)") {
   errors.push("--bg-ink must remain one compatibility alias to var(--surface-canvas)");
+}
+
+let criticalPaint;
+try {
+  criticalPaint = JSON.parse(criticalPaintSource);
+} catch (error) {
+  errors.push(`unable to parse ${paths.criticalPaint}: ${error.message}`);
+}
+
+if (criticalPaint) {
+  const canonical = criticalPaint.canonicalSource;
+  if (canonical?.path !== paths.primitives) {
+    errors.push(`${paths.criticalPaint} canonicalSource.path must be ${paths.primitives}`);
+  }
+  if (canonical?.semanticPath !== paths.tokens || canonical?.semanticToken !== "--smh-ink-navy") {
+    errors.push(`${paths.criticalPaint} must identify ${paths.tokens} --smh-ink-navy as its semantic source`);
+  }
+
+  const sourceTokens = canonical?.tokens ?? {};
+  const expectedSourceTokens = {
+    primitiveInk: "--ink",
+    brandTeal: "--brand-teal",
+    brandMagenta: "--brand-magenta",
+  };
+  for (const [role, token] of Object.entries(expectedSourceTokens)) {
+    if (sourceTokens[role] !== token) {
+      errors.push(`${paths.criticalPaint} canonicalSource.tokens.${role} must be ${token}`);
+    }
+  }
+
+  const ink = exactlyOneDefinition(primitives, expectedSourceTokens.primitiveInk, paths.primitives);
+  const teal = exactlyOneDefinition(primitives, expectedSourceTokens.brandTeal, paths.primitives);
+  const magenta = exactlyOneDefinition(primitives, expectedSourceTokens.brandMagenta, paths.primitives);
+  const derivation = criticalPaint.derivation;
+  const inner = derivation?.inner;
+  const outer = derivation?.outer;
+
+  if (
+    inner?.space !== "oklab" ||
+    inner?.leftToken !== "primitiveInk" ||
+    inner?.leftWeight !== 88 ||
+    inner?.rightToken !== "brandTeal" ||
+    inner?.rightWeight !== 12 ||
+    outer?.space !== "oklab" ||
+    outer?.leftWeight !== 92 ||
+    outer?.rightToken !== "brandMagenta" ||
+    outer?.rightWeight !== 8
+  ) {
+    errors.push(`${paths.criticalPaint} derivation recipe must preserve the current --smh-ink-navy formula`);
+  }
+
+  if (ink && teal && magenta) {
+    const expectedExpression = `color-mix(in oklab, color-mix(in oklab, ${ink} 88%, ${teal} 12%) 92%, ${magenta} 8%)`;
+    if (criticalPaint.canvasExpression !== expectedExpression) {
+      errors.push(
+        `${paths.criticalPaint} canvasExpression drift: expected canonical derivation ${expectedExpression}; found ${criticalPaint.canvasExpression ?? "missing"}`,
+      );
+    }
+  }
+
+  if (criticalPaint.finalPersianMidnightSelection !== false) {
+    errors.push(`${paths.criticalPaint} must not claim a final Persian Midnight selection`);
+  }
+  if (criticalPaint.bindings?.["--surface-canvas"] !== "canvasExpression") {
+    errors.push(`${paths.criticalPaint} must bind --surface-canvas to canvasExpression`);
+  }
+  if (criticalPaint.bindings?.["--bg-ink"] !== "var(--surface-canvas)") {
+    errors.push(`${paths.criticalPaint} must bind --bg-ink to var(--surface-canvas)`);
+  }
 }
 
 const footerBackgroundBindings = [
@@ -287,4 +368,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("✅ Surface semantics guard passed: canvas, ink, footer and nested text contexts are deterministic.");
+console.log("✅ Surface semantics guard passed: canvas, critical paint derivation, ink, footer and nested text contexts are deterministic.");
