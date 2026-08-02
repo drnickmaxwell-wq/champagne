@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HeroRenderer } from "../../../components/hero/HeroRenderer";
+import { HeroMount } from "../../../_components/HeroMount";
 import { DesignChamber } from "./DesignChamber";
 
 export const metadata: Metadata = {
@@ -7,13 +7,22 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function ChampagneDesignLabPage() {
+export default async function ChampagneDesignLabPage({
+  searchParams,
+}: {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const params = (await searchParams) ?? {};
+  const reducedMotion = params.labMotion === "reduce";
+
   return (
     <DesignChamber
+      initialReducedMotion={reducedMotion}
       hero={
-        <HeroRenderer
+        <HeroMount
           mode="home"
           pageCategory="home"
+          prm={reducedMotion}
           particles
           filmGrain
         />
