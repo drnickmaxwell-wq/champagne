@@ -49,6 +49,55 @@ const immutableChroma = new Map(
 const prohibitedCandidates = ["001126", "00142C", "071D3A", "031A39"].map(
   (value) => `#${value}`,
 );
+const contextDependentColorIdentifiers = new Set(
+  [
+    "AccentColor",
+    "AccentColorText",
+    "ActiveBorder",
+    "ActiveCaption",
+    "ActiveText",
+    "AppWorkspace",
+    "Background",
+    "ButtonBorder",
+    "ButtonFace",
+    "ButtonHighlight",
+    "ButtonShadow",
+    "ButtonText",
+    "Canvas",
+    "CanvasText",
+    "CaptionText",
+    "currentColor",
+    "Field",
+    "FieldText",
+    "GrayText",
+    "Highlight",
+    "HighlightText",
+    "InactiveBorder",
+    "InactiveCaption",
+    "InactiveCaptionText",
+    "InfoBackground",
+    "InfoText",
+    "LinkText",
+    "Mark",
+    "MarkText",
+    "Menu",
+    "MenuText",
+    "Scrollbar",
+    "SelectedItem",
+    "SelectedItemText",
+    "ThreeDDarkShadow",
+    "ThreeDFace",
+    "ThreeDHighlight",
+    "ThreeDLightShadow",
+    "ThreeDShadow",
+    "transparent",
+    "VisitedText",
+    "Window",
+    "WindowFrame",
+    "WindowText",
+  ].map((value) => value.toLowerCase()),
+);
+const contextDependentColorFunctions = new Set(["env", "light-dark", "var"]);
 const c1Paths = [
   paths.tokens,
   paths.theme,
@@ -121,12 +170,19 @@ function validateLoadedCanvasOwnership(parsedStylesheets, loadedOrder) {
     root.walkDecls((declaration) => {
       const decodedProperty = ident.decode(declaration.prop);
       if (decodedProperty !== "--surface-canvas" && decodedProperty !== "--bg-ink") return;
+      const selector = declaration.parent?.type === "rule" ? declaration.parent.selector.trim() : "";
       if (declaration.prop !== decodedProperty) {
         errors.push(
           `[CANVAS_IDENTIFIER_ESCAPED] ${sourcePath} must spell protected property ${decodedProperty} literally; found ${declaration.prop}`,
         );
       }
-      const selector = declaration.parent?.type === "rule" ? declaration.parent.selector.trim() : "";
+      for (let ancestor = declaration.parent?.parent; ancestor; ancestor = ancestor.parent) {
+        if (ancestor.type === "atrule") {
+          errors.push(
+            `[CANVAS_OWNER_CONDITIONAL] ${sourcePath} ${selector || "<non-rule>"} ${decodedProperty} must be unconditional; found ancestor @${ancestor.name} ${ancestor.params}`,
+          );
+        }
+      }
       const key = [sourcePath, selector, decodedProperty].join(separator);
       const expectedValue = ownershipLedger.get(key);
       if (!expectedValue) {
@@ -183,7 +239,27 @@ function validateResolvedCanvasColor(value) {
     errors.push(
       `[CANVAS_COLOR_INVALID] resolved --surface-canvas must match the standards CSS <color> grammar: ${result.error.message}`,
     );
+    return;
   }
+  const ast = parseCssValue(value, { context: "value" });
+  walk(ast, (node) => {
+    if (
+      node.type === "Identifier" &&
+      contextDependentColorIdentifiers.has(ident.decode(node.name).toLowerCase())
+    ) {
+      errors.push(
+        `[CANVAS_COLOR_CONTEXT_DEPENDENT] resolved --surface-canvas must be self-contained and opaque; found ${node.name}`,
+      );
+    }
+    if (
+      node.type === "Function" &&
+      contextDependentColorFunctions.has(ident.decode(node.name).toLowerCase())
+    ) {
+      errors.push(
+        `[CANVAS_COLOR_CONTEXT_DEPENDENT] resolved --surface-canvas must not depend on ${node.name}()`,
+      );
+    }
+  });
 }
 
 function rejectEscapedVarFunctions(value) {
