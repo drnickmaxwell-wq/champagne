@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { HeroMount } from "../../../_components/HeroMount";
+import { buildHeroV2Model } from "../../../components/hero/v2/buildHeroV2Model";
+import { HeroRendererV2 } from "../../../components/hero/v2/HeroRendererV2";
 import { DesignChamber } from "./DesignChamber";
 
 export const metadata: Metadata = {
@@ -14,18 +15,27 @@ export default async function ChampagneDesignLabPage({
 }) {
   const params = (await searchParams) ?? {};
   const reducedMotion = params.labMotion === "reduce";
+  const heroProps = {
+    mode: "home" as const,
+    pageCategory: "home",
+    pageSlugOrPath: "/",
+    prm: reducedMotion,
+    particles: true,
+    filmGrain: true,
+  };
+  const heroModel = await buildHeroV2Model(heroProps);
 
   return (
     <DesignChamber
       initialReducedMotion={reducedMotion}
       hero={
-        <HeroMount
-          mode="home"
-          pageCategory="home"
-          prm={reducedMotion}
-          particles
-          filmGrain
-        />
+        <div data-hero-engine="v2" data-lab-engine-override="true" style={{ minHeight: "72vh" }}>
+          <HeroRendererV2
+            {...heroProps}
+            initialModel={heroModel}
+            initialPathname="/"
+          />
+        </div>
       }
     />
   );
