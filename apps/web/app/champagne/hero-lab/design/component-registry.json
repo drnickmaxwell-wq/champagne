@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "productionBinding": false,
+  "archiveImportStatus": "awaiting-checkpoint-1",
+  "excludedProductionComponents": [
+    {
+      "id": "current-mounted-footer",
+      "reason": "Founder explicitly excluded the currently rendered footer from the design candidate library"
+    }
+  ],
+  "rooms": [
+    { "id": "cta", "title": "CTA components", "accepts": ["CVA-CTA-*"], "components": [] },
+    { "id": "cards", "title": "Cards and decision panels", "accepts": ["CVA-CARD-*", "CVA-DECISION-*"], "components": [] },
+    { "id": "sections", "title": "Page sections by purpose", "accepts": ["CVA-SECTION-*"], "components": [] },
+    { "id": "bands", "title": "Mid-page and closing bands", "accepts": ["CVA-BAND-*"], "components": [] },
+    { "id": "headers", "title": "Headers and navigation", "accepts": ["CVA-HEADER-*"], "components": [] },
+    { "id": "footers", "title": "Footers and pre-footer structures", "accepts": ["CVA-FOOTER-*"], "components": [] },
+    { "id": "heritage", "title": "Heritage and St Mary's House", "accepts": ["CVA-HERITAGE-*"], "components": [] },
+    { "id": "media", "title": "Media layouts", "accepts": ["CVA-MEDIA-*"], "components": [] },
+    { "id": "captain", "title": "Captain Companion interfaces", "accepts": ["CVA-CAPTAIN-*"], "components": [] }
+  ],
+  "footerDiscoveryLeads": [
+    "CHAMPAGNE FOOTER FAMILY 03 — ROOTED · LAYERED · ALIVE.png",
+    "Persian architectural footer with consultation gateway.png",
+    "Luxury consultation band above layered footer.png",
+    "Persian architectural footer mobile states.png"
+  ]
+}
