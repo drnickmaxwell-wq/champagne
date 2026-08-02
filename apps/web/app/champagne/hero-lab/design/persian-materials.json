@@ -1,5 +1,13 @@
 [
   {
+    "id": "archive-velvet-persian-blue",
+    "label": "Archive Velvet Persian Blue",
+    "canvas": "#081E36",
+    "elevated": "#143048",
+    "kind": "archive",
+    "source": "Measured dominant field from Luxury dental homepage in Persian blue.png"
+  },
+  {
     "id": "current",
     "label": "Current derived ink",
     "canvas": "var(--smh-ink-navy)",
