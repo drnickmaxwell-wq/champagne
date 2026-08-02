@@ -187,6 +187,11 @@ function validateLoadedCanvasOwnership(parsedStylesheets, loadedOrder) {
           `[CANVAS_IDENTIFIER_ESCAPED] ${sourcePath} must spell protected property ${decodedProperty} literally; found ${declaration.prop}`,
         );
       }
+      if (declaration.important) {
+        errors.push(
+          `[CANVAS_OWNER_IMPORTANT] ${sourcePath} ${selector || "<non-rule>"} ${decodedProperty} must not use !important`,
+        );
+      }
       for (let ancestor = declaration.parent?.parent; ancestor; ancestor = ancestor.parent) {
         if (ancestor.type === "atrule") {
           errors.push(
@@ -238,7 +243,13 @@ function validateLoadedCanvasDependencyOwnership(parsedStylesheets, loadedOrder,
           (sourcePath === paths.tokens || sourcePath === paths.primitives) &&
           selector === ":root" &&
           conditional.length === 0 &&
-          declaration.prop === decodedProperty;
+          declaration.prop === decodedProperty &&
+          !declaration.important;
+        if (declaration.important) {
+          errors.push(
+            `[CANVAS_DEPENDENCY_IMPORTANT] ${sourcePath} ${selector || "<non-rule>"} canvas dependency ${property} must not use !important`,
+          );
+        }
         if (canonicalOwner) {
           approvedDefinitions += 1;
           return;
