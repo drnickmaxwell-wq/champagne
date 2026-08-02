@@ -18,6 +18,18 @@ type Board = { id: string; title: string; sourceFile: string; categories: string
 type ComponentItem = { id: string; archiveElementId: string; labRoom: string; title: string; family: string; purpose?: string; technicalStatus: string; displayMode: string; implementationAvailable: boolean; selectableInDesignLab: boolean; usableInPageComposition: boolean; preview: { asset: string; width: number; height: number; faithfulCrop: boolean }; provenance: { archiveIdentifier: string; archivePath: string; parentBoard: string }; reconstruction: { required: boolean; allowAutomaticSubstitution: boolean }; productionBinding: boolean };
 type ComponentCatalogue = { itemCount: number; items: ComponentItem[]; productionBinding: boolean };
 type ComponentSelections = Record<string, ComponentItem>;
+type DisplayCrop = { x: number; y: number; width: number; height: number };
+const DISPLAY_CROPS: Record<string, DisplayCrop> = {
+  "CVA-CTA-B004-E01": { x: 12, y: 101, width: 143, height: 48 },
+  "CVA-CTA-B004-E02": { x: 28, y: 111, width: 108, height: 36 },
+  "CVA-CTA-B004-E03": { x: 20, y: 107, width: 110, height: 53 },
+  "CVA-CTA-B004-E04": { x: 4, y: 93, width: 136, height: 49 },
+  "CVA-CTA-B004-E05": { x: 24, y: 101, width: 112, height: 82 },
+  "CVA-CTA-B004-E06": { x: 18, y: 113, width: 122, height: 76 },
+  "CVA-CTA-B004-E07": { x: 0, y: 107, width: 140, height: 55 },
+  "CVA-CTA-B004-E08": { x: 13, y: 102, width: 118, height: 45 },
+  "CVA-CTA-B004-E09": { x: 12, y: 101, width: 132, height: 48 },
+};
 
 const CATALOGUE_URLS = ["band", "cta", "footer", "heritage", "hero", "other", "page", "section"].map(
   (name) => `/assets/champagne/design-lab/catalogues/${name}.json`,
@@ -36,6 +48,20 @@ const FALLBACK_PICKER_COLOUR = candidates.find((candidate) => candidate.id === "
 function componentPreviewUrl(item: ComponentItem): string {
   return `/assets/champagne/design-lab/components/${item.preview.asset}`;
 }
+function ComponentVisual({ item, className }: { item: ComponentItem; className?: string }) {
+  const crop = DISPLAY_CROPS[item.id];
+  if (crop) {
+    const cropStyle: LabStyle = {
+      "--crop-x": `${crop.x}px`,
+      "--crop-y": `${crop.y}px`,
+      "--crop-width": `${crop.width}px`,
+      "--crop-height": `${crop.height}px`,
+    };
+    return <span className={`${styles.preciseCrop} ${className ?? ""}`} style={cropStyle}><img src={componentPreviewUrl(item)} alt={`Individual design reference: ${item.title}`} /></span>;
+  }
+  return <img className={className} src={componentPreviewUrl(item)} alt={`Individual design reference: ${item.title}`} />;
+}
+
 function loadComponentCatalogue(roomId: string): Promise<ComponentCatalogue> {
   const url = COMPONENT_CATALOGUE_URLS[roomId];
   if (!url) return Promise.resolve({ itemCount: 0, items: [], productionBinding: false });
@@ -271,14 +297,16 @@ function ComponentRoom({ number, id, title, description, selectedChoice, onSelec
     {catalogueAvailable ? <div className={styles.componentLibrary}><button type="button" className={styles.libraryToggle} aria-expanded={open} onClick={toggleLibrary}>{open ? "Close individual choice library" : `Open ${room?.components.length ?? 0} individual choices`}</button>
       {selectedChoice ? <div className={styles.currentChoice}><span>Current laboratory choice</span><strong>{selectedChoice.title}</strong><code>{selectedChoice.id}</code></div> : null}
       {open ? <div className={styles.libraryWorkspace}><aside><label>Find by name, family or ID<input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Architectural, consultation, B034…" /></label><p>{matches.length} of {items.length} choices</p><div className={styles.choiceList}>{matches.map((item) => <button type="button" key={item.id} aria-pressed={inspected?.id === item.id} onClick={() => setInspectedId(item.id)}><img src={componentPreviewUrl(item)} alt="" /><span><strong>{item.title}</strong><small>{item.id}</small></span></button>)}</div></aside>
-        {error ? <p>{error}</p> : inspected ? <article className={styles.choiceInspector}><div><p className={styles.roomNumber}>{inspected.family}</p><h3>{inspected.title}</h3><p>{inspected.purpose}</p></div><div className={styles.choiceCanvas}><img src={componentPreviewUrl(inspected)} alt={`Individual design reference: ${inspected.title}`} /></div><dl><div><dt>Status</dt><dd>{inspected.technicalStatus} · {inspected.displayMode}</dd></div><div><dt>Source board</dt><dd>{inspected.provenance.parentBoard}</dd></div><div><dt>Implementation</dt><dd>Faithful visual reference only · reconstruction required · no silent substitution</dd></div></dl><button type="button" className={styles.selectChoice} aria-pressed={selectedChoice?.id === inspected.id} onClick={() => onSelect(inspected)}>{selectedChoice?.id === inspected.id ? "Selected for laboratory composition" : "Use this design in laboratory"}</button></article> : <p>Loading individual choices…</p>}</div> : null}</div> : null}
+        {error ? <p>{error}</p> : inspected ? <article className={styles.choiceInspector}><div><p className={styles.roomNumber}>{inspected.family}</p><h3>{inspected.title}</h3><p>{inspected.purpose}</p></div><div className={styles.choiceCanvas}><ComponentVisual item={inspected} /></div><dl><div><dt>Status</dt><dd>{inspected.technicalStatus} · {inspected.displayMode}</dd></div><div><dt>Source board</dt><dd>{inspected.provenance.parentBoard}</dd></div><div><dt>Implementation</dt><dd>Faithful visual reference only · reconstruction required · no silent substitution</dd></div></dl><button type="button" className={styles.selectChoice} aria-pressed={selectedChoice?.id === inspected.id} onClick={() => onSelect(inspected)}>{selectedChoice?.id === inspected.id ? "Selected for laboratory composition" : "Use this design in laboratory"}</button></article> : <p>Loading individual choices…</p>}</div> : null}</div> : null}
     {id === "footers" ? <div className={styles.footerTarget}><strong>Manus layered luxury footer · source recovery required</strong><p>{registry.footerTarget.warning}</p><dl className={styles.footerEvidence}><div><dt>Intended component</dt><dd>{registry.footerTarget.intendedComponent}</dd></div><div><dt>Intended stylesheet</dt><dd>{registry.footerTarget.intendedStylesheet}</dd></div><div><dt>Surviving evidence</dt><dd>{registry.footerTarget.survivingPreviewWrapper}<br />{registry.footerTarget.survivingLayerStyles}</dd></div></dl><p>Preferred next action: recover the original package before attempting a clearly labelled reconstruction.</p><ul>{registry.footerTarget.likelySourcePackages.map((source) => <li key={source}>{source}</li>)}</ul></div> : null}
   </section>;
 }
 
 function CompositionReference({ item, placement }: { item?: ComponentItem; placement: string }) {
   if (!item) return <div className={styles.emptyChoice}><strong>{placement} choice awaiting founder selection</strong><span>No production component is silently substituted</span></div>;
-  return <section className={styles.compositionReference}><div><span>Selected visual reference · reconstruction required</span><strong>{item.title}</strong><code>{item.id}</code></div><img src={componentPreviewUrl(item)} alt={`Selected ${placement}: ${item.title}`} /></section>;
+  return <section className={`${styles.compositionReference} ${styles[`compositionReference_${item.labRoom}`]}`} data-component-role={item.labRoom} aria-label={`Selected ${placement}: ${item.title}`}>
+    <ComponentVisual item={item} />
+  </section>;
 }
 function CompositionPreview({ route, hero, choices }: { route: RouteEntry; hero: ReactNode; choices: ComponentSelections }) {
   const supporting = [choices.cta, choices.cards].filter((item): item is ComponentItem => Boolean(item));
