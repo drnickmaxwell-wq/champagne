@@ -56,18 +56,46 @@
     }
   },
   "transactionEvaluation": {
-    "logic": "ALL_PREDICATES_MUST_PASS",
-    "predicates": [
-      "FOUNDER_AUTHORITY_ENVELOPE_MATCHES_REPOSITORY_REF_OR_PULL_REQUEST_OPERATION_PATHS_STAGE_AND_EXPLICIT_EXPIRY",
-      "TASK_REQUEST_IS_WITHIN_AUTHORITY_ENVELOPE",
-      "PLATFORM_AND_SECURITY_CONSTRAINTS_PASS",
-      "ROOT_CONSTRAINTS_PASS",
-      "ALL_APPLICABLE_SCOPED_CONSTRAINTS_PASS"
-    ],
-    "positiveScopeSources": [
-      "taskRequest",
-      "founderAuthorityEnvelope"
-    ],
+    "logic": "CLASSIFY_OPERATION_THEN_ALL_ROUTE_PREDICATES_MUST_PASS",
+    "classificationRule": "IF_ANY_REQUESTED_ACTION_MUTATES_REPOSITORY_EXTERNAL_SYSTEM_OR_STATE_THEN_MUTATION_ELSE_IF_ALL_REQUESTED_ACTIONS_ARE_INSPECTION_AUDIT_OR_PLANNING_THEN_READ_ONLY_ELSE_STOP",
+    "ambiguousOrUnclassifiedOperation": "STOP",
+    "routes": {
+      "READ_ONLY": {
+        "allowedOperations": [
+          "INSPECTION",
+          "AUDIT",
+          "PLANNING"
+        ],
+        "founderAuthorityEnvelopeRequired": false,
+        "mutationProhibited": true,
+        "founderPacketIfPresent": "DOES_NOT_GRANT_MUTATION_OR_OVERRIDE_CONSTRAINTS",
+        "predicates": [
+          "TASK_IS_CLASSIFIED_READ_ONLY",
+          "TASK_PERFORMS_NO_REPOSITORY_EXTERNAL_SYSTEM_OR_STATE_MUTATION",
+          "PLATFORM_AND_SECURITY_CONSTRAINTS_PASS",
+          "MANDATORY_CANON_IS_LOADED_AND_UNRESOLVED_CONFLICTS_STOP",
+          "ROOT_CONSTRAINTS_PASS",
+          "ALL_APPLICABLE_SCOPED_CONSTRAINTS_PASS"
+        ],
+        "positiveScopeSources": [
+          "taskRequest"
+        ]
+      },
+      "MUTATION": {
+        "founderAuthorityEnvelopeRequired": true,
+        "predicates": [
+          "FOUNDER_AUTHORITY_ENVELOPE_MATCHES_REPOSITORY_REF_OR_PULL_REQUEST_OPERATION_PATHS_STAGE_AND_EXPLICIT_EXPIRY",
+          "TASK_REQUEST_IS_WITHIN_AUTHORITY_ENVELOPE",
+          "PLATFORM_AND_SECURITY_CONSTRAINTS_PASS",
+          "ROOT_CONSTRAINTS_PASS",
+          "ALL_APPLICABLE_SCOPED_CONSTRAINTS_PASS"
+        ],
+        "positiveScopeSources": [
+          "taskRequest",
+          "founderAuthorityEnvelope"
+        ]
+      }
+    },
     "repositoryInstructionsMayOnlyNarrow": true,
     "failure": "STOP"
   },
@@ -103,6 +131,8 @@
   },
   "hardStops": [
     "MISSING_TRUNCATED_STALE_OR_CONFLICTING_INPUT",
+    "UNCLASSIFIED_OR_AMBIGUOUS_OPERATION",
+    "READ_ONLY_ROUTE_ATTEMPTS_MUTATION",
     "UNRESOLVED_CANON_CONFLICT",
     "MUTATION_WITHOUT_EXACT_FOUNDER_AUTHORITY",
     "AUTHORITY_ENVELOPE_MISMATCH",
