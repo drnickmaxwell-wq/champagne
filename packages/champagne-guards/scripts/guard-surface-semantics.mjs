@@ -320,6 +320,44 @@ function validateResolvedCanvasColor(value) {
           `[CANVAS_COLOR_ALPHA] resolved --surface-canvas permits only opaque literals and color-mix(); found ${node.name}()`,
         );
       }
+      if (functionName === "color-mix") {
+        const children = node.children.toArray();
+        const commaIndexes = children
+          .map((child, index) => (child.type === "Operator" && child.value === "," ? index : -1))
+          .filter((index) => index >= 0);
+        if (commaIndexes.length !== 2) {
+          errors.push(
+            `[CANVAS_COLOR_ALPHA] color-mix() must contain exactly two color components; found ${commaIndexes.length + 1}`,
+          );
+        } else {
+          const components = [
+            children.slice(commaIndexes[0] + 1, commaIndexes[1]),
+            children.slice(commaIndexes[1] + 1),
+          ];
+          const weights = components.map((component) => {
+            const terminal = component.at(-1);
+            return terminal?.type === "Percentage" ? Number(terminal.value) : null;
+          });
+          if (weights.every((weight) => weight !== null)) {
+            const total = weights[0] + weights[1];
+            if (!Number.isFinite(total) || total < 100) {
+              errors.push(
+                `[CANVAS_COLOR_ALPHA] explicit color-mix() weights must total at least 100% to preserve alpha 1; found ${weights[0]}% + ${weights[1]}%`,
+              );
+            }
+          } else {
+            const explicitWeight = weights.find((weight) => weight !== null);
+            if (
+              explicitWeight !== undefined &&
+              (!Number.isFinite(explicitWeight) || explicitWeight < 0 || explicitWeight > 100)
+            ) {
+              errors.push(
+                `[CANVAS_COLOR_ALPHA] a single explicit color-mix() weight must be within 0%..100%; found ${explicitWeight}%`,
+              );
+            }
+          }
+        }
+      }
     }
     if (node.type === "HexColor" && node.value.length !== 3 && node.value.length !== 6) {
       errors.push(
@@ -605,6 +643,20 @@ if (criticalPaint) {
       { source: primitives, sourcePath: paths.primitives },
     ],
   );
+  const canonicalTokenSources = [
+    { source: tokens, sourcePath: paths.tokens },
+    { source: primitives, sourcePath: paths.primitives },
+  ];
+  parsedLoadedStylesheets.get(paths.timeOfDay)?.walkDecls((declaration) => {
+    if (ident.decode(declaration.prop) !== "--surface-canvas") return;
+    const resolvedThemedCanvas = resolveCssExpression(
+      declaration.value,
+      canonicalTokenSources,
+      [],
+      criticalCanvasDependencies,
+    );
+    validateResolvedCanvasColor(resolvedThemedCanvas);
+  });
   validateLoadedCanvasDependencyOwnership(
     parsedLoadedStylesheets,
     loadedCascadeOrder,
