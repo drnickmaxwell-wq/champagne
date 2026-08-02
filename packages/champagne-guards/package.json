@@ -38,6 +38,7 @@
     "report:content-source-map": "node scripts/report-content-source-map.mjs"
   },
   "dependencies": {
+    "css-tree": "^3.1.0",
     "micromatch": "^4.0.8",
     "postcss": "^8.5.6"
   }

@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { lexer } from "css-tree";
 import postcss from "postcss";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -167,6 +168,16 @@ function normalizeCssExpression(value) {
     .replace(/\s+\)/g, ")")
     .replace(/\s*,\s*/g, ", ")
     .trim();
+}
+
+function validateResolvedCanvasColor(value) {
+  if (!value) return;
+  const result = lexer.matchType("color", value);
+  if (result.error) {
+    errors.push(
+      `[CANVAS_COLOR_INVALID] resolved --surface-canvas must match the standards CSS <color> grammar: ${result.error.message}`,
+    );
+  }
 }
 
 function splitTopLevelComma(value) {
@@ -410,6 +421,7 @@ if (criticalPaint) {
       { source: primitives, sourcePath: paths.primitives },
     ],
   );
+  validateResolvedCanvasColor(resolvedCanvasExpression);
 
   if (!rootDefinition) errors.push(`${paths.criticalPaint} canvas root definition is missing`);
   if (
