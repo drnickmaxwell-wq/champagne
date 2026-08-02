@@ -88,7 +88,54 @@ function normalizeCssExpression(value) {
     .trim();
 }
 
+function splitTopLevelComma(value) {
+  let depth = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    const character = value[index];
+    if (character === "(") depth += 1;
+    else if (character === ")") depth -= 1;
+    else if (character === "," && depth === 0) {
+      return [value.slice(0, index).trim(), value.slice(index + 1).trim()];
+    }
+    if (depth < 0) return null;
+  }
+  return depth === 0 ? [value.trim(), null] : null;
+}
+
+function replaceBalancedVarFunctions(value, replacer) {
+  let output = "";
+  let cursor = 0;
+
+  while (cursor < value.length) {
+    const start = value.indexOf("var(", cursor);
+    if (start < 0) return output + value.slice(cursor);
+
+    output += value.slice(cursor, start);
+    let depth = 1;
+    let end = start + 4;
+    for (; end < value.length && depth > 0; end += 1) {
+      if (value[end] === "(") depth += 1;
+      else if (value[end] === ")") depth -= 1;
+    }
+
+    if (depth !== 0) {
+      errors.push(`unbalanced var() expression: ${value}`);
+      return output + value.slice(start);
+    }
+
+    const body = value.slice(start + 4, end - 1);
+    output += replacer(body);
+    cursor = end;
+  }
+
+  return output;
+}
+
 function resolveTokenExpression(token, sources, stack = []) {
+  if (!/^--[a-z0-9-]+$/i.test(token)) {
+    errors.push(`invalid CSS custom property reference: ${token}`);
+    return "";
+  }
   if (stack.includes(token)) {
     errors.push(`critical paint token cycle: ${[...stack, token].join(" -> ")}`);
     return "";
@@ -102,9 +149,37 @@ function resolveTokenExpression(token, sources, stack = []) {
     return "";
   }
 
-  return matches[0].value.replace(/var\((--[a-z0-9-]+)\)/gi, (_match, dependency) =>
-    resolveTokenExpression(dependency, sources, [...stack, token]),
-  );
+  return resolveCssExpression(matches[0].value, sources, [...stack, token]);
+}
+
+function resolveCssExpression(value, sources, stack = []) {
+  return replaceBalancedVarFunctions(value, (body) => {
+    const parts = splitTopLevelComma(body);
+    if (!parts) {
+      errors.push(`invalid var() expression: var(${body})`);
+      return "";
+    }
+
+    const [token, fallback] = parts;
+    if (!/^--[a-z0-9-]+$/i.test(token)) {
+      errors.push(`invalid CSS custom property reference: ${token || "missing"}`);
+      return "";
+    }
+
+    const matches = sources.flatMap(({ source, sourcePath }) =>
+      definitionValues(source, token).map((definition) => ({ definition, sourcePath })),
+    );
+
+    if (matches.length === 1) return resolveTokenExpression(token, sources, stack);
+    if (matches.length > 1) {
+      errors.push(`${token} must resolve from exactly one canonical source; found ${matches.length}`);
+      return "";
+    }
+    if (fallback !== null && fallback !== "") return resolveCssExpression(fallback, sources, stack);
+
+    errors.push(`${token} is undefined and var() supplies no fallback`);
+    return "";
+  });
 }
 
 function exportedTokenCount(source, token) {
@@ -180,7 +255,7 @@ try {
 if (criticalPaint) {
   const canonical = criticalPaint.canonicalSource;
   if (
-    canonical?.semanticPath !== paths.tokens ||
+    canonical?.rootPath !== paths.tokens ||
     canonical?.rootToken !== "--surface-canvas" ||
     canonical?.primitivePath !== paths.primitives
   ) {
@@ -189,6 +264,11 @@ if (criticalPaint) {
     );
   }
 
+  const rootDefinition = exactlyOneDefinition(
+    tokens,
+    canonical?.rootToken ?? "--surface-canvas",
+    paths.tokens,
+  );
   const resolvedCanvasExpression = resolveTokenExpression(
     canonical?.rootToken ?? "--surface-canvas",
     [
@@ -197,14 +277,18 @@ if (criticalPaint) {
     ],
   );
 
+  if (!rootDefinition) errors.push(`${paths.criticalPaint} canvas root definition is missing`);
   if (
     resolvedCanvasExpression &&
     normalizeCssExpression(criticalPaint.canvasExpression ?? "") !==
       normalizeCssExpression(resolvedCanvasExpression)
   ) {
     errors.push(
-      `${paths.criticalPaint} canvasExpression must equal the recursively resolved ${canonical?.rootToken}; expected ${normalizeCssExpression(resolvedCanvasExpression)}, found ${normalizeCssExpression(criticalPaint.canvasExpression ?? "missing")}`,
+      `${paths.criticalPaint} canvasExpression must equal recursively resolved ${canonical?.rootToken}; expected ${normalizeCssExpression(resolvedCanvasExpression)}, found ${normalizeCssExpression(criticalPaint.canvasExpression ?? "missing")}`,
     );
+  }
+  if (/var\s*\(/i.test(criticalPaint.canvasExpression ?? "")) {
+    errors.push(`${paths.criticalPaint} canvasExpression must be fully resolved and contain no var()`);
   }
 
   if (criticalPaint.finalPersianMidnightSelection !== false) {
@@ -311,31 +395,22 @@ if (!packageJson?.scripts?.["guard:all"]?.includes("guard:surface-semantics")) {
   errors.push("guard:surface-semantics is absent from guard:all");
 }
 
-for (const testPath of [
-  paths.surfaceTest,
-  "tests/hero-v2-navigation-continuity.spec.ts",
-]) {
+for (const testPath of [paths.surfaceTest, "tests/hero-v2-navigation-continuity.spec.ts"]) {
   if (!workflow.includes(testPath)) errors.push(`${paths.workflow} does not execute ${testPath}`);
 }
 
 const mobileFilmstripMarker =
   'test("canvas is painted through first, 120ms and 1500ms frames on mobile reduced motion"';
 const mobileFilmstripIndex = surfaceTestSource.indexOf(mobileFilmstripMarker);
-const mobileFilmstripSource =
-  mobileFilmstripIndex >= 0 ? surfaceTestSource.slice(mobileFilmstripIndex) : "";
+const mobileFilmstripSource = mobileFilmstripIndex >= 0 ? surfaceTestSource.slice(mobileFilmstripIndex) : "";
 const commitNavigationIndex = mobileFilmstripSource.indexOf('waitUntil: "commit"');
 const bodyAttachmentIndex = mobileFilmstripSource.indexOf("document.body !== null");
 const commitCaptureIndex = mobileFilmstripSource.indexOf(
   "const navigationCommit = await readNavigationCommitCanvasEvidence(page);",
 );
-const commitAssertionIndex = mobileFilmstripSource.indexOf(
-  "expectNavigationCommitCanvas(navigationCommit);",
-);
-const domContentLoadedIndex = mobileFilmstripSource.indexOf(
-  'waitForLoadState("domcontentloaded")',
-);
-const beforeCommitCapture =
-  commitCaptureIndex >= 0 ? mobileFilmstripSource.slice(0, commitCaptureIndex) : "";
+const commitAssertionIndex = mobileFilmstripSource.indexOf("expectNavigationCommitCanvas(navigationCommit);");
+const domContentLoadedIndex = mobileFilmstripSource.indexOf('waitForLoadState("domcontentloaded")');
+const beforeCommitCapture = commitCaptureIndex >= 0 ? mobileFilmstripSource.slice(0, commitCaptureIndex) : "";
 
 if (mobileFilmstripIndex < 0) {
   errors.push(`${paths.surfaceTest} is missing the mobile reduced-motion filmstrip test`);
@@ -360,9 +435,7 @@ for (const forbiddenBeforeCapture of [
   "readSurfaceEvidence(page)",
 ]) {
   if (beforeCommitCapture.includes(forbiddenBeforeCapture)) {
-    errors.push(
-      `${paths.surfaceTest} must not use ${forbiddenBeforeCapture} before navigation-commit canvas capture`,
-    );
+    errors.push(`${paths.surfaceTest} must not use ${forbiddenBeforeCapture} before navigation-commit canvas capture`);
   }
 }
 if (!mobileFilmstripSource.includes("{ polling: 1 }")) {
@@ -375,4 +448,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("✅ Surface semantics guard passed: canvas-root-derived critical paint, ink, footer and nested text contexts are deterministic.");
+console.log("✅ Surface semantics guard passed: canvas-root-derived critical paint, CSS var fallbacks, ink, footer and nested text contexts are deterministic.");
