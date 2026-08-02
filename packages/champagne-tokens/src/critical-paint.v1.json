@@ -4,10 +4,10 @@
   "purpose": "Provide the current canonical Champagne canvas before external theme CSS is available.",
   "finalPersianMidnightSelection": false,
   "canonicalSource": {
-    "semanticPath": "packages/champagne-tokens/styles/champagne/tokens.css",
+    "rootPath": "packages/champagne-tokens/styles/champagne/tokens.css",
     "rootToken": "--surface-canvas",
     "primitivePath": "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
-    "validation": "guard-surface-semantics starts at --surface-canvas, recursively resolves every canonical CSS-variable dependency through semantic and primitive token sources, normalizes the result, and fails if canvasExpression differs"
+    "validation": "guard-surface-semantics starts at --surface-canvas, parses balanced fallback-bearing var() expressions, recursively resolves every canonical CSS-variable dependency through semantic and primitive token sources, rejects unresolved variables, cycles and ambiguous definitions, normalizes the result, and fails if canvasExpression differs"
   },
   "canvasExpression": "color-mix(in oklab, color-mix(in oklab, #0B0D0F 88%, #40C4B4 12%) 92%, #C2185B 8%)",
   "bindings": {
@@ -21,7 +21,9 @@
   "constraints": [
     "PUBLIC_SURFACE_CANVAS_ROOT_MUST_VALIDATE",
     "FULL_CANONICAL_ALIAS_CHAIN_RESOLUTION",
-    "RECURSIVE_CANONICAL_VARIABLE_RESOLUTION",
+    "BALANCED_FALLBACK_BEARING_VAR_PARSING",
+    "NO_UNRESOLVED_VAR_IN_CRITICAL_SNAPSHOT",
+    "REJECT_CYCLES_MISSING_AND_AMBIGUOUS_DEFINITIONS",
     "LOW_SPECIFICITY_EXTERNAL_THEME_OVERRIDES",
     "NO_FINAL_MATERIAL_CALIBRATION",
     "NO_HERO_OR_MOTION_SEMANTIC_CHANGE",
