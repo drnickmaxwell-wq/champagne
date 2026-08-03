@@ -18,6 +18,14 @@ type Evidence = {
     rootForeground: string;
     bodyForeground: string;
   };
+  fallback: {
+    count: number;
+    canvas: string | null;
+    foreground: string | null;
+    background: Rgba | null;
+    color: Rgba | null;
+    coversViewport: boolean;
+  };
   stylesheets: string[];
   surfaces: { main: string | null; hero: string | null };
   hero: { engine: string | null; stackCount: number; opacity: string | null };
@@ -41,7 +49,10 @@ type RouteCase = {
   path: string;
   hero: HeroExpectation;
   requiresExternalStylesheet: boolean;
-  matrix: typeof fullMatrix | readonly [typeof mobileReduced, typeof desktopNormal] | readonly [typeof mobileNormal, typeof desktopReduced];
+  matrix:
+    | typeof fullMatrix
+    | readonly [typeof mobileReduced, typeof desktopNormal]
+    | readonly [typeof mobileNormal, typeof desktopReduced];
 };
 const routes: RouteCase[] = [
   { label: "home", path: "/", hero: "present", requiresExternalStylesheet: true, matrix: fullMatrix },
@@ -111,6 +122,12 @@ async function installCapture(page: Page) {
           'style[data-href~="champagne-critical-paint-v1"][data-precedence="critical"]',
         ),
       );
+      const fallbackElements = Array.from(
+        document.querySelectorAll<HTMLElement>("[data-champagne-critical-fallback='v1']"),
+      );
+      const fallback = fallbackElements[0] ?? null;
+      const fallbackStyle = fallback ? getComputedStyle(fallback) : null;
+      const fallbackRect = fallback?.getBoundingClientRect() ?? null;
       const hero = document.querySelector<HTMLElement>("[data-hero-engine='v2']");
       const main = document.querySelector<HTMLElement>("main");
       const content = document.querySelector<HTMLElement>("[data-v2-content-fade='true']");
@@ -134,6 +151,20 @@ async function installCapture(page: Page) {
           bodyCanvas: body.style.getPropertyValue("--surface-canvas").trim(),
           rootForeground: root.style.getPropertyValue("--text-ink-high").trim(),
           bodyForeground: body.style.getPropertyValue("--text-ink-high").trim(),
+        },
+        fallback: {
+          count: fallbackElements.length,
+          canvas: fallback?.style.getPropertyValue("--surface-canvas").trim() ?? null,
+          foreground: fallback?.style.getPropertyValue("--text-ink-high").trim() ?? null,
+          background: fallbackStyle ? toRgba(fallbackStyle.backgroundColor) : null,
+          color: fallbackStyle ? toRgba(fallbackStyle.color) : null,
+          coversViewport: Boolean(
+            fallbackRect &&
+              fallbackRect.top <= 0 &&
+              fallbackRect.left <= 0 &&
+              fallbackRect.right >= window.innerWidth &&
+              fallbackRect.bottom >= window.innerHeight,
+          ),
         },
         stylesheets: Array.from(
           document.querySelectorAll<HTMLLinkElement>("link[rel='stylesheet'][href]"),
@@ -216,12 +247,20 @@ function expectCriticalResource(evidence: Evidence) {
 }
 
 function expectPaint(evidence: Evidence, requireCriticalResource: boolean) {
-  if (requireCriticalResource) {
-    expectCriticalResource(evidence);
-  } else {
+  if (!requireCriticalResource && evidence.fallback.count === 1) {
     expect([0, 1]).toContain(evidence.critical.count);
     if (evidence.critical.count === 1) expectCriticalResource(evidence);
+    expect(evidence.fallback.canvas).not.toBe("");
+    expect(evidence.fallback.foreground).not.toBe("");
+    expect(evidence.fallback.background).not.toBeNull();
+    expect(evidence.fallback.color).not.toBeNull();
+    expect(evidence.fallback.coversViewport).toBe(true);
+    expect(evidence.fallback.background?.[3]).toBe(255);
+    expect(contrast(evidence.fallback.color as Rgba, evidence.fallback.background as Rgba)).toBeGreaterThanOrEqual(4.5);
+    return;
   }
+
+  expectCriticalResource(evidence);
   expect(evidence.inline.rootCanvas).not.toBe("");
   expect(evidence.inline.rootCanvas).toBe(evidence.inline.bodyCanvas);
   expect(evidence.inline.rootForeground).not.toBe("");
@@ -292,8 +331,15 @@ for (const route of routes) {
         () => (window as CfpWindow).__cfpCapture?.() as Evidence,
       );
       expectPaint(loaded, true);
-      expect(loaded.srgb.canvas).toEqual(early.srgb.canvas);
-      expect(loaded.srgb.foreground).toEqual(early.srgb.foreground);
+      expect(loaded.fallback.count).toBe(0);
+      const earlyCanvas = route.requiresExternalStylesheet
+        ? early.srgb.canvas
+        : (early.fallback.background as Rgba);
+      const earlyForeground = route.requiresExternalStylesheet
+        ? early.srgb.foreground
+        : (early.fallback.color as Rgba);
+      expect(loaded.srgb.canvas).toEqual(earlyCanvas);
+      expect(loaded.srgb.foreground).toEqual(earlyForeground);
       expect(loaded.surfaces.main).toBe("rgba(0, 0, 0, 0)");
 
       if (route.hero === "present") {
