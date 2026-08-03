@@ -208,11 +208,22 @@ if (!/body,\s*\n?\.champagne-page\s*{[\s\S]*?background\s*:\s*var\(--surface-can
   errors.push("body and .champagne-page must paint --surface-canvas");
 }
 
-const criticalImport =
-  'import { champagneCriticalPaintCss } from "../../../packages/champagne-tokens/src/critical-paint.generated";';
-const rootSequence = `  return (\n    <html lang="en">\n      <head>\n        <style\n          href="champagne-critical-paint-v1"\n          precedence="critical"\n          dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}\n        />\n      </head>\n      <body`;
+const criticalImport = `import {
+  champagneCriticalPaintCss,
+  champagneCriticalPaintDocumentStyle,
+} from "../../../packages/champagne-tokens/src/critical-paint.generated";`;
+const resourceSequence = `<head>
+        <style
+          href="champagne-critical-paint-v1"
+          precedence="critical"
+          dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}
+        />
+      </head>`;
+if (count(layout, criticalImport) !== 1) {
+  errors.push(`${paths.layout} must import both generated paint outputs exactly once`);
+}
 if (
-  !layout.includes(rootSequence) ||
+  !layout.includes(resourceSequence) ||
   count(layout, 'href="champagne-critical-paint-v1"') !== 1 ||
   count(layout, 'precedence="critical"') !== 1
 ) {
@@ -220,8 +231,16 @@ if (
     `[CRITICAL_STYLE_PLACEMENT] ${paths.layout} must emit one unconditional React-hoisted critical stylesheet resource`,
   );
 }
-if (count(layout, criticalImport) !== 1) {
-  errors.push(`${paths.layout} must import the leaf-pure generated critical paint exactly once`);
+if (
+  count(layout, 'style={champagneCriticalPaintDocumentStyle}') !== 2 ||
+  !layout.includes('<html lang="en" style={champagneCriticalPaintDocumentStyle}>')
+) {
+  errors.push(
+    `[CRITICAL_DOCUMENT_FALLBACK] ${paths.layout} must apply the generated document style to html and body`,
+  );
+}
+if (!generatedTs.includes("export const champagneCriticalPaintDocumentStyle = {")) {
+  errors.push(`${paths.generatedTs} must expose the generated streaming fallback`);
 }
 if (/^\s*import\s/m.test(generatedTs) || /\brequire\s*\(|node:|readFile|writeFile/.test(generatedTs)) {
   errors.push(`${paths.generatedTs} must remain leaf-pure`);
@@ -254,6 +273,9 @@ for (const marker of [
   "directHeadChildren).toEqual([true])",
   'data-href~="champagne-critical-paint-v1"',
   'data-precedence="critical"',
+  "inline.rootCanvas",
+  "expectPaint(early, route.requiresExternalStylesheet)",
+  "expectPaint(loaded, true)",
   'path: "/contact"',
   'path: "/champagne/sections-debug"',
 ]) {
