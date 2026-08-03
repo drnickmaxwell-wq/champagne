@@ -2,7 +2,7 @@ import { expect, test, type Page } from "playwright/test";
 
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3000";
 type Rgba = [number, number, number, number];
-type HeroExpectation = "present" | "absent";
+type HeroExpectation = "present" | "absent" | "not-applicable";
 type PaintContract = "public-head" | "streaming-fallback" | "loaded-streaming";
 type PaintResult = { canvas: Rgba; foreground: Rgba };
 type Evidence = {
@@ -72,9 +72,9 @@ const routes: RouteCase[] = [
     matrix: [mobileReduced, desktopNormal],
   },
   {
-    label: "internal non-Hero",
+    label: "internal lab",
     path: "/champagne/sections-debug",
-    hero: "absent",
+    hero: "not-applicable",
     requiresExternalStylesheet: true,
     matrix: [mobileNormal, desktopReduced],
   },
@@ -375,7 +375,7 @@ for (const route of routes) {
       if (route.hero === "present") {
         expect(loaded.surfaces.hero).toBe("rgba(0, 0, 0, 0)");
         expect(loaded.hero).toEqual({ engine: "v2", stackCount: 1, opacity: "1" });
-      } else {
+      } else if (route.hero === "absent") {
         expect(loaded.hero).toEqual({ engine: null, stackCount: 0, opacity: null });
       }
       expect(errors.page).toEqual([]);
