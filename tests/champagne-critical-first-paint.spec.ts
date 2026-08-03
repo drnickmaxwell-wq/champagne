@@ -75,7 +75,7 @@ const routes: RouteCase[] = [
     label: "internal non-Hero",
     path: "/champagne/sections-debug",
     hero: "absent",
-    requiresExternalStylesheet: false,
+    requiresExternalStylesheet: true,
     matrix: [mobileNormal, desktopReduced],
   },
 ];
