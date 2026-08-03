@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ident, lexer, parse as parseCssValue, walk } from "css-tree";
 import postcss from "postcss";
+import ts from "typescript";
 
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), "../../..");
@@ -22,11 +23,13 @@ const paths = {
   timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
   surface: "packages/champagne-tokens/styles/champagne/surface.css",
   globals: "apps/web/app/globals.css",
+  layout: "apps/web/app/layout.tsx",
   criticalPaint: "packages/champagne-tokens/src/critical-paint.v1.json",
   exports: "packages/champagne-tokens/src/index.ts",
   footer: "apps/web/app/components/layout/Footer.tsx",
   guardPackage: "packages/champagne-guards/package.json",
   surfaceTest: "tests/champagne-surface-semantics.spec.ts",
+  criticalFirstPaintTest: "tests/champagne-critical-first-paint.spec.ts",
   workflow: ".github/workflows/verify.yml",
 };
 
@@ -106,10 +109,12 @@ const c1Paths = [
   paths.timeOfDay,
   paths.criticalPaint,
   paths.exports,
+  paths.layout,
   paths.footer,
   "packages/champagne-guards/scripts/guard-surface-semantics.mjs",
   paths.guardPackage,
   paths.surfaceTest,
+  paths.criticalFirstPaintTest,
   paths.workflow,
 ];
 
@@ -529,6 +534,155 @@ function collectSourceFiles(rootPath) {
   return results;
 }
 
+function validateCriticalPaintExport(source, contract) {
+  const sourceFile = ts.createSourceFile(
+    paths.exports,
+    source,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.TS,
+  );
+  let initializer;
+  for (const statement of sourceFile.statements) {
+    if (!ts.isVariableStatement(statement)) continue;
+    for (const declaration of statement.declarationList.declarations) {
+      if (ts.isIdentifier(declaration.name) && declaration.name.text === "champagneCriticalPaintCss") {
+        initializer = declaration.initializer;
+      }
+    }
+  }
+
+  if (
+    !initializer ||
+    !ts.isTemplateExpression(initializer) ||
+    initializer.templateSpans.length !== 1 ||
+    !ts.isPropertyAccessExpression(initializer.templateSpans[0].expression) ||
+    !ts.isIdentifier(initializer.templateSpans[0].expression.expression) ||
+    initializer.templateSpans[0].expression.expression.text !== "criticalPaintContract" ||
+    initializer.templateSpans[0].expression.name.text !== "canvasExpression"
+  ) {
+    errors.push(
+      `${paths.exports} must export champagneCriticalPaintCss as one template over criticalPaintContract.canvasExpression`,
+    );
+    return;
+  }
+
+  const emittedCss =
+    initializer.head.text +
+    contract.canvasExpression +
+    initializer.templateSpans[0].literal.text;
+  const expectedCss = `:where(:root){--surface-canvas:${contract.canvasExpression};--bg-ink:var(--surface-canvas)}:where(html),:where(body){background:var(--surface-canvas)}`;
+  if (emittedCss !== expectedCss) {
+    errors.push(`${paths.exports} champagneCriticalPaintCss must equal the guarded critical canvas CSS`);
+  }
+
+  const root = validateStylesheetSyntax(emittedCss, `${paths.exports} champagneCriticalPaintCss`);
+  if (!root) return;
+  const rules = root.nodes.filter((node) => node.type === "rule");
+  if (root.nodes.length !== 2 || rules.length !== 2) {
+    errors.push(`${paths.exports} champagneCriticalPaintCss must contain exactly two CSS rules`);
+    return;
+  }
+  const expectedRules = [
+    {
+      selector: ":where(:root)",
+      declarations: [
+        ["--surface-canvas", contract.canvasExpression],
+        ["--bg-ink", "var(--surface-canvas)"],
+      ],
+    },
+    {
+      selector: ":where(html),:where(body)",
+      declarations: [["background", "var(--surface-canvas)"]],
+    },
+  ];
+  rules.forEach((rule, index) => {
+    const expected = expectedRules[index];
+    const declarations = rule.nodes.filter((node) => node.type === "decl");
+    if (
+      rule.selector !== expected.selector ||
+      rule.nodes.length !== expected.declarations.length ||
+      declarations.length !== expected.declarations.length ||
+      declarations.some(
+        (declaration, declarationIndex) =>
+          declaration.prop !== expected.declarations[declarationIndex][0] ||
+          declaration.value !== expected.declarations[declarationIndex][1] ||
+          declaration.important,
+      )
+    ) {
+      errors.push(
+        `${paths.exports} champagneCriticalPaintCss rule ${index + 1} does not match its closed selector/declaration contract`,
+      );
+    }
+  });
+}
+
+function validateCriticalPaintLayoutEmission(source) {
+  const sourceFile = ts.createSourceFile(
+    paths.layout,
+    source,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.TSX,
+  );
+  let criticalImportCount = 0;
+  let markedStyleCount = 0;
+  let validEmissionCount = 0;
+
+  const visit = (node) => {
+    if (
+      ts.isImportDeclaration(node) &&
+      ts.isStringLiteral(node.moduleSpecifier) &&
+      node.moduleSpecifier.text === "@champagne/tokens" &&
+      node.importClause?.namedBindings &&
+      ts.isNamedImports(node.importClause.namedBindings)
+    ) {
+      criticalImportCount += node.importClause.namedBindings.elements.filter(
+        (element) => element.name.text === "champagneCriticalPaintCss",
+      ).length;
+    }
+    if (ts.isJsxSelfClosingElement(node) && node.tagName.getText(sourceFile) === "style") {
+      const attributes = node.attributes.properties.filter(ts.isJsxAttribute);
+      const marker = attributes.find(
+        (attribute) => attribute.name.getText(sourceFile) === "data-champagne-critical-paint",
+      );
+      if (marker) {
+        markedStyleCount += 1;
+        const markerValid =
+          marker.initializer && ts.isStringLiteral(marker.initializer) && marker.initializer.text === "v1";
+        const injection = attributes.find(
+          (attribute) => attribute.name.getText(sourceFile) === "dangerouslySetInnerHTML",
+        );
+        const expression =
+          injection?.initializer && ts.isJsxExpression(injection.initializer)
+            ? injection.initializer.expression
+            : undefined;
+        const htmlProperty =
+          expression && ts.isObjectLiteralExpression(expression)
+            ? expression.properties.find(
+                (property) =>
+                  ts.isPropertyAssignment(property) && property.name.getText(sourceFile) === "__html",
+              )
+            : undefined;
+        const injectionValid =
+          htmlProperty &&
+          ts.isPropertyAssignment(htmlProperty) &&
+          ts.isIdentifier(htmlProperty.initializer) &&
+          htmlProperty.initializer.text === "champagneCriticalPaintCss";
+        if (markerValid && injectionValid) validEmissionCount += 1;
+      }
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+
+  if (criticalImportCount !== 1 || markedStyleCount !== 1 || validEmissionCount !== 1) {
+    errors.push(
+      `${paths.layout} must import champagneCriticalPaintCss exactly once and emit exactly one v1 marked head style from it`,
+    );
+  }
+}
+
 const primitives = read(paths.primitives);
 const tokens = read(paths.tokens);
 const gradients = read(paths.gradients);
@@ -542,9 +696,10 @@ const surface = read(paths.surface);
 const globals = read(paths.globals);
 const criticalPaintSource = read(paths.criticalPaint);
 const exportsSource = read(paths.exports);
+const layoutSource = read(paths.layout);
 const footerSource = read(paths.footer);
 const packageSource = read(paths.guardPackage);
-const surfaceTestSource = read(paths.surfaceTest);
+const criticalFirstPaintTestSource = read(paths.criticalFirstPaintTest);
 const workflow = read(paths.workflow);
 
 const loadedCascadeOrder = [
@@ -694,6 +849,8 @@ if (criticalPaint) {
     errors.push(`${paths.criticalPaint} canvasExpression must be fully resolved and contain no var()`);
   }
   rejectEscapedVarFunctions(criticalPaint.canvasExpression ?? "");
+  validateCriticalPaintExport(exportsSource, criticalPaint);
+  validateCriticalPaintLayoutEmission(layoutSource);
 
   if (criticalPaint.finalPersianMidnightSelection !== false) {
     errors.push(`${paths.criticalPaint} must not claim a final Persian Midnight selection`);
@@ -799,51 +956,16 @@ if (!packageJson?.scripts?.["guard:all"]?.includes("guard:surface-semantics")) {
   errors.push("guard:surface-semantics is absent from guard:all");
 }
 
-for (const testPath of [paths.surfaceTest, "tests/hero-v2-navigation-continuity.spec.ts"]) {
+for (const testPath of [
+  paths.criticalFirstPaintTest,
+  paths.surfaceTest,
+  "tests/hero-v2-navigation-continuity.spec.ts",
+]) {
   if (!workflow.includes(testPath)) errors.push(`${paths.workflow} does not execute ${testPath}`);
 }
 
-const mobileFilmstripMarker =
-  'test("canvas is painted through first, 120ms and 1500ms frames on mobile reduced motion"';
-const mobileFilmstripIndex = surfaceTestSource.indexOf(mobileFilmstripMarker);
-const mobileFilmstripSource = mobileFilmstripIndex >= 0 ? surfaceTestSource.slice(mobileFilmstripIndex) : "";
-const commitNavigationIndex = mobileFilmstripSource.indexOf('waitUntil: "commit"');
-const bodyAttachmentIndex = mobileFilmstripSource.indexOf("document.body !== null");
-const commitCaptureIndex = mobileFilmstripSource.indexOf(
-  "const navigationCommit = await readNavigationCommitCanvasEvidence(page);",
-);
-const commitAssertionIndex = mobileFilmstripSource.indexOf("expectNavigationCommitCanvas(navigationCommit);");
-const domContentLoadedIndex = mobileFilmstripSource.indexOf('waitForLoadState("domcontentloaded")');
-const beforeCommitCapture = commitCaptureIndex >= 0 ? mobileFilmstripSource.slice(0, commitCaptureIndex) : "";
-
-if (mobileFilmstripIndex < 0) {
-  errors.push(`${paths.surfaceTest} is missing the mobile reduced-motion filmstrip test`);
-} else if (
-  commitNavigationIndex < 0 ||
-  bodyAttachmentIndex <= commitNavigationIndex ||
-  commitCaptureIndex <= bodyAttachmentIndex ||
-  commitAssertionIndex <= commitCaptureIndex ||
-  domContentLoadedIndex <= commitAssertionIndex
-) {
-  errors.push(
-    `${paths.surfaceTest} must capture and assert the canvas after navigation commit and body attachment, before DOMContentLoaded`,
-  );
-}
-if (mobileFilmstripSource.includes('waitUntil: "domcontentloaded"')) {
-  errors.push(`${paths.surfaceTest} must not defer the initial canvas capture to DOMContentLoaded`);
-}
-for (const forbiddenBeforeCapture of [
-  'waitForLoadState("domcontentloaded")',
-  'waitForLoadState("load")',
-  'waitForLoadState("networkidle")',
-  "readSurfaceEvidence(page)",
-]) {
-  if (beforeCommitCapture.includes(forbiddenBeforeCapture)) {
-    errors.push(`${paths.surfaceTest} must not use ${forbiddenBeforeCapture} before navigation-commit canvas capture`);
-  }
-}
-if (!mobileFilmstripSource.includes("{ polling: 1 }")) {
-  errors.push(`${paths.surfaceTest} must use a non-animation-frame body-attachment polling gate`);
+if (!criticalFirstPaintTestSource.includes('test.use({ serviceWorkers: "block" })')) {
+  errors.push(`${paths.criticalFirstPaintTest} must block service workers during stylesheet interception`);
 }
 
 if (errors.length > 0) {
