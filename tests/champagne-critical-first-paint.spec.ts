@@ -3,6 +3,7 @@ import { expect, test, type Page } from "playwright/test";
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3000";
 type Rgba = [number, number, number, number];
 type HeroExpectation = "present" | "absent";
+type PaintContract = "public-head" | "streaming-fallback" | "loaded-streaming";
 type Evidence = {
   readyState: DocumentReadyState;
   srgb: { canvas: Rgba; root: Rgba; body: Rgba; foreground: Rgba; bodyText: Rgba };
@@ -243,10 +244,23 @@ function expectCriticalResource(evidence: Evidence) {
   expect(evidence.critical.versions).toEqual(["v1"]);
 }
 
-function expectPaint(evidence: Evidence, requireCriticalResource: boolean) {
-  if (!requireCriticalResource && evidence.fallback.count === 1) {
+function expectDocumentPaint(evidence: Evidence) {
+  expect(evidence.inline.rootCanvas).not.toBe("");
+  expect(evidence.inline.rootCanvas).toBe(evidence.inline.bodyCanvas);
+  expect(evidence.inline.rootForeground).not.toBe("");
+  expect(evidence.inline.rootForeground).toBe(evidence.inline.bodyForeground);
+  expect(evidence.srgb.root).toEqual(evidence.srgb.canvas);
+  expect(evidence.srgb.body).toEqual(evidence.srgb.canvas);
+  expect(evidence.srgb.root[3]).toBe(255);
+  expect(evidence.srgb.bodyText).toEqual(evidence.srgb.foreground);
+  expect(contrast(evidence.srgb.foreground, evidence.srgb.canvas)).toBeGreaterThanOrEqual(4.5);
+}
+
+function expectPaint(evidence: Evidence, contract: PaintContract) {
+  if (contract === "streaming-fallback") {
     expect([0, 1]).toContain(evidence.critical.count);
     if (evidence.critical.count === 1) expectCriticalResource(evidence);
+    expect(evidence.fallback.count).toBe(1);
     expect(evidence.fallback.canvas).not.toBe("");
     expect(evidence.fallback.foreground).not.toBe("");
     expect(evidence.fallback.background).not.toBeNull();
@@ -259,16 +273,13 @@ function expectPaint(evidence: Evidence, requireCriticalResource: boolean) {
     return;
   }
 
-  expectCriticalResource(evidence);
-  expect(evidence.inline.rootCanvas).not.toBe("");
-  expect(evidence.inline.rootCanvas).toBe(evidence.inline.bodyCanvas);
-  expect(evidence.inline.rootForeground).not.toBe("");
-  expect(evidence.inline.rootForeground).toBe(evidence.inline.bodyForeground);
-  expect(evidence.srgb.root).toEqual(evidence.srgb.canvas);
-  expect(evidence.srgb.body).toEqual(evidence.srgb.canvas);
-  expect(evidence.srgb.root[3]).toBe(255);
-  expect(evidence.srgb.bodyText).toEqual(evidence.srgb.foreground);
-  expect(contrast(evidence.srgb.foreground, evidence.srgb.canvas)).toBeGreaterThanOrEqual(4.5);
+  if (contract === "public-head") {
+    expectCriticalResource(evidence);
+  } else {
+    expect([0, 1]).toContain(evidence.critical.count);
+    if (evidence.critical.count === 1) expectCriticalResource(evidence);
+  }
+  expectDocumentPaint(evidence);
 }
 
 for (const route of routes) {
@@ -311,7 +322,10 @@ for (const route of routes) {
         } else {
           expect(stylesheetGate.heldUrls).toEqual([]);
         }
-        expectPaint(early, route.requiresExternalStylesheet);
+        expectPaint(
+          early,
+          route.requiresExternalStylesheet ? "public-head" : "streaming-fallback",
+        );
       } finally {
         stylesheetGate.release();
       }
@@ -329,7 +343,10 @@ for (const route of routes) {
       const loaded = await page.evaluate(
         () => (window as CfpWindow).__cfpCapture?.() as Evidence,
       );
-      expectPaint(loaded, true);
+      expectPaint(
+        loaded,
+        route.requiresExternalStylesheet ? "public-head" : "loaded-streaming",
+      );
       expect(loaded.fallback.count).toBe(0);
       const earlyCanvas = route.requiresExternalStylesheet
         ? early.srgb.canvas
