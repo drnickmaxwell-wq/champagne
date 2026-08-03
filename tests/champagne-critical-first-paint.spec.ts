@@ -12,6 +12,12 @@ type Evidence = {
     identities: Array<string | null>;
     precedences: Array<string | null>;
   };
+  inline: {
+    rootCanvas: string;
+    bodyCanvas: string;
+    rootForeground: string;
+    bodyForeground: string;
+  };
   stylesheets: string[];
   surfaces: { main: string | null; hero: string | null };
   hero: { engine: string | null; stackCount: number; opacity: string | null };
@@ -94,8 +100,10 @@ async function installCapture(page: Page) {
     };
     const capture = (): Evidence => {
       if (!document.body) throw new Error("body unavailable");
-      const rootStyle = getComputedStyle(document.documentElement);
-      const bodyStyle = getComputedStyle(document.body);
+      const root = document.documentElement;
+      const body = document.body;
+      const rootStyle = getComputedStyle(root);
+      const bodyStyle = getComputedStyle(body);
       const canvas = resolveToken("--surface-canvas");
       const foreground = resolveToken("--text-ink-high");
       const critical = Array.from(
@@ -120,6 +128,12 @@ async function installCapture(page: Page) {
           directHeadChildren: critical.map((style) => style.parentElement === document.head),
           identities: critical.map((style) => style.dataset.href ?? null),
           precedences: critical.map((style) => style.dataset.precedence ?? null),
+        },
+        inline: {
+          rootCanvas: root.style.getPropertyValue("--surface-canvas").trim(),
+          bodyCanvas: body.style.getPropertyValue("--surface-canvas").trim(),
+          rootForeground: root.style.getPropertyValue("--text-ink-high").trim(),
+          bodyForeground: body.style.getPropertyValue("--text-ink-high").trim(),
         },
         stylesheets: Array.from(
           document.querySelectorAll<HTMLLinkElement>("link[rel='stylesheet'][href]"),
@@ -194,11 +208,24 @@ function contrast(foreground: Rgba, background: Rgba) {
   return (light + 0.05) / (dark + 0.05);
 }
 
-function expectPaint(evidence: Evidence) {
+function expectCriticalResource(evidence: Evidence) {
   expect(evidence.critical.count).toBe(1);
   expect(evidence.critical.directHeadChildren).toEqual([true]);
   expect(evidence.critical.identities).toEqual(["champagne-critical-paint-v1"]);
   expect(evidence.critical.precedences).toEqual(["critical"]);
+}
+
+function expectPaint(evidence: Evidence, requireCriticalResource: boolean) {
+  if (requireCriticalResource) {
+    expectCriticalResource(evidence);
+  } else {
+    expect([0, 1]).toContain(evidence.critical.count);
+    if (evidence.critical.count === 1) expectCriticalResource(evidence);
+  }
+  expect(evidence.inline.rootCanvas).not.toBe("");
+  expect(evidence.inline.rootCanvas).toBe(evidence.inline.bodyCanvas);
+  expect(evidence.inline.rootForeground).not.toBe("");
+  expect(evidence.inline.rootForeground).toBe(evidence.inline.bodyForeground);
   expect(evidence.srgb.root).toEqual(evidence.srgb.canvas);
   expect(evidence.srgb.body).toEqual(evidence.srgb.canvas);
   expect(evidence.srgb.root[3]).toBe(255);
@@ -246,7 +273,7 @@ for (const route of routes) {
         } else {
           expect(stylesheetGate.heldUrls).toEqual([]);
         }
-        expectPaint(early);
+        expectPaint(early, route.requiresExternalStylesheet);
       } finally {
         stylesheetGate.release();
       }
@@ -264,7 +291,7 @@ for (const route of routes) {
       const loaded = await page.evaluate(
         () => (window as CfpWindow).__cfpCapture?.() as Evidence,
       );
-      expectPaint(loaded);
+      expectPaint(loaded, true);
       expect(loaded.srgb.canvas).toEqual(early.srgb.canvas);
       expect(loaded.srgb.foreground).toEqual(early.srgb.foreground);
       expect(loaded.surfaces.main).toBe("rgba(0, 0, 0, 0)");
