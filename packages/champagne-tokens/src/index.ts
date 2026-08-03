@@ -14,7 +14,7 @@ export const champagneThemeStylesheet = "@champagne/tokens/styles/champagne/them
  * Normal theme CSS overrides these :where() declarations after it loads.
  */
 export const champagneCriticalPaintContract = criticalPaintContract;
-export const champagneCriticalPaintCss = `:where(:root){--surface-canvas:${criticalPaintContract.canvasExpression};--bg-ink:var(--surface-canvas)}:where(html),:where(body){background:var(--surface-canvas)}`;
+export const champagneCriticalPaintCss = `:where(:root){--surface-canvas:${criticalPaintContract.canvasExpression};--bg-ink:var(--surface-canvas);--text-ink-high:${criticalPaintContract.foregroundExpression}}:where(html),:where(body){background:var(--surface-canvas);color:var(--text-ink-high)}`;
 
 export const champagneTokenNames = [
   "--brand-magenta",

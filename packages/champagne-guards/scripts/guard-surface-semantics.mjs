@@ -555,14 +555,18 @@ function validateCriticalPaintExport(source, contract) {
   if (
     !initializer ||
     !ts.isTemplateExpression(initializer) ||
-    initializer.templateSpans.length !== 1 ||
+    initializer.templateSpans.length !== 2 ||
     !ts.isPropertyAccessExpression(initializer.templateSpans[0].expression) ||
     !ts.isIdentifier(initializer.templateSpans[0].expression.expression) ||
     initializer.templateSpans[0].expression.expression.text !== "criticalPaintContract" ||
-    initializer.templateSpans[0].expression.name.text !== "canvasExpression"
+    initializer.templateSpans[0].expression.name.text !== "canvasExpression" ||
+    !ts.isPropertyAccessExpression(initializer.templateSpans[1].expression) ||
+    !ts.isIdentifier(initializer.templateSpans[1].expression.expression) ||
+    initializer.templateSpans[1].expression.expression.text !== "criticalPaintContract" ||
+    initializer.templateSpans[1].expression.name.text !== "foregroundExpression"
   ) {
     errors.push(
-      `${paths.exports} must export champagneCriticalPaintCss as one template over criticalPaintContract.canvasExpression`,
+      `${paths.exports} must export champagneCriticalPaintCss as one template over the guarded canvas and foreground expressions`,
     );
     return;
   }
@@ -570,8 +574,10 @@ function validateCriticalPaintExport(source, contract) {
   const emittedCss =
     initializer.head.text +
     contract.canvasExpression +
-    initializer.templateSpans[0].literal.text;
-  const expectedCss = `:where(:root){--surface-canvas:${contract.canvasExpression};--bg-ink:var(--surface-canvas)}:where(html),:where(body){background:var(--surface-canvas)}`;
+    initializer.templateSpans[0].literal.text +
+    contract.foregroundExpression +
+    initializer.templateSpans[1].literal.text;
+  const expectedCss = `:where(:root){--surface-canvas:${contract.canvasExpression};--bg-ink:var(--surface-canvas);--text-ink-high:${contract.foregroundExpression}}:where(html),:where(body){background:var(--surface-canvas);color:var(--text-ink-high)}`;
   if (emittedCss !== expectedCss) {
     errors.push(`${paths.exports} champagneCriticalPaintCss must equal the guarded critical canvas CSS`);
   }
@@ -589,11 +595,15 @@ function validateCriticalPaintExport(source, contract) {
       declarations: [
         ["--surface-canvas", contract.canvasExpression],
         ["--bg-ink", "var(--surface-canvas)"],
+        ["--text-ink-high", contract.foregroundExpression],
       ],
     },
     {
       selector: ":where(html),:where(body)",
-      declarations: [["background", "var(--surface-canvas)"]],
+      declarations: [
+        ["background", "var(--surface-canvas)"],
+        ["color", "var(--text-ink-high)"],
+      ],
     },
   ];
   rules.forEach((rule, index) => {
@@ -795,10 +805,11 @@ if (criticalPaint) {
   if (
     canonical?.rootPath !== paths.tokens ||
     canonical?.rootToken !== "--surface-canvas" ||
+    canonical?.foregroundToken !== "--text-ink-high" ||
     canonical?.primitivePath !== paths.primitives
   ) {
     errors.push(
-      `${paths.criticalPaint} must identify ${paths.tokens} --surface-canvas and ${paths.primitives} as canonical sources`,
+      `${paths.criticalPaint} must identify ${paths.tokens} --surface-canvas/--text-ink-high and ${paths.primitives} as canonical sources`,
     );
   }
 
@@ -818,6 +829,12 @@ if (criticalPaint) {
     { source: tokens, sourcePath: paths.tokens },
     { source: primitives, sourcePath: paths.primitives },
   ];
+  const resolvedForegroundExpression = resolveTokenExpression(
+    canonical?.foregroundToken ?? "--text-ink-high",
+    canonicalTokenSources,
+    [],
+    new Set(),
+  );
   parsedLoadedStylesheets.get(paths.timeOfDay)?.walkDecls((declaration) => {
     if (ident.decode(declaration.prop) !== "--surface-canvas") return;
     const resolvedThemedCanvas = resolveCssExpression(
@@ -835,6 +852,13 @@ if (criticalPaint) {
   );
   validateResolvedCanvasColor(resolvedCanvasExpression);
 
+  const foregroundColorMatch = lexer.matchProperty("color", resolvedForegroundExpression);
+  if (!foregroundColorMatch.matched) {
+    errors.push(
+      `[CRITICAL_FOREGROUND_INVALID] resolved --text-ink-high must match the standards CSS color grammar: ${foregroundColorMatch.error?.message ?? "unknown mismatch"}`,
+    );
+  }
+
   if (!rootDefinition) errors.push(`${paths.criticalPaint} canvas root definition is missing`);
   if (
     resolvedCanvasExpression &&
@@ -849,6 +873,15 @@ if (criticalPaint) {
     errors.push(`${paths.criticalPaint} canvasExpression must be fully resolved and contain no var()`);
   }
   rejectEscapedVarFunctions(criticalPaint.canvasExpression ?? "");
+  if (
+    normalizeCssExpression(criticalPaint.foregroundExpression ?? "") !==
+    normalizeCssExpression(resolvedForegroundExpression)
+  ) {
+    errors.push(
+      `${paths.criticalPaint} foregroundExpression must equal recursively resolved --text-ink-high; expected ${normalizeCssExpression(resolvedForegroundExpression)}, found ${normalizeCssExpression(criticalPaint.foregroundExpression ?? "missing")}`,
+    );
+  }
+  rejectEscapedVarFunctions(criticalPaint.foregroundExpression ?? "");
   validateCriticalPaintExport(exportsSource, criticalPaint);
   validateCriticalPaintLayoutEmission(layoutSource);
 
@@ -860,6 +893,9 @@ if (criticalPaint) {
   }
   if (criticalPaint.bindings?.["--bg-ink"] !== "var(--surface-canvas)") {
     errors.push(`${paths.criticalPaint} must bind --bg-ink to var(--surface-canvas)`);
+  }
+  if (criticalPaint.bindings?.["--text-ink-high"] !== "foregroundExpression") {
+    errors.push(`${paths.criticalPaint} must bind --text-ink-high to foregroundExpression`);
   }
 }
 

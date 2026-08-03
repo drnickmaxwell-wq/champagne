@@ -10,22 +10,27 @@ type FirstPaintEvidence = {
     canvas: string;
     bgInk: string;
     brandInk: string;
+    textInkHigh: string;
   };
   resolved: {
     canvas: string;
     bgInk: string;
+    foreground: string;
   };
   surfaces: {
     root: string;
     body: string;
     main: string | null;
     hero: string | null;
+    bodyText: string;
   };
   srgb: {
     canvas: Rgba;
     bgInk: Rgba;
     root: Rgba;
     body: Rgba;
+    foreground: Rgba;
+    bodyText: Rgba;
   };
   criticalStyle: {
     count: number;
@@ -97,8 +102,10 @@ async function installBodyAttachmentCapture(page: Page) {
 
       const resolvedCanvas = resolveTokenAsColor("--surface-canvas");
       const resolvedBgInk = resolveTokenAsColor("--bg-ink");
+      const resolvedForeground = resolveTokenAsColor("--text-ink-high");
       const rootBackground = rootStyle.backgroundColor;
       const bodyBackground = bodyStyle.backgroundColor;
+      const bodyText = bodyStyle.color;
       const main = document.querySelector<HTMLElement>("main");
       const hero = document.querySelector<HTMLElement>("[data-hero-engine='v2']");
       const criticalStyles = Array.from(
@@ -112,22 +119,27 @@ async function installBodyAttachmentCapture(page: Page) {
           canvas: rootStyle.getPropertyValue("--surface-canvas").trim(),
           bgInk: rootStyle.getPropertyValue("--bg-ink").trim(),
           brandInk: rootStyle.getPropertyValue("--brand-ink").trim(),
+          textInkHigh: rootStyle.getPropertyValue("--text-ink-high").trim(),
         },
         resolved: {
           canvas: resolvedCanvas,
           bgInk: resolvedBgInk,
+          foreground: resolvedForeground,
         },
         surfaces: {
           root: rootBackground,
           body: bodyBackground,
           main: main ? getComputedStyle(main).backgroundColor : null,
           hero: hero ? getComputedStyle(hero).backgroundColor : null,
+          bodyText,
         },
         srgb: {
           canvas: toSrgb(resolvedCanvas),
           bgInk: toSrgb(resolvedBgInk),
           root: toSrgb(rootBackground),
           body: toSrgb(bodyBackground),
+          foreground: toSrgb(resolvedForeground),
+          bodyText: toSrgb(bodyText),
         },
         criticalStyle: {
           count: criticalStyles.length,
@@ -235,6 +247,33 @@ function expectOpaqueCanvas(evidence: FirstPaintEvidence) {
   expect(evidence.srgb.body[3]).toBe(255);
 }
 
+function contrastRatio(foreground: Rgba, background: Rgba) {
+  const alpha = foreground[3] / 255;
+  const composited = foreground.slice(0, 3).map(
+    (channel, index) => channel * alpha + background[index] * (1 - alpha),
+  );
+  const luminance = (channels: number[]) =>
+    channels
+      .map((channel) => channel / 255)
+      .map((channel) =>
+        channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4,
+      )
+      .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+  const foregroundLuminance = luminance(composited);
+  const backgroundLuminance = luminance(background.slice(0, 3));
+  const lighter = Math.max(foregroundLuminance, backgroundLuminance);
+  const darker = Math.min(foregroundLuminance, backgroundLuminance);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+function expectReadableCriticalForeground(evidence: FirstPaintEvidence) {
+  expect(evidence.tokens.textInkHigh).not.toBe("");
+  expect(evidence.surfaces.bodyText).toBe(evidence.resolved.foreground);
+  expect(evidence.srgb.bodyText).toEqual(evidence.srgb.foreground);
+  expect(evidence.srgb.foreground[3]).toBeGreaterThan(0);
+  expect(contrastRatio(evidence.srgb.foreground, evidence.srgb.canvas)).toBeGreaterThanOrEqual(4.5);
+}
+
 const cases = [
   { label: "mobile reduced motion", viewport: { width: 390, height: 844 }, reduced: true },
   { label: "mobile normal motion", viewport: { width: 390, height: 844 }, reduced: false },
@@ -281,6 +320,7 @@ for (const routePath of ["/", "/treatments/implants"] as const) {
           ),
         ).toBe(true);
         expectOpaqueCanvas(early);
+        expectReadableCriticalForeground(early);
       } finally {
         stylesheetGate.release();
       }
