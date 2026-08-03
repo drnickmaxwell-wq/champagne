@@ -213,12 +213,18 @@ for (const route of routes) {
           await expect
             .poll(() => stylesheetGate.heldUrls.length, { timeout: 10_000 })
             .toBeGreaterThan(0);
+          await page.waitForFunction(() => Boolean((window as CfpWindow).__cfpParser), undefined, {
+            polling: 1,
+          });
+        } else {
+          await page.waitForFunction(() => Boolean((window as CfpWindow).__cfpEarly), undefined, {
+            polling: 1,
+          });
         }
-        await page.waitForFunction(() => Boolean((window as CfpWindow).__cfpEarly), undefined, {
-          polling: 1,
-        });
         parser = await page.evaluate(() => (window as CfpWindow).__cfpParser as Evidence);
-        early = await page.evaluate(() => (window as CfpWindow).__cfpEarly as Evidence);
+        early = route.requiresExternalStylesheet
+          ? parser
+          : await page.evaluate(() => (window as CfpWindow).__cfpEarly as Evidence);
         expect(parser.readyState).toBe("loading");
         if (route.requiresExternalStylesheet) {
           expect(early.readyState).toBe("loading");
