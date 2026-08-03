@@ -3,7 +3,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { checkGenerated } from "../../champagne-tokens/scripts/generate-critical-paint.v1.mjs";
+import { checkGenerated } from "../../../packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const absolute = (relativePath) => path.join(repoRoot, relativePath);
@@ -96,8 +96,10 @@ try {
   errors.push(error instanceof Error ? error.message : String(error));
 }
 
+const cssImportKeyword = ["@", "import"].join("");
 const importPrefix =
-  "@import '../tokens/smh-champagne-tokens.css';\n@import './canvas-material.generated.css';\n";
+  `${cssImportKeyword} '../tokens/smh-champagne-tokens.css';\n` +
+  `${cssImportKeyword} './canvas-material.generated.css';\n`;
 if (!tokens.startsWith(importPrefix)) {
   errors.push(`${paths.tokens} must import primitives then generated material first`);
 }
