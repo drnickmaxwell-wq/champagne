@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { headers } from "next/headers";
 import "./globals.css";
 import { Footer } from "./components/layout/Footer";
@@ -146,7 +146,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className="min-h-screen antialiased"
         style={champagneCriticalPaintDocumentStyle}
       >
-        <RuntimeLayout>{children}</RuntimeLayout>
+        <Suspense fallback={null}>
+          <RuntimeLayout>{children}</RuntimeLayout>
+        </Suspense>
       </body>
     </html>
   );
