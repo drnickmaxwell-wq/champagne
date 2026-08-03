@@ -13,6 +13,7 @@ type Evidence = {
 };
 type CfpWindow = Window & {
   __cfpCapture?: () => Evidence;
+  __cfpParser?: Evidence;
   __cfpEarly?: Evidence;
 };
 
@@ -130,9 +131,12 @@ async function installCapture(page: Page) {
     const target = window as CfpWindow;
     target.__cfpCapture = capture;
     const record = () => {
-      if (!document.body || target.__cfpEarly) return;
-      target.__cfpEarly = capture();
+      if (!document.body || target.__cfpParser) return;
+      target.__cfpParser = capture();
       observer.disconnect();
+      requestAnimationFrame(() => {
+        target.__cfpEarly = capture();
+      });
     };
     const observer = new MutationObserver(record);
     observer.observe(document, { childList: true, subtree: true });
@@ -201,6 +205,7 @@ for (const route of routes) {
       await page.emulateMedia({ reducedMotion: browser.reduced ? "reduce" : "no-preference" });
       await installCapture(page);
       const stylesheetGate = await holdStylesheets(page);
+      let parser: Evidence;
       let early: Evidence;
       try {
         await page.goto(`${BASE_URL}${route.path}`, { waitUntil: "commit" });
@@ -212,9 +217,11 @@ for (const route of routes) {
         await page.waitForFunction(() => Boolean((window as CfpWindow).__cfpEarly), undefined, {
           polling: 1,
         });
+        parser = await page.evaluate(() => (window as CfpWindow).__cfpParser as Evidence);
         early = await page.evaluate(() => (window as CfpWindow).__cfpEarly as Evidence);
-        expect(early.readyState).toBe("loading");
+        expect(parser.readyState).toBe("loading");
         if (route.requiresExternalStylesheet) {
+          expect(early.readyState).toBe("loading");
           expect(early.stylesheets.length).toBeGreaterThan(0);
           expect(
             stylesheetGate.heldUrls.some((url) =>
@@ -262,6 +269,7 @@ for (const route of routes) {
             browser,
             heldUrls: stylesheetGate.heldUrls,
             finishedUrls: stylesheetGate.finishedUrls,
+            parser,
             early,
             loaded,
           },
