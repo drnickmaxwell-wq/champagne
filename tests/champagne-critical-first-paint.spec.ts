@@ -245,16 +245,21 @@ function expectCriticalResource(evidence: Evidence) {
   expect(evidence.critical.versions).toEqual(["v1"]);
 }
 
+function expectVisibleDocumentPaint(evidence: Evidence) {
+  expect(evidence.srgb.root).toEqual(evidence.srgb.canvas);
+  expect(evidence.srgb.body).toEqual(evidence.srgb.canvas);
+  expect(evidence.srgb.root[3]).toBe(255);
+  expect(evidence.srgb.body[3]).toBe(255);
+  expect(evidence.srgb.bodyText).toEqual(evidence.srgb.foreground);
+  expect(contrast(evidence.srgb.foreground, evidence.srgb.canvas)).toBeGreaterThanOrEqual(4.5);
+}
+
 function expectDocumentPaint(evidence: Evidence) {
   expect(evidence.inline.rootCanvas).not.toBe("");
   expect(evidence.inline.rootCanvas).toBe(evidence.inline.bodyCanvas);
   expect(evidence.inline.rootForeground).not.toBe("");
   expect(evidence.inline.rootForeground).toBe(evidence.inline.bodyForeground);
-  expect(evidence.srgb.root).toEqual(evidence.srgb.canvas);
-  expect(evidence.srgb.body).toEqual(evidence.srgb.canvas);
-  expect(evidence.srgb.root[3]).toBe(255);
-  expect(evidence.srgb.bodyText).toEqual(evidence.srgb.foreground);
-  expect(contrast(evidence.srgb.foreground, evidence.srgb.canvas)).toBeGreaterThanOrEqual(4.5);
+  expectVisibleDocumentPaint(evidence);
 }
 
 function expectPaint(evidence: Evidence, contract: PaintContract): PaintResult {
@@ -279,17 +284,18 @@ function expectPaint(evidence: Evidence, contract: PaintContract): PaintResult {
     }
 
     expect(evidence.fallback.count).toBe(0);
-    expectDocumentPaint(evidence);
+    expectVisibleDocumentPaint(evidence);
     return { canvas: evidence.srgb.canvas, foreground: evidence.srgb.foreground };
   }
 
   if (contract === "public-head") {
     expectCriticalResource(evidence);
+    expectDocumentPaint(evidence);
   } else {
     expect([0, 1]).toContain(evidence.critical.count);
     if (evidence.critical.count === 1) expectCriticalResource(evidence);
+    expectVisibleDocumentPaint(evidence);
   }
-  expectDocumentPaint(evidence);
   return { canvas: evidence.srgb.canvas, foreground: evidence.srgb.foreground };
 }
 
