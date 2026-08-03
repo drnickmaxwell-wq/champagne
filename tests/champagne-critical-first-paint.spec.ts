@@ -335,6 +335,7 @@ for (const routePath of ["/", "/treatments/implants"] as const) {
       await page.waitForLoadState("load", { timeout: 60_000 });
       await page.waitForFunction(() => document.readyState === "complete");
       await page.waitForLoadState("networkidle");
+      await page.waitForSelector("[data-hero-engine='v2']", { state: "attached" });
       const loaded = await readCurrentEvidence(page);
 
       expect(loaded.readyState).toBe("complete");
@@ -347,6 +348,9 @@ for (const routePath of ["/", "/treatments/implants"] as const) {
       expect(loaded.srgb.canvas).toEqual(early.srgb.canvas);
       expect(loaded.srgb.root).toEqual(early.srgb.canvas);
       expect(loaded.srgb.body).toEqual(early.srgb.canvas);
+      expectReadableCriticalForeground(loaded);
+      expect(loaded.srgb.foreground).toEqual(early.srgb.foreground);
+      expect(loaded.srgb.bodyText).toEqual(early.srgb.bodyText);
       expect(loaded.surfaces.main).toBe("rgba(0, 0, 0, 0)");
       expect(loaded.surfaces.hero).toBe("rgba(0, 0, 0, 0)");
       expect(loaded.hero.engine).toBe("v2");

@@ -103,6 +103,7 @@ const contextDependentColorIdentifiers = new Set(
 const contextDependentColorFunctions = new Set(["env", "light-dark", "var"]);
 const opaqueCanvasFunctions = new Set(["color-mix"]);
 const criticalCanvasDependencies = new Set();
+const criticalForegroundDependencies = new Set();
 const c1Paths = [
   paths.tokens,
   paths.theme,
@@ -833,7 +834,7 @@ if (criticalPaint) {
     canonical?.foregroundToken ?? "--text-ink-high",
     canonicalTokenSources,
     [],
-    new Set(),
+    criticalForegroundDependencies,
   );
   parsedLoadedStylesheets.get(paths.timeOfDay)?.walkDecls((declaration) => {
     if (ident.decode(declaration.prop) !== "--surface-canvas") return;
@@ -848,7 +849,7 @@ if (criticalPaint) {
   validateLoadedCanvasDependencyOwnership(
     parsedLoadedStylesheets,
     loadedCascadeOrder,
-    criticalCanvasDependencies,
+    new Set([...criticalCanvasDependencies, ...criticalForegroundDependencies]),
   );
   validateResolvedCanvasColor(resolvedCanvasExpression);
 
