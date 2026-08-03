@@ -13,7 +13,7 @@ import {
   getPageManifest,
   getPracticeName,
 } from "@champagne/manifests";
-import { champagneCriticalPaintCss } from "@champagne/tokens/critical-paint";
+import { champagneCriticalPaintCss } from "../../../packages/champagne-tokens/src/critical-paint.generated";
 import type { HeroMode } from "@champagne/hero";
 
 type PageSeoManifest = {
