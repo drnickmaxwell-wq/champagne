@@ -282,8 +282,11 @@ for (const marker of [
   "directHeadChildren).toEqual([true])",
   'style[data-champagne-critical-paint="v1"]',
   "fallback.coversViewport",
-  "expectPaint(early, route.requiresExternalStylesheet)",
-  "expectPaint(loaded, true)",
+  '"public-head"',
+  '"streaming-fallback"',
+  '"loaded-streaming"',
+  "expectDocumentPaint(evidence)",
+  "expect(loaded.fallback.count).toBe(0)",
   'path: "/contact"',
   'path: "/champagne/sections-debug"',
 ]) {
