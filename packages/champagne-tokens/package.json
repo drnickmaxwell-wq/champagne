@@ -4,6 +4,17 @@
   "version": "0.0.1",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./critical-paint": {
+      "types": "./src/critical-paint.generated.ts",
+      "default": "./src/critical-paint.generated.ts"
+    },
+    "./styles/*": "./styles/*"
+  },
   "files": [
     "dist",
     "styles"
