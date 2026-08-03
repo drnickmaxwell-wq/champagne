@@ -24,11 +24,36 @@ const mobileNormal = { label: "mobile normal", viewport: { width: 390, height: 8
 const desktopReduced = { label: "desktop reduced", viewport: { width: 1440, height: 900 }, reduced: true };
 const desktopNormal = { label: "desktop normal", viewport: { width: 1440, height: 900 }, reduced: false };
 const fullMatrix = [mobileReduced, mobileNormal, desktopReduced, desktopNormal] as const;
-const routes: Array<{ label: string; path: string; hero: HeroExpectation; matrix: typeof fullMatrix | readonly [typeof mobileReduced, typeof desktopNormal] }> = [
-  { label: "home", path: "/", hero: "present", matrix: fullMatrix },
-  { label: "treatment", path: "/treatments/implants", hero: "present", matrix: fullMatrix },
-  { label: "utility", path: "/contact", hero: "present", matrix: [mobileReduced, desktopNormal] },
-  { label: "internal non-Hero", path: "/champagne/sections-debug", hero: "absent", matrix: [mobileNormal, desktopReduced] },
+type RouteCase = {
+  label: string;
+  path: string;
+  hero: HeroExpectation;
+  requiresExternalStylesheet: boolean;
+  matrix: typeof fullMatrix | readonly [typeof mobileReduced, typeof desktopNormal] | readonly [typeof mobileNormal, typeof desktopReduced];
+};
+const routes: RouteCase[] = [
+  { label: "home", path: "/", hero: "present", requiresExternalStylesheet: true, matrix: fullMatrix },
+  {
+    label: "treatment",
+    path: "/treatments/implants",
+    hero: "present",
+    requiresExternalStylesheet: true,
+    matrix: fullMatrix,
+  },
+  {
+    label: "utility",
+    path: "/contact",
+    hero: "present",
+    requiresExternalStylesheet: true,
+    matrix: [mobileReduced, desktopNormal],
+  },
+  {
+    label: "internal non-Hero",
+    path: "/champagne/sections-debug",
+    hero: "absent",
+    requiresExternalStylesheet: false,
+    matrix: [mobileNormal, desktopReduced],
+  },
 ];
 
 function runtimeErrors(page: Page) {
@@ -67,7 +92,9 @@ async function installCapture(page: Page) {
       const bodyStyle = getComputedStyle(document.body);
       const canvas = resolveToken("--surface-canvas");
       const foreground = resolveToken("--text-ink-high");
-      const critical = Array.from(document.querySelectorAll<HTMLStyleElement>("style[data-champagne-critical-paint]"));
+      const critical = Array.from(
+        document.querySelectorAll<HTMLStyleElement>("style[data-champagne-critical-paint]"),
+      );
       const hero = document.querySelector<HTMLElement>("[data-hero-engine='v2']");
       const main = document.querySelector<HTMLElement>("main");
       const content = document.querySelector<HTMLElement>("[data-v2-content-fade='true']");
@@ -85,7 +112,10 @@ async function installCapture(page: Page) {
           directHeadChildren: critical.map((style) => style.parentElement === document.head),
           versions: critical.map((style) => style.dataset.champagneCriticalPaint ?? null),
         },
-        stylesheets: Array.from(document.querySelectorAll<HTMLLinkElement>("link[rel='stylesheet'][href]"), (link) => link.href),
+        stylesheets: Array.from(
+          document.querySelectorAll<HTMLLinkElement>("link[rel='stylesheet'][href]"),
+          (link) => link.href,
+        ),
         surfaces: {
           main: main ? getComputedStyle(main).backgroundColor : null,
           hero: hero ? getComputedStyle(hero).backgroundColor : null,
@@ -136,13 +166,17 @@ async function holdStylesheets(page: Page) {
 function luminance(rgb: number[]) {
   return rgb
     .map((channel) => channel / 255)
-    .map((channel) => (channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4))
+    .map((channel) =>
+      channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4,
+    )
     .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
 }
 
 function contrast(foreground: Rgba, background: Rgba) {
   const alpha = foreground[3] / 255;
-  const composited = foreground.slice(0, 3).map((channel, index) => channel * alpha + background[index] * (1 - alpha));
+  const composited = foreground
+    .slice(0, 3)
+    .map((channel, index) => channel * alpha + background[index] * (1 - alpha));
   const light = Math.max(luminance(composited), luminance(background.slice(0, 3)));
   const dark = Math.min(luminance(composited), luminance(background.slice(0, 3)));
   return (light + 0.05) / (dark + 0.05);
@@ -170,22 +204,44 @@ for (const route of routes) {
       let early: Evidence;
       try {
         await page.goto(`${BASE_URL}${route.path}`, { waitUntil: "commit" });
-        await expect.poll(() => stylesheetGate.heldUrls.length, { timeout: 10_000 }).toBeGreaterThan(0);
-        await page.waitForFunction(() => Boolean((window as CfpWindow).__cfpEarly), undefined, { polling: 1 });
+        if (route.requiresExternalStylesheet) {
+          await expect
+            .poll(() => stylesheetGate.heldUrls.length, { timeout: 10_000 })
+            .toBeGreaterThan(0);
+        }
+        await page.waitForFunction(() => Boolean((window as CfpWindow).__cfpEarly), undefined, {
+          polling: 1,
+        });
         early = await page.evaluate(() => (window as CfpWindow).__cfpEarly as Evidence);
         expect(early.readyState).toBe("loading");
-        expect(early.stylesheets.length).toBeGreaterThan(0);
-        expect(stylesheetGate.heldUrls.some((url) => new URL(url).pathname.startsWith("/_next/static/css/"))).toBe(true);
+        if (route.requiresExternalStylesheet) {
+          expect(early.stylesheets.length).toBeGreaterThan(0);
+          expect(
+            stylesheetGate.heldUrls.some((url) =>
+              new URL(url).pathname.startsWith("/_next/static/css/"),
+            ),
+          ).toBe(true);
+        } else {
+          expect(stylesheetGate.heldUrls).toEqual([]);
+        }
         expectPaint(early);
       } finally {
         stylesheetGate.release();
       }
 
-      await expect.poll(() => stylesheetGate.heldUrls.every((url) => stylesheetGate.finishedUrls.includes(url)), { timeout: 15_000 }).toBe(true);
+      await expect
+        .poll(
+          () =>
+            stylesheetGate.heldUrls.every((url) => stylesheetGate.finishedUrls.includes(url)),
+          { timeout: 15_000 },
+        )
+        .toBe(true);
       await page.waitForLoadState("load", { timeout: 60_000 });
       await page.waitForFunction(() => document.readyState === "complete");
       await page.waitForLoadState("networkidle");
-      const loaded = await page.evaluate(() => (window as CfpWindow).__cfpCapture?.() as Evidence);
+      const loaded = await page.evaluate(
+        () => (window as CfpWindow).__cfpCapture?.() as Evidence,
+      );
       expectPaint(loaded);
       expect(loaded.srgb.canvas).toEqual(early.srgb.canvas);
       expect(loaded.srgb.foreground).toEqual(early.srgb.foreground);
@@ -200,7 +256,18 @@ for (const route of routes) {
       expect(errors.page).toEqual([]);
       expect(errors.console).toEqual([]);
       await testInfo.attach("critical-first-paint.json", {
-        body: JSON.stringify({ route, browser, heldUrls: stylesheetGate.heldUrls, early, loaded }, null, 2),
+        body: JSON.stringify(
+          {
+            route,
+            browser,
+            heldUrls: stylesheetGate.heldUrls,
+            finishedUrls: stylesheetGate.finishedUrls,
+            early,
+            loaded,
+          },
+          null,
+          2,
+        ),
         contentType: "application/json",
       });
     });
