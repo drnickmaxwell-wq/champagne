@@ -206,6 +206,7 @@ jobs:
     name: stage-b-regression
     runs-on: ubuntu-latest
     env:
+      ALLOW_CHAMPAGNE_ROUTES: "true"
       NEXT_PUBLIC_FEATURE_BRAND_HERO: "true"
       NEXT_PUBLIC_HERO_ENGINE: v2
     steps:
@@ -248,6 +249,17 @@ jobs:
           done
           cat "$RUNNER_TEMP/stage-b-web.log"
           exit 1
+      - name: Prove internal lab route is real HTML
+        run: |
+          set -euxo pipefail
+          headers_file="$(mktemp)"
+          body_file="$(mktemp)"
+          curl --fail --silent --show-error \
+            --dump-header "$headers_file" \
+            --output "$body_file" \
+            http://127.0.0.1:3000/champagne/sections-debug
+          grep -Eiq '^content-type:[[:space:]]*text/html' "$headers_file"
+          grep -Fq 'Sections Debugger' "$body_file"
       - name: Run Stage B Chromium regression matrix
         run: |
           set -euxo pipefail
