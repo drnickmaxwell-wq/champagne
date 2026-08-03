@@ -30,6 +30,12 @@ type PageSeoManifest = {
 const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
 const PRACTICE_NAME = getPracticeName();
 const DEFAULT_DESCRIPTION = getDefaultSeoDescription();
+const CRITICAL_PAINT_FALLBACK_STYLE = {
+  ...champagneCriticalPaintDocumentStyle,
+  position: "fixed",
+  inset: 0,
+  pointerEvents: "none",
+} as const;
 
 function isProductionIndexable() {
   return process.env.VERCEL_ENV === "production";
@@ -146,7 +152,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className="min-h-screen antialiased"
         style={champagneCriticalPaintDocumentStyle}
       >
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            <div
+              aria-hidden="true"
+              data-champagne-critical-fallback="v1"
+              style={CRITICAL_PAINT_FALLBACK_STYLE}
+            />
+          }
+        >
           <RuntimeLayout>{children}</RuntimeLayout>
         </Suspense>
       </body>
