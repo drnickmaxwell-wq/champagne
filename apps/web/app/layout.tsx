@@ -106,7 +106,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang="en">
       <head>
         <style
-          data-champagne-critical-paint="v1"
+          href="champagne-critical-paint-v1"
+          precedence="critical"
           dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}
         />
       </head>
