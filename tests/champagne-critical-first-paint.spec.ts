@@ -6,7 +6,12 @@ type HeroExpectation = "present" | "absent";
 type Evidence = {
   readyState: DocumentReadyState;
   srgb: { canvas: Rgba; root: Rgba; body: Rgba; foreground: Rgba; bodyText: Rgba };
-  critical: { count: number; directHeadChildren: boolean[]; versions: Array<string | null> };
+  critical: {
+    count: number;
+    directHeadChildren: boolean[];
+    identities: Array<string | null>;
+    precedences: Array<string | null>;
+  };
   stylesheets: string[];
   surfaces: { main: string | null; hero: string | null };
   hero: { engine: string | null; stackCount: number; opacity: string | null };
@@ -94,7 +99,9 @@ async function installCapture(page: Page) {
       const canvas = resolveToken("--surface-canvas");
       const foreground = resolveToken("--text-ink-high");
       const critical = Array.from(
-        document.querySelectorAll<HTMLStyleElement>("style[data-champagne-critical-paint]"),
+        document.querySelectorAll<HTMLStyleElement>(
+          'style[data-href~="champagne-critical-paint-v1"][data-precedence="critical"]',
+        ),
       );
       const hero = document.querySelector<HTMLElement>("[data-hero-engine='v2']");
       const main = document.querySelector<HTMLElement>("main");
@@ -111,7 +118,8 @@ async function installCapture(page: Page) {
         critical: {
           count: critical.length,
           directHeadChildren: critical.map((style) => style.parentElement === document.head),
-          versions: critical.map((style) => style.dataset.champagneCriticalPaint ?? null),
+          identities: critical.map((style) => style.dataset.href ?? null),
+          precedences: critical.map((style) => style.dataset.precedence ?? null),
         },
         stylesheets: Array.from(
           document.querySelectorAll<HTMLLinkElement>("link[rel='stylesheet'][href]"),
@@ -189,7 +197,8 @@ function contrast(foreground: Rgba, background: Rgba) {
 function expectPaint(evidence: Evidence) {
   expect(evidence.critical.count).toBe(1);
   expect(evidence.critical.directHeadChildren).toEqual([true]);
-  expect(evidence.critical.versions).toEqual(["v1"]);
+  expect(evidence.critical.identities).toEqual(["champagne-critical-paint-v1"]);
+  expect(evidence.critical.precedences).toEqual(["critical"]);
   expect(evidence.srgb.root).toEqual(evidence.srgb.canvas);
   expect(evidence.srgb.body).toEqual(evidence.srgb.canvas);
   expect(evidence.srgb.root[3]).toBe(255);
