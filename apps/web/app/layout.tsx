@@ -13,6 +13,7 @@ import {
   getPageManifest,
   getPracticeName,
 } from "@champagne/manifests";
+import { champagneCriticalPaintCss } from "@champagne/tokens";
 import type { HeroMode } from "@champagne/hero";
 
 type PageSeoManifest = {
@@ -103,6 +104,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang="en">
+      <head>
+        <style
+          data-champagne-critical-paint="v1"
+          dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}
+        />
+      </head>
       <body className="min-h-screen antialiased">
         <script
           type="application/ld+json"

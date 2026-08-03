@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "CHAMPAGNE_CRITICAL_PAINT_V1",
+  "status": "GENERATED_SURFACE_CANVAS_SNAPSHOT_NOT_FINAL_PERSIAN_MIDNIGHT_SELECTION",
+  "purpose": "Provide the current canonical Champagne canvas and readable ink-surface foreground before external theme CSS is available.",
+  "finalPersianMidnightSelection": false,
+  "canonicalSource": {
+    "rootPath": "packages/champagne-tokens/styles/champagne/tokens.css",
+    "rootToken": "--surface-canvas",
+    "foregroundToken": "--text-ink-high",
+    "primitivePath": "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
+    "validation": "guard-surface-semantics starts at --surface-canvas, recursively resolves every fallback-free canonical CSS-variable dependency through semantic and primitive token sources, rejects fallbacks, unresolved variables, cycles, missing definitions and ambiguous definitions, normalizes the result, and fails if canvasExpression differs"
+  },
+  "canvasExpression": "color-mix(in oklab, color-mix(in oklab, #0B0D0F 88%, #40C4B4 12%) 92%, #C2185B 8%)",
+  "foregroundExpression": "color-mix(in oklab, #FFFFFF 96%, transparent)",
+  "bindings": {
+    "--surface-canvas": "canvasExpression",
+    "--bg-ink": "var(--surface-canvas)",
+    "--text-ink-high": "foregroundExpression"
+  },
+  "selectors": {
+    "tokenSeed": ":where(:root)",
+    "canvasPainters": ":where(html), :where(body)"
+  },
+  "constraints": [
+    "PUBLIC_SURFACE_CANVAS_ROOT_MUST_VALIDATE",
+    "FULL_CANONICAL_ALIAS_CHAIN_RESOLUTION",
+    "FALLBACK_BEARING_VAR_PROHIBITED_IN_CRITICAL_CHAIN",
+    "NO_UNRESOLVED_VAR_IN_CRITICAL_SNAPSHOT",
+    "REJECT_CYCLES_MISSING_AND_AMBIGUOUS_DEFINITIONS",
+    "READABLE_FOREGROUND_WITHOUT_EXTERNAL_CSS",
+    "LOW_SPECIFICITY_EXTERNAL_THEME_OVERRIDES",
+    "NO_FINAL_MATERIAL_CALIBRATION",
+    "NO_HERO_OR_MOTION_SEMANTIC_CHANGE",
+    "NO_RUNTIME_LITERAL_IN_LAYOUT"
+  ]
+}
