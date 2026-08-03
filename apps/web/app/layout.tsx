@@ -143,8 +143,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" style={champagneCriticalPaintDocumentStyle}>
       <head>
         <style
-          href="champagne-critical-paint-v1"
-          precedence="critical"
+          data-champagne-critical-paint="v1"
           dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}
         />
       </head>
