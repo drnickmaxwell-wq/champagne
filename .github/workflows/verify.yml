@@ -5,6 +5,9 @@ on:
     branches:
       - "*"
 
+permissions:
+  contents: read
+
 jobs:
   guard-workspace-deps:
     name: guard-workspace-deps
@@ -19,6 +22,41 @@ jobs:
         run: |
           set -euxo pipefail
           node scripts/guard-workspace-deps.mjs
+
+  critical-paint-generated:
+    name: critical-paint-generated
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Enable corepack + pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare pnpm@9.15.4 --activate
+          pnpm --version
+      - name: Install deps
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
+      - name: Check committed generated artefacts
+        run: |
+          set -euxo pipefail
+          pnpm run check:critical-paint-generated
+      - name: Run critical-paint generator tests
+        run: |
+          set -euxo pipefail
+          pnpm run test:critical-paint-generator
+      - name: Prove write mode is byte-clean
+        run: |
+          set -euxo pipefail
+          pnpm run generate:critical-paint
+          git diff --exit-code -- \
+            packages/champagne-tokens/styles/champagne/canvas-material.generated.css \
+            packages/champagne-tokens/src/critical-paint.generated.ts
 
   guard-hero:
     name: guard-hero
@@ -215,9 +253,11 @@ jobs:
           set -euxo pipefail
           PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 \
             pnpm exec playwright test \
+              tests/champagne-critical-first-paint.spec.ts \
               tests/champagne-surface-semantics.spec.ts \
               tests/hero-v2-navigation-continuity.spec.ts \
-              --reporter=line
+              --reporter=line \
+              --workers=1
       - name: Upload server log on failure
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -231,6 +271,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - guard-workspace-deps
+      - critical-paint-generated
       - guard-hero
       - guard-rogue-hex
       - guard-canon
