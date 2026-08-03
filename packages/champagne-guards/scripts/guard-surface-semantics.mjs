@@ -210,9 +210,15 @@ if (!/body,\s*\n?\.champagne-page\s*{[\s\S]*?background\s*:\s*var\(--surface-can
 
 const criticalImport =
   'import { champagneCriticalPaintCss } from "../../../packages/champagne-tokens/src/critical-paint.generated";';
-const rootSequence = `  return (\n    <html lang="en">\n      <head>\n        <style\n          data-champagne-critical-paint="v1"\n          dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}\n        />\n      </head>\n      <body`;
-if (!layout.includes(rootSequence) || count(layout, 'data-champagne-critical-paint="v1"') !== 1) {
-  errors.push(`[CRITICAL_STYLE_PLACEMENT] ${paths.layout} must emit one unconditional direct-head style`);
+const rootSequence = `  return (\n    <html lang="en">\n      <head>\n        <style\n          href="champagne-critical-paint-v1"\n          precedence="critical"\n          dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}\n        />\n      </head>\n      <body`;
+if (
+  !layout.includes(rootSequence) ||
+  count(layout, 'href="champagne-critical-paint-v1"') !== 1 ||
+  count(layout, 'precedence="critical"') !== 1
+) {
+  errors.push(
+    `[CRITICAL_STYLE_PLACEMENT] ${paths.layout} must emit one unconditional React-hoisted critical stylesheet resource`,
+  );
 }
 if (count(layout, criticalImport) !== 1) {
   errors.push(`${paths.layout} must import the leaf-pure generated critical paint exactly once`);
@@ -246,6 +252,8 @@ for (const marker of [
   "stylesheetGate.heldUrls",
   "loaded.srgb.canvas).toEqual(early.srgb.canvas)",
   "directHeadChildren).toEqual([true])",
+  'data-href~="champagne-critical-paint-v1"',
+  'data-precedence="critical"',
   'path: "/contact"',
   'path: "/champagne/sections-debug"',
 ]) {
