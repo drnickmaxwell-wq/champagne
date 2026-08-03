@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "CHAMPAGNE_CANVAS_MATERIAL_V1",
+  "materialId": "champagne-current-approved-canvas-v1",
+  "status": "CURRENT_APPROVED_MATERIAL_NOT_FINAL_PERSIAN_MIDNIGHT",
+  "finalPersianMidnightSelection": false,
+  "nodes": [
+    {
+      "id": "ink",
+      "type": "literal",
+      "token": "--ink",
+      "value": "#0B0D0F"
+    },
+    {
+      "id": "brandTeal",
+      "type": "literal",
+      "token": "--brand-teal",
+      "value": "#40C4B4"
+    },
+    {
+      "id": "brandMagenta",
+      "type": "literal",
+      "token": "--brand-magenta",
+      "value": "#C2185B"
+    },
+    {
+      "id": "white",
+      "type": "literal",
+      "token": "--smh-white",
+      "value": "#FFFFFF"
+    },
+    {
+      "id": "transparent",
+      "type": "keyword",
+      "value": "transparent"
+    },
+    {
+      "id": "inkTealBlend",
+      "type": "mix",
+      "space": "oklab",
+      "left": {
+        "ref": "ink",
+        "weight": 88
+      },
+      "right": {
+        "ref": "brandTeal",
+        "weight": 12
+      }
+    },
+    {
+      "id": "canvas",
+      "type": "mix",
+      "space": "oklab",
+      "left": {
+        "ref": "inkTealBlend",
+        "weight": 92
+      },
+      "right": {
+        "ref": "brandMagenta",
+        "weight": 8
+      }
+    },
+    {
+      "id": "foreground",
+      "type": "mix",
+      "space": "oklab",
+      "left": {
+        "ref": "white",
+        "weight": 96
+      },
+      "right": {
+        "ref": "transparent"
+      }
+    }
+  ],
+  "outputs": {
+    "canvas": "canvas",
+    "foreground": "foreground"
+  }
+}

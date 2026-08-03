@@ -1,0 +1,11 @@
+/* GENERATED FILE — DO NOT EDIT.
+ * Source: packages/champagne-tokens/src/canvas-material.v1.json
+ * Regenerate: pnpm run generate:critical-paint
+ */
+:root {
+  --smh-ink-navy: color-mix(in oklab, color-mix(in oklab, var(--ink) 88%, var(--brand-teal) 12%) 92%, var(--brand-magenta) 8%);
+  --brand-ink: var(--smh-ink-navy);
+  --surface-canvas: var(--brand-ink);
+  --bg-ink: var(--surface-canvas);
+  --text-ink-high: color-mix(in oklab, var(--smh-white) 96%, transparent);
+}
