@@ -9,8 +9,7 @@ type Evidence = {
   critical: {
     count: number;
     directHeadChildren: boolean[];
-    identities: Array<string | null>;
-    precedences: Array<string | null>;
+    versions: Array<string | null>;
   };
   inline: {
     rootCanvas: string;
@@ -119,7 +118,7 @@ async function installCapture(page: Page) {
       const foreground = resolveToken("--text-ink-high");
       const critical = Array.from(
         document.querySelectorAll<HTMLStyleElement>(
-          'style[data-href~="champagne-critical-paint-v1"][data-precedence="critical"]',
+          'style[data-champagne-critical-paint="v1"]',
         ),
       );
       const fallbackElements = Array.from(
@@ -143,8 +142,7 @@ async function installCapture(page: Page) {
         critical: {
           count: critical.length,
           directHeadChildren: critical.map((style) => style.parentElement === document.head),
-          identities: critical.map((style) => style.dataset.href ?? null),
-          precedences: critical.map((style) => style.dataset.precedence ?? null),
+          versions: critical.map((style) => style.dataset.champagneCriticalPaint ?? null),
         },
         inline: {
           rootCanvas: root.style.getPropertyValue("--surface-canvas").trim(),
@@ -242,8 +240,7 @@ function contrast(foreground: Rgba, background: Rgba) {
 function expectCriticalResource(evidence: Evidence) {
   expect(evidence.critical.count).toBe(1);
   expect(evidence.critical.directHeadChildren).toEqual([true]);
-  expect(evidence.critical.identities).toEqual(["champagne-critical-paint-v1"]);
-  expect(evidence.critical.precedences).toEqual(["critical"]);
+  expect(evidence.critical.versions).toEqual(["v1"]);
 }
 
 function expectPaint(evidence: Evidence, requireCriticalResource: boolean) {
@@ -256,7 +253,9 @@ function expectPaint(evidence: Evidence, requireCriticalResource: boolean) {
     expect(evidence.fallback.color).not.toBeNull();
     expect(evidence.fallback.coversViewport).toBe(true);
     expect(evidence.fallback.background?.[3]).toBe(255);
-    expect(contrast(evidence.fallback.color as Rgba, evidence.fallback.background as Rgba)).toBeGreaterThanOrEqual(4.5);
+    expect(
+      contrast(evidence.fallback.color as Rgba, evidence.fallback.background as Rgba),
+    ).toBeGreaterThanOrEqual(4.5);
     return;
   }
 
