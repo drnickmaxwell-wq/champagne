@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({ children }: { children: ReactNode }) {
+async function RuntimeLayout({ children }: { children: ReactNode }) {
   const headersList = await headers();
   const requestUrl = headersList.get("next-url") ?? "";
   const isPublicPage = !requestUrl.startsWith("/champagne/");
@@ -106,6 +106,34 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   }
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemaGraph) }}
+      />
+      <div className="flex min-h-screen flex-col">
+        <div className="sticky top-0 z-50">
+          <Header />
+        </div>
+        <main className="flex-1 px-6 py-10">
+          {isPublicPage && isHeroEnabled && (
+            <HeroMount
+              mode={mode}
+              treatmentSlug={treatmentSlug}
+              pageCategory={pageCategory}
+            />
+          )}
+          {children}
+        </main>
+        <Footer />
+      </div>
+      <ConciergeLayer />
+    </>
+  );
+}
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
     <html lang="en" style={champagneCriticalPaintDocumentStyle}>
       <head>
         <style
@@ -118,27 +146,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         className="min-h-screen antialiased"
         style={champagneCriticalPaintDocumentStyle}
       >
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemaGraph) }}
-        />
-        <div className="flex min-h-screen flex-col">
-          <div className="sticky top-0 z-50">
-            <Header />
-          </div>
-          <main className="flex-1 px-6 py-10">
-            {isPublicPage && isHeroEnabled && (
-              <HeroMount
-                mode={mode}
-                treatmentSlug={treatmentSlug}
-                pageCategory={pageCategory}
-              />
-            )}
-            {children}
-          </main>
-          <Footer />
-        </div>
-        <ConciergeLayer />
+        <RuntimeLayout>{children}</RuntimeLayout>
       </body>
     </html>
   );
