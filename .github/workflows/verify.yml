@@ -49,7 +49,7 @@ jobs:
       - name: Run critical-paint generator tests
         run: |
           set -euxo pipefail
-          pnpm run test:critical-paint-generator
+          node --test tests/champagne-critical-first-paint-generator.test.mjs
       - name: Prove write mode is byte-clean
         run: |
           set -euxo pipefail
@@ -57,12 +57,6 @@ jobs:
           git diff --exit-code -- \
             packages/champagne-tokens/styles/champagne/canvas-material.generated.css \
             packages/champagne-tokens/src/critical-paint.generated.ts
-      - name: Export lockfile preparation input
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: critical-paint-lockfile-input
-          path: pnpm-lock.yaml
-          if-no-files-found: error
 
   guard-hero:
     name: guard-hero
