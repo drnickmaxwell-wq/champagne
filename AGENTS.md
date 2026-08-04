@@ -154,6 +154,7 @@ EXEMPTION — Champagne Design Laboratory PR #861 Review Repair (Founder-authori
 
 This one-time exemption applies only to draft PR #861 and expires when PR #861 is
 merged, closed, or abandoned. It grants no reusable authority to another PR or lane.
+Founder repair authority was granted explicitly on 2026-08-04 for these exact findings.
 
 Agents MAY modify exactly these review-repair paths:
 - AGENTS.md
