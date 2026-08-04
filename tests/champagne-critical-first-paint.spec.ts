@@ -50,18 +50,27 @@ type RouteCase = {
   path: string;
   hero: HeroExpectation;
   requiresExternalStylesheet: boolean;
+  earlyContract: "public-head" | "streaming-fallback";
   matrix:
     | typeof fullMatrix
     | readonly [typeof mobileReduced, typeof desktopNormal]
     | readonly [typeof mobileNormal, typeof desktopReduced];
 };
 const routes: RouteCase[] = [
-  { label: "home", path: "/", hero: "present", requiresExternalStylesheet: true, matrix: fullMatrix },
+  {
+    label: "home",
+    path: "/",
+    hero: "present",
+    requiresExternalStylesheet: true,
+    earlyContract: "public-head",
+    matrix: fullMatrix,
+  },
   {
     label: "treatment",
     path: "/treatments/implants",
     hero: "present",
     requiresExternalStylesheet: true,
+    earlyContract: "public-head",
     matrix: fullMatrix,
   },
   {
@@ -69,6 +78,7 @@ const routes: RouteCase[] = [
     path: "/contact",
     hero: "present",
     requiresExternalStylesheet: true,
+    earlyContract: "public-head",
     matrix: [mobileReduced, desktopNormal],
   },
   {
@@ -76,6 +86,7 @@ const routes: RouteCase[] = [
     path: "/champagne/sections-debug",
     hero: "not-applicable",
     requiresExternalStylesheet: true,
+    earlyContract: "streaming-fallback",
     matrix: [mobileNormal, desktopReduced],
   },
 ];
@@ -266,26 +277,20 @@ function expectPaint(evidence: Evidence, contract: PaintContract): PaintResult {
   if (contract === "streaming-fallback") {
     expect([0, 1]).toContain(evidence.critical.count);
     if (evidence.critical.count === 1) expectCriticalResource(evidence);
-
-    if (evidence.fallback.count === 1) {
-      expect(evidence.fallback.canvas).not.toBe("");
-      expect(evidence.fallback.foreground).not.toBe("");
-      expect(evidence.fallback.background).not.toBeNull();
-      expect(evidence.fallback.color).not.toBeNull();
-      expect(evidence.fallback.coversViewport).toBe(true);
-      expect(evidence.fallback.background?.[3]).toBe(255);
-      expect(
-        contrast(evidence.fallback.color as Rgba, evidence.fallback.background as Rgba),
-      ).toBeGreaterThanOrEqual(4.5);
-      return {
-        canvas: evidence.fallback.background as Rgba,
-        foreground: evidence.fallback.color as Rgba,
-      };
-    }
-
-    expect(evidence.fallback.count).toBe(0);
-    expectVisibleDocumentPaint(evidence);
-    return { canvas: evidence.srgb.canvas, foreground: evidence.srgb.foreground };
+    expect(evidence.fallback.count).toBe(1);
+    expect(evidence.fallback.canvas).toBe("");
+    expect(evidence.fallback.foreground).toBe("");
+    expect(evidence.fallback.background).not.toBeNull();
+    expect(evidence.fallback.color).not.toBeNull();
+    expect(evidence.fallback.coversViewport).toBe(true);
+    expect(evidence.fallback.background?.[3]).toBe(255);
+    expect(
+      contrast(evidence.fallback.color as Rgba, evidence.fallback.background as Rgba),
+    ).toBeGreaterThanOrEqual(4.5);
+    return {
+      canvas: evidence.fallback.background as Rgba,
+      foreground: evidence.fallback.color as Rgba,
+    };
   }
 
   if (contract === "public-head") {
@@ -340,10 +345,7 @@ for (const route of routes) {
         } else {
           expect(stylesheetGate.heldUrls).toEqual([]);
         }
-        earlyPaint = expectPaint(
-          early,
-          route.requiresExternalStylesheet ? "public-head" : "streaming-fallback",
-        );
+        earlyPaint = expectPaint(early, route.earlyContract);
       } finally {
         stylesheetGate.release();
       }
@@ -361,10 +363,7 @@ for (const route of routes) {
       const loaded = await page.evaluate(
         () => (window as CfpWindow).__cfpCapture?.() as Evidence,
       );
-      expectPaint(
-        loaded,
-        route.requiresExternalStylesheet ? "public-head" : "loaded-streaming",
-      );
+      expectPaint(loaded, "public-head");
       expect(loaded.fallback.count).toBe(0);
       const earlyCanvas = earlyPaint.canvas;
       const earlyForeground = earlyPaint.foreground;
