@@ -200,12 +200,26 @@ for (const theme of ["dawn", "dusk", "night"] as const) {
     const errors = collectRuntimeErrors(page);
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(`${BASE_URL}/`, { waitUntil: "networkidle" });
+    const baseline = await readSurfaceEvidence(page);
+    const expectedThemeCanvas = await page.evaluate((selectedTheme) => {
+      const probe = document.createElement("span");
+      probe.style.color =
+        selectedTheme === "dawn"
+          ? "color-mix(in srgb, var(--brand-teal) 15%, white)"
+          : "var(--ink-100)";
+      document.body.appendChild(probe);
+      const expected = getComputedStyle(probe).color;
+      probe.remove();
+      return expected;
+    }, theme);
     await page.evaluate((selectedTheme) => {
       document.documentElement.dataset.theme = selectedTheme;
     }, theme);
 
     const evidence = await readSurfaceEvidence(page);
     expectCanvasContinuity(evidence);
+    expect(evidence.resolved.canvas).toBe(expectedThemeCanvas);
+    expect(evidence.resolved.canvas).not.toBe(baseline.resolved.canvas);
     expect(evidence.heroEngine).toBe("v2");
     expect(evidence.stackCount).toBe(1);
     expect(evidence.contentOpacity).toBe("1");
