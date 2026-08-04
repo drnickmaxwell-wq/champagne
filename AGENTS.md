@@ -150,6 +150,36 @@ apps/web/app/_components/** (EXCEPT HeroRenderer.tsx)
 packages/champagne-guards/**
 .github/workflows/**
 
+EXEMPTION — Champagne Design Laboratory PR #861 Review Repair (Founder-authorized)
+
+This one-time exemption applies only to draft PR #861 and expires when PR #861 is
+merged, closed, or abandoned. It grants no reusable authority to another PR or lane.
+
+Agents MAY modify exactly these review-repair paths:
+- AGENTS.md
+- scripts/verify-token-purity.cjs
+- apps/web/middleware.ts
+- apps/web/app/components/hero/v2/HeroRendererV2.tsx
+- apps/web/app/champagne/hero-lab/design/persian-materials.json
+- apps/web/app/champagne/hero-lab/design/porcelain-materials.json
+- apps/web/public/assets/champagne/design-lab/imports/headers.json
+
+Scope:
+- Preserve the selected laboratory route during Hero V2 client hydration by preferring
+  the already-supported explicit pageSlugOrPath prop over the ambient lab pathname.
+- Extend only the existing Champagne route gate matcher to the design-lab static assets.
+- Record the two exact laboratory material candidate files in token-purity targetFiles
+  and report their measured/picker colour literals as scoped laboratory evidence.
+- Correct B035 preview metadata to the authentic 721x75 source-board crop.
+- No final Persian selection, no production token calibration, no layout/content change,
+  no new dependency, no workflow weakening, no merge, and no production deployment.
+- Hero semantics, manifests, motion, surfaces, PRM and production callers remain unchanged.
+
+Hard stop:
+- PR #861 must remain draft and unmerged.
+- After PR #864 is merged, PR #861 requires a controlled refresh onto the accepted main
+  merge commit, the complete proving ladder, and a fresh exact-head Codex review.
+
 EXEMPTION — PASS T1 Token Binding (Director-authorized)
 Agents MAY modify:
 - packages/champagne-tokens/styles/**

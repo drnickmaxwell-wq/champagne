@@ -385,7 +385,7 @@
       "usableInPageComposition": false,
       "preview": {
         "asset": "headers/previews/CVA-HEADER-B035-E01.png",
-        "width": 864,
+        "width": 721,
         "height": 75,
         "faithfulCrop": true
       },
@@ -397,7 +397,7 @@
         "crop": {
           "x": 0,
           "y": 0,
-          "width": 864,
+          "width": 721,
           "height": 75
         }
       },

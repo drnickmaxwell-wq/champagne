@@ -753,7 +753,7 @@ export function HeroContentV2({
 export function HeroRendererV2(props: HeroRendererV2Props) {
   const rawPathname = usePathname();
   const searchParams = useSearchParams();
-  const pathnameKey = normalizeHeroPathname(rawPathname);
+  const pathnameKey = normalizeHeroPathname(props.pageSlugOrPath ?? rawPathname);
   const {
     mode,
     treatmentSlug,

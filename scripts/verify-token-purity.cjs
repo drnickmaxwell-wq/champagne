@@ -3,12 +3,18 @@ const path = require("node:path");
 
 const repoRoot = path.resolve(__dirname, "..");
 
+const designLabRuntimeRoot = path.resolve(
+  repoRoot,
+  "apps/web/app/champagne/hero-lab/design",
+);
+
 const runtimeRoots = [
   "packages/champagne-sections/src",
   "packages/champagne-cta/src",
   "apps/web/app",
   "packages/champagne-hero/src",
 ].map((dir) => path.resolve(repoRoot, dir));
+runtimeRoots.push(designLabRuntimeRoot);
 
 const runtimeExclusions = [
   "apps/web/app/champagne/hero-preview",
@@ -26,6 +32,11 @@ const tokenSourceFiles = [
   "packages/champagne-tokens/styles/champagne/theme.css",
   "packages/champagne-tokens/styles/champagne/time-of-day.css",
   "packages/champagne-tokens/styles/champagne/tokens.css",
+].map((file) => path.resolve(repoRoot, file));
+
+const targetFiles = [
+  "apps/web/app/champagne/hero-lab/design/persian-materials.json",
+  "apps/web/app/champagne/hero-lab/design/porcelain-materials.json",
 ].map((file) => path.resolve(repoRoot, file));
 
 const allowedExtensions = new Set([
@@ -110,8 +121,12 @@ const isTokenSourceFile = (filePath) =>
   tokenSourceFiles.includes(filePath) ||
   tokenSourceRoots.some((root) => isWithin(filePath, root));
 
-const isRuntimeExcluded = (filePath) =>
-  runtimeExclusions.some((root) => isWithin(filePath, root));
+const isRuntimeExcluded = (filePath) => {
+  if (isWithin(filePath, designLabRuntimeRoot)) {
+    return targetFiles.includes(filePath);
+  }
+  return runtimeExclusions.some((root) => isWithin(filePath, root));
+};
 
 const hasAllowedExtension = (filePath) => allowedExtensions.has(path.extname(filePath));
 
@@ -229,7 +244,11 @@ const reportMatches = (label, matches, log) => {
 const run = async () => {
   const runtimeFiles = (
     await Promise.all(
-      runtimeRoots.map((root) => collectFiles(root, { excludeDirs: runtimeExclusions })),
+      runtimeRoots.map((root) =>
+        collectFiles(root, {
+          excludeDirs: root === designLabRuntimeRoot ? [] : runtimeExclusions,
+        }),
+      ),
     )
   )
     .flat()
@@ -245,6 +264,7 @@ const run = async () => {
 
   const forbiddenMatches = [];
   const allowedMatches = [];
+  const scopedLaboratoryMatches = [];
 
   for (const filePath of runtimeFiles) {
     if (isTokenSourceFile(filePath)) {
@@ -262,6 +282,11 @@ const run = async () => {
     allowedMatches.push(...matches);
   }
 
+  for (const filePath of targetFiles) {
+    const matches = await scanFile(filePath);
+    scopedLaboratoryMatches.push(...matches);
+  }
+
   if (process.argv.includes("--demo")) {
     reportMatches("Allowed literals: token source", sampleAllowedReport, console.log);
     console.log("");
@@ -272,6 +297,12 @@ const run = async () => {
   }
 
   reportMatches("Allowed literals: token source", allowedMatches, console.log);
+  console.log("");
+  reportMatches(
+    "Allowed literals: scoped Champagne Design Laboratory material candidates",
+    scopedLaboratoryMatches,
+    console.log,
+  );
 
   if (forbiddenMatches.length > 0) {
     console.error("");
