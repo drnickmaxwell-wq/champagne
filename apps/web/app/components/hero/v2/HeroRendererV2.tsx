@@ -15,6 +15,7 @@ export interface HeroRendererV2Props {
   mode?: HeroMode;
   treatmentSlug?: string;
   pageSlugOrPath?: string;
+  pathnameOverride?: string;
   debug?: boolean;
   prm?: boolean;
   timeOfDay?: HeroTimeOfDay;
@@ -753,7 +754,7 @@ export function HeroContentV2({
 export function HeroRendererV2(props: HeroRendererV2Props) {
   const rawPathname = usePathname();
   const searchParams = useSearchParams();
-  const pathnameKey = normalizeHeroPathname(props.pageSlugOrPath ?? rawPathname);
+  const pathnameKey = normalizeHeroPathname(props.pathnameOverride ?? rawPathname);
   const {
     mode,
     treatmentSlug,
