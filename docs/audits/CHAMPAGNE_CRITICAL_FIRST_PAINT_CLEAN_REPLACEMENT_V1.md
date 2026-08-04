@@ -96,7 +96,7 @@ The internal lab is retained as a first-paint route but its Hero presence is not
 
 ## Verification evidence
 
-At implementation head `cda76c4790c5f3614a21a05ac8cefcba3cf9c6e5`, before this evidence-only receipt update:
+At exact candidate head `2b3e639e33667526ae7603a31618e8d839f22d2f`:
 
 - generator and adversarial tests: `8 passed`;
 - exact material-status contradiction rejection: passed;
@@ -111,7 +111,7 @@ At implementation head `cda76c4790c5f3614a21a05ac8cefcba3cf9c6e5`, before this e
 - full umbrella `verify`: passed;
 - CodeQL, Semgrep, Trivy, Gitleaks and SBOM: passed.
 
-This receipt update creates a new candidate head. Fresh exact-head CI, security and Codex review are mandatory before any audit or merge decision. A pending external check must never be represented as passed.
+Fresh exact-head Codex review remains mandatory before any audit or merge decision.
 
 ## Known bounded follow-up
 
@@ -123,8 +123,8 @@ The internal Champagne lab can expose the global Hero when explicitly unlocked i
 
 This is a Champagne-local golden-tenant evidence candidate only.
 
-- Structured generator and mutation fixtures: `FIXTURE_PROVEN` at implementation head `cda76c4790c5f3614a21a05ac8cefcba3cf9c6e5`.
-- Visitor-facing and internal-lab browser first-paint behaviour: `LIVE_READ_PROVEN` at implementation head `cda76c4790c5f3614a21a05ac8cefcba3cf9c6e5`, subject to mandatory fresh exact-head reconfirmation after this receipt update.
+- Structured generator and mutation fixtures: `FIXTURE_PROVEN` at exact candidate head `2b3e639e33667526ae7603a31618e8d839f22d2f`.
+- Visitor-facing and internal-lab browser first-paint behaviour: `LIVE_READ_PROVEN` at exact candidate head `2b3e639e33667526ae7603a31618e8d839f22d2f`.
 - WEOS runtime, lane readiness, Router consumption and cross-repository registration: **not claimed**.
 
 Any future import, reconciliation or readiness update inside `drnickmaxwell-wq/agent` requires separate exact Founder authority after Router recovery. Existing WEOS claim-evidence and readiness machinery should consume a final accepted Champagne packet rather than this Champagne lane mutating WEOS directly.
@@ -133,7 +133,7 @@ Any future import, reconciliation or readiness update inside `drnickmaxwell-wq/a
 
 - Founder authorised the exact Champagne repository, base, branch, operation, path ceiling, exclusions and expiry.
 - No authority has been issued to mark ready, merge, deploy, mutate `agent`, or register evidence in WEOS.
-- PR #865 must remain draft and unmerged pending exact-head CI, fresh Codex review, independent audit and a later Founder merge decision.
+- PR #865 must remain draft and unmerged pending fresh exact-head Codex review, independent audit and a later Founder merge decision.
 
 ## Rollback
 
