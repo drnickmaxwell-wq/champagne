@@ -30,6 +30,7 @@ const OUTPUT_KEYS = new Set(["canvas", "foreground"]);
 const ALLOWED_SPACES = new Set(["oklab", "srgb"]);
 const HEX_LITERAL = /^#[0-9A-F]{6}$/;
 const TOKEN_NAME = /^--[a-z0-9-]+$/;
+const MATERIAL_STATUS = "CURRENT_APPROVED_MATERIAL_NOT_FINAL_PERSIAN_MIDNIGHT";
 
 function assertObject(value, label) {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -130,6 +131,9 @@ export function validateMaterialSource(source, primitiveCss) {
   }
   if (typeof source.materialId !== "string" || source.materialId.length < 3) {
     throw new Error("[MATERIAL_ID] materialId must be a non-empty stable identifier");
+  }
+  if (source.status !== MATERIAL_STATUS) {
+    throw new Error(`[MATERIAL_STATUS] status must remain ${MATERIAL_STATUS}`);
   }
   if (source.finalPersianMidnightSelection !== false) {
     throw new Error("[PERSIAN_MIDNIGHT_AUTHORITY] final selection must remain false");
