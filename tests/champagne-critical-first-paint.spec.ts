@@ -255,10 +255,10 @@ function expectVisibleDocumentPaint(evidence: Evidence) {
 }
 
 function expectDocumentPaint(evidence: Evidence) {
-  expect(evidence.inline.rootCanvas).not.toBe("");
-  expect(evidence.inline.rootCanvas).toBe(evidence.inline.bodyCanvas);
-  expect(evidence.inline.rootForeground).not.toBe("");
-  expect(evidence.inline.rootForeground).toBe(evidence.inline.bodyForeground);
+  expect(evidence.inline.rootCanvas).toBe("");
+  expect(evidence.inline.bodyCanvas).toBe("");
+  expect(evidence.inline.rootForeground).toBe("");
+  expect(evidence.inline.bodyForeground).toBe("");
   expectVisibleDocumentPaint(evidence);
 }
 
