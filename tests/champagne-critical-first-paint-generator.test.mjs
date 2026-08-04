@@ -48,6 +48,11 @@ test("current material renders byte-stable loaded and critical outputs", () => {
   assert.match(first.css, /--surface-canvas: var\(--brand-ink\)/);
   assert.match(first.ts, /export const champagneCriticalPaintCss/);
   assert.doesNotMatch(first.ts, /\bimport\s|\brequire\s*\(/);
+  assert.deepEqual(first.documentStyle, {
+    background: "var(--surface-canvas)",
+    color: "var(--text-ink-high)",
+  });
+  assert.equal(Object.keys(first.documentStyle).some((property) => property.startsWith("--")), false);
 });
 
 test("semantic source changes alter both generated outputs", () => {
