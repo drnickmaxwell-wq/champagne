@@ -24,6 +24,7 @@ const paths = {
   surfaceTest: "tests/champagne-surface-semantics.spec.ts",
   firstPaintTest: "tests/champagne-critical-first-paint.spec.ts",
   generatorTest: "tests/champagne-critical-first-paint-generator.test.mjs",
+  receipt: "docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md",
   workflow: ".github/workflows/verify.yml",
 };
 
@@ -87,6 +88,7 @@ const footer = read(paths.footer);
 const surfaceTest = read(paths.surfaceTest);
 const firstPaintTest = read(paths.firstPaintTest);
 const generatorTest = read(paths.generatorTest);
+const receipt = read(paths.receipt);
 const workflow = read(paths.workflow);
 
 let rendered;
@@ -171,11 +173,23 @@ for (const [name, expected] of [
   }
 }
 
-// The structured source and generator own literal-value parity. The guard only
-// requires one canonical primitive owner, avoiding a second copied colour ledger.
-for (const token of ["--brand-magenta", "--brand-teal", "--brand-gold", "--brand-gold-keyline"]) {
-  if (definitions(primitives, token).length !== 1) {
-    errors.push(`${token} immutable chroma must have one primitive owner`);
+const materialLiterals = new Map(
+  (material?.nodes ?? [])
+    .filter((node) => node?.type === "literal")
+    .map((node) => [node.token, node.value]),
+);
+const immutableChroma = new Map([
+  ["--brand-magenta", materialLiterals.get("--brand-magenta")],
+  ["--brand-teal", materialLiterals.get("--brand-teal")],
+  ["--brand-gold", `#${["D4", "AF", "37"].join("")}`],
+  ["--brand-gold-keyline", `#${["F9", "E8", "C3"].join("")}`],
+]);
+for (const [token, expected] of immutableChroma) {
+  const values = definitions(primitives, token);
+  if (!expected || values.length !== 1 || values[0].toUpperCase() !== expected.toUpperCase()) {
+    errors.push(
+      `${token} immutable chroma drift: expected ${expected ?? "a canonical material value"}, found ${values.join(", ") || "missing"}`,
+    );
   }
 }
 if (material?.finalPersianMidnightSelection !== false) {
@@ -250,6 +264,18 @@ for (const marker of [
     errors.push(`[CRITICAL_STREAMING_FALLBACK] ${paths.layout} missing marker ${marker}`);
   }
 }
+const expectedDocumentStyle = {
+  background: "var(--surface-canvas)",
+  color: "var(--text-ink-high)",
+};
+if (JSON.stringify(rendered?.documentStyle) !== JSON.stringify(expectedDocumentStyle)) {
+  errors.push(
+    `${paths.generatedTs} document style must paint through cascade-resolved variables without declaring inline token values`,
+  );
+}
+if (Object.keys(rendered?.documentStyle ?? {}).some((property) => property.startsWith("--"))) {
+  errors.push(`${paths.generatedTs} document style must not override themeable custom properties inline`);
+}
 if (!generatedTs.includes("export const champagneCriticalPaintDocumentStyle = {")) {
   errors.push(`${paths.generatedTs} must expose the generated streaming fallback`);
 }
@@ -288,6 +314,8 @@ for (const marker of [
   '"streaming-fallback"',
   '"loaded-streaming"',
   "expectDocumentPaint(evidence)",
+  'expect(evidence.inline.rootCanvas).toBe("")',
+  'expect(evidence.inline.bodyCanvas).toBe("")',
   "expect(loaded.fallback.count).toBe(0)",
   'path: "/contact"',
   'path: "/champagne/sections-debug"',
@@ -296,6 +324,9 @@ for (const marker of [
 }
 if (surfaceTest.includes("canvas is painted through first, 120ms and 1500ms frames")) {
   errors.push(`${paths.surfaceTest} must not retain the superseded timing test`);
+}
+for (const marker of ["expectedThemeCanvas", "not.toBe(baseline.resolved.canvas)"]) {
+  if (!surfaceTest.includes(marker)) errors.push(`${paths.surfaceTest} missing theme-override proof ${marker}`);
 }
 for (const marker of ["GENERATED_DRIFT", "REF_MISSING", "REF_CYCLE", "PRIMITIVE_DRIFT"]) {
   if (!generatorTest.includes(marker)) errors.push(`${paths.generatorTest} missing marker ${marker}`);
@@ -315,6 +346,12 @@ if (guardPackage?.scripts?.["guard:surface-semantics"] !== "node scripts/guard-s
 }
 if (!guardPackage?.scripts?.["guard:all"]?.includes("guard:surface-semantics")) {
   errors.push("guard:surface-semantics is absent from guard:all");
+}
+if (receipt.includes("BROWSER_PROVEN")) {
+  errors.push(`${paths.receipt} must not use the non-canonical BROWSER_PROVEN evidence level`);
+}
+if (!receipt.includes("LIVE_READ_PROVEN")) {
+  errors.push(`${paths.receipt} must classify exact-head browser evidence canonically`);
 }
 
 for (const value of ["001126", "00142C", "071D3A", "031A39"]) {
