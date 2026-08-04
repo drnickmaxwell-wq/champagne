@@ -46,6 +46,7 @@ export default async function ChampagneDesignLabPage({
             {...heroProps}
             initialModel={heroModel}
             initialPathname={route}
+            pathnameOverride={route}
           />
         </div>
       }
