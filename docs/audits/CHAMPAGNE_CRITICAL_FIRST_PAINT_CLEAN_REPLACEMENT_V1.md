@@ -94,24 +94,21 @@ The browser matrix withholds real Next external stylesheets and requires:
 
 The internal lab is retained as a first-paint route but its Hero presence is not treated as part of this PR's contract. The existing request-path-derived Hero routing behaviour is present on the authorised main base and is a separate route-architecture concern. Public Hero assertions and the dedicated Hero lifecycle/navigation tests remain mandatory.
 
-## Verification evidence
+## Verification evidence contract
 
-The implementation and final evidence-receipt heads completed the complete proving ladder successfully:
+The required proving ladder is:
 
-- generator and adversarial tests: `8 passed`;
-- exact material-status contradiction rejection: passed;
-- generated-byte freshness and byte-clean regeneration: passed;
-- recursive application-CSS generated-owner scan: passed;
-- lint and TypeScript: passed;
-- production web build: passed;
-- workspace, canon, Hero, rogue-colour, surface-semantics and token-binding guards: passed;
-- Stage B real-internal-HTML route proof: passed;
-- Stage B Chromium matrix: `19 passed`;
-- required internal-route streaming-fallback proof: passed;
-- full umbrella `verify`: passed;
-- CodeQL, Semgrep, Trivy, Gitleaks and SBOM: passed.
+- generator and adversarial tests, including exact material-status contradiction rejection;
+- generated-byte freshness and byte-clean regeneration;
+- recursive application-CSS generated-owner scan;
+- lint, TypeScript and production web build;
+- workspace, canon, Hero, rogue-colour, surface-semantics and token-binding guards;
+- Stage B real-internal-HTML route proof;
+- Stage B Chromium matrix with the required internal-route streaming fallback;
+- full umbrella `verify`;
+- CodeQL, Semgrep, Trivy, Gitleaks and SBOM.
 
-The exact current head is recorded in the pull-request metadata and exact-head Codex review request rather than embedded here, avoiding a self-referential moving receipt.
+Exact execution results and the exact reviewed head belong in immutable GitHub check records, pull-request metadata and the exact-head Codex request. This repository receipt defines the evidence contract and does not make self-referential claims about the commit containing itself.
 
 ## Known bounded follow-up
 
@@ -123,9 +120,9 @@ The internal Champagne lab can expose the global Hero when explicitly unlocked i
 
 This is a Champagne-local golden-tenant evidence candidate only.
 
-- Structured generator and mutation fixtures: `FIXTURE_PROVEN`, exact-head confirmed by the pull-request checks.
-- Visitor-facing and internal-lab browser first-paint behaviour: `LIVE_READ_PROVEN`, exact-head confirmed by the pull-request checks.
-- WEOS runtime, lane readiness, Router consumption and cross-repository registration: **not claimed**.
+- Structured generator and mutation fixtures require `FIXTURE_PROVEN` evidence.
+- Visitor-facing and internal-lab browser first-paint behaviour require `LIVE_READ_PROVEN` evidence.
+- WEOS runtime, lane readiness, Router consumption and cross-repository registration are **not claimed**.
 
 Any future import, reconciliation or readiness update inside `drnickmaxwell-wq/agent` requires separate exact Founder authority after Router recovery. Existing WEOS claim-evidence and readiness machinery should consume a final accepted Champagne packet rather than this Champagne lane mutating WEOS directly.
 
@@ -133,7 +130,7 @@ Any future import, reconciliation or readiness update inside `drnickmaxwell-wq/a
 
 - Founder authorised the exact Champagne repository, base, branch, operation, path ceiling, exclusions and expiry.
 - No authority has been issued to mark ready, merge, deploy, mutate `agent`, or register evidence in WEOS.
-- PR #865 must remain draft and unmerged pending fresh exact-head Codex review, independent audit and a later Founder merge decision.
+- PR #865 must remain draft and unmerged pending successful exact-head proof, fresh Codex review, independent audit and a later Founder merge decision.
 
 ## Rollback
 
