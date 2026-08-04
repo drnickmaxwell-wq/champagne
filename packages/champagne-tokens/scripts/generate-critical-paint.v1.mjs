@@ -221,9 +221,6 @@ export function renderMaterial(source, primitiveCss) {
 
   const criticalCss = `:where(:root){--surface-canvas:${criticalCanvas};--bg-ink:var(--surface-canvas);--text-ink-high:${criticalForeground}}:where(html),:where(body){background:var(--surface-canvas);color:var(--text-ink-high)}`;
   const documentStyle = {
-    "--surface-canvas": criticalCanvas,
-    "--bg-ink": "var(--surface-canvas)",
-    "--text-ink-high": criticalForeground,
     background: "var(--surface-canvas)",
     color: "var(--text-ink-high)",
   };
