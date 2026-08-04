@@ -125,7 +125,7 @@ for (const [token, expected] of generatedOwners) {
 
 const cssFiles = [
   ...collectCss(absolute("packages/champagne-tokens/styles")),
-  absolute("apps/web/app/globals.css"),
+  ...collectCss(absolute("apps/web/app")),
 ];
 for (const token of generatedOwners.keys()) {
   const invalidOwners = [];
@@ -310,6 +310,8 @@ for (const marker of [
   "directHeadChildren).toEqual([true])",
   'style[data-champagne-critical-paint="v1"]',
   "fallback.coversViewport",
+  'earlyContract: "streaming-fallback"',
+  'expect(evidence.fallback.count).toBe(1)',
   '"public-head"',
   '"streaming-fallback"',
   '"loaded-streaming"',
@@ -328,7 +330,14 @@ if (surfaceTest.includes("canvas is painted through first, 120ms and 1500ms fram
 for (const marker of ["expectedThemeCanvas", "not.toBe(baseline.resolved.canvas)"]) {
   if (!surfaceTest.includes(marker)) errors.push(`${paths.surfaceTest} missing theme-override proof ${marker}`);
 }
-for (const marker of ["GENERATED_DRIFT", "REF_MISSING", "REF_CYCLE", "PRIMITIVE_DRIFT"]) {
+for (const marker of [
+  "GENERATED_DRIFT",
+  "MATERIAL_STATUS",
+  "PERSIAN_MIDNIGHT_AUTHORITY",
+  "REF_MISSING",
+  "REF_CYCLE",
+  "PRIMITIVE_DRIFT",
+]) {
   if (!generatorTest.includes(marker)) errors.push(`${paths.generatorTest} missing marker ${marker}`);
 }
 for (const marker of [
