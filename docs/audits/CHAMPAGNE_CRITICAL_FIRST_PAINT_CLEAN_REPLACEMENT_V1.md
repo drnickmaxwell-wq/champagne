@@ -30,11 +30,11 @@ The source is a closed expression graph rather than arbitrary CSS text. One dete
 1. `packages/champagne-tokens/styles/champagne/canvas-material.generated.css`
 2. `packages/champagne-tokens/src/critical-paint.generated.ts`
 
-The loaded token stylesheet imports the generated CSS. The root layout imports the leaf-pure generated TypeScript module by its repository-relative generated-source path and emits one unconditional marked style directly inside the document head. The token package also exposes `@champagne/tokens/critical-paint`, but the web application does not consume that package subpath in this PR because doing so correctly requires an explicit web workspace dependency and regenerated lockfile. That separate package-boundary cleanup was not smuggled into this repair.
+The loaded token stylesheet imports the generated CSS. The root layout imports the leaf-pure generated TypeScript module by its repository-relative generated-source path and emits one unconditional marked style directly inside the document head. The token package also exposes `@champagne/tokens/critical-paint`, but the web application does not consume that package subpath in this PR because doing so correctly requires an explicit web workspace dependency and regenerated lockfile. That separate package-boundary cleanup is disclosed rather than approximated.
 
-The generated document style also protects the HTML and body roots, and a generated Suspense fallback covers any streamed gap before request-dependent content resolves. All three consumers derive from the same canonical material graph.
+The direct-head resource establishes the default concrete custom-property values before external CSS arrives. The generated document style paints HTML and body through `var(--surface-canvas)` and `var(--text-ink-high)` without declaring those custom properties inline. This preserves the later cascade authority of the approved dawn, dusk and night theme selectors. A generated Suspense fallback covers any streamed gap before request-dependent content resolves. All consumers derive from the same material graph.
 
-The generator validates source shape, node identity, references, cycles, integer weights, opaque canvas output and parity with immutable Champagne primitive tokens. Check mode compares exact committed bytes without modifying the worktree. Write mode is limited to the two generated paths and uses temporary sibling files plus atomic rename.
+The generator validates source shape, node identity, references, cycles, integer weights, opaque canvas output and parity with the material graph's primitive tokens. Check mode compares exact committed bytes without modifying the worktree. Write mode is limited to the two generated paths and uses temporary sibling files plus atomic rename.
 
 ## Product truth preserved
 
@@ -47,20 +47,34 @@ The current approved material is transcribed without visual calibration:
 - canvas recipe: existing nested `oklab` mixes at `88/12` then `92/8`
 - readable foreground: existing `96%` white-to-transparent `oklab` mix
 
+The surface guard separately preserves the exact immutable values of `--brand-gold` and `--brand-gold-keyline`, because those primitives are intentionally outside the first-paint material graph.
+
 `finalPersianMidnightSelection` remains `false`. Sacred Hero source, motion semantics, content, booking, chatbot and clinical meaning are unchanged.
+
+## Codex correction incorporated
+
+The first exact-head Codex review identified three valid issues:
+
+1. exact immutable-gold validation had been reduced to a definition-count check;
+2. inline custom-property declarations prevented dawn, dusk and night from overriding the default canvas;
+3. the former browser-specific label was not a canonical evidence level.
+
+This correction restores exact gold and gold-keyline checks, removes inline theme-token ownership while retaining immediate paint, adds exact browser proof that every approved time-of-day theme changes the canvas, and uses the canonical evidence vocabulary below.
 
 ## Stage B harness truth
 
-The production middleware continues to return 404 for `/champagne/*` routes unless `ALLOW_CHAMPAGNE_ROUTES=true`. Production behaviour was not changed.
+The production middleware continues to return 404 for `/champagne/*` routes unless `ALLOW_CHAMPAGNE_ROUTES=true`. Production behaviour is unchanged.
 
 The Stage B regression job sets `ALLOW_CHAMPAGNE_ROUTES=true` only in its test environment. Before Chromium runs, it proves that `/champagne/sections-debug` returns successful HTML containing the real `Sections Debugger` page rather than the protected JSON 404 response.
 
-The browser matrix then withholds real Next external stylesheets and requires:
+The browser matrix withholds real Next external stylesheets and requires:
 
 - one marked direct-head critical style where contractually observable;
 - an opaque early canvas and readable foreground;
 - exact early-versus-loaded sRGB canvas and foreground equality;
+- no inline `--surface-canvas` or `--text-ink-high` ownership on HTML or body;
 - transparent content surfaces above the canonical canvas;
+- exact dawn, dusk and night theme canvas resolution after loaded CSS;
 - no browser or console errors;
 - preserved Hero V2 transparency, one-stack identity and visible content on public routes;
 - home, implant-treatment, contact and internal-lab route coverage across mobile, desktop and reduced-motion combinations.
@@ -69,7 +83,7 @@ The internal lab is retained as a first-paint route but its Hero presence is not
 
 ## Verification evidence
 
-At implementation head `02639104e5905a9132afc066761a7cb21bbb71e4`, before this evidence-only receipt update:
+At predecessor head `2bac4a4bde1972f0ebb1d97fd74bc90045146da4`:
 
 - generator tests: `7 passed`;
 - generated-byte freshness and byte-clean regeneration: passed;
@@ -81,7 +95,7 @@ At implementation head `02639104e5905a9132afc066761a7cb21bbb71e4`, before this e
 - full umbrella `verify`: passed;
 - CodeQL, Semgrep, Trivy, Gitleaks and SBOM: passed.
 
-This documentation-only update must receive a fresh exact-head CI and security result before Codex review. A pending external check must never be represented as passed.
+That head is superseded by the Codex correction. Fresh exact-head CI, security and Codex review are mandatory before any audit or merge decision. A pending external check must never be represented as passed.
 
 ## Known bounded follow-up
 
@@ -94,7 +108,7 @@ The internal Champagne lab can expose the global Hero when explicitly unlocked i
 This is a Champagne-local golden-tenant evidence candidate only.
 
 - Structured generator and mutation fixtures: `FIXTURE_PROVEN`.
-- Visitor-facing and internal-lab browser first-paint behaviour: `BROWSER_PROVEN` at the recorded implementation head, subject to fresh exact-head confirmation after this receipt update.
+- Visitor-facing and internal-lab browser first-paint behaviour: `LIVE_READ_PROVEN` at the predecessor implementation head, subject to mandatory fresh exact-head reconfirmation after the Codex correction.
 - WEOS runtime, lane readiness, Router consumption and cross-repository registration: **not claimed**.
 
 Any future import, reconciliation or readiness update inside `drnickmaxwell-wq/agent` requires separate exact Founder authority after Router recovery. Existing WEOS claim-evidence and readiness machinery should consume a final accepted Champagne packet rather than this Champagne lane mutating WEOS directly.
@@ -103,7 +117,7 @@ Any future import, reconciliation or readiness update inside `drnickmaxwell-wq/a
 
 - Founder authorised the exact Champagne repository, base, branch, operation, path ceiling, exclusions and expiry.
 - No authority has been issued to mark ready, merge, deploy, mutate `agent`, or register evidence in WEOS.
-- PR #865 must remain draft and unmerged pending exact-head CI, Codex review, independent audit and a later Founder merge decision.
+- PR #865 must remain draft and unmerged pending exact-head CI, fresh Codex review, independent audit and a later Founder merge decision.
 
 ## Rollback
 
