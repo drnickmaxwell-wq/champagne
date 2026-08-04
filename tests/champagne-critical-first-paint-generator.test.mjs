@@ -72,6 +72,19 @@ test("unknown keys fail closed", () => {
   assert.throws(() => renderMaterial(changed, primitiveCss), /unknown key/);
 });
 
+test("material status and final-selection truth fail closed together", () => {
+  const contradictoryStatus = clone(source);
+  contradictoryStatus.status = "FINAL_PERSIAN_MIDNIGHT_SELECTED";
+  assert.throws(() => renderMaterial(contradictoryStatus, primitiveCss), /MATERIAL_STATUS/);
+
+  const selectedWithoutAuthority = clone(source);
+  selectedWithoutAuthority.finalPersianMidnightSelection = true;
+  assert.throws(
+    () => renderMaterial(selectedWithoutAuthority, primitiveCss),
+    /PERSIAN_MIDNIGHT_AUTHORITY/,
+  );
+});
+
 test("missing references and cycles fail deterministically", () => {
   const missing = clone(source);
   missing.outputs.canvas = "missingNode";
