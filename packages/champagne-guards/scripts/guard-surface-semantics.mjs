@@ -47,6 +47,7 @@ const paths = {
  timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
  exports: "packages/champagne-tokens/src/index.ts",
  layout: "apps/web/app/layout.tsx",
+ nextConfig: "apps/web/next.config.mjs",
  footer: "apps/web/app/components/layout/Footer.tsx",
  guardPkg: "packages/champagne-guards/package.json",
  receipt: "docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md",
@@ -100,6 +101,7 @@ async function main() {
  const timeOfDay = read(paths.timeOfDay);
  const exportsText = read(paths.exports);
  const layout = read(paths.layout);
+ const nextConfig = read(paths.nextConfig);
  const footer = read(paths.footer);
  const receipt = read(paths.receipt);
  const workflow = read(paths.workflow);
@@ -169,6 +171,14 @@ async function main() {
  if (footerBindings.length !== 1 || footerBindings[0] !== "var(--surface-footer-emotion)") {
   errors.push("footer background must remain bound to --surface-footer-emotion");
  }
+ if (
+  count(nextConfig, "inlineCss: true") !== 1 ||
+  !/experimental\s*:\s*\{[\s\S]*?inlineCss\s*:\s*true\s*,?[\s\S]*?\}/.test(nextConfig)
+ ) {
+  errors.push(
+   `[FIRST_PAINT_INLINE_CSS] ${paths.nextConfig} must enable experimental.inlineCss exactly once`,
+  );
+ }
  for (const issue of themeAndLayoutContractErrors({ theme, layout, genTs, rendered, tokenPkg, paths })) {
   errors.push(issue);
  }
@@ -219,7 +229,7 @@ async function main() {
   return;
  }
  console.log(
-  "✅ Surface semantics guard passed: protected static CSS declarations, registrations and statically discoverable application mutation channels are governed.",
+  "✅ Surface semantics guard passed: protected static CSS declarations, registrations, statically discoverable application mutation channels and render-unblocking CSS delivery are governed.",
  );
 }
 const invokedPath = process.argv[1] ? path.resolve(process.argv[1]) : "";
