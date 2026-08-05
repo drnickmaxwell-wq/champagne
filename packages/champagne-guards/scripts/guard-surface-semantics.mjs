@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { checkGenerated } from "../../../packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs";
@@ -17,6 +17,46 @@ export {
   parseCssDefinitions,
   timeOfDayCanvasOwnerErrors,
 } from "./surface-semantics-contract.v1.mjs";
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
+const absolute = (file) => path.join(repoRoot, file);
+const paths = {
+ rootPkg: "package.json",
+ primitives: "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
+ tokens: "packages/champagne-tokens/styles/champagne/tokens.css",
+ genCss: "packages/champagne-tokens/styles/champagne/canvas-material.generated.css",
+ genTs: "packages/champagne-tokens/src/critical-paint.generated.ts",
+ material: "packages/champagne-tokens/src/canvas-material.v1.json",
+ tokenPkg: "packages/champagne-tokens/package.json",
+ theme: "packages/champagne-tokens/styles/champagne/theme.css",
+ timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
+ exports: "packages/champagne-tokens/src/index.ts",
+ layout: "apps/web/app/layout.tsx",
+ footer: "apps/web/app/components/layout/Footer.tsx",
+ guardPkg: "packages/champagne-guards/package.json",
+ receipt: "docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md",
+ workflow: ".github/workflows/verify.yml",
+};
+const errors = [];
+function read(file) {
+ const target = absolute(file);
+ if (!existsSync(target)) { errors.push(`missing required path: ${file}`); return ""; }
+ return readFileSync(target, "utf8");
+}
+function json(file) {
+ try { return JSON.parse(read(file)); }
+ catch (error) { errors.push(`unable to parse ${file}: ${error.message}`); return null; }
+}
+function declarations(source, label = "CSS input", issues = errors) {
+ try { return parseCssDeclarations(source); }
+ catch (error) {
+  issues.push(`[CSS_DECLARATION_PARSE] ${label}: ${error instanceof Error ? error.message : String(error)}`);
+  return [];
+ }
+}
+function definitions(source, token, label = "CSS input") {
+ return declarations(source, label).filter((item) => item.property === token).map((item) => item.value);
+}
+function count(source, needle) { return source.split(needle).length - 1; }
 function collectCss(root) {
   try {
     return collectCssFiles(root, repoRoot);
@@ -30,9 +70,7 @@ async function main() {
  const guardPkg = json(paths.guardPkg);
  const tokenPkg = json(paths.tokenPkg);
  const material = json(paths.material);
- const primitives = read(paths.primitives);
  const tokens = read(paths.tokens);
- const genCss = read(paths.genCss);
  const genTs = read(paths.genTs);
  const theme = read(paths.theme);
  const timeOfDay = read(paths.timeOfDay);
