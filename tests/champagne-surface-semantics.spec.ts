@@ -1,4 +1,8 @@
 import { expect, test, type Page } from "playwright/test";
+import {
+  parseCssDefinitions,
+  parseCssPropertyRegistrations,
+} from "../packages/champagne-guards/scripts/guard-surface-semantics.mjs";
 
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3000";
 const TRANSPARENT = new Set(["transparent", "rgba(0, 0, 0, 0)"]);
@@ -227,3 +231,54 @@ for (const theme of ["dawn", "dusk", "night"] as const) {
     expect(errors.consoleErrors).toEqual([]);
   });
 }
+
+test("shared parser fixtures are correlated with Chromium and expose no guard bypass", async ({ page }) => {
+  const fixtures = [
+    { name: "direct declaration", css: ":root{--surface-canvas:rgb(1 2 3)}", expected: "browser-effective owner" },
+    { name: "hexadecimal escape", css: String.raw`:root{--surface-\63 anvas:rgb(1 2 3)}`, expected: "browser-effective owner" },
+    { name: "escape terminating whitespace", css: String.raw`:root{--\73 urface-canvas:rgb(1 2 3)}`, expected: "browser-effective owner" },
+    { name: "comment-separated name", css: ":root{--surface/**/-canvas:rgb(1 2 3)}", expected: "invalid in browser" },
+    { name: "quoted decoy", css: `:root{content:"--surface-canvas:rgb(1 2 3)"}`, expected: "invalid in browser" },
+    { name: "bad-string recovery", css: `:root{--decoy:"bad\n;--surface-canvas:rgb(1 2 3);/* " */}`, expected: "browser-effective owner" },
+    { name: "matched brace value", css: ":root{--decoy:{x:y};--surface-canvas:rgb(1 2 3)}", expected: "browser-effective owner" },
+    { name: "nested media", css: "@media(min-width:1px){:root{--surface-canvas:rgb(1 2 3)}}", expected: "browser-effective owner" },
+    { name: "nested supports", css: "@supports(display:grid){:root{--surface-canvas:rgb(1 2 3)}}", expected: "browser-effective owner" },
+    { name: "nested layer", css: "@layer material{:root{--surface-canvas:rgb(1 2 3)}}", expected: "browser-effective owner" },
+    { name: "no trailing semicolon", css: ":root{--surface-canvas:rgb(1 2 3)}", expected: "browser-effective owner" },
+    { name: "protected registration", css: "@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:rgb(1 2 3)}", expected: "browser-effective owner", registration: true },
+    { name: "malformed trailing comment", css: ":root{--surface-canvas:rgb(1 2 3);/*", expected: "conservative parser rejection" },
+    { name: "malformed trailing string", css: `:root{--surface-canvas:rgb(1 2 3);content:"`, expected: "conservative parser rejection" },
+  ] as const;
+
+  for (const fixture of fixtures) {
+    let parserDetected = false;
+    let parserRejected = false;
+    const isRegistration = "registration" in fixture && fixture.registration;
+    try {
+      parserDetected = isRegistration
+        ? parseCssPropertyRegistrations(fixture.css).some((item) => item.property === "--surface-canvas")
+        : parseCssDefinitions(fixture.css, "--surface-canvas").length > 0;
+    } catch {
+      parserRejected = true;
+    }
+
+    await page.setContent(`<style>${fixture.css}</style><div id="probe"></div>`);
+    const browserEffective = await page.evaluate((registration) => {
+      const target = registration ? document.querySelector("#probe") : document.documentElement;
+      return Boolean(target && getComputedStyle(target).getPropertyValue("--surface-canvas").trim());
+    }, isRegistration);
+
+    const classification = parserRejected
+      ? "conservative parser rejection"
+      : browserEffective && parserDetected
+        ? "browser-effective owner"
+        : !browserEffective && parserDetected
+          ? "invalid in browser"
+          : browserEffective
+            ? "actual guard bypass"
+            : "invalid in browser";
+
+    expect(classification, fixture.name).toBe(fixture.expected);
+    expect(classification, fixture.name).not.toBe("actual guard bypass");
+  }
+});
