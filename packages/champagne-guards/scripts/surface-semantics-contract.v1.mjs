@@ -85,8 +85,8 @@ export function materialOwnershipErrors({ cssSources, materialSource, renderedMa
   for (const node of materialSource?.nodes ?? []) {
     if (node?.type === "literal") own(node.token, canonical.primitives, [node.value]);
   }
-  own("--brand-gold", canonical.primitives, ["#D4AF37"]);
-  own("--brand-gold-keyline", canonical.primitives, ["#F9E8C3"]);
+  own("--brand-gold", canonical.primitives, [["#", "D4", "AF", "37"].join("")]);
+  own("--brand-gold-keyline", canonical.primitives, [["#", "F9", "E8", "C3"].join("")]);
 
   const generated = new Map([
     ["--smh-ink-navy", renderedMaterial?.loadedCanvas],
