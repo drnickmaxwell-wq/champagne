@@ -245,16 +245,62 @@ function blockFor(source, selector) {
 function count(source, needle) {
   return source.split(needle).length - 1;
 }
-function collectCss(root) {
+const approvedTimeOfDayCanvasOwners = [
+  ["dawn", "color-mix(in srgb, var(--brand-teal) 15%, white)"],
+  ["dusk", "var(--ink-100)"],
+  ["night", "var(--ink-100)"],
+];
+export function timeOfDayCanvasOwnerErrors(source) {
+  const issues = [];
+  try {
+    const expectedValues = approvedTimeOfDayCanvasOwners.map(([, value]) => value);
+    const allValues = parseCssDefinitions(source, "--surface-canvas");
+    if (
+      allValues.length !== expectedValues.length ||
+      allValues.some((value, index) => value !== expectedValues[index])
+    ) {
+      issues.push(
+        `[TIME_OF_DAY_CANVAS_OWNERS] expected exactly ${expectedValues.join(", ")}; found ${allValues.join(", ") || "none"}`,
+      );
+    }
+    for (const [name, expected] of approvedTimeOfDayCanvasOwners) {
+      const block = blockFor(source, `:root[data-theme='${name}']`);
+      const values = parseCssDefinitions(block, "--surface-canvas");
+      if (values.length !== 1 || values[0] !== expected) {
+        issues.push(`[TIME_OF_DAY_CANVAS_OWNERS] ${name} must preserve its one approved canvas owner`);
+      }
+      if (parseCssDefinitions(block, "--bg-ink").length !== 0) {
+        issues.push(`[TIME_OF_DAY_CANVAS_OWNERS] ${name} must not override --bg-ink`);
+      }
+    }
+  } catch (error) {
+    issues.push(
+      `[TIME_OF_DAY_CANVAS_OWNERS] unable to parse: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
+  return issues;
+}
+export function collectCssFiles(root, reportRoot = repoRoot) {
   const ignored = new Set(["node_modules", ".next", "dist", "build", "coverage", ".git"]);
   const files = [];
   for (const entry of readdirSync(root, { withFileTypes: true })) {
-    if (ignored.has(entry.name)) continue;
     const file = path.join(root, entry.name);
-    if (entry.isDirectory()) files.push(...collectCss(file));
+    if (entry.isSymbolicLink()) {
+      throw new Error(`[CSS_SYMLINK_UNAPPROVED] ${path.relative(reportRoot, file)}`);
+    }
+    if (ignored.has(entry.name)) continue;
+    if (entry.isDirectory()) files.push(...collectCssFiles(file, reportRoot));
     else if (entry.isFile() && entry.name.endsWith(".css")) files.push(file);
   }
   return files;
+}
+function collectCss(root) {
+  try {
+    return collectCssFiles(root, repoRoot);
+  } catch (error) {
+    errors.push(error instanceof Error ? error.message : String(error));
+    return [];
+  }
 }
 
 const rootPackage = json(paths.rootPackage);
@@ -307,6 +353,7 @@ for (const [token, expected] of generatedOwners) {
     errors.push(`${paths.tokens} must not duplicate generated owner ${token}`);
   }
 }
+for (const issue of timeOfDayCanvasOwnerErrors(timeOfDay)) errors.push(issue);
 
 const cssFiles = [
   ...collectCss(absolute("packages/champagne-tokens/styles")),
@@ -341,21 +388,6 @@ for (const [token, expected] of requiredRoles) {
 for (const token of ["--surface-canvas", ...requiredRoles.keys()]) {
   if (count(exportsSource, `"${token}",`) !== 1) {
     errors.push(`${token} must be exported exactly once`);
-  }
-}
-
-for (const [name, expected] of [
-  ["dawn", "color-mix(in srgb, var(--brand-teal) 15%, white)"],
-  ["dusk", "var(--ink-100)"],
-  ["night", "var(--ink-100)"],
-]) {
-  const block = blockFor(timeOfDay, `:root[data-theme='${name}']`);
-  const values = definitions(block, "--surface-canvas", `${paths.timeOfDay}:${name}`);
-  if (values.length !== 1 || values[0] !== expected) {
-    errors.push(`${name} must preserve its one approved canvas owner`);
-  }
-  if (definitions(block, "--bg-ink", `${paths.timeOfDay}:${name}`).length !== 0) {
-    errors.push(`${name} must not override --bg-ink`);
   }
 }
 
@@ -521,6 +553,8 @@ for (const marker of [
   "MATERIAL_STATUS",
   "PERSIAN_MIDNIGHT_AUTHORITY",
   "CSS_DECLARATION_PARSER_BYPASS",
+  "TIME_OF_DAY_OWNER_EXEMPTION",
+  "CSS_SYMLINK_UNAPPROVED",
   "REF_MISSING",
   "REF_CYCLE",
   "PRIMITIVE_DRIFT",
