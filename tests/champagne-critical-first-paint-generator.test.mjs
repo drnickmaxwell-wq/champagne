@@ -34,6 +34,11 @@ function clone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+function escapeFirstCustomPropertyCharacter(token) {
+  const character = token[2];
+  return `--\\${character.codePointAt(0).toString(16)} ${token.slice(3)}`;
+}
+
 async function createTempRepository(sourceValue = source, primitiveValue = primitiveCss) {
   const root = await mkdtemp(path.join(tmpdir(), "champagne-critical-paint-"));
   for (const relativePath of [
@@ -109,6 +114,30 @@ test("CSS_DECLARATION_PARSER_BYPASS: encoded generated-token owners fail closed"
     parseCssDefinitions(':root{content:"--surface-canvas/**/: var(--surface-1);";}', "--surface-canvas"),
     [],
   );
+});
+
+test("PRIMITIVE_OWNER_ESCAPE_BYPASS: every literal primitive uses decoded CSS ownership", () => {
+  const escapedInk = escapeFirstCustomPropertyCharacter("--ink");
+  const escapedOnly = primitiveCss.replace("--ink:  #0B0D0F;", `${escapedInk}: #0B0D0F;`);
+  assert.notEqual(escapedOnly, primitiveCss);
+  assert.doesNotThrow(() => renderMaterial(source, escapedOnly));
+
+  for (const node of source.nodes.filter((candidate) => candidate.type === "literal")) {
+    const escapedToken = escapeFirstCustomPropertyCharacter(node.token);
+    const duplicateOwner = `${primitiveCss}\n:root { ${escapedToken}: ${node.value}; }\n`;
+    assert.throws(
+      () => renderMaterial(source, duplicateOwner),
+      (error) =>
+        error instanceof Error &&
+        error.message.includes(`[PRIMITIVE_OWNER_INVALID] ${node.token}`),
+    );
+  }
+
+  const commentSplitDuplicate = `${primitiveCss}\n:root { --in/**/k: #0B0D0F; }\n`;
+  assert.throws(() => renderMaterial(source, commentSplitDuplicate), /PRIMITIVE_OWNER_INVALID/);
+
+  const malformedPrimitiveCss = `${primitiveCss}\n:root { --ink: #0B0D0F;\n`;
+  assert.throws(() => renderMaterial(source, malformedPrimitiveCss), /CSS parse failed/);
 });
 
 test("TIME_OF_DAY_OWNER_EXEMPTION: only the three exact theme owners are accepted", () => {
