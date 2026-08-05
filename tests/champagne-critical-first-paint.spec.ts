@@ -569,11 +569,16 @@ test("JavaScript-disabled response produces an actual painted frame without CSS 
   try {
     await page.goto(`${BASE_URL}/contact`, { waitUntil: "load" });
     const screenshot = await page.screenshot({ type: "png" });
-    const rootBackground = await page.locator("html").evaluate((element) =>
-      getComputedStyle(element).backgroundColor,
-    );
-    const match = rootBackground.match(/[\d.]+/g)?.map(Number) ?? [];
-    const canvas: Rgba = [match[0] ?? 0, match[1] ?? 0, match[2] ?? 0, 255];
+    const canvas = await page.evaluate(() => {
+      const sample = document.createElement("canvas");
+      sample.width = sample.height = 1;
+      const context2d = sample.getContext("2d", { willReadFrequently: true });
+      if (!context2d) throw new Error("2D canvas unavailable");
+      context2d.clearRect(0, 0, 1, 1);
+      context2d.fillStyle = getComputedStyle(document.documentElement).backgroundColor;
+      context2d.fillRect(0, 0, 1, 1);
+      return Array.from(context2d.getImageData(0, 0, 1, 1).data) as Rgba;
+    });
     assertScreenshotContainsCanvas(screenshot, canvas);
     expect(stylesheetRequests).toEqual([]);
     expect(await page.locator("link[rel='stylesheet']").count()).toBe(0);
