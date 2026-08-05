@@ -4,134 +4,129 @@
 
 `FOUNDER_AUTHORISED_DRAFT_IMPLEMENTATION_EVIDENCE`
 
-This receipt records the bounded Champagne-only replacement for the cold first-paint canvas defect. It does not select the final Persian Midnight material, grant release authority, or register or mutate WEOS.
+This receipt records the bounded repair of PR #865 in `drnickmaxwell-wq/champagne`. It does not select a final Persian Midnight material, mark the pull request ready, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
 
-## Authority and repository boundary
+## Authority and exact boundary
 
-- Repository: `drnickmaxwell-wq/champagne`
 - Authorised base: `a3484e976d240aaedf88a9b13afdd6ccc8d7d267`
-- Branch: `agent/champagne-critical-first-paint-clean-replacement-v1`
-- Stage: `CHAMPAGNE_STAGE_B_HYDRATION_AND_LIFECYCLE_STABILIZATION — CRITICAL FIRST-PAINT CLEAN REPLACEMENT V1`
-- Authority expiry: no later than `2026-08-10T23:59:00+01:00`, subject to earlier stop conditions in the Founder envelope.
-- Evidence source PR #864 remains frozen, draft and unmerged at `4c1548744e8d7afdac70a02e1f42c29fb4a2d2d6`.
-- PR #863 remains outside scope and untouched.
-- `drnickmaxwell-wq/agent` and its pre-finished WEOS/Router remain read-only at `18a3682567096e9363dcbc85fcdf0bff7858627f`.
+- Existing branch: `agent/champagne-critical-first-paint-clean-replacement-v1`
+- Frozen evidence PR #864: `4c1548744e8d7afdac70a02e1f42c29fb4a2d2d6`
+- Read-only `drnickmaxwell-wq/agent` boundary: `18a3682567096e9363dcbc85fcdf0bff7858627f`
+- Maximum changed paths: 17
+- No lockfile, dependency, application-page design, routing, middleware, Hero V2, production, provider or spending mutation is authorised by this receipt.
 
-No branch, base, file, pull request, evidence registry, Router recovery state or WEOS runtime in `drnickmaxwell-wq/agent` is changed by this work.
+## Precise architecture statement
 
-## Architecture decision
+`packages/champagne-tokens/src/canvas-material.v1.json` is the sole human-editable **first-paint composition graph**. It is not the sole human-editable source of every material primitive.
 
-The first and fully loaded paint derive from one structured, human-editable material source:
+The graph references separately maintained primitive leaves in:
 
-`packages/champagne-tokens/src/canvas-material.v1.json`
+`packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css`
 
-The source is a closed expression graph rather than arbitrary CSS text. One deterministic generator produces:
+The generator validates exact parity between each graph literal and its canonical primitive owner. It then deterministically emits:
 
 1. `packages/champagne-tokens/styles/champagne/canvas-material.generated.css`
 2. `packages/champagne-tokens/src/critical-paint.generated.ts`
 
-The loaded token stylesheet imports the generated CSS. The root layout imports the leaf-pure generated TypeScript module by its repository-relative generated-source path and emits one unconditional marked style directly inside the document head. The token package also exposes `@champagne/tokens/critical-paint`, but the web application does not consume that package subpath in this PR because doing so correctly requires an explicit web workspace dependency and regenerated lockfile. That separate package-boundary cleanup is disclosed rather than approximated.
+The loaded stylesheet and direct-head critical paint therefore share one composition graph while retaining explicit, separately governed primitive ownership.
 
-The direct-head resource establishes the default concrete custom-property values before external CSS arrives. The generated document style paints HTML and body through `var(--surface-canvas)` and `var(--text-ink-high)` without declaring those custom properties inline. This preserves the later cascade authority of the approved dawn, dusk and night theme selectors. A generated Suspense fallback covers any streamed gap before request-dependent content resolves. All consumers derive from the same material graph.
+## Independently reproduced audit findings
 
-The generator validates source shape, material identity, the exact non-final status, the matching false final-selection flag, node identity, references, cycles, integer weights, opaque canvas output and parity with the material graph's primitive tokens. Check mode compares exact committed bytes without modifying the worktree. Write mode is limited to the two generated paths and uses temporary sibling files plus atomic rename.
+The 5 August 2026 read-only audit findings were reproduced against starting head `2f98378fbf0515a09a7ac7fd3ecfb17772e78954` before correction:
 
-## Product truth preserved
+1. A later direct or escaped declaration of protected primitive, alias, immutable or generated owners could escape the incomplete ownership closure.
+2. A matched brace component in a custom-property value could be mistaken for the end of the stylesheet rule, hiding a later effective protected owner.
+3. A newline-created bad string could swallow a later browser-effective protected owner.
+4. The generator and guard contained independently editable parser implementations.
+5. The `critical-paint-generated` workflow job used mutable major-version Action tags.
+6. The former “only human-editable material source” wording overstated the architecture.
 
-The current approved material is transcribed without visual calibration:
+## Repair implemented
 
-- `--ink`: `#0B0D0F`
-- `--brand-teal`: `#40C4B4`
-- `--brand-magenta`: `#C2185B`
-- `--smh-white`: `#FFFFFF`
-- canvas recipe: existing nested `oklab` mixes at `88/12` then `92/8`
-- readable foreground: existing `96%` white-to-transparent `oklab` mix
+### One parser authority
 
-The surface guard separately preserves the exact immutable values of `--brand-gold` and `--brand-gold-keyline`, because those primitives are intentionally outside the first-paint material graph.
+`packages/champagne-tokens/scripts/css-declarations.v1.mjs` is the single CSS declaration parser authority. The generator and surface guard import the same implementation; the duplicate guard parser was removed.
 
-`status` remains exactly `CURRENT_APPROVED_MATERIAL_NOT_FINAL_PERSIAN_MIDNIGHT` and `finalPersianMidnightSelection` remains `false`. Sacred Hero source, motion semantics, content, booking, chatbot and clinical meaning are unchanged.
+The shared parser now:
 
-## Codex corrections incorporated
+- decodes CSS identifier escapes;
+- ignores comments outside strings without hiding declarations;
+- handles quoted strings and escaped newlines;
+- recovers from CSS bad strings at unescaped newlines;
+- tracks parentheses, brackets and matched brace components;
+- distinguishes custom-property component braces from stylesheet rule braces;
+- handles nested rules and declarations without a trailing semicolon;
+- fails closed on unbalanced or unsupported input rather than returning an empty owner set.
 
-The first exact-head Codex review identified three valid issues:
+### Complete material ownership closure
 
-1. exact immutable-gold validation had been reduced to a definition-count check;
-2. inline custom-property declarations prevented dawn, dusk and night from overriding the default canvas;
-3. the former browser-specific label was not a canonical evidence level.
+The recursive guard scans all CSS under the protected token and application trees and rejects symbolic links. Its ownership contract covers:
 
-The first correction restored exact gold and gold-keyline checks, removed inline theme-token ownership while retaining immediate paint, added exact browser proof that every approved time-of-day theme changes the canvas, and adopted canonical evidence vocabulary.
+- literal leaves: `--ink`, `--brand-teal`, `--brand-magenta`, `--smh-white`;
+- generated owners: `--smh-ink-navy`, `--brand-ink`, `--surface-canvas`, `--bg-ink`, `--text-ink-high`;
+- transitive alias: `--ink-100`;
+- immutable primitives: `--brand-gold`, `--brand-gold-keyline`;
+- exact approved dawn, dusk and night `--surface-canvas` owners only.
 
-The second exact-head Codex review identified three further valid P2 proof gaps:
+Direct, escaped and comment-separated competing declarations are decoded and rejected. Canonical owner counts, paths and values must match exactly.
 
-1. the structured material's `status` field was accepted but not validated alongside the false final-selection flag;
-2. duplicate generated-owner scanning covered token CSS and `globals.css`, but not every application stylesheet and CSS module;
-3. fallback assertions existed in the browser code but no route was required to execute them.
+### Workflow immutability
 
-The second correction now:
+The `critical-paint-generated` job pins reviewed full commit SHAs:
 
-- rejects any material status other than `CURRENT_APPROVED_MATERIAL_NOT_FINAL_PERSIAN_MIDNIGHT` and proves contradictory status/selection mutations fail closed;
-- recursively scans every CSS file under both `packages/champagne-tokens/styles` and `apps/web/app` for unapproved generated-owner declarations;
-- requires the real `/champagne/sections-debug` parser-time state to contain exactly one opaque, readable, full-viewport streaming fallback while the external stylesheet is held.
+- `actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683` (`v4.2.2`)
+- `actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020` (`v4.4.0`)
 
-## Stage B harness truth
+The surface guard rejects a return to mutable major-version tags within that job.
 
-The production middleware continues to return 404 for `/champagne/*` routes unless `ALLOW_CHAMPAGNE_ROUTES=true`. Production behaviour is unchanged.
+## Adversarial proof contract
 
-The Stage B regression job sets `ALLOW_CHAMPAGNE_ROUTES=true` only in its test environment. Before Chromium runs, it proves that `/champagne/sections-debug` returns successful HTML containing the real `Sections Debugger` page rather than the protected JSON 404 response.
+The Node suite proves:
 
-The browser matrix withholds real Next external stylesheets and requires:
+- shared parser function identity;
+- direct, escaped and comment-separated ownership attacks for every protected owner;
+- brace-component recovery;
+- bad-string newline recovery;
+- malformed-CSS fail-closed behaviour;
+- exact primitive-owner parity and drift rejection;
+- exact time-of-day owner exemptions;
+- file and directory symlink rejection;
+- missing references, cycles, opacity, deterministic serialization, generated freshness and byte-clean regeneration.
 
-- one marked direct-head critical style where contractually observable;
-- an opaque early canvas and readable foreground;
-- exact early-versus-loaded sRGB canvas and foreground equality;
-- no inline `--surface-canvas` or `--text-ink-high` ownership on HTML or body;
-- transparent content surfaces above the canonical canvas;
-- exact dawn, dusk and night theme canvas resolution after loaded CSS;
-- a real full-viewport parser-time Suspense fallback on the internal Champagne route;
-- no browser or console errors;
-- preserved Hero V2 transparency, one-stack identity and visible content on public routes;
-- home, implant-treatment, contact and internal-lab route coverage across mobile, desktop and reduced-motion combinations.
+The umbrella surface-semantics guard additionally proves the exact theme selectors and critical-head placement against the live repository bytes.
 
-The internal lab is retained as a first-paint route but its Hero presence is not treated as part of this PR's contract. The existing request-path-derived Hero routing behaviour is present on the authorised main base and is a separate route-architecture concern. Public Hero assertions and the dedicated Hero lifecycle/navigation tests remain mandatory.
+The Stage B browser matrix continues to prove real first-versus-loaded paint equality, readable foreground, time-of-day resolution, parser-time fallback, public Hero V2 continuity, direct route loads, client navigation, mobile/desktop and reduced-motion behaviour.
 
-## Verification evidence contract
+## Verification evidence
 
-The required proving ladder is:
+The functional implementation head immediately preceding this receipt was:
 
-- generator and adversarial tests, including exact material-status contradiction rejection;
-- generated-byte freshness and byte-clean regeneration;
-- recursive application-CSS generated-owner scan;
-- lint, TypeScript and production web build;
+`793abef605e4c7138f0952f60f476acf1b66af9e`
+
+At that head, GitHub recorded successful results for:
+
+- Champagne CI, including full umbrella `verify`;
+- generated freshness and byte-clean regeneration;
+- the expanded Node adversarial suite;
+- production web build, lint and TypeScript;
 - workspace, canon, Hero, rogue-colour, surface-semantics and token-binding guards;
-- Stage B real-internal-HTML route proof;
-- Stage B Chromium matrix with the required internal-route streaming fallback;
-- full umbrella `verify`;
+- Stage B real-internal-HTML proof and Chromium matrix;
 - CodeQL, Semgrep, Trivy, Gitleaks and SBOM.
 
-Exact execution results and the exact reviewed head belong in immutable GitHub check records, pull-request metadata and the exact-head Codex request. This repository receipt defines the evidence contract and does not make self-referential claims about the commit containing itself.
+Because this receipt is itself tracked, all mandatory checks must rerun against the final receipt-bound exact head. The pull-request description and exact-head Codex request are the final binding records for those rerun results.
 
-## Known bounded follow-up
+## Evidence classification
 
-The token package exposes the pure `@champagne/tokens/critical-paint` subpath, while the current root layout uses the leaf-pure generated module through a repository-relative path. Converting the web app to the package subpath correctly requires an explicit `@champagne/tokens` workspace dependency and regenerated `pnpm-lock.yaml`. That is not required to prove the first-paint behaviour and remains a disclosed package-boundary follow-up rather than hidden technical debt.
+- Parser, ownership and generator fixtures: `FIXTURE_PROVEN`
+- Visitor-facing and internal-lab browser behaviour: `LIVE_READ_PROVEN`
+- WEOS runtime, Router consumption and cross-repository registration: not claimed
 
-The internal Champagne lab can expose the global Hero when explicitly unlocked in a production-mode test because the pre-existing root layout derives route identity from request headers. The route remains production-blocked by default, and this PR makes no claim to repair that separate routing issue.
+## Governance and next gate
 
-## WEOS evidence classification
+PR #865 must remain draft and unmerged. After the final receipt-bound head is green, the PR description may record the exact head, 17-path boundary, exact test counts and workflow results. Exactly one fresh `@codex review` request must then be posted against that head and the branch frozen.
 
-This is a Champagne-local golden-tenant evidence candidate only.
-
-- Structured generator and mutation fixtures require `FIXTURE_PROVEN` evidence.
-- Visitor-facing and internal-lab browser first-paint behaviour require `LIVE_READ_PROVEN` evidence.
-- WEOS runtime, lane readiness, Router consumption and cross-repository registration are **not claimed**.
-
-Any future import, reconciliation or readiness update inside `drnickmaxwell-wq/agent` requires separate exact Founder authority after Router recovery. Existing WEOS claim-evidence and readiness machinery should consume a final accepted Champagne packet rather than this Champagne lane mutating WEOS directly.
-
-## Human approvals and release boundary
-
-- Founder authorised the exact Champagne repository, base, branch, operation, path ceiling, exclusions and expiry.
-- No authority has been issued to mark ready, merge, deploy, mutate `agent`, or register evidence in WEOS.
-- PR #865 must remain draft and unmerged pending successful exact-head proof, fresh Codex review, independent audit and a later Founder merge decision.
+Any further Codex finding ends this repair loop and moves the work to a separate independent ChatGPT audit. Independent read-only audit and later Founder exact-head merge authority remain mandatory.
 
 ## Rollback
 
-Before merge, close the clean draft PR and delete its branch if the Founder rejects the result; `main` remains unchanged. After a separately authorised merge, revert the clean replacement merge commit to restore the prior token ownership and remove generated first-paint integration. PR #864 remains unmerged evidence and must not be used as a rollback merge source.
+Before merge, close PR #865 and delete its branch if the Founder rejects it; `main` remains unchanged. After a separately authorised merge, revert the accepted merge commit. Frozen PR #864 is evidence only and is not a rollback merge source.
