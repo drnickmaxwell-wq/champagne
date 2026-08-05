@@ -6,6 +6,25 @@ function isCssWhitespace(character) {
   return character === " " || character === "\t" || isCssNewline(character);
 }
 
+function consumeCssEscapeEnd(source, start) {
+  let index = start + 1;
+  if (index >= source.length) throw new Error("unterminated CSS escape");
+  if (/[0-9A-Fa-f]/.test(source[index])) {
+    let count = 0;
+    while (index < source.length && count < 6 && /[0-9A-Fa-f]/.test(source[index])) {
+      index += 1;
+      count += 1;
+    }
+    if (isCssWhitespace(source[index] ?? "")) {
+      if (source[index] === "\r" && source[index + 1] === "\n") index += 2;
+      else index += 1;
+    }
+    return index;
+  }
+  if (source[index] === "\r" && source[index + 1] === "\n") return index + 2;
+  return index + 1;
+}
+
 export function decodeCssIdentifier(value) {
   let result = "";
   for (let index = 0; index < value.length; index += 1) {
@@ -170,6 +189,13 @@ export function parseCssDeclarations(source) {
       } else {
         name += character;
       }
+      continue;
+    }
+
+    if (character === "\\") {
+      const end = consumeCssEscapeEnd(source, index);
+      value += source.slice(index, end);
+      index = end - 1;
       continue;
     }
 
