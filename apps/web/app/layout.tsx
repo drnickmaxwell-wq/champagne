@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { headers } from "next/headers";
 import "./globals.css";
 import { Footer } from "./components/layout/Footer";
@@ -30,12 +30,7 @@ type PageSeoManifest = {
 const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
 const PRACTICE_NAME = getPracticeName();
 const DEFAULT_DESCRIPTION = getDefaultSeoDescription();
-const CRITICAL_PAINT_FALLBACK_STYLE = {
-  ...champagneCriticalPaintDocumentStyle,
-  position: "fixed",
-  inset: 0,
-  pointerEvents: "none",
-} as const;
+const CRITICAL_PAINT_RESOURCE = "champagne-critical-paint-v1";
 
 function isProductionIndexable() {
   return process.env.VERCEL_ENV === "production";
@@ -70,7 +65,7 @@ export const metadata: Metadata = {
   },
 };
 
-async function RuntimeLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
   const headersList = await headers();
   const requestUrl = headersList.get("next-url") ?? "";
   const isPublicPage = !requestUrl.startsWith("/champagne/");
@@ -112,56 +107,37 @@ async function RuntimeLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemaGraph) }}
-      />
-      <div className="flex min-h-screen flex-col">
-        <div className="sticky top-0 z-50">
-          <Header />
-        </div>
-        <main className="flex-1 px-6 py-10">
-          {isPublicPage && isHeroEnabled && (
-            <HeroMount
-              mode={mode}
-              treatmentSlug={treatmentSlug}
-              pageCategory={pageCategory}
-            />
-          )}
-          {children}
-        </main>
-        <Footer />
-      </div>
-      <ConciergeLayer />
-    </>
-  );
-}
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
     <html lang="en" style={champagneCriticalPaintDocumentStyle}>
       <head>
-        <style
-          data-champagne-critical-paint="v1"
-          dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}
-        />
+        <style href={CRITICAL_PAINT_RESOURCE} precedence="critical">
+          {champagneCriticalPaintCss}
+        </style>
       </head>
       <body
         className="min-h-screen antialiased"
         style={champagneCriticalPaintDocumentStyle}
       >
-        <Suspense
-          fallback={
-            <div
-              aria-hidden="true"
-              data-champagne-critical-fallback="v1"
-              style={CRITICAL_PAINT_FALLBACK_STYLE}
-            />
-          }
-        >
-          <RuntimeLayout>{children}</RuntimeLayout>
-        </Suspense>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemaGraph) }}
+        />
+        <div className="flex min-h-screen flex-col">
+          <div className="sticky top-0 z-50">
+            <Header />
+          </div>
+          <main className="flex-1 px-6 py-10">
+            {isPublicPage && isHeroEnabled && (
+              <HeroMount
+                mode={mode}
+                treatmentSlug={treatmentSlug}
+                pageCategory={pageCategory}
+              />
+            )}
+            {children}
+          </main>
+          <Footer />
+        </div>
+        <ConciergeLayer />
       </body>
     </html>
   );
