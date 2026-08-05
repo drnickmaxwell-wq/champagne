@@ -9,6 +9,7 @@ import {
   parseCssDeclarations,
   parseCssDefinitions,
   timeOfDayCanvasOwnerErrors,
+  themeAndLayoutContractErrors,
 } from "./surface-semantics-contract.v1.mjs";
 export {
   collectCssFiles,
@@ -16,6 +17,7 @@ export {
   parseCssDeclarations,
   parseCssDefinitions,
   timeOfDayCanvasOwnerErrors,
+  themeAndLayoutContractErrors,
 } from "./surface-semantics-contract.v1.mjs";
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const absolute = (file) => path.join(repoRoot, file);
@@ -132,86 +134,8 @@ async function main() {
  if (footerBindings.length !== 1 || footerBindings[0] !== "var(--surface-footer-emotion)") {
   errors.push("footer background must remain bound to --surface-footer-emotion");
  }
- for (const label of ["porcelain", "ink"]) {
-  const expectedBlock = `:where([data-surface-tone='${label}'], [data-surface='${label}']) {
- --text-high: var(--text-${label}-high);
- --text-medium: var(--text-${label}-medium);
- --text-low: var(--text-${label}-low);
- color: var(--text-high);
-}`;
-  if (!theme.includes(expectedBlock)) {
-   errors.push(`${label} context must preserve its exact text-role bindings and inherited colour`);
-  }
- }
- if (!/:root\s*{[\s\S]*?background\s*:\s*var\(--surface-canvas\)\s*;/.test(theme)) {
-  errors.push(":root must paint --surface-canvas");
- }
- if (!/body,\s*\n?\.champagne-page\s*{[\s\S]*?background\s*:\s*var\(--surface-canvas\)\s*;/.test(theme)) {
-  errors.push("body and .champagne-page must paint --surface-canvas");
- }
- const criticalImportText = `import {
-  champagneCriticalPaintCss,
-  champagneCriticalPaintDocumentStyle,
- } from "../../../packages/champagne-tokens/src/critical-paint.generated";`;
- const headMarkup = `<head>
-     <style
-      data-champagne-critical-paint="v1"
-      dangerouslySetInnerHTML={{ __html: champagneCriticalPaintCss }}
-     />
-    </head>`;
- if (count(layout, criticalImportText) !== 1) {
-  errors.push(`${paths.layout} must import both generated paint outputs exactly once`);
- }
- if (!layout.includes(headMarkup) || count(layout, 'data-champagne-critical-paint="v1"') !== 1) {
-  errors.push(
-   `[CRITICAL_STYLE_PLACEMENT] ${paths.layout} must emit one unconditional marked critical style directly inside head`,
-  );
- }
- if (
-  count(layout, 'style={champagneCriticalPaintDocumentStyle}') !== 2 ||
-  !layout.includes('<html lang="en" style={champagneCriticalPaintDocumentStyle}>')
- ) {
-  errors.push(
-   `[CRITICAL_DOCUMENT_FALLBACK] ${paths.layout} must apply the generated document style to html and body`,
-  );
- }
- for (const marker of [
-  "const CRITICAL_PAINT_FALLBACK_STYLE = {",
-  "...champagneCriticalPaintDocumentStyle",
-  "<Suspense",
-  'data-champagne-critical-fallback="v1"',
-  "style={CRITICAL_PAINT_FALLBACK_STYLE}",
- ]) {
-  if (!layout.includes(marker)) {
-   errors.push(`[CRITICAL_STREAMING_FALLBACK] ${paths.layout} missing marker ${marker}`);
-  }
- }
- const docStyle = {
-  background: "var(--surface-canvas)",
-  color: "var(--text-ink-high)",
- };
- if (JSON.stringify(rendered?.documentStyle) !== JSON.stringify(docStyle)) {
-  errors.push(
-   `${paths.genTs} document style must paint through cascade-resolved variables without declaring inline token values`,
-  );
- }
- if (Object.keys(rendered?.documentStyle ?? {}).some((property) => property.startsWith("--"))) {
-  errors.push(`${paths.genTs} document style must not override themeable custom properties inline`);
- }
- if (!genTs.includes("export const champagneCriticalPaintDocumentStyle = {")) {
-  errors.push(`${paths.genTs} must expose the generated streaming fallback`);
- }
- if (/^\s*import\s/m.test(genTs) || /\brequire\s*\(|node:|readFile|writeFile/.test(genTs)) {
-  errors.push(`${paths.genTs} must remain leaf-pure`);
- }
- if (tokenPkg?.exports?.["./critical-paint"]?.default !== "./src/critical-paint.generated.ts") {
-  errors.push(`${paths.tokenPkg} must expose the pure critical-paint subpath`);
- }
- if (tokenPkg?.exports?.["."]?.default !== "./src/index.ts") {
-  errors.push(`${paths.tokenPkg} must preserve its root entry`);
- }
- if (tokenPkg?.exports?.["./styles/*"] !== "./styles/*") {
-  errors.push(`${paths.tokenPkg} must preserve style subpath compatibility`);
+ for (const issue of themeAndLayoutContractErrors({ theme, layout, genTs, rendered, tokenPkg, paths })) {
+  errors.push(issue);
  }
  for (const [script, expected] of [
   ["generate:critical-paint", "node packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs --write"],
