@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 
+import { parseCssDefinitions } from "../packages/champagne-guards/scripts/guard-surface-semantics.mjs";
 import {
   GENERATED_CSS_RELATIVE_PATH,
   GENERATED_TS_RELATIVE_PATH,
@@ -82,6 +83,23 @@ test("material status and final-selection truth fail closed together", () => {
   assert.throws(
     () => renderMaterial(selectedWithoutAuthority, primitiveCss),
     /PERSIAN_MIDNIGHT_AUTHORITY/,
+  );
+});
+
+test("CSS_DECLARATION_PARSER_BYPASS: encoded generated-token owners fail closed", () => {
+  const encodedOwners = [
+    ":root{--surface-canvas/**/: var(--surface-1);}",
+    ".card{--surface/**/-canvas: var(--surface-1);}",
+    String.raw`@media (min-width: 1px){:root{--surface-\63 anvas: var(--surface-1);}}`,
+    String.raw`.card{--\73 urface-canvas: var(--surface-1);}`,
+    String.raw`.card{--surface\2d canvas: var(--surface-1);}`,
+  ];
+  for (const css of encodedOwners) {
+    assert.deepEqual(parseCssDefinitions(css, "--surface-canvas"), ["var(--surface-1)"]);
+  }
+  assert.deepEqual(
+    parseCssDefinitions(':root{content:"--surface-canvas/**/: var(--surface-1);";}', "--surface-canvas"),
+    [],
   );
 });
 
