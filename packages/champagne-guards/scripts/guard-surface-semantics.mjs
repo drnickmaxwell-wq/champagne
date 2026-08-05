@@ -149,7 +149,10 @@ function runtimeMutationCandidateSources(runtimeSources) {
   const candidates = new Map();
   const channels = [
     ["set-property", /\.\s*setProperty\s*\(/g],
-    ["sheet-mutation", /\.\s*(?:replace|replaceSync|insertRule)\s*\(/g],
+    [
+      "sheet-mutation",
+      /(?:\.\s*(?:replaceSync|insertRule)\s*\(|\b(?:sheet|styleSheet|stylesheet|constructedSheet)\s*\.\s*replace\s*\()/gi,
+    ],
     ["style-text", /\.\s*(?:textContent|innerText|innerHTML)\s*=\s*/g],
     ["style-attribute", /setAttribute\s*\(\s*["']style["']\s*,/g],
   ];
