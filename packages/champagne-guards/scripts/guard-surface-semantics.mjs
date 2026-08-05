@@ -5,19 +5,33 @@ import { fileURLToPath } from "node:url";
 import { checkGenerated } from "../../../packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs";
 import {
   collectCssFiles,
+  collectRuntimeSourceFiles,
+  extractStaticJavascriptStrings,
   materialOwnershipErrors,
   parseCssDeclarations,
   parseCssDefinitions,
+  parseCssPropertyRegistrations,
+  protectedMaterialTokens,
+  protectedRegistrationErrors,
+  staticRuntimeMutationErrors,
   timeOfDayCanvasOwnerErrors,
   themeAndLayoutContractErrors,
+  workflowIntegrityErrors,
 } from "./surface-semantics-contract.v1.mjs";
 export {
   collectCssFiles,
+  collectRuntimeSourceFiles,
+  extractStaticJavascriptStrings,
   materialOwnershipErrors,
   parseCssDeclarations,
   parseCssDefinitions,
+  parseCssPropertyRegistrations,
+  protectedMaterialTokens,
+  protectedRegistrationErrors,
+  staticRuntimeMutationErrors,
   timeOfDayCanvasOwnerErrors,
   themeAndLayoutContractErrors,
+  workflowIntegrityErrors,
 } from "./surface-semantics-contract.v1.mjs";
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const absolute = (file) => path.join(repoRoot, file);
@@ -67,6 +81,14 @@ function collectCss(root) {
     return [];
   }
 }
+function collectRuntime(root) {
+  try {
+    return collectRuntimeSourceFiles(root, repoRoot);
+  } catch (error) {
+    errors.push(error instanceof Error ? error.message : String(error));
+    return [];
+  }
+}
 async function main() {
  const rootPkg = json(paths.rootPkg);
  const guardPkg = json(paths.guardPkg);
@@ -108,6 +130,19 @@ async function main() {
  })) {
   errors.push(issue);
  }
+ const protectedTokens = protectedMaterialTokens(material, rendered);
+ const runtimeRoots = [
+  "apps/web/app",
+  "packages/champagne-cta/src",
+  "packages/champagne-hero/src",
+  "packages/champagne-manifests/src",
+  "packages/champagne-sections/src",
+ ];
+ const runtimeFiles = runtimeRoots.flatMap((root) => collectRuntime(absolute(root)));
+ const runtimeSources = new Map(
+  runtimeFiles.map((file) => [path.relative(repoRoot, file), readFileSync(file, "utf8")]),
+ );
+ for (const issue of staticRuntimeMutationErrors(runtimeSources, protectedTokens)) errors.push(issue);
  for (const issue of timeOfDayCanvasOwnerErrors(timeOfDay)) errors.push(issue);
  const requiredRoles = new Map([
   ["--surface-ink", "var(--brand-ink)"],
@@ -156,20 +191,7 @@ async function main() {
  ]) {
   if (!workflow.includes(marker)) errors.push(`${paths.workflow} missing verification ${marker}`);
  }
- const job = workflow.match(
-  /\n  critical-paint-generated:\n([\s\S]*?)(?=\n  [a-zA-Z0-9_-]+:\n|$)/,
- )?.[1] ?? "";
- for (const action of [
-  "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2",
-  "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0",
- ]) {
-  if (!job.includes(action)) {
-   errors.push(`${paths.workflow} critical-paint-generated must pin ${action}`);
-  }
- }
- if (/actions\/(?:checkout|setup-node)@v\d/.test(job)) {
-  errors.push(`${paths.workflow} critical-paint-generated must not use mutable major-version tags`);
- }
+ for (const issue of workflowIntegrityErrors(workflow, paths.workflow)) errors.push(issue);
  if (guardPkg?.scripts?.["guard:surface-semantics"] !== "node scripts/guard-surface-semantics.mjs") {
   errors.push("guard:surface-semantics script is not wired exactly");
  }
@@ -197,7 +219,7 @@ async function main() {
   return;
  }
  console.log(
-  "✅ Surface semantics guard passed: shared CSS parsing and complete material ownership remain deterministic.",
+  "✅ Surface semantics guard passed: protected static CSS declarations, registrations and statically discoverable application mutation channels are governed.",
  );
 }
 const invokedPath = process.argv[1] ? path.resolve(process.argv[1]) : "";
