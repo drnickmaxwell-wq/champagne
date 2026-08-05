@@ -210,11 +210,7 @@ async function holdHydrationScripts(page: Page) {
     release = resolve;
   });
   const heldUrls: string[] = [];
-  const finishedUrls: string[] = [];
 
-  page.on("requestfinished", (request) => {
-    if (heldUrls.includes(request.url())) finishedUrls.push(request.url());
-  });
   await page.route("**/*", async (route) => {
     const request = route.request();
     if (request.resourceType() !== "script" || !/^https?:\/\//.test(request.url())) {
@@ -226,7 +222,7 @@ async function holdHydrationScripts(page: Page) {
     await route.continue();
   });
 
-  return { heldUrls, finishedUrls, release };
+  return { heldUrls, release };
 }
 
 function luminance(rgb: number[]) {
@@ -421,15 +417,22 @@ for (const route of routes) {
         scriptGate.release();
       }
 
-      await expect
-        .poll(
-          () => scriptGate.heldUrls.every((url) => scriptGate.finishedUrls.includes(url)),
-          { timeout: 15_000 },
-        )
-        .toBe(true);
-      await page.waitForLoadState("load", { timeout: 60_000 });
-      await page.waitForFunction(() => document.readyState === "complete");
-      await page.waitForLoadState("networkidle");
+      await page.waitForFunction(
+        (heroExpected) => {
+          if (document.readyState !== "complete") return false;
+          if (!heroExpected) return true;
+          const hero = document.querySelector<HTMLElement>("[data-hero-engine='v2']");
+          const content = document.querySelector<HTMLElement>("[data-v2-content-fade='true']");
+          return Boolean(
+            hero?.dataset.heroEngine === "v2" &&
+              document.querySelectorAll("[data-v2-stack-instance]").length === 1 &&
+              content &&
+              getComputedStyle(content).opacity === "1",
+          );
+        },
+        route.hero === "present",
+        { timeout: 60_000 },
+      );
       const loaded = await page.evaluate(() => (window as CfpWindow).__cfpCapture?.() as Evidence);
       const loadedPaint = expectDocumentPaint(loaded, true);
       expect(stylesheetRequests).toEqual([]);
