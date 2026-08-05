@@ -308,7 +308,7 @@ function ComponentRoom({ number, id, title, description, selectedChoices, select
   const catalogueAvailable = Boolean(COMPONENT_CATALOGUE_URLS[id]);
   const [open, setOpen] = useState(false), [items, setItems] = useState<ComponentItem[]>([]), [query, setQuery] = useState(""), [inspectedId, setInspectedId] = useState(selectedChoices[0]?.id ?? ""), [error, setError] = useState("");
   const matches = useMemo(() => { const q = query.trim().toLowerCase(); return q ? items.filter((item) => `${item.id} ${item.title} ${item.family} ${item.purpose ?? ""}`.toLowerCase().includes(q)) : items; }, [items, query]);
-  const inspected = items.find((item) => item.id === inspectedId) ?? selectedChoices[0] ?? matches[0];
+  const inspected = matches.find((item) => item.id === inspectedId) ?? matches[0];
   const inspectedSelected = Boolean(inspected && selectedChoices.some((item) => item.id === inspected.id));
   function toggleLibrary() { const next = !open; setOpen(next); if (next && catalogueAvailable && !items.length) void loadComponentCatalogue(id).then((catalogue) => { setItems(catalogue.items); setInspectedId(selectedChoices[0]?.id ?? catalogue.items[0]?.id ?? ""); }).catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Unable to load component library")); }
   function toggleChoice(item: ComponentItem) { if (selectionMode === "single") onChange(inspectedSelected ? [] : [item]); else onChange(inspectedSelected ? selectedChoices.filter((choice) => choice.id !== item.id) : [...selectedChoices, item]); }
