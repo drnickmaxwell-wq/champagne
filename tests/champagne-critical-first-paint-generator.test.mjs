@@ -1,10 +1,14 @@
 import assert from "node:assert/strict";
-import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import { parseCssDefinitions } from "../packages/champagne-guards/scripts/guard-surface-semantics.mjs";
+import {
+  collectCssFiles,
+  parseCssDefinitions,
+  timeOfDayCanvasOwnerErrors,
+} from "../packages/champagne-guards/scripts/guard-surface-semantics.mjs";
 import {
   GENERATED_CSS_RELATIVE_PATH,
   GENERATED_TS_RELATIVE_PATH,
@@ -21,6 +25,10 @@ const source = JSON.parse(
   await readFile(path.join(fixtureRoot, SOURCE_RELATIVE_PATH), "utf8"),
 );
 const primitiveCss = await readFile(path.join(fixtureRoot, PRIMITIVES_RELATIVE_PATH), "utf8");
+const timeOfDayCss = await readFile(
+  path.join(fixtureRoot, "packages/champagne-tokens/styles/champagne/time-of-day.css"),
+  "utf8",
+);
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
@@ -100,6 +108,31 @@ test("CSS_DECLARATION_PARSER_BYPASS: encoded generated-token owners fail closed"
   assert.deepEqual(
     parseCssDefinitions(':root{content:"--surface-canvas/**/: var(--surface-1);";}', "--surface-canvas"),
     [],
+  );
+});
+
+test("TIME_OF_DAY_OWNER_EXEMPTION: only the three exact theme owners are accepted", () => {
+  assert.deepEqual(timeOfDayCanvasOwnerErrors(timeOfDayCss), []);
+
+  const surplusOwner = `${timeOfDayCss}\n:root { --surface-canvas: var(--surface-1); }\n`;
+  assert.match(timeOfDayCanvasOwnerErrors(surplusOwner).join("\n"), /TIME_OF_DAY_CANVAS_OWNERS/);
+
+  const duplicateTheme = `${timeOfDayCss}\n:root[data-theme='night'] { --surface-canvas: var(--ink-100); }\n`;
+  assert.match(timeOfDayCanvasOwnerErrors(duplicateTheme).join("\n"), /TIME_OF_DAY_CANVAS_OWNERS/);
+});
+
+test("CSS_SYMLINK_UNAPPROVED: protected CSS trees fail closed on symlinks", async (context) => {
+  const root = await mkdtemp(path.join(tmpdir(), "champagne-css-symlink-"));
+  context.after(() => rm(root, { recursive: true, force: true }));
+
+  const nested = path.join(root, "nested");
+  await mkdir(nested, { recursive: true });
+  await writeFile(path.join(root, "owner.css"), ":root { --surface-canvas: var(--surface-1); }\n");
+  await symlink("../owner.css", path.join(nested, "linked.module.css"), "file");
+
+  assert.throws(
+    () => collectCssFiles(root, root),
+    /\[CSS_SYMLINK_UNAPPROVED\] nested[\\/]linked\.module\.css/,
   );
 });
 
