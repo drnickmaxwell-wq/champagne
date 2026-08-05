@@ -45,10 +45,195 @@ function json(relativePath) {
     return null;
   }
 }
-function definitions(source, token) {
-  return [...source.matchAll(/(--[a-z0-9-]+)\s*:\s*([^;]+);/gi)]
-    .filter((match) => match[1] === token)
-    .map((match) => match[2].trim());
+function decodeCssIdentifier(value) {
+  let result = "";
+  for (let index = 0; index < value.length; index += 1) {
+    const character = value[index];
+    if (character !== "\\") {
+      result += character;
+      continue;
+    }
+    const next = value[index + 1];
+    if (next === undefined) {
+      result += "\uFFFD";
+      continue;
+    }
+    if (next === "\n" || next === "\f") {
+      index += 1;
+      continue;
+    }
+    if (next === "\r") {
+      index += value[index + 2] === "\n" ? 2 : 1;
+      continue;
+    }
+    if (/[0-9A-Fa-f]/.test(next)) {
+      let digits = "";
+      let cursor = index + 1;
+      while (
+        cursor < value.length &&
+        digits.length < 6 &&
+        /[0-9A-Fa-f]/.test(value[cursor])
+      ) {
+        digits += value[cursor];
+        cursor += 1;
+      }
+      let codePoint = Number.parseInt(digits, 16);
+      if (
+        codePoint === 0 ||
+        codePoint > 0x10ffff ||
+        (codePoint >= 0xd800 && codePoint <= 0xdfff)
+      ) {
+        codePoint = 0xfffd;
+      }
+      result += String.fromCodePoint(codePoint);
+      if (/[\t\n\f\r ]/.test(value[cursor] ?? "")) {
+        if (value[cursor] === "\r" && value[cursor + 1] === "\n") cursor += 1;
+        cursor += 1;
+      }
+      index = cursor - 1;
+      continue;
+    }
+    result += next;
+    index += 1;
+  }
+  return result.trim();
+}
+function parseCssDeclarations(source) {
+  const input = source.includes("{") ? source : `:root{${source}}`;
+  const declarations = [];
+  let blockDepth = 0;
+  let mode = "name";
+  let name = "";
+  let value = "";
+  let quote = null;
+  let escaped = false;
+  let parenthesisDepth = 0;
+  let bracketDepth = 0;
+  let valueBraceDepth = 0;
+
+  const resetDeclaration = () => {
+    mode = "name";
+    name = "";
+    value = "";
+    parenthesisDepth = 0;
+    bracketDepth = 0;
+    valueBraceDepth = 0;
+  };
+  const commitDeclaration = () => {
+    const property = decodeCssIdentifier(name);
+    if (property.startsWith("--")) declarations.push({ property, value: value.trim() });
+    resetDeclaration();
+  };
+
+  for (let index = 0; index < input.length; index += 1) {
+    const character = input[index];
+    const next = input[index + 1];
+    const target = mode === "name" ? "name" : "value";
+
+    if (quote) {
+      if (target === "name") name += character;
+      else value += character;
+      if (escaped) escaped = false;
+      else if (character === "\\") escaped = true;
+      else if (character === quote) quote = null;
+      continue;
+    }
+    if (character === '"' || character === "'") {
+      quote = character;
+      if (target === "name") name += character;
+      else value += character;
+      continue;
+    }
+    if (character === "/" && next === "*") {
+      const close = input.indexOf("*/", index + 2);
+      if (close < 0) throw new Error("unterminated CSS comment");
+      index = close + 1;
+      continue;
+    }
+
+    if (blockDepth === 0) {
+      if (character === "{") {
+        blockDepth = 1;
+        resetDeclaration();
+      }
+      continue;
+    }
+
+    if (mode === "name") {
+      if (character === "(") parenthesisDepth += 1;
+      else if (character === ")" && parenthesisDepth > 0) parenthesisDepth -= 1;
+      else if (character === "[") bracketDepth += 1;
+      else if (character === "]" && bracketDepth > 0) bracketDepth -= 1;
+
+      if (character === "{" && parenthesisDepth === 0 && bracketDepth === 0) {
+        blockDepth += 1;
+        resetDeclaration();
+      } else if (character === "}" && parenthesisDepth === 0 && bracketDepth === 0) {
+        blockDepth -= 1;
+        resetDeclaration();
+      } else if (character === ";" && parenthesisDepth === 0 && bracketDepth === 0) {
+        resetDeclaration();
+      } else if (character === ":" && parenthesisDepth === 0 && bracketDepth === 0) {
+        mode = "value";
+        parenthesisDepth = 0;
+        bracketDepth = 0;
+      } else {
+        name += character;
+      }
+      continue;
+    }
+
+    if (character === "(") parenthesisDepth += 1;
+    else if (character === ")" && parenthesisDepth > 0) parenthesisDepth -= 1;
+    else if (character === "[") bracketDepth += 1;
+    else if (character === "]" && bracketDepth > 0) bracketDepth -= 1;
+    else if (character === "{") {
+      const property = decodeCssIdentifier(name);
+      if (!property.startsWith("--") && parenthesisDepth === 0 && bracketDepth === 0) {
+        blockDepth += 1;
+        resetDeclaration();
+        continue;
+      }
+      valueBraceDepth += 1;
+    } else if (character === "}" && valueBraceDepth > 0) valueBraceDepth -= 1;
+
+    if (
+      character === ";" &&
+      parenthesisDepth === 0 &&
+      bracketDepth === 0 &&
+      valueBraceDepth === 0
+    ) {
+      commitDeclaration();
+    } else if (
+      character === "}" &&
+      parenthesisDepth === 0 &&
+      bracketDepth === 0 &&
+      valueBraceDepth === 0
+    ) {
+      commitDeclaration();
+      blockDepth -= 1;
+    } else {
+      value += character;
+    }
+  }
+  if (quote) throw new Error("unterminated CSS string");
+  if (blockDepth !== 0) throw new Error("unbalanced CSS block");
+  return declarations;
+}
+export function parseCssDefinitions(source, token) {
+  return parseCssDeclarations(source)
+    .filter((declaration) => declaration.property === token)
+    .map((declaration) => declaration.value);
+}
+function definitions(source, token, label = "CSS input") {
+  try {
+    return parseCssDefinitions(source, token);
+  } catch (error) {
+    errors.push(
+      `[CSS_DECLARATION_PARSE] ${label}: ${error instanceof Error ? error.message : String(error)}`,
+    );
+    return [];
+  }
 }
 function blockFor(source, selector) {
   const start = source.indexOf(selector);
@@ -114,11 +299,11 @@ const generatedOwners = new Map([
   ["--text-ink-high", rendered?.loadedForeground],
 ]);
 for (const [token, expected] of generatedOwners) {
-  const values = definitions(generatedCss, token);
+  const values = definitions(generatedCss, token, paths.generatedCss);
   if (!expected || values.length !== 1 || values[0] !== expected) {
     errors.push(`${paths.generatedCss} must define ${token} exactly once from the generator`);
   }
-  if (definitions(tokens, token).length !== 0) {
+  if (definitions(tokens, token, paths.tokens).length !== 0) {
     errors.push(`${paths.tokens} must not duplicate generated owner ${token}`);
   }
 }
@@ -132,8 +317,9 @@ for (const token of generatedOwners.keys()) {
   for (const file of cssFiles) {
     if (file === absolute(paths.generatedCss)) continue;
     if (token === "--surface-canvas" && file === absolute(paths.timeOfDay)) continue;
-    if (definitions(readFileSync(file, "utf8"), token).length > 0) {
-      invalidOwners.push(path.relative(repoRoot, file));
+    const relativePath = path.relative(repoRoot, file);
+    if (definitions(readFileSync(file, "utf8"), token, relativePath).length > 0) {
+      invalidOwners.push(relativePath);
     }
   }
   if (invalidOwners.length > 0) {
@@ -147,7 +333,7 @@ const requiredRoles = new Map([
   ["--surface-footer-emotion", "var(--smh-ink)"],
 ]);
 for (const [token, expected] of requiredRoles) {
-  const values = definitions(tokens, token);
+  const values = definitions(tokens, token, paths.tokens);
   if (values.length !== 1 || values[0] !== expected) {
     errors.push(`${token} must preserve current truth as ${expected}`);
   }
@@ -164,11 +350,11 @@ for (const [name, expected] of [
   ["night", "var(--ink-100)"],
 ]) {
   const block = blockFor(timeOfDay, `:root[data-theme='${name}']`);
-  const values = definitions(block, "--surface-canvas");
+  const values = definitions(block, "--surface-canvas", `${paths.timeOfDay}:${name}`);
   if (values.length !== 1 || values[0] !== expected) {
     errors.push(`${name} must preserve its one approved canvas owner`);
   }
-  if (definitions(block, "--bg-ink").length !== 0) {
+  if (definitions(block, "--bg-ink", `${paths.timeOfDay}:${name}`).length !== 0) {
     errors.push(`${name} must not override --bg-ink`);
   }
 }
@@ -185,7 +371,7 @@ const immutableChroma = new Map([
   ["--brand-gold-keyline", `#${["F9", "E8", "C3"].join("")}`],
 ]);
 for (const [token, expected] of immutableChroma) {
-  const values = definitions(primitives, token);
+  const values = definitions(primitives, token, paths.primitives);
   if (!expected || values.length !== 1 || values[0].toUpperCase() !== expected.toUpperCase()) {
     errors.push(
       `${token} immutable chroma drift: expected ${expected ?? "a canonical material value"}, found ${values.join(", ") || "missing"}`,
@@ -334,6 +520,7 @@ for (const marker of [
   "GENERATED_DRIFT",
   "MATERIAL_STATUS",
   "PERSIAN_MIDNIGHT_AUTHORITY",
+  "CSS_DECLARATION_PARSER_BYPASS",
   "REF_MISSING",
   "REF_CYCLE",
   "PRIMITIVE_DRIFT",
