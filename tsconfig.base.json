@@ -6,9 +6,6 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@champagne/tokens/critical-paint": [
-        "packages/champagne-tokens/src/critical-paint.generated.ts"
-      ],
       "@champagne/tokens": ["packages/champagne-tokens/src"],
       "@champagne/guards": ["packages/champagne-guards/src"],
       "@champagne/manifests": ["packages/champagne-manifests/src"],
