@@ -204,25 +204,30 @@ async function installCapture(page: Page) {
   }, CRITICAL_RESOURCE);
 }
 
-async function holdHydrationScripts(page: Page) {
-  let release!: () => void;
-  const barrier = new Promise<void>((resolve) => {
-    release = resolve;
-  });
-  const heldUrls: string[] = [];
+async function capture(page: Page) {
+  return page.evaluate(() => (window as CfpWindow).__cfpCapture?.() as Evidence);
+}
 
-  await page.route("**/*", async (route) => {
-    const request = route.request();
-    if (request.resourceType() !== "script" || !/^https?:\/\//.test(request.url())) {
-      await route.continue();
-      return;
-    }
-    heldUrls.push(request.url());
-    await barrier;
-    await route.continue();
-  });
-
-  return { heldUrls, release };
+async function waitForLoadedTruth(page: Page, heroExpected: boolean) {
+  await page.waitForFunction(
+    (expectHero) => {
+      if (document.readyState !== "complete") return false;
+      if (!document.querySelector("header") || !document.querySelector("main") || !document.querySelector("footer")) {
+        return false;
+      }
+      if (!expectHero) return true;
+      const hero = document.querySelector<HTMLElement>("[data-hero-engine='v2']");
+      const content = document.querySelector<HTMLElement>("[data-v2-content-fade='true']");
+      return Boolean(
+        hero?.dataset.heroEngine === "v2" &&
+          document.querySelectorAll("[data-v2-stack-instance]").length === 1 &&
+          content &&
+          getComputedStyle(content).opacity === "1",
+      );
+    },
+    heroExpected,
+    { timeout: 60_000 },
+  );
 }
 
 function luminance(rgb: number[]) {
@@ -251,16 +256,16 @@ function expectCriticalResource(evidence: Evidence) {
   expect(evidence.critical.precedences).toEqual(["critical"]);
 }
 
-function expectMeaningfulSsr(evidence: Evidence, requireFooter: boolean) {
+function expectMeaningfulSsr(evidence: Evidence) {
   expect(evidence.fallbackCount).toBe(0);
   expect(evidence.semantics.header).toBe(true);
   expect(evidence.semantics.main).toBe(true);
-  if (requireFooter) expect(evidence.semantics.footer).toBe(true);
+  expect(evidence.semantics.footer).toBe(true);
   expect(evidence.semantics.mainTextLength).toBeGreaterThan(20);
   expect(evidence.semantics.ariaHiddenAncestors).toBe(0);
 }
 
-function expectDocumentPaint(evidence: Evidence, requireFooter: boolean): PaintResult {
+function expectDocumentPaint(evidence: Evidence): PaintResult {
   expectCriticalResource(evidence);
   expect(evidence.stylesheets).toEqual([]);
   expect(evidence.inline.rootCanvas).toBe("");
@@ -273,7 +278,7 @@ function expectDocumentPaint(evidence: Evidence, requireFooter: boolean): PaintR
   expect(evidence.srgb.body[3]).toBe(255);
   expect(evidence.srgb.bodyText).toEqual(evidence.srgb.foreground);
   expect(contrast(evidence.srgb.foreground, evidence.srgb.canvas)).toBeGreaterThanOrEqual(4.5);
-  expectMeaningfulSsr(evidence, requireFooter);
+  expectMeaningfulSsr(evidence);
   return { canvas: evidence.srgb.canvas, foreground: evidence.srgb.foreground };
 }
 
@@ -375,96 +380,89 @@ function assertScreenshotContainsCanvas(screenshot: Buffer, canvas: Rgba) {
 
 for (const route of routes) {
   for (const browserCase of route.matrix) {
-    test(`${route.label} actual pre-hydration paint equals loaded paint with ${browserCase.label}`, async ({
-      page,
+    test(`${route.label} no-hydration frame equals loaded paint with ${browserCase.label}`, async ({
+      browser,
     }, testInfo) => {
-      const errors = runtimeErrors(page);
-      const stylesheetRequests: string[] = [];
-      page.on("request", (request) => {
-        if (request.resourceType() === "stylesheet") stylesheetRequests.push(request.url());
+      const contextOptions = {
+        viewport: browserCase.viewport,
+        reducedMotion: browserCase.reduced ? ("reduce" as const) : ("no-preference" as const),
+        serviceWorkers: "block" as const,
+      };
+      const earlyContext = await browser.newContext(contextOptions);
+      const loadedContext = await browser.newContext(contextOptions);
+      const earlyPage = await earlyContext.newPage();
+      const loadedPage = await loadedContext.newPage();
+      const loadedErrors = runtimeErrors(loadedPage);
+      const earlyStylesheets: string[] = [];
+      const loadedStylesheets: string[] = [];
+      const blockedScripts: string[] = [];
+
+      earlyPage.on("request", (request) => {
+        if (request.resourceType() === "stylesheet") earlyStylesheets.push(request.url());
       });
-      await page.setViewportSize(browserCase.viewport);
-      await page.emulateMedia({
-        reducedMotion: browserCase.reduced ? "reduce" : "no-preference",
+      loadedPage.on("request", (request) => {
+        if (request.resourceType() === "stylesheet") loadedStylesheets.push(request.url());
       });
-      await installCapture(page);
-      const scriptGate = await holdHydrationScripts(page);
-      let early: Evidence;
-      let earlyPaint: PaintResult;
-      let screenshot: Buffer;
+      await earlyPage.route("**/*", async (routeHandle) => {
+        const request = routeHandle.request();
+        if (request.resourceType() === "script" && /^https?:\/\//.test(request.url())) {
+          blockedScripts.push(request.url());
+          await routeHandle.abort();
+          return;
+        }
+        await routeHandle.continue();
+      });
 
       try {
-        await page.goto(`${BASE_URL}${route.path}`, { waitUntil: "commit" });
-        await expect.poll(() => scriptGate.heldUrls.length, { timeout: 10_000 }).toBeGreaterThan(0);
-        await page.waitForFunction(
-          () =>
-            Boolean(
-              document.body &&
-                document.querySelector("main") &&
-                (window as CfpWindow).__cfpCapture,
-            ),
-          undefined,
-          { polling: 1 },
-        );
-        await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => resolve())));
-        early = await page.evaluate(() => (window as CfpWindow).__cfpCapture?.() as Evidence);
-        expect(["loading", "interactive"]).toContain(early.readyState);
-        expect(stylesheetRequests).toEqual([]);
-        earlyPaint = expectDocumentPaint(early, false);
-        screenshot = await page.screenshot({ type: "png" });
+        await installCapture(earlyPage);
+        await installCapture(loadedPage);
+        await earlyPage.goto(`${BASE_URL}${route.path}`, { waitUntil: "load" });
+        expect(blockedScripts.length).toBeGreaterThan(0);
+        const early = await capture(earlyPage);
+        expect(early.readyState).toBe("complete");
+        expect(earlyStylesheets).toEqual([]);
+        const earlyPaint = expectDocumentPaint(early);
+        const screenshot = await earlyPage.screenshot({ type: "png" });
         assertScreenshotContainsCanvas(screenshot, earlyPaint.canvas);
+
+        await loadedPage.goto(`${BASE_URL}${route.path}`, { waitUntil: "commit" });
+        await waitForLoadedTruth(loadedPage, route.hero === "present");
+        const loaded = await capture(loadedPage);
+        const loadedPaint = expectDocumentPaint(loaded);
+        expect(loadedStylesheets).toEqual([]);
+        expect(loadedPaint.canvas).toEqual(earlyPaint.canvas);
+        expect(loadedPaint.foreground).toEqual(earlyPaint.foreground);
+        expect(loaded.surfaces.main).toBe("rgba(0, 0, 0, 0)");
+
+        if (route.hero === "present") {
+          expect(loaded.surfaces.hero).toBe("rgba(0, 0, 0, 0)");
+          expect(loaded.hero).toEqual({ engine: "v2", stackCount: 1, opacity: "1" });
+        }
+        expect(loadedErrors.page).toEqual([]);
+        expect(loadedErrors.console).toEqual([]);
+        await testInfo.attach("critical-first-paint.json", {
+          body: JSON.stringify(
+            {
+              route,
+              browserCase,
+              blockedScripts,
+              earlyStylesheets,
+              loadedStylesheets,
+              early,
+              loaded,
+            },
+            null,
+            2,
+          ),
+          contentType: "application/json",
+        });
+        await testInfo.attach("no-hydration-actual-frame.png", {
+          body: screenshot,
+          contentType: "image/png",
+        });
       } finally {
-        scriptGate.release();
+        await Promise.all([earlyContext.close(), loadedContext.close()]);
       }
-
-      await page.waitForFunction(
-        (heroExpected) => {
-          if (document.readyState !== "complete") return false;
-          if (!heroExpected) return true;
-          const hero = document.querySelector<HTMLElement>("[data-hero-engine='v2']");
-          const content = document.querySelector<HTMLElement>("[data-v2-content-fade='true']");
-          return Boolean(
-            hero?.dataset.heroEngine === "v2" &&
-              document.querySelectorAll("[data-v2-stack-instance]").length === 1 &&
-              content &&
-              getComputedStyle(content).opacity === "1",
-          );
-        },
-        route.hero === "present",
-        { timeout: 60_000 },
-      );
-      const loaded = await page.evaluate(() => (window as CfpWindow).__cfpCapture?.() as Evidence);
-      const loadedPaint = expectDocumentPaint(loaded, true);
-      expect(stylesheetRequests).toEqual([]);
-      expect(loadedPaint.canvas).toEqual(earlyPaint.canvas);
-      expect(loadedPaint.foreground).toEqual(earlyPaint.foreground);
-      expect(loaded.surfaces.main).toBe("rgba(0, 0, 0, 0)");
-
-      if (route.hero === "present") {
-        expect(loaded.surfaces.hero).toBe("rgba(0, 0, 0, 0)");
-        expect(loaded.hero).toEqual({ engine: "v2", stackCount: 1, opacity: "1" });
-      }
-      expect(errors.page).toEqual([]);
-      expect(errors.console).toEqual([]);
-      await testInfo.attach("critical-first-paint.json", {
-        body: JSON.stringify(
-          {
-            route,
-            browserCase,
-            heldScripts: scriptGate.heldUrls,
-            stylesheetRequests,
-            early,
-            loaded,
-          },
-          null,
-          2,
-        ),
-        contentType: "application/json",
-      });
-      await testInfo.attach("pre-hydration-actual-frame.png", {
-        body: screenshot,
-        contentType: "image/png",
-      });
     });
   }
 }
@@ -535,9 +533,9 @@ test("JavaScript-disabled public pages retain visible header main and footer", a
 });
 
 test("blocking inline reveal scripts cannot hide the SSR shell", async ({ page }) => {
-  await page.route(`${BASE_URL}/contact`, async (route) => {
-    const response = await route.fetch();
-    await route.fulfill({
+  await page.route(`${BASE_URL}/contact`, async (routeHandle) => {
+    const response = await routeHandle.fetch();
+    await routeHandle.fulfill({
       response,
       headers: {
         ...response.headers(),
@@ -569,21 +567,16 @@ test("JavaScript-disabled response produces an actual painted frame without CSS 
   });
 
   try {
-    await page.goto(`${BASE_URL}/contact`, { waitUntil: "commit" });
-    await page.waitForSelector("main");
-    const canvas = await page.evaluate(() => {
-      const probe = document.createElement("span");
-      probe.style.color = "var(--surface-canvas)";
-      document.body.appendChild(probe);
-      const value = getComputedStyle(probe).color;
-      probe.remove();
-      const match = value.match(/[\d.]+/g)?.map(Number) ?? [];
-      return [match[0] ?? 0, match[1] ?? 0, match[2] ?? 0, 255] as Rgba;
-    });
-    assertScreenshotContainsCanvas(await page.screenshot({ type: "png" }), canvas);
+    await page.goto(`${BASE_URL}/contact`, { waitUntil: "load" });
+    const screenshot = await page.screenshot({ type: "png" });
+    const rootBackground = await page.locator("html").evaluate((element) =>
+      getComputedStyle(element).backgroundColor,
+    );
+    const match = rootBackground.match(/[\d.]+/g)?.map(Number) ?? [];
+    const canvas: Rgba = [match[0] ?? 0, match[1] ?? 0, match[2] ?? 0, 255];
+    assertScreenshotContainsCanvas(screenshot, canvas);
     expect(stylesheetRequests).toEqual([]);
     expect(await page.locator("link[rel='stylesheet']").count()).toBe(0);
-    await page.waitForLoadState("load");
     await expect(page.locator("header")).toBeVisible();
     await expect(page.locator("main")).toBeVisible();
     await expect(page.locator("footer")).toBeVisible();
