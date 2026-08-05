@@ -3,12 +3,30 @@ import { expect, test, type Page } from "playwright/test";
 
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3000";
 const CRITICAL_RESOURCE = "champagne-critical-paint-v1";
+
 type Rgba = [number, number, number, number];
 type HeroExpectation = "present" | "not-applicable";
 type PaintResult = { canvas: Rgba; foreground: Rgba };
+type BrowserCase = {
+  label: string;
+  viewport: { width: number; height: number };
+  reduced: boolean;
+};
+type RouteCase = {
+  label: string;
+  path: string;
+  hero: HeroExpectation;
+  matrix: readonly BrowserCase[];
+};
 type Evidence = {
   readyState: DocumentReadyState;
-  srgb: { canvas: Rgba; root: Rgba; body: Rgba; foreground: Rgba; bodyText: Rgba };
+  srgb: {
+    canvas: Rgba;
+    root: Rgba;
+    body: Rgba;
+    foreground: Rgba;
+    bodyText: Rgba;
+  };
   critical: {
     count: number;
     directHeadChildren: boolean[];
@@ -33,32 +51,52 @@ type Evidence = {
   surfaces: { main: string | null; hero: string | null };
   hero: { engine: string | null; stackCount: number; opacity: string | null };
 };
-type RouteCase = {
-  label: string;
-  path: string;
-  hero: HeroExpectation;
-  matrix: readonly BrowserCase[];
-};
-type BrowserCase = {
-  label: string;
-  viewport: { width: number; height: number };
-  reduced: boolean;
-};
 type CfpWindow = Window & { __cfpCapture?: () => Evidence };
 
 test.use({ serviceWorkers: "block" });
 test.setTimeout(90_000);
 
-const mobileReduced = { label: "mobile reduced", viewport: { width: 390, height: 844 }, reduced: true };
-const mobileNormal = { label: "mobile normal", viewport: { width: 390, height: 844 }, reduced: false };
-const desktopReduced = { label: "desktop reduced", viewport: { width: 1440, height: 900 }, reduced: true };
-const desktopNormal = { label: "desktop normal", viewport: { width: 1440, height: 900 }, reduced: false };
+const mobileReduced = {
+  label: "mobile reduced",
+  viewport: { width: 390, height: 844 },
+  reduced: true,
+};
+const mobileNormal = {
+  label: "mobile normal",
+  viewport: { width: 390, height: 844 },
+  reduced: false,
+};
+const desktopReduced = {
+  label: "desktop reduced",
+  viewport: { width: 1440, height: 900 },
+  reduced: true,
+};
+const desktopNormal = {
+  label: "desktop normal",
+  viewport: { width: 1440, height: 900 },
+  reduced: false,
+};
 const fullMatrix = [mobileReduced, mobileNormal, desktopReduced, desktopNormal] as const;
 const routes: RouteCase[] = [
   { label: "home", path: "/", hero: "present", matrix: fullMatrix },
-  { label: "treatment", path: "/treatments/implants", hero: "present", matrix: fullMatrix },
-  { label: "utility", path: "/contact", hero: "present", matrix: [mobileReduced, desktopNormal] },
-  { label: "internal lab", path: "/champagne/sections-debug", hero: "not-applicable", matrix: [mobileNormal, desktopReduced] },
+  {
+    label: "treatment",
+    path: "/treatments/implants",
+    hero: "present",
+    matrix: fullMatrix,
+  },
+  {
+    label: "utility",
+    path: "/contact",
+    hero: "present",
+    matrix: [mobileReduced, desktopNormal],
+  },
+  {
+    label: "internal lab",
+    path: "/champagne/sections-debug",
+    hero: "not-applicable",
+    matrix: [mobileNormal, desktopReduced],
+  },
 ];
 
 function runtimeErrors(page: Page) {
@@ -91,6 +129,7 @@ async function installCapture(page: Page) {
       probe.remove();
       return color;
     };
+
     (window as CfpWindow).__cfpCapture = (): Evidence => {
       if (!document.body) throw new Error("body unavailable");
       const root = document.documentElement;
@@ -99,8 +138,11 @@ async function installCapture(page: Page) {
       const bodyStyle = getComputedStyle(body);
       const canvas = resolveToken("--surface-canvas");
       const foreground = resolveToken("--text-ink-high");
-      const critical = Array.from(document.querySelectorAll<HTMLStyleElement>("style")).filter((style) =>
-        [style.getAttribute("data-href"), style.getAttribute("href")].includes(criticalResource),
+      const critical = Array.from(document.querySelectorAll<HTMLStyleElement>("style")).filter(
+        (style) =>
+          [style.getAttribute("data-href"), style.getAttribute("href")].includes(
+            criticalResource,
+          ),
       );
       const hero = document.querySelector<HTMLElement>("[data-hero-engine='v2']");
       const main = document.querySelector<HTMLElement>("main");
@@ -108,6 +150,7 @@ async function installCapture(page: Page) {
       const footer = document.querySelector<HTMLElement>("footer");
       const content = document.querySelector<HTMLElement>("[data-v2-content-fade='true']");
       const semanticElements = [header, main, footer].filter(Boolean) as HTMLElement[];
+
       return {
         readyState: document.readyState,
         srgb: {
@@ -120,8 +163,12 @@ async function installCapture(page: Page) {
         critical: {
           count: critical.length,
           directHeadChildren: critical.map((style) => style.parentElement === document.head),
-          resources: critical.map((style) => style.getAttribute("data-href") ?? style.getAttribute("href")),
-          precedences: critical.map((style) => style.getAttribute("data-precedence") ?? style.getAttribute("precedence")),
+          resources: critical.map(
+            (style) => style.getAttribute("data-href") ?? style.getAttribute("href"),
+          ),
+          precedences: critical.map(
+            (style) => style.getAttribute("data-precedence") ?? style.getAttribute("precedence"),
+          ),
         },
         inline: {
           rootCanvas: root.style.getPropertyValue("--surface-canvas").trim(),
@@ -139,7 +186,9 @@ async function installCapture(page: Page) {
           main: Boolean(main),
           footer: Boolean(footer),
           mainTextLength: main?.innerText.trim().length ?? 0,
-          ariaHiddenAncestors: semanticElements.filter((element) => element.closest('[aria-hidden="true"]')).length,
+          ariaHiddenAncestors: semanticElements.filter((element) =>
+            element.closest('[aria-hidden="true"]'),
+          ).length,
         },
         surfaces: {
           main: main ? getComputedStyle(main).backgroundColor : null,
@@ -155,19 +204,20 @@ async function installCapture(page: Page) {
   }, CRITICAL_RESOURCE);
 }
 
-async function holdStylesheets(page: Page) {
+async function holdHydrationScripts(page: Page) {
   let release!: () => void;
   const barrier = new Promise<void>((resolve) => {
     release = resolve;
   });
   const heldUrls: string[] = [];
   const finishedUrls: string[] = [];
+
   page.on("requestfinished", (request) => {
     if (heldUrls.includes(request.url())) finishedUrls.push(request.url());
   });
   await page.route("**/*", async (route) => {
     const request = route.request();
-    if (request.resourceType() !== "stylesheet" || !/^https?:\/\//.test(request.url())) {
+    if (request.resourceType() !== "script" || !/^https?:\/\//.test(request.url())) {
       await route.continue();
       return;
     }
@@ -175,13 +225,16 @@ async function holdStylesheets(page: Page) {
     await barrier;
     await route.continue();
   });
+
   return { heldUrls, finishedUrls, release };
 }
 
 function luminance(rgb: number[]) {
   return rgb
     .map((channel) => channel / 255)
-    .map((channel) => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4)
+    .map((channel) =>
+      channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4,
+    )
     .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
 }
 
@@ -202,17 +255,18 @@ function expectCriticalResource(evidence: Evidence) {
   expect(evidence.critical.precedences).toEqual(["critical"]);
 }
 
-function expectMeaningfulSsr(evidence: Evidence) {
+function expectMeaningfulSsr(evidence: Evidence, requireFooter: boolean) {
   expect(evidence.fallbackCount).toBe(0);
   expect(evidence.semantics.header).toBe(true);
   expect(evidence.semantics.main).toBe(true);
-  expect(evidence.semantics.footer).toBe(true);
+  if (requireFooter) expect(evidence.semantics.footer).toBe(true);
   expect(evidence.semantics.mainTextLength).toBeGreaterThan(20);
   expect(evidence.semantics.ariaHiddenAncestors).toBe(0);
 }
 
-function expectDocumentPaint(evidence: Evidence): PaintResult {
+function expectDocumentPaint(evidence: Evidence, requireFooter: boolean): PaintResult {
   expectCriticalResource(evidence);
+  expect(evidence.stylesheets).toEqual([]);
   expect(evidence.inline.rootCanvas).toBe("");
   expect(evidence.inline.bodyCanvas).toBe("");
   expect(evidence.inline.rootForeground).toBe("");
@@ -223,7 +277,7 @@ function expectDocumentPaint(evidence: Evidence): PaintResult {
   expect(evidence.srgb.body[3]).toBe(255);
   expect(evidence.srgb.bodyText).toEqual(evidence.srgb.foreground);
   expect(contrast(evidence.srgb.foreground, evidence.srgb.canvas)).toBeGreaterThanOrEqual(4.5);
-  expectMeaningfulSsr(evidence);
+  expectMeaningfulSsr(evidence, requireFooter);
   return { canvas: evidence.srgb.canvas, foreground: evidence.srgb.foreground };
 }
 
@@ -242,7 +296,8 @@ function decodePng(buffer: Buffer) {
   let height = 0;
   let colorType = 0;
   const idat: Buffer[] = [];
-  for (let offset = 8; offset < buffer.length;) {
+
+  for (let offset = 8; offset < buffer.length; ) {
     const length = buffer.readUInt32BE(offset);
     const type = buffer.subarray(offset + 4, offset + 8).toString("ascii");
     const data = buffer.subarray(offset + 8, offset + 8 + length);
@@ -261,11 +316,13 @@ function decodePng(buffer: Buffer) {
     }
     offset += 12 + length;
   }
+
   const bytesPerPixel = colorType === 6 ? 4 : 3;
   const stride = width * bytesPerPixel;
   const inflated = inflateSync(Buffer.concat(idat));
   const pixels = Buffer.alloc(height * stride);
   let sourceOffset = 0;
+
   for (let y = 0; y < height; y += 1) {
     const filter = inflated[sourceOffset];
     sourceOffset += 1;
@@ -273,7 +330,8 @@ function decodePng(buffer: Buffer) {
       const raw = inflated[sourceOffset + x];
       const left = x >= bytesPerPixel ? pixels[y * stride + x - bytesPerPixel] : 0;
       const above = y > 0 ? pixels[(y - 1) * stride + x] : 0;
-      const upperLeft = y > 0 && x >= bytesPerPixel ? pixels[(y - 1) * stride + x - bytesPerPixel] : 0;
+      const upperLeft =
+        y > 0 && x >= bytesPerPixel ? pixels[(y - 1) * stride + x - bytesPerPixel] : 0;
       let value = raw;
       if (filter === 1) value = (raw + left) & 255;
       else if (filter === 2) value = (raw + above) & 255;
@@ -284,12 +342,18 @@ function decodePng(buffer: Buffer) {
     }
     sourceOffset += stride;
   }
+
   return {
     width,
     height,
     pixel(x: number, y: number): Rgba {
       const offset = y * stride + x * bytesPerPixel;
-      return [pixels[offset], pixels[offset + 1], pixels[offset + 2], colorType === 6 ? pixels[offset + 3] : 255];
+      return [
+        pixels[offset],
+        pixels[offset + 1],
+        pixels[offset + 2],
+        colorType === 6 ? pixels[offset + 3] : 255,
+      ];
     },
   };
 }
@@ -302,48 +366,72 @@ function assertScreenshotContainsCanvas(screenshot: Buffer, canvas: Rgba) {
     [2, image.height - 3],
     [image.width - 3, image.height - 3],
   ];
-  const matches = points.map(([x, y]) => image.pixel(x, y)).filter((pixel) =>
-    pixel[3] === 255 && pixel.slice(0, 3).every((channel, index) => Math.abs(channel - canvas[index]) <= 8),
-  );
+  const matches = points
+    .map(([x, y]) => image.pixel(x, y))
+    .filter(
+      (pixel) =>
+        pixel[3] === 255 &&
+        pixel.slice(0, 3).every((channel, index) => Math.abs(channel - canvas[index]) <= 8),
+    );
   expect(matches.length).toBeGreaterThan(0);
 }
 
 for (const route of routes) {
   for (const browserCase of route.matrix) {
-    test(`${route.label} actual early paint equals loaded paint with ${browserCase.label}`, async ({ page }, testInfo) => {
+    test(`${route.label} actual parser-time paint equals loaded paint with ${browserCase.label}`, async ({
+      page,
+    }, testInfo) => {
       const errors = runtimeErrors(page);
+      const stylesheetRequests: string[] = [];
+      page.on("request", (request) => {
+        if (request.resourceType() === "stylesheet") stylesheetRequests.push(request.url());
+      });
       await page.setViewportSize(browserCase.viewport);
-      await page.emulateMedia({ reducedMotion: browserCase.reduced ? "reduce" : "no-preference" });
+      await page.emulateMedia({
+        reducedMotion: browserCase.reduced ? "reduce" : "no-preference",
+      });
       await installCapture(page);
-      const stylesheetGate = await holdStylesheets(page);
+      const scriptGate = await holdHydrationScripts(page);
       let early: Evidence;
       let earlyPaint: PaintResult;
       let screenshot: Buffer;
+
       try {
         await page.goto(`${BASE_URL}${route.path}`, { waitUntil: "commit" });
-        await expect.poll(() => stylesheetGate.heldUrls.length, { timeout: 10_000 }).toBeGreaterThan(0);
-        await page.waitForFunction(() => Boolean(document.body && (window as CfpWindow).__cfpCapture), undefined, {
-          polling: 1,
-        });
+        await expect.poll(() => scriptGate.heldUrls.length, { timeout: 10_000 }).toBeGreaterThan(0);
+        await page.waitForFunction(
+          () =>
+            Boolean(
+              document.body &&
+                document.querySelector("main") &&
+                (window as CfpWindow).__cfpCapture,
+            ),
+          undefined,
+          { polling: 1 },
+        );
+        await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => resolve())));
         early = await page.evaluate(() => (window as CfpWindow).__cfpCapture?.() as Evidence);
         expect(early.readyState).toBe("loading");
-        expect(early.stylesheets.length).toBeGreaterThan(0);
-        earlyPaint = expectDocumentPaint(early);
+        expect(stylesheetRequests).toEqual([]);
+        earlyPaint = expectDocumentPaint(early, false);
         screenshot = await page.screenshot({ type: "png" });
         assertScreenshotContainsCanvas(screenshot, earlyPaint.canvas);
       } finally {
-        stylesheetGate.release();
+        scriptGate.release();
       }
 
-      await expect.poll(
-        () => stylesheetGate.heldUrls.every((url) => stylesheetGate.finishedUrls.includes(url)),
-        { timeout: 15_000 },
-      ).toBe(true);
+      await expect
+        .poll(
+          () => scriptGate.heldUrls.every((url) => scriptGate.finishedUrls.includes(url)),
+          { timeout: 15_000 },
+        )
+        .toBe(true);
       await page.waitForLoadState("load", { timeout: 60_000 });
       await page.waitForFunction(() => document.readyState === "complete");
       await page.waitForLoadState("networkidle");
       const loaded = await page.evaluate(() => (window as CfpWindow).__cfpCapture?.() as Evidence);
-      const loadedPaint = expectDocumentPaint(loaded);
+      const loadedPaint = expectDocumentPaint(loaded, true);
+      expect(stylesheetRequests).toEqual([]);
       expect(loadedPaint.canvas).toEqual(earlyPaint.canvas);
       expect(loadedPaint.foreground).toEqual(earlyPaint.foreground);
       expect(loaded.surfaces.main).toBe("rgba(0, 0, 0, 0)");
@@ -355,29 +443,51 @@ for (const route of routes) {
       expect(errors.page).toEqual([]);
       expect(errors.console).toEqual([]);
       await testInfo.attach("critical-first-paint.json", {
-        body: JSON.stringify({ route, browserCase, heldUrls: stylesheetGate.heldUrls, early, loaded }, null, 2),
+        body: JSON.stringify(
+          {
+            route,
+            browserCase,
+            heldScripts: scriptGate.heldUrls,
+            stylesheetRequests,
+            early,
+            loaded,
+          },
+          null,
+          2,
+        ),
         contentType: "application/json",
       });
-      await testInfo.attach("held-css-actual-frame.png", { body: screenshot, contentType: "image/png" });
+      await testInfo.attach("parser-time-actual-frame.png", {
+        body: screenshot,
+        contentType: "image/png",
+      });
     });
   }
 }
 
-test("production HTML places critical paint before every blocking stylesheet", async ({ request }) => {
+test("production HTML inlines application CSS and emits no blocking stylesheet", async ({
+  request,
+}) => {
   for (const path of ["/", "/treatments/implants", "/contact", "/champagne/sections-debug"]) {
     const response = await request.get(`${BASE_URL}${path}`);
     expect(response.ok()).toBe(true);
     const html = await response.text();
-    const criticalMatch = /<style[^>]*(?:data-href|href)="champagne-critical-paint-v1"[^>]*>/i.exec(html);
+    const criticalMatch = /<style[^>]*(?:data-href|href)="champagne-critical-paint-v1"[^>]*>/i.exec(
+      html,
+    );
     expect(criticalMatch, `${path} critical resource`).not.toBeNull();
-    const criticalIndex = criticalMatch?.index ?? -1;
-    const stylesheetIndexes = [...html.matchAll(/<link[^>]*rel="stylesheet"[^>]*>/gi)].map((match) => match.index ?? -1);
-    expect(stylesheetIndexes.length, `${path} stylesheets`).toBeGreaterThan(0);
-    for (const index of stylesheetIndexes) expect(criticalIndex, `${path} critical ordering`).toBeLessThan(index);
+    expect(html, `${path} blocking stylesheet`).not.toMatch(
+      /<link[^>]*rel="stylesheet"[^>]*>/i,
+    );
+    expect(html, `${path} inlined Next CSS`).toMatch(
+      /<style[^>]*(?:data-precedence|precedence)="next"[^>]*>/i,
+    );
   }
 });
 
-test("raw SSR contains meaningful shell content outside hidden streamed containers", async ({ request }) => {
+test("raw SSR contains meaningful shell content outside hidden streamed containers", async ({
+  request,
+}) => {
   for (const path of ["/", "/treatments/implants", "/contact"]) {
     const response = await request.get(`${BASE_URL}${path}`);
     expect(response.ok()).toBe(true);
@@ -386,14 +496,19 @@ test("raw SSR contains meaningful shell content outside hidden streamed containe
     for (const position of positions) expect(position, `${path} semantic SSR`).toBeGreaterThan(-1);
     const firstHiddenStream = html.search(/<div[^>]+hidden[^>]+id="S:/i);
     if (firstHiddenStream >= 0) {
-      for (const position of positions) expect(position, `${path} shell before hidden stream`).toBeLessThan(firstHiddenStream);
+      for (const position of positions) {
+        expect(position, `${path} shell before hidden stream`).toBeLessThan(firstHiddenStream);
+      }
     }
     expect(html).not.toContain("data-champagne-critical-fallback");
   }
 });
 
 test("JavaScript-disabled public pages retain visible header main and footer", async ({ browser }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1280, height: 900 } });
+  const context = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 1280, height: 900 },
+  });
   try {
     const page = await context.newPage();
     for (const path of ["/", "/treatments/implants", "/contact"]) {
@@ -402,8 +517,13 @@ test("JavaScript-disabled public pages retain visible header main and footer", a
       await expect(page.locator("main")).toBeVisible();
       await expect(page.locator("footer")).toBeVisible();
       expect((await page.locator("main").innerText()).trim().length).toBeGreaterThan(20);
+      expect(await page.locator("link[rel='stylesheet']").count()).toBe(0);
       expect(await page.locator("[data-champagne-critical-fallback]").count()).toBe(0);
-      expect(await page.locator('header[aria-hidden="true"], main[aria-hidden="true"], footer[aria-hidden="true"]').count()).toBe(0);
+      expect(
+        await page
+          .locator('header[aria-hidden="true"], main[aria-hidden="true"], footer[aria-hidden="true"]')
+          .count(),
+      ).toBe(0);
     }
   } finally {
     await context.close();
@@ -417,7 +537,8 @@ test("blocking inline reveal scripts cannot hide the SSR shell", async ({ page }
       response,
       headers: {
         ...response.headers(),
-        "content-security-policy": "default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:",
+        "content-security-policy":
+          "default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:",
       },
     });
   });
@@ -426,17 +547,26 @@ test("blocking inline reveal scripts cannot hide the SSR shell", async ({ page }
   await expect(page.locator("main")).toBeVisible();
   await expect(page.locator("footer")).toBeVisible();
   expect((await page.locator("main").innerText()).trim().length).toBeGreaterThan(20);
+  expect(await page.locator("link[rel='stylesheet']").count()).toBe(0);
   expect(await page.locator("[data-champagne-critical-fallback]").count()).toBe(0);
 });
 
-test("JavaScript-disabled held-CSS response still produces an actual painted frame", async ({ browser }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1280, height: 900 } });
+test("JavaScript-disabled response produces an actual painted frame without CSS requests", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 1280, height: 900 },
+  });
   const page = await context.newPage();
-  const gate = await holdStylesheets(page);
+  const stylesheetRequests: string[] = [];
+  page.on("request", (request) => {
+    if (request.resourceType() === "stylesheet") stylesheetRequests.push(request.url());
+  });
+
   try {
     await page.goto(`${BASE_URL}/contact`, { waitUntil: "commit" });
-    await expect.poll(() => gate.heldUrls.length, { timeout: 10_000 }).toBeGreaterThan(0);
-    await page.waitForSelector("header");
+    await page.waitForSelector("main");
     const canvas = await page.evaluate(() => {
       const probe = document.createElement("span");
       probe.style.color = "var(--surface-canvas)";
@@ -447,11 +577,13 @@ test("JavaScript-disabled held-CSS response still produces an actual painted fra
       return [match[0] ?? 0, match[1] ?? 0, match[2] ?? 0, 255] as Rgba;
     });
     assertScreenshotContainsCanvas(await page.screenshot({ type: "png" }), canvas);
-    expect(await page.locator("header").count()).toBe(1);
-    expect(await page.locator("main").count()).toBe(1);
-    expect(await page.locator("footer").count()).toBe(1);
+    expect(stylesheetRequests).toEqual([]);
+    expect(await page.locator("link[rel='stylesheet']").count()).toBe(0);
+    await page.waitForLoadState("load");
+    await expect(page.locator("header")).toBeVisible();
+    await expect(page.locator("main")).toBeVisible();
+    await expect(page.locator("footer")).toBeVisible();
   } finally {
-    gate.release();
     await context.close();
   }
 });
