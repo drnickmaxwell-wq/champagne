@@ -233,8 +233,8 @@ export function renderMaterial(source, primitiveCss) {
 
   const criticalCss = `:where(:root){--surface-canvas:${criticalCanvas};--bg-ink:var(--surface-canvas);--text-ink-high:${criticalForeground}}:where(html),:where(body){background:var(--surface-canvas);color:var(--text-ink-high)}`;
   const documentStyle = {
-    background: "var(--surface-canvas)",
-    color: "var(--text-ink-high)",
+    background: `var(--surface-canvas, ${criticalCanvas})`,
+    color: `var(--text-ink-high, ${criticalForeground})`,
   };
   const ts = `/* GENERATED FILE — DO NOT EDIT.\n * Source: ${SOURCE_RELATIVE_PATH}\n * Regenerate: pnpm run generate:critical-paint\n */\nexport const champagneCriticalPaintVersion = "v1";\nexport const champagneCriticalPaintSource = "${SOURCE_RELATIVE_PATH}";\nexport const champagneCriticalPaintSourceDigest = "sha256:${digest}";\nexport const champagneCriticalPaintCss = ${JSON.stringify(criticalCss)};\nexport const champagneCriticalPaintDocumentStyle = ${JSON.stringify(documentStyle, null, 2)} as const;\nexport const champagneCriticalPaintMetadata = {\n  schemaVersion: ${JSON.stringify(source.schemaVersion)},\n  materialId: ${JSON.stringify(source.materialId)},\n  finalPersianMidnightSelection: false,\n} as const;\n`;
 
