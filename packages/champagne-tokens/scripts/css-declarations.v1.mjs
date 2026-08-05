@@ -1,3 +1,7 @@
+function isCssNewline(character) {
+  return character === "\n" || character === "\r" || character === "\f";
+}
+
 export function decodeCssIdentifier(value) {
   let result = "";
   for (let index = 0; index < value.length; index += 1) {
@@ -53,9 +57,13 @@ export function decodeCssIdentifier(value) {
 }
 
 export function parseCssDeclarations(source) {
-  const input = source.includes("{") ? source : `:root{${source}}`;
+  if (typeof source !== "string") throw new TypeError("CSS source must be a string");
+
+  // Treat every input as the contents of a synthetic outer block. This supports
+  // both complete stylesheets and declaration fragments without guessing based
+  // on whether a component value happens to contain a brace.
   const declarations = [];
-  let blockDepth = 0;
+  let blockDepth = 1;
   let mode = "name";
   let name = "";
   let value = "";
@@ -65,6 +73,10 @@ export function parseCssDeclarations(source) {
   let bracketDepth = 0;
   let valueBraceDepth = 0;
 
+  const append = (character) => {
+    if (mode === "name") name += character;
+    else value += character;
+  };
   const resetDeclaration = () => {
     mode = "name";
     name = "";
@@ -78,51 +90,77 @@ export function parseCssDeclarations(source) {
     if (property.startsWith("--")) declarations.push({ property, value: value.trim() });
     resetDeclaration();
   };
+  const assertBalancedComponents = () => {
+    if (parenthesisDepth !== 0 || bracketDepth !== 0 || valueBraceDepth !== 0) {
+      throw new Error("unbalanced CSS component value");
+    }
+  };
 
-  for (let index = 0; index < input.length; index += 1) {
-    const character = input[index];
-    const next = input[index + 1];
-    const target = mode === "name" ? "name" : "value";
+  for (let index = 0; index < source.length; index += 1) {
+    const character = source[index];
+    const next = source[index + 1];
 
     if (quote) {
-      if (target === "name") name += character;
-      else value += character;
-      if (escaped) escaped = false;
-      else if (character === "\\") escaped = true;
-      else if (character === quote) quote = null;
+      if (escaped) {
+        append(character);
+        escaped = false;
+        if (character === "\r" && next === "\n") {
+          append(next);
+          index += 1;
+        }
+        continue;
+      }
+      if (character === "\\") {
+        append(character);
+        escaped = true;
+        continue;
+      }
+      if (character === quote) {
+        append(character);
+        quote = null;
+        continue;
+      }
+      if (isCssNewline(character)) {
+        // CSS Syntax turns an unescaped newline into a bad-string token and
+        // resumes tokenization at the newline. Recover here instead of letting
+        // the string swallow later declarations.
+        append(" ");
+        quote = null;
+        if (character === "\r" && next === "\n") index += 1;
+        continue;
+      }
+      append(character);
       continue;
     }
+
     if (character === '"' || character === "'") {
       quote = character;
-      if (target === "name") name += character;
-      else value += character;
+      append(character);
       continue;
     }
     if (character === "/" && next === "*") {
-      const close = input.indexOf("*/", index + 2);
+      const close = source.indexOf("*/", index + 2);
       if (close < 0) throw new Error("unterminated CSS comment");
       index = close + 1;
       continue;
     }
 
-    if (blockDepth === 0) {
-      if (character === "{") {
-        blockDepth = 1;
-        resetDeclaration();
-      }
-      continue;
-    }
-
     if (mode === "name") {
       if (character === "(") parenthesisDepth += 1;
-      else if (character === ")" && parenthesisDepth > 0) parenthesisDepth -= 1;
-      else if (character === "[") bracketDepth += 1;
-      else if (character === "]" && bracketDepth > 0) bracketDepth -= 1;
+      else if (character === ")") {
+        if (parenthesisDepth === 0) throw new Error("unexpected CSS closing parenthesis");
+        parenthesisDepth -= 1;
+      } else if (character === "[") bracketDepth += 1;
+      else if (character === "]") {
+        if (bracketDepth === 0) throw new Error("unexpected CSS closing bracket");
+        bracketDepth -= 1;
+      }
 
       if (character === "{" && parenthesisDepth === 0 && bracketDepth === 0) {
         blockDepth += 1;
         resetDeclaration();
       } else if (character === "}" && parenthesisDepth === 0 && bracketDepth === 0) {
+        if (blockDepth === 1) throw new Error("unexpected CSS closing block");
         blockDepth -= 1;
         resetDeclaration();
       } else if (character === ";" && parenthesisDepth === 0 && bracketDepth === 0) {
@@ -138,10 +176,14 @@ export function parseCssDeclarations(source) {
     }
 
     if (character === "(") parenthesisDepth += 1;
-    else if (character === ")" && parenthesisDepth > 0) parenthesisDepth -= 1;
-    else if (character === "[") bracketDepth += 1;
-    else if (character === "]" && bracketDepth > 0) bracketDepth -= 1;
-    else if (character === "{") {
+    else if (character === ")") {
+      if (parenthesisDepth === 0) throw new Error("unexpected CSS closing parenthesis");
+      parenthesisDepth -= 1;
+    } else if (character === "[") bracketDepth += 1;
+    else if (character === "]") {
+      if (bracketDepth === 0) throw new Error("unexpected CSS closing bracket");
+      bracketDepth -= 1;
+    } else if (character === "{") {
       const property = decodeCssIdentifier(name);
       if (!property.startsWith("--") && parenthesisDepth === 0 && bracketDepth === 0) {
         blockDepth += 1;
@@ -149,7 +191,13 @@ export function parseCssDeclarations(source) {
         continue;
       }
       valueBraceDepth += 1;
-    } else if (character === "}" && valueBraceDepth > 0) valueBraceDepth -= 1;
+      value += character;
+      continue;
+    } else if (character === "}" && valueBraceDepth > 0) {
+      valueBraceDepth -= 1;
+      value += character;
+      continue;
+    }
 
     if (
       character === ";" &&
@@ -165,13 +213,18 @@ export function parseCssDeclarations(source) {
       valueBraceDepth === 0
     ) {
       commitDeclaration();
+      if (blockDepth === 1) throw new Error("unexpected CSS closing block");
       blockDepth -= 1;
     } else {
       value += character;
     }
   }
+
   if (quote) throw new Error("unterminated CSS string");
-  if (blockDepth !== 0) throw new Error("unbalanced CSS block");
+  if (escaped) throw new Error("unterminated CSS escape");
+  assertBalancedComponents();
+  if (blockDepth !== 1) throw new Error("unbalanced CSS block");
+  if (mode === "value") commitDeclaration();
   return declarations;
 }
 
@@ -179,4 +232,58 @@ export function parseCssDefinitions(source, token) {
   return parseCssDeclarations(source)
     .filter((declaration) => declaration.property === token)
     .map((declaration) => declaration.value);
+}
+
+
+export function cssOwnerContractErrors(cssSources, contract, sameValue = (actual, expected) => actual === expected) {
+  const issues = [];
+  const entries = cssSources instanceof Map ? [...cssSources.entries()] : cssSources;
+  const parsed = new Map();
+  for (const [file, source] of entries) {
+    try {
+      parsed.set(file, parseCssDeclarations(source));
+    } catch (error) {
+      issues.push(
+        `[CSS_DECLARATION_PARSE] ${file}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+      parsed.set(file, []);
+    }
+  }
+
+  for (const [token, owners] of contract) {
+    if (owners.some(({ values }) => values.some((value) => !value))) {
+      issues.push(`[MATERIAL_OWNER_UNAPPROVED] ${token}: canonical expected value is unavailable`);
+      continue;
+    }
+    const allowed = new Set(owners.map(({ file }) => file));
+    const actual = [];
+    for (const [file, declarations] of parsed) {
+      for (const declaration of declarations) {
+        if (declaration.property === token) actual.push({ file, value: declaration.value });
+      }
+    }
+    const expectedCount = owners.reduce((total, owner) => total + owner.values.length, 0);
+    if (actual.length !== expectedCount) {
+      issues.push(
+        `[MATERIAL_OWNER_UNAPPROVED] ${token}: expected ${expectedCount} canonical owner(s), found ${actual.length}`,
+      );
+    }
+    for (const occurrence of actual) {
+      if (!allowed.has(occurrence.file)) {
+        issues.push(`[MATERIAL_OWNER_UNAPPROVED] ${token}: competing owner in ${occurrence.file}`);
+      }
+    }
+    for (const owner of owners) {
+      const values = actual.filter(({ file }) => file === owner.file).map(({ value }) => value);
+      if (
+        values.length !== owner.values.length ||
+        values.some((value, index) => !sameValue(value, owner.values[index]))
+      ) {
+        issues.push(
+          `[MATERIAL_OWNER_UNAPPROVED] ${token}: ${owner.file} must own exactly ${owner.values.join(", ")}`,
+        );
+      }
+    }
+  }
+  return issues;
 }
