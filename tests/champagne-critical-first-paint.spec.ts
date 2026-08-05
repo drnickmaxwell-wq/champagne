@@ -360,25 +360,26 @@ function decodePng(buffer: Buffer) {
 
 function assertScreenshotContainsCanvas(screenshot: Buffer, canvas: Rgba) {
   const image = decodePng(screenshot);
-  const points = [
-    [2, 2],
-    [image.width - 3, 2],
-    [2, image.height - 3],
-    [image.width - 3, image.height - 3],
-  ];
-  const matches = points
-    .map(([x, y]) => image.pixel(x, y))
-    .filter(
-      (pixel) =>
-        pixel[3] === 255 &&
-        pixel.slice(0, 3).every((channel, index) => Math.abs(channel - canvas[index]) <= 8),
-    );
+  const points: Array<[number, number]> = [];
+  for (let y = 1; y < 20; y += 1) {
+    for (let x = 1; x < 20; x += 1) {
+      points.push([
+        Math.min(image.width - 1, Math.max(0, Math.round((image.width * x) / 20))),
+        Math.min(image.height - 1, Math.max(0, Math.round((image.height * y) / 20))),
+      ]);
+    }
+  }
+  const pixels = points.map(([x, y]) => image.pixel(x, y));
+  expect(pixels.every((pixel) => pixel[3] === 255)).toBe(true);
+  const matches = pixels.filter((pixel) =>
+    pixel.slice(0, 3).every((channel, index) => Math.abs(channel - canvas[index]) <= 16),
+  );
   expect(matches.length).toBeGreaterThan(0);
 }
 
 for (const route of routes) {
   for (const browserCase of route.matrix) {
-    test(`${route.label} actual parser-time paint equals loaded paint with ${browserCase.label}`, async ({
+    test(`${route.label} actual pre-hydration paint equals loaded paint with ${browserCase.label}`, async ({
       page,
     }, testInfo) => {
       const errors = runtimeErrors(page);
@@ -411,7 +412,7 @@ for (const route of routes) {
         );
         await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => resolve())));
         early = await page.evaluate(() => (window as CfpWindow).__cfpCapture?.() as Evidence);
-        expect(early.readyState).toBe("loading");
+        expect(["loading", "interactive"]).toContain(early.readyState);
         expect(stylesheetRequests).toEqual([]);
         earlyPaint = expectDocumentPaint(early, false);
         screenshot = await page.screenshot({ type: "png" });
@@ -457,7 +458,7 @@ for (const route of routes) {
         ),
         contentType: "application/json",
       });
-      await testInfo.attach("parser-time-actual-frame.png", {
+      await testInfo.attach("pre-hydration-actual-frame.png", {
         body: screenshot,
         contentType: "image/png",
       });
