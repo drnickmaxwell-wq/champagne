@@ -90,6 +90,100 @@ function collectRuntime(root) {
     return [];
   }
 }
+function statementCandidate(source, start) {
+  const limit = Math.min(source.length, start + 4096);
+  let quote = null;
+  let escaped = false;
+  let parenthesisDepth = 0;
+  let braceDepth = 0;
+  let bracketDepth = 0;
+  for (let index = start; index < limit; index += 1) {
+    const character = source[index];
+    const next = source[index + 1];
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (character === "\\") {
+        escaped = true;
+        continue;
+      }
+      if (character === quote) quote = null;
+      continue;
+    }
+    if (character === '"' || character === "'" || character === "`") {
+      quote = character;
+      continue;
+    }
+    if (character === "/" && next === "/") {
+      const newline = source.indexOf("\n", index + 2);
+      if (newline < 0 || newline >= limit) return source.slice(start, limit);
+      index = newline;
+      continue;
+    }
+    if (character === "/" && next === "*") {
+      const close = source.indexOf("*/", index + 2);
+      if (close < 0 || close >= limit) return source.slice(start, limit);
+      index = close + 1;
+      continue;
+    }
+    if (character === "(") parenthesisDepth += 1;
+    else if (character === ")") parenthesisDepth = Math.max(0, parenthesisDepth - 1);
+    else if (character === "{") braceDepth += 1;
+    else if (character === "}") braceDepth = Math.max(0, braceDepth - 1);
+    else if (character === "[") bracketDepth += 1;
+    else if (character === "]") bracketDepth = Math.max(0, bracketDepth - 1);
+    else if (
+      character === ";" &&
+      parenthesisDepth === 0 &&
+      braceDepth === 0 &&
+      bracketDepth === 0
+    ) {
+      return source.slice(start, index + 1);
+    }
+  }
+  return source.slice(start, limit);
+}
+function runtimeMutationCandidateSources(runtimeSources) {
+  const candidates = new Map();
+  const channels = [
+    ["set-property", /\.\s*setProperty\s*\(/g],
+    ["sheet-mutation", /\.\s*(?:replace|replaceSync|insertRule)\s*\(/g],
+    ["style-text", /\.\s*(?:textContent|innerText|innerHTML)\s*=\s*/g],
+    ["style-attribute", /setAttribute\s*\(\s*["']style["']\s*,/g],
+  ];
+  for (const [file, source] of runtimeSources) {
+    let sequence = 0;
+    for (const [label, expression] of channels) {
+      expression.lastIndex = 0;
+      for (const match of source.matchAll(expression)) {
+        candidates.set(
+          `${file}#${label}-${sequence}`,
+          statementCandidate(source, match.index ?? 0),
+        );
+        sequence += 1;
+      }
+    }
+    const styleKey = /(["'`])(--(?:\\.|[^\\"'`])+)\1\s*:/g;
+    for (const match of source.matchAll(styleKey)) {
+      const index = match.index ?? 0;
+      const before = source.slice(Math.max(0, index - 320), index);
+      if (
+        !/style\s*=\s*\{\{[^{}]*$/i.test(before) &&
+        !/(?:const|let|var)\s+\w*style\w*\s*=\s*\{[^{}]*$/i.test(before)
+      ) {
+        continue;
+      }
+      candidates.set(
+        `${file}#style-object-${sequence}`,
+        `const materialStyle = {${match[0]} "guard-probe"};`,
+      );
+      sequence += 1;
+    }
+  }
+  return candidates;
+}
 async function main() {
  const rootPkg = json(paths.rootPkg);
  const guardPkg = json(paths.guardPkg);
@@ -144,7 +238,8 @@ async function main() {
  const runtimeSources = new Map(
   runtimeFiles.map((file) => [path.relative(repoRoot, file), readFileSync(file, "utf8")]),
  );
- for (const issue of staticRuntimeMutationErrors(runtimeSources, protectedTokens)) errors.push(issue);
+ const runtimeCandidates = runtimeMutationCandidateSources(runtimeSources);
+ for (const issue of staticRuntimeMutationErrors(runtimeCandidates, protectedTokens)) errors.push(issue);
  for (const issue of timeOfDayCanvasOwnerErrors(timeOfDay)) errors.push(issue);
  const requiredRoles = new Map([
   ["--surface-ink", "var(--brand-ink)"],
