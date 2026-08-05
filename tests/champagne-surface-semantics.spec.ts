@@ -1,8 +1,6 @@
+import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { expect, test, type Page } from "playwright/test";
-import {
-  parseCssDefinitions,
-  parseCssPropertyRegistrations,
-} from "../packages/champagne-guards/scripts/guard-surface-semantics.mjs";
 
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3000";
 const TRANSPARENT = new Set(["transparent", "rgba(0, 0, 0, 0)"]);
@@ -233,6 +231,10 @@ for (const theme of ["dawn", "dusk", "night"] as const) {
 }
 
 test("shared parser fixtures are correlated with Chromium and expose no guard bypass", async ({ page }) => {
+  const parserUrl = pathToFileURL(
+    path.resolve(process.cwd(), "packages/champagne-tokens/scripts/css-declarations.v1.mjs"),
+  ).href;
+  const { parseCssDefinitions, parseCssPropertyRegistrations } = await import(parserUrl);
   const fixtures = [
     { name: "direct declaration", css: ":root{--surface-canvas:rgb(1 2 3)}", expected: "browser-effective owner" },
     { name: "hexadecimal escape", css: String.raw`:root{--surface-\63 anvas:rgb(1 2 3)}`, expected: "browser-effective owner" },
