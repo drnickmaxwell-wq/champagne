@@ -5,6 +5,7 @@ import { mkdtemp, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseCssDefinitions } from "./css-declarations.v1.mjs";
 
 export const SOURCE_RELATIVE_PATH = "packages/champagne-tokens/src/canvas-material.v1.json";
 export const PRIMITIVES_RELATIVE_PATH =
@@ -29,6 +30,7 @@ const INPUT_KEYS = new Set(["ref", "weight"]);
 const OUTPUT_KEYS = new Set(["canvas", "foreground"]);
 const ALLOWED_SPACES = new Set(["oklab", "srgb"]);
 const HEX_LITERAL = /^#[0-9A-F]{6}$/;
+const PRIMITIVE_HEX_LITERAL = /^#[0-9A-Fa-f]{6}$/;
 const TOKEN_NAME = /^--[a-z0-9-]+$/;
 const MATERIAL_STATUS = "CURRENT_APPROVED_MATERIAL_NOT_FINAL_PERSIAN_MIDNIGHT";
 
@@ -53,14 +55,20 @@ function assertIntegerWeight(value, label) {
 }
 
 function parsePrimitiveLiteral(css, token) {
-  const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const matches = [...css.matchAll(new RegExp(`${escaped}\\s*:\\s*(#[0-9A-Fa-f]{6})\\s*;`, "g"))];
-  if (matches.length !== 1) {
+  let values;
+  try {
+    values = parseCssDefinitions(css, token);
+  } catch (error) {
     throw new Error(
-      `[PRIMITIVE_OWNER_INVALID] ${token} must have exactly one six-digit literal owner; found ${matches.length}`,
+      `[PRIMITIVE_OWNER_INVALID] ${token} CSS parse failed: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
-  return matches[0][1].toUpperCase();
+  if (values.length !== 1 || !PRIMITIVE_HEX_LITERAL.test(values[0] ?? "")) {
+    throw new Error(
+      `[PRIMITIVE_OWNER_INVALID] ${token} must have exactly one six-digit literal owner; found ${values.length}${values.length > 0 ? ` (${values.join(", ")})` : ""}`,
+    );
+  }
+  return values[0].toUpperCase();
 }
 
 function stableValue(value) {
