@@ -163,11 +163,14 @@ Agents MAY modify exactly these review-repair paths:
 - apps/web/app/components/hero/v2/HeroRendererV2.tsx
 - apps/web/app/champagne/hero-lab/design/persian-materials.json
 - apps/web/app/champagne/hero-lab/design/porcelain-materials.json
-- apps/web/public/assets/champagne/design-lab/imports/headers.json
+- apps/web/public/assets/champagne/design-lab/catalogues/**
+- apps/web/public/assets/champagne/design-lab/imports/**
+- apps/web/public/assets/champagne/design-lab/components/**
 
 Scope:
-- Preserve the selected laboratory route during Hero V2 client hydration by preferring
-  the already-supported explicit pageSlugOrPath prop over the ambient lab pathname.
+- Preserve the selected laboratory route during Hero V2 client hydration through a new,
+  laboratory-only HeroRendererV2 pathnameOverride prop. Only the isolated design-lab page
+  may supply this override; production callers must continue following live usePathname().
 - Extend only the existing Champagne route gate matcher to the design-lab static assets.
 - Record the two exact laboratory material candidate files in token-purity targetFiles
   and report their measured/picker colour literals as scoped laboratory evidence.
