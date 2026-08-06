@@ -2,159 +2,141 @@
 
 ## Status
 
-`FOUNDER_AUTHORISED_DRAFT_IMPLEMENTATION_EVIDENCE`
+`FOUNDER_AUTHORISED_ROUTE_B_DRAFT_SETTLEMENT`
 
-This receipt records the final Founder-authorised matcher-replacement and acceptance-closure lane for Champagne PR #865. It does not select a final Persian Midnight material, mark the pull request ready, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
+This receipt records the Founder-authorised Route B five-path settlement for Champagne PR #865. It does not select a final Persian Midnight material, mark the pull request ready, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
 
 ## Authority and exact boundary
 
 - Repository: `drnickmaxwell-wq/champagne`
 - Pull request: `#865`
-- Authorised base and unchanged Champagne `main`: `a3484e976d240aaedf88a9b13afdd6ccc8d7d267`
+- Base branch: `main`
+- Exact authorised and unchanged base: `a3484e976d240aaedf88a9b13afdd6ccc8d7d267`
 - Existing branch: `agent/champagne-critical-first-paint-clean-replacement-v1`
-- Original settlement starting head: `b0ae7c45c9e99d28bcf37418db250332b312ae42`
-- CSSStyleDeclaration closure starting head: `b57407a9e87ebe46b161c739121c2243290a0c34`
-- Final matcher-replacement starting head: `714906819d43a1398cd1eced19a1dd1378443deb`
-- Functional lexical-scanner closure head: `83b856888388ecadf6f8e36db22cfe1f48287803`
-- Frozen PR #861 head: `b800e58134c6ef4f8b9a3196223379b0c47e4075`
-- Frozen PR #863 head: `f29f0f10c08ab31374ba698a1d26a8a632fc13a9`
-- Frozen evidence PR #864 head: `4c1548744e8d7afdac70a02e1f42c29fb4a2d2d6`
-- Informational read-only `drnickmaxwell-wq/agent` main: `ba88b3ab5e649793a38a5b300dfa9da297751dfb`
-- Maximum and final changed-path boundary: exactly 17
+- Exact authorised starting head: `ef2058ca307aa0cddd3104a1a50a40772fd21e51`
+- Authorised starting state: 94 commits above base and exactly 17 changed paths
+- Settlement authority: exactly the five paths listed below
 - No `pnpm-lock.yaml` or `apps/web/package.json` change
-- No middleware, application-page design, Hero V2 source, production deployment, provider, spending, Router or WEOS mutation
+- No production application, CSS, token, generated artefact, Hero V2, workflow, dependency or deployment mutation
 
-## Exact changed paths — 17
+The settlement commit's exact SHA cannot be embedded literally in the tracked contents that determine that same SHA. The immutable resulting head is therefore recorded in PR #865 metadata and the final lane packet immediately after the single settlement commit is created.
 
-1. `.github/workflows/verify.yml`
-2. `apps/web/app/layout.tsx`
-3. `apps/web/next.config.mjs`
-4. `docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md`
-5. `package.json`
-6. `packages/champagne-guards/scripts/guard-surface-semantics.mjs`
-7. `packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`
-8. `packages/champagne-tokens/package.json`
-9. `packages/champagne-tokens/scripts/css-declarations.v1.mjs`
-10. `packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs`
-11. `packages/champagne-tokens/src/canvas-material.v1.json`
-12. `packages/champagne-tokens/src/critical-paint.generated.ts`
-13. `packages/champagne-tokens/styles/champagne/canvas-material.generated.css`
-14. `packages/champagne-tokens/styles/champagne/tokens.css`
-15. `tests/champagne-critical-first-paint-generator.test.mjs`
-16. `tests/champagne-critical-first-paint.spec.ts`
-17. `tests/champagne-surface-semantics.spec.ts`
+## Exact settlement paths — 5
 
-## Settled first-paint architecture
+1. `docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md`
+2. `packages/champagne-guards/scripts/guard-surface-semantics.mjs`
+3. `packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`
+4. `tests/champagne-critical-first-paint-generator.test.mjs`
+5. `tests/champagne-surface-semantics.spec.ts`
+
+The overall pull-request inventory remains the existing 17 paths. No sixth settlement path is authorised.
+
+## Route B architectural decision
+
+An independent read-only settlement architecture audit returned `PASS — ROUTE B BOUNDED SETTLEMENT RECOMMENDED` and reproduced three exact-head P2 findings:
+
+1. executable protected mutations inside template interpolations can be skipped;
+2. division after an object literal can be mistaken for a regular-expression literal; and
+3. style-object recognition can fail beyond the fixed 32-token lookback.
+
+These findings invalidate broad JavaScript or TypeScript lexical-closure claims. They do not invalidate the first-paint architecture, generated artefacts, CSS governance, ownership contracts or delivery proof.
+
+The bespoke general JavaScript runtime-mutation scanner, its statement-bound extraction, JavaScript literal and identifier decoding, regex-versus-division heuristics, tokenisation, member/call matching, fixed-lookback style-object recognition, candidate construction, runtime-source collection, protected runtime-payload classification, orchestration, exports and scanner-only tests have been removed.
+
+The audit found no corresponding protected-token mutation in the governed production application source at the authorised starting head. This is a bounded source observation, not proof of general JavaScript semantics.
+
+General JavaScript and TypeScript runtime-mutation hardening is deferred to a separately governed AST-based change. A later change may assess the TypeScript Compiler API or `@typescript-eslint/parser`; PR #865 does not implement or select that approach.
+
+## Narrowed acceptance claim
+
+> Protected static CSS declarations, protected `@property` registrations, canonical material ownership, generated first-paint artefact integrity and render-unblocking first-paint delivery are governed. General JavaScript and TypeScript runtime-mutation detection is not claimed by PR #865 and is deferred to a separately governed AST-based hardening change.
+
+PR #865 governs first-paint architecture, generated artefacts, static CSS declarations, registrations, ownership and delivery. It does not claim broad statically discoverable application-mutation closure or general JavaScript parser equivalence.
+
+## Retained first-paint architecture
 
 `packages/champagne-tokens/src/canvas-material.v1.json` remains the sole human-editable first-paint composition graph. Primitive owners remain separately maintained in `packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css`.
 
-One deterministic generator validates graph-to-primitive parity and emits:
+One deterministic generator continues to validate graph-to-primitive parity and emit:
 
 1. `packages/champagne-tokens/styles/champagne/canvas-material.generated.css`
 2. `packages/champagne-tokens/src/critical-paint.generated.ts`
 
-The root layout emits one React-managed critical style resource and meaningful server-rendered header, main and footer content. The page shell is not hidden behind a whole-document empty Suspense fallback.
+The root layout continues to emit one React-managed critical style resource and meaningful server-rendered header, main and footer content. Next production CSS inlining remains enabled. Initial production HTML continues to avoid a render-blocking external stylesheet link, while HTML and body paint through cascade-resolved variables so dawn, dusk and night overrides remain effective.
 
-Next production CSS inlining remains enabled. Initial production HTML contains no render-blocking external stylesheet link, while HTML and body paint through cascade-resolved variables so dawn, dusk and night overrides remain effective.
+The shared CSS declaration parser remains the single parser authority used by the generator and surface guard. Protected static owners, protected `@property` registrations, literal primitives, generated owners, immutable-gold owners, `--ink-100`, exact time-of-day canvas owners, malformed CSS and CSS-tree symlinks remain governed.
 
-`packages/champagne-tokens/scripts/css-declarations.v1.mjs` remains the one shared CSS declaration-parser authority used by the generator and surface guard. Protected static owners, protected `@property` registrations, literal primitives, generated owners, immutable gold owners, `--ink-100`, the three exact time-of-day canvas owners, malformed CSS and CSS-tree symlinks remain governed.
+Hero V2, mobile and desktop behaviour, normal and reduced motion, JavaScript-disabled usefulness, CSP-interference resilience, meaningful SSR, actual screenshot pixels, generated-file drift rejection, stable serialisation, workflow integrity and pinned actions remain in the retained validation scope.
 
-## Final matcher replacement
+## Settlement test inventory
 
-The independent settlement audit reproduced one remaining concentrated defect family in repository-facing JavaScript runtime-mutation recognition:
+- Retained generator and contract Node suite: exactly `23` tests
+- Removed scanner-only generator tests: exactly `13` tests
+- Retained surface-semantics Playwright declarations: exactly `5` tests, including the dawn/dusk/night parameterisation
+- Removed scanner-only surface-semantics browser demonstrations: exactly `2` tests
+- No replacement lexical scanner or AST test family was added
 
-1. JavaScript comments were not accepted as legal trivia throughout recognised structural forms.
-2. Optional calls were omitted.
-3. `CSSStyleSheet.replace()` discovery depended on preferred receiver spellings.
-4. the 4,096-byte extractor could return an incomplete candidate and discard a later protected payload without failing the guard.
+## Executed evidence
 
-The correction at `83b856888388ecadf6f8e36db22cfe1f48287803` removes the fragmented discovery regex authority and replaces it with one bounded JavaScript lexical scanner shared by:
+Evidence is recorded here only after execution against the settlement worktree.
 
-1. repository-facing runtime-mutation candidate discovery; and
-2. downstream mutation-channel classification.
+- `node --check packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`: successful
+- `node --check packages/champagne-guards/scripts/guard-surface-semantics.mjs`: successful
+- `pnpm run test:critical-paint-generator`: `23/23 passed`, `0 failed`, `0 skipped`
+- `pnpm run guard:surface-semantics`: successful with the narrowed CSS/ownership/artefact/delivery claim
+- `pnpm run check:critical-paint-generated`: successful
+- `pnpm run guard:all`: successful
+- `pnpm run lint`: successful with `0` ESLint warnings or errors
+- `pnpm run typecheck`: successful
+- `CI=1 pnpm run build:web`: successful; `110/110` static pages generated
+- `pnpm run verify`: successful
+- `npm run guard:hero`: successful, including the sacred Hero lock
+- `npm run guard:canon`: successful, including the patient-portal SSR probe
+- `npm run verify`: successful
+- Stage B CI-environment production build with `ALLOW_CHAMPAGNE_ROUTES=true`, `NEXT_PUBLIC_FEATURE_BRAND_HERO=true` and `NEXT_PUBLIC_HERO_ENGINE=v2`: successful; `110/110` static pages generated
+- Internal `/champagne/sections-debug` real-HTML probe: successful
+- Complete retained Playwright matrix: `25/25 passed`, `0 failed`, `0 skipped`
+  - `tests/champagne-critical-first-paint.spec.ts`: `17/17 passed`
+  - `tests/champagne-surface-semantics.spec.ts`: `5/5 passed`
+  - `tests/hero-v2-navigation-continuity.spec.ts`: `3/3 passed`
+- Deterministic regeneration followed by generated-path diff: successful; no generated diff
+- `packages/champagne-tokens/src/critical-paint.generated.ts` SHA-256: `fc006d23752b48e6aabdeccb82065e18031b722c6ac6a8f5d78c9619b51c5128`
+- `packages/champagne-tokens/styles/champagne/canvas-material.generated.css` SHA-256: `73bcf78f94c89ce00fbd53d89c0e5e9c4902623ef365eb25f03522663c7bf665`
 
-The scanner:
+The first local browser attempt enumerated all 25 retained tests but could not launch 23 browser-dependent cases because Playwright Chromium build 1200 was absent; the two HTTP-only cases passed. After installing the exact Chromium runtime into isolated temporary storage, the unchanged matrix passed `25/25`. Playwright's Node 26 archive extractor stalled locally, so the official downloaded archives were extracted with the system unzip tool; CI pins Node 20 and performs the standard Playwright installation step.
 
-- treats spaces, tabs, newlines, line comments and block comments as JavaScript trivia;
-- recognises dot, optional-dot and static bracket member access;
-- canonicalises static property names, including JavaScript Unicode identifier escapes;
-- recognises ordinary and optional calls;
-- recognises `=`, `+=`, `||=`, `??=` and `&&=` for string-capable `cssText` and style-text mutation channels;
-- excludes irrelevant arithmetic and bitwise assignment operators from the declared string-mutation contract;
-- discovers `replace`, `replaceSync` and `insertRule` independently of receiver variable spelling;
-- preserves `setProperty`, `setAttribute("style", ...)`, `cssText`, style `textContent`, `innerText`, `innerHTML`, and existing React/static style-object channels;
-- handles static string, static template and statically concatenated payloads;
-- excludes dynamic computed members and does not claim runtime object identity or interprocedural data-flow proof;
-- scans to a complete statement boundary within a declared 64 KiB ceiling;
-- fails closed with `RUNTIME_CANDIDATE_BOUND_EXCEEDED` if that ceiling is reached before a trustworthy boundary, rather than returning a truncated successful candidate.
+Non-failing pre-existing notices observed during verification were: legacy workspace-dependency allowlist warnings; SEO inventory `78` versus live manifest `79`; manifest-sync skipped because its optional manifests were absent; chatbot-copy fallback because its optional QA report and conversation files were absent; and internal-lab server warnings for currently unregistered `implant_crown_3d_viewer` and `treatment_mid_cta` components. None was treated as successful proof or silently repaired.
 
-The truthful bounded contract remains:
-
-> Protected static CSS declarations, protected registrations and statically discoverable common application mutation channels are governed.
-
-## Functional exact-head evidence
-
-The functional implementation head immediately preceding this receipt is:
-
-`83b856888388ecadf6f8e36db22cfe1f48287803`
-
-Successful evidence bound to that exact head:
-
-- Champagne CI run `31072141939`: successful
-- Full umbrella `verify`: successful
-- Generator and adversarial Node suite: `38/38 passed`
-- Comment-trivia mutation fixtures: successful
-- Ordinary and optional call fixtures: successful
-- Receiver-independent `replace`, `replaceSync` and `insertRule` fixtures: successful
-- Static dot, bracket and Unicode-escaped member canonicalisation fixtures: successful
-- Five relevant `cssText` assignment-operator fixtures: successful
-- Dynamic-member, regex, comment and dynamic-template decoy fixtures: successful
-- Protected payload beyond the former 4,096-byte slice: successful
-- Configured-bound exhaustion fail-closed fixture: successful
-- Unrelated static runtime payload allowance: successful
-- Generated freshness and byte-clean regeneration: successful
-- Stage B real-internal-HTML route proof: successful
-- Stage B Chromium matrix: `27/27 passed`
-- Browser-effective comment-trivia `cssText` proof: successful
-- Browser-effective receiver-independent optional `CSSStyleSheet.replace` proof: successful
-- JavaScript-disabled shell and actual-frame proof: successful
-- CSP-blocked reveal-script proof: successful
-- Production CSS-inlining and zero external stylesheet proof: successful
-- Dawn, dusk and night continuity: successful
-- Hero V2 direct load, navigation, reduced motion and one-stack continuity: successful
-- Surface-semantics, token-binding, purity, canon, Hero, workspace and rogue-colour guards: successful
-- Lint, TypeScript and production web build: successful
-- CodeQL run `31072141936`: successful
-- Semgrep run `31072141933`: successful
-- Trivy run `31072142017`: successful
-- Gitleaks run `31072141956`: successful
-- SBOM run `31072141967`: successful
-- Vercel `champagne-web`: successful
-- Vercel `champagne-stock`: successful
-
-Because this receipt is tracked, every mandatory CI, security and preview check must rerun successfully against the commit containing this receipt. Earlier-head success is functional evidence and is not substituted for final receipt-bound exact-head closure.
+Exact-head CI/security evidence and both Vercel contexts remain pending until the single settlement commit is pushed.
 
 ## Evidence classification
 
-- Parser, owner, registration, generator, lexical-scanner, runtime-candidate and workflow fixtures: `FIXTURE_PROVEN`
-- Visitor-facing, internal-lab and browser-effective mutation behaviour: `LIVE_READ_PROVEN`
+- Static CSS parser, owner, registration, generator and workflow contracts: `FIXTURE_PROVEN`
+- Visitor-facing first-paint, SSR, pixel, navigation, motion and surface behaviour: `LIVE_READ_PROVEN` only where the retained browser suites complete successfully
+- General JavaScript or TypeScript runtime-mutation detection: not claimed
 - WEOS runtime, Router consumption and cross-repository registration: not claimed
+
+## Residual risk
+
+PR #865 does not govern general JavaScript or TypeScript runtime mutation of protected custom properties. A runtime mutation expressed through executable template interpolation, ambiguous division/regex syntax, a distant style-object context, dynamic member access, aliasing, interprocedural flow or another unparsed semantic form can remain outside this guard.
+
+The risk is explicit and deferred. It must not be described as closed by scanner fixtures, browser demonstrations, absence of a current production match, CodeQL, Semgrep or a positive Codex review.
 
 ## Advanced Security distinction
 
-Successful CodeQL and Semgrep execution is recorded. Exact-head check runs reported no new alerts in code changed by PR #865. This receipt does not claim that historical Advanced Security alerts are closed, dismissed or outdated.
+Exact-head CodeQL, Semgrep, Trivy, Gitleaks and SBOM conclusions will be recorded after the settlement push. Successful execution does not establish historical alert lifecycle closure.
 
 ## Acceptance ceiling and final gate
 
-This receipt closes the authorised source-repair loop. After the receipt-bound exact head is green:
+After the single settlement commit is pushed and exact-head evidence is recorded:
 
-1. update the pull-request description with the actual final exact head, 17-path inventory, actual test counts and final run evidence;
+1. update the draft pull-request description with the exact settlement head, unchanged 17-path inventory, narrowed claim, exact local evidence and exact remote status;
 2. post exactly one fresh top-level `@codex review` request against that exact head;
-3. freeze the branch immediately after that request;
+3. freeze the branch immediately after that request; and
 4. do not perform another automatic repair cycle.
 
-PR #865 must remain open, draft and unmerged. Any new P1 or P2 ends mutation and requires a fresh independent read-only audit and new Founder authority. Independent audit and later Founder exact-head merge authority remain mandatory.
+PR #865 must remain open, draft and unmerged. Any new P1 or P2 ends mutation and requires new Founder authority. A positive review is not merge authority.
 
 ## Rollback
 
-Before merge, close PR #865 and delete its branch if the Founder rejects it; Champagne `main` remains unchanged. After a separately authorised merge, revert the accepted merge commit. Frozen PR #864 is evidence only and is not a rollback merge source.
+Before merge, close PR #865 and delete its branch if the Founder rejects it. Champagne `main` remains unchanged. After a separately authorised merge, revert the accepted merge commit. PR #864 remains evidence only and is not a rollback merge source.

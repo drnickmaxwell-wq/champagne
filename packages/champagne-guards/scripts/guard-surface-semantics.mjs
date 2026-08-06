@@ -4,37 +4,25 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { checkGenerated } from "../../../packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs";
 import {
-  RUNTIME_MUTATION_STATEMENT_LIMIT,
   collectCssFiles,
-  collectRuntimeSourceFiles,
-  extractStaticJavascriptStrings,
   materialOwnershipErrors,
   parseCssDeclarations,
   parseCssDefinitions,
   parseCssPropertyRegistrations,
   protectedMaterialTokens,
   protectedRegistrationErrors,
-  runtimeMutationCandidateSources,
-  scanStaticRuntimeMutations,
-  staticRuntimeMutationErrors,
   timeOfDayCanvasOwnerErrors,
   themeAndLayoutContractErrors,
   workflowIntegrityErrors,
 } from "./surface-semantics-contract.v1.mjs";
 export {
-  RUNTIME_MUTATION_STATEMENT_LIMIT,
   collectCssFiles,
-  collectRuntimeSourceFiles,
-  extractStaticJavascriptStrings,
   materialOwnershipErrors,
   parseCssDeclarations,
   parseCssDefinitions,
   parseCssPropertyRegistrations,
   protectedMaterialTokens,
   protectedRegistrationErrors,
-  runtimeMutationCandidateSources,
-  scanStaticRuntimeMutations,
-  staticRuntimeMutationErrors,
   timeOfDayCanvasOwnerErrors,
   themeAndLayoutContractErrors,
   workflowIntegrityErrors,
@@ -88,14 +76,6 @@ function collectCss(root) {
     return [];
   }
 }
-function collectRuntime(root) {
-  try {
-    return collectRuntimeSourceFiles(root, repoRoot);
-  } catch (error) {
-    errors.push(error instanceof Error ? error.message : String(error));
-    return [];
-  }
-}
 async function main() {
  const rootPkg = json(paths.rootPkg);
  const guardPkg = json(paths.guardPkg);
@@ -138,26 +118,6 @@ async function main() {
  })) {
   errors.push(issue);
  }
- const protectedTokens = protectedMaterialTokens(material, rendered);
- const runtimeRoots = [
-  "apps/web/app",
-  "packages/champagne-cta/src",
-  "packages/champagne-hero/src",
-  "packages/champagne-manifests/src",
-  "packages/champagne-sections/src",
- ];
- const runtimeFiles = runtimeRoots.flatMap((root) => collectRuntime(absolute(root)));
- const runtimeSources = new Map(
-  runtimeFiles.map((file) => [path.relative(repoRoot, file), readFileSync(file, "utf8")]),
- );
- let runtimeCandidates;
- try {
-  runtimeCandidates = runtimeMutationCandidateSources(runtimeSources);
- } catch (error) {
-  errors.push(error instanceof Error ? error.message : String(error));
-  runtimeCandidates = new Map();
- }
- for (const issue of staticRuntimeMutationErrors(runtimeCandidates, protectedTokens)) errors.push(issue);
  for (const issue of timeOfDayCanvasOwnerErrors(timeOfDay)) errors.push(issue);
  const requiredRoles = new Map([
   ["--surface-ink", "var(--brand-ink)"],
@@ -242,7 +202,7 @@ async function main() {
   return;
  }
  console.log(
-  "✅ Surface semantics guard passed: protected static CSS declarations, registrations, statically discoverable application mutation channels and render-unblocking CSS delivery are governed.",
+  "✅ Surface semantics guard passed: protected static CSS declarations, registrations, canonical material ownership, generated first-paint artefact integrity and render-unblocking CSS delivery are governed.",
  );
 }
 const invokedPath = process.argv[1] ? path.resolve(process.argv[1]) : "";
