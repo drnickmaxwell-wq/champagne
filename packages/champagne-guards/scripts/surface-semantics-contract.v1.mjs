@@ -156,27 +156,31 @@ export function materialOwnershipErrors({ cssSources, materialSource, renderedMa
     ...cssRegistrationContractErrors(cssSources, new Set(contract.keys())),
   ];
 }
-
-function isJsWhitespace(character) {
-  return /\s/.test(character ?? "");
-}
+export const RUNTIME_MUTATION_STATEMENT_LIMIT = 64 * 1024;
+const PAYLOAD_ASSIGNMENT_OPERATORS = new Set(["=", "+=", "||=", "??=", "&&="]);
+const CALL_CHANNELS = new Map([
+  ["setProperty", "CSSStyleDeclaration.setProperty"],
+  ["replace", "stylesheet-compatible mutation candidate"],
+  ["replaceSync", "stylesheet-compatible mutation candidate"],
+  ["insertRule", "stylesheet-compatible mutation candidate"],
+  ["setAttribute", "style attribute mutation"],
+]);
+const ASSIGNMENT_CHANNELS = new Map([
+  ["cssText", "style attribute/CSS payload mutation"],
+  ["textContent", "generated style text"],
+  ["innerText", "generated style text"],
+  ["innerHTML", "generated style text"],
+]);
 
 function decodeJavascriptEscape(source, index) {
   const character = source[index];
   const simple = new Map([
-    ["n", "\n"],
-    ["r", "\r"],
-    ["t", "\t"],
-    ["b", "\b"],
-    ["f", "\f"],
-    ["v", "\v"],
-    ["0", "\0"],
+    ["n", "\n"], ["r", "\r"], ["t", "\t"], ["b", "\b"],
+    ["f", "\f"], ["v", "\v"], ["0", "\0"],
   ]);
   if (simple.has(character)) return { value: simple.get(character), end: index + 1 };
   if (character === "\n") return { value: "", end: index + 1 };
-  if (character === "\r") {
-    return { value: "", end: source[index + 1] === "\n" ? index + 2 : index + 1 };
-  }
+  if (character === "\r") return { value: "", end: source[index + 1] === "\n" ? index + 2 : index + 1 };
   if (character === "x") {
     const digits = source.slice(index + 1, index + 3);
     if (!/^[0-9A-Fa-f]{2}$/.test(digits)) throw new Error("invalid JavaScript hexadecimal escape");
@@ -201,20 +205,49 @@ function readJavascriptLiteral(source, start) {
   const quote = source[start];
   if (quote !== '"' && quote !== "'" && quote !== "`") return null;
   let value = "";
+  let dynamic = false;
   let index = start + 1;
+  let interpolationDepth = 0;
   while (index < source.length) {
     const character = source[index];
-    if (character === quote) return { value, start, end: index + 1 };
-    if (quote === "`" && character === "$" && source[index + 1] === "{") {
-      return { value, start, end: index, dynamic: true };
-    }
+    const next = source[index + 1];
     if (character === "\\") {
       if (index + 1 >= source.length) throw new Error("unterminated JavaScript escape");
       const decoded = decodeJavascriptEscape(source, index + 1);
-      value += decoded.value;
+      if (!dynamic || interpolationDepth === 0) value += decoded.value;
       index = decoded.end;
       continue;
     }
+    if (quote === "`" && interpolationDepth === 0 && character === "$" && next === "{") {
+      dynamic = true;
+      interpolationDepth = 1;
+      index += 2;
+      continue;
+    }
+    if (quote === "`" && interpolationDepth > 0) {
+      if (character === '"' || character === "'" || character === "`") {
+        const nested = readJavascriptLiteral(source, index);
+        if (!nested) throw new Error("unable to parse nested JavaScript literal");
+        index = nested.end;
+        continue;
+      }
+      if (character === "/" && next === "/") {
+        const newline = source.indexOf("\n", index + 2);
+        index = newline < 0 ? source.length : newline + 1;
+        continue;
+      }
+      if (character === "/" && next === "*") {
+        const close = source.indexOf("*/", index + 2);
+        if (close < 0) throw new Error("unterminated JavaScript comment");
+        index = close + 2;
+        continue;
+      }
+      if (character === "{") interpolationDepth += 1;
+      else if (character === "}") interpolationDepth -= 1;
+      index += 1;
+      continue;
+    }
+    if (character === quote) return { value, start, end: index + 1, dynamic };
     if ((quote === '"' || quote === "'") && (character === "\n" || character === "\r")) {
       throw new Error("unterminated JavaScript string");
     }
@@ -224,108 +257,381 @@ function readJavascriptLiteral(source, start) {
   throw new Error("unterminated JavaScript string");
 }
 
-function skipJavascriptTrivia(source, start) {
+function isIdentifierStart(character) {
+  return /[A-Za-z_$]/.test(character ?? "");
+}
+function isIdentifierPart(character) {
+  return /[A-Za-z0-9_$]/.test(character ?? "");
+}
+function readJavascriptIdentifier(source, start) {
   let index = start;
+  let value = "";
+  let first = true;
   while (index < source.length) {
-    if (isJsWhitespace(source[index])) {
+    const character = source[index];
+    if ((first ? isIdentifierStart(character) : isIdentifierPart(character))) {
+      value += character;
       index += 1;
+      first = false;
       continue;
     }
-    if (source[index] === "/" && source[index + 1] === "/") {
-      const newline = source.indexOf("\n", index + 2);
-      return newline < 0 ? source.length : skipJavascriptTrivia(source, newline + 1);
+    if (character === "\\" && source[index + 1] === "u") {
+      const decoded = decodeJavascriptEscape(source, index + 1);
+      const valid = first ? isIdentifierStart(decoded.value) : isIdentifierPart(decoded.value);
+      if (!valid) break;
+      value += decoded.value;
+      index = decoded.end;
+      first = false;
+      continue;
     }
-    if (source[index] === "/" && source[index + 1] === "*") {
+    break;
+  }
+  return first ? null : { value, end: index };
+}
+function closesControlHeader(tokens) {
+  if (tokens.at(-1)?.value !== ")") return false;
+  let depth = 0;
+  for (let index = tokens.length - 1; index >= 0; index -= 1) {
+    if (tokens[index].value === ")") depth += 1;
+    else if (tokens[index].value === "(") {
+      depth -= 1;
+      if (depth === 0) {
+        return new Set(["if", "while", "for", "with", "switch", "catch"]).has(
+          tokens[index - 1]?.value,
+        );
+      }
+    }
+  }
+  return false;
+}
+function regexCanStartAfter(tokens) {
+  const previous = tokens.at(-1);
+  if (!previous) return true;
+  if (previous.type === "identifier") {
+    return new Set([
+      "return", "throw", "case", "delete", "void", "typeof", "yield", "await",
+      "else", "do", "in", "of", "instanceof",
+    ]).has(previous.value);
+  }
+  if (previous.type === "string" || previous.type === "number" || previous.type === "regex") {
+    return false;
+  }
+  if (previous.value === ")") return closesControlHeader(tokens);
+  if (["]", "++", "--"].includes(previous.value)) return false;
+  return true;
+}
+function skipRegexLiteral(source, start) {
+  let index = start + 1;
+  let escaped = false;
+  let inClass = false;
+  while (index < source.length) {
+    const character = source[index];
+    if (character === "\n" || character === "\r") return null;
+    if (escaped) { escaped = false; index += 1; continue; }
+    if (character === "\\") { escaped = true; index += 1; continue; }
+    if (character === "[") inClass = true;
+    else if (character === "]") inClass = false;
+    else if (character === "/" && !inClass) {
+      index += 1;
+      while (/[A-Za-z]/.test(source[index] ?? "")) index += 1;
+      return index;
+    }
+    index += 1;
+  }
+  return null;
+}
+
+function tokenizeJavascript(source) {
+  const tokens = [];
+  let index = 0;
+  let parenDepth = 0;
+  let bracketDepth = 0;
+  let braceDepth = 0;
+  const push = (type, value, start, end, extra = {}) => {
+    tokens.push({ type, value, start, end, parenDepth, bracketDepth, braceDepth, ...extra });
+  };
+  const operators = [
+    ">>>=", "**=", "??=", "||=", "&&=", "===", "!==", ">>>", "<<=", ">>=",
+    "?.", "=>", "==", "!=", "<=", ">=", "++", "--", "+=", "-=", "*=", "/=",
+    "%=", "&=", "|=", "^=", "**", "??", "||", "&&", "<<", ">>", "...",
+  ];
+  while (index < source.length) {
+    const character = source[index];
+    const next = source[index + 1];
+    if (/\s/.test(character)) { index += 1; continue; }
+    if (character === "/" && next === "/") {
+      const newline = source.indexOf("\n", index + 2);
+      index = newline < 0 ? source.length : newline + 1;
+      continue;
+    }
+    if (character === "/" && next === "*") {
       const close = source.indexOf("*/", index + 2);
       if (close < 0) throw new Error("unterminated JavaScript comment");
       index = close + 2;
       continue;
     }
-    break;
+    const literal = readJavascriptLiteral(source, index);
+    if (literal) {
+      push("string", literal.value, index, literal.end, { dynamic: literal.dynamic });
+      index = literal.end;
+      continue;
+    }
+    const identifier = readJavascriptIdentifier(source, index);
+    if (identifier) {
+      push("identifier", identifier.value, index, identifier.end);
+      index = identifier.end;
+      continue;
+    }
+    if (/[0-9]/.test(character)) {
+      let end = index + 1;
+      while (/[0-9A-Za-z_.]/.test(source[end] ?? "")) end += 1;
+      push("number", source.slice(index, end), index, end);
+      index = end;
+      continue;
+    }
+    if (character === "/" && regexCanStartAfter(tokens)) {
+      const end = skipRegexLiteral(source, index);
+      if (end) {
+        push("regex", source.slice(index, end), index, end);
+        index = end;
+        continue;
+      }
+    }
+    const operator = operators.find((candidate) => source.startsWith(candidate, index));
+    if (operator) {
+      push("punctuator", operator, index, index + operator.length);
+      index += operator.length;
+      continue;
+    }
+    push("punctuator", character, index, index + 1);
+    if (character === "(") parenDepth += 1;
+    else if (character === ")") parenDepth = Math.max(0, parenDepth - 1);
+    else if (character === "[") bracketDepth += 1;
+    else if (character === "]") bracketDepth = Math.max(0, bracketDepth - 1);
+    else if (character === "{") braceDepth += 1;
+    else if (character === "}") braceDepth = Math.max(0, braceDepth - 1);
+    index += 1;
   }
-  return index;
+  return tokens;
 }
 
-export function extractStaticJavascriptStrings(source) {
-  if (typeof source !== "string") throw new TypeError("runtime source must be a string");
+function parseStaticStringExpression(tokens, start) {
+  const first = tokens[start];
+  if (!first || first.type !== "string" || first.dynamic) return null;
+  let value = first.value;
+  let endIndex = start;
+  while (tokens[endIndex + 1]?.value === "+") {
+    const next = tokens[endIndex + 2];
+    if (!next || next.type !== "string" || next.dynamic) break;
+    value += next.value;
+    endIndex += 2;
+  }
+  return { value, startToken: start, endToken: endIndex };
+}
+
+function staticMemberAt(tokens, index) {
+  const opener = tokens[index];
+  if (!opener) return null;
+  if ((opener.value === "." || opener.value === "?.") && tokens[index + 1]?.type === "identifier") {
+    return { property: tokens[index + 1].value, startToken: index, endToken: index + 1 };
+  }
+  let bracketIndex = index;
+  if (opener.value === "?." && tokens[index + 1]?.value === "[") bracketIndex = index + 1;
+  if (tokens[bracketIndex]?.value !== "[") return null;
+  const property = tokens[bracketIndex + 1];
+  const close = tokens[bracketIndex + 2];
+  if (property?.type !== "string" || property.dynamic || close?.value !== "]") return null;
+  return { property: property.value, startToken: index, endToken: bracketIndex + 2 };
+}
+
+function callOpenAt(tokens, index) {
+  if (tokens[index]?.value === "(") return { openToken: index };
+  if (tokens[index]?.value === "?." && tokens[index + 1]?.value === "(") return { openToken: index + 1 };
+  return null;
+}
+
+function matchingToken(tokens, openIndex, openValue, closeValue) {
+  let depth = 0;
+  for (let index = openIndex; index < tokens.length; index += 1) {
+    if (tokens[index].value === openValue) depth += 1;
+    else if (tokens[index].value === closeValue) {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function callArguments(tokens, openIndex, closeIndex) {
+  const args = [];
+  let start = openIndex + 1;
+  let paren = 0;
+  let bracket = 0;
+  let brace = 0;
+  for (let index = start; index < closeIndex; index += 1) {
+    const value = tokens[index].value;
+    if (value === "(") paren += 1;
+    else if (value === ")") paren -= 1;
+    else if (value === "[") bracket += 1;
+    else if (value === "]") bracket -= 1;
+    else if (value === "{") brace += 1;
+    else if (value === "}") brace -= 1;
+    else if (value === "," && paren === 0 && bracket === 0 && brace === 0) {
+      args.push([start, index]);
+      start = index + 1;
+    }
+  }
+  args.push([start, closeIndex]);
+  return args;
+}
+
+function staticStringsInRange(tokens, start, end) {
   const strings = [];
-  for (let index = 0; index < source.length; index += 1) {
-    if (source[index] === "/" && source[index + 1] === "/") {
-      const newline = source.indexOf("\n", index + 2);
-      if (newline < 0) break;
-      index = newline;
-      continue;
-    }
-    if (source[index] === "/" && source[index + 1] === "*") {
-      const close = source.indexOf("*/", index + 2);
-      if (close < 0) throw new Error("unterminated JavaScript comment");
-      index = close + 1;
-      continue;
-    }
-    const literal = readJavascriptLiteral(source, index);
-    if (!literal) continue;
-    if (!literal.dynamic) {
-      let value = literal.value;
-      let end = literal.end;
-      let cursor = skipJavascriptTrivia(source, end);
-      while (source[cursor] === "+") {
-        cursor = skipJavascriptTrivia(source, cursor + 1);
-        const next = readJavascriptLiteral(source, cursor);
-        if (!next || next.dynamic) break;
-        value += next.value;
-        end = next.end;
-        cursor = skipJavascriptTrivia(source, end);
-      }
-      strings.push({ value, start: literal.start, end });
-      index = end - 1;
-    } else {
-      index = literal.end;
-    }
+  for (let index = start; index < end; index += 1) {
+    const expression = parseStaticStringExpression(tokens, index);
+    if (!expression) continue;
+    strings.push(expression);
+    index = expression.endToken;
   }
   return strings;
 }
 
-function staticMemberAccess(property) {
-  return `(?:\\.\\s*${property}\\b|\\[\\s*(?:"${property}"|'${property}'|\`${property}\`)\\s*\\])`;
+function statementEndFor(source, tokens, startToken, relevantEndToken, maxLength) {
+  const start = tokens[startToken].start;
+  const base = tokens[startToken];
+  for (let index = relevantEndToken + 1; index < tokens.length; index += 1) {
+    const token = tokens[index];
+    if (token.end - start > maxLength) {
+      throw new Error(`[RUNTIME_CANDIDATE_BOUND_EXCEEDED] candidate at offset ${start} exceeds ${maxLength} bytes before a complete boundary`);
+    }
+    if (
+      token.value === ";" &&
+      token.parenDepth <= base.parenDepth &&
+      token.bracketDepth <= base.bracketDepth &&
+      token.braceDepth <= base.braceDepth
+    ) return token.end;
+    if (
+      token.value === "}" &&
+      token.parenDepth <= base.parenDepth &&
+      token.bracketDepth <= base.bracketDepth &&
+      token.braceDepth <= base.braceDepth
+    ) return token.start;
+  }
+  if (source.length - start > maxLength) {
+    throw new Error(`[RUNTIME_CANDIDATE_BOUND_EXCEEDED] candidate at offset ${start} exceeds ${maxLength} bytes before a complete boundary`);
+  }
+  return source.length;
 }
 
-const assignmentOperator = "(?:\\?\\?=|\\|\\|=|&&=|\\*\\*=|>>>=|<<=|>>=|[+\\-*/%&|^]=|=(?!=|>))";
-const staticStyleArgument = '(?:"style"|\'style\'|`style`)';
+function isStyleObjectKey(tokens, index) {
+  if (tokens[index]?.type !== "string" || tokens[index]?.dynamic || tokens[index + 1]?.value !== ":") return false;
+  const searchStart = Math.max(0, index - 32);
+  const prefix = tokens.slice(searchStart, index).map((token) => token.value);
+  for (let cursor = prefix.length - 1; cursor >= 0; cursor -= 1) {
+    if (prefix[cursor] === ";") break;
+    if (prefix[cursor] === "style" && prefix[cursor + 1] === "=" && prefix[cursor + 2] === "{" && prefix[cursor + 3] === "{") return true;
+    if (
+      prefix[cursor] === "=" && prefix[cursor + 1] === "{" &&
+      prefix.slice(Math.max(0, cursor - 2), cursor).some((value) => /style/i.test(value))
+    ) return true;
+  }
+  return false;
+}
 
-function runtimeChannelFor(source, item) {
-  const before = source.slice(Math.max(0, item.start - 320), item.start);
-  const after = source.slice(item.end, Math.min(source.length, item.end + 80));
-  const hasBefore = (pattern) => new RegExp(`${pattern}\\s*$`).test(before);
-  const setProperty = staticMemberAccess("setProperty");
-  const replace = staticMemberAccess("replace");
-  const replaceSync = staticMemberAccess("replaceSync");
-  const insertRule = staticMemberAccess("insertRule");
-  const textContent = staticMemberAccess("textContent");
-  const innerText = staticMemberAccess("innerText");
-  const innerHTML = staticMemberAccess("innerHTML");
-  const cssText = staticMemberAccess("cssText");
-  const setAttribute = staticMemberAccess("setAttribute");
+export function scanStaticRuntimeMutations(source, { maxStatementLength = RUNTIME_MUTATION_STATEMENT_LIMIT } = {}) {
+  if (typeof source !== "string") throw new TypeError("runtime source must be a string");
+  const tokens = tokenizeJavascript(source);
+  const mutations = [];
+  for (let index = 0; index < tokens.length; index += 1) {
+    const member = staticMemberAt(tokens, index);
+    if (member) {
+      const afterMember = member.endToken + 1;
+      const call = callOpenAt(tokens, afterMember);
+      const callChannel = CALL_CHANNELS.get(member.property);
+      if (call && callChannel) {
+        const closeToken = matchingToken(tokens, call.openToken, "(", ")");
+        if (closeToken < 0) throw new Error(`[RUNTIME_SOURCE_PARSE] unterminated ${member.property} call`);
+        const args = callArguments(tokens, call.openToken, closeToken);
+        const staticArguments = args.map(([start, end]) => staticStringsInRange(tokens, start, end));
+        const statementEnd = statementEndFor(source, tokens, member.startToken, closeToken, maxStatementLength);
+        mutations.push({
+          kind: "call",
+          property: member.property,
+          channel: callChannel,
+          start: tokens[member.startToken].start,
+          end: statementEnd,
+          staticArguments,
+        });
+        index = member.endToken;
+        continue;
+      }
+      const operator = tokens[afterMember]?.value;
+      const assignmentChannel = ASSIGNMENT_CHANNELS.get(member.property);
+      if (assignmentChannel && PAYLOAD_ASSIGNMENT_OPERATORS.has(operator)) {
+        const relevantEnd = Math.min(tokens.length - 1, afterMember + 1);
+        const statementEnd = statementEndFor(source, tokens, member.startToken, relevantEnd, maxStatementLength);
+        const endTokenExclusive = tokens.findIndex((token) => token.start >= statementEnd);
+        const payloadEnd = endTokenExclusive < 0 ? tokens.length : endTokenExclusive;
+        const staticPayloads = staticStringsInRange(tokens, afterMember + 1, payloadEnd);
+        mutations.push({
+          kind: "assignment",
+          property: member.property,
+          operator,
+          channel: assignmentChannel,
+          start: tokens[member.startToken].start,
+          end: statementEnd,
+          staticPayloads,
+        });
+        index = member.endToken;
+        continue;
+      }
+    }
+    if (isStyleObjectKey(tokens, index)) {
+      mutations.push({
+        kind: "style-object",
+        property: tokens[index].value,
+        channel: "style object",
+        start: tokens[index].start,
+        end: tokens[index].end,
+        staticPayloads: [{ value: tokens[index].value, startToken: index, endToken: index }],
+      });
+    }
+  }
+  return { tokens, mutations };
+}
 
-  if (hasBefore(`${setProperty}\\s*\\(`)) return "CSSStyleDeclaration.setProperty";
-  if (hasBefore(`(?:${replace}|${replaceSync}|${insertRule})\\s*\\(`)) {
-    return "CSSStyleSheet mutation";
+export function runtimeMutationCandidateSources(runtimeSources, options) {
+  const entries = runtimeSources instanceof Map ? [...runtimeSources.entries()] : runtimeSources;
+  const candidates = new Map();
+  for (const [file, source] of entries) {
+    const { mutations } = scanStaticRuntimeMutations(source, options);
+    mutations.forEach((mutation, index) => {
+      const label = mutation.kind === "style-object" ? "style-object" : mutation.property;
+      const candidate = mutation.kind === "style-object"
+        ? `const materialStyle = {${JSON.stringify(mutation.property)}: "guard-probe"};`
+        : source.slice(mutation.start, mutation.end);
+      candidates.set(`${file}#${label}-${index}`, candidate);
+    });
   }
-  if (hasBefore(`(?:${textContent}|${innerText}|${innerHTML})\\s*${assignmentOperator}`)) {
-    return "generated style text";
+  return candidates;
+}
+
+
+export function extractStaticJavascriptStrings(source) {
+  if (typeof source !== "string") throw new TypeError("runtime source must be a string");
+  const tokens = tokenizeJavascript(source);
+  const strings = [];
+  for (let index = 0; index < tokens.length; index += 1) {
+    const expression = parseStaticStringExpression(tokens, index);
+    if (!expression) continue;
+    strings.push({
+      value: expression.value,
+      start: tokens[expression.startToken].start,
+      end: tokens[expression.endToken].end,
+    });
+    index = expression.endToken;
   }
-  if (hasBefore(`${cssText}\\s*${assignmentOperator}`)) {
-    return "style attribute/CSS payload mutation";
-  }
-  if (hasBefore(`${setAttribute}\\s*\\(\\s*${staticStyleArgument}\\s*,`)) {
-    return "style attribute mutation";
-  }
-  if (/style\s*(?:=|:)\s*\{\{?[^{}]{0,160}$/.test(before) && /^\s*:/.test(after)) {
-    return "React style object";
-  }
-  if (/(?:const|let|var)\s+\w*style\w*\s*=\s*\{[^{}]{0,160}$/i.test(before) && /^\s*:/.test(after)) {
-    return "style object";
-  }
-  return null;
+  return strings;
 }
 
 function protectedNamesInCssText(value, protectedTokens) {
@@ -356,10 +662,57 @@ function protectedNamesInCssText(value, protectedTokens) {
   return found;
 }
 
+function protectedMutationNames(mutation, protectedTokens) {
+  const found = new Set();
+  if (mutation.kind === "style-object") {
+    const name = decodeCssIdentifier(mutation.property.trim());
+    if (protectedTokens.has(name)) found.add(name);
+    return found;
+  }
+  if (mutation.kind === "call" && mutation.property === "setProperty") {
+    for (const item of mutation.staticArguments[0] ?? []) {
+      const name = decodeCssIdentifier(item.value.trim());
+      if (protectedTokens.has(name)) found.add(name);
+    }
+    return found;
+  }
+  if (mutation.kind === "call" && mutation.property === "setAttribute") {
+    const attributeNames = mutation.staticArguments[0] ?? [];
+    if (!attributeNames.some((item) => item.value.trim().toLowerCase() === "style")) return found;
+    for (const item of mutation.staticArguments[1] ?? []) {
+      for (const name of protectedNamesInCssText(item.value, protectedTokens)) found.add(name);
+    }
+    return found;
+  }
+  const strings = mutation.kind === "call"
+    ? mutation.staticArguments[0] ?? []
+    : mutation.staticPayloads ?? [];
+  for (const item of strings) {
+    for (const name of protectedNamesInCssText(item.value, protectedTokens)) found.add(name);
+  }
+  return found;
+}
+
 export function staticRuntimeMutationErrors(runtimeSources, protectedTokens) {
   const issues = [];
   const entries = runtimeSources instanceof Map ? [...runtimeSources.entries()] : runtimeSources;
   for (const [file, source] of entries) {
+    let scan;
+    try {
+      scan = scanStaticRuntimeMutations(source);
+    } catch (error) {
+      issues.push(
+        `[RUNTIME_SOURCE_PARSE] ${file}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+      continue;
+    }
+    for (const mutation of scan.mutations) {
+      for (const token of protectedMutationNames(mutation, protectedTokens)) {
+        issues.push(
+          `[RUNTIME_TOKEN_MUTATION_UNAPPROVED] ${token}: ${mutation.channel} in ${file}`,
+        );
+      }
+    }
     let strings;
     try {
       strings = extractStaticJavascriptStrings(source);
@@ -370,21 +723,16 @@ export function staticRuntimeMutationErrors(runtimeSources, protectedTokens) {
       continue;
     }
     for (const item of strings) {
-      const channel = runtimeChannelFor(source, item);
-      const exactName = decodeCssIdentifier(item.value.trim());
-      if (channel && protectedTokens.has(exactName)) {
-        issues.push(`[RUNTIME_TOKEN_MUTATION_UNAPPROVED] ${exactName}: ${channel} in ${file}`);
-        continue;
-      }
       const cssNames = protectedNamesInCssText(item.value, protectedTokens);
       if (cssNames.size === 0) continue;
       const looksLikeCss = /@property|[{}:]|--[^\s]+\s*:/.test(item.value);
-      if (channel || looksLikeCss) {
-        for (const token of cssNames) {
-          issues.push(
-            `[RUNTIME_TOKEN_MUTATION_UNAPPROVED] ${token}: ${channel ?? "static CSS source"} in ${file}`,
-          );
-        }
+      if (!looksLikeCss) continue;
+      const coveredByMutation = scan.mutations.some((mutation) =>
+        mutation.start <= item.start && item.end <= mutation.end,
+      );
+      if (coveredByMutation) continue;
+      for (const token of cssNames) {
+        issues.push(`[RUNTIME_TOKEN_MUTATION_UNAPPROVED] ${token}: static CSS source in ${file}`);
       }
     }
   }

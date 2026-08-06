@@ -300,3 +300,30 @@ test("CSSStyleDeclaration.cssText protected-token assignment is browser-effectiv
   expect(evidence.inline).toBe("rgb(1 2 3)");
   expect(evidence.computed).toBe("rgb(1 2 3)");
 });
+
+test("comment-trivia cssText and receiver-independent optional replace are browser-effective", async ({ page }) => {
+  await page.setContent('<div id="probe"></div>');
+  const evidence = await page.evaluate(async () => {
+    const probe = document.querySelector<HTMLElement>("#probe");
+    if (!probe) throw new Error("missing lexical mutation proof element");
+
+    probe.style[/* static member */ "cssText" /* before close */] /* before assignment */ =
+      /* before payload */ "--surface-canvas: rgb(4 5 6);";
+
+    const anything = new CSSStyleSheet();
+    await anything./* member trivia */replace/* optional trivia */?.(
+      /* payload trivia */ ":root{--bg-ink:rgb(7 8 9)}",
+    );
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, anything];
+
+    return {
+      inlineCanvas: probe.style.getPropertyValue("--surface-canvas").trim(),
+      computedCanvas: getComputedStyle(probe).getPropertyValue("--surface-canvas").trim(),
+      replacedRoot: getComputedStyle(document.documentElement).getPropertyValue("--bg-ink").trim(),
+    };
+  });
+
+  expect(evidence.inlineCanvas).toBe("rgb(4 5 6)");
+  expect(evidence.computedCanvas).toBe("rgb(4 5 6)");
+  expect(evidence.replacedRoot).toBe("rgb(7 8 9)");
+});

@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 import {
+  RUNTIME_MUTATION_STATEMENT_LIMIT,
   collectCssFiles,
   materialOwnershipErrors,
   parseCssDeclarations as guardParser,
@@ -12,6 +13,7 @@ import {
   protectedMaterialTokens,
   protectedRegistrationErrors,
   runtimeMutationCandidateSources,
+  scanStaticRuntimeMutations,
   staticRuntimeMutationErrors,
   timeOfDayCanvasOwnerErrors,
   workflowIntegrityErrors,
@@ -279,6 +281,132 @@ test("repository-facing candidate discovery rejects protected cssText assignment
       sourceText,
     );
   }
+});
+
+test("one lexical authority accepts comments as JavaScript trivia throughout governed shapes", () => {
+  const cases = [
+    `element.style./* after dot */cssText/* before operator */ = /* before payload */"--surface-canvas:red";`,
+    `element.style[/* before property */"cssText"/* before close */]/* before operator */ += "--bg-ink:red";`,
+    `style./* member */setProperty/* call */(/* name */"--surface-canvas"/* comma */,/* value */"red");`,
+    `element./* member */setAttribute/* call */(/* attr */"style"/* comma */,/* payload */"--surface-canvas:red");`,
+    `sheet./* member */replaceSync/* call */(/* payload */":root{--surface-canvas:red}");`,
+  ];
+  for (const sourceText of cases) {
+    const candidates = runtimeMutationCandidateSources(new Map([["apps/web/app/adversarial.ts", sourceText]]));
+    assert.equal(candidates.size, 1, sourceText);
+    assert.match(
+      staticRuntimeMutationErrors(candidates, protectedTokens).join("\n"),
+      /RUNTIME_TOKEN_MUTATION_UNAPPROVED/,
+      sourceText,
+    );
+  }
+});
+
+test("ordinary and optional calls are receiver-name independent", () => {
+  const cases = [
+    `sheet.replace(":root{--surface-canvas:red}");`,
+    `styleSheet.replace?.(":root{--surface-canvas:red}");`,
+    `sheetRef["replace"]?.(":root{--surface-canvas:red}");`,
+    `anything./* member */replace/* optional */?.(/* payload */":root{--surface-canvas:red}");`,
+    `anything[/* property */"replaceSync"/* close */]?.(":root{--bg-ink:red}");`,
+    `anything["insertRule"]?.(":root{--text-ink-high:red}");`,
+  ];
+  for (const sourceText of cases) {
+    const scan = scanStaticRuntimeMutations(sourceText);
+    assert.equal(scan.mutations.length, 1, sourceText);
+    assert.match(scan.mutations[0].channel, /stylesheet-compatible/);
+    const candidates = runtimeMutationCandidateSources(new Map([["apps/web/app/adversarial.ts", sourceText]]));
+    assert.match(
+      staticRuntimeMutationErrors(candidates, protectedTokens).join("\n"),
+      /RUNTIME_TOKEN_MUTATION_UNAPPROVED/,
+      sourceText,
+    );
+  }
+});
+
+test("cssText assignment closure covers only browser-relevant string-capable operators", () => {
+  for (const operator of ["=", "+=", "||=", "??=", "&&="]) {
+    const sourceText = `element.style[/* static */"cssText"] ${operator} "--surface-canvas:red";`;
+    const scan = scanStaticRuntimeMutations(sourceText);
+    assert.equal(scan.mutations[0]?.operator, operator);
+    assert.match(
+      staticRuntimeMutationErrors(
+        runtimeMutationCandidateSources(new Map([["apps/web/app/adversarial.ts", sourceText]])),
+        protectedTokens,
+      ).join("\n"),
+      /RUNTIME_TOKEN_MUTATION_UNAPPROVED.*style attribute\/CSS payload mutation/,
+      sourceText,
+    );
+  }
+  for (const operator of ["-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<=", ">>=", ">>>=", "**="]) {
+    const sourceText = `element.style.cssText ${operator} "--surface-canvas:red";`;
+    assert.equal(scanStaticRuntimeMutations(sourceText).mutations.length, 0, operator);
+  }
+});
+
+test("candidate extraction preserves protected payloads beyond the former 4096-byte slice", () => {
+  const padding = "x".repeat(5000);
+  const sourceText = `element.style.cssText = "${padding}--surface-canvas:red";`;
+  const candidates = runtimeMutationCandidateSources(new Map([["apps/web/app/adversarial.ts", sourceText]]));
+  assert.equal(candidates.size, 1);
+  const [candidate] = candidates.values();
+  assert.ok(candidate.length > 4096);
+  assert.match(candidate, /--surface-canvas:red/);
+  assert.match(
+    staticRuntimeMutationErrors(candidates, protectedTokens).join("\n"),
+    /RUNTIME_TOKEN_MUTATION_UNAPPROVED/,
+  );
+  assert.ok(RUNTIME_MUTATION_STATEMENT_LIMIT > 4096);
+});
+
+test("an incomplete candidate at its configured bound fails closed instead of truncating", () => {
+  const sourceText = `element.style.cssText = "${"x".repeat(5000)}--surface-canvas:red";`;
+  assert.throws(
+    () => runtimeMutationCandidateSources(
+      new Map([["apps/web/app/adversarial.ts", sourceText]]),
+      { maxStatementLength: 4096 },
+    ),
+    /RUNTIME_CANDIDATE_BOUND_EXCEEDED.*4096/,
+  );
+});
+
+test("dynamic computed members remain outside the declared static contract", () => {
+  for (const sourceText of [
+    `element.style[propertyName] = "--surface-canvas:red";`,
+    `anything[methodName](":root{--surface-canvas:red}");`,
+    "element.style[`css${suffix}`] = \"--surface-canvas:red\";",
+  ]) {
+    assert.equal(scanStaticRuntimeMutations(sourceText).mutations.length, 0, sourceText);
+    assert.equal(runtimeMutationCandidateSources(new Map([["x.ts", sourceText]])).size, 0, sourceText);
+  }
+});
+
+test("static member identifiers canonicalise JavaScript Unicode escapes", () => {
+  for (const sourceText of [
+    String.raw`element.style.css\u0054ext = "--surface-canvas:red";`,
+    String.raw`anything.\u0072eplace(":root{--surface-canvas:red}");`,
+  ]) {
+    const candidates = runtimeMutationCandidateSources(new Map([["apps/web/app/adversarial.ts", sourceText]]));
+    assert.equal(candidates.size, 1, sourceText);
+    assert.match(
+      staticRuntimeMutationErrors(candidates, protectedTokens).join("\n"),
+      /RUNTIME_TOKEN_MUTATION_UNAPPROVED/,
+      sourceText,
+    );
+  }
+});
+
+test("comment, regex and dynamic-template decoys do not fabricate runtime mutations", () => {
+  const sourceText = String.raw`
+    // element.style.cssText = "--surface-canvas:red";
+    /* anything.replace(":root{--surface-canvas:red}"); */
+    const matcher = /\.replace\(\"--surface-canvas:red\"\)/;
+    function regexAfterReturn() { return /anything.replace("--surface-canvas:red")/; }
+    if (matcher) /anything.replace("--surface-canvas:red")/.test("decoy");
+    const text = ` + "`literal ${value}.replace(\"--surface-canvas:red\")`" + `;
+  `;
+  assert.equal(scanStaticRuntimeMutations(sourceText).mutations.length, 0);
+  assert.equal(runtimeMutationCandidateSources(new Map([["x.ts", sourceText]])).size, 0);
 });
 
 test("repository-facing candidate discovery canonicalises static bracket mutation APIs", () => {
