@@ -284,3 +284,19 @@ test("shared parser fixtures are correlated with Chromium and expose no guard by
     expect(classification, fixture.name).not.toBe("actual guard bypass");
   }
 });
+
+test("CSSStyleDeclaration.cssText protected-token assignment is browser-effective", async ({ page }) => {
+  await page.setContent('<div id="probe"></div>');
+  const evidence = await page.evaluate(() => {
+    const probe = document.querySelector<HTMLElement>("#probe");
+    if (!probe) throw new Error("missing cssText proof element");
+    probe.style.cssText = "--surface-canvas: rgb(1 2 3);";
+    return {
+      inline: probe.style.getPropertyValue("--surface-canvas").trim(),
+      computed: getComputedStyle(probe).getPropertyValue("--surface-canvas").trim(),
+    };
+  });
+
+  expect(evidence.inline).toBe("rgb(1 2 3)");
+  expect(evidence.computed).toBe("rgb(1 2 3)");
+});

@@ -11,6 +11,7 @@ import {
   parseCssPropertyRegistrations,
   protectedMaterialTokens,
   protectedRegistrationErrors,
+  runtimeMutationCandidateSources,
   staticRuntimeMutationErrors,
   timeOfDayCanvasOwnerErrors,
   workflowIntegrityErrors,
@@ -254,6 +255,57 @@ test("static setProperty channels reject protected document, body and element wr
       /RUNTIME_TOKEN_MUTATION_UNAPPROVED/,
     );
   }
+});
+
+test("repository-facing candidate discovery rejects protected cssText assignments", () => {
+  const cases = [
+    `document.documentElement.style.cssText = "--surface-canvas:red";`,
+    `document.body.style.cssText += ";--bg-ink:red";`,
+    `element.style["cssText"] = "--text-ink-high:red";`,
+    `const styleRef = element.style; styleRef.cssText = "--surface-canvas:red";`,
+    "document.documentElement.style.cssText = `--surface-canvas:red`;",
+    `document.documentElement.style.cssText = "--surface-" + "canvas:red";`,
+    `document.documentElement.style.cssText ||= "--surface-canvas:red";`,
+    `document.documentElement.style["cssText"] ??= "--surface-canvas:red";`,
+  ];
+  for (const sourceText of cases) {
+    const candidates = runtimeMutationCandidateSources(
+      new Map([["apps/web/app/adversarial.ts", sourceText]]),
+    );
+    assert.ok(candidates.size > 0, sourceText);
+    assert.match(
+      staticRuntimeMutationErrors(candidates, protectedTokens).join("\n"),
+      /RUNTIME_TOKEN_MUTATION_UNAPPROVED.*style attribute\/CSS payload mutation/,
+      sourceText,
+    );
+  }
+});
+
+test("repository-facing candidate discovery canonicalises static bracket mutation APIs", () => {
+  for (const sourceText of [
+    `style["setProperty"]("--surface-canvas", "red");`,
+    `sheet["replaceSync"](":root{--surface-canvas:red}");`,
+    `element["setAttribute"]("style", "--surface-canvas:red");`,
+  ]) {
+    const candidates = runtimeMutationCandidateSources(
+      new Map([["apps/web/app/adversarial.ts", sourceText]]),
+    );
+    assert.ok(candidates.size > 0, sourceText);
+    assert.match(
+      staticRuntimeMutationErrors(candidates, protectedTokens).join("\n"),
+      /RUNTIME_TOKEN_MUTATION_UNAPPROVED/,
+      sourceText,
+    );
+  }
+});
+
+test("repository-facing cssText discovery allows unrelated static payloads", () => {
+  const sourceText = `const styleRef = element.style; styleRef["cssText"] += ";--component-progress:1";`;
+  const candidates = runtimeMutationCandidateSources(
+    new Map([["apps/web/app/ProgressDriver.ts", sourceText]]),
+  );
+  assert.ok(candidates.size > 0);
+  assert.deepEqual(staticRuntimeMutationErrors(candidates, protectedTokens), []);
 });
 
 test("React and ordinary style objects reject protected custom-property keys", () => {

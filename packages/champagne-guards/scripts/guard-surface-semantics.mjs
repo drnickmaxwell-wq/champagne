@@ -145,16 +145,43 @@ function statementCandidate(source, start) {
   }
   return source.slice(start, limit);
 }
-function runtimeMutationCandidateSources(runtimeSources) {
+
+function staticMemberAccess(property) {
+  return `(?:\\.\\s*${property}\\b|\\[\\s*(?:"${property}"|'${property}'|\`${property}\`)\\s*\\])`;
+}
+
+const assignmentOperator = "(?:\\?\\?=|\\|\\|=|&&=|\\*\\*=|>>>=|<<=|>>=|[+\\-*/%&|^]=|=(?!=|>))";
+const staticStyleArgument = '(?:"style"|\'style\'|`style`)';
+
+export function runtimeMutationCandidateSources(runtimeSources) {
   const candidates = new Map();
+  const setProperty = staticMemberAccess("setProperty");
+  const replace = staticMemberAccess("replace");
+  const replaceSync = staticMemberAccess("replaceSync");
+  const insertRule = staticMemberAccess("insertRule");
+  const textContent = staticMemberAccess("textContent");
+  const innerText = staticMemberAccess("innerText");
+  const innerHTML = staticMemberAccess("innerHTML");
+  const cssText = staticMemberAccess("cssText");
+  const setAttribute = staticMemberAccess("setAttribute");
   const channels = [
-    ["set-property", /\.\s*setProperty\s*\(/g],
+    ["set-property", new RegExp(`${setProperty}\\s*\\(`, "g")],
     [
       "sheet-mutation",
-      /(?:\.\s*(?:replaceSync|insertRule)\s*\(|\b(?:sheet|styleSheet|stylesheet|constructedSheet)\s*\.\s*replace\s*\()/gi,
+      new RegExp(
+        `(?:${replaceSync}\\s*\\(|${insertRule}\\s*\\(|\\b(?:sheet|styleSheet|stylesheet|constructedSheet)\\s*${replace}\\s*\\()`,
+        "gi",
+      ),
     ],
-    ["style-text", /\.\s*(?:textContent|innerText|innerHTML)\s*=\s*/g],
-    ["style-attribute", /setAttribute\s*\(\s*["']style["']\s*,/g],
+    [
+      "style-text",
+      new RegExp(`(?:${textContent}|${innerText}|${innerHTML})\\s*${assignmentOperator}`, "g"),
+    ],
+    ["css-text", new RegExp(`${cssText}\\s*${assignmentOperator}`, "g")],
+    [
+      "style-attribute",
+      new RegExp(`${setAttribute}\\s*\\(\\s*${staticStyleArgument}\\s*,`, "g"),
+    ],
   ];
   for (const [file, source] of runtimeSources) {
     let sequence = 0;

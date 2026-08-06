@@ -285,17 +285,38 @@ export function extractStaticJavascriptStrings(source) {
   return strings;
 }
 
+function staticMemberAccess(property) {
+  return `(?:\\.\\s*${property}\\b|\\[\\s*(?:"${property}"|'${property}'|\`${property}\`)\\s*\\])`;
+}
+
+const assignmentOperator = "(?:\\?\\?=|\\|\\|=|&&=|\\*\\*=|>>>=|<<=|>>=|[+\\-*/%&|^]=|=(?!=|>))";
+const staticStyleArgument = '(?:"style"|\'style\'|`style`)';
+
 function runtimeChannelFor(source, item) {
-  const before = source.slice(Math.max(0, item.start - 240), item.start);
+  const before = source.slice(Math.max(0, item.start - 320), item.start);
   const after = source.slice(item.end, Math.min(source.length, item.end + 80));
-  if (/\.\s*setProperty\s*\(\s*$/.test(before)) return "CSSStyleDeclaration.setProperty";
-  if (/\.\s*(?:replace|replaceSync|insertRule)\s*\(\s*$/.test(before)) {
+  const hasBefore = (pattern) => new RegExp(`${pattern}\\s*$`).test(before);
+  const setProperty = staticMemberAccess("setProperty");
+  const replace = staticMemberAccess("replace");
+  const replaceSync = staticMemberAccess("replaceSync");
+  const insertRule = staticMemberAccess("insertRule");
+  const textContent = staticMemberAccess("textContent");
+  const innerText = staticMemberAccess("innerText");
+  const innerHTML = staticMemberAccess("innerHTML");
+  const cssText = staticMemberAccess("cssText");
+  const setAttribute = staticMemberAccess("setAttribute");
+
+  if (hasBefore(`${setProperty}\\s*\\(`)) return "CSSStyleDeclaration.setProperty";
+  if (hasBefore(`(?:${replace}|${replaceSync}|${insertRule})\\s*\\(`)) {
     return "CSSStyleSheet mutation";
   }
-  if (/\.\s*(?:textContent|innerText|innerHTML)\s*=\s*$/.test(before)) {
+  if (hasBefore(`(?:${textContent}|${innerText}|${innerHTML})\\s*${assignmentOperator}`)) {
     return "generated style text";
   }
-  if (/setAttribute\s*\(\s*["']style["']\s*,\s*$/.test(before)) {
+  if (hasBefore(`${cssText}\\s*${assignmentOperator}`)) {
+    return "style attribute/CSS payload mutation";
+  }
+  if (hasBefore(`${setAttribute}\\s*\\(\\s*${staticStyleArgument}\\s*,`)) {
     return "style attribute mutation";
   }
   if (/style\s*(?:=|:)\s*\{\{?[^{}]{0,160}$/.test(before) && /^\s*:/.test(after)) {
