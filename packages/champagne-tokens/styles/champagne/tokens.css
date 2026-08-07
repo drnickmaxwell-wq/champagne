@@ -1,13 +1,8 @@
 @import '../tokens/smh-champagne-tokens.css';
+@import './canvas-material.generated.css';
 
 :root {
   --brand-soft-gold: var(--brand-gold-keyline);
-  --smh-ink-navy: color-mix(
-    in oklab,
-    color-mix(in oklab, var(--ink) 88%, var(--brand-teal) 12%) 92%,
-    var(--brand-magenta) 8%
-  );
-  --brand-ink: var(--smh-ink-navy);
   --brand-white: var(--smh-white);
 
   --ink-100: var(--ink);
@@ -29,14 +24,11 @@
   --ink-luxe-shift: color-mix(in oklab, var(--brand-teal) 55%, var(--brand-magenta) 45%);
   --ink-luxe-sheen: color-mix(in oklab, var(--ink-luxe-shift) 88%, var(--brand-gold) 12%);
 
-  /* Semantic dark-material ownership. C1 keeps every value on current truth. */
-  --surface-canvas: var(--brand-ink);
+  /* Semantic dark-material ownership not owned by the generated canvas material. */
   --surface-ink: var(--brand-ink);
   --surface-ink-soft: var(--bg-ink-soft);
   --surface-footer-emotion: var(--smh-ink);
 
-  /* Compatibility alias for existing consumers; canvas owns the value. */
-  --bg-ink: var(--surface-canvas);
   --bg-ink-soft: color-mix(in oklab, var(--brand-ink) 90%, var(--ink-luxe-sheen) 10%);
   --bg: var(--brand-white);
   --surface-0: color-mix(in oklab, var(--brand-white) 96%, var(--brand-soft-gold) 4%);
@@ -60,7 +52,6 @@
   --text-high: var(--text-porcelain-high);
   --text-medium: var(--text-porcelain-medium);
   --text-low: var(--text-porcelain-low);
-  --text-ink-high: color-mix(in oklab, var(--smh-white) 96%, transparent);
   --text-ink-medium: color-mix(in oklab, var(--smh-white) 86%, transparent);
   --text-ink-low: color-mix(in oklab, var(--smh-white) 72%, transparent);
 }

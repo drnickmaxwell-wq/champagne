@@ -1,3 +1,5 @@
+import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { expect, test, type Page } from "playwright/test";
 
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3000";
@@ -8,21 +10,6 @@ type RuntimeErrors = {
   consoleErrors: string[];
 };
 
-type NavigationCommitCanvasEvidence = {
-  tokens: {
-    canvas: string;
-    bgInk: string;
-  };
-  resolved: {
-    canvas: string;
-    bgInk: string;
-  };
-  surfaces: {
-    root: string;
-    body: string;
-  };
-};
-
 function collectRuntimeErrors(page: Page): RuntimeErrors {
   const errors: RuntimeErrors = { pageErrors: [], consoleErrors: [] };
   page.on("pageerror", (error) => errors.pageErrors.push(error.message));
@@ -30,44 +17,6 @@ function collectRuntimeErrors(page: Page): RuntimeErrors {
     if (message.type() === "error") errors.consoleErrors.push(message.text());
   });
   return errors;
-}
-
-async function readNavigationCommitCanvasEvidence(
-  page: Page,
-): Promise<NavigationCommitCanvasEvidence> {
-  return page.evaluate(() => {
-    const root = document.documentElement;
-    const body = document.body;
-    if (!body) throw new Error("document.body is unavailable at navigation commit");
-
-    const rootStyle = getComputedStyle(root);
-    const bodyStyle = getComputedStyle(body);
-    const resolveTokenAsColor = (token: string) => {
-      const probe = document.createElement("span");
-      probe.style.color = `var(${token})`;
-      probe.style.position = "fixed";
-      probe.style.visibility = "hidden";
-      body.appendChild(probe);
-      const color = getComputedStyle(probe).color;
-      probe.remove();
-      return color;
-    };
-
-    return {
-      tokens: {
-        canvas: rootStyle.getPropertyValue("--surface-canvas").trim(),
-        bgInk: rootStyle.getPropertyValue("--bg-ink").trim(),
-      },
-      resolved: {
-        canvas: resolveTokenAsColor("--surface-canvas"),
-        bgInk: resolveTokenAsColor("--bg-ink"),
-      },
-      surfaces: {
-        root: rootStyle.backgroundColor,
-        body: bodyStyle.backgroundColor,
-      },
-    };
-  });
 }
 
 async function readSurfaceEvidence(page: Page) {
@@ -172,16 +121,6 @@ function expectCanvasContinuity(evidence: Awaited<ReturnType<typeof readSurfaceE
   expect(TRANSPARENT.has(evidence.surfaces.body)).toBe(false);
 }
 
-function expectNavigationCommitCanvas(evidence: NavigationCommitCanvasEvidence) {
-  expect(evidence.tokens.canvas).not.toBe("");
-  expect(evidence.tokens.bgInk).not.toBe("");
-  expect(evidence.resolved.bgInk).toBe(evidence.resolved.canvas);
-  expect(evidence.surfaces.root).toBe(evidence.resolved.canvas);
-  expect(evidence.surfaces.body).toBe(evidence.resolved.canvas);
-  expect(TRANSPARENT.has(evidence.surfaces.root)).toBe(false);
-  expect(TRANSPARENT.has(evidence.surfaces.body)).toBe(false);
-}
-
 function expectSemanticEvidence(evidence: Awaited<ReturnType<typeof readSurfaceEvidence>>) {
   for (const value of Object.values(evidence.tokens)) expect(value).not.toBe("");
 
@@ -263,12 +202,26 @@ for (const theme of ["dawn", "dusk", "night"] as const) {
     const errors = collectRuntimeErrors(page);
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(`${BASE_URL}/`, { waitUntil: "networkidle" });
+    const baseline = await readSurfaceEvidence(page);
+    const expectedThemeCanvas = await page.evaluate((selectedTheme) => {
+      const probe = document.createElement("span");
+      probe.style.color =
+        selectedTheme === "dawn"
+          ? "color-mix(in srgb, var(--brand-teal) 15%, white)"
+          : "var(--ink-100)";
+      document.body.appendChild(probe);
+      const expected = getComputedStyle(probe).color;
+      probe.remove();
+      return expected;
+    }, theme);
     await page.evaluate((selectedTheme) => {
       document.documentElement.dataset.theme = selectedTheme;
     }, theme);
 
     const evidence = await readSurfaceEvidence(page);
     expectCanvasContinuity(evidence);
+    expect(evidence.resolved.canvas).toBe(expectedThemeCanvas);
+    expect(evidence.resolved.canvas).not.toBe(baseline.resolved.canvas);
     expect(evidence.heroEngine).toBe("v2");
     expect(evidence.stackCount).toBe(1);
     expect(evidence.contentOpacity).toBe("1");
@@ -277,40 +230,57 @@ for (const theme of ["dawn", "dusk", "night"] as const) {
   });
 }
 
-test("canvas is painted through first, 120ms and 1500ms frames on mobile reduced motion", async ({
-  page,
-}, testInfo) => {
-  const errors = collectRuntimeErrors(page);
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.emulateMedia({ reducedMotion: "reduce" });
+test("shared parser fixtures are correlated with Chromium and expose no guard bypass", async ({ page }) => {
+  const parserUrl = pathToFileURL(
+    path.resolve(process.cwd(), "packages/champagne-tokens/scripts/css-declarations.v1.mjs"),
+  ).href;
+  const { parseCssDefinitions, parseCssPropertyRegistrations } = await import(parserUrl);
+  const fixtures = [
+    { name: "direct declaration", css: ":root{--surface-canvas:rgb(1 2 3)}", expected: "browser-effective owner" },
+    { name: "hexadecimal escape", css: String.raw`:root{--surface-\63 anvas:rgb(1 2 3)}`, expected: "browser-effective owner" },
+    { name: "escape terminating whitespace", css: String.raw`:root{--\73 urface-canvas:rgb(1 2 3)}`, expected: "browser-effective owner" },
+    { name: "comment-separated name", css: ":root{--surface/**/-canvas:rgb(1 2 3)}", expected: "invalid in browser" },
+    { name: "quoted decoy", css: `:root{content:"--surface-canvas:rgb(1 2 3)"}`, expected: "invalid in browser" },
+    { name: "bad-string recovery", css: `:root{--decoy:"bad\n;--surface-canvas:rgb(1 2 3);/* " */}`, expected: "browser-effective owner" },
+    { name: "matched brace value", css: ":root{--decoy:{x:y};--surface-canvas:rgb(1 2 3)}", expected: "browser-effective owner" },
+    { name: "nested media", css: "@media(min-width:1px){:root{--surface-canvas:rgb(1 2 3)}}", expected: "browser-effective owner" },
+    { name: "nested supports", css: "@supports(display:grid){:root{--surface-canvas:rgb(1 2 3)}}", expected: "browser-effective owner" },
+    { name: "nested layer", css: "@layer material{:root{--surface-canvas:rgb(1 2 3)}}", expected: "browser-effective owner" },
+    { name: "no trailing semicolon", css: ":root{--surface-canvas:rgb(1 2 3)}", expected: "browser-effective owner" },
+    { name: "protected registration", css: "@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:rgb(1 2 3)}", expected: "browser-effective owner", registration: true },
+    { name: "malformed trailing comment", css: ":root{--surface-canvas:rgb(1 2 3);/*", expected: "conservative parser rejection" },
+    { name: "malformed trailing string", css: `:root{--surface-canvas:rgb(1 2 3);content:"`, expected: "conservative parser rejection" },
+  ] as const;
 
-  await page.goto(`${BASE_URL}/`, { waitUntil: "commit" });
-  await page.waitForFunction(() => document.body !== null, undefined, { polling: 1 });
-  const navigationCommit = await readNavigationCommitCanvasEvidence(page);
-  expectNavigationCommitCanvas(navigationCommit);
+  for (const fixture of fixtures) {
+    let parserDetected = false;
+    let parserRejected = false;
+    const isRegistration = "registration" in fixture && fixture.registration;
+    try {
+      parserDetected = isRegistration
+        ? parseCssPropertyRegistrations(fixture.css).some((item) => item.property === "--surface-canvas")
+        : parseCssDefinitions(fixture.css, "--surface-canvas").length > 0;
+    } catch {
+      parserRejected = true;
+    }
 
-  await page.waitForLoadState("domcontentloaded");
-  const atDomContentLoaded = await readSurfaceEvidence(page);
-  await page.waitForTimeout(120);
-  const at120ms = await readSurfaceEvidence(page);
-  await page.waitForTimeout(1380);
-  const at1500ms = await readSurfaceEvidence(page);
+    await page.setContent(`<style>${fixture.css}</style><div id="probe"></div>`);
+    const browserEffective = await page.evaluate((registration) => {
+      const target = registration ? document.querySelector("#probe") : document.documentElement;
+      return Boolean(target && getComputedStyle(target).getPropertyValue("--surface-canvas").trim());
+    }, isRegistration);
 
-  await testInfo.attach("surface-filmstrip.json", {
-    body: JSON.stringify(
-      { navigationCommit, atDomContentLoaded, at120ms, at1500ms },
-      null,
-      2,
-    ),
-    contentType: "application/json",
-  });
+    const classification = parserRejected
+      ? "conservative parser rejection"
+      : browserEffective && parserDetected
+        ? "browser-effective owner"
+        : !browserEffective && parserDetected
+          ? "invalid in browser"
+          : browserEffective
+            ? "actual guard bypass"
+            : "invalid in browser";
 
-  for (const evidence of [atDomContentLoaded, at120ms, at1500ms]) {
-    expectSemanticEvidence(evidence);
-    expect(TRANSPARENT.has(evidence.surfaces.root)).toBe(false);
-    expect(TRANSPARENT.has(evidence.surfaces.body)).toBe(false);
+    expect(classification, fixture.name).toBe(fixture.expected);
+    expect(classification, fixture.name).not.toBe("actual guard bypass");
   }
-
-  expect(errors.pageErrors).toEqual([]);
-  expect(errors.consoleErrors).toEqual([]);
 });

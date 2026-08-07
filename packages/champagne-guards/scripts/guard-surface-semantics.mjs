@@ -1,290 +1,225 @@
 #!/usr/bin/env node
-
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-
-const __filename = fileURLToPath(import.meta.url);
-const repoRoot = path.resolve(path.dirname(__filename), "../../..");
-const relative = (...parts) => path.join(repoRoot, ...parts);
-
+import { checkGenerated } from "../../../packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs";
+import {
+  collectEmbeddedStyleSources,
+  collectFirstPartyCssFiles,
+  materialOwnershipErrors,
+  parseCssDeclarations,
+  parseCssDefinitions,
+  parseCssPropertyRegistrations,
+  protectedMaterialTokens,
+  protectedRegistrationErrors,
+  timeOfDayCanvasOwnerErrors,
+  themeAndLayoutContractErrors,
+  workflowIntegrityErrors,
+} from "./surface-semantics-contract.v1.mjs";
+export {
+  collectEmbeddedStyleSources,
+  collectCssFiles,
+  collectFirstPartyCssFiles,
+  extractEmbeddedStyleSources,
+  materialOwnershipErrors,
+  parseCssDeclarations,
+  parseCssDefinitions,
+  parseCssPropertyRegistrations,
+  protectedMaterialTokens,
+  protectedRegistrationErrors,
+  timeOfDayCanvasOwnerErrors,
+  themeAndLayoutContractErrors,
+  workflowIntegrityErrors,
+} from "./surface-semantics-contract.v1.mjs";
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
+const absolute = (file) => path.join(repoRoot, file);
 const paths = {
-  primitives: "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
-  tokens: "packages/champagne-tokens/styles/champagne/tokens.css",
-  theme: "packages/champagne-tokens/styles/champagne/theme.css",
-  timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
-  exports: "packages/champagne-tokens/src/index.ts",
-  footer: "apps/web/app/components/layout/Footer.tsx",
-  guardPackage: "packages/champagne-guards/package.json",
-  surfaceTest: "tests/champagne-surface-semantics.spec.ts",
-  workflow: ".github/workflows/verify.yml",
+ rootPkg: "package.json",
+ primitives: "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
+ tokens: "packages/champagne-tokens/styles/champagne/tokens.css",
+ genCss: "packages/champagne-tokens/styles/champagne/canvas-material.generated.css",
+ genTs: "packages/champagne-tokens/src/critical-paint.generated.ts",
+ material: "packages/champagne-tokens/src/canvas-material.v1.json",
+ tokenPkg: "packages/champagne-tokens/package.json",
+ theme: "packages/champagne-tokens/styles/champagne/theme.css",
+ timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
+ exports: "packages/champagne-tokens/src/index.ts",
+ layout: "apps/web/app/layout.tsx",
+ nextConfig: "apps/web/next.config.mjs",
+ footer: "apps/web/app/components/layout/Footer.tsx",
+ guardPkg: "packages/champagne-guards/package.json",
+ receipt: "docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md",
+ workflow: ".github/workflows/verify.yml",
 };
-
-const requiredRoles = new Map([
-  ["--surface-canvas", "var(--brand-ink)"],
+const errors = [];
+function read(file) {
+ const target = absolute(file);
+ if (!existsSync(target)) { errors.push(`missing required path: ${file}`); return ""; }
+ return readFileSync(target, "utf8");
+}
+function json(file) {
+ try { return JSON.parse(read(file)); }
+ catch (error) { errors.push(`unable to parse ${file}: ${error.message}`); return null; }
+}
+function declarations(source, label = "CSS input", issues = errors) {
+ try { return parseCssDeclarations(source); }
+ catch (error) {
+  issues.push(`[CSS_DECLARATION_PARSE] ${label}: ${error instanceof Error ? error.message : String(error)}`);
+  return [];
+ }
+}
+function definitions(source, token, label = "CSS input") {
+ return declarations(source, label).filter((item) => item.property === token).map((item) => item.value);
+}
+function count(source, needle) { return source.split(needle).length - 1; }
+function collectFirstPartyCss() {
+  try {
+    return collectFirstPartyCssFiles(repoRoot);
+  } catch (error) {
+    errors.push(error instanceof Error ? error.message : String(error));
+    return [];
+  }
+}
+function collectEmbeddedStyles(root) {
+  try {
+    return collectEmbeddedStyleSources(root, repoRoot);
+  } catch (error) {
+    errors.push(error instanceof Error ? error.message : String(error));
+    return new Map();
+  }
+}
+async function main() {
+ const rootPkg = json(paths.rootPkg);
+ const guardPkg = json(paths.guardPkg);
+ const tokenPkg = json(paths.tokenPkg);
+ const material = json(paths.material);
+ const tokens = read(paths.tokens);
+ const genTs = read(paths.genTs);
+ const theme = read(paths.theme);
+ const timeOfDay = read(paths.timeOfDay);
+ const exportsText = read(paths.exports);
+ const layout = read(paths.layout);
+ const nextConfig = read(paths.nextConfig);
+ const footer = read(paths.footer);
+ const receipt = read(paths.receipt);
+ const workflow = read(paths.workflow);
+ let rendered;
+ try {
+  rendered = await checkGenerated(repoRoot);
+ } catch (error) {
+  errors.push(error instanceof Error ? error.message : String(error));
+ }
+ const cssImportKeyword = ["@", "import"].join("");
+ const importPrefix =
+  `${cssImportKeyword} '../tokens/smh-champagne-tokens.css';\n` +
+  `${cssImportKeyword} './canvas-material.generated.css';\n`;
+ if (!tokens.startsWith(importPrefix)) {
+  errors.push(`${paths.tokens} must import primitives then generated material first`);
+ }
+ const cssFiles = collectFirstPartyCss();
+ const cssSources = new Map([
+  ...cssFiles.map((file) => [path.relative(repoRoot, file), readFileSync(file, "utf8")]),
+  ...collectEmbeddedStyles(absolute("apps/web/app")),
+  ...collectEmbeddedStyles(absolute("packages")),
+ ]);
+ for (const issue of materialOwnershipErrors({
+  cssSources,
+  materialSource: material,
+  renderedMaterial: rendered,
+ })) {
+  errors.push(issue);
+ }
+ for (const issue of timeOfDayCanvasOwnerErrors(timeOfDay)) errors.push(issue);
+ const requiredRoles = new Map([
   ["--surface-ink", "var(--brand-ink)"],
   ["--surface-ink-soft", "var(--bg-ink-soft)"],
   ["--surface-footer-emotion", "var(--smh-ink)"],
-]);
-
-const immutableChroma = new Map(
-  [
-    ["--brand-magenta", "C2185B"],
-    ["--brand-teal", "40C4B4"],
-    ["--brand-gold", "D4AF37"],
-    ["--brand-gold-keyline", "F9E8C3"],
-  ].map(([token, value]) => [token, `#${value}`]),
-);
-
-const prohibitedCandidates = ["001126", "00142C", "071D3A", "031A39"].map(
-  (value) => `#${value}`,
-);
-const c1Paths = [
-  paths.tokens,
-  paths.theme,
-  paths.timeOfDay,
-  paths.exports,
-  paths.footer,
-  "packages/champagne-guards/scripts/guard-surface-semantics.mjs",
-  paths.guardPackage,
-  paths.surfaceTest,
-  paths.workflow,
-];
-
-const errors = [];
-
-function read(relativePath) {
-  const absolutePath = relative(relativePath);
-  if (!existsSync(absolutePath)) {
-    errors.push(`missing required path: ${relativePath}`);
-    return "";
+ ]);
+ for (const [token, expected] of requiredRoles) {
+  const values = definitions(tokens, token, paths.tokens);
+  if (values.length !== 1 || values[0] !== expected) {
+   errors.push(`${token} must preserve current truth as ${expected}`);
   }
-  return readFileSync(absolutePath, "utf8");
-}
-
-function definitionValues(source, token) {
-  return [...source.matchAll(/(--[a-z0-9-]+)\s*:\s*([^;]+);/gi)]
-    .filter((match) => match[1] === token)
-    .map((match) => match[2].trim());
-}
-
-function exportedTokenCount(source, token) {
-  const doubleQuoted = `"${token}",`;
-  const singleQuoted = `'${token}',`;
-  return source
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter((line) => line === doubleQuoted || line === singleQuoted).length;
-}
-
-function blockFor(source, selectorFragment) {
-  const selectorIndex = source.indexOf(selectorFragment);
-  if (selectorIndex < 0) return "";
-  const openIndex = source.indexOf("{", selectorIndex);
-  const closeIndex = source.indexOf("}", openIndex + 1);
-  if (openIndex < 0 || closeIndex < 0) return "";
-  return source.slice(openIndex + 1, closeIndex);
-}
-
-function collectSourceFiles(rootPath) {
-  const ignoredDirectories = new Set(["node_modules", ".next", "dist", "build", "coverage", ".git"]);
-  const supportedExtensions = /\.(?:css|[cm]?[jt]sx?)$/;
-  const results = [];
-
-  for (const entry of readdirSync(rootPath, { withFileTypes: true })) {
-    if (ignoredDirectories.has(entry.name)) continue;
-    const absolutePath = path.join(rootPath, entry.name);
-    if (entry.isDirectory()) results.push(...collectSourceFiles(absolutePath));
-    else if (entry.isFile() && supportedExtensions.test(entry.name)) results.push(absolutePath);
+ }
+ for (const token of ["--surface-canvas", ...requiredRoles.keys()]) {
+  if (count(exportsText, `"${token}",`) !== 1) {
+   errors.push(`${token} must be exported exactly once`);
   }
-
-  return results;
-}
-
-const primitives = read(paths.primitives);
-const tokens = read(paths.tokens);
-const theme = read(paths.theme);
-const timeOfDay = read(paths.timeOfDay);
-const exportsSource = read(paths.exports);
-const footerSource = read(paths.footer);
-const packageSource = read(paths.guardPackage);
-const surfaceTestSource = read(paths.surfaceTest);
-const workflow = read(paths.workflow);
-
-for (const [token, expectedValue] of requiredRoles) {
-  const values = definitionValues(tokens, token);
-  if (values.length !== 1) {
-    errors.push(`${token} must be defined exactly once in ${paths.tokens}; found ${values.length}`);
-  } else if (values[0] !== expectedValue) {
-    errors.push(`${token} must preserve current truth as ${expectedValue}; found ${values[0]}`);
-  }
-
-  const exportCount = exportedTokenCount(exportsSource, token);
-  if (exportCount !== 1) {
-    errors.push(`${token} must be exported exactly once in ${paths.exports}; found ${exportCount}`);
-  }
-}
-
-const bgInkValues = definitionValues(tokens, "--bg-ink");
-if (bgInkValues.length !== 1 || bgInkValues[0] !== "var(--surface-canvas)") {
-  errors.push("--bg-ink must remain one compatibility alias to var(--surface-canvas)");
-}
-
-const footerBackgroundBindings = [
-  ...footerSource.matchAll(/"--smh-footer-bg"\s*:\s*"([^"]+)"\s*,/g),
-].map((match) => match[1]);
-if (
-  footerBackgroundBindings.length !== 1 ||
-  footerBackgroundBindings[0] !== "var(--surface-footer-emotion)"
-) {
+ }
+ if (material?.finalPersianMidnightSelection !== false) {
+  errors.push(`${paths.material} must not claim a final Persian Midnight selection`);
+ }
+ const footerBindings = [
+  ...footer.matchAll(/"--smh-footer-bg"\s*:\s*"([^"]+)"\s*,/g),
+ ].map((match) => match[1]);
+ if (footerBindings.length !== 1 || footerBindings[0] !== "var(--surface-footer-emotion)") {
+  errors.push("footer background must remain bound to --surface-footer-emotion");
+ }
+ if (
+  count(nextConfig, "inlineCss: true") !== 1 ||
+  !/experimental\s*:\s*\{[\s\S]*?inlineCss\s*:\s*true\s*,?[\s\S]*?\}/.test(nextConfig)
+ ) {
   errors.push(
-    "--smh-footer-bg must be assigned exactly once to var(--surface-footer-emotion) in apps/web/app/components/layout/Footer.tsx",
+   `[FIRST_PAINT_INLINE_CSS] ${paths.nextConfig} must enable experimental.inlineCss exactly once`,
   );
-}
-if (footerBackgroundBindings.includes("var(--smh-ink)")) {
-  errors.push("--smh-footer-bg must not bind directly to var(--smh-ink)");
-}
-
-for (const [themeName, expectedValue] of [
-  ["dawn", "color-mix(in srgb, var(--brand-teal) 15%, white)"],
-  ["dusk", "var(--ink-100)"],
-  ["night", "var(--ink-100)"],
-]) {
-  const block = blockFor(timeOfDay, `:root[data-theme='${themeName}']`);
-  const canvasValues = definitionValues(block, "--surface-canvas");
-  const legacyValues = definitionValues(block, "--bg-ink");
-  if (canvasValues.length !== 1 || canvasValues[0] !== expectedValue) {
-    errors.push(
-      `${themeName} must define --surface-canvas exactly once as ${expectedValue}; found ${canvasValues.join(", ") || "missing"}`,
-    );
+ }
+ for (const issue of themeAndLayoutContractErrors({ theme, layout, genTs, rendered, tokenPkg, paths })) {
+  errors.push(issue);
+ }
+ for (const [script, expected] of [
+  ["generate:critical-paint", "node packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs --write"],
+  ["check:critical-paint-generated", "node packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs --check"],
+  ["test:critical-paint-generator", "node --test tests/champagne-critical-first-paint-generator.test.mjs"],
+ ]) {
+  if (rootPkg?.scripts?.[script] !== expected) {
+   errors.push(`${paths.rootPkg} must wire ${script} exactly`);
   }
-  if (legacyValues.length !== 0) {
-    errors.push(`${themeName} must not override the --bg-ink compatibility alias`);
-  }
-}
-
-for (const [token, expectedValue] of immutableChroma) {
-  const values = definitionValues(primitives, token);
-  if (values.length !== 1 || values[0].toUpperCase() !== expectedValue.toUpperCase()) {
-    errors.push(`${token} immutable chroma drift: expected ${expectedValue}, found ${values.join(", ") || "missing"}`);
-  }
-}
-
-for (const [label, selector] of [
-  ["porcelain", "[data-surface-tone='porcelain']"],
-  ["ink", "[data-surface-tone='ink']"],
-]) {
-  const block = blockFor(theme, selector);
-  for (const suffix of ["high", "medium", "low"]) {
-    const expected = `--text-${label === "porcelain" ? "porcelain" : "ink"}-${suffix}`;
-    if (!block.includes(`--text-${suffix}: var(${expected})`)) {
-      errors.push(`${label} context must bind --text-${suffix} to ${expected}`);
-    }
-  }
-  if (!/color\s*:\s*var\(--text-high\)\s*;/.test(block)) {
-    errors.push(`${label} context must reapply the actual color property`);
-  }
-}
-
-if (!/:root\s*{[\s\S]*?background\s*:\s*var\(--surface-canvas\)\s*;/.test(theme)) {
-  errors.push(":root must paint var(--surface-canvas)");
-}
-if (!/body,\s*\n?\.champagne-page\s*{[\s\S]*?background\s*:\s*var\(--surface-canvas\)\s*;/.test(theme)) {
-  errors.push("body and .champagne-page must paint var(--surface-canvas)");
-}
-
-const searchableFiles = [relative("apps"), relative("packages")].flatMap(collectSourceFiles);
-for (const token of requiredRoles.keys()) {
-  const consumers = searchableFiles.filter((file) => readFileSync(file, "utf8").includes(`var(${token}`));
-  if (consumers.length > 0 && definitionValues(tokens, token).length !== 1) {
-    errors.push(`${token} is consumed but lacks one canonical definition`);
-  }
-}
-
-for (const candidate of prohibitedCandidates) {
-  for (const c1Path of c1Paths) {
-    const source = read(c1Path);
-    if (source.toUpperCase().includes(candidate)) {
-      errors.push(`prohibited Persian candidate ${candidate} found in ${c1Path}`);
-    }
-  }
-}
-
-let packageJson;
-try {
-  packageJson = JSON.parse(packageSource);
-} catch (error) {
-  errors.push(`unable to parse ${paths.guardPackage}: ${error.message}`);
-}
-if (packageJson?.scripts?.["guard:surface-semantics"] !== "node scripts/guard-surface-semantics.mjs") {
-  errors.push("guard:surface-semantics script is not wired exactly");
-}
-if (!packageJson?.scripts?.["guard:all"]?.includes("guard:surface-semantics")) {
-  errors.push("guard:surface-semantics is absent from guard:all");
-}
-
-for (const testPath of [
-  paths.surfaceTest,
+ }
+ for (const marker of [
+  "tests/champagne-critical-first-paint.spec.ts",
+  "tests/champagne-surface-semantics.spec.ts",
   "tests/hero-v2-navigation-continuity.spec.ts",
-]) {
-  if (!workflow.includes(testPath)) errors.push(`${paths.workflow} does not execute ${testPath}`);
-}
-
-const mobileFilmstripMarker =
-  'test("canvas is painted through first, 120ms and 1500ms frames on mobile reduced motion"';
-const mobileFilmstripIndex = surfaceTestSource.indexOf(mobileFilmstripMarker);
-const mobileFilmstripSource =
-  mobileFilmstripIndex >= 0 ? surfaceTestSource.slice(mobileFilmstripIndex) : "";
-const commitNavigationIndex = mobileFilmstripSource.indexOf('waitUntil: "commit"');
-const bodyAttachmentIndex = mobileFilmstripSource.indexOf("document.body !== null");
-const commitCaptureIndex = mobileFilmstripSource.indexOf(
-  "const navigationCommit = await readNavigationCommitCanvasEvidence(page);",
-);
-const commitAssertionIndex = mobileFilmstripSource.indexOf(
-  "expectNavigationCommitCanvas(navigationCommit);",
-);
-const domContentLoadedIndex = mobileFilmstripSource.indexOf(
-  'waitForLoadState("domcontentloaded")',
-);
-const beforeCommitCapture =
-  commitCaptureIndex >= 0 ? mobileFilmstripSource.slice(0, commitCaptureIndex) : "";
-
-if (mobileFilmstripIndex < 0) {
-  errors.push(`${paths.surfaceTest} is missing the mobile reduced-motion filmstrip test`);
-} else if (
-  commitNavigationIndex < 0 ||
-  bodyAttachmentIndex <= commitNavigationIndex ||
-  commitCaptureIndex <= bodyAttachmentIndex ||
-  commitAssertionIndex <= commitCaptureIndex ||
-  domContentLoadedIndex <= commitAssertionIndex
-) {
-  errors.push(
-    `${paths.surfaceTest} must capture and assert the canvas after navigation commit and body attachment, before DOMContentLoaded`,
-  );
-}
-if (mobileFilmstripSource.includes('waitUntil: "domcontentloaded"')) {
-  errors.push(`${paths.surfaceTest} must not defer the initial canvas capture to DOMContentLoaded`);
-}
-for (const forbiddenBeforeCapture of [
-  'waitForLoadState("domcontentloaded")',
-  'waitForLoadState("load")',
-  'waitForLoadState("networkidle")',
-  "readSurfaceEvidence(page)",
-]) {
-  if (beforeCommitCapture.includes(forbiddenBeforeCapture)) {
-    errors.push(
-      `${paths.surfaceTest} must not use ${forbiddenBeforeCapture} before navigation-commit canvas capture`,
-    );
+  "critical-paint-generated",
+  "tests/champagne-critical-first-paint-generator.test.mjs",
+  "git diff --exit-code",
+ ]) {
+  if (!workflow.includes(marker)) errors.push(`${paths.workflow} missing verification ${marker}`);
+ }
+ for (const issue of workflowIntegrityErrors(workflow, paths.workflow)) errors.push(issue);
+ if (guardPkg?.scripts?.["guard:surface-semantics"] !== "node scripts/guard-surface-semantics.mjs") {
+  errors.push("guard:surface-semantics script is not wired exactly");
+ }
+ if (!guardPkg?.scripts?.["guard:all"]?.includes("guard:surface-semantics")) {
+  errors.push("guard:surface-semantics is absent from guard:all");
+ }
+ if (receipt.includes("BROWSER_PROVEN")) {
+  errors.push(`${paths.receipt} must not use the non-canonical BROWSER_PROVEN evidence level`);
+ }
+ if (!receipt.includes("LIVE_READ_PROVEN")) {
+  errors.push(`${paths.receipt} must classify exact-head browser evidence canonically`);
+ }
+ for (const value of ["001126", "00142C", "071D3A", "031A39"]) {
+  const candidate = `#${value}`;
+  for (const sourceFile of [paths.material, paths.genCss, paths.genTs, paths.layout]) {
+   if (read(sourceFile).toUpperCase().includes(candidate)) {
+    errors.push(`prohibited Persian candidate ${candidate} found in ${sourceFile}`);
+   }
   }
-}
-if (!mobileFilmstripSource.includes("{ polling: 1 }")) {
-  errors.push(`${paths.surfaceTest} must use a non-animation-frame body-attachment polling gate`);
-}
-
-if (errors.length > 0) {
+ }
+ if (errors.length > 0) {
   console.error("❌ Surface semantics guard failed:");
   for (const error of errors) console.error(`- ${error}`);
-  process.exit(1);
+  process.exitCode = 1;
+  return;
+ }
+ console.log(
+  "✅ Surface semantics guard passed: protected declarations and registrations in first-party static CSS and .js/.jsx/.tsx embedded styles, canonical material ownership, generated first-paint artefact integrity and render-unblocking CSS delivery are governed.",
+ );
 }
-
-console.log("✅ Surface semantics guard passed: canvas, ink, footer and nested text contexts are deterministic.");
+const invokedPath = process.argv[1] ? path.resolve(process.argv[1]) : "";
+if (invokedPath === fileURLToPath(import.meta.url)) {
+ main().catch((error) => {
+  console.error(`❌ ${error instanceof Error ? error.message : String(error)}`);
+  process.exitCode = 1;
+ });
+}

@@ -13,6 +13,10 @@ import {
   getPageManifest,
   getPracticeName,
 } from "@champagne/manifests";
+import {
+  champagneCriticalPaintCss,
+  champagneCriticalPaintDocumentStyle,
+} from "../../../packages/champagne-tokens/src/critical-paint.generated";
 import type { HeroMode } from "@champagne/hero";
 
 type PageSeoManifest = {
@@ -26,6 +30,7 @@ type PageSeoManifest = {
 const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
 const PRACTICE_NAME = getPracticeName();
 const DEFAULT_DESCRIPTION = getDefaultSeoDescription();
+const CRITICAL_PAINT_RESOURCE = "champagne-critical-paint-v1";
 
 function isProductionIndexable() {
   return process.env.VERCEL_ENV === "production";
@@ -102,8 +107,16 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   }
 
   return (
-    <html lang="en">
-      <body className="min-h-screen antialiased">
+    <html lang="en" style={champagneCriticalPaintDocumentStyle}>
+      <head>
+        <style href={CRITICAL_PAINT_RESOURCE} precedence="critical">
+          {champagneCriticalPaintCss}
+        </style>
+      </head>
+      <body
+        className="min-h-screen antialiased"
+        style={champagneCriticalPaintDocumentStyle}
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemaGraph) }}
