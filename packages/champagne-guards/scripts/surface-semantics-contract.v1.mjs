@@ -146,7 +146,7 @@ function embeddedStyleExpressionText(expression) {
   return embeddedStyleExpressionPlaceholder;
 }
 
-function ordinaryStyleExpressionText(expression) {
+function finiteStaticReactChildText(expression) {
   const normalized = unwrapStaticTypeScriptExpression(expression);
   if (!normalized) return "";
   if (
@@ -157,6 +157,18 @@ function ordinaryStyleExpressionText(expression) {
     return "";
   }
   if (ts.isNumericLiteral(normalized)) return normalized.text;
+  if (ts.isBigIntLiteral(normalized)) {
+    return BigInt(normalized.text.slice(0, -1)).toString();
+  }
+  if (ts.isArrayLiteralExpression(normalized)) {
+    return normalized.elements
+      .map((element) =>
+        ts.isOmittedExpression(element)
+          ? ""
+          : finiteStaticReactChildText(element),
+      )
+      .join("");
+  }
   return embeddedStyleExpressionText(expression);
 }
 
@@ -177,17 +189,28 @@ function staticPropertyNameText(name) {
 function duplicateDangerousStyleError(kind, node, sourcePath, sourceFile) {
   const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile));
   return new Error(
-    `[EMBEDDED_STYLE_DUPLICATE_DANGEROUS_REPRESENTATION] ${sourcePath}:${position.line + 1}:${position.character + 1}: duplicate ${kind}`,
+    `[EMBEDDED_STYLE_CONTENT_AMBIGUITY] [EMBEDDED_STYLE_DUPLICATE_DANGEROUS_REPRESENTATION] ${sourcePath}:${position.line + 1}:${position.character + 1}: duplicate ${kind}`,
+  );
+}
+
+function styleContentAmbiguityError(kind, node, sourcePath, sourceFile) {
+  const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile));
+  return new Error(
+    `[EMBEDDED_STYLE_CONTENT_AMBIGUITY] ${sourcePath}:${position.line + 1}:${position.character + 1}: ${kind}`,
+  );
+}
+
+function namedJsxAttributes(attributes, name) {
+  return attributes.properties.filter(
+    (candidate) =>
+      ts.isJsxAttribute(candidate) &&
+      ts.isIdentifier(candidate.name) &&
+      candidate.name.text === name,
   );
 }
 
 function dangerousStyleText(attributes, sourcePath, sourceFile) {
-  const dangerousAttributes = attributes.properties.filter(
-    (candidate) =>
-      ts.isJsxAttribute(candidate) &&
-      ts.isIdentifier(candidate.name) &&
-      candidate.name.text === "dangerouslySetInnerHTML",
-  );
+  const dangerousAttributes = namedJsxAttributes(attributes, "dangerouslySetInnerHTML");
   if (dangerousAttributes.length > 1) {
     throw duplicateDangerousStyleError(
       "dangerouslySetInnerHTML attributes",
@@ -288,11 +311,103 @@ function cookedJsxText(text, sourcePath, sourceFile, node) {
   return cooked.text;
 }
 
+function cookedJsxAttributeText(initializer, sourcePath, sourceFile) {
+  const position = sourceFile.getLineAndCharacterOfPosition(initializer.getStart(sourceFile));
+  const provenance = `${sourcePath}:${position.line + 1}:${position.character + 1}`;
+  let output;
+  try {
+    const result = ts.transpileModule(
+      `const __champagneStyle = <style children=${initializer.getText(sourceFile)} />;`,
+      {
+        compilerOptions: {
+          jsx: ts.JsxEmit.React,
+          jsxFactory: jsxTextCookFactory,
+          target: ts.ScriptTarget.ESNext,
+        },
+        fileName: `${sourcePath}.champagne-jsx-attribute.tsx`,
+        reportDiagnostics: true,
+      },
+    );
+    const diagnostic = result.diagnostics?.[0];
+    if (diagnostic) {
+      throw new Error(ts.flattenDiagnosticMessageText(diagnostic.messageText, " "));
+    }
+    output = result.outputText;
+  } catch (error) {
+    throw new Error(
+      `[EMBEDDED_STYLE_ENTITY_DECODE] ${provenance}: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
+
+  const emitted = ts.createSourceFile(
+    `${sourcePath}.champagne-jsx-attribute.js`,
+    output,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.JS,
+  );
+  const statement = emitted.statements[0];
+  const declaration =
+    statement && ts.isVariableStatement(statement)
+      ? statement.declarationList.declarations[0]
+      : undefined;
+  const call = declaration?.initializer;
+  const properties =
+    call &&
+    ts.isCallExpression(call) &&
+    ts.isIdentifier(call.expression) &&
+    call.expression.text === jsxTextCookFactory &&
+    call.arguments.length === 2 &&
+    ts.isStringLiteral(call.arguments[0]) &&
+    call.arguments[0].text === "style" &&
+    ts.isObjectLiteralExpression(call.arguments[1])
+      ? call.arguments[1].properties
+      : undefined;
+  const children = properties?.find(
+    (property) =>
+      ts.isPropertyAssignment(property) && staticPropertyNameText(property.name) === "children",
+  );
+  if (!children || !ts.isPropertyAssignment(children) || !ts.isStringLiteral(children.initializer)) {
+    throw new Error(
+      `[EMBEDDED_STYLE_ENTITY_DECODE] ${provenance}: TypeScript emitted an unexpected JSX attribute shape`,
+    );
+  }
+  return children.initializer.text;
+}
+
+function staticChildrenAttribute(attributes, sourcePath, sourceFile) {
+  const childrenAttributes = namedJsxAttributes(attributes, "children");
+  if (childrenAttributes.length > 1) {
+    throw styleContentAmbiguityError(
+      "duplicate explicit children attributes",
+      childrenAttributes[1],
+      sourcePath,
+      sourceFile,
+    );
+  }
+  const attribute = childrenAttributes[0];
+  if (!attribute) return { present: false, text: undefined };
+  const initializer = attribute.initializer;
+  if (!initializer) return { present: true, text: "" };
+  if (ts.isStringLiteral(initializer)) {
+    return {
+      present: true,
+      text: cookedJsxAttributeText(initializer, sourcePath, sourceFile),
+    };
+  }
+  return {
+    present: true,
+    text: ts.isJsxExpression(initializer)
+      ? finiteStaticReactChildText(initializer.expression)
+      : embeddedStyleExpressionPlaceholder,
+  };
+}
+
 function ordinaryStyleText(children, sourcePath, sourceFile) {
   return children
     .map((child) => {
       if (ts.isJsxText(child)) return cookedJsxText(child.text, sourcePath, sourceFile, child);
-      if (ts.isJsxExpression(child)) return ordinaryStyleExpressionText(child.expression);
+      if (ts.isJsxExpression(child)) return finiteStaticReactChildText(child.expression);
       return embeddedStyleExpressionPlaceholder;
     })
     .join("");
@@ -327,9 +442,41 @@ export function extractEmbeddedStyleSources(source, sourcePath) {
 
   const styles = new Map();
   const record = (node, attributes, children) => {
+    const dangerousAttributes = namedJsxAttributes(attributes, "dangerouslySetInnerHTML");
+    const childrenAttribute = staticChildrenAttribute(attributes, sourcePath, sourceFile);
+    const hasNestedChildren = children !== undefined && children.length > 0;
+    if (childrenAttribute.present && dangerousAttributes.length > 0) {
+      throw styleContentAmbiguityError(
+        "explicit children and dangerouslySetInnerHTML attributes coexist",
+        dangerousAttributes[0],
+        sourcePath,
+        sourceFile,
+      );
+    }
+    if (childrenAttribute.present && hasNestedChildren) {
+      throw styleContentAmbiguityError(
+        "explicit children attribute and nested JSX children coexist",
+        node,
+        sourcePath,
+        sourceFile,
+      );
+    }
+    if (dangerousAttributes.length > 0 && hasNestedChildren) {
+      throw styleContentAmbiguityError(
+        "dangerouslySetInnerHTML attribute and nested JSX children coexist",
+        node,
+        sourcePath,
+        sourceFile,
+      );
+    }
     const dangerous = dangerousStyleText(attributes, sourcePath, sourceFile);
     const css =
-      dangerous ?? (children ? ordinaryStyleText(children, sourcePath, sourceFile) : undefined);
+      dangerous ??
+      (childrenAttribute.present
+        ? childrenAttribute.text
+        : children
+          ? ordinaryStyleText(children, sourcePath, sourceFile)
+          : undefined);
     if (css === undefined) return;
     const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile));
     const provenance = `${sourcePath}:${position.line + 1}:${position.character + 1} <style>`;

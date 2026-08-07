@@ -639,19 +639,216 @@ test("ordinary JSX primitive literal children follow the finite React text contr
   assert.equal([...numeric.styles.values()][0], ":root { --ink-100:red }");
   assert.match(numeric.issues, /MATERIAL_OWNER_UNAPPROVED.*--ink-100/);
 
+  const bigint = embeddedOwnership(
+    "const View = () => <style>:root &#123; --ink-{0x64n}:red &#125;</style>;",
+  );
+  assert.equal([...bigint.styles.values()][0], ":root { --ink-100:red }");
+  assert.match(bigint.issues, /MATERIAL_OWNER_UNAPPROVED.*--ink-100/);
+
+  const nestedArray = embeddedOwnership(
+    'const View = () => <style>{[":root{--surface-", , [null, false, 100n, "canvas:red}"]]}</style>;',
+  );
+  assert.equal(
+    [...nestedArray.styles.values()][0],
+    ":root{--surface-100canvas:red}",
+  );
+  assert.equal(nestedArray.issues, "");
+
+  const protectedArray = embeddedOwnership(
+    'const View = () => <style>{[":root{--surface-", [null, "canvas", false], ":red}"]}</style>;',
+  );
+  assert.equal([...protectedArray.styles.values()][0], ":root{--surface-canvas:red}");
+  assert.match(protectedArray.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+
   const benign = embeddedOwnership(
     "const View = () => <style>.safe&#123;margin:{1_000}px&#125;</style>;",
   );
   assert.equal([...benign.styles.values()][0], ".safe{margin:1000px}");
   assert.equal(benign.issues, "");
 
-  for (const unresolved of ["undefined", "void 0", "-1", "themeColor"]) {
+  for (const unresolved of ["undefined", "void 0", "-1", "-100n", "themeColor"]) {
     const result = embeddedOwnership(
       `const View = () => <style>.safe&#123;color:{${unresolved}}&#125;</style>;`,
     );
     assert.match(
       [...result.styles.values()][0],
       /var\(--champagne-embedded-style-expression\)/,
+    );
+  }
+});
+
+test("static children props share the finite React child normalisation authority", () => {
+  const cases = [
+    {
+      label: "quoted raw text",
+      path: "packages/example/Children.js",
+      fixture: 'const View=()=> <style children=".safe{color:red}"/>;',
+      css: ".safe{color:red}",
+    },
+    {
+      label: "quoted decimal entities",
+      fixture: 'const View=()=> <style children=".safe&#123;color:red&#125;"/>;',
+      css: ".safe{color:red}",
+    },
+    {
+      label: "quoted hexadecimal entities",
+      fixture: 'const View=()=> <style children=".safe&#x7B;color:red&#x7D;"/>;',
+      css: ".safe{color:red}",
+    },
+    {
+      label: "quoted named entities",
+      fixture:
+        'const View=()=> <style children=".safe&#123;content:\'&gt;&amp;\'&#125;"/>;',
+      css: ".safe{content:'>&'}",
+    },
+    {
+      label: "quoted unknown entity",
+      fixture:
+        'const View=()=> <style children=".safe&#123;content:\'&champagneUnknown;\'&#125;"/>;',
+      css: ".safe{content:'&champagneUnknown;'}",
+    },
+    {
+      label: "quoted malformed entity",
+      fixture:
+        'const View=()=> <style children=".safe&#123;content:\'&#xZZ;\'&#125;"/>;',
+      css: ".safe{content:'&#xZZ;'}",
+    },
+    {
+      label: "quoted encoded protected owner",
+      fixture:
+        'const View=()=> <style children=":root&#123;--surface-&#99;anvas:red&#125;"/>;',
+      css: ":root{--surface-canvas:red}",
+      issue: /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/,
+    },
+    {
+      label: "quoted encoded protected registration",
+      fixture:
+        'const View=()=> <style children="&#64;property --surface-&#99;anvas&#123;syntax:\'&lt;color&gt;\';inherits:false;initial-value:red&#125;"/>;',
+      css: "@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}",
+      issue: /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/,
+    },
+    {
+      label: "double-quoted expression string",
+      path: "packages/example/Children.jsx",
+      fixture:
+        'const View=()=> <style children={":root{--surface-canvas:red}"}/>;',
+      css: ":root{--surface-canvas:red}",
+      issue: /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/,
+    },
+    {
+      label: "single-quoted expression string",
+      fixture:
+        "const View=()=> <style children={':root{--surface-canvas:red}'}/>;",
+      css: ":root{--surface-canvas:red}",
+      issue: /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/,
+    },
+    {
+      label: "no-substitution template",
+      fixture:
+        "const View=()=> <style children={`@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}`}/>;",
+      css: "@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}",
+      issue: /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/,
+    },
+    {
+      label: "dynamic template placeholder",
+      fixture:
+        "const color='red';const View=()=> <style children={`:root{--surface-canvas:${color}}`}/>;",
+      issue: /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/,
+      placeholder: true,
+    },
+    {
+      label: "transparent TypeScript wrappers",
+      fixture:
+        'const View=()=> <style children={((":root{--surface-canvas:red}" as const) satisfies string)!}/>;',
+      css: ":root{--surface-canvas:red}",
+      issue: /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/,
+    },
+    { label: "null", fixture: "const View=()=> <style children={null}/>;", css: "" },
+    { label: "true", fixture: "const View=()=> <style children={true}/>;", css: "" },
+    { label: "false", fixture: "const View=()=> <style children={false}/>;", css: "" },
+    { label: "number", fixture: "const View=()=> <style children={100}/>;", css: "100" },
+    { label: "BigInt", fixture: "const View=()=> <style children={0x64n}/>;", css: "100" },
+    {
+      label: "static array",
+      fixture:
+        'const View=()=> <style children={[":root{--surface-", "canvas:red}"]}/>;',
+      css: ":root{--surface-canvas:red}",
+      issue: /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/,
+    },
+    {
+      label: "static array with BigInt",
+      fixture: 'const View=()=> <style children={[":root{--ink-", 0x64n, ":red}"]}/>;',
+      css: ":root{--ink-100:red}",
+      issue: /MATERIAL_OWNER_UNAPPROVED.*--ink-100/,
+    },
+    {
+      label: "nested static array with a hole",
+      fixture:
+        'const View=()=> <style children={[":root{--surface-", , [null, false, "canvas"], ":red}"]}/>;',
+      css: ":root{--surface-canvas:red}",
+      issue: /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/,
+    },
+    {
+      label: "unresolved array element",
+      fixture:
+        'const View=()=> <style children={[".safe{color:", themeColor, "}"]}/>;',
+      placeholder: true,
+    },
+    {
+      label: "unresolved array spread",
+      fixture: 'const View=()=> <style children={[".safe{color:", ...colors, "}"]}/>;',
+      placeholder: true,
+    },
+    {
+      label: "benign static CSS",
+      fixture: 'const View=()=> <style children={".safe{color:var(--text-high)}"}/>;',
+      css: ".safe{color:var(--text-high)}",
+    },
+  ];
+
+  for (const item of cases) {
+    const result = embeddedOwnership(
+      item.fixture,
+      item.path ?? `packages/example/${item.label.replaceAll(" ", "-")}.tsx`,
+    );
+    assert.equal(result.styles.size, 1, item.label);
+    const css = [...result.styles.values()][0];
+    if (item.css !== undefined) assert.equal(css, item.css, item.label);
+    if (item.placeholder) {
+      assert.match(css, /var\(--champagne-embedded-style-expression\)/, item.label);
+    }
+    if (item.issue) assert.match(result.issues, item.issue, item.label);
+    else assert.equal(result.issues, "", item.label);
+  }
+});
+
+test("ambiguous style content representations fail closed", () => {
+  const cases = [
+    [
+      "duplicate explicit children attributes",
+      'const View=()=> <style children={".safe{}"} children={":root{--surface-canvas:red}"}/>;',
+    ],
+    [
+      "explicit children and dangerouslySetInnerHTML attributes coexist",
+      'const View=()=> <style children={".safe{}"} dangerouslySetInnerHTML={{__html:":root{--surface-canvas:red}"}}/>;',
+    ],
+    [
+      "explicit children attribute and nested JSX children coexist",
+      'const View=()=> <style children={".safe{}"}>:root&#123;--surface-canvas:red&#125;</style>;',
+    ],
+    [
+      "dangerouslySetInnerHTML attribute and nested JSX children coexist",
+      'const View=()=> <style dangerouslySetInnerHTML={{__html:".safe{}"}}>.nested&#123;color:red&#125;</style>;',
+    ],
+  ];
+  for (const [message, fixture] of cases) {
+    assert.throws(
+      () => extractEmbeddedStyleSources(fixture, "apps/web/app/Ambiguous.tsx"),
+      (error) =>
+        error instanceof Error &&
+        error.message.includes("[EMBEDDED_STYLE_CONTENT_AMBIGUITY]") &&
+        error.message.includes(message),
+      message,
     );
   }
 });
@@ -749,8 +946,13 @@ test("CONSOLIDATED_STATIC_STYLE_FINITE_CONTRACT exercises the complete bounded m
     ["true child", "const View=()=> <style>:root &#123; --surface{true}-canvas:red &#125;</style>;", "owner"],
     ["false child", "const View=()=> <style>:root &#123; --surface{false}-canvas:red &#125;</style>;", "owner"],
     ["number child", "const View=()=> <style>:root &#123; --ink-{100}:red &#125;</style>;", "owner"],
+    ["BigInt child", "const View=()=> <style>:root &#123; --ink-{100n}:red &#125;</style>;", "owner"],
+    ["nested array child", 'const View=()=> <style>{[":root{--surface-",["canvas",null],":red}"]}</style>;', "owner"],
     ["adjacent benign fragments", "const View=()=> <style>.safe&#123;margin:{100}px&#125;</style>;", "benign"],
     ["unresolved expression", "const View=()=> <style>.safe&#123;color:{themeColor}&#125;</style>;", "placeholder"],
+    ["quoted children prop", 'const View=()=> <style children=":root&#123;--surface-&#99;anvas:red&#125;"/>;', "owner", "packages/example/Children.js"],
+    ["array children prop", 'const View=()=> <style children={[":root{--surface-",["canvas"],":red}"]}/>;', "owner"],
+    ["dynamic children prop", "const color='red';const View=()=> <style children={`:root{--surface-canvas:${color}}`}/>;", "owner-placeholder"],
     ["direct __html", 'const View=()=> <style dangerouslySetInnerHTML={{__html:":root{--surface-canvas:red}"}}/>;', "owner"],
     ["quoted __html", 'const View=()=> <style dangerouslySetInnerHTML={{"__html":":root{--surface-canvas:red}"}}/>;', "owner"],
     ["computed literal __html", 'const View=()=> <style dangerouslySetInnerHTML={{["__html"]:":root{--surface-canvas:red}"}}/>;', "owner"],

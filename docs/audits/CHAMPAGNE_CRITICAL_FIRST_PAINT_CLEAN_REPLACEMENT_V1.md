@@ -2,9 +2,9 @@
 
 ## Status
 
-`FOUNDER_AUTHORISED_CONSOLIDATED_FOUR_FINDING_TERMINAL_STATIC_STYLE_CLOSURE_READY`
+`FOUNDER_AUTHORISED_FINAL_TWO_FAMILY_STATIC_REACT_CHILD_CLOSURE_READY`
 
-This receipt records the Founder-authorised consolidated four-finding terminal static-style closure on top of the JSX-entity, enumerated static-key, collector-policy, static TypeScript-wrapper, bounded embedded-style ownership and Route B settlements for Champagne PR #865. The pull request was already ready when this closure was authorised. This transaction does not toggle draft state, select a final Persian Midnight material, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
+This receipt records the Founder-authorised final two-family static React-child closure on top of the consolidated four-finding, JSX-entity, enumerated static-key, collector-policy, static TypeScript-wrapper, bounded embedded-style ownership and Route B settlements for Champagne PR #865. The pull request was already ready when this closure was authorised. This transaction does not toggle draft state, select a final Persian Midnight material, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
 
 ## Authority and exact boundary
 
@@ -13,22 +13,21 @@ This receipt records the Founder-authorised consolidated four-finding terminal s
 - Base branch: `main`
 - Exact authorised and unchanged base: `a3484e976d240aaedf88a9b13afdd6ccc8d7d267`
 - Existing branch: `agent/champagne-critical-first-paint-clean-replacement-v1`
-- Exact authorised starting head: `69cbf887dc87244dcdc2e9cbbdb1e6b7192ac664`
-- Authorised starting state: open, ready, mergeable, unmerged and undeployed; 100 commits above base and exactly 17 changed paths
-- Repair authority: exactly the four paths listed below
+- Exact authorised starting head: `cb67d77ee424f48ed02d9833425d9e422f842db9`
+- Authorised starting state: open, ready, mergeable, unmerged and undeployed; 101 commits above base and exactly 17 changed paths
+- Repair authority: exactly the three paths listed below
 - No `pnpm-lock.yaml` or `apps/web/package.json` change
 - No production application, CSS, token, generated artefact, Hero V2, workflow, dependency or deployment mutation
 
 The repair commit's exact SHA cannot be embedded literally in the tracked contents that determine that same SHA. The immutable resulting head is therefore recorded in the final lane packet immediately after the single repair commit is created.
 
-## Exact repair paths — 4
+## Exact repair paths — 3
 
 1. `packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`
-2. `packages/champagne-guards/scripts/guard-surface-semantics.mjs`
-3. `tests/champagne-critical-first-paint-generator.test.mjs`
-4. `docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md`
+2. `tests/champagne-critical-first-paint-generator.test.mjs`
+3. `docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md`
 
-The overall pull-request inventory remains the existing 17 paths. No fifth tracked path is authorised.
+The overall pull-request inventory remains the existing 17 paths. No fourth tracked path is authorised.
 
 ## Route B architectural decision
 
@@ -103,9 +102,21 @@ The installed TypeScript `5.9.3` compiler and bundled React `19.2.1` client rend
 
 The consolidated adversarial corpus exercises source topology, ordinary JSX text and entity cooking, finite literal children, inert unresolved expressions, dangerous-style literal keys and values, duplicate inner and outer representations, shared CSS parsing, protected owners and registrations, ownership baselines, time-of-day exemptions, exclusions and symlink failure. The supplemental outer-attribute reproduction is part of finding 3, not a fifth finding or architecture.
 
+## Final two-family static React-child closure
+
+The independent terminal audit re-anchored to exact starting head `cb67d77ee424f48ed02d9833425d9e422f842db9`, confirmed the previous four consolidated P2 families closed, found no P1 or current executable Champagne P2, and isolated two remaining finite-contract omissions: directly represented static `children` attributes on `<style>` and positive BigInt literals as a sibling of already-governed deterministic literal children.
+
+The installed TypeScript `5.9.3` compiler and React `19.2.1` renderer were used only with synthetic temporary fixtures as semantic oracles. TypeScript represents a positive BigInt as a `BigIntLiteral` whose normalised text retains the terminal `n`; React renders its decimal value without that suffix. React recursively flattens directly represented arrays without separators, and array holes, `null` and booleans contribute no rendered text. TypeScript's JSX transform cooks quoted attribute entities before emitting the `children` string: valid decimal, lowercase-`x` hexadecimal and recognised named entities are decoded, while malformed and unknown entities follow the same literal-preservation behaviour already recorded for ordinary JSX text.
+
+One finite static React-child normalisation authority is now shared by ordinary JSX child expressions and expression-valued static `children` attributes. It enumerates direct strings, no-substitution templates, templates with inert placeholders, `null`, booleans, ordinary numeric literals, positive BigInt literals, the approved transparent TypeScript wrappers and directly represented array literals recursively composed from those forms. Omitted array elements contribute no text. Unsupported or dynamic array elements contribute the existing inert placeholder; identifier-held arrays, array spreads and source execution are not introduced.
+
+Quoted `children="..."` attributes use the same compiler-derived JSX cooking approach as ordinary JSX text and then enter the existing shared CSS owner and protected-registration contracts. Static expression strings, templates, primitives, arrays and wrappers use the shared finite child normaliser. No separate children-prop semantics engine, entity decoder, CSS parser, runtime scanner or general evaluator was added.
+
+Ambiguous governed style-content representations fail closed under `EMBEDDED_STYLE_CONTENT_AMBIGUITY`: duplicate explicit `children` attributes; explicit `children` combined with nested JSX children; explicit `children` combined with `dangerouslySetInnerHTML`; and `dangerouslySetInnerHTML` combined with nested JSX children. Existing duplicate outer dangerous attributes and duplicate recognised inner `__html` properties retain their established diagnostic as a nested member of the same ambiguity family. This deliberately avoids modelling effective-property precedence. JSX spread-derived props remain unresolved and deferred.
+
 ## Narrowed acceptance claim
 
-> First-party static CSS within the enforced `apps/web/app/**` and `packages/**` source topology, and first-party `.js`, `.jsx` and `.tsx` JSX `<style>` payloads using TypeScript-cooked ordinary JSX text, enumerated directly represented literal-child semantics, inert unresolved-expression placeholders, and enumerated literal-key/static-value `dangerouslySetInnerHTML` forms with duplicate governed representations rejected, are governed by the shared CSS ownership and protected-registration authority. Canonical material ownership, generated first-paint artefact integrity and render-unblocking first-paint delivery remain governed. General JavaScript and TypeScript runtime-mutation detection is not claimed by PR #865 and is deferred to separately governed future hardening.
+> First-party static CSS within the enforced `apps/web/app/**` and `packages/**` source topology, and first-party `.js`, `.jsx` and `.tsx` JSX `<style>` payloads using TypeScript-cooked JSX text; direct strings; no-substitution templates; templates with inert placeholders; `null`; booleans; ordinary numeric literals; positive BigInt literals; approved transparent TypeScript wrappers; directly represented recursively composed static arrays; equivalent directly represented static `children` attributes; and enumerated literal-key/static-value `dangerouslySetInnerHTML` forms, with ambiguous duplicate or mixed style-content representations rejected, are governed by the shared CSS ownership and protected-registration authority. Canonical material ownership, generated first-paint artefact integrity and render-unblocking first-paint delivery remain governed. General JavaScript and TypeScript runtime-mutation detection is not claimed by PR #865 and is deferred to separately governed future hardening.
 
 PR #865 governs only the explicitly implemented and tested first-paint architecture, generated artefacts, first-party static CSS declarations within that enforced topology, directly represented finite embedded styles, enumerated literal `__html` property forms, registrations, ownership and delivery channels. It does not claim arbitrary computed property-name evaluation, constant folding, identifier or alias resolution, imported-constant analysis, object-spread value resolution, getters, function results, arbitrary unary or binary evaluation, import reachability, data-flow or interprocedural analysis, broad statically discoverable application-mutation closure, every future source topology, dynamic code, runtime mutation or general JavaScript parser equivalence.
 
@@ -120,13 +131,14 @@ One deterministic generator continues to validate graph-to-primitive parity and 
 
 The root layout continues to emit one React-managed critical style resource and meaningful server-rendered header, main and footer content. Next production CSS inlining remains enabled. Initial production HTML continues to avoid a render-blocking external stylesheet link, while HTML and body paint through cascade-resolved variables so dawn, dusk and night overrides remain effective.
 
-The shared CSS declaration parser remains the single CSS parser authority used by the generator and surface guard. Protected owners in first-party `.css` files and recovered `.js`/`.jsx`/`.tsx` JSX style sheets, protected `@property` registrations, literal primitives, generated owners, immutable-gold owners, `--ink-100`, exact time-of-day canvas owners, malformed CSS and protected-source-tree symlinks remain governed.
+The shared CSS declaration parser remains the single CSS parser authority used by the generator and surface guard. Protected owners in first-party `.css` files and recovered `.js`/`.jsx`/`.tsx` JSX style sheets, including the enumerated ordinary-child and directly represented static-`children` forms, protected `@property` registrations, literal primitives, generated owners, immutable-gold owners, `--ink-100`, exact time-of-day canvas owners, malformed CSS and protected-source-tree symlinks remain governed.
 
 Hero V2, mobile and desktop behaviour, normal and reduced motion, JavaScript-disabled usefulness, CSP-interference resilience, meaningful SSR, actual screenshot pixels, generated-file drift rejection, stable serialisation, workflow integrity and pinned actions remain in the retained validation scope.
 
 ## Settlement test inventory
 
-- Generator and contract Node suite: exactly `65` tests
+- Generator and contract Node suite: exactly `67` tests
+- Added final two-family static React-child tests: exactly `2` top-level tests, plus augmented ordinary-child and consolidated matrices, covering quoted and expression-valued `children`, compiler-cooked entities, templates and inert placeholders, null/booleans/numbers/BigInt, recursive arrays and holes, protected owners and registrations, benign CSS, `.js`/`.jsx`/`.tsx`, and duplicate or mixed style-content rejection
 - Added consolidated four-finding tests: exactly `5` top-level tests, covering `.js`/`.jsx`/`.tsx` sources and exclusions; finite ordinary literal children and inert unresolved expressions; duplicate inner `__html` properties and duplicate outer `dangerouslySetInnerHTML` attributes; first-party app/package CSS topology and symlinks; and one table-driven whole-contract corpus
 - Added bounded JSX-entity semantics tests: exactly `8` tests, covering benign literal text, decimal and hexadecimal braces and protected names, a supported named entity, encoded protected registration, mixed raw/entity CSS, malformed or unsupported literal preservation and unsafe numeric code-point failure behaviour
 - Added final enumerated static-key tests: exactly `5` tests, covering all supported property spellings, transparent wrappers, protected owners and registrations, benign computed-literal CSS, unsupported concatenation and non-execution
@@ -145,7 +157,7 @@ Evidence is recorded here only after execution against the settlement worktree.
 - `node --check packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`: successful
 - `node --check packages/champagne-guards/scripts/guard-surface-semantics.mjs`: successful
 - `node --check tests/champagne-critical-first-paint-generator.test.mjs`: successful
-- `pnpm run test:critical-paint-generator`: `65/65 passed`, `0 failed`, `0 skipped`
+- `pnpm run test:critical-paint-generator`: `67/67 passed`, `0 failed`, `0 skipped`
 - `pnpm run guard:surface-semantics`: successful with the narrowed static-file and embedded-style ownership/registration/artefact/delivery claim
 - `pnpm run check:critical-paint-generated`: successful
 - `pnpm run guard:all`: successful
@@ -181,7 +193,7 @@ Exact-head CI/security evidence and both Vercel contexts remain pending until th
 
 ## Residual risk
 
-PR #865 does not govern general JavaScript or TypeScript runtime mutation of protected custom properties, dependency or build-output trees outside the governed first-party roots, or arbitrary import reachability. Arbitrary computed property names such as `["__" + "html"]`, computed identifiers, imported constants, function-returned names, object spreads requiring value resolution, getters, arbitrary unary or binary evaluation, template expressions with substitutions, runtime style mutation and data-flow- or interprocedurally-derived CSS remain explicitly outside the enumerated embedded-style contract.
+PR #865 does not govern general JavaScript or TypeScript runtime mutation of protected custom properties, dependency or build-output trees outside the governed first-party roots, or arbitrary import reachability. Arbitrary computed property names such as `["__" + "html"]`, identifiers including arbitrary identifiers named `undefined`, imported constants, aliases, function-returned names, object or JSX prop spreads requiring value resolution, array spreads, getters, arbitrary unary or binary evaluation including negative BigInt expressions, conditionals, computed values, runtime style mutation and data-flow- or interprocedurally-derived CSS remain explicitly outside the enumerated embedded-style contract.
 
 The risk is explicit and deferred. It must not be described as closed by scanner fixtures, browser demonstrations, absence of a current production match, CodeQL, Semgrep or a positive Codex review.
 
@@ -198,7 +210,7 @@ After the single repair commit is pushed and exact-head evidence is recorded:
 3. freeze the branch after the exact-head remote check state is recorded; and
 4. do not perform another automatic repair cycle.
 
-PR #865 must remain open, ready, unmerged and undeployed. After this consolidated four-finding correction, no further PR #865 source repair is authorised by this transaction. The resulting exact head must return first to the independent static-style closure audit; no manual Codex review request is authorised in this transaction. Additional observations require Main Director classification and fresh Founder authority before any mutation. A positive review is not merge authority.
+PR #865 must remain open, ready, unmerged and undeployed. After this final two-family static React-child correction, no further PR #865 source repair is authorised by this transaction. A normal push may trigger the platform's automatic ready-PR Codex review; it may complete and must be recorded, but no manual Codex review request or automatic repair is authorised. The resulting exact head must return to the independent closure audit. Additional observations require Main Director classification and fresh Founder authority before any mutation. A positive review is not merge authority.
 
 ## Rollback
 
