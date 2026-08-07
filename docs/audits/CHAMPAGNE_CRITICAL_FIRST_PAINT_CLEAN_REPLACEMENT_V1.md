@@ -2,9 +2,9 @@
 
 ## Status
 
-`FOUNDER_AUTHORISED_FINAL_ENUMERATED_STATIC_KEY_CLOSURE_DRAFT`
+`FOUNDER_AUTHORISED_BOUNDED_JSX_ENTITY_SEMANTICS_CLOSURE_READY`
 
-This receipt records the Founder-authorised final enumerated static-key closure on top of the collector-policy closure, static TypeScript-wrapper closure, bounded embedded-style ownership closure and Route B settlement for Champagne PR #865. It does not select a final Persian Midnight material, mark the pull request ready, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
+This receipt records the Founder-authorised bounded JSX-entity semantics closure on top of the enumerated static-key closure, collector-policy closure, static TypeScript-wrapper closure, bounded embedded-style ownership closure and Route B settlement for Champagne PR #865. The pull request was already ready when this closure was authorised. This transaction does not toggle draft state, select a final Persian Midnight material, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
 
 ## Authority and exact boundary
 
@@ -13,8 +13,8 @@ This receipt records the Founder-authorised final enumerated static-key closure 
 - Base branch: `main`
 - Exact authorised and unchanged base: `a3484e976d240aaedf88a9b13afdd6ccc8d7d267`
 - Existing branch: `agent/champagne-critical-first-paint-clean-replacement-v1`
-- Exact authorised starting head: `b9d3d89892af1064d077f3ad19cc6ca56cb3b15d`
-- Authorised starting state: 98 commits above base and exactly 17 changed paths
+- Exact authorised starting head: `01cd68f56c83c76869ad0cb321dde0190d661418`
+- Authorised starting state: open, ready, unmerged and undeployed; 99 commits above base and exactly 17 changed paths
 - Repair authority: exactly the three paths listed below
 - No `pnpm-lock.yaml` or `apps/web/package.json` change
 - No production application, CSS, token, generated artefact, Hero V2, workflow, dependency or deployment mutation
@@ -79,9 +79,19 @@ One deterministic static property-name normaliser now recognises only the follow
 
 The normaliser does not execute or interpret unsupported expressions. It does not constant-fold concatenation or other binary expressions, resolve identifiers or aliases, inspect property access, call functions, follow imports, evaluate template substitutions, or perform control-flow or data-flow analysis. Unsupported computed property expressions resolve to no static property name. General JavaScript or TypeScript runtime-mutation detection remains outside PR #865 and deferred to a separately governed AST/source-hardening change.
 
+## Bounded JSX-entity semantics closure
+
+The automatic Codex review triggered when PR #865 was marked ready reviewed exact head `01cd68f56c83c76869ad0cb321dde0190d661418` and returned P2 `Decode JSX entities before parsing style text`. The finding was independently reproduced: TypeScript compiles `<style>:root &#123; --surface-&#99;anvas:red; &#125;</style>` to browser-effective CSS equivalent to `:root { --surface-canvas:red; }`, while the former ordinary-style extraction passed the raw entity-bearing `JsxText.text` to the CSS parser.
+
+The installed TypeScript `5.9.3` compiler was used as a read-only semantic oracle before implementation. It showed that valid decimal references and lowercase-`x` hexadecimal references are cooked; supported named references such as `&gt;` and `&amp;` are cooked; unknown names, malformed digits, missing semicolons and uppercase-`X` hexadecimal spellings remain literal; surrogate and null code points are emitted as their decoded code units; and an out-of-range code point makes the TypeScript JSX transform throw.
+
+The public TypeScript scanner exposes only raw JSX text. The correction therefore uses the public `transpileModule` compiler API on one synthetic, expression-free `<style>` fixture for each ordinary `JsxText` node and structurally accepts only the expected single static string emitted through a private synthetic JSX factory name. The compiler-cooked string then enters the existing shared CSS parser and ownership/registration contracts. Compiler diagnostics, transform exceptions or an unexpected emitted shape fail closed with `EMBEDDED_STYLE_ENTITY_DECODE` provenance.
+
+This bounded correction neither executes application source nor introduces an entity table, browser DOM dependency, HTML parser, CSS parser, JavaScript scanner, runtime-mutation discovery, constant folding, identifier/import/alias resolution, data-flow analysis or import-graph analysis. Template and expression reconstruction, `dangerouslySetInnerHTML`, transparent TypeScript wrappers, enumerated computed keys and source collection retain their existing boundaries.
+
 ## Narrowed acceptance claim
 
-> First-party static CSS files and JSX/TSX `<style>` payloads using directly represented string/template CSS and enumerated literal `dangerouslySetInnerHTML.__html` object-property forms are governed by the shared CSS ownership and protected-registration contract. Canonical material ownership, generated first-paint artefact integrity and render-unblocking first-paint delivery remain governed. General JavaScript and TypeScript runtime-mutation detection is not claimed by PR #865 and is deferred to a separately governed AST/source-hardening change.
+> First-party static CSS files and JSX/TSX `<style>` payloads using TypeScript-cooked ordinary JSX text, directly represented string/template CSS and enumerated literal `dangerouslySetInnerHTML.__html` object-property forms are governed by the shared CSS ownership and protected-registration contract. Canonical material ownership, generated first-paint artefact integrity and render-unblocking first-paint delivery remain governed. General JavaScript and TypeScript runtime-mutation detection is not claimed by PR #865 and is deferred to a separately governed AST/source-hardening change.
 
 PR #865 governs only the explicitly implemented and tested first-paint architecture, generated artefacts, static CSS declarations, directly represented string/template embedded styles, enumerated literal `__html` property forms, registrations, ownership and delivery channels. It does not claim arbitrary computed property-name evaluation, constant folding, identifier or alias resolution, import or data-flow analysis, broad statically discoverable application-mutation closure, every future source topology, dynamic code, runtime mutation or general JavaScript parser equivalence.
 
@@ -102,7 +112,8 @@ Hero V2, mobile and desktop behaviour, normal and reduced motion, JavaScript-dis
 
 ## Settlement test inventory
 
-- Generator and contract Node suite: exactly `52` tests
+- Generator and contract Node suite: exactly `60` tests
+- Added bounded JSX-entity semantics tests: exactly `8` tests, covering benign literal text, decimal and hexadecimal braces and protected names, a supported named entity, encoded protected registration, mixed raw/entity CSS, malformed or unsupported literal preservation and unsafe numeric code-point failure behaviour
 - Added final enumerated static-key tests: exactly `5` tests, covering all supported property spellings, transparent wrappers, protected owners and registrations, benign computed-literal CSS, unsupported concatenation and non-execution
 - Added collector-policy temporary-tree tests: exactly `8` tests
 - Added transparent TypeScript-wrapper tests: exactly `8` tests
@@ -118,7 +129,7 @@ Evidence is recorded here only after execution against the settlement worktree.
 
 - `node --check packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`: successful
 - `node --check tests/champagne-critical-first-paint-generator.test.mjs`: successful
-- `pnpm run test:critical-paint-generator`: `52/52 passed`, `0 failed`, `0 skipped`
+- `pnpm run test:critical-paint-generator`: `60/60 passed`, `0 failed`, `0 skipped`
 - `pnpm run guard:surface-semantics`: successful with the narrowed static-file and embedded-style ownership/registration/artefact/delivery claim
 - `pnpm run check:critical-paint-generated`: successful
 - `pnpm run guard:all`: successful
@@ -166,11 +177,11 @@ Exact-head CodeQL, Semgrep, Trivy, Gitleaks and SBOM conclusions will be recorde
 After the single repair commit is pushed and exact-head evidence is recorded:
 
 1. do not change the pull-request title, body, base, draft state or review-thread state;
-2. post exactly one fresh top-level `@codex review` request against that exact head only if every required remote check is green;
-3. freeze the branch immediately after that request; and
+2. do not post another manual Codex review request without fresh Main Director authority;
+3. freeze the branch after the exact-head remote check state is recorded; and
 4. do not perform another automatic repair cycle.
 
-PR #865 must remain open, draft and unmerged. After the fresh exact-head review, no further PR #865 source repair is authorised. A new finding may block settlement only if it is P1, demonstrates an actual defect in current executable first-party Champagne source at that exact head, or demonstrates failure of one of the specifically enumerated retained #865 behaviours. A merely syntactically possible JavaScript or TypeScript representation outside the enumerated contract is recorded in the deferred AST/source-hardening backlog and does not trigger another #865 mutation cycle. A positive review is not merge authority.
+PR #865 must remain open, ready, unmerged and undeployed. After this bounded JSX-entity correction, no further PR #865 source repair is authorised by this transaction. Additional observations belong to the separately commissioned finite static-style audit lane. A positive review is not merge authority.
 
 ## Rollback
 

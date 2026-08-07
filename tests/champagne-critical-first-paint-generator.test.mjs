@@ -312,6 +312,101 @@ test("benign ordinary embedded styles preserve provenance and pass ownership", (
   );
 });
 
+test("ordinary JSX style text uses TypeScript-cooked benign text", () => {
+  const literal = embeddedOwnership("const View = () => <style>plain CSS text</style>;");
+  assert.equal([...literal.styles.values()][0], "plain CSS text");
+  assert.equal(literal.issues, "");
+
+  const entityBraces = embeddedOwnership(
+    "const View = () => <style>.safe&#123;color:red&#125;</style>;",
+  );
+  assert.equal([...entityBraces.styles.values()][0], ".safe{color:red}");
+  assert.equal(entityBraces.issues, "");
+});
+
+test("decimal JSX entities expose protected ordinary style owners", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>:root &#123; --surface-&#99;anvas:red; &#125;</style>;",
+  );
+  assert.equal([...result.styles.values()][0], ":root { --surface-canvas:red; }");
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("hexadecimal JSX entities expose protected ordinary style owners", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>:root &#x7B; --surface-&#x63;anvas:red; &#x7D;</style>;",
+  );
+  assert.equal([...result.styles.values()][0], ":root { --surface-canvas:red; }");
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("named JSX entities follow TypeScript cooking before CSS ownership", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>:root &gt; * &#123; --surface-canvas:red; &#125;</style>;",
+  );
+  assert.equal([...result.styles.values()][0], ":root > * { --surface-canvas:red; }");
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("entity-encoded protected registrations are rejected", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>&#64;property --surface-&#99;anvas&#123;syntax:'&lt;color&gt;';inherits:false;initial-value:red&#125;</style>;",
+  );
+  assert.equal(
+    [...result.styles.values()][0],
+    "@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}",
+  );
+  assert.match(result.issues, /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/);
+});
+
+test("mixed raw and entity-cooked ordinary CSS remains governed", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>:root &#123; --surface-canvas:var(--surface-1); color:red; &#125;</style>;",
+  );
+  assert.equal(
+    [...result.styles.values()][0],
+    ":root { --surface-canvas:var(--surface-1); color:red; }",
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("malformed and unsupported JSX entities remain literal like TypeScript", () => {
+  const cases = [
+    ["&champagneUnknown;", "&champagneUnknown;"],
+    ["&#xZZ;", "&#xZZ;"],
+    ["&#99", "&#99"],
+    ["&#X63;", "&#X63;"],
+  ];
+  for (const [encoded, expected] of cases) {
+    const result = embeddedOwnership(
+      `const View = () => <style>:root &#123; --surface-${encoded}anvas:red; &#125;</style>;`,
+    );
+    assert.equal(
+      [...result.styles.values()][0],
+      `:root { --surface-${expected}anvas:red; }`,
+    );
+    assert.equal(result.issues, "");
+  }
+});
+
+test("unsafe numeric JSX entity code points fail closed or preserve protected ownership", () => {
+  assert.throws(
+    () =>
+      extractEmbeddedStyleSources(
+        "const View = () => <style>:root &#123; --surface-canvas:red; &#x110000;</style>;",
+        "apps/web/app/OutOfRange.tsx",
+      ),
+    /\[EMBEDDED_STYLE_ENTITY_DECODE\] apps\/web\/app\/OutOfRange\.tsx:/,
+  );
+
+  for (const encoded of ["&#xD800;", "&#0;"]) {
+    const result = embeddedOwnership(
+      `const View = () => <style>:root &#123; --surface-canvas:red; ${encoded} &#125;</style>;`,
+    );
+    assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+  }
+});
+
 test("ordinary embedded styles reject protected material owners", () => {
   const result = embeddedOwnership(
     "const View = () => <style>{`:root{--surface-canvas:red}`}</style>;",

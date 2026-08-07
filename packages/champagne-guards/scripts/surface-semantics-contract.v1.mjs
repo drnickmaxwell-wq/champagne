@@ -175,10 +175,77 @@ function dangerousStyleText(attributes) {
     : undefined;
 }
 
-function ordinaryStyleText(children) {
+const jsxTextCookFactory = "__champagneCookJsxText";
+
+function cookedJsxText(text, sourcePath, sourceFile, node) {
+  const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile));
+  const provenance = `${sourcePath}:${position.line + 1}:${position.character + 1}`;
+  let output;
+  try {
+    const result = ts.transpileModule(
+      `const __champagneStyle = <style>${text}</style>;`,
+      {
+        compilerOptions: {
+          jsx: ts.JsxEmit.React,
+          jsxFactory: jsxTextCookFactory,
+          target: ts.ScriptTarget.ESNext,
+        },
+        fileName: `${sourcePath}.champagne-jsx-text.tsx`,
+        reportDiagnostics: true,
+      },
+    );
+    const diagnostic = result.diagnostics?.[0];
+    if (diagnostic) {
+      throw new Error(ts.flattenDiagnosticMessageText(diagnostic.messageText, " "));
+    }
+    output = result.outputText;
+  } catch (error) {
+    throw new Error(
+      `[EMBEDDED_STYLE_ENTITY_DECODE] ${provenance}: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
+
+  const emitted = ts.createSourceFile(
+    `${sourcePath}.champagne-jsx-text.js`,
+    output,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.JS,
+  );
+  const statement = emitted.statements[0];
+  const declaration =
+    statement && ts.isVariableStatement(statement)
+      ? statement.declarationList.declarations[0]
+      : undefined;
+  const call = declaration?.initializer;
+  if (
+    !call ||
+    !ts.isCallExpression(call) ||
+    !ts.isIdentifier(call.expression) ||
+    call.expression.text !== jsxTextCookFactory ||
+    call.arguments.length < 2 ||
+    call.arguments.length > 3 ||
+    !ts.isStringLiteral(call.arguments[0]) ||
+    call.arguments[0].text !== "style"
+  ) {
+    throw new Error(
+      `[EMBEDDED_STYLE_ENTITY_DECODE] ${provenance}: TypeScript emitted an unexpected JSX text shape`,
+    );
+  }
+  if (call.arguments.length === 2) return "";
+  const cooked = call.arguments[2];
+  if (!ts.isStringLiteral(cooked)) {
+    throw new Error(
+      `[EMBEDDED_STYLE_ENTITY_DECODE] ${provenance}: TypeScript did not emit a static JSX text value`,
+    );
+  }
+  return cooked.text;
+}
+
+function ordinaryStyleText(children, sourcePath, sourceFile) {
   return children
     .map((child) => {
-      if (ts.isJsxText(child)) return child.text;
+      if (ts.isJsxText(child)) return cookedJsxText(child.text, sourcePath, sourceFile, child);
       if (ts.isJsxExpression(child)) return embeddedStyleExpressionText(child.expression);
       return embeddedStyleExpressionPlaceholder;
     })
@@ -206,7 +273,8 @@ export function extractEmbeddedStyleSources(source, sourcePath) {
   const styles = new Map();
   const record = (node, attributes, children) => {
     const dangerous = dangerousStyleText(attributes);
-    const css = dangerous ?? (children ? ordinaryStyleText(children) : undefined);
+    const css =
+      dangerous ?? (children ? ordinaryStyleText(children, sourcePath, sourceFile) : undefined);
     if (css === undefined) return;
     const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile));
     const provenance = `${sourcePath}:${position.line + 1}:${position.character + 1} <style>`;
