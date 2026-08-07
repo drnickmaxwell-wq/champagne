@@ -78,6 +78,7 @@ function collectFiles(root, reportRoot, extensions) {
     ".git",
     ".turbo",
     "__tests__",
+    "tests",
   ]);
   const files = [];
   for (const entry of readdirSync(root, { withFileTypes: true })) {
@@ -90,7 +91,7 @@ function collectFiles(root, reportRoot, extensions) {
     else if (
       entry.isFile() &&
       extensions.some((extension) => entry.name.endsWith(extension)) &&
-      !/\.(?:test|spec)\.[cm]?[jt]sx?$/.test(entry.name)
+      !/\.(?:test|spec)\.(?:css|[cm]?[jt]sx?)$/.test(entry.name)
     ) {
       files.push(file);
     }
@@ -105,6 +106,12 @@ export function collectCssFiles(root, reportRoot = root) {
     const message = error instanceof Error ? error.message : String(error);
     throw new Error(message.replace("[SOURCE_SYMLINK_UNAPPROVED]", "[CSS_SYMLINK_UNAPPROVED]"));
   }
+}
+
+export function collectFirstPartyCssFiles(repoRoot) {
+  return ["apps/web/app", "packages"]
+    .flatMap((relativeRoot) => collectCssFiles(path.join(repoRoot, relativeRoot), repoRoot))
+    .sort((left, right) => left.localeCompare(right));
 }
 
 const embeddedStyleExpressionPlaceholder = "var(--champagne-embedded-style-expression)";
@@ -139,6 +146,20 @@ function embeddedStyleExpressionText(expression) {
   return embeddedStyleExpressionPlaceholder;
 }
 
+function ordinaryStyleExpressionText(expression) {
+  const normalized = unwrapStaticTypeScriptExpression(expression);
+  if (!normalized) return "";
+  if (
+    normalized.kind === ts.SyntaxKind.NullKeyword ||
+    normalized.kind === ts.SyntaxKind.FalseKeyword ||
+    normalized.kind === ts.SyntaxKind.TrueKeyword
+  ) {
+    return "";
+  }
+  if (ts.isNumericLiteral(normalized)) return normalized.text;
+  return embeddedStyleExpressionText(expression);
+}
+
 function jsxTagNameIsStyle(tagName) {
   return ts.isIdentifier(tagName) && tagName.text === "style";
 }
@@ -153,23 +174,48 @@ function staticPropertyNameText(name) {
     : undefined;
 }
 
-function dangerousStyleText(attributes) {
-  const attribute = attributes.properties.find(
+function duplicateDangerousStyleError(kind, node, sourcePath, sourceFile) {
+  const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile));
+  return new Error(
+    `[EMBEDDED_STYLE_DUPLICATE_DANGEROUS_REPRESENTATION] ${sourcePath}:${position.line + 1}:${position.character + 1}: duplicate ${kind}`,
+  );
+}
+
+function dangerousStyleText(attributes, sourcePath, sourceFile) {
+  const dangerousAttributes = attributes.properties.filter(
     (candidate) =>
       ts.isJsxAttribute(candidate) &&
       ts.isIdentifier(candidate.name) &&
       candidate.name.text === "dangerouslySetInnerHTML",
   );
+  if (dangerousAttributes.length > 1) {
+    throw duplicateDangerousStyleError(
+      "dangerouslySetInnerHTML attributes",
+      dangerousAttributes[1],
+      sourcePath,
+      sourceFile,
+    );
+  }
+  const attribute = dangerousAttributes[0];
   const expression = unwrapStaticTypeScriptExpression(
     attribute && attribute.initializer && ts.isJsxExpression(attribute.initializer)
       ? attribute.initializer.expression
       : undefined,
   );
   if (!expression || !ts.isObjectLiteralExpression(expression)) return undefined;
-  const html = expression.properties.find(
+  const htmlProperties = expression.properties.filter(
     (candidate) =>
       ts.isPropertyAssignment(candidate) && staticPropertyNameText(candidate.name) === "__html",
   );
+  if (htmlProperties.length > 1) {
+    throw duplicateDangerousStyleError(
+      "statically recognised __html properties",
+      htmlProperties[1],
+      sourcePath,
+      sourceFile,
+    );
+  }
+  const html = htmlProperties[0];
   return html && ts.isPropertyAssignment(html)
     ? embeddedStyleExpressionText(html.initializer)
     : undefined;
@@ -246,14 +292,23 @@ function ordinaryStyleText(children, sourcePath, sourceFile) {
   return children
     .map((child) => {
       if (ts.isJsxText(child)) return cookedJsxText(child.text, sourcePath, sourceFile, child);
-      if (ts.isJsxExpression(child)) return embeddedStyleExpressionText(child.expression);
+      if (ts.isJsxExpression(child)) return ordinaryStyleExpressionText(child.expression);
       return embeddedStyleExpressionPlaceholder;
     })
     .join("");
 }
 
 export function extractEmbeddedStyleSources(source, sourcePath) {
-  const scriptKind = sourcePath.endsWith(".jsx") ? ts.ScriptKind.JSX : ts.ScriptKind.TSX;
+  const extension = path.extname(sourcePath).toLowerCase();
+  const scriptKind =
+    extension === ".tsx"
+      ? ts.ScriptKind.TSX
+      : extension === ".jsx" || extension === ".js"
+        ? ts.ScriptKind.JSX
+        : undefined;
+  if (scriptKind === undefined) {
+    throw new Error(`[EMBEDDED_STYLE_SOURCE_KIND] ${sourcePath}: expected .js, .jsx or .tsx`);
+  }
   const sourceFile = ts.createSourceFile(
     sourcePath,
     source,
@@ -272,7 +327,7 @@ export function extractEmbeddedStyleSources(source, sourcePath) {
 
   const styles = new Map();
   const record = (node, attributes, children) => {
-    const dangerous = dangerousStyleText(attributes);
+    const dangerous = dangerousStyleText(attributes, sourcePath, sourceFile);
     const css =
       dangerous ?? (children ? ordinaryStyleText(children, sourcePath, sourceFile) : undefined);
     if (css === undefined) return;
@@ -295,7 +350,7 @@ export function extractEmbeddedStyleSources(source, sourcePath) {
 export function collectEmbeddedStyleSources(root, reportRoot = root) {
   let files;
   try {
-    files = collectFiles(root, reportRoot, [".tsx", ".jsx"]).sort((left, right) =>
+    files = collectFiles(root, reportRoot, [".tsx", ".jsx", ".js"]).sort((left, right) =>
       left.localeCompare(right),
     );
   } catch (error) {

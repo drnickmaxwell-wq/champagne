@@ -7,6 +7,7 @@ import ts from "typescript";
 import {
   collectEmbeddedStyleSources,
   collectCssFiles,
+  collectFirstPartyCssFiles,
   extractEmbeddedStyleSources,
   materialOwnershipErrors,
   parseCssDeclarations as guardParser,
@@ -92,6 +93,25 @@ async function collectedCssResult(rootPath) {
     collectCssFiles(rootPath, rootPath)
       .sort((left, right) => left.localeCompare(right))
       .map(async (file) => [path.relative(rootPath, file), await readFile(file, "utf8")]),
+  );
+  const styles = new Map(entries);
+  return {
+    styles,
+    ownershipIssues: materialOwnershipErrors({
+      cssSources: baseline([...styles]),
+      materialSource: source,
+      renderedMaterial: rendered,
+    }).join("\n"),
+    registrationIssues: protectedRegistrationErrors(styles, protectedTokens).join("\n"),
+  };
+}
+
+async function collectedFirstPartyCssResult(repoPath) {
+  const entries = await Promise.all(
+    collectFirstPartyCssFiles(repoPath).map(async (file) => [
+      path.relative(repoPath, file),
+      await readFile(file, "utf8"),
+    ]),
   );
   const styles = new Map(entries);
   return {
@@ -575,6 +595,230 @@ test("dynamic embedded expressions remain outside the claim and are not executed
   assert.equal(result.styles.size, 0);
   assert.equal(result.issues, "");
   assert.equal(globalThis.__champagneStyleExecuted, undefined);
+});
+
+test("first-party .js, .jsx and .tsx JSX style sources share the finite extractor", async (t) => {
+  const dir = await tempCollectorTree(t);
+  const fixtures = new Map([
+    ["Safe.js", "export const View = () => <style>{`.safe{color:var(--text-high)}`}</style>;\n"],
+    ["Owner.js", "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n"],
+    [
+      "Registration.js",
+      "export const View = () => <style>{`@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}`}</style>;\n",
+    ],
+    ["Safe.jsx", "export const View = () => <style>{`.safe{color:var(--text-high)}`}</style>;\n"],
+    ["Safe.tsx", "export const View = () => <style>{`.safe{color:var(--text-high)}`}</style>;\n"],
+    ["Ignored.test.js", "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n"],
+    ["Ignored.spec.jsx", "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n"],
+    ["tests/Ignored.js", "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n"],
+    ["__tests__/Ignored.tsx", "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n"],
+  ]);
+  for (const [relativePath, contents] of fixtures) {
+    await writeCollectorFixture(dir, relativePath, contents);
+  }
+
+  const result = collectedEmbeddedResult(dir);
+  const collected = [...result.styles.keys()].map((provenance) => provenance.split(":")[0]);
+  assert.deepEqual(collected, ["Owner.js", "Registration.js", "Safe.js", "Safe.jsx", "Safe.tsx"]);
+  assert.match(result.ownershipIssues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+  assert.match(result.registrationIssues, /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/);
+});
+
+test("ordinary JSX primitive literal children follow the finite React text contract", () => {
+  for (const literal of ["null", "false", "true"]) {
+    const result = embeddedOwnership(
+      `const View = () => <style>:root &#123; --surface{${literal}}-canvas:red &#125;</style>;`,
+    );
+    assert.equal([...result.styles.values()][0], ":root { --surface-canvas:red }");
+    assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+  }
+
+  const numeric = embeddedOwnership(
+    "const View = () => <style>:root &#123; --ink-{100}:red &#125;</style>;",
+  );
+  assert.equal([...numeric.styles.values()][0], ":root { --ink-100:red }");
+  assert.match(numeric.issues, /MATERIAL_OWNER_UNAPPROVED.*--ink-100/);
+
+  const benign = embeddedOwnership(
+    "const View = () => <style>.safe&#123;margin:{1_000}px&#125;</style>;",
+  );
+  assert.equal([...benign.styles.values()][0], ".safe{margin:1000px}");
+  assert.equal(benign.issues, "");
+
+  for (const unresolved of ["undefined", "void 0", "-1", "themeColor"]) {
+    const result = embeddedOwnership(
+      `const View = () => <style>.safe&#123;color:{${unresolved}}&#125;</style>;`,
+    );
+    assert.match(
+      [...result.styles.values()][0],
+      /var\(--champagne-embedded-style-expression\)/,
+    );
+  }
+});
+
+test("duplicate governed dangerous-style representations fail closed", () => {
+  const duplicateProperties = [
+    '{ __html: ".safe{}", __html: ":root{--surface-canvas:red}" }',
+    '{ __html: ".safe{}", ["__html"]: ":root{--surface-canvas:red}" }',
+    '{ ["__html"]: ".safe{}", __html: ":root{--surface-canvas:red}" }',
+    '{ __html: ":root{--surface-canvas:red}", __html: ".safe{}" }',
+    '{ __html: ".safe{}", __html: ".safe{}" }',
+    '{ "__html": ".safe{}", [`__html`]: ".safe{}" }',
+  ];
+  for (const objectSource of duplicateProperties) {
+    assert.throws(
+      () =>
+        extractEmbeddedStyleSources(
+          `const View = () => <style dangerouslySetInnerHTML={${objectSource}} />;`,
+          "apps/web/app/Duplicate.tsx",
+        ),
+      /\[EMBEDDED_STYLE_DUPLICATE_DANGEROUS_REPRESENTATION\].*statically recognised __html properties/,
+    );
+  }
+
+  const duplicateAttributes = [
+    [".safe{}", ":root{--surface-canvas:red}"],
+    [":root{--surface-canvas:red}", ".safe{}"],
+    [".safe{}", ".safe{}"],
+  ];
+  for (const [first, second] of duplicateAttributes) {
+    assert.throws(
+      () =>
+        extractEmbeddedStyleSources(
+          `const View = () => <style dangerouslySetInnerHTML={{ __html: "${first}" }} dangerouslySetInnerHTML={{ __html: "${second}" }} />;`,
+          "apps/web/app/Duplicate.tsx",
+        ),
+      /\[EMBEDDED_STYLE_DUPLICATE_DANGEROUS_REPRESENTATION\].*dangerouslySetInnerHTML attributes/,
+    );
+  }
+});
+
+test("first-party CSS topology includes app and package source while excluding tests and outputs", async (t) => {
+  const dir = await tempCollectorTree(t);
+  const fixtures = new Map([
+    ["apps/web/app/global.css", ".app{color:var(--text-high)}\n"],
+    ["packages/example/root.css", ".package{color:var(--text-high)}\n"],
+    ["packages/example/nested/owner.css", ":root{--surface-canvas:red}\n"],
+    [
+      "packages/example/nested/registration.css",
+      "@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}\n",
+    ],
+    ["packages/example/tests/ignored.css", ":root{--surface-canvas:red}\n"],
+    ["packages/example/__tests__/ignored.css", ":root{--surface-canvas:red}\n"],
+    ["packages/example/fixture.test.css", ":root{--surface-canvas:red}\n"],
+    ["packages/example/fixture.spec.css", ":root{--surface-canvas:red}\n"],
+    ["packages/example/dist/ignored.css", ":root{--surface-canvas:red}\n"],
+    ["packages/example/node_modules/dependency.css", ":root{--surface-canvas:red}\n"],
+  ]);
+  for (const [relativePath, contents] of fixtures) {
+    await writeCollectorFixture(dir, relativePath, contents);
+  }
+
+  const result = await collectedFirstPartyCssResult(dir);
+  assert.deepEqual([...result.styles.keys()], [
+    "apps/web/app/global.css",
+    "packages/example/nested/owner.css",
+    "packages/example/nested/registration.css",
+    "packages/example/root.css",
+  ]);
+  assert.match(result.ownershipIssues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+  assert.match(result.registrationIssues, /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/);
+
+  const realFiles = collectFirstPartyCssFiles(root).map((file) => path.relative(root, file));
+  assert.equal(realFiles.includes("packages/champagne-tokens/hero-surfaces.css"), true);
+
+  const symlinkRepo = await tempCollectorTree(t);
+  await writeCollectorFixture(symlinkRepo, "apps/web/app/global.css", ".safe{color:red}\n");
+  await writeCollectorFixture(symlinkRepo, "packages/example/owner.css", ":root{--surface-canvas:red}\n");
+  await symlink("owner.css", path.join(symlinkRepo, "packages/example/linked.css"), "file");
+  assert.throws(
+    () => collectFirstPartyCssFiles(symlinkRepo),
+    /\[CSS_SYMLINK_UNAPPROVED\] packages[\\/]example[\\/]linked\.css/,
+  );
+});
+
+test("CONSOLIDATED_STATIC_STYLE_FINITE_CONTRACT exercises the complete bounded matrix", async (t) => {
+  const embeddedMatrix = [
+    ["raw JSX text", "const View=()=> <style>/* benign raw JSX text */</style>;", "benign", "packages/example/Raw.js"],
+    ["app source", "const View=()=> <style>{`.safe{color:var(--text-high)}`}</style>;", "benign", "apps/web/app/Matrix.tsx"],
+    ["cooked JSX entities", "const View=()=> <style>:root &#123; --surface-&#99;anvas:red &#125;</style>;", "owner"],
+    ["string literal", 'const View=()=> <style>{":root{--surface-canvas:red}"}</style>;', "owner"],
+    ["no-substitution template", "const View=()=> <style>{`:root{--surface-canvas:red}`}</style>;", "owner"],
+    ["template expression", "const color='red';const View=()=> <style>{`:root{--surface-canvas:${color}}`}</style>;", "owner-placeholder"],
+    ["null child", "const View=()=> <style>:root &#123; --surface{null}-canvas:red &#125;</style>;", "owner"],
+    ["true child", "const View=()=> <style>:root &#123; --surface{true}-canvas:red &#125;</style>;", "owner"],
+    ["false child", "const View=()=> <style>:root &#123; --surface{false}-canvas:red &#125;</style>;", "owner"],
+    ["number child", "const View=()=> <style>:root &#123; --ink-{100}:red &#125;</style>;", "owner"],
+    ["adjacent benign fragments", "const View=()=> <style>.safe&#123;margin:{100}px&#125;</style>;", "benign"],
+    ["unresolved expression", "const View=()=> <style>.safe&#123;color:{themeColor}&#125;</style>;", "placeholder"],
+    ["direct __html", 'const View=()=> <style dangerouslySetInnerHTML={{__html:":root{--surface-canvas:red}"}}/>;', "owner"],
+    ["quoted __html", 'const View=()=> <style dangerouslySetInnerHTML={{"__html":":root{--surface-canvas:red}"}}/>;', "owner"],
+    ["computed literal __html", 'const View=()=> <style dangerouslySetInnerHTML={{["__html"]:":root{--surface-canvas:red}"}}/>;', "owner"],
+    ["transparent wrappers", 'const View=()=> <style dangerouslySetInnerHTML={(({__html:":root{--surface-canvas:red}"}) as const)!}/>', "owner"],
+    ["protected registration", "const View=()=> <style dangerouslySetInnerHTML={{__html:\"@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}\"}}/>", "registration"],
+    ["benign dangerous value", 'const View=()=> <style dangerouslySetInnerHTML={{__html:".safe{color:var(--text-high)}"}}/>;', "benign"],
+  ];
+  for (const [label, fixture, expected, explicitSourcePath] of embeddedMatrix) {
+    const extension = label === "quoted __html" ? ".jsx" : ".tsx";
+    const result = embeddedOwnership(
+      fixture,
+      explicitSourcePath ?? `packages/example/${label.replaceAll(" ", "-")}${extension}`,
+    );
+    if (expected.includes("owner")) assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED/);
+    if (expected === "registration") assert.match(result.issues, /MATERIAL_REGISTRATION_UNAPPROVED/);
+    if (expected === "benign") assert.equal(result.issues, "");
+    if (expected.includes("placeholder")) {
+      assert.match([...result.styles.values()][0], /var\(--champagne-embedded-style-expression\)/);
+    }
+  }
+  for (const fixture of [
+    'const View=()=> <style dangerouslySetInnerHTML={{__html:".safe{}",["__html"]:".safe{}"}}/>;',
+    'const View=()=> <style dangerouslySetInnerHTML={{__html:".safe{}"}} dangerouslySetInnerHTML={{__html:".safe{}"}}/>;',
+  ]) {
+    assert.throws(
+      () => extractEmbeddedStyleSources(fixture, "apps/web/app/DuplicateMatrix.tsx"),
+      /EMBEDDED_STYLE_DUPLICATE_DANGEROUS_REPRESENTATION/,
+    );
+  }
+
+  const cssMatrix = [
+    ["escaped owner", String.raw`:root{--surface-\63 anvas:red}`, /MATERIAL_OWNER_UNAPPROVED/],
+    ["comment-separated owner", ":root{--surface/**/-canvas:red}", /MATERIAL_OWNER_UNAPPROVED/],
+    ["malformed CSS", ":root{--surface-canvas:red", /CSS_DECLARATION_PARSE/],
+    ["nested media", "@media(min-width:1px){:root{--surface-canvas:red}}", /MATERIAL_OWNER_UNAPPROVED/],
+    ["nested supports", "@supports(display:grid){:root{--surface-canvas:red}}", /MATERIAL_OWNER_UNAPPROVED/],
+    ["nested layer", "@layer theme{:root{--surface-canvas:red}}", /MATERIAL_OWNER_UNAPPROVED/],
+    ["protected registration", "@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}", /MATERIAL_REGISTRATION_UNAPPROVED/],
+    ["duplicate owner", ":root{--surface-canvas:red;--surface-canvas:blue}", /MATERIAL_OWNER_UNAPPROVED/],
+  ];
+  for (const [label, css, expected] of cssMatrix) {
+    const issues = materialOwnershipErrors({
+      cssSources: baseline([[`packages/example/${label.replaceAll(" ", "-")}.css`, css]]),
+      materialSource: source,
+      renderedMaterial: rendered,
+    }).join("\n");
+    assert.match(issues, expected);
+  }
+  assert.equal(materialOwnershipErrors({ cssSources: baseline(), materialSource: source, renderedMaterial: rendered }).length, 0);
+  assert.deepEqual(timeOfDayCanvasOwnerErrors(timeCss), []);
+
+  const topology = await tempCollectorTree(t);
+  await writeCollectorFixture(topology, "apps/web/app/app.css", ".safe{color:red}\n");
+  await writeCollectorFixture(topology, "packages/example/nested/package.css", ".safe{color:red}\n");
+  await writeCollectorFixture(topology, "packages/example/tests/ignored.css", ":root{--surface-canvas:red}\n");
+  assert.deepEqual(
+    collectFirstPartyCssFiles(topology).map((file) => path.relative(topology, file)),
+    ["apps/web/app/app.css", "packages/example/nested/package.css"],
+  );
+  await symlink(
+    "package.css",
+    path.join(topology, "packages/example/nested/linked.css"),
+    "file",
+  );
+  assert.throws(
+    () => collectFirstPartyCssFiles(topology),
+    /\[CSS_SYMLINK_UNAPPROVED\].*linked\.css/,
+  );
 });
 
 test("CSS beneath generated directories is collected and protected owners are rejected", async (t) => {

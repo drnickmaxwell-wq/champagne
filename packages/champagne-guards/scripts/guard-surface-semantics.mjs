@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { checkGenerated } from "../../../packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs";
 import {
   collectEmbeddedStyleSources,
-  collectCssFiles,
+  collectFirstPartyCssFiles,
   materialOwnershipErrors,
   parseCssDeclarations,
   parseCssDefinitions,
@@ -19,6 +19,7 @@ import {
 export {
   collectEmbeddedStyleSources,
   collectCssFiles,
+  collectFirstPartyCssFiles,
   extractEmbeddedStyleSources,
   materialOwnershipErrors,
   parseCssDeclarations,
@@ -71,9 +72,9 @@ function definitions(source, token, label = "CSS input") {
  return declarations(source, label).filter((item) => item.property === token).map((item) => item.value);
 }
 function count(source, needle) { return source.split(needle).length - 1; }
-function collectCss(root) {
+function collectFirstPartyCss() {
   try {
-    return collectCssFiles(root, repoRoot);
+    return collectFirstPartyCssFiles(repoRoot);
   } catch (error) {
     errors.push(error instanceof Error ? error.message : String(error));
     return [];
@@ -115,10 +116,7 @@ async function main() {
  if (!tokens.startsWith(importPrefix)) {
   errors.push(`${paths.tokens} must import primitives then generated material first`);
  }
- const cssFiles = [
-  ...collectCss(absolute("packages/champagne-tokens/styles")),
-  ...collectCss(absolute("apps/web/app")),
- ];
+ const cssFiles = collectFirstPartyCss();
  const cssSources = new Map([
   ...cssFiles.map((file) => [path.relative(repoRoot, file), readFileSync(file, "utf8")]),
   ...collectEmbeddedStyles(absolute("apps/web/app")),
@@ -215,7 +213,7 @@ async function main() {
   return;
  }
  console.log(
-  "✅ Surface semantics guard passed: protected declarations and registrations in static CSS files and first-party JSX/TSX embedded styles, canonical material ownership, generated first-paint artefact integrity and render-unblocking CSS delivery are governed.",
+  "✅ Surface semantics guard passed: protected declarations and registrations in first-party static CSS and .js/.jsx/.tsx embedded styles, canonical material ownership, generated first-paint artefact integrity and render-unblocking CSS delivery are governed.",
  );
 }
 const invokedPath = process.argv[1] ? path.resolve(process.argv[1]) : "";
