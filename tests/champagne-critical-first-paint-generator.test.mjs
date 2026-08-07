@@ -75,6 +75,49 @@ async function tempRepo(sourceValue = source, primitiveValue = primitive) {
   return dir;
 }
 
+async function tempCollectorTree(t) {
+  const dir = await mkdtemp(path.join(tmpdir(), "champagne-source-collector-"));
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  return dir;
+}
+
+async function writeCollectorFixture(rootPath, relativePath, contents) {
+  const file = path.join(rootPath, relativePath);
+  await mkdir(path.dirname(file), { recursive: true });
+  await writeFile(file, contents);
+}
+
+async function collectedCssResult(rootPath) {
+  const entries = await Promise.all(
+    collectCssFiles(rootPath, rootPath)
+      .sort((left, right) => left.localeCompare(right))
+      .map(async (file) => [path.relative(rootPath, file), await readFile(file, "utf8")]),
+  );
+  const styles = new Map(entries);
+  return {
+    styles,
+    ownershipIssues: materialOwnershipErrors({
+      cssSources: baseline([...styles]),
+      materialSource: source,
+      renderedMaterial: rendered,
+    }).join("\n"),
+    registrationIssues: protectedRegistrationErrors(styles, protectedTokens).join("\n"),
+  };
+}
+
+function collectedEmbeddedResult(rootPath) {
+  const styles = collectEmbeddedStyleSources(rootPath, rootPath);
+  return {
+    styles,
+    ownershipIssues: materialOwnershipErrors({
+      cssSources: baseline([...styles]),
+      materialSource: source,
+      renderedMaterial: rendered,
+    }).join("\n"),
+    registrationIssues: protectedRegistrationErrors(styles, protectedTokens).join("\n"),
+  };
+}
+
 test("current material renders byte-stable loaded and critical outputs", () => {
   const first = renderMaterial(source, primitive);
   const second = renderMaterial(clone(source), primitive);
@@ -381,6 +424,117 @@ test("dynamic embedded expressions remain outside the claim and are not executed
   assert.equal(result.styles.size, 0);
   assert.equal(result.issues, "");
   assert.equal(globalThis.__champagneStyleExecuted, undefined);
+});
+
+test("CSS beneath generated directories is collected and protected owners are rejected", async (t) => {
+  const dir = await tempCollectorTree(t);
+  await writeCollectorFixture(dir, "generated/owner.css", ":root{--surface-canvas:red}\n");
+  const result = await collectedCssResult(dir);
+  assert.deepEqual([...result.styles.keys()], ["generated/owner.css"]);
+  assert.match(result.ownershipIssues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("CSS beneath vendor directories is collected and protected registrations are rejected", async (t) => {
+  const dir = await tempCollectorTree(t);
+  await writeCollectorFixture(
+    dir,
+    "vendor/registration.css",
+    ":root{--surface-canvas:red}@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}\n",
+  );
+  const result = await collectedCssResult(dir);
+  assert.deepEqual([...result.styles.keys()], ["vendor/registration.css"]);
+  assert.match(result.ownershipIssues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+  assert.match(result.registrationIssues, /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/);
+});
+
+test("embedded styles beneath generated directories are collected and protected owners are rejected", async (t) => {
+  const dir = await tempCollectorTree(t);
+  await writeCollectorFixture(
+    dir,
+    "generated/Owner.tsx",
+    "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n",
+  );
+  const result = collectedEmbeddedResult(dir);
+  assert.equal(result.styles.size, 1);
+  assert.match([...result.styles.keys()][0], /^generated\/Owner\.tsx:\d+:\d+ <style>$/);
+  assert.match(result.ownershipIssues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("embedded styles beneath vendor directories are collected and protected owners are rejected", async (t) => {
+  const dir = await tempCollectorTree(t);
+  await writeCollectorFixture(
+    dir,
+    "vendor/Owner.jsx",
+    "export const View = () => <style dangerouslySetInnerHTML={{__html: ':root{--surface-canvas:red}'}} />;\n",
+  );
+  const result = collectedEmbeddedResult(dir);
+  assert.equal(result.styles.size, 1);
+  assert.match([...result.styles.keys()][0], /^vendor\/Owner\.jsx:\d+:\d+ <style>$/);
+  assert.match(result.ownershipIssues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("benign CSS beneath generated and vendor directories remains permitted", async (t) => {
+  const dir = await tempCollectorTree(t);
+  await writeCollectorFixture(dir, "generated/safe.css", ".safe{color:var(--text-high)}\n");
+  await writeCollectorFixture(dir, "vendor/safe.css", ".safe{background:var(--surface-0)}\n");
+  const result = await collectedCssResult(dir);
+  assert.deepEqual([...result.styles.keys()], ["generated/safe.css", "vendor/safe.css"]);
+  assert.equal(result.ownershipIssues, "");
+  assert.equal(result.registrationIssues, "");
+});
+
+test("benign embedded styles beneath generated and vendor directories remain permitted", async (t) => {
+  const dir = await tempCollectorTree(t);
+  await writeCollectorFixture(
+    dir,
+    "generated/Safe.tsx",
+    "export const View = () => <style>{`.safe{color:var(--text-high)}`}</style>;\n",
+  );
+  await writeCollectorFixture(
+    dir,
+    "vendor/Safe.jsx",
+    "export const View = () => <style>{`.safe{background:var(--surface-0)}`}</style>;\n",
+  );
+  const result = collectedEmbeddedResult(dir);
+  assert.equal(result.styles.size, 2);
+  assert.equal(result.ownershipIssues, "");
+  assert.equal(result.registrationIssues, "");
+});
+
+test("genuine build and dependency trees remain excluded", async (t) => {
+  const dir = await tempCollectorTree(t);
+  for (const excluded of ["node_modules", ".next", "dist", "build", "coverage", ".git", ".turbo"]) {
+    await writeCollectorFixture(dir, `${excluded}/owner.css`, ":root{--surface-canvas:red}\n");
+    await writeCollectorFixture(
+      dir,
+      `${excluded}/Owner.tsx`,
+      "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n",
+    );
+  }
+  assert.deepEqual(collectCssFiles(dir, dir), []);
+  assert.deepEqual([...collectEmbeddedStyleSources(dir, dir)], []);
+});
+
+test("test and spec source fixtures remain excluded according to the existing contract", async (t) => {
+  const dir = await tempCollectorTree(t);
+  await writeCollectorFixture(dir, "__tests__/owner.css", ":root{--surface-canvas:red}\n");
+  await writeCollectorFixture(
+    dir,
+    "__tests__/Owner.tsx",
+    "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n",
+  );
+  await writeCollectorFixture(
+    dir,
+    "Component.test.tsx",
+    "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n",
+  );
+  await writeCollectorFixture(
+    dir,
+    "Component.spec.jsx",
+    "export const View = () => <style>{`:root{--surface-canvas:red}`}</style>;\n",
+  );
+  assert.deepEqual(collectCssFiles(dir, dir), []);
+  assert.deepEqual([...collectEmbeddedStyleSources(dir, dir)], []);
 });
 
 test("current first-party embedded style blocks pass without false positives", () => {

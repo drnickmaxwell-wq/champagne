@@ -78,8 +78,6 @@ function collectFiles(root, reportRoot, extensions) {
     ".git",
     ".turbo",
     "__tests__",
-    "generated",
-    "vendor",
   ]);
   const files = [];
   for (const entry of readdirSync(root, { withFileTypes: true })) {
