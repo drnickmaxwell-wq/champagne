@@ -143,8 +143,14 @@ function jsxTagNameIsStyle(tagName) {
   return ts.isIdentifier(tagName) && tagName.text === "style";
 }
 
-function propertyNameText(name) {
-  return ts.isIdentifier(name) || ts.isStringLiteral(name) ? name.text : "";
+function staticPropertyNameText(name) {
+  if (ts.isIdentifier(name) || ts.isStringLiteral(name)) return name.text;
+  if (!ts.isComputedPropertyName(name)) return undefined;
+  const expression = unwrapStaticTypeScriptExpression(name.expression);
+  return expression &&
+    (ts.isStringLiteral(expression) || ts.isNoSubstitutionTemplateLiteral(expression))
+    ? expression.text
+    : undefined;
 }
 
 function dangerousStyleText(attributes) {
@@ -162,7 +168,7 @@ function dangerousStyleText(attributes) {
   if (!expression || !ts.isObjectLiteralExpression(expression)) return undefined;
   const html = expression.properties.find(
     (candidate) =>
-      ts.isPropertyAssignment(candidate) && propertyNameText(candidate.name) === "__html",
+      ts.isPropertyAssignment(candidate) && staticPropertyNameText(candidate.name) === "__html",
   );
   return html && ts.isPropertyAssignment(html)
     ? embeddedStyleExpressionText(html.initializer)

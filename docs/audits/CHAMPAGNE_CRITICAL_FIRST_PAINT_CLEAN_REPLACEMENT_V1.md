@@ -2,9 +2,9 @@
 
 ## Status
 
-`FOUNDER_AUTHORISED_TERMINAL_COLLECTOR_POLICY_CLOSURE_DRAFT`
+`FOUNDER_AUTHORISED_FINAL_ENUMERATED_STATIC_KEY_CLOSURE_DRAFT`
 
-This receipt records the Founder-authorised final three-path collector-policy closure on top of the static TypeScript-wrapper closure, bounded embedded-style ownership closure and Route B settlement for Champagne PR #865. It does not select a final Persian Midnight material, mark the pull request ready, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
+This receipt records the Founder-authorised final enumerated static-key closure on top of the collector-policy closure, static TypeScript-wrapper closure, bounded embedded-style ownership closure and Route B settlement for Champagne PR #865. It does not select a final Persian Midnight material, mark the pull request ready, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
 
 ## Authority and exact boundary
 
@@ -13,8 +13,8 @@ This receipt records the Founder-authorised final three-path collector-policy cl
 - Base branch: `main`
 - Exact authorised and unchanged base: `a3484e976d240aaedf88a9b13afdd6ccc8d7d267`
 - Existing branch: `agent/champagne-critical-first-paint-clean-replacement-v1`
-- Exact authorised starting head: `1ee3119a1da2bbdbb50e475b41729a7e2aba8fd1`
-- Authorised starting state: 97 commits above base and exactly 17 changed paths
+- Exact authorised starting head: `b9d3d89892af1064d077f3ad19cc6ca56cb3b15d`
+- Authorised starting state: 98 commits above base and exactly 17 changed paths
 - Repair authority: exactly the three paths listed below
 - No `pnpm-lock.yaml` or `apps/web/package.json` change
 - No production application, CSS, token, generated artefact, Hero V2, workflow, dependency or deployment mutation
@@ -49,11 +49,11 @@ General JavaScript and TypeScript runtime-mutation hardening is deferred to a se
 
 A fresh exact-head Codex review of `a2378b8a2e796ad32cccce377d5b8d9deb3c00da` identified that the protected static-CSS inventory covered `.css` files but omitted browser-effective CSS emitted by first-party JSX/TSX `<style>` elements. The finding was independently reproduced architecturally. No live rogue protected-token declaration was found in the current first-party embedded-style inventory; the defect was guard coverage and claim completeness.
 
-The guard now uses the repository's existing TypeScript tooling only to traverse JSX/TSX syntax trees beneath `apps/web/app/**` and `packages/**`. It recovers static stylesheet payloads from ordinary `<style>` children and `dangerouslySetInnerHTML={{ __html: ... }}` forms, including string and template literals. Dynamic template values are replaced with an inert syntactically valid CSS value so a static declaration name remains inspectable. Source is neither evaluated nor executed, and diagnostics retain the TSX/JSX path and style-block location.
+The guard now uses the repository's existing TypeScript tooling only to traverse JSX/TSX syntax trees beneath `apps/web/app/**` and `packages/**`. It recovers stylesheet payloads from directly represented ordinary `<style>` children and the enumerated literal `dangerouslySetInnerHTML.__html` property forms described below, including directly represented string and template CSS values. Dynamic template values are replaced with an inert syntactically valid CSS value so a directly represented declaration name remains inspectable. Source is neither evaluated nor executed, and diagnostics retain the TSX/JSX path and style-block location.
 
 Recovered stylesheet text is fed into the same shared CSS declaration parser, material-owner contract and protected `@property` registration contract used for `.css` files. Test/spec files and genuine ignored build, dependency and coverage trees remain excluded, while source-tree symlinks and malformed source fail closed.
 
-This extractor governs CSS actually emitted from statically identifiable JSX/TSX `<style>` elements. It is not a restoration of the removed JavaScript lexical scanner, does not discover arbitrary runtime mutation calls, and does not claim that dynamically constructed declaration names or general JavaScript/TypeScript semantics are closed.
+This extractor governs CSS recovered from those finite JSX/TSX `<style>` forms. It is not a restoration of the removed JavaScript lexical scanner, does not discover arbitrary runtime mutation calls, and does not claim that dynamically constructed declaration names or general JavaScript/TypeScript semantics are closed.
 
 ## Static TypeScript-wrapper closure
 
@@ -71,11 +71,19 @@ Only those two unsafe name-based exclusions have been removed. Static CSS and JS
 
 This correction does not add an import graph, dependency reachability, another parser, identifier or alias resolution, data-flow analysis, interprocedural analysis, JavaScript runtime-mutation scanning or traversal outside the governed first-party roots.
 
+## Final enumerated static-key closure
+
+The terminal exact-head Codex review of `b9d3d89892af1064d077f3ad19cc6ca56cb3b15d` returned P2 `Recognize computed __html keys in style objects`. The finding was independently reproduced: a browser-effective `<style dangerouslySetInnerHTML={{ ["__html"]: ":root{--surface-canvas:red}" }} />` payload was omitted because the former property-name helper did not classify a TypeScript `ComputedPropertyName`. No corresponding protected declaration was identified in current executable first-party Champagne source at that exact head.
+
+One deterministic static property-name normaliser now recognises only the following object-literal property forms as `__html`: the identifier `__html`; direct single- or double-quoted string literals; computed single- or double-quoted string literals; and a computed no-substitution template literal. For computed names, the expression may be enclosed only by the already-approved transparent parentheses, `as`, `satisfies`, type-assertion and non-null wrappers. Existing ordinary `__html` behaviour is unchanged.
+
+The normaliser does not execute or interpret unsupported expressions. It does not constant-fold concatenation or other binary expressions, resolve identifiers or aliases, inspect property access, call functions, follow imports, evaluate template substitutions, or perform control-flow or data-flow analysis. Unsupported computed property expressions resolve to no static property name. General JavaScript or TypeScript runtime-mutation detection remains outside PR #865 and deferred to a separately governed AST/source-hardening change.
+
 ## Narrowed acceptance claim
 
-> Protected declarations and `@property` registrations in static CSS files and statically recoverable first-party JSX/TSX embedded styles within the governed first-party roots, including source beneath directories named `generated` or `vendor`, canonical material ownership, generated first-paint artefact integrity and render-unblocking first-paint delivery are governed. General JavaScript and TypeScript runtime-mutation detection is not claimed by PR #865 and is deferred to a separately governed AST-based hardening change.
+> First-party static CSS files and JSX/TSX `<style>` payloads using directly represented string/template CSS and enumerated literal `dangerouslySetInnerHTML.__html` object-property forms are governed by the shared CSS ownership and protected-registration contract. Canonical material ownership, generated first-paint artefact integrity and render-unblocking first-paint delivery remain governed. General JavaScript and TypeScript runtime-mutation detection is not claimed by PR #865 and is deferred to a separately governed AST/source-hardening change.
 
-PR #865 governs only the explicitly implemented and tested first-paint architecture, generated artefacts, static CSS declarations, statically recoverable embedded styles, registrations, ownership and delivery channels. It does not claim broad statically discoverable application-mutation closure, import reachability, every future source topology, bundler or generated-code construction, dynamic code, runtime mutation or general JavaScript parser equivalence.
+PR #865 governs only the explicitly implemented and tested first-paint architecture, generated artefacts, static CSS declarations, directly represented string/template embedded styles, enumerated literal `__html` property forms, registrations, ownership and delivery channels. It does not claim arbitrary computed property-name evaluation, constant folding, identifier or alias resolution, import or data-flow analysis, broad statically discoverable application-mutation closure, every future source topology, dynamic code, runtime mutation or general JavaScript parser equivalence.
 
 ## Retained first-paint architecture
 
@@ -94,7 +102,8 @@ Hero V2, mobile and desktop behaviour, normal and reduced motion, JavaScript-dis
 
 ## Settlement test inventory
 
-- Generator and contract Node suite: exactly `47` tests
+- Generator and contract Node suite: exactly `52` tests
+- Added final enumerated static-key tests: exactly `5` tests, covering all supported property spellings, transparent wrappers, protected owners and registrations, benign computed-literal CSS, unsupported concatenation and non-execution
 - Added collector-policy temporary-tree tests: exactly `8` tests
 - Added transparent TypeScript-wrapper tests: exactly `8` tests
 - Added bounded embedded-style ownership tests: exactly `8` tests
@@ -108,8 +117,8 @@ Hero V2, mobile and desktop behaviour, normal and reduced motion, JavaScript-dis
 Evidence is recorded here only after execution against the settlement worktree.
 
 - `node --check packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`: successful
-- `node --check packages/champagne-guards/scripts/guard-surface-semantics.mjs`: successful
-- `pnpm run test:critical-paint-generator`: `47/47 passed`, `0 failed`, `0 skipped`
+- `node --check tests/champagne-critical-first-paint-generator.test.mjs`: successful
+- `pnpm run test:critical-paint-generator`: `52/52 passed`, `0 failed`, `0 skipped`
 - `pnpm run guard:surface-semantics`: successful with the narrowed static-file and embedded-style ownership/registration/artefact/delivery claim
 - `pnpm run check:critical-paint-generated`: successful
 - `pnpm run guard:all`: successful
@@ -129,9 +138,7 @@ Evidence is recorded here only after execution against the settlement worktree.
 - `packages/champagne-tokens/src/critical-paint.generated.ts` SHA-256: `fc006d23752b48e6aabdeccb82065e18031b722c6ac6a8f5d78c9619b51c5128`
 - `packages/champagne-tokens/styles/champagne/canvas-material.generated.css` SHA-256: `73bcf78f94c89ce00fbd53d89c0e5e9c4902623ef365eb25f03522663c7bf665`
 
-The first local browser attempt enumerated all 25 retained tests but could not launch 23 browser-dependent cases because Playwright Chromium headless-shell build 1200 was absent; the two HTTP-only cases passed. After downloading the exact official runtime, the unchanged matrix passed `25/25`. Playwright's Node 26 archive extractor stalled locally after the download completed, so that official archive was extracted into Playwright's browser cache with the system unzip tool; CI pins Node 20 and performs the standard Playwright installation step.
-
-The Homebrew pnpm 11 wrapper initially attempted an interactive modules replacement for this pnpm 9.15.4 repository and aborted without running the requested scripts. Every required pnpm command was therefore executed with the already cached exact pnpm `9.15.4` binary. The first sandboxed `guard:canon` attempt could not bind its localhost SSR probe (`EPERM`); the same guard then completed successfully outside the filesystem/network sandbox. These environment-only attempts are not counted as passing evidence.
+Every required pnpm command was executed with the already cached exact pnpm `9.15.4` binary. Localhost-dependent canon and browser checks ran outside the filesystem/network sandbox so their required loopback servers could bind.
 
 Non-failing pre-existing notices observed during verification were: legacy workspace-dependency allowlist warnings; SEO inventory `78` versus live manifest `79`; manifest-sync skipped because its optional manifests were absent; chatbot-copy fallback because its optional QA report and conversation files were absent; and internal-lab server warnings for currently unregistered `implant_crown_3d_viewer` and `treatment_mid_cta` components. None was treated as successful proof or silently repaired.
 
@@ -146,7 +153,7 @@ Exact-head CI/security evidence and both Vercel contexts remain pending until th
 
 ## Residual risk
 
-PR #865 does not govern general JavaScript or TypeScript runtime mutation of protected custom properties, dependency or build-output trees outside the governed first-party roots, or arbitrary import reachability. A runtime mutation expressed through executable template interpolation, a dynamically constructed CSS declaration name, ambiguous division/regex syntax, a style object, dynamic member access, aliasing, interprocedural flow or another unparsed semantic form can remain outside this guard.
+PR #865 does not govern general JavaScript or TypeScript runtime mutation of protected custom properties, dependency or build-output trees outside the governed first-party roots, or arbitrary import reachability. Arbitrary computed property names such as `["__" + "html"]`, computed identifiers, imported constants, function-returned names, template expressions with substitutions, runtime style mutation and data-flow-derived CSS remain explicitly outside the enumerated embedded-style contract.
 
 The risk is explicit and deferred. It must not be described as closed by scanner fixtures, browser demonstrations, absence of a current production match, CodeQL, Semgrep or a positive Codex review.
 
@@ -163,7 +170,7 @@ After the single repair commit is pushed and exact-head evidence is recorded:
 3. freeze the branch immediately after that request; and
 4. do not perform another automatic repair cycle.
 
-PR #865 must remain open, draft and unmerged. After the terminal exact-head review, automatic source repair stops. A new P1, a P2 reproducible against current executable first-party Champagne source, or a P2 that falsifies an explicitly retained acceptance claim returns to the Founder. A hypothetical future channel outside the declared boundary is preserved for the deferred hardening backlog and does not automatically extend PR #865. A positive review is not merge authority.
+PR #865 must remain open, draft and unmerged. After the fresh exact-head review, no further PR #865 source repair is authorised. A new finding may block settlement only if it is P1, demonstrates an actual defect in current executable first-party Champagne source at that exact head, or demonstrates failure of one of the specifically enumerated retained #865 behaviours. A merely syntactically possible JavaScript or TypeScript representation outside the enumerated contract is recorded in the deferred AST/source-hardening backlog and does not trigger another #865 mutation cycle. A positive review is not merge authority.
 
 ## Rollback
 

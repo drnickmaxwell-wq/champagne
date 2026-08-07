@@ -327,6 +327,62 @@ test("dangerouslySetInnerHTML embedded styles reject protected material owners",
   assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--bg-ink/);
 });
 
+test("enumerated literal __html property names reject protected material owners", () => {
+  const cases = [
+    'const View = () => <style dangerouslySetInnerHTML={{ __html: ":root{--surface-canvas:red}" }} />;',
+    'const View = () => <style dangerouslySetInnerHTML={{ "__html": ":root{--surface-canvas:red}" }} />;',
+    "const View = () => <style dangerouslySetInnerHTML={{ '__html': ':root{--surface-canvas:red}' }} />;",
+    'const View = () => <style dangerouslySetInnerHTML={{ ["__html"]: ":root{--surface-canvas:red}" }} />;',
+    "const View = () => <style dangerouslySetInnerHTML={{ ['__html']: ':root{--surface-canvas:red}' }} />;",
+    'const View = () => <style dangerouslySetInnerHTML={{ [`__html`]: ":root{--surface-canvas:red}" }} />;',
+  ];
+  for (const fixture of cases) {
+    const result = embeddedOwnership(fixture);
+    assert.equal(result.styles.size, 1);
+    assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+  }
+});
+
+test("transparent wrappers around computed literal __html names remain governed", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={{ [(("__html" as const) satisfies string)!]: ":root{--surface-canvas:red}" }} />;',
+  );
+  assert.equal(result.styles.size, 1);
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("computed literal __html names reject protected property registrations", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style dangerouslySetInnerHTML={{ [`__html`]: \"@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}\" }} />;",
+  );
+  assert.equal(result.styles.size, 1);
+  assert.match(result.issues, /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/);
+});
+
+test("benign computed literal embedded CSS remains permitted", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={{ ["__html"]: ".safe{color:var(--text-high)}" }} />;',
+  );
+  assert.equal(result.styles.size, 1);
+  assert.equal(result.issues, "");
+});
+
+test("unsupported computed property expressions are unresolved and never executed", () => {
+  const concatenated = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={{ ["__" + "html"]: ":root{--surface-canvas:red}" }} />;',
+  );
+  assert.equal(concatenated.styles.size, 0);
+  assert.equal(concatenated.issues, "");
+
+  delete globalThis.__champagneStyleExecuted;
+  const executable = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={{ [(globalThis.__champagneStyleExecuted = "__html")]: ":root{--surface-canvas:red}" }} />;',
+  );
+  assert.equal(executable.styles.size, 0);
+  assert.equal(executable.issues, "");
+  assert.equal(globalThis.__champagneStyleExecuted, undefined);
+});
+
 test("embedded styles reject escaped protected material owners", () => {
   const result = embeddedOwnership(
     'const View = () => <style dangerouslySetInnerHTML={{__html: ":root{--surface-\\\\63 anvas:red}"}} />;',
