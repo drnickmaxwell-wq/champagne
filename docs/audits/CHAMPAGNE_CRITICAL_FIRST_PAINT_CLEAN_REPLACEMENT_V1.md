@@ -2,9 +2,9 @@
 
 ## Status
 
-`FOUNDER_AUTHORISED_EMBEDDED_STYLE_CLOSURE_DRAFT`
+`FOUNDER_AUTHORISED_STATIC_TYPESCRIPT_WRAPPER_CLOSURE_DRAFT`
 
-This receipt records the Founder-authorised final bounded embedded-style ownership closure on top of the Route B settlement for Champagne PR #865. It does not select a final Persian Midnight material, mark the pull request ready, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
+This receipt records the Founder-authorised final three-path static TypeScript-wrapper closure on top of the bounded embedded-style ownership closure and Route B settlement for Champagne PR #865. It does not select a final Persian Midnight material, mark the pull request ready, authorise merge or deployment, mutate `drnickmaxwell-wq/agent`, or register evidence in Router or WEOS.
 
 ## Authority and exact boundary
 
@@ -13,22 +13,21 @@ This receipt records the Founder-authorised final bounded embedded-style ownersh
 - Base branch: `main`
 - Exact authorised and unchanged base: `a3484e976d240aaedf88a9b13afdd6ccc8d7d267`
 - Existing branch: `agent/champagne-critical-first-paint-clean-replacement-v1`
-- Exact authorised starting head: `a2378b8a2e796ad32cccce377d5b8d9deb3c00da`
-- Authorised starting state: 95 commits above base and exactly 17 changed paths
-- Repair authority: exactly the four paths listed below
+- Exact authorised starting head: `b5f6f8a68b60f24ea320761049c46db4bbd4c6c7`
+- Authorised starting state: 96 commits above base and exactly 17 changed paths
+- Repair authority: exactly the three paths listed below
 - No `pnpm-lock.yaml` or `apps/web/package.json` change
 - No production application, CSS, token, generated artefact, Hero V2, workflow, dependency or deployment mutation
 
 The repair commit's exact SHA cannot be embedded literally in the tracked contents that determine that same SHA. The immutable resulting head is therefore recorded in the final lane packet immediately after the single repair commit is created.
 
-## Exact repair paths — 4
+## Exact repair paths — 3
 
 1. `packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`
-2. `packages/champagne-guards/scripts/guard-surface-semantics.mjs`
-3. `tests/champagne-critical-first-paint-generator.test.mjs`
-4. `docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md`
+2. `tests/champagne-critical-first-paint-generator.test.mjs`
+3. `docs/audits/CHAMPAGNE_CRITICAL_FIRST_PAINT_CLEAN_REPLACEMENT_V1.md`
 
-The overall pull-request inventory remains the existing 17 paths. No fifth repair path is authorised.
+The overall pull-request inventory remains the existing 17 paths. No fourth repair path is authorised.
 
 ## Route B architectural decision
 
@@ -56,6 +55,14 @@ Recovered stylesheet text is fed into the same shared CSS declaration parser, ma
 
 This extractor governs CSS actually emitted from statically identifiable JSX/TSX `<style>` elements. It is not a restoration of the removed JavaScript lexical scanner, does not discover arbitrary runtime mutation calls, and does not claim that dynamically constructed declaration names or general JavaScript/TypeScript semantics are closed.
 
+## Static TypeScript-wrapper closure
+
+A fresh exact-head Codex review of `b5f6f8a68b60f24ea320761049c46db4bbd4c6c7` identified that legal compile-time TypeScript wrappers could hide otherwise static embedded-style payloads from the direct AST classification. The finding was accepted as valid. No live rogue protected declaration was found; the defect was bounded static extraction completeness.
+
+One deterministic expression normalisation authority now recursively unwraps `ParenthesizedExpression`, `AsExpression`, `SatisfiesExpression`, `TypeAssertionExpression` and `NonNullExpression` nodes. The same normalisation is applied before classifying the whole `dangerouslySetInnerHTML` expression and before recovering static string or template text from `__html` initializers and ordinary style children. Angle-bracket assertions are covered at the TypeScript-expression layer where that syntax is valid; JSX/TSX itself does not permit that assertion spelling.
+
+The normaliser does not execute source or resolve identifiers, calls, imports, aliases, comma expressions, control flow or arbitrary data flow. After transparent wrappers are removed, the existing bounded static extraction and shared CSS ownership and registration contracts remain the only classification authorities.
+
 ## Narrowed acceptance claim
 
 > Protected declarations and `@property` registrations in static CSS files and statically recoverable first-party JSX/TSX embedded styles, canonical material ownership, generated first-paint artefact integrity and render-unblocking first-paint delivery are governed. General JavaScript and TypeScript runtime-mutation detection is not claimed by PR #865 and is deferred to a separately governed AST-based hardening change.
@@ -79,7 +86,8 @@ Hero V2, mobile and desktop behaviour, normal and reduced motion, JavaScript-dis
 
 ## Settlement test inventory
 
-- Generator and contract Node suite: exactly `31` tests
+- Generator and contract Node suite: exactly `39` tests
+- Added transparent TypeScript-wrapper tests: exactly `8` tests
 - Added bounded embedded-style ownership tests: exactly `8` tests
 - Removed scanner-only generator tests: exactly `13` tests
 - Retained surface-semantics Playwright declarations: exactly `5` tests, including the dawn/dusk/night parameterisation
@@ -92,7 +100,7 @@ Evidence is recorded here only after execution against the settlement worktree.
 
 - `node --check packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs`: successful
 - `node --check packages/champagne-guards/scripts/guard-surface-semantics.mjs`: successful
-- `pnpm run test:critical-paint-generator`: `31/31 passed`, `0 failed`, `0 skipped`
+- `pnpm run test:critical-paint-generator`: `39/39 passed`, `0 failed`, `0 skipped`
 - `pnpm run guard:surface-semantics`: successful with the narrowed static-file and embedded-style ownership/registration/artefact/delivery claim
 - `pnpm run check:critical-paint-generated`: successful
 - `pnpm run guard:all`: successful

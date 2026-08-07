@@ -3,6 +3,7 @@ import { mkdtemp, mkdir, readFile, rm, symlink, writeFile } from "node:fs/promis
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
+import ts from "typescript";
 import {
   collectEmbeddedStyleSources,
   collectCssFiles,
@@ -16,6 +17,7 @@ import {
   timeOfDayCanvasOwnerErrors,
   workflowIntegrityErrors,
 } from "../packages/champagne-guards/scripts/guard-surface-semantics.mjs";
+import { unwrapStaticTypeScriptExpression } from "../packages/champagne-guards/scripts/surface-semantics-contract.v1.mjs";
 import { parseCssDeclarations as sharedParser } from "../packages/champagne-tokens/scripts/css-declarations.v1.mjs";
 import {
   GENERATED_CSS_RELATIVE_PATH as GC,
@@ -309,6 +311,76 @@ test("static embedded property names remain governed across dynamic template val
   );
   assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
   assert.match([...result.styles.values()][0], /var\(--champagne-embedded-style-expression\)/);
+});
+
+test("parenthesized dangerous style objects remain governed", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={({ __html: ":root{--surface-canvas:red}" })} />;',
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("dangerous style objects wrapped with as expressions remain governed", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={({ __html: ":root{--surface-canvas:red}" }) as any} />;',
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("dangerous style objects wrapped with satisfies preserve protected registrations", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style dangerouslySetInnerHTML={{ __html: \"@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}\" } satisfies { __html: string }} />;",
+  );
+  assert.match(result.issues, /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/);
+});
+
+test("angle-bracket type assertions unwrap in TypeScript expression syntax", () => {
+  const sourceFile = ts.createSourceFile(
+    "assertion.ts",
+    'const css = <string>":root{--surface-canvas:red}";',
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.TS,
+  );
+  assert.equal(sourceFile.parseDiagnostics.length, 0);
+  const statement = sourceFile.statements[0];
+  assert.equal(ts.isVariableStatement(statement), true);
+  const expression = statement.declarationList.declarations[0]?.initializer;
+  const normalized = unwrapStaticTypeScriptExpression(expression);
+  assert.equal(ts.isStringLiteral(normalized), true);
+  assert.match(ownership(normalized.text), /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("nested transparent wrappers on ordinary style children remain governed", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>{((`:root{--surface-canvas:red}` as const) satisfies string)!}</style>;",
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("wrapped __html string values remain governed", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={{ __html: (":root{--surface-canvas:red}" as const) }} />;',
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("benign wrapped embedded CSS remains permitted", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={(({ __html: ".safe{color:var(--text-high)}" } satisfies { __html: string }) as { __html: string })!} />;',
+  );
+  assert.equal(result.styles.size, 1);
+  assert.equal(result.issues, "");
+});
+
+test("dynamic embedded expressions remain outside the claim and are not executed", () => {
+  delete globalThis.__champagneStyleExecuted;
+  const result = embeddedOwnership(
+    "const View = () => <style dangerouslySetInnerHTML={(globalThis.__champagneStyleExecuted = true, { __html: ':root{--surface-canvas:red}' })} />;",
+  );
+  assert.equal(result.styles.size, 0);
+  assert.equal(result.issues, "");
+  assert.equal(globalThis.__champagneStyleExecuted, undefined);
 });
 
 test("current first-party embedded style blocks pass without false positives", () => {

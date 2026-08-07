@@ -111,18 +111,31 @@ export function collectCssFiles(root, reportRoot = root) {
 
 const embeddedStyleExpressionPlaceholder = "var(--champagne-embedded-style-expression)";
 
+export function unwrapStaticTypeScriptExpression(expression) {
+  let current = expression;
+  while (
+    current &&
+    (ts.isParenthesizedExpression(current) ||
+      ts.isAsExpression(current) ||
+      ts.isSatisfiesExpression(current) ||
+      ts.isTypeAssertionExpression(current) ||
+      ts.isNonNullExpression(current))
+  ) {
+    current = current.expression;
+  }
+  return current;
+}
+
 function embeddedStyleExpressionText(expression) {
-  if (!expression) return "";
-  if (ts.isParenthesizedExpression(expression)) {
-    return embeddedStyleExpressionText(expression.expression);
+  const normalized = unwrapStaticTypeScriptExpression(expression);
+  if (!normalized) return "";
+  if (ts.isStringLiteral(normalized) || ts.isNoSubstitutionTemplateLiteral(normalized)) {
+    return normalized.text;
   }
-  if (ts.isStringLiteral(expression) || ts.isNoSubstitutionTemplateLiteral(expression)) {
-    return expression.text;
-  }
-  if (ts.isTemplateExpression(expression)) {
-    return expression.templateSpans.reduce(
+  if (ts.isTemplateExpression(normalized)) {
+    return normalized.templateSpans.reduce(
       (source, span) => source + embeddedStyleExpressionPlaceholder + span.literal.text,
-      expression.head.text,
+      normalized.head.text,
     );
   }
   return embeddedStyleExpressionPlaceholder;
@@ -143,10 +156,11 @@ function dangerousStyleText(attributes) {
       ts.isIdentifier(candidate.name) &&
       candidate.name.text === "dangerouslySetInnerHTML",
   );
-  const expression =
+  const expression = unwrapStaticTypeScriptExpression(
     attribute && attribute.initializer && ts.isJsxExpression(attribute.initializer)
       ? attribute.initializer.expression
-      : undefined;
+      : undefined,
+  );
   if (!expression || !ts.isObjectLiteralExpression(expression)) return undefined;
   const html = expression.properties.find(
     (candidate) =>
