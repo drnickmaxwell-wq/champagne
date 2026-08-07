@@ -4,7 +4,9 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 import {
+  collectEmbeddedStyleSources,
   collectCssFiles,
+  extractEmbeddedStyleSources,
   materialOwnershipErrors,
   parseCssDeclarations as guardParser,
   parseCssDefinitions,
@@ -51,6 +53,17 @@ const ownership = (css) => materialOwnershipErrors({
   materialSource: source,
   renderedMaterial: rendered,
 }).join("\n");
+const embeddedOwnership = (tsx, sourcePath = "apps/web/app/Adversarial.tsx") => {
+  const styles = extractEmbeddedStyleSources(tsx, sourcePath);
+  return {
+    styles,
+    issues: materialOwnershipErrors({
+      cssSources: baseline([...styles]),
+      materialSource: source,
+      renderedMaterial: rendered,
+    }).join("\n"),
+  };
+};
 
 async function tempRepo(sourceValue = source, primitiveValue = primitive) {
   const dir = await mkdtemp(path.join(tmpdir(), "champagne-critical-paint-"));
@@ -238,7 +251,83 @@ test("unprotected @property registrations remain permitted", () => {
   assert.deepEqual(protectedRegistrationErrors(new Map([["x.css", css]]), protectedTokens), []);
 });
 
-test("protected CSS trees reject file and directory symlinks", async (t) => {
+test("benign ordinary embedded styles preserve provenance and pass ownership", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>{`.safe{color:var(--text-high)}`}</style>;",
+    "apps/web/app/Benign.tsx",
+  );
+  assert.equal(result.styles.size, 1);
+  const [[provenance, css]] = [...result.styles];
+  assert.match(provenance, /^apps\/web\/app\/Benign\.tsx:\d+:\d+ <style>$/);
+  assert.equal(css, ".safe{color:var(--text-high)}");
+  assert.equal(result.issues, "");
+  assert.throws(
+    () => extractEmbeddedStyleSources("const View = () => <style>{`broken`}</style", "Broken.tsx"),
+    /\[EMBEDDED_STYLE_SOURCE_PARSE\] Broken\.tsx:/,
+  );
+});
+
+test("ordinary embedded styles reject protected material owners", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>{`:root{--surface-canvas:red}`}</style>;",
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+  assert.match(result.issues, /Adversarial\.tsx:\d+:\d+ <style>/);
+});
+
+test("dangerouslySetInnerHTML embedded styles reject protected material owners", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={{__html: ":root{--bg-ink:red}"}} />;',
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--bg-ink/);
+});
+
+test("embedded styles reject escaped protected material owners", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={{__html: ":root{--surface-\\\\63 anvas:red}"}} />;',
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("embedded styles reject comment-separated protected material owners", () => {
+  const result = embeddedOwnership(
+    'const View = () => <style dangerouslySetInnerHTML={{__html: ":root{--surface/**/-canvas:red}"}} />;',
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+});
+
+test("embedded styles reject protected property registrations", () => {
+  const result = embeddedOwnership(
+    "const View = () => <style>{`@property --surface-canvas{syntax:'<color>';inherits:false;initial-value:red}`}</style>;",
+  );
+  assert.match(result.issues, /MATERIAL_REGISTRATION_UNAPPROVED.*--surface-canvas/);
+});
+
+test("static embedded property names remain governed across dynamic template values", () => {
+  const result = embeddedOwnership(
+    "const color = 'red'; const View = () => <style>{`:root{--surface-canvas:${color}}`}</style>;",
+  );
+  assert.match(result.issues, /MATERIAL_OWNER_UNAPPROVED.*--surface-canvas/);
+  assert.match([...result.styles.values()][0], /var\(--champagne-embedded-style-expression\)/);
+});
+
+test("current first-party embedded style blocks pass without false positives", () => {
+  const styles = new Map([
+    ...collectEmbeddedStyleSources(path.join(root, "apps/web/app"), root),
+    ...collectEmbeddedStyleSources(path.join(root, "packages"), root),
+  ]);
+  assert.equal(styles.size >= 7, true);
+  assert.equal(
+    materialOwnershipErrors({
+      cssSources: baseline([...styles]),
+      materialSource: source,
+      renderedMaterial: rendered,
+    }).join("\n"),
+    "",
+  );
+});
+
+test("protected CSS and embedded-style trees reject file and directory symlinks", async (t) => {
   const dir = await mkdtemp(path.join(tmpdir(), "champagne-css-symlink-"));
   t.after(() => rm(dir, { recursive: true, force: true }));
   const fileTree = path.join(dir, "file-tree");
@@ -256,6 +345,14 @@ test("protected CSS trees reject file and directory symlinks", async (t) => {
   await writeFile(path.join(real, "owner.css"), ":root{--ink:#000000}\n");
   await symlink("real", path.join(directoryTree, "linked"), "dir");
   assert.throws(() => collectCssFiles(directoryTree, directoryTree), /\[CSS_SYMLINK_UNAPPROVED\] linked/);
+  const embeddedTree = path.join(dir, "embedded-tree");
+  await mkdir(embeddedTree, { recursive: true });
+  await writeFile(path.join(embeddedTree, "owner.tsx"), "export const View = () => <style>{`.safe{color:red}`}</style>;\n");
+  await symlink("owner.tsx", path.join(embeddedTree, "linked.tsx"), "file");
+  assert.throws(
+    () => collectEmbeddedStyleSources(embeddedTree, embeddedTree),
+    /\[EMBEDDED_STYLE_SYMLINK_UNAPPROVED\] linked\.tsx/,
+  );
 });
 
 test("missing references and cycles fail deterministically", () => {

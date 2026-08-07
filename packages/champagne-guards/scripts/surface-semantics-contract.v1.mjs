@@ -1,5 +1,6 @@
-import { readdirSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
+import ts from "typescript";
 
 import {
   cssOwnerContractErrors,
@@ -75,7 +76,10 @@ function collectFiles(root, reportRoot, extensions) {
     "build",
     "coverage",
     ".git",
+    ".turbo",
     "__tests__",
+    "generated",
+    "vendor",
   ]);
   const files = [];
   for (const entry of readdirSync(root, { withFileTypes: true })) {
@@ -103,6 +107,128 @@ export function collectCssFiles(root, reportRoot = root) {
     const message = error instanceof Error ? error.message : String(error);
     throw new Error(message.replace("[SOURCE_SYMLINK_UNAPPROVED]", "[CSS_SYMLINK_UNAPPROVED]"));
   }
+}
+
+const embeddedStyleExpressionPlaceholder = "var(--champagne-embedded-style-expression)";
+
+function embeddedStyleExpressionText(expression) {
+  if (!expression) return "";
+  if (ts.isParenthesizedExpression(expression)) {
+    return embeddedStyleExpressionText(expression.expression);
+  }
+  if (ts.isStringLiteral(expression) || ts.isNoSubstitutionTemplateLiteral(expression)) {
+    return expression.text;
+  }
+  if (ts.isTemplateExpression(expression)) {
+    return expression.templateSpans.reduce(
+      (source, span) => source + embeddedStyleExpressionPlaceholder + span.literal.text,
+      expression.head.text,
+    );
+  }
+  return embeddedStyleExpressionPlaceholder;
+}
+
+function jsxTagNameIsStyle(tagName) {
+  return ts.isIdentifier(tagName) && tagName.text === "style";
+}
+
+function propertyNameText(name) {
+  return ts.isIdentifier(name) || ts.isStringLiteral(name) ? name.text : "";
+}
+
+function dangerousStyleText(attributes) {
+  const attribute = attributes.properties.find(
+    (candidate) =>
+      ts.isJsxAttribute(candidate) &&
+      ts.isIdentifier(candidate.name) &&
+      candidate.name.text === "dangerouslySetInnerHTML",
+  );
+  const expression =
+    attribute && attribute.initializer && ts.isJsxExpression(attribute.initializer)
+      ? attribute.initializer.expression
+      : undefined;
+  if (!expression || !ts.isObjectLiteralExpression(expression)) return undefined;
+  const html = expression.properties.find(
+    (candidate) =>
+      ts.isPropertyAssignment(candidate) && propertyNameText(candidate.name) === "__html",
+  );
+  return html && ts.isPropertyAssignment(html)
+    ? embeddedStyleExpressionText(html.initializer)
+    : undefined;
+}
+
+function ordinaryStyleText(children) {
+  return children
+    .map((child) => {
+      if (ts.isJsxText(child)) return child.text;
+      if (ts.isJsxExpression(child)) return embeddedStyleExpressionText(child.expression);
+      return embeddedStyleExpressionPlaceholder;
+    })
+    .join("");
+}
+
+export function extractEmbeddedStyleSources(source, sourcePath) {
+  const scriptKind = sourcePath.endsWith(".jsx") ? ts.ScriptKind.JSX : ts.ScriptKind.TSX;
+  const sourceFile = ts.createSourceFile(
+    sourcePath,
+    source,
+    ts.ScriptTarget.Latest,
+    true,
+    scriptKind,
+  );
+  const diagnostic = sourceFile.parseDiagnostics?.[0];
+  if (diagnostic) {
+    const position = sourceFile.getLineAndCharacterOfPosition(diagnostic.start ?? 0);
+    const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, " ");
+    throw new Error(
+      `[EMBEDDED_STYLE_SOURCE_PARSE] ${sourcePath}:${position.line + 1}:${position.character + 1}: ${message}`,
+    );
+  }
+
+  const styles = new Map();
+  const record = (node, attributes, children) => {
+    const dangerous = dangerousStyleText(attributes);
+    const css = dangerous ?? (children ? ordinaryStyleText(children) : undefined);
+    if (css === undefined) return;
+    const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile));
+    const provenance = `${sourcePath}:${position.line + 1}:${position.character + 1} <style>`;
+    styles.set(provenance, css);
+  };
+  const visit = (node) => {
+    if (ts.isJsxElement(node) && jsxTagNameIsStyle(node.openingElement.tagName)) {
+      record(node, node.openingElement.attributes, node.children);
+    } else if (ts.isJsxSelfClosingElement(node) && jsxTagNameIsStyle(node.tagName)) {
+      record(node, node.attributes);
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+  return styles;
+}
+
+export function collectEmbeddedStyleSources(root, reportRoot = root) {
+  let files;
+  try {
+    files = collectFiles(root, reportRoot, [".tsx", ".jsx"]).sort((left, right) =>
+      left.localeCompare(right),
+    );
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(
+      message.replace("[SOURCE_SYMLINK_UNAPPROVED]", "[EMBEDDED_STYLE_SYMLINK_UNAPPROVED]"),
+    );
+  }
+  const styles = new Map();
+  for (const file of files) {
+    const sourcePath = path.relative(reportRoot, file);
+    for (const [provenance, css] of extractEmbeddedStyleSources(
+      readFileSync(file, "utf8"),
+      sourcePath,
+    )) {
+      styles.set(provenance, css);
+    }
+  }
+  return styles;
 }
 
 function sameOwnerValue(actual, expected) {

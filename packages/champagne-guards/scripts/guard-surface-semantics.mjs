@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { checkGenerated } from "../../../packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs";
 import {
+  collectEmbeddedStyleSources,
   collectCssFiles,
   materialOwnershipErrors,
   parseCssDeclarations,
@@ -16,7 +17,9 @@ import {
   workflowIntegrityErrors,
 } from "./surface-semantics-contract.v1.mjs";
 export {
+  collectEmbeddedStyleSources,
   collectCssFiles,
+  extractEmbeddedStyleSources,
   materialOwnershipErrors,
   parseCssDeclarations,
   parseCssDefinitions,
@@ -76,6 +79,14 @@ function collectCss(root) {
     return [];
   }
 }
+function collectEmbeddedStyles(root) {
+  try {
+    return collectEmbeddedStyleSources(root, repoRoot);
+  } catch (error) {
+    errors.push(error instanceof Error ? error.message : String(error));
+    return new Map();
+  }
+}
 async function main() {
  const rootPkg = json(paths.rootPkg);
  const guardPkg = json(paths.guardPkg);
@@ -108,9 +119,11 @@ async function main() {
   ...collectCss(absolute("packages/champagne-tokens/styles")),
   ...collectCss(absolute("apps/web/app")),
  ];
- const cssSources = new Map(
-  cssFiles.map((file) => [path.relative(repoRoot, file), readFileSync(file, "utf8")]),
- );
+ const cssSources = new Map([
+  ...cssFiles.map((file) => [path.relative(repoRoot, file), readFileSync(file, "utf8")]),
+  ...collectEmbeddedStyles(absolute("apps/web/app")),
+  ...collectEmbeddedStyles(absolute("packages")),
+ ]);
  for (const issue of materialOwnershipErrors({
   cssSources,
   materialSource: material,
@@ -202,7 +215,7 @@ async function main() {
   return;
  }
  console.log(
-  "✅ Surface semantics guard passed: protected static CSS declarations, registrations, canonical material ownership, generated first-paint artefact integrity and render-unblocking CSS delivery are governed.",
+  "✅ Surface semantics guard passed: protected declarations and registrations in static CSS files and first-party JSX/TSX embedded styles, canonical material ownership, generated first-paint artefact integrity and render-unblocking CSS delivery are governed.",
  );
 }
 const invokedPath = process.argv[1] ? path.resolve(process.argv[1]) : "";
