@@ -1,0 +1,31 @@
+.dl-shell { min-height: 100vh; background: var(--surface-0); color: var(--text-primary); }
+.dl-header,.dl-footer { display:flex; justify-content:space-between; gap:1rem; padding:1rem clamp(1rem,4vw,4rem); background:var(--surface-ink); color:var(--text-on-dark); }
+.dl-header a,.dl-main a { color:inherit; text-underline-offset:.25em; }
+.dl-main { width:min(100% - 2rem, 90rem); margin-inline:auto; padding-block:clamp(2rem,5vw,5rem); }
+.dl-intro { max-width:70ch; margin-block-end:4rem; }
+.dl-kicker { text-transform:uppercase; letter-spacing:.15em; font-size:.75rem; }
+.dl-flow-grid,.dl-registry { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr)); gap:1rem; }
+.dl-flow-grid a,.dl-registry article,.dl-absence,.dl-composer { padding:1rem; border:1px solid var(--border-subtle); background:var(--surface-1); }
+.dl-flow-grid span,.dl-absence span { display:block; margin-block-start:.5rem; }
+.dl-composer { margin-block:4rem; }
+.dl-composer label,.dl-composer fieldset { display:grid; gap:.5rem; margin-block:1rem; }
+.dl-composer select,.dl-composer textarea,.dl-composer button { font:inherit; min-height:2.75rem; }
+.dl-composer textarea { width:100%; background:var(--surface-0); color:inherit; }
+.dl-composer li { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-block:.5rem; }
+.dl-composer li span { flex:1 1 18rem; }
+.dl-specimen { width:100%; margin-inline:auto; overflow:clip; border:1px solid var(--border-subtle); }
+.dl-specimen[data-frame="tablet"] { max-width:48rem; }
+.dl-specimen[data-frame="mobile"] { max-width:20rem; }
+.dl-specimen-meta,.dl-section { padding:clamp(1.25rem,5vw,5rem); }
+.dl-section[data-material="porcelain"] { background:var(--surface-0); }
+.dl-section[data-material="persian"] { background:var(--surface-ink); color:var(--text-on-dark); }
+.dl-section[data-material="luminous"] { background:var(--surface-glass); }
+.dl-diagram { margin:1rem 0; }
+.dl-implant-diagram { display:flex; align-items:end; justify-content:center; min-height:10rem; gap:.5rem; border:1px solid currentColor; }
+.dl-implant-diagram span { width:2rem; height:var(--h,5rem); border:2px solid currentColor; }
+.dl-implant-diagram span:nth-child(2) { --h:8rem; }
+.dl-implant-diagram span:nth-child(3) { --h:3rem; }
+.dl-main :focus-visible { outline:.2rem solid var(--brand-magenta); outline-offset:.2rem; }
+@media (max-width: 40rem) { .dl-header,.dl-footer { flex-direction:column; } .dl-section { padding:1.25rem; } }
+@media (prefers-reduced-motion: reduce) { .dl-shell *, .dl-specimen[data-motion="reduce"] * { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+@media (forced-colors: active) { .dl-section,.dl-flow-grid a,.dl-registry article { border:1px solid CanvasText; } }
