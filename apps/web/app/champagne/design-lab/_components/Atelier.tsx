@@ -10,6 +10,7 @@ type PageKey = "home" | "implants" | "bonding";
 type Material = "persian" | "porcelain";
 type Section = { id: string; label: string; tone: Material | "luminous"; title: string; copy: string; archiveId?: string; locked?: boolean };
 type ArchiveItem = { id: string; title: string; labRoom: string; family: string; purpose: string; selectableInDesignLab: boolean; preview?: { width: number; height: number } };
+type LabStyle = CSSProperties & Record<`--${string}`, string>;
 
 const PAGE_NAMES: Record<PageKey, string> = { home: "Home", implants: "Implants", bonding: "Composite Bonding" };
 const SEED: Record<PageKey, Section[]> = {
@@ -76,7 +77,13 @@ export function Atelier({ heroes }: { heroes: Record<PageKey, ReactNode> }) {
   const placeArchive = (archiveId: string) => { updatePage((items) => items.map((item) => item.id === selected ? { ...item, archiveId } : item)); setCompareId(null); setDrawer(null); };
   const exportBrief = () => { const blob = new Blob([JSON.stringify(brief, null, 2)], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement("a"); a.href = url; a.download = `champagne-${page}-atelier-handoff.json`; a.click(); URL.revokeObjectURL(url); };
   const changePage = (next: PageKey) => { setPage(next); setSelected(SEED[next][0].id); setDrawer(null); };
-  const canvasStyle = { "--atelier-persian": rgb(persianChoice.canvas), "--atelier-persian-raised": rgb(persianChoice.elevated), "--atelier-porcelain": rgb(porcelainChoice.base), "--atelier-porcelain-raised": rgb(porcelainChoice.elevated) } as CSSProperties;
+  const canvasStyle: LabStyle = {
+    "--atelier-persian": rgb(persianChoice.canvas), "--atelier-persian-raised": rgb(persianChoice.elevated),
+    "--atelier-porcelain": rgb(porcelainChoice.base), "--atelier-porcelain-raised": rgb(porcelainChoice.elevated),
+    "--surface-ink": rgb(persianChoice.canvas), "--surface-ink-soft": rgb(persianChoice.elevated),
+    "--bg-ink": rgb(persianChoice.canvas), "--bg-ink-soft": rgb(persianChoice.elevated),
+    "--surface-0": rgb(porcelainChoice.base), "--surface-1": rgb(porcelainChoice.elevated),
+  };
 
   return <main className="dl4-app">
     <header className="dl4-topbar"><div><strong>Champagne Atelier</strong><span>Founder design workspace</span></div><label>Page <select value={page} onChange={(event) => changePage(event.target.value as PageKey)}>{Object.entries(PAGE_NAMES).map(([key, name]) => <option key={key} value={key}>{name}</option>)}</select></label><div className="dl4-device" aria-label="Canvas viewport">{(["desktop", "tablet", "mobile"] as Viewport[]).map((item) => <button key={item} aria-pressed={viewport === item} onClick={() => setViewport(item)}>{item}</button>)}</div><div className="dl4-actions"><span>Draft · isolated</span><button onClick={exportBrief}>Export for Captain / WEOS</button></div></header>
