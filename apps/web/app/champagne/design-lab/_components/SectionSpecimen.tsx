@@ -11,7 +11,7 @@ export function SectionSpecimen({ section, visualId }: { section: SemanticSectio
     >
       <p className="dl-kicker">{section.id}</p>
       <h2>{section.title}</h2>
-      <figure className="dl-section-visual"><img src={`/assets/champagne/design-lab/v27/${visualId}.png`} alt={`V27 visual direction for ${section.title}`} loading="lazy" /><figcaption>{visualId} · visual evidence, not production binding</figcaption></figure>
+      <figure className="dl-section-visual"><img src={`/assets/champagne/design-lab/v27/${visualId}.png`} alt={`V27 visual direction for ${section.title}`} /><figcaption>{visualId} · visual evidence, not production binding</figcaption></figure>
       <p className="dl-section-truth">{section.fallback}</p>
       {section.mediaId ? (
         <div className="dl-absence" role="note" aria-label={`${section.mediaId} availability`}>
