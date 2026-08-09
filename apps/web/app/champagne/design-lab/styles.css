@@ -4,7 +4,7 @@ body:has(.dl-shell) > div.flex.min-h-screen.flex-col > footer,
 body:has(.dl-shell) > div.flex.min-h-screen.flex-col > main > div:not(.dl-shell),
 body:has(.dl-shell) > div[data-open][data-enabled] { display:none!important; }
 body:has(.dl-shell) > div.flex.min-h-screen.flex-col > main { padding:0!important; }
-.dl-header,.dl-footer { display:flex; justify-content:space-between; gap:1rem; padding:1rem clamp(1rem,4vw,4rem); background:var(--surface-ink); color:var(--text-on-dark); }
+.dl-header,.dl-footer { display:flex; justify-content:space-between; gap:1rem; padding:1rem clamp(1rem,4vw,4rem); background:#090f20; color:#fff; }
 .dl-header a,.dl-main a { color:inherit; text-underline-offset:.25em; }
 .dl-main { width:min(100% - 2rem, 96rem); margin-inline:auto; padding-block:clamp(2rem,5vw,5rem); }
 .dl-intro { padding:clamp(2.5rem,7vw,7rem); margin-block-end:clamp(3rem,6vw,6rem); color:#fff; background:radial-gradient(circle at 85% 15%,rgba(212,175,55,.2),transparent 25rem),linear-gradient(135deg,#101b3d,#071124); border-radius:0 0 5rem 0; box-shadow:0 2rem 5rem rgba(7,17,36,.18); }
