@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./styles.css";
 import "./atelier-r4.css";
 import "./atelier-r4.2.css";
+import "./atelier-r4.3.css";
 
 export const metadata: Metadata = { title: "Champagne Atelier", robots: { index: false, follow: false } };
 
