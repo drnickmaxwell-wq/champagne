@@ -278,6 +278,52 @@ jobs:
           path: ${{ runner.temp }}/stage-b-web.log
           if-no-files-found: ignore
 
+  atelier-r45-visual-qa:
+    name: Atelier R4.5 visual QA artifact
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "20"
+      - name: Enable corepack + pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare pnpm@9.15.4 --activate
+      - name: Install dependencies and Chromium
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps chromium
+      - name: Build and start exact-head Atelier
+        run: |
+          set -euxo pipefail
+          pnpm -w build:web
+          pnpm --filter web start --hostname 127.0.0.1 --port 3000 > "$RUNNER_TEMP/atelier-r45-web.log" 2>&1 &
+          for attempt in {1..60}; do
+            curl --fail --silent http://127.0.0.1:3000/champagne/design-lab > /dev/null && exit 0
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/atelier-r45-web.log"
+          exit 1
+      - name: Capture Founder decision loop
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
+          ATELIER_QA_OUTPUT: atelier-r4.5-visual-qa
+          ATELIER_BASE_SHA: a00f718a93710028b364930566d7f6a44483bc25
+        run: node apps/web/tests/design-lab/r4-5-visual-qa.mjs
+      - name: Upload exact-head Founder visual evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: CHAMPAGNE_ATELIER_R4_5_VISUAL_QA_V1
+          path: |
+            atelier-r4.5-visual-qa/
+            ${{ runner.temp }}/atelier-r45-web.log
+          if-no-files-found: error
+
   verify:
     name: verify
     runs-on: ubuntu-latest
@@ -291,6 +337,7 @@ jobs:
       - typecheck
       - build-web
       - stage-b-regression
+      - atelier-r45-visual-qa
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Setup Node

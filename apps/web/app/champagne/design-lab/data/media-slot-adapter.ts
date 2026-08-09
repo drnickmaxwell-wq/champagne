@@ -1,6 +1,6 @@
 import type { AtelierContentSection } from "./content-bundle-adapter";
 
-export type MediaAvailability = "REAL_ASSET_REQUIRED" | "TEXT_LED" | "SYNTHETIC_FIXTURE" | "OFF";
+export type MediaAvailability = "REAL_ASSET_REQUIRED" | "REAL_ASSET_AVAILABLE" | "TEXT_LED" | "SYNTHETIC_FIXTURE" | "OFF";
 
 type MediaSlot = {
   semanticSectionId: string;
