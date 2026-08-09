@@ -1,4 +1,9 @@
 .dl-shell { min-height: 100vh; background: #f7f3ed; color: #18223c; }
+body:has(.dl-shell) > div.flex.min-h-screen.flex-col > div.sticky,
+body:has(.dl-shell) > div.flex.min-h-screen.flex-col > footer,
+body:has(.dl-shell) > div.flex.min-h-screen.flex-col > main > div:not(.dl-shell),
+body:has(.dl-shell) > div[data-open][data-enabled] { display:none!important; }
+body:has(.dl-shell) > div.flex.min-h-screen.flex-col > main { padding:0!important; }
 .dl-header,.dl-footer { display:flex; justify-content:space-between; gap:1rem; padding:1rem clamp(1rem,4vw,4rem); background:var(--surface-ink); color:var(--text-on-dark); }
 .dl-header a,.dl-main a { color:inherit; text-underline-offset:.25em; }
 .dl-main { width:min(100% - 2rem, 96rem); margin-inline:auto; padding-block:clamp(2rem,5vw,5rem); }
@@ -66,9 +71,26 @@
 .dl-composer li { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-block:.5rem; }
 .dl-composer li span { flex:1 1 18rem; }
 .dl-specimen { width:100%; margin-inline:auto; overflow:clip; border:1px solid var(--border-subtle); }
+.dl-specimen-controls { display:flex; flex-wrap:wrap; gap:.5rem; margin-block-end:1rem; }
+.dl-specimen-controls a { padding:.65rem .9rem; border:1px solid #9da7ba; background:#fff; text-decoration:none; }
 .dl-specimen[data-frame="tablet"] { max-width:48rem; }
 .dl-specimen[data-frame="mobile"] { max-width:20rem; }
 .dl-specimen-meta,.dl-section { padding:clamp(1.25rem,5vw,5rem); }
+.dl-specimen-meta { color:#fff; background:#101b3d; }
+.dl-specimen-meta h1 { margin:.2rem 0; font:500 clamp(2.25rem,5vw,5rem)/.95 Georgia,serif; text-transform:capitalize; }
+.dl-specimen-meta dl { display:flex; flex-wrap:wrap; gap:1rem 3rem; margin-block-start:2rem; }
+.dl-specimen-meta dt { color:#d8bb62; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; }
+.dl-specimen-meta dd { margin:.3rem 0; }
+.dl-direction-board { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; padding:clamp(1rem,3vw,2rem); background:#ddd8d0; }
+.dl-direction-board>div { padding:1rem; background:#fff; }
+.dl-direction-board img { width:100%; height:clamp(20rem,52vw,48rem); object-fit:contain; }
+.dl-section h2 { font:500 clamp(2rem,4vw,4.25rem)/1 Georgia,serif; }
+.dl-section-visual { margin:2rem 0; padding:1rem; background:rgba(255,255,255,.92); }
+.dl-section-visual img { display:block; width:100%; max-height:48rem; object-fit:contain; }
+.dl-section-visual figcaption { margin-block-start:.75rem; color:#4a546b; font-size:.75rem; }
+.dl-section-truth { max-width:60ch; }
+.dl-footer-evidence>div { display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:1rem; }
+.dl-footer-evidence img { width:100%; background:#fff; }
 .dl-section[data-material="porcelain"] { background:var(--surface-0); }
 .dl-section[data-material="persian"] { background:var(--surface-ink); color:var(--text-on-dark); }
 .dl-section[data-material="luminous"] { background:var(--surface-glass); }
@@ -78,6 +100,6 @@
 .dl-implant-diagram span:nth-child(2) { --h:8rem; }
 .dl-implant-diagram span:nth-child(3) { --h:3rem; }
 .dl-main :focus-visible { outline:.2rem solid var(--brand-magenta); outline-offset:.2rem; }
-@media (max-width: 48rem) { .dl-header,.dl-footer,.dl-section-heading,.dl-selection-head { align-items:start; flex-direction:column; } .dl-section { padding:1.25rem; } .dl-intro { margin-inline:-1rem; border-radius:0 0 3rem 0; } .dl-inspector { grid-template-columns:1fr; } .dl-inspector-image { min-height:35vh; } .dl-selection li { flex-wrap:wrap; } .dl-selection li span { min-width:calc(100% - 6rem); } }
+@media (max-width: 48rem) { .dl-header,.dl-footer,.dl-section-heading,.dl-selection-head { align-items:start; flex-direction:column; } .dl-section { padding:1.25rem; } .dl-intro { margin-inline:-1rem; border-radius:0 0 3rem 0; } .dl-inspector { grid-template-columns:1fr; } .dl-inspector-image { min-height:35vh; } .dl-selection li { flex-wrap:wrap; } .dl-selection li span { min-width:calc(100% - 6rem); } .dl-direction-board { grid-template-columns:1fr; } }
 @media (prefers-reduced-motion: reduce) { .dl-shell *, .dl-specimen[data-motion="reduce"] * { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; } }
 @media (forced-colors: active) { .dl-section,.dl-flow-grid a,.dl-registry article { border:1px solid CanvasText; } }
