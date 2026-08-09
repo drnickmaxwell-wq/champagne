@@ -1,4 +1,5 @@
 export type AtelierPageKey = "home" | "implants" | "bonding";
+import { HOME_CONTENT_BUNDLE_V1 } from "./home-content-bundle";
 export type MaterialRole = "persian" | "porcelain" | "luminous";
 export type ContentCapability = "proof" | "media" | "threeD";
 
@@ -15,7 +16,15 @@ export type AtelierContentSection = {
   modelSlot?: string;
   conciergeTopic: string;
   searchIntent: string;
-  contentState: "LAB_SEED_COPY";
+  contentState: "LAB_SEED_COPY" | "CONTENT_BUNDLE_V1_FACT_BLOCKED";
+  shortCopy?: string;
+  extendedCopy?: string;
+  pathways?: { label: string; description: string; href: string }[];
+  steps?: { label: string; copy: string }[];
+  faqs?: { question: string; answer: string }[];
+  ctas?: { label: string; href: string; type: string }[];
+  contentMediaSlotIds?: string[];
+  reviewState?: string;
 };
 
 export type AtelierContentPage = {
@@ -23,8 +32,8 @@ export type AtelierContentPage = {
   route: "/" | "/treatments/implants" | "/treatments/composite-bonding";
   name: string;
   primaryQuestion: string;
-  bundleStatus: "AWAITING_CHAMPAGNE_CONTENT_BUNDLE_V1";
-  contentVersion: "CONTENT_SEARCH_ORIENTATION_V1";
+  bundleStatus: "AWAITING_CHAMPAGNE_CONTENT_BUNDLE_V1" | "FACT_BLOCKED";
+  contentVersion: "CONTENT_SEARCH_ORIENTATION_V1" | "1.0.0-draft.1";
   sections: AtelierContentSection[];
 };
 
@@ -61,8 +70,10 @@ export const ATELIER_CONTENT_PAGES: Record<AtelierPageKey, AtelierContentPage> =
     route: "/",
     name: "Homepage",
     primaryQuestion: "Is this the right practice for me?",
-    bundleStatus: "AWAITING_CHAMPAGNE_CONTENT_BUNDLE_V1",
-    contentVersion: "CONTENT_SEARCH_ORIENTATION_V1",
+    bundleStatus: "FACT_BLOCKED",
+    contentVersion: "1.0.0-draft.1",
+    sections: HOME_CONTENT_BUNDLE_V1,
+    /* Legacy seeds remain below as inert source history during R4.4 extraction.
     sections: [
       section("home.hero.v2", "Hero V2", "Orient and invite", "Hero V2", "Protected canonical opening.", "persian", { locked: true }),
       section("home.practice.answer", "The practice, clearly", "Answer what kind of practice this is", "Dentistry considered around you.", "A concise practice answer will arrive from the approved content bundle.", "porcelain"),
@@ -77,7 +88,7 @@ export const ATELIER_CONTENT_PAGES: Record<AtelierPageKey, AtelierContentPage> =
       section("home.visit", "Visit St Mary’s House", "Make the local next step practical", "A distinctive practice in Shoreham-by-Sea.", "A concise projection of verified location, hours and access truth will link to Contact.", "porcelain", { mediaSlot: "PRACTICE_EXTERIOR_V1" }),
       section("home.focused-faq", "Focused questions", "Answer practice-selection questions", "A few useful answers before you visit.", "Only questions owned by Home will appear here; treatment questions remain with their pages.", "porcelain"),
       section("home.closing-invitation", "Closing invitation", "Offer a proportionate next action", "Exceptional care. Enduring confidence.", "A calm, capability-aware invitation and architectural closing study.", "persian"),
-    ],
+    ], */
   },
   implants: {
     pageId: "implants",
@@ -132,8 +143,8 @@ export const visibleAtelierSections = (page: AtelierContentPage) =>
   page.sections.filter((item) => !item.capabilityGate || LAB_CAPABILITIES[item.capabilityGate]);
 
 export const contentBundleAdapter = (bundle: AtelierContentPage) => ({
-  schemaVersion: "CHAMPAGNE_CONTENT_BUNDLE_V1_ADAPTER_DRAFT",
-  authority: "CHAMPAGNE_CONTENT_SEARCH_ORIENTATION_REPORT_V1",
+  schemaVersion: "CHAMPAGNE_CONTENT_BUNDLE_V1_ADAPTER_V1",
+  authority: bundle.pageId === "home" ? "CHAMPAGNE_HOME_CONTENT_BUNDLE_V1" : "CHAMPAGNE_CONTENT_SEARCH_ORIENTATION_REPORT_V1",
   pageId: bundle.pageId,
   route: bundle.route,
   contentVersion: bundle.contentVersion,

@@ -1,4 +1,5 @@
 import type { AtelierContentSection } from "./content-bundle-adapter";
+import { mediaLensFor } from "./media-slot-adapter";
 
 export type BrandTerritoryId = "persian-architectural" | "contemporary-editorial" | "warm-heritage" | "luminous-digital";
 export type AccentId = "turquoise" | "magenta" | "gilded-gold" | "restrained";
@@ -50,33 +51,18 @@ export const INITIAL_BRAND_DECISION: BrandDecision = {
 };
 
 export const CONVERGENCE_LANES = [
-  { id: "content", name: "Content / Search", state: "ORIENTATION_RECEIVED", next: "Approved exemplar content bundle", owns: "Meaning, copy and canonical question ownership" },
-  { id: "media", name: "Media", state: "AWAITING_CONTRACTS", next: "Slot registry, then convergence packet", owns: "Asset truth, provenance, crops and responsive treatment" },
-  { id: "threeD", name: "3D Education", state: "RESERVED_FAIL_CLOSED", next: "Atelier visual handoff", owns: "Interactive implant education and static fallback parity" },
-  { id: "concierge", name: "Concierge", state: "RESERVED_FAIL_CLOSED", next: "Visual kit and clickable prototype review", owns: "Architectural Host visuals and governed interactions" },
+  { id: "content", name: "Content / Search", state: "HOME_BUNDLE_CONNECTED", next: "Founder fact and publication review", owns: "Meaning, copy and canonical question ownership" },
+  { id: "media", name: "Media", state: "40_SECTION_REGISTRY_CONNECTED", next: "Genuine practice assets", owns: "Asset truth, provenance, crops and responsive treatment" },
+  { id: "threeD", name: "3D Education", state: "FROZEN_SYNTHETIC_FIXTURE", next: "Final GLB", owns: "Interactive implant education and static fallback parity" },
+  { id: "concierge", name: "Concierge", state: "VISUAL_KIT_CONNECTED", next: "Founder visual convergence decision", owns: "Architectural Host visuals and governed interactions" },
 ] as const;
 
-export const mediaLensForSection = (section: AtelierContentSection) => ({
-  schema: "CHAMPAGNE_MEDIA_SLOT_REGISTRY_V1_ADAPTER_DRAFT",
-  semanticSectionId: section.id,
-  requirement: section.mediaSlot || section.modelSlot ? "EXPECTED_BY_SEMANTIC_CONTRACT" : "TEXT_LED_ACCEPTABLE",
-  job: section.job,
-  slotId: section.mediaSlot ?? null,
-  modelSlotId: section.modelSlot ?? null,
-  availableAssets: [],
-  preferredAspectRatio: "AWAITING_MEDIA_CONTRACT",
-  responsiveTreatment: { desktop: "UNSET", tablet: "UNSET", mobile: "UNSET" },
-  provenance: "UNVERIFIED_UNTIL_MEDIA_REGISTRY",
-  authenticity: "FAIL_CLOSED",
-  altCaptionSearchIntent: section.searchIntent,
-  fallback: section.modelSlot ? "STATIC_EDUCATIONAL_TRANSCRIPT_REQUIRED" : "TEXT_LED_SECTION",
-  founderControls: ["CHOOSE", "COMPARE", "CROP", "POSITION", "TEXT_LED", "VIDEO", "THREE_D", "REMOVE"],
-});
+export const mediaLensForSection = (section: AtelierContentSection) => mediaLensFor(section);
 
 export const EXPERIENCE_STUDIOS = [
-  { id: "media", name: "Media Studio", state: "Contract-ready scaffold", description: "Choose, compare and compose purposeful media without pretending assets already exist." },
-  { id: "threeD", name: "3D Experience Studio", state: "Reserved · capability off", description: "Shape museum-grade education with a truthful static fallback." },
-  { id: "concierge", name: "Concierge Experience Room", state: "Reserved · capability off", description: "Compose the Architectural Host into real page moments." },
+  { id: "media", name: "Media Studio", state: "Registry connected", description: "Choose, compare and compose purposeful media without pretending assets already exist." },
+  { id: "threeD", name: "3D Experience Studio", state: "Synthetic fixture ready", description: "Shape museum-grade education with a truthful static fallback." },
+  { id: "concierge", name: "Concierge Experience Room", state: "Visual kit connected", description: "Compare and intentionally mix the Architectural Host territories." },
   { id: "search", name: "Search Lens", state: "Orientation connected", description: "See page ownership and intent without turning the Founder UI into an SEO console." },
   { id: "preview", name: "Experience Preview", state: "Reserved", description: "Later rehearse page, media, 3D and Concierge as one human journey." },
 ] as const;

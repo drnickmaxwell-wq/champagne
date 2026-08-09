@@ -20,7 +20,7 @@ test("content adapter holds the true 13, 14 and 13 stable jobs", () => {
   assert.equal(ids.filter((id) => id.startsWith("implants.")).length, 14);
   assert.equal(ids.filter((id) => id.startsWith("bonding.")).length, 13);
   assert.equal(new Set(ids).size, 40);
-  for (const marker of ["CHAMPAGNE_CONTENT_BUNDLE_V1_ADAPTER_DRAFT", "CONTENT_SEARCH_ORIENTATION_V1", "LAB_SEED_COPY", "AWAITING_CHAMPAGNE_CONTENT_BUNDLE_V1"]) assert.match(adapter, new RegExp(marker));
+  for (const marker of ["CHAMPAGNE_CONTENT_BUNDLE_V1_ADAPTER_V1", "CONTENT_SEARCH_ORIENTATION_V1", "LAB_SEED_COPY", "AWAITING_CHAMPAGNE_CONTENT_BUNDLE_V1"]) assert.match(adapter, new RegExp(marker));
 });
 
 test("capability-gated truth remains fail closed", () => {

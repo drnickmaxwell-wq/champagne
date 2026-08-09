@@ -5,6 +5,7 @@ import test from "node:test";
 const atelier = readFileSync(new URL("../../app/champagne/design-lab/_components/Atelier.tsx", import.meta.url), "utf8");
 const brand = readFileSync(new URL("../../app/champagne/design-lab/_components/BrandWorkshop.tsx", import.meta.url), "utf8");
 const convergence = readFileSync(new URL("../../app/champagne/design-lab/data/atelier-convergence.ts", import.meta.url), "utf8");
+const media = readFileSync(new URL("../../app/champagne/design-lab/data/media-slot-adapter.ts", import.meta.url), "utf8");
 const layout = readFileSync(new URL("../../app/champagne/design-lab/layout.tsx", import.meta.url), "utf8");
 const css = readFileSync(new URL("../../app/champagne/design-lab/atelier-r4.3.css", import.meta.url), "utf8");
 
@@ -19,16 +20,15 @@ test("Founder working decisions persist locally and remain exportable non-produc
 });
 
 test("every section can project a truthful first-class Media Lens contract", () => {
-  for (const marker of ["CHAMPAGNE_MEDIA_SLOT_REGISTRY_V1_ADAPTER_DRAFT", "semanticSectionId", "preferredAspectRatio", "responsiveTreatment", "provenance", "altCaptionSearchIntent", "founderControls", "TEXT_LED_SECTION"]) assert.match(convergence, new RegExp(marker));
-  for (const control of ["CHOOSE", "COMPARE", "CROP", "POSITION", "TEXT_LED", "VIDEO", "THREE_D", "REMOVE"]) assert.match(convergence, new RegExp(`\\"${control}\\"`));
+  for (const marker of ["semanticSectionId", "resolvedSlotId", "aspectRatio", "responsive", "provenance", "searchIntent", "fallback", "TEXT_LED"]) assert.match(media, new RegExp(marker));
+  for (const control of ["Use this image", "Try another asset", "Set focal point", "Crop differently", "Use video", "Use 3D instead", "Leave text-led"]) assert.match(media, new RegExp(control));
   assert.match(atelier, /Media Lens/);
-  assert.match(atelier, /Awaiting registry/);
+  assert.match(atelier, /Resolved slot/);
 });
 
-test("cross-lane convergence remains contract-gated and fail closed", () => {
-  for (const marker of ["Content / Search", "Media", "3D Education", "Concierge", "Media Studio", "3D Experience Studio", "Concierge Experience Room", "Search Lens", "Experience Preview", "RESERVED_FAIL_CLOSED"]) assert.match(convergence, new RegExp(marker));
-  assert.match(atelier, /All unavailable capabilities fail closed/);
-  assert.match(atelier, /disabled>Opens when contract-ready/);
+test("cross-lane convergence records contract arrivals without production binding", () => {
+  for (const marker of ["Content / Search", "Media", "3D Education", "Concierge", "Media Studio", "3D Experience Studio", "Concierge Experience Room", "Search Lens", "Experience Preview", "FROZEN_SYNTHETIC_FIXTURE"]) assert.match(convergence, new RegExp(marker));
+  assert.match(atelier, /productionBinding: false/);
 });
 
 test("R4.3 retains responsive, reduced-motion and forced-colour treatment", () => {
@@ -36,5 +36,5 @@ test("R4.3 retains responsive, reduced-motion and forced-colour treatment", () =
   assert.match(css, /prefers-reduced-motion:reduce/);
   assert.match(css, /forced-colors:active/);
   assert.match(brand, /aria-label="Brand workshop areas"/);
-  assert.match(atelier, /aria-labelledby="convergence-heading"/);
+  assert.match(atelier, /ExperienceRooms/);
 });
