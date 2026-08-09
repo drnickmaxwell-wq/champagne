@@ -281,6 +281,10 @@ jobs:
   atelier-r45-visual-qa:
     name: Atelier R4.5 visual QA artifact
     runs-on: ubuntu-latest
+    env:
+      ALLOW_CHAMPAGNE_ROUTES: "true"
+      NEXT_PUBLIC_FEATURE_BRAND_HERO: "true"
+      NEXT_PUBLIC_HERO_ENGINE: v2
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Setup Node
@@ -303,7 +307,9 @@ jobs:
           pnpm -w build:web
           pnpm --filter web start --hostname 127.0.0.1 --port 3000 > "$RUNNER_TEMP/atelier-r45-web.log" 2>&1 &
           for attempt in {1..60}; do
-            curl --fail --silent http://127.0.0.1:3000/champagne/design-lab > /dev/null && exit 0
+            if curl --fail --silent http://127.0.0.1:3000/ > /dev/null; then
+              exit 0
+            fi
             sleep 1
           done
           cat "$RUNNER_TEMP/atelier-r45-web.log"

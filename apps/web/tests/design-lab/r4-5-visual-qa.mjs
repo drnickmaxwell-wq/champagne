@@ -27,14 +27,16 @@ await page.getByLabel("Display scale").fill("75");
 assert.match(await page.locator(".dl4-context strong").innerText(), /390 × 844/);
 await capture("02-home-iphone-portrait", "Homepage · iPhone 390×844 · portrait");
 
-await page.getByLabel("Time of day").selectOption("night");
-await page.getByLabel("Compare time of day").selectOption("morning");
+await page.getByLabel("Time of day", { exact: true }).selectOption("night");
+await page.getByLabel("Compare time of day", { exact: true }).selectOption("morning");
 assert.equal(await page.locator(".dl45-preview-frame").count(), 2);
 await capture("03-home-night-v-morning", "Homepage · two-up night versus morning");
 
 await page.getByRole("button", { name: "Clean preview" }).click();
-assert.equal(await page.locator(".dl4-topbar").isVisible(), false);
-await capture("04-clean-preview", "Clean preview · editor chrome hidden");
+assert.equal(await page.locator(".dl4-pages").isVisible(), false);
+assert.equal(await page.locator(".dl4-inspector").isVisible(), false);
+assert.equal(await page.getByRole("button", { name: "Return to studio" }).isVisible(), true);
+await capture("04-clean-preview", "Clean preview · editor chrome hidden with a deliberate return control");
 await page.getByRole("button", { name: "Return to studio" }).click();
 
 await page.getByRole("button", { name: "Experience layers" }).click();
