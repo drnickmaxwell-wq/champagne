@@ -15,12 +15,12 @@ test("Hero is adapter-only and noindex is explicit", () => {
 });
 
 test("Room 11 supports deterministic flow, ordering, removal, gates and export", () => {
-  for (const marker of ["setFlowId", "move(id", "Remove", "Capability truth", "DL-R1-COMPOSITION-V1", "productionBinding: false"]) assert.match(composer, new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  for (const marker of ["setFlowId", "const move", "Remove", "Capability truth", "DL-R2-FOUNDER-COMPOSITION-V1", "productionBinding: false"]) assert.match(composer, new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 });
 
 test("responsive, reduced-motion, focus and forced-colour contracts exist", () => {
-  assert.match(css, /data-frame="mobile"/);
-  assert.match(css, /prefers-reduced-motion: reduce/);
-  assert.match(css, /forced-colors: active/);
+  assert.match(css, /max-width:40rem/);
+  assert.match(css, /prefers-reduced-motion:reduce/);
+  assert.match(css, /forced-colors:active/);
   assert.match(css, /:focus-visible/);
 });

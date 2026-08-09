@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { HeroV2LabAdapter } from "../../_components/HeroV2LabAdapter";
+import { HomepagePrototype } from "../../_components/HomepagePrototype";
 import { SectionSpecimen } from "../../_components/SectionSpecimen";
 import { FLOWS, getFlow, visibleSections } from "../../data/flows";
 
@@ -19,5 +20,6 @@ export default async function ExemplarPage({ params, searchParams }: { params: P
   const frame = ["desktop", "tablet", "mobile"].includes(query.frame ?? "") ? query.frame : "desktop";
   const motion = query.motion === "reduce" ? "reduce" : "full";
   const sections = visibleSections(flow); const visuals = visualDirections[slug as keyof typeof visualDirections];
+  if (slug === "home-a" || slug === "home-b") return <main className="dl-exemplar-main"><HomepagePrototype variant={slug === "home-a" ? "A" : "B"} /></main>;
   return <main className="dl-main dl-exemplar-main"><nav className="dl-specimen-controls" aria-label="Specimen controls"><a href="?frame=desktop">Desktop</a><a href="?frame=tablet">Tablet</a><a href="?frame=mobile">Mobile</a><a href={`?frame=${frame}&motion=reduce`}>Reduced motion</a></nav><article className="dl-specimen" data-frame={frame} data-motion={motion}><header className="dl-specimen-meta"><p className="dl-kicker">{flow.id}</p><h1>{flow.family === "home" ? "Homepage" : flow.family === "implants" ? "Dental Implants" : "Composite Bonding"} · Direction {flow.variant}</h1><p>A visual composition study using recovered V27 evidence and the settled semantic architecture.</p><dl><div><dt>Header</dt><dd>{flow.headerId}</dd></div><div><dt>Canonical route</dt><dd>{flow.route}</dd></div><div><dt>Visible jobs</dt><dd>{sections.length}</dd></div></dl></header><section className="dl-direction-board"><div><p className="dl-kicker">WHOLE-PAGE DIRECTION</p><img src={`/assets/champagne/design-lab/v27/${visuals.page}.png`} alt="Recovered V27 whole-page visual direction" /></div><div><p className="dl-kicker">PACING AND SEQUENCE</p><img src={`/assets/champagne/design-lab/v27/${visuals.sequence}.png`} alt="Recovered V27 page-sequence visual direction" /></div></section><HeroV2LabAdapter route={flow.route} />{sections.filter((section) => !section.id.endsWith("hero") && section.id !== "home.hero.v2").map((section, index) => <SectionSpecimen key={section.id} section={section} visualId={visuals.sections[index % visuals.sections.length]} />)}<section className="dl-section dl-footer-evidence" data-material="persian"><h2>Footer direction</h2><p>{flow.footerIds.join(" · ")}</p><div>{flow.footerIds.map((id) => <img key={id} src={`/assets/champagne/design-lab/v27/${id}.png`} alt={`V27 footer direction ${id}`} />)}</div></section></article></main>;
 }
