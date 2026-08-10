@@ -121,7 +121,7 @@ const fullscreenMode = await page.locator(".dl45-preview-stage").getAttribute("d
 assert.ok(nativeFullscreen ? fullscreenMode === "NATIVE" : fullscreenMode === "FALLBACK");
 await capture("14-fullscreen-proof", nativeFullscreen ? "Native Fullscreen" : "Truthful viewport-filling fallback");
 if (nativeFullscreen) await page.keyboard.press("Escape");
-else await page.getByRole("button", { name: "Return to studio", exact: true }).click();
+else await page.getByRole("button", { name: "Exit viewport-filling preview", exact: true }).click();
 await page.waitForFunction(() => document.querySelector(".dl45-preview-stage")?.getAttribute("data-fullscreen-mode") === "OFF");
 
 await page.getByRole("button", { name: "Experience layers", exact: true }).click();

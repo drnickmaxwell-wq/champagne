@@ -26,3 +26,5 @@
 .dl44-model-room.dl451-decision-room>header{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start}.dl44-model-room.dl451-decision-room>header h3{grid-column:1;max-width:22ch}.dl44-model-room.dl451-decision-room>header p{grid-column:1}.dl44-model-room.dl451-decision-room .dl45-synthetic-label{grid-column:2;grid-row:1/4;margin:0}.dl44-model-room.dl451-decision-room .dl44-model-stage{min-height:29rem}
 .dl44-journey.dl451-decision-room>header{grid-column:1/-1;margin-bottom:0}.dl44-journey.dl451-decision-room article{min-height:20rem;padding:3rem}.dl44-journey.dl451-decision-room article h4{font-size:clamp(2.6rem,4vw,4rem)}
 .dl45-preview-stage[data-fullscreen-mode=FALLBACK]{position:fixed;z-index:80;inset:0;height:100vh;padding:0!important;background:var(--surface-ink)}
+
+.dl451-fallback-exit{position:fixed;z-index:82;right:1rem;top:1rem;border:1px solid color-mix(in srgb,var(--surface-0) 45%,transparent);border-radius:999px;background:var(--surface-ink);color:var(--surface-0);padding:.75rem 1rem;font:inherit;cursor:pointer}
