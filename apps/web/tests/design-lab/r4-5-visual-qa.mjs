@@ -81,6 +81,7 @@ await capture("05-ipad-landscape", "iPad landscape 1024×768");
 await chooseDevice("iphone", 390, 844, "portrait");
 await capture("06-iphone-portrait", "iPhone portrait 390×844");
 await page.getByLabel("Device preset", { exact: true }).selectOption("custom");
+await page.getByRole("button", { name: "landscape", exact: true }).click();
 await page.getByLabel("Custom viewport width", { exact: true }).fill("1180");
 await page.getByLabel("Custom viewport height", { exact: true }).fill("760");
 assert.equal(await page.locator(".dl45-preview-stage").getAttribute("data-viewport-width"), "1180");
