@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "HERO_V3_H3_2_STATIC_COMPOSITION_AUTHORITY_V1",
+  "status": "FOUNDER_AND_MAIN_DIRECTORATE_AUTHORISED_STATIC_ONLY",
+  "repository": "drnickmaxwell-wq/champagne",
+  "pullRequest": 867,
+  "acceptedStartHead": "8b119baabb08dcf4d008aa63d62f6b113afec13d",
+  "acceptedStartTree": "db1b040993938e6a4483a3b543de6a44b60ea4d2",
+  "brandAuthority": "PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10",
+  "baseline": "static:complete",
+  "baselineRole": "V2_STATIC_REFERENCE_BASELINE",
+  "checkpoint1Studies": ["V2_PRECISION", "SPECTRAL_WAVE", "VELVET_PORCELAIN_DEPTH", "LUMINOUS_COUNTERFLOW"],
+  "founderCheckpoint1Disposition": "NO_CANDIDATE_SELECTED_V2_REMAINS_STRONGER",
+  "checkpoint2Rule": "ONE_BOUNDED_V2_LED_REFINEMENT_WITH_DIRECT_V2_COMPARISON",
+  "responsiveSafeZones": {
+    "desktop": {"horizontalPercent": 8, "verticalPercent": 14},
+    "tablet": {"horizontalPercent": 7, "verticalPercent": 12},
+    "mobile": {"horizontalPercent": 6, "verticalPercent": 10, "independentArtDirection": true}
+  },
+  "performanceCeilings": {
+    "ssrMeaningfulStaticPaint": true,
+    "videoOnCriticalPaintPath": false,
+    "criticalTransferBytes": {"mobile": 716800, "desktop": 1048576},
+    "additionalRuntimeJsGzipBytes": 51200,
+    "decodedVisualMemoryBytes": {"mobile": 67108864, "desktop": 134217728},
+    "heavyRasterDprCeiling": 2,
+    "continuousAnimationAfterSettle": false,
+    "heroClsMaximum": 0.02,
+    "previewLcpMilliseconds": 2500
+  },
+  "legacyMasks": {
+    "disposition": "V3_LEGACY_MASKS_RETIRED_NOT_REPAIRED_IN_PLACE",
+    "newAssetPrefixIfProvenUseful": "HERO_V3_MASK_"
+  },
+  "motionAuthority": false,
+  "h3_3Authority": false,
+  "productionBinding": false,
+  "prohibitions": ["Ready", "merge", "deployment", "public Hero replacement", "motion repair", "Agent mutation", "Router mutation", "WEOS mutation", "chatbot-engine mutation"]
+}

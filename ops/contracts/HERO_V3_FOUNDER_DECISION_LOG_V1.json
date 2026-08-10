@@ -3,7 +3,7 @@
   "status": "ACTIVE_PHASE_GATED",
   "updatedAt": "2026-08-10",
   "brandAuthority": {
-    "current": "PROVISIONAL_EXPLICIT_FOUNDER_AUTHORITY",
+    "current": "PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10",
     "futurePacket": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1",
     "h3_2MustLoadCurrentPacket": true
   },
@@ -25,12 +25,15 @@
     {"id": "H3-D015", "state": "ACCEPTED", "decision": "First family tranche proves approximately four materially different grammars before expansion."},
     {"id": "H3-D016", "state": "ACCEPTED", "decision": "The tenant engine must prove organic botanical and precise geometric tenants without Champagne brand leakage."},
     {"id": "H3-D017", "state": "BOUNDARY", "decision": "Do not hard-code Champagne Brand DNA into the tenant-neutral renderer."},
-    {"id": "H3-D018", "state": "BOUNDARY", "decision": "No production replacement, Ready, merge, deployment, cutover or production binding is authorised."}
+    {"id": "H3-D018", "state": "BOUNDARY", "decision": "No production replacement, Ready, merge, deployment, cutover or production binding is authorised."},
+    {"id": "H3-D019", "state": "AUTHORISED", "decision": "H3.2 static composition convergence is authorised at exact head 8b119baabb08dcf4d008aa63d62f6b113afec13d; H3.3 and motion repair are not authorised."},
+    {"id": "H3-D020", "state": "ACCEPTED", "decision": "static:complete is the V2 static reference baseline and remains available in every comparison."},
+    {"id": "H3-D021", "state": "ACCEPTED", "decision": "The zero-byte V2 mask files are retired for V3 and are not repaired in place."},
+    {"id": "H3-D022", "state": "FOUNDER_CHECKPOINT_1", "decision": "No A-D study was selected; V2 remains stronger and the next study is a bounded V2-led refinement."}
   ],
   "unresolved": [
-    {"id": "H3-U001", "decisionRequiredBy": "H3.2", "question": "Which then-current Founder Brand DNA packet and domain profile versions govern visual convergence?"},
-    {"id": "H3-U002", "decisionRequiredBy": "H3.2", "question": "Which diagnostic static state becomes the Founder-approved H3.2 starting preset?"},
-    {"id": "H3-U003", "decisionRequiredBy": "H3.2", "question": "Which desktop, tablet and mobile focal zones are approved for the first static exploration?"},
-    {"id": "H3-U004", "decisionRequiredBy": "H3.2", "question": "What measured numeric first-paint, network, memory and GPU budgets should become hard gates?"}
+    {"id": "H3-U005", "decisionRequiredBy": "H3.2_CHECKPOINT_2", "question": "Does the bounded V2-led refinement materially defeat the V2 baseline?"},
+    {"id": "H3-U006", "decisionRequiredBy": "BEFORE_H3.2_CHECKPOINT_2_IF_AVAILABLE", "question": "Does CHAMPAGNE_FOUNDER_BRAND_DNA_V1 conflict with provisional authority?"},
+    {"id": "H3-U007", "decisionRequiredBy": "BEFORE_H3.3", "question": "What exact motion-score commission follows static settlement?"}
   ]
 }

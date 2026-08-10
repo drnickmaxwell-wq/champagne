@@ -12,10 +12,11 @@
 
 This packet is the canonical, product-local authority for developing Hero V3 as
 an isolated, phase-gated evolution of the Champagne Hero system. It grants the
-current branch authority for H3.0 and, only after H3.0 is committed and
-internally verified, H3.1. It does not grant H3.2 implementation, merge,
-deployment, production binding, public cutover, Router, Agent, chatbot-engine or
-WEOS mutation authority.
+original branch authority for H3.0 and, only after H3.0 was committed and
+internally verified, H3.1. The later exact H3.2 authority is recorded by
+`HERO_V3_H3_2_STATIC_COMPOSITION_AUTHORITY_V1`. No Hero V3 authority grants
+merge, deployment, production binding, public cutover, Router, Agent,
+chatbot-engine or WEOS mutation authority.
 
 ## Canonical precedence
 
@@ -39,7 +40,7 @@ instructions remain operational constraints and grant no authority.
 |---|---|---|
 | H3.0 | Canonical authority and acceptance contract | Authorised |
 | H3.1 | V2 diagnostic rendering laboratory | Authorised only after H3.0 commit and verification |
-| H3.2 | Sacred Hero static composition upgrade | Programme accepted; implementation not authorised |
+| H3.2 | Sacred Hero static composition upgrade | Static-only implementation authorised by `HERO_V3_H3_2_STATIC_COMPOSITION_AUTHORITY_V1` |
 | H3.3 | Seamless motion-score engine | Programme accepted; implementation not authorised |
 | H3.4 | Complete Sacred Hero V3 | Programme accepted; implementation not authorised |
 | H3.5 | Champagne treatment Hero family | Programme accepted; implementation not authorised |
@@ -172,8 +173,9 @@ mutate WEOS under this authority.
 - No public deployment or cutover.
 - No Agent, Router, WEOS or chatbot-engine mutation.
 - No silent Brand redefinition by implementation.
-- No H3.2 work before the required H3.0/H3.1 settlement and new Founder/Main
-  Directorate authority.
+- No H3.2 work outside `HERO_V3_H3_2_STATIC_COMPOSITION_AUTHORITY_V1`.
+- No H3.3 implementation or motion repair before static settlement and a new
+  exact Founder/Main Directorate authority.
 
 ## Required H3.0/H3.1 settlement
 
