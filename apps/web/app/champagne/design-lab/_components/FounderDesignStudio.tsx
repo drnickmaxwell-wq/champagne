@@ -30,7 +30,7 @@ export function FounderDesignStudio({ initialDomain, onClose, onGovernedChange, 
   const [reference, setReference] = useState("");
   const [referenceKind, setReferenceKind] = useState<ReferenceKind>("screenshot");
   const [notes, setNotes] = useState("");
-  const [sequence, setSequence] = useState(1);
+  const sequenceRef = useRef(1);
   const [tab, setTab] = useState<"generate" | "compare" | "dna" | "lineage">("generate");
   const [activeSet, setActiveSet] = useState<string | null>(null);
   const [inheritedTraits, setInheritedTraits] = useState<DesignTrait[]>(["composition", "asymmetry", "type-hierarchy", "spacing-rhythm", "media-geometry"]);
@@ -65,8 +65,10 @@ export function FounderDesignStudio({ initialDomain, onClose, onGovernedChange, 
     return { ...previous, proposals: [...previous.proposals, ...proposals], lineage: [...previous.lineage, ...lineage] };
   });
   const generate = (nextMode = mode, parentId: string | null = null, traits = inheritedTraits) => {
-    const proposals = generateProposalSet({ sequence, domain, scope, semanticOwner: domain === "webpage" ? (scope === "whole-page" ? "home.practice.answer" : "home.practice.answer") : `concierge.${scope}`, mode: nextMode, parentId, references: reference.trim() ? [`${referenceKind}:${reference.trim()}`] : [], inheritedTraits: nextMode === "MORE_LIKE_THIS" || nextMode === "REMIX" ? traits : [], changedDimension: nextMode === "CHANGE_ONE_THING" ? changedDimension : null });
-    update(proposals, nextMode); setActiveSet(proposals[0].setId); setSequence((value) => value + 1); setTab("compare");
+    const generationSequence = sequenceRef.current;
+    sequenceRef.current += 1;
+    const proposals = generateProposalSet({ sequence: generationSequence, domain, scope, semanticOwner: domain === "webpage" ? (scope === "whole-page" ? "home.practice.answer" : "home.practice.answer") : `concierge.${scope}`, mode: nextMode, parentId, references: reference.trim() ? [`${referenceKind}:${reference.trim()}`] : [], inheritedTraits: nextMode === "MORE_LIKE_THIS" || nextMode === "REMIX" ? traits : [], changedDimension: nextMode === "CHANGE_ONE_THING" ? changedDimension : null });
+    update(proposals, nextMode); setActiveSet(proposals[0].setId); setTab("compare");
   };
   const decide = (proposal: DesignProposal, decision: ProposalDecision) => setState((previous) => {
     const decisions = { ...previous.decisions, [proposal.id]: decision };
