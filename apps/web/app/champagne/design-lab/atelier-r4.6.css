@@ -1,5 +1,5 @@
 /* R4.6 truthful responsive browsing context. Scaling belongs to the outer frame only. */
-.dl46-preview-frame{position:relative;flex:none;transform-origin:top left;background:var(--surface-0)}
+.dl46-preview-frame{position:relative;flex:none;box-sizing:content-box;transform-origin:top left;background:var(--surface-0)}
 .dl46-preview-viewport{display:block;width:100%;height:100%;border:0;background:var(--surface-0)}
 .dl45-preview-stage[data-device-frame=true] .dl46-preview-frame{border:12px solid var(--surface-ink);border-radius:1.4rem;box-shadow:0 1.5rem 4rem color-mix(in srgb,var(--surface-ink) 22%,transparent);overflow:hidden}
 .dl46-canvas{width:100%;max-width:none;margin:0;box-shadow:none}
