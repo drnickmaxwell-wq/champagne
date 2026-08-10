@@ -207,6 +207,7 @@ export function Atelier() {
     else await previewRef.current.requestFullscreen();
   };
   const closeExperienceRooms = useCallback(() => setConvergenceOpen(false), []);
+  const closeFounderDesignStudio = useCallback(() => setFounderDesignStudioOpen(false), []);
   const canvasStyle: LabStyle = {
     "--atelier-persian": colour(persianChoice.canvas), "--atelier-persian-raised": colour(persianChoice.elevated),
     "--atelier-porcelain": colour(porcelainChoice.base), "--atelier-porcelain-raised": colour(porcelainChoice.elevated),
@@ -233,7 +234,7 @@ export function Atelier() {
     {drawer === "proposal" ? <div className="dl4-modal-backdrop"><section className="dl4-modal" role="dialog" aria-modal="true" aria-labelledby="proposal-heading"><button className="dl4-close" aria-label="Close proposal workshop" onClick={() => setDrawer(null)}>×</button><span>Governed design workshop</span><h2 id="proposal-heading">Propose something genuinely new</h2><p>Your request stays linked to {active.label} and remains a Lab proposal until Founder review.</p><label>Design scope<select value={proposalScope} onChange={(event) => setProposalScope(event.target.value)}><option value="selected">Selected section — {active.label}</option><option value="page">Complete {PAGE_NAMES[page]} page</option><option value="brand">New brand direction</option><option value="component">New reusable component</option></select></label><label>What should feel different?<textarea value={proposalRequest} onChange={(event) => setProposalRequest(event.target.value)} placeholder="Describe feeling, layout, references, colours, movement, or anything missing…" /></label><label>Start from<select value={proposalSource} onChange={(event) => setProposalSource(event.target.value)}><option>Something completely new</option><option>The selected section</option><option>A V27 archive design</option><option>A reference or sketch I will provide</option></select></label><div className="dl4-modal-actions"><button onClick={() => setDrawer(null)}>Keep editing</button><button disabled={!proposalRequest.trim()} onClick={saveProposal}>Save proposal into brief</button></div><small>Draft only · Founder review required · cannot bind production</small></section></div> : null}
     {artDirectionOpen ? <ArtDirectionRoom sectionId={artDirectionSection} selections={artDirections} decisions={decisions} onSection={setArtDirectionSection} onSelect={(sectionId, variant) => setArtDirections((items) => ({ ...items, [sectionId]: variant }))} onDecision={(sectionId, variant, decision) => setDecisions((items) => ({ ...items, [`${sectionId}:${variant}`]: decision }))} onClose={() => setArtDirectionOpen(false)} /> : null}
     {convergenceOpen ? <ExperienceRooms onClose={closeExperienceRooms} onGovernedChange={setExperienceDecision} /> : null}
-    {founderDesignStudioOpen ? <FounderDesignStudio onClose={() => setFounderDesignStudioOpen(false)} onGovernedChange={setFounderDesignStudio} /> : null}
+    {founderDesignStudioOpen ? <FounderDesignStudio onClose={closeFounderDesignStudio} onGovernedChange={setFounderDesignStudio} /> : null}
   </main>;
 }
 
