@@ -8,6 +8,8 @@ import { PERSIAN_CANDIDATES, PORCELAIN_CANDIDATES } from "../data/materials";
 import { TEMPORAL_SIMULATIONS, type AtelierTime } from "../data/temporal-simulation";
 import { BrandWorkshop } from "./BrandWorkshop";
 import { ExperienceRooms, type ExperienceDecisionState } from "./ExperienceRooms";
+import { FounderDesignStudio } from "./FounderDesignStudio";
+import type { FounderDesignStudioState } from "../data/generative-design-contract";
 import {
   CONVERGENCE_LANES,
   INITIAL_BRAND_DECISION,
@@ -101,6 +103,8 @@ export function Atelier() {
   const [founderStateRestored, setFounderStateRestored] = useState(false);
   const [convergenceOpen, setConvergenceOpen] = useState(false);
   const [experienceDecision, setExperienceDecision] = useState<ExperienceDecisionState | null>(null);
+  const [founderDesignStudioOpen, setFounderDesignStudioOpen] = useState(false);
+  const [founderDesignStudio, setFounderDesignStudio] = useState<FounderDesignStudioState | null>(null);
   const [closingPlacement, setClosingPlacement] = useState<ClosingPlacement>("PRE_FOOTER_CLOSING_SECTION");
   const [closingTreatment, setClosingTreatment] = useState<ClosingTreatment>("PERSIAN_ARCHITECTURAL");
 
@@ -137,9 +141,10 @@ export function Atelier() {
     mediaLens,
     convergence: CONVERGENCE_LANES,
     experienceDecision,
+    founderGenerativeDesign: founderDesignStudio,
     productionBinding: false,
     approval: "FOUNDER_REVIEW_REQUIRED",
-  }), [pageContract, page, device, orientation, resolvedViewport, displayScale, deviceFrame, cleanPreview, studioTime, compareTime, persianChoice, porcelainChoice, current, closingPlacement, closingTreatment, instruction, proposals, decisions, artDirections, brandDecision, mediaLens, experienceDecision]);
+  }), [pageContract, page, device, orientation, resolvedViewport, displayScale, deviceFrame, cleanPreview, studioTime, compareTime, persianChoice, porcelainChoice, current, closingPlacement, closingTreatment, instruction, proposals, decisions, artDirections, brandDecision, mediaLens, experienceDecision, founderDesignStudio]);
 
   useEffect(() => {
     try {
@@ -215,7 +220,7 @@ export function Atelier() {
   if (view === "brand") return <BrandWorkshop decision={brandDecision} onChange={setBrandDecision} onClose={() => setView("welcome")} onOpenPage={() => openEditor("home")} />;
 
   return <main className="dl4-app dl45-app" data-clean-preview={cleanPreview}>
-    <header className="dl4-topbar"><button className="dl4-home-button" onClick={() => setView("welcome")}><strong>Champagne Atelier</strong><span>Studio home</span></button><nav className="dl43-workspace-nav" aria-label="Atelier workspace"><button onClick={() => setView("brand")}>Brand workshop</button><button aria-current="page">Page atelier</button><button onClick={() => setArtDirectionOpen(true)}>Art direction</button><button onClick={() => setConvergenceOpen(true)}>Experience layers</button></nav><label><span>Page</span><select aria-label="Page" value={page} onChange={(event) => changePage(event.target.value as AtelierPageKey)}>{Object.entries(PAGE_NAMES).map(([key, name]) => <option key={key} value={key}>{name}</option>)}</select></label><div className="dl45-preview-actions"><button aria-pressed={cleanPreview} onClick={() => { if (cleanPreview && fullscreenMode === "FALLBACK") setFullscreenMode("OFF"); setCleanPreview((value) => !value); }}>{cleanPreview ? "Return to studio" : "Clean preview"}</button><button onClick={toggleFullscreen}>Fullscreen</button></div><div className="dl4-actions"><span>Simulation only · production binding off</span><button onClick={exportBrief}>Export governed brief</button></div></header>
+    <header className="dl4-topbar"><button className="dl4-home-button" onClick={() => setView("welcome")}><strong>Champagne Atelier</strong><span>Studio home</span></button><nav className="dl43-workspace-nav" aria-label="Atelier workspace"><button onClick={() => setView("brand")}>Brand workshop</button><button aria-current="page">Page atelier</button><button onClick={() => setArtDirectionOpen(true)}>Art direction</button><button onClick={() => setConvergenceOpen(true)}>Experience layers</button><button className="dl49-launch" onClick={() => setFounderDesignStudioOpen(true)}>Generate &amp; explore</button></nav><label><span>Page</span><select aria-label="Page" value={page} onChange={(event) => changePage(event.target.value as AtelierPageKey)}>{Object.entries(PAGE_NAMES).map(([key, name]) => <option key={key} value={key}>{name}</option>)}</select></label><div className="dl45-preview-actions"><button aria-pressed={cleanPreview} onClick={() => { if (cleanPreview && fullscreenMode === "FALLBACK") setFullscreenMode("OFF"); setCleanPreview((value) => !value); }}>{cleanPreview ? "Return to studio" : "Clean preview"}</button><button onClick={toggleFullscreen}>Fullscreen</button></div><div className="dl4-actions"><span>Simulation only · production binding off</span><button onClick={exportBrief}>Export governed brief</button></div></header>
 
     <aside className="dl4-pages"><div className="dl4-panel-heading"><h2>Pages</h2><button aria-label="Propose a new page" onClick={openProposal}>＋</button></div>{(Object.keys(PAGE_NAMES) as AtelierPageKey[]).map((key) => <button className="dl4-page" aria-current={page === key ? "page" : undefined} key={key} onClick={() => changePage(key)}><span>{PAGE_NAMES[key]}</span><small>{visibleAtelierSections(ATELIER_CONTENT_PAGES[key]).length} visible · {ATELIER_CONTENT_PAGES[key].sections.length} jobs</small></button>)}<div className="dl4-content-status" data-state={pageContract.bundleStatus}><strong>{page === "home" ? "Real Content Bundle connected" : "Lab seed copy"}</strong><p>{page === "home" ? "12 visible chapters · FACT BLOCKED · composition testing only. Patient evidence is fully omitted." : "The section jobs are authoritative. The prose remains temporary until its approved content bundle arrives."}</p></div><div className="dl4-panel-heading"><h2>Page flow</h2><button aria-label="Back to page top" onClick={scrollPreviewTop}>↑</button></div><ol className="dl4-layers">{current.map((item, index) => <li key={item.id}><button aria-current={selected === item.id} onClick={() => selectSection(item.id)}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{item.label}</strong><small>{item.locked ? "Canonical · protected" : item.archiveId ? "Archive design placed" : item.contentState === "CONTENT_BUNDLE_V1_FACT_BLOCKED" ? "Real copy · fact blocked" : "Lab seed copy"}</small></div></button></li>)}</ol><div className="dl4-left-actions"><button onClick={() => setDrawer("archive")}>Explore existing designs</button><button onClick={openProposal}>✦ Create something new</button></div></aside>
 
@@ -228,6 +233,7 @@ export function Atelier() {
     {drawer === "proposal" ? <div className="dl4-modal-backdrop"><section className="dl4-modal" role="dialog" aria-modal="true" aria-labelledby="proposal-heading"><button className="dl4-close" aria-label="Close proposal workshop" onClick={() => setDrawer(null)}>×</button><span>Governed design workshop</span><h2 id="proposal-heading">Propose something genuinely new</h2><p>Your request stays linked to {active.label} and remains a Lab proposal until Founder review.</p><label>Design scope<select value={proposalScope} onChange={(event) => setProposalScope(event.target.value)}><option value="selected">Selected section — {active.label}</option><option value="page">Complete {PAGE_NAMES[page]} page</option><option value="brand">New brand direction</option><option value="component">New reusable component</option></select></label><label>What should feel different?<textarea value={proposalRequest} onChange={(event) => setProposalRequest(event.target.value)} placeholder="Describe feeling, layout, references, colours, movement, or anything missing…" /></label><label>Start from<select value={proposalSource} onChange={(event) => setProposalSource(event.target.value)}><option>Something completely new</option><option>The selected section</option><option>A V27 archive design</option><option>A reference or sketch I will provide</option></select></label><div className="dl4-modal-actions"><button onClick={() => setDrawer(null)}>Keep editing</button><button disabled={!proposalRequest.trim()} onClick={saveProposal}>Save proposal into brief</button></div><small>Draft only · Founder review required · cannot bind production</small></section></div> : null}
     {artDirectionOpen ? <ArtDirectionRoom sectionId={artDirectionSection} selections={artDirections} decisions={decisions} onSection={setArtDirectionSection} onSelect={(sectionId, variant) => setArtDirections((items) => ({ ...items, [sectionId]: variant }))} onDecision={(sectionId, variant, decision) => setDecisions((items) => ({ ...items, [`${sectionId}:${variant}`]: decision }))} onClose={() => setArtDirectionOpen(false)} /> : null}
     {convergenceOpen ? <ExperienceRooms onClose={closeExperienceRooms} onGovernedChange={setExperienceDecision} /> : null}
+    {founderDesignStudioOpen ? <FounderDesignStudio onClose={() => setFounderDesignStudioOpen(false)} onGovernedChange={setFounderDesignStudio} /> : null}
   </main>;
 }
 
