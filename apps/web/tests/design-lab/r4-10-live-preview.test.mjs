@@ -18,10 +18,9 @@ test("generated webpage and Concierge proposals render reversibly against Golden
 
 test("Founder exploration tools are explicit and explainable", () => {
   for (const dimension of ["composition", "type-hierarchy", "spacing-rhythm", "media-geometry", "interaction-model", "motion", "density", "mobile-composition"]) assert.match(studio + contract, new RegExp(dimension));
-  assert.match(studio, /None of these — try another family/);
-  assert.match(studio, /Do not learn from/);
-  assert.match(studio, /Reset this signal/);
-  assert.match(studio, /Visual Remix Builder/);
+  assert.match(studio, /None of these — rotate implemented families/);
+  assert.match(studio, /Stop using this signal/);
+  assert.match(studio, /Combine traits from kept ideas/);
 });
 
 test("deep links fail closed and future worker contract remains inert", () => {

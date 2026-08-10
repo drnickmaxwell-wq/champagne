@@ -1,0 +1,22 @@
+{
+  "schema": "CHAMPAGNE_ATELIER_R4_11_BACK_TEACH_CANDIDATE_REGISTER_V1",
+  "scope": "AUTHORISED_ATELIER_HANDOFF_EVIDENCE_ONLY",
+  "productionBinding": false,
+  "weosMutation": false,
+  "candidates": [
+    { "capability": "semantic page/section/component targeting", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Exact owner IDs and target kinds are portable across governed tenant canvases." },
+    { "capability": "immutable governed-content snapshot", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "A versioned, hash-addressed input boundary is tenant-neutral." },
+    { "capability": "Golden baseline", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Explicit reversible comparison against an unmodified baseline is portable." },
+    { "capability": "candidate lineage", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Parent, mode and exact-target ancestry are generic proposal evidence." },
+    { "capability": "decision state", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Explicit love, keep, maybe and reject signals are portable when never inferred." },
+    { "capability": "Tenant Design DNA seam", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "A removable explicit-signal preference seam can remain non-authoritative and tenant-scoped." },
+    { "capability": "responsive proof", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Viewport-labelled evidence and physical outer-shell checks generalise." },
+    { "capability": "media slots/provenance", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Honest missing, fallback and provenance states are portable governance primitives." },
+    { "capability": "Concierge semantic owner", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Non-page product surfaces still require exact semantic ownership." },
+    { "capability": "optional 3D slot", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Capability-gated spatial slots can declare missing or rejected assets without fabrication." },
+    { "capability": "approval/promotion state", "classification": "TENANT_NEUTRAL_BACK_TEACH_CANDIDATE", "reason": "Proposal, approved and production-bound states must remain separate across tenants." },
+    { "capability": "Champagne Persian/Porcelain visual families", "classification": "CHAMPAGNE_ONE_OFF", "reason": "These materials and their visual expression belong to Champagne." },
+    { "capability": "Implant content snapshot and AO graph", "classification": "CHAMPAGNE_ONE_OFF", "reason": "The copy, claims, Answer Objects and review maturity are Champagne clinical authority." },
+    { "capability": "Sacred Home Hero protection", "classification": "CHAMPAGNE_ONE_OFF", "reason": "This protection boundary is specific to the Champagne Golden homepage." }
+  ]
+}

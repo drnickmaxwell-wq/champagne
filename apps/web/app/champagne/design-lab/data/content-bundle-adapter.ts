@@ -1,5 +1,6 @@
 export type AtelierPageKey = "home" | "implants" | "bonding";
 import { HOME_CONTENT_BUNDLE_V1 } from "./home-content-bundle";
+import implantBundle from "./authority/CHAMPAGNE_IMPLANTS_CONTENT_BUNDLE_V1_1.json";
 export type MaterialRole = "persian" | "porcelain" | "luminous";
 export type ContentCapability = "proof" | "media" | "threeD";
 
@@ -16,7 +17,7 @@ export type AtelierContentSection = {
   modelSlot?: string;
   conciergeTopic: string;
   searchIntent: string;
-  contentState: "LAB_SEED_COPY" | "CONTENT_BUNDLE_V1_FACT_BLOCKED";
+  contentState: "LAB_SEED_COPY" | "CONTENT_BUNDLE_V1_FACT_BLOCKED" | "GOVERNED_CONTENT_CLINICAL_AND_FACT_BLOCKED";
   shortCopy?: string;
   extendedCopy?: string;
   pathways?: { label: string; description: string; href: string }[];
@@ -25,6 +26,22 @@ export type AtelierContentSection = {
   ctas?: { label: string; href: string; type: string }[];
   contentMediaSlotIds?: string[];
   reviewState?: string;
+  answerObjectIds?: string[];
+  sourceGroupIds?: string[];
+  claimIds?: string[];
+  approvalRequirements?: string[];
+  capabilityOffBehavior?: string;
+  componentCards?: { label: string; copy: string; answerObjectId: string }[];
+  transcript?: string;
+  governance?: {
+    bundleId: string;
+    bundleContentHash: string;
+    sourceFileHash: string;
+    sectionContentHash: string;
+    publicationMaturity: "BLOCKED";
+    clinicalMaturity: string;
+    factMaturity: string;
+  };
 };
 
 export type AtelierContentPage = {
@@ -32,10 +49,72 @@ export type AtelierContentPage = {
   route: "/" | "/treatments/implants" | "/treatments/composite-bonding";
   name: string;
   primaryQuestion: string;
-  bundleStatus: "AWAITING_CHAMPAGNE_CONTENT_BUNDLE_V1" | "FACT_BLOCKED";
+  bundleStatus: "AWAITING_CHAMPAGNE_CONTENT_BUNDLE_V1" | "FACT_BLOCKED" | "CLINICAL_AND_FACT_BLOCKED";
   contentVersion: "CONTENT_SEARCH_ORIENTATION_V1" | "1.0.0-draft.1";
   sections: AtelierContentSection[];
 };
+
+type ImplantBundleSection = (typeof implantBundle.sections)[number] & {
+  enabled: true;
+  eyebrow: string;
+  heading: string;
+  visibleCopy: { standard: string; short?: string; transcript?: string };
+  conciergeProjection: { topicId: string };
+};
+const IMPLANT_TONES: Record<string, MaterialRole> = {
+  "implants.hero": "persian",
+  "implants.direct-answer": "porcelain",
+  "implants.components-3d": "luminous",
+  "implants.assessment-factors": "porcelain",
+  "implants.planning": "persian",
+  "implants.stages": "porcelain",
+  "implants.options-comparison": "persian",
+  "implants.benefits-risks": "porcelain",
+  "implants.cost": "porcelain",
+  "implants.clinician": "persian",
+  "implants.aftercare": "persian",
+  "implants.faq-sources": "persian",
+  "implants.next-step": "porcelain",
+};
+
+const implantSection = (source: ImplantBundleSection): AtelierContentSection => ({
+  id: source.sectionId,
+  label: source.eyebrow,
+  job: source.job,
+  title: source.heading,
+  copy: source.visibleCopy.standard,
+  shortCopy: "short" in source.visibleCopy ? source.visibleCopy.short : undefined,
+  tone: IMPLANT_TONES[source.sectionId] ?? "porcelain",
+  locked: false,
+  capabilityGate: undefined,
+  mediaSlot: source.sectionId === "implants.components-3d" ? "IMPLANT_COMPONENTS_STATIC_V1" : source.mediaPurpose ? `MEDIA.${source.sectionId.toUpperCase().replaceAll(".", ".")}` : undefined,
+  modelSlot: source.sectionId === "implants.components-3d" ? "CD3D-IMPLANT-EDU-V1" : undefined,
+  conciergeTopic: source.conciergeProjection.topicId,
+  searchIntent: source.searchIntent.join(" · "),
+  contentState: "GOVERNED_CONTENT_CLINICAL_AND_FACT_BLOCKED",
+  ctas: "ctas" in source ? source.ctas : undefined,
+  faqs: "faqs" in source ? source.faqs : undefined,
+  componentCards: "componentCards" in source && Array.isArray(source.componentCards) ? source.componentCards.map(({ label, copy, answerObjectId }) => ({ label, copy, answerObjectId })) : undefined,
+  transcript: "transcript" in source.visibleCopy ? source.visibleCopy.transcript : undefined,
+  answerObjectIds: source.answerObjectIds,
+  sourceGroupIds: source.sourceGroupIds,
+  claimIds: source.claimIds,
+  reviewState: source.claimState,
+  approvalRequirements: source.approvalRequirements,
+  capabilityOffBehavior: source.capabilityOffBehavior,
+  contentMediaSlotIds: implantBundle.mediaSlots.filter((slot) => slot.sectionId === source.sectionId).map((slot) => slot.mediaSlotId),
+  governance: {
+    bundleId: implantBundle.bundleId,
+    bundleContentHash: implantBundle.provenance.contentHash,
+    sourceFileHash: "sha256:45d25648a97b5da1719026756d36ec8e8dcde0c9fba03aad470e75777eb8f33e",
+    sectionContentHash: source.contentHash,
+    publicationMaturity: "BLOCKED",
+    clinicalMaturity: source.claimState,
+    factMaturity: implantBundle.status,
+  },
+});
+
+export const IMPLANT_GOVERNED_SECTIONS = implantBundle.sections.filter((source) => source.enabled).map((source) => implantSection(source as ImplantBundleSection));
 
 export const LAB_CAPABILITIES: Record<ContentCapability, boolean> = {
   proof: false,
@@ -95,24 +174,9 @@ export const ATELIER_CONTENT_PAGES: Record<AtelierPageKey, AtelierContentPage> =
     route: "/treatments/implants",
     name: "Dental Implants",
     primaryQuestion: "What are implants, and might they be an option?",
-    bundleStatus: "AWAITING_CHAMPAGNE_CONTENT_BUNDLE_V1",
-    contentVersion: "CONTENT_SEARCH_ORIENTATION_V1",
-    sections: [
-      section("implants.hero", "Implants Hero V2", "Establish the decision context", "Dental implants", "Protected treatment opening.", "persian", { locked: true }),
-      section("implants.direct-answer", "A direct answer", "Define implants and who may consider them", "What is a dental implant?", "The approved bundle will distinguish the implant from the restoration and preserve the assessment boundary.", "porcelain"),
-      section("implants.components-3d", "Implant components", "Explain the components and their relationship", "See how the parts work together.", "Interactive 3D is off. This stable section uses a labelled static explanation until capability approval.", "luminous", { capabilityGate: "threeD", modelSlot: "CD3D-IMPLANT-EDU-V1", mediaSlot: "IMPLANT_COMPONENTS_STATIC_V1" }),
-      section("implants.assessment-factors", "Assessment factors", "Explain what affects suitability", "Assessment looks at the whole picture.", "A governed summary will cover relevant health, space, bite, maintenance and preference factors.", "porcelain"),
-      section("implants.planning", "Digital planning", "Explain diagnostics and restorative-led planning", "Planning before treatment.", "Records and scans will be described only where indicated and actually used.", "persian", { mediaSlot: "CBCT_PLANNING_V1" }),
-      section("implants.stages", "Treatment stages", "Set a realistic pathway", "A considered journey, not a fixed timetable.", "The Lab shows the broad sequence while final timing remains individual.", "porcelain", { mediaSlot: "IMPLANT_WORKFLOW_V1" }),
-      section("implants.options-comparison", "Compare options", "Compare implant and non-implant paths", "Different ways to replace missing teeth.", "Neutral comparison factors will connect to the correct child-page owners.", "porcelain"),
-      section("implants.benefits-risks", "Benefits and risks", "Support informed choice", "Potential benefits, limitations and risks.", "Evidence-graded and clinically approved content will replace this layout seed.", "persian"),
-      section("implants.cost", "Cost truth", "Explain fee drivers", "What shapes the cost of implant care?", "No invented price or finance range: only approved drivers and a verified Fees link.", "porcelain"),
-      section("implants.clinician", "Your clinician", "Establish accountable expertise", "Care with a named, verified team.", "Clinician identity and qualifications will project from the approved profile registry.", "persian", { mediaSlot: "FOUNDER_ENVIRONMENTAL_V1" }),
-      section("implants.aftercare", "Aftercare", "Explain maintenance and help-seeking", "Designed to be maintained.", "General maintenance, review and warning-sign boundaries will link to the aftercare owner.", "porcelain"),
-      section("implants.case-evidence", "Case evidence", "Show governed proof", "Real cases, only with complete consent.", "This chapter remains hidden until genuine evidence is approved.", "porcelain", { capabilityGate: "proof" }),
-      section("implants.faq-sources", "Questions and sources", "Resolve owned questions and show evidence", "Questions deserve clear, sourced answers.", "Focused questions, sources and review dates will remain page-owned.", "porcelain"),
-      section("implants.next-step", "A considered next step", "Offer a safe action", "Plan the right next conversation.", "A request or contact action only—never a suitability or live-slot promise.", "persian"),
-    ],
+    bundleStatus: "CLINICAL_AND_FACT_BLOCKED",
+    contentVersion: "1.0.0-draft.1",
+    sections: IMPLANT_GOVERNED_SECTIONS,
   },
   bonding: {
     pageId: "bonding",

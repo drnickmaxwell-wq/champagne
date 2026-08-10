@@ -4,6 +4,7 @@ export type ProposalDecision = "love" | "keep" | "maybe" | "reject";
 export type ProposalAffinity = "DNA_ALIGNED" | "EXPLORATORY_OUTLIER";
 export type DesignTrait = "composition" | "asymmetry" | "type-hierarchy" | "spacing-rhythm" | "interaction-model" | "media-geometry" | "motion" | "density" | "mobile-composition";
 export type ReferenceKind = "screenshot" | "sketch" | "photograph" | "url-note" | "visual-archive-item" | "existing-proposal";
+export type GenerationTargetKind = "page" | "section" | "component" | "concierge-surface";
 
 export const GENERATION_SURFACES = {
   webpage: ["whole-page", "semantic-section", "component"],
@@ -17,6 +18,9 @@ export type DesignProposal = {
   domain: GenerationDomain;
   scope: string;
   semanticOwner: string;
+  targetKind: GenerationTargetKind;
+  pageKey: "home" | "implants" | "bonding" | null;
+  componentId: string | null;
   mode: GenerationMode;
   title: string;
   rationale: string;
@@ -41,10 +45,11 @@ const families: Array<Pick<DesignProposal, "title" | "rationale" | "affinity" | 
   { title: "Quiet Monolith", rationale: "One strong spatial gesture removes competing chrome and concentrates the decision.", affinity: "EXPLORATORY_OUTLIER", family: "monolith" },
 ];
 
-export function generateProposalSet(input: { sequence: number; domain: GenerationDomain; scope: string; semanticOwner: string; mode: GenerationMode; parentId?: string | null; references?: string[]; inheritedTraits?: DesignTrait[]; changedDimension?: DesignTrait | null }): DesignProposal[] {
+export function generateProposalSet(input: { sequence: number; domain: GenerationDomain; scope: string; semanticOwner: string; targetKind: GenerationTargetKind; pageKey?: DesignProposal["pageKey"]; componentId?: string | null; mode: GenerationMode; parentId?: string | null; references?: string[]; inheritedTraits?: DesignTrait[]; changedDimension?: DesignTrait | null; preferredFamily?: DesignProposal["family"] | null }): DesignProposal[] {
   const setId = `r49-${input.domain}-${input.sequence}`;
   const distance = input.mode === "NONE_OF_THESE" ? input.sequence : 0;
-  const ordered = distance ? [...families.slice(distance % families.length), ...families.slice(0, distance % families.length)] : families;
+  const rotated = distance ? [...families.slice(distance % families.length), ...families.slice(0, distance % families.length)] : families;
+  const ordered = input.preferredFamily ? [...rotated.filter((item) => item.family === input.preferredFamily), ...rotated.filter((item) => item.family !== input.preferredFamily)] : rotated;
   return ordered.map((family, index) => ({
     ...family,
     id: `${setId}-${String(index + 1).padStart(2, "0")}`,
@@ -53,6 +58,9 @@ export function generateProposalSet(input: { sequence: number; domain: Generatio
     domain: input.domain,
     scope: input.scope,
     semanticOwner: input.semanticOwner,
+    targetKind: input.targetKind,
+    pageKey: input.pageKey ?? null,
+    componentId: input.componentId ?? null,
     mode: input.mode,
     references: input.references ?? [],
     responsiveIntent: "Independent compositions at 1440, 1024, 768 and 390 CSS pixels.",

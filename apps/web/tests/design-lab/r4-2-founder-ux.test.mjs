@@ -4,9 +4,11 @@ import test from "node:test";
 
 const atelier = readFileSync(new URL("../../app/champagne/design-lab/_components/Atelier.tsx", import.meta.url), "utf8");
 const adapter = readFileSync(new URL("../../app/champagne/design-lab/data/content-bundle-adapter.ts", import.meta.url), "utf8");
+const implantBundle = JSON.parse(readFileSync(new URL("../../app/champagne/design-lab/data/authority/CHAMPAGNE_IMPLANTS_CONTENT_BUNDLE_V1_1.json", import.meta.url), "utf8"));
 const css = readFileSync(new URL("../../app/champagne/design-lab/atelier-r4.2.css", import.meta.url), "utf8");
 
-const ids = [...adapter.matchAll(/section\("((?:home|implants|bonding)\.[a-z0-9.-]+)"/g)].map((match) => match[1]);
+const codeIds = [...adapter.matchAll(/section\("((?:home|bonding)\.[a-z0-9.-]+)"/g)].map((match) => match[1]);
+const ids = [...codeIds, ...implantBundle.sections.map((section) => section.sectionId)];
 
 test("R4.2 presents a guided Founder-first Atelier home", () => {
   for (const marker of ["Where would you like to begin?", "Develop the brand", "Design pages", "Explore designs", "Ask Atelier", "Compare and compose"]) {
@@ -26,9 +28,9 @@ test("content adapter holds the true 13, 14 and 13 stable jobs", () => {
 test("capability-gated truth remains fail closed", () => {
   assert.match(adapter, /proof: false/);
   assert.match(adapter, /threeD: false/);
-  assert.match(adapter, /Interactive 3D is off/);
+  assert.equal(implantBundle.sections.find((section) => section.sectionId === "implants.components-3d").capabilityOffBehavior.includes("static"), true);
   assert.match(adapter, /home\.proof/);
-  assert.match(adapter, /implants\.case-evidence/);
+  assert.equal(implantBundle.sections.find((section) => section.sectionId === "implants.case-evidence").enabled, false);
   assert.match(atelier, /Interactive 3D remains off/);
 });
 

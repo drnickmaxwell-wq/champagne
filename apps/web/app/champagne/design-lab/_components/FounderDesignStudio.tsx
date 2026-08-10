@@ -1,14 +1,32 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { GENERATION_SURFACES, generateProposalSet, type DesignProposal, type DesignTrait, type FounderDesignStudioState, type GenerationDomain, type GenerationMode, type ProposalDecision, type ReferenceKind } from "../data/generative-design-contract";
+import type { AtelierContentPage, AtelierContentSection, AtelierPageKey } from "../data/content-bundle-adapter";
+import {
+  GENERATION_SURFACES,
+  generateProposalSet,
+  type DesignProposal,
+  type DesignTrait,
+  type FounderDesignStudioState,
+  type GenerationDomain,
+  type GenerationMode,
+  type GenerationTargetKind,
+  type ProposalDecision,
+  type ReferenceKind,
+} from "../data/generative-design-contract";
 
-const STORAGE_KEY = "champagne.atelier.r4.9.founder-design-studio";
-const MODES: Array<{ id: GenerationMode; label: string }> = [
-  { id: "COMPLETELY_NEW", label: "Completely new" }, { id: "MORE_LIKE_THIS", label: "More like this" },
-  { id: "CHANGE_ONE_THING", label: "Change one thing" }, { id: "REMIX", label: "Remix" },
-  { id: "REFERENCE_LED", label: "Reference-led" }, { id: "SURPRISE_ME", label: "Surprise me" },
+const STORAGE_KEY = "champagne.atelier.r4.11.founder-design-studio";
+const PAGE_NAMES: Record<AtelierPageKey, string> = { home: "Homepage", implants: "Dental Implants", bonding: "Composite Bonding" };
+const MODES: Array<{ id: GenerationMode; label: string; truth: string }> = [
+  { id: "COMPLETELY_NEW", label: "New code-native direction", truth: "Starts from the four implemented visual families." },
+  { id: "MORE_LIKE_THIS", label: "Keep selected traits", truth: "Records the traits to preserve and prioritises your explicitly preferred family." },
+  { id: "CHANGE_ONE_THING", label: "Change one coded dimension", truth: "Changes the chosen implemented styling dimension; it is not free-form synthesis." },
+  { id: "REMIX", label: "Combine recorded traits", truth: "Combines recorded parent traits and lineage; it does not visually blend pixels." },
+  { id: "REFERENCE_LED", label: "Use a reference note", truth: "Uses your written description only. No image or URL is visually analysed." },
+  { id: "SURPRISE_ME", label: "Rotate implemented families", truth: "Changes deterministic family order; no AI is called." },
 ];
+const TRAITS: DesignTrait[] = ["composition", "asymmetry", "type-hierarchy", "spacing-rhythm", "interaction-model", "media-geometry", "motion", "density", "mobile-composition"];
+const REFERENCE_KINDS: ReferenceKind[] = ["screenshot", "sketch", "photograph", "url-note", "visual-archive-item", "existing-proposal"];
 
 const initialState: FounderDesignStudioState = {
   schema: "champagne.atelier.founder-design-studio.v1", proposals: [], decisions: {}, selectedIds: [], lineage: [],
@@ -17,37 +35,71 @@ const initialState: FounderDesignStudioState = {
   generationDisclosure: "DETERMINISTIC_CODE_NATIVE_PROPOSALS_NOT_AI", productionBinding: false,
 };
 
-const TRAITS: DesignTrait[] = ["composition", "asymmetry", "type-hierarchy", "spacing-rhythm", "interaction-model", "media-geometry", "motion", "density", "mobile-composition"];
-const REFERENCE_KINDS: ReferenceKind[] = ["screenshot", "sketch", "photograph", "url-note", "visual-archive-item", "existing-proposal"];
+type ComponentTarget = { id: string; label: string };
+const componentTargets = (section: AtelierContentSection): ComponentTarget[] => {
+  const targets: ComponentTarget[] = [{ id: `${section.id}.content`, label: "Heading and reading composition" }];
+  if (section.componentCards?.length) targets.push(...section.componentCards.map((item) => ({ id: `${section.id}.component.${item.answerObjectId}`, label: item.label })));
+  if (section.mediaSlot || section.contentMediaSlotIds?.length) targets.push({ id: `${section.id}.media`, label: "Media or fallback composition" });
+  if (section.modelSlot) targets.push({ id: `${section.id}.3d-slot`, label: "Governed 3D exhibit slot" });
+  if (section.ctas?.length) targets.push({ id: `${section.id}.actions`, label: "Next-action area" });
+  return targets;
+};
 
-export function FounderDesignStudio({ initialDomain, onClose, onGovernedChange, onPreview, activeProposalId }: { initialDomain: GenerationDomain; onClose: () => void; onGovernedChange: (state: FounderDesignStudioState) => void; onPreview: (proposal: DesignProposal) => void; activeProposalId: string | null }) {
+export function FounderDesignStudio({ initialDomain, initialPage, pages, selectedSectionId, onClose, onGovernedChange, onPreview, onReturnGolden, activeProposalId }: {
+  initialDomain: GenerationDomain;
+  initialPage: AtelierPageKey;
+  pages: Record<AtelierPageKey, AtelierContentPage>;
+  selectedSectionId: string;
+  onClose: () => void;
+  onGovernedChange: (state: FounderDesignStudioState) => void;
+  onPreview: (proposal: DesignProposal) => void;
+  onReturnGolden: () => void;
+  activeProposalId: string | null;
+}) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const returnFocus = useRef<HTMLElement | null>(null);
   const [state, setState] = useState<FounderDesignStudioState>(initialState);
   const [domain, setDomain] = useState<GenerationDomain>(initialDomain);
-  const [scope, setScope] = useState<string>(initialDomain === "concierge" ? "shell" : "whole-page");
+  const [pageKey, setPageKey] = useState<AtelierPageKey>(initialPage);
+  const [targetKind, setTargetKind] = useState<GenerationTargetKind>(initialDomain === "concierge" ? "concierge-surface" : "page");
+  const initialSection = pages[initialPage].sections.some((item) => item.id === selectedSectionId) ? selectedSectionId : pages[initialPage].sections[0].id;
+  const [sectionId, setSectionId] = useState(initialSection);
+  const [componentId, setComponentId] = useState("");
+  const [conciergeScope, setConciergeScope] = useState("shell");
   const [mode, setMode] = useState<GenerationMode>("COMPLETELY_NEW");
   const [reference, setReference] = useState("");
   const [referenceKind, setReferenceKind] = useState<ReferenceKind>("screenshot");
   const [notes, setNotes] = useState("");
+  const [error, setError] = useState("");
   const sequenceRef = useRef(1);
   const [tab, setTab] = useState<"generate" | "compare" | "dna" | "lineage">("generate");
   const [activeSet, setActiveSet] = useState<string | null>(null);
   const [inheritedTraits, setInheritedTraits] = useState<DesignTrait[]>(["composition", "asymmetry", "type-hierarchy", "spacing-rhythm", "media-geometry"]);
   const [changedDimension, setChangedDimension] = useState<DesignTrait>("composition");
   const [refineParent, setRefineParent] = useState<DesignProposal | null>(null);
-  const [remixOpen, setRemixOpen] = useState(false);
-  const [remixSources, setRemixSources] = useState<Record<string, string>>({});
+
+  const page = pages[pageKey];
+  const section = page.sections.find((item) => item.id === sectionId) ?? page.sections[0];
+  const components = useMemo(() => componentTargets(section), [section]);
+  useEffect(() => { if (!components.some((item) => item.id === componentId)) setComponentId(components[0]?.id ?? ""); }, [componentId, components]);
 
   useEffect(() => {
     returnFocus.current = document.activeElement as HTMLElement;
-    try { const saved = window.localStorage.getItem(STORAGE_KEY); if (saved) { const parsed = JSON.parse(saved) as Partial<FounderDesignStudioState>; const highestSequence = (parsed.proposals ?? []).reduce((highest, proposal) => Math.max(highest, Number(proposal.setId.split("-").at(-1)) || 0), 0); sequenceRef.current = highestSequence + 1; setState({ ...initialState, ...parsed, founderDesignDNA: { ...initialState.founderDesignDNA, ...parsed.founderDesignDNA, ignoredDecisionIds: parsed.founderDesignDNA?.ignoredDecisionIds ?? [] } }); } } catch { /* Private preferences remain optional. */ }
+    try {
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved) as Partial<FounderDesignStudioState>;
+        const proposals = (parsed.proposals ?? []).filter((proposal) => proposal.targetKind);
+        sequenceRef.current = proposals.reduce((highest, proposal) => Math.max(highest, Number(proposal.setId.split("-").at(-1)) || 0), 0) + 1;
+        setState({ ...initialState, ...parsed, proposals, founderDesignDNA: { ...initialState.founderDesignDNA, ...parsed.founderDesignDNA, ignoredDecisionIds: parsed.founderDesignDNA?.ignoredDecisionIds ?? [] } });
+      }
+    } catch { /* Optional private state never blocks the Studio. */ }
     closeRef.current?.focus();
     const keydown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") { event.preventDefault(); onClose(); return; }
       if (event.key !== "Tab") return;
       const dialog = closeRef.current?.closest('[role="dialog"]');
-      const controls = dialog?.querySelectorAll<HTMLElement>('button:not([disabled]),select,input,textarea,[href]');
+      const controls = dialog?.querySelectorAll<HTMLElement>('button:not([disabled]),select,input,textarea,summary,[href]');
       if (!controls?.length) return;
       const first = controls[0]; const last = controls[controls.length - 1];
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
@@ -57,52 +109,60 @@ export function FounderDesignStudio({ initialDomain, onClose, onGovernedChange, 
     return () => { document.removeEventListener("keydown", keydown); returnFocus.current?.focus(); };
   }, [onClose]);
 
-  useEffect(() => { onGovernedChange(state); try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* Governed export remains the durable path. */ } }, [onGovernedChange, state]);
+  useEffect(() => { onGovernedChange(state); try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* Export remains the durable path. */ } }, [onGovernedChange, state]);
 
   const current = useMemo(() => activeSet ? state.proposals.filter((item) => item.setId === activeSet) : state.proposals.slice(-4), [activeSet, state.proposals]);
-  const update = (proposals: DesignProposal[], nextMode: GenerationMode) => setState((previous) => {
-    const lineage = proposals.map(({ id, parentId, setId }) => ({ proposalId: id, parentId, setId, mode: nextMode }));
-    return { ...previous, proposals: [...previous.proposals, ...proposals], lineage: [...previous.lineage, ...lineage] };
-  });
-  const generate = (nextMode = mode, parentId: string | null = null, traits = inheritedTraits) => {
-    const generationSequence = sequenceRef.current;
-    sequenceRef.current += 1;
-    const proposals = generateProposalSet({ sequence: generationSequence, domain, scope, semanticOwner: domain === "webpage" ? (scope === "whole-page" ? "home.practice.answer" : "home.practice.answer") : `concierge.${scope}`, mode: nextMode, parentId, references: reference.trim() ? [`${referenceKind}:${reference.trim()}`] : [], inheritedTraits: nextMode === "MORE_LIKE_THIS" || nextMode === "REMIX" ? traits : [], changedDimension: nextMode === "CHANGE_ONE_THING" ? changedDimension : null });
-    update(proposals, nextMode); setActiveSet(proposals[0].setId); setTab("compare");
+  const modeTruth = MODES.find((item) => item.id === mode)?.truth;
+  const preferredFamily = state.founderDesignDNA.positiveSignals.map((signal) => signal.split(":")[0]).find((family): family is DesignProposal["family"] => ["aperture", "folio", "luminous", "monolith"].includes(family)) ?? null;
+
+  const resolveTarget = () => {
+    if (domain === "concierge") return { semanticOwner: `concierge.${conciergeScope}`, scope: conciergeScope, targetKind: "concierge-surface" as const, pageKey: null, componentId: null };
+    if (targetKind === "page") return { semanticOwner: page.route, scope: "whole-page", targetKind, pageKey, componentId: null };
+    if (targetKind === "section" && section?.id) return { semanticOwner: section.id, scope: "semantic-section", targetKind, pageKey, componentId: null };
+    if (targetKind === "component" && componentId && components.some((item) => item.id === componentId)) return { semanticOwner: section.id, scope: "component", targetKind, pageKey, componentId };
+    return null;
   };
+
+  const generate = (nextMode = mode, parentId: string | null = null, traits = inheritedTraits) => {
+    const target = resolveTarget();
+    if (!target) { setError("Choose a valid page, section or component before creating proposals."); return; }
+    if (!notes.trim()) { setError("Tell Atelier what feels wrong or what should change first."); return; }
+    if (nextMode === "REFERENCE_LED" && !reference.trim()) { setError("Add a written reference note. Atelier does not visually analyse uploads or URLs in this tranche."); return; }
+    setError("");
+    const sequence = sequenceRef.current++;
+    const proposals = generateProposalSet({ sequence, domain, ...target, mode: nextMode, parentId, references: reference.trim() ? [`${referenceKind}:${reference.trim()}`] : [], inheritedTraits: nextMode === "MORE_LIKE_THIS" || nextMode === "REMIX" ? traits : [], changedDimension: nextMode === "CHANGE_ONE_THING" ? changedDimension : null, preferredFamily });
+    setState((previous) => ({ ...previous, proposals: [...previous.proposals, ...proposals], lineage: [...previous.lineage, ...proposals.map(({ id, parentId: parent, setId }) => ({ proposalId: id, parentId: parent, setId, mode: nextMode }))], founderDesignDNA: { ...previous.founderDesignDNA, openQuestions: [notes.trim()] } }));
+    setActiveSet(proposals[0].setId); setTab("compare");
+  };
+
   const decide = (proposal: DesignProposal, decision: ProposalDecision) => setState((previous) => {
     const decisions = { ...previous.decisions, [proposal.id]: decision };
     const selectedIds = decision === "love" || decision === "keep" ? [...new Set([...previous.selectedIds, proposal.id])] : previous.selectedIds.filter((id) => id !== proposal.id);
     const positiveSignals = previous.proposals.filter((item) => decisions[item.id] === "love" || decisions[item.id] === "keep").map((item) => `${item.family}:${item.scope}`);
-    return { ...previous, decisions, selectedIds, founderDesignDNA: { ...previous.founderDesignDNA, positiveSignals: [...new Set(positiveSignals)], openQuestions: notes.trim() ? [notes.trim()] : [] } };
+    return { ...previous, decisions, selectedIds, founderDesignDNA: { ...previous.founderDesignDNA, positiveSignals: [...new Set(positiveSignals)] } };
   });
-  const noneOfThese = () => {
-    setState((previous) => ({ ...previous, decisions: { ...previous.decisions, ...Object.fromEntries(current.map((item) => [item.id, "reject" as const])) } }));
-    generate("NONE_OF_THESE", current[0]?.id ?? null);
-  };
-  const remix = () => {
-    const sources = state.selectedIds.map((id) => state.proposals.find((item) => item.id === id)).filter(Boolean) as DesignProposal[];
-    const traits = Object.keys(remixSources).filter((key) => remixSources[key]) as DesignTrait[];
-    setInheritedTraits(traits);
-    generate("REMIX", sources[0]?.id ?? current[0]?.id ?? null, traits); setRemixOpen(false);
-  };
+  const noneOfThese = () => { setState((previous) => ({ ...previous, decisions: { ...previous.decisions, ...Object.fromEntries(current.map((item) => [item.id, "reject" as const])) } })); generate("NONE_OF_THESE", current[0]?.id ?? null); };
   const toggleTrait = (trait: DesignTrait) => setInheritedTraits((items) => items.includes(trait) ? items.filter((item) => item !== trait) : [...items, trait]);
-  const ignoreDecision = (id: string) => setState((previous) => ({ ...previous, founderDesignDNA: { ...previous.founderDesignDNA, ignoredDecisionIds: [...new Set([...previous.founderDesignDNA.ignoredDecisionIds, id])], positiveSignals: previous.founderDesignDNA.positiveSignals.filter((signal) => !signal.startsWith(previous.proposals.find((item) => item.id === id)?.family ?? "__missing")) } }));
 
-  return <div className="dl49-backdrop"><section className="dl49-studio" role="dialog" aria-modal="true" aria-labelledby="dl49-title">
-    <header><div><span>Founder Design Studio</span><h2 id="dl49-title">Generate. Compare. Refine. Remix.</h2><p>Explore real design directions without binding production or changing governed meaning.</p></div><button ref={closeRef} onClick={onClose}>Close studio</button></header>
-    <nav aria-label="Founder Design Studio"><button aria-current={tab === "generate" ? "page" : undefined} onClick={() => setTab("generate")}>Generate</button><button aria-current={tab === "compare" ? "page" : undefined} onClick={() => setTab("compare")}>Compare <small>{current.length || "—"}</small></button><button aria-current={tab === "dna" ? "page" : undefined} onClick={() => setTab("dna")}>Design DNA</button><button aria-current={tab === "lineage" ? "page" : undefined} onClick={() => setTab("lineage")}>Lineage</button></nav>
+  return <div className="dl49-backdrop dl411-backdrop"><section className="dl49-studio dl411-studio" role="dialog" aria-modal="true" aria-labelledby="dl411-title">
+    <header><div><span>Champagne Atelier · Founder Design Studio</span><h2 id="dl411-title">Judge the design, not the machinery.</h2><p>Choose what you are changing, compare it in context, and keep Golden one click away.</p></div><div className="dl411-truth"><strong>Deterministic proposals · not AI</strong><small>productionBinding=false</small></div><button ref={closeRef} onClick={onClose}>Close studio</button></header>
+    <nav aria-label="Founder Design Studio"><button aria-current={tab === "generate" ? "page" : undefined} onClick={() => setTab("generate")}>Choose &amp; generate</button><button aria-current={tab === "compare" ? "page" : undefined} onClick={() => setTab("compare")}>Compare <small>{current.length || "—"}</small></button><button aria-current={tab === "dna" ? "page" : undefined} onClick={() => setTab("dna")}>Design DNA</button><button aria-current={tab === "lineage" ? "page" : undefined} onClick={() => setTab("lineage")}>Lineage</button><button className="dl411-return" onClick={onReturnGolden}>Return to Golden</button></nav>
 
-    {tab === "generate" ? <div className="dl49-generate"><section><span>01 · Choose the design surface</span><div className="dl49-domain"><button aria-pressed={domain === "webpage"} onClick={() => { setDomain("webpage"); setScope("whole-page"); }}>Webpage UI/UX</button><button aria-pressed={domain === "concierge"} onClick={() => { setDomain("concierge"); setScope("invitation"); }}>Concierge UI/UX</button></div><label>Surface<select aria-label="Design surface" value={scope} onChange={(event) => setScope(event.target.value)}>{GENERATION_SURFACES[domain].map((item) => <option key={item} value={item}>{item.replaceAll("-", " ")}</option>)}</select></label></section><section><span>02 · Choose how to explore</span><div className="dl49-modes">{MODES.map((item) => <button key={item.id} aria-pressed={mode === item.id} onClick={() => setMode(item.id)}>{item.label}</button>)}</div>{mode === "REFERENCE_LED" ? <><label>Reference type<select aria-label="Reference type" value={referenceKind} onChange={(event) => setReferenceKind(event.target.value as ReferenceKind)}>{REFERENCE_KINDS.map((kind) => <option key={kind}>{kind}</option>)}</select></label><label>Reference description<input value={reference} onChange={(event) => setReference(event.target.value)} placeholder="Describe or identify the reference and what you value in it" /><small>DESIGN_REFERENCE_ONLY · upload persistence not connected · no ownership, factual, media or provenance authority.</small></label></> : null}{mode === "CHANGE_ONE_THING" ? <label>Change exactly one dimension<select aria-label="Change dimension" value={changedDimension} onChange={(event) => setChangedDimension(event.target.value as DesignTrait)}>{TRAITS.map((trait) => <option key={trait}>{trait}</option>)}</select><small>All other candidate characteristics remain inherited where possible.</small></label> : null}<label>Founder note<textarea value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="What should remain, change, or feel different?" /></label><button className="dl49-primary" onClick={() => generate()}>Generate four proposals</button></section><aside><strong>What generation means here</strong><p>These are deterministic, code-native Lab proposals—not external AI output.</p><dl><div><dt>Meaning</dt><dd>Governed and unchanged</dd></div><div><dt>Accessibility</dt><dd>Mandatory envelope</dd></div><div><dt>Production</dt><dd>Binding off</dd></div></dl></aside></div> : null}
+    {tab === "generate" ? <div className="dl411-generate">
+      <section className="dl411-target"><span>01 · What are we changing?</span><div className="dl49-domain"><button aria-pressed={domain === "webpage"} onClick={() => { setDomain("webpage"); setTargetKind("page"); }}>Webpage</button><button aria-pressed={domain === "concierge"} onClick={() => { setDomain("concierge"); setTargetKind("concierge-surface"); }}>Concierge</button></div>
+        {domain === "webpage" ? <><label>Choose page<select aria-label="Choose page" value={pageKey} onChange={(event) => { const next = event.target.value as AtelierPageKey; setPageKey(next); setSectionId(pages[next].sections[0].id); }}><option value="home">Homepage</option><option value="implants">Dental Implants</option><option value="bonding">Composite Bonding</option></select></label><div className="dl411-target-kind" aria-label="Target size">{(["page", "section", "component"] as GenerationTargetKind[]).map((kind) => <button key={kind} aria-pressed={targetKind === kind} onClick={() => setTargetKind(kind)}>{kind === "page" ? "Whole page" : kind === "section" ? "One section" : "One component"}</button>)}</div>{targetKind !== "page" ? <label>Which section?<select aria-label="Choose section" value={section.id} onChange={(event) => setSectionId(event.target.value)}>{page.sections.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label> : null}{targetKind === "component" ? <label>Which part?<select aria-label="Choose component" value={componentId} onChange={(event) => setComponentId(event.target.value)}>{components.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label> : null}<p className="dl411-target-truth"><strong>Target:</strong> {targetKind === "page" ? `${PAGE_NAMES[pageKey]} — complete page` : targetKind === "section" ? `${PAGE_NAMES[pageKey]} — ${section.label}` : `${PAGE_NAMES[pageKey]} — ${section.label} — ${components.find((item) => item.id === componentId)?.label}`}</p></> : <label>Concierge surface<select aria-label="Concierge surface" value={conciergeScope} onChange={(event) => setConciergeScope(event.target.value)}>{GENERATION_SURFACES.concierge.map((item) => <option key={item}>{item.replaceAll("-", " ")}</option>)}</select></label>}
+      </section>
+      <section className="dl411-intent"><span>02 · What feels wrong?</span><label className="dl411-note">Describe the change<textarea value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="For example: this section feels too clinical and boxed-in; keep the calm but make the reading rhythm more architectural." /></label><span>03 · How should the code-native proposals explore?</span><div className="dl49-modes">{MODES.map((item) => <button key={item.id} aria-pressed={mode === item.id} onClick={() => setMode(item.id)}>{item.label}</button>)}</div><p className="dl411-mode-truth">{modeTruth}</p>{mode === "REFERENCE_LED" ? <><label>Reference type<select aria-label="Reference type" value={referenceKind} onChange={(event) => setReferenceKind(event.target.value as ReferenceKind)}>{REFERENCE_KINDS.map((kind) => <option key={kind}>{kind}</option>)}</select></label><label>Reference note<input value={reference} onChange={(event) => setReference(event.target.value)} placeholder="Describe what you value in the reference" /><small>Text note only · no visual understanding or provenance authority.</small></label></> : null}{mode === "CHANGE_ONE_THING" ? <label>Change one coded dimension<select aria-label="Change dimension" value={changedDimension} onChange={(event) => setChangedDimension(event.target.value as DesignTrait)}>{TRAITS.map((trait) => <option key={trait}>{trait.replaceAll("-", " ")}</option>)}</select></label> : null}{error ? <p className="dl411-error" role="alert">{error}</p> : null}<button className="dl49-primary" onClick={() => generate()}>Create four code-native proposals</button></section>
+    </div> : null}
 
-    {tab === "compare" ? <div className="dl49-compare">{current.length ? <><div className="dl49-compare-head"><div><span>{domain === "webpage" ? "Webpage Foundry" : "Concierge Foundry"}</span><h3>{scope.replaceAll("-", " ")} · four-way comparison</h3><p><strong>Aligned</strong> follows demonstrated choices. <strong>Outlier</strong> deliberately explores beyond them.</p>{domain === "concierge" ? <p>UX_LOGIC_AUTHORITY ≠ VISUAL_STYLE_AUTHORITY · Public, non-PHI navigation and human escape remain fixed.</p> : null}</div><button onClick={() => setTab("generate")}>New exploration</button></div><div className="dl49-candidates">{current.map((proposal) => <ProposalCard key={proposal.id} proposal={proposal} decision={state.decisions[proposal.id]} active={activeProposalId === proposal.id} onPreview={() => onPreview(proposal)} onDecision={(decision) => decide(proposal, decision)} onRefine={() => { setDomain(proposal.domain); setScope(proposal.scope); setRefineParent(proposal); }} />)}</div>{refineParent ? <section className="dl410-inherit"><header><div><span>More like {refineParent.title}</span><h4>Choose what should survive.</h4></div><button onClick={() => setRefineParent(null)}>Cancel</button></header><div>{TRAITS.map((trait) => <label key={trait}><input type="checkbox" checked={inheritedTraits.includes(trait)} onChange={() => toggleTrait(trait)} />{trait.replaceAll("-", " ")}</label>)}</div><button onClick={() => { generate("MORE_LIKE_THIS", refineParent.id); setRefineParent(null); }}>Generate inherited refinements</button></section> : null}{remixOpen ? <section className="dl410-remix"><header><span>Visual Remix Builder</span><h4>Choose the parent for each characteristic.</h4></header>{(["composition", "type-hierarchy", "interaction-model", "media-geometry", "motion"] as DesignTrait[]).map((trait) => <label key={trait}>{trait.replaceAll("-", " ")}<select aria-label={`${trait} source`} value={remixSources[trait] ?? ""} onChange={(event) => setRemixSources((items) => ({ ...items, [trait]: event.target.value }))}><option value="">Choose proposal</option>{state.selectedIds.map((id) => <option key={id} value={id}>{id}</option>)}</select></label>)}<p>Lineage preview: {Object.entries(remixSources).filter(([, id]) => id).map(([trait, id]) => `${trait} ← ${id}`).join(" · ") || "Choose at least two parent traits."}</p><button disabled={Object.keys(remixSources).length < 2} onClick={remix}>Generate new remix proposal</button></section> : null}<footer><button onClick={noneOfThese}>None of these — try another family</button><button disabled={state.selectedIds.length < 2} onClick={() => setRemixOpen(true)}>Remix selected ideas</button></footer></> : <div className="dl49-empty"><h3>No candidates yet.</h3><p>Choose a surface and exploration mode to create the first comparison family.</p><button onClick={() => setTab("generate")}>Begin generating</button></div>}</div> : null}
+    {tab === "compare" ? <div className="dl411-compare">{current.length ? <><header className="dl411-compare-head"><div><span>{current[0].pageKey ? PAGE_NAMES[current[0].pageKey] : "Concierge"}</span><h3>Golden truth beside a candidate proposal.</h3><p>{current[0].targetKind === "page" ? "Complete page" : current[0].targetKind === "section" ? current[0].semanticOwner : current[0].componentId}</p></div><button onClick={() => setTab("generate")}>Change the brief</button></header><div className="dl411-primary-candidates">{current.slice(0, 2).map((proposal, index) => <ProposalCard key={proposal.id} proposal={proposal} decision={state.decisions[proposal.id]} active={activeProposalId === proposal.id} position={index} onPreview={() => onPreview(proposal)} onDecision={(decision) => decide(proposal, decision)} onRefine={() => { setDomain(proposal.domain); setPageKey(proposal.pageKey ?? pageKey); setTargetKind(proposal.targetKind); setRefineParent(proposal); }} />)}</div>{current.length > 2 ? <div className="dl411-candidate-strip" aria-label="More candidates">{current.slice(2).map((proposal) => <ProposalCard key={proposal.id} proposal={proposal} decision={state.decisions[proposal.id]} active={activeProposalId === proposal.id} compact onPreview={() => onPreview(proposal)} onDecision={(decision) => decide(proposal, decision)} onRefine={() => setRefineParent(proposal)} />)}</div> : null}{refineParent ? <section className="dl410-inherit"><header><div><span>Keep traits from {refineParent.title}</span><h4>Choose what survives.</h4></div><button onClick={() => setRefineParent(null)}>Cancel</button></header><div>{TRAITS.map((trait) => <label key={trait}><input type="checkbox" checked={inheritedTraits.includes(trait)} onChange={() => toggleTrait(trait)} />{trait.replaceAll("-", " ")}</label>)}</div><button onClick={() => { generate("MORE_LIKE_THIS", refineParent.id); setRefineParent(null); }}>Create deterministic refinements</button></section> : null}<footer><button onClick={noneOfThese}>None of these — rotate implemented families</button><button disabled={state.selectedIds.length < 2} onClick={() => { setMode("REMIX"); setTab("generate"); }}>Combine traits from kept ideas</button></footer></> : <div className="dl49-empty"><h3>No candidates yet.</h3><p>Choose a page and an honest target to begin.</p><button onClick={() => setTab("generate")}>Choose a target</button></div>}</div> : null}
 
-    {tab === "dna" ? <div className="dl49-dna"><span>Founder Design DNA v1</span><h3>An explainable working model built only from your explicit decisions.</h3><p>No psychological inference. No hidden preference claim. It guides exploration but never becomes brand law.</p><div><section><strong>Signals you explicitly kept or loved</strong>{state.founderDesignDNA.positiveSignals.length ? <ul>{state.founderDesignDNA.positiveSignals.map((item) => { const family = item.split(":")[0]; const evidence = state.proposals.filter((proposal) => proposal.family === family && ["love", "keep"].includes(state.decisions[proposal.id] ?? "") && !state.founderDesignDNA.ignoredDecisionIds.includes(proposal.id)); const strength = evidence.length >= 3 ? "strong" : evidence.length >= 2 ? "emerging" : "insufficient evidence"; return <li key={item}><strong>{item.replace(":", " · ")}</strong><span>{strength} · {evidence.length} explicit decision{evidence.length === 1 ? "" : "s"}</span><small>{evidence.map((proposal) => proposal.id).join(", ")}</small><div>{evidence.map((proposal) => <button key={proposal.id} onClick={() => ignoreDecision(proposal.id)}>Do not learn from {proposal.id}</button>)}<button onClick={() => setState((previous) => ({ ...previous, founderDesignDNA: { ...previous.founderDesignDNA, positiveSignals: previous.founderDesignDNA.positiveSignals.filter((signal) => signal !== item) } }))}>Reset this signal</button></div></li>; })}</ul> : <p>Make your first love or keep decision to begin the model.</p>}</section><section><strong>Open Founder notes</strong>{state.founderDesignDNA.openQuestions.length ? <ul>{state.founderDesignDNA.openQuestions.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No open note recorded.</p>}<dl><div><dt>Model status</dt><dd>FOUNDER_WORKING_PREFERENCE_MODEL</dd></div><div><dt>Brand authority</dt><dd>Not brand law</dd></div><div><dt>Ignored decisions</dt><dd>{state.founderDesignDNA.ignoredDecisionIds.length}</dd></div></dl></section></div><small>Explicit input only · productionBinding=false</small></div> : null}
-    {tab === "lineage" ? <div className="dl49-lineage"><span>Proposal lineage</span><h3>Every idea keeps its ancestry.</h3>{state.lineage.length ? <ol>{state.lineage.map((item) => <li key={item.proposalId}><code>{item.proposalId}</code><span>{item.mode.replaceAll("_", " ")}</span><small>{item.parentId ? `from ${item.parentId}` : "baseline exploration"}</small></li>)}</ol> : <p>No proposal lineage exists yet.</p>}<footer><span>Future WEOS contract</span><strong>FUTURE_CONTRACT_ONLY · live runtime off</strong></footer></div> : null}
-    <div className="dl49-truth">LAB_GENERATED_PROPOSAL · Founder review required · productionBinding=false</div>
+    {tab === "dna" ? <div className="dl49-dna dl411-dna"><span>Founder Design DNA</span><h3>Your explicit decisions now influence which implemented family appears first.</h3><p>No psychological inference. No hidden taste claim. No brand-law status.</p><div><section><strong>Kept or loved signals</strong>{state.founderDesignDNA.positiveSignals.length ? <ul>{state.founderDesignDNA.positiveSignals.map((item) => <li key={item}><strong>{item.replace(":", " · ")}</strong><span>Explicit decision signal</span><button onClick={() => setState((previous) => ({ ...previous, founderDesignDNA: { ...previous.founderDesignDNA, positiveSignals: previous.founderDesignDNA.positiveSignals.filter((signal) => signal !== item) } }))}>Stop using this signal</button></li>)}</ul> : <p>Love or keep a candidate to begin.</p>}</section><section><strong>What this changes</strong><p>The preferred implemented family is placed first in the next deterministic proposal set. It does not invent a new style.</p><dl><div><dt>Current preference</dt><dd>{preferredFamily ?? "Not enough evidence"}</dd></div><div><dt>Production</dt><dd>Binding off</dd></div></dl></section></div></div> : null}
+    {tab === "lineage" ? <div className="dl49-lineage"><span>Proposal lineage</span><h3>Every candidate keeps its ancestry and exact target.</h3>{state.lineage.length ? <ol>{state.lineage.map((item) => { const proposal = state.proposals.find((candidate) => candidate.id === item.proposalId); return <li key={item.proposalId}><code>{item.proposalId}</code><span>{item.mode.replaceAll("_", " ")}</span><small>{proposal?.targetKind} · {proposal?.componentId ?? proposal?.semanticOwner} · {item.parentId ? `from ${item.parentId}` : "baseline"}</small></li>; })}</ol> : <p>No proposal lineage exists yet.</p>}<footer><span>Future design-worker boundary</span><strong>FUTURE_CONTRACT_ONLY · live runtime off</strong></footer></div> : null}
+    <div className="dl49-truth">DETERMINISTIC_CODE_NATIVE_PROPOSALS_NOT_AI · Founder review required · productionBinding=false</div>
   </section></div>;
 }
 
-function ProposalCard({ proposal, decision, active, onPreview, onDecision, onRefine }: { proposal: DesignProposal; decision?: ProposalDecision; active: boolean; onPreview: () => void; onDecision: (decision: ProposalDecision) => void; onRefine: () => void }) {
-  return <article className="dl49-candidate" data-family={proposal.family} data-affinity={proposal.affinity} data-active-preview={active}><div className="dl49-proposal-art" aria-label={`${proposal.title} rendered layout preview`}><i /><i /><i /><b /><span>{proposal.scope.replaceAll("-", " ")}</span></div><div><span>{proposal.affinity.replaceAll("_", " ")}</span><h4>{proposal.title}</h4><p>{proposal.rationale}</p><dl><div><dt>ID</dt><dd>{proposal.id}</dd></div><div><dt>Mode</dt><dd>{proposal.mode.replaceAll("_", " ")}</dd></div><div><dt>Lineage</dt><dd>{proposal.parentId ?? "Golden exploration baseline"}</dd></div><div><dt>Governance</dt><dd>{proposal.governance}</dd></div></dl><button className="dl410-preview" aria-pressed={active} onClick={onPreview}>{active ? "Previewing on page" : "Preview on page"}</button><div className="dl49-decisions" aria-label={`${proposal.title} decision`}>{(["love", "keep", "maybe", "reject"] as ProposalDecision[]).map((item) => <button key={item} aria-pressed={decision === item} onClick={() => onDecision(item)}>{item}</button>)}</div><button className="dl49-refine" onClick={onRefine}>More like this</button></div></article>;
+function ProposalCard({ proposal, decision, active, compact = false, position = 0, onPreview, onDecision, onRefine }: { proposal: DesignProposal; decision?: ProposalDecision; active: boolean; compact?: boolean; position?: number; onPreview: () => void; onDecision: (decision: ProposalDecision) => void; onRefine: () => void }) {
+  return <article className="dl49-candidate dl411-candidate" data-family={proposal.family} data-active-preview={active} data-compact={compact}><div className="dl411-context-preview" data-family={proposal.family}><span>{position === 0 ? "GOLDEN CONTEXT → CANDIDATE" : "CANDIDATE PROPOSAL"}</span><i /><i /><i /><b /><strong>{proposal.title}</strong><small>{proposal.targetKind === "page" ? "Complete page composition" : proposal.componentId ?? proposal.semanticOwner}</small></div><div className="dl411-candidate-copy"><span>{proposal.affinity.replaceAll("_", " ")}</span><h4>{proposal.title}</h4><p>{proposal.rationale}</p><button className="dl410-preview" aria-pressed={active} onClick={onPreview}>{active ? "Previewing in page context" : "Preview in page context"}</button><div className="dl49-decisions" aria-label={`${proposal.title} decision`}>{(["love", "keep", "maybe", "reject"] as ProposalDecision[]).map((item) => <button key={item} aria-pressed={decision === item} onClick={() => onDecision(item)}>{item}</button>)}</div><button className="dl49-refine" onClick={onRefine}>Keep traits from this</button><details><summary>Technical details</summary><dl><div><dt>ID</dt><dd>{proposal.id}</dd></div><div><dt>Exact owner</dt><dd>{proposal.semanticOwner}</dd></div><div><dt>Component</dt><dd>{proposal.componentId ?? "Not component-scoped"}</dd></div><div><dt>Mode</dt><dd>{proposal.mode.replaceAll("_", " ")}</dd></div><div><dt>Lineage</dt><dd>{proposal.parentId ?? "Golden exploration baseline"}</dd></div><div><dt>Governance</dt><dd>{proposal.governance}</dd></div></dl></details></div></article>;
 }

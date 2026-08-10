@@ -13,7 +13,7 @@ const css = readFileSync(new URL("../../app/champagne/design-lab/atelier-r4.4.cs
 test("Homepage uses the real fact-blocked bundle and omits proof completely", () => {
   for (const marker of ["smh:route:/:v1", "1.0.0-draft.1", "FACT_BLOCKED", "CONTENT_BUNDLE_V1_FACT_BLOCKED", "visibleSectionCount: 12", "home.proof"]) assert.match(content, new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   assert.match(atelier, /Patient evidence is fully omitted/);
-  assert.match(atelier, /Real Content Bundle connected/);
+  assert.match(atelier, /Real Home Content Bundle connected/);
   assert.doesNotMatch(content, /Exceptional care\. Enduring confidence/);
 });
 

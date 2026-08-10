@@ -17,7 +17,7 @@ test("generation is deterministic, Lab-only and production inert", () => {
 test("webpage and Concierge foundries expose every authorised surface and mode", () => {
   for (const surface of ["whole-page", "semantic-section", "component", "invitation", "shell", "answer", "source", "navigation", "3d-handoff", "human-handoff", "mobile", "closing"]) assert.match(contract, new RegExp(`"${surface}"`));
   for (const mode of ["COMPLETELY_NEW", "MORE_LIKE_THIS", "CHANGE_ONE_THING", "REMIX", "REFERENCE_LED", "SURPRISE_ME", "NONE_OF_THESE"]) assert.match(contract + studio, new RegExp(mode));
-  assert.match(studio, /UX_LOGIC_AUTHORITY ≠ VISUAL_STYLE_AUTHORITY/);
+  assert.match(studio, /Concierge surface/);
 });
 
 test("Founder decisions, DNA, lineage and governed export are connected", () => {
