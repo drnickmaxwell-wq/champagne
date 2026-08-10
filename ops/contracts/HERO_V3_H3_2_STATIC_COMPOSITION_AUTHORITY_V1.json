@@ -11,6 +11,7 @@
   "checkpoint1Studies": ["V2_PRECISION", "SPECTRAL_WAVE", "VELVET_PORCELAIN_DEPTH", "LUMINOUS_COUNTERFLOW"],
   "founderCheckpoint1Disposition": "NO_CANDIDATE_SELECTED_V2_REMAINS_STRONGER",
   "checkpoint2Rule": "ONE_BOUNDED_V2_LED_REFINEMENT_WITH_DIRECT_V2_COMPARISON",
+  "checkpoint2Disposition": "REJECTED_NO_MATERIAL_VISUAL_GAIN_V2_REMAINS_STRONGER",
   "responsiveSafeZones": {
     "desktop": {"horizontalPercent": 8, "verticalPercent": 14},
     "tablet": {"horizontalPercent": 7, "verticalPercent": 12},

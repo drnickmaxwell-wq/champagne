@@ -96,3 +96,12 @@ content/action compatibility and performance before direct V2 comparison.
 The phase settlement is
 `CHAMPAGNE_HERO_V3_H3_2_STATIC_COMPOSITION_SETTLEMENT_V1`. H3.3 requires a new
 exact commission.
+
+## Checkpoint results
+
+- Checkpoint 1: no A-D candidate was selected; V2 remained stronger.
+- Checkpoint 2: the single bounded V2-led static depth/spectral-plane refinement
+  preserved readability and added no asset cost, but produced no material
+  visual gain over V2. It was rejected and removed from the laboratory.
+- Current static winner: `V2_STATIC_REFERENCE_BASELINE`.
+- H3.2 does not approve a public replacement. H3.3 remains unauthorised.
