@@ -114,10 +114,10 @@ await page.getByRole("button", { name: "Return to studio", exact: true }).click(
 await chooseDevice("desktop", 1440, 900, "landscape");
 
 await page.getByRole("button", { name: "Fullscreen", exact: true }).click();
+await page.waitForTimeout(100);
 const nativeFullscreen = await page.evaluate(() => Boolean(document.fullscreenElement));
 const fullscreenMode = await page.locator(".dl45-preview-stage").getAttribute("data-fullscreen-mode");
 assert.ok(nativeFullscreen ? fullscreenMode === "NATIVE" : fullscreenMode === "FALLBACK");
-await page.waitForTimeout(100);
 await capture("14-fullscreen-proof", nativeFullscreen ? "Native Fullscreen" : "Truthful viewport-filling fallback");
 if (nativeFullscreen) await page.keyboard.press("Escape");
 else await page.getByRole("button", { name: "Return to studio", exact: true }).click();
