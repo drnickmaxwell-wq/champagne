@@ -1,6 +1,6 @@
 # Champagne Hero V3 H3.2 Static Composition Settlement V1
 
-**Status:** `FOUNDER_STATIC_HERO_REVIEW_REQUIRED`
+**Status:** `SUPERSEDED_AS_TERMINAL_SETTLEMENT_BY_CANONICAL_BRAND_AUTHORITY_CONTINUATION`
 
 **Repository:** `drnickmaxwell-wq/champagne`
 
@@ -8,11 +8,16 @@
 
 **Accepted H3.2 start:** `8b119baabb08dcf4d008aa63d62f6b113afec13d`
 
-## Brand authority
+## Brand authority at the time of this evidence
 
 H3.2 used `PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10`.
 `CHAMPAGNE_FOUNDER_BRAND_DNA_V1` was not available during this tranche, so no
 candidate is Founder-final.
+
+`CHAMPAGNE_FOUNDER_BRAND_DNA_V1` version `1.0.0` is now canonical and H3.2
+static convergence has been explicitly continued. This document remains the
+truthful settlement of the provisional-authority pass; it no longer closes
+H3.2. See `HERO_V3_H3_2_BRAND_AUTHORITY_RECONCILIATION_V1`.
 
 ## Baseline and studies
 
@@ -75,8 +80,8 @@ no public Hero replacement.
 4. GPU-capable Chromium plus Safari/WebKit evidence environment.
 5. Motion, decoding, memory and battery budgets.
 6. Reduced-motion equivalence and rollback criteria.
-7. Ingestion and conflict diff for `CHAMPAGNE_FOUNDER_BRAND_DNA_V1` when it is
-   available.
+7. Completed: `CHAMPAGNE_FOUNDER_BRAND_DNA_V1` was ingested with no actual
+   H3.0 conflict; its sharpened controls now govern continued H3.2 work.
 
 H3.3 has not started. No Ready transition, merge, deployment, production
 binding, public replacement, Agent, Router, WEOS or chatbot-engine mutation is

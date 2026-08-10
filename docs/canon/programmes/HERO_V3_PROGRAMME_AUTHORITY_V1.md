@@ -68,22 +68,27 @@ fallback and rollback target. Current copy and CTA styling are not visually
 sacred; production wording remains governed by Content, Search and fact
 authority and cannot be invented by Hero implementation.
 
-## Provisional explicit Founder authority
+## Canonical Founder Brand authority
 
-Until `CHAMPAGNE_FOUNDER_BRAND_DNA_V1` and its domain profiles become current
-Brand authority, treat these signals as provisional explicit Founder authority:
+`CHAMPAGNE_FOUNDER_BRAND_DNA_V1` version `1.0.0` is the
+`CANONICAL_CORE_BRAND_AUTHORITY`. It supersedes
+`PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10` for H3.2 visual work.
+The exact reconciliation is recorded by
+`HERO_V3_H3_2_BRAND_AUTHORITY_RECONCILIATION_V1`.
 
-- existing Champagne wave/background language is core;
-- magenta, turquoise and gold are core brand colours;
-- deep Persian velvet blue and Porcelain are important wider luxury surfaces;
-- visual direction should be luminous, fluid, rich and elegant;
-- St Mary's House architectural influence is supporting and selective, not
-  primary;
-- over-architectural, SaaS-like, overly dark and generic-luxury drift is
-  rejected.
+Hero derivation must preserve:
 
-H3.1 may proceed because it diagnoses current truth. H3.2 must load and record
-the then-current Brand authority before visual convergence. Champagne Brand DNA
+- foundational layered Champagne waves and Hero V2 lineage;
+- confident participation by magenta `#C2185B`, turquoise `#40C4B4` and gold
+  `#D4AF37`;
+- Persian velvet depth balanced by warm, distinctive Porcelain lift;
+- luminous, fluid, editorial luxury and human warmth;
+- St Mary's House only as rare, selective provenance;
+- the rejection of generic navy/gold, over-darkness, washed-out colour,
+  generic SaaS blockiness and architecture-first composition.
+
+The canonical packet contains sufficient evidence for Hero-style derivation.
+It does not authorise a separate Hero-local Brand DNA, and Champagne Brand DNA
 must not be hard-coded into the tenant-neutral renderer.
 
 ## Eight-phase programme

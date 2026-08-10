@@ -3,9 +3,11 @@
   "status": "ACTIVE_PHASE_GATED",
   "updatedAt": "2026-08-10",
   "brandAuthority": {
-    "current": "PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10",
-    "futurePacket": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1",
-    "h3_2MustLoadCurrentPacket": true
+    "current": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1",
+    "version": "1.0.0",
+    "state": "CANONICAL_CORE_BRAND_AUTHORITY",
+    "supersedes": "PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10",
+    "h3_2Reconciliation": "NO_ACTUAL_CONFLICT_CANONICAL_AUTHORITY_SHARPENS_EXISTING_DIRECTION"
   },
   "decisions": [
     {"id": "H3-D001", "state": "ACCEPTED", "decision": "Use the eight-phase H3.0 through H3.7 programme."},
@@ -29,11 +31,13 @@
     {"id": "H3-D019", "state": "AUTHORISED", "decision": "H3.2 static composition convergence is authorised at exact head 8b119baabb08dcf4d008aa63d62f6b113afec13d; H3.3 and motion repair are not authorised."},
     {"id": "H3-D020", "state": "ACCEPTED", "decision": "static:complete is the V2 static reference baseline and remains available in every comparison."},
     {"id": "H3-D021", "state": "ACCEPTED", "decision": "The zero-byte V2 mask files are retired for V3 and are not repaired in place."},
-    {"id": "H3-D022", "state": "FOUNDER_CHECKPOINT_1", "decision": "No A-D study was selected; V2 remains stronger and the next study is a bounded V2-led refinement."}
+    {"id": "H3-D022", "state": "FOUNDER_CHECKPOINT_1", "decision": "No A-D study was selected under provisional authority; V2 remained stronger."},
+    {"id": "H3-D023", "state": "CANONICAL_CORE_BRAND_AUTHORITY", "decision": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1 version 1.0.0 supersedes provisional Founder authority for H3.2."},
+    {"id": "H3-D024", "state": "ACCEPTED", "decision": "H3.0 and canonical Brand DNA have no actual conflict; canonical Brand DNA sharpens confident colour participation, distinctive Porcelain, Persian limits, editorial intelligence and human warmth."},
+    {"id": "H3-D025", "state": "AUTHORISED", "decision": "Continue H3.2 static convergence under canonical Brand DNA only; H3.3 remains unauthorised."}
   ],
   "unresolved": [
-    {"id": "H3-U005", "decisionRequiredBy": "H3.2_CHECKPOINT_2", "question": "Does the bounded V2-led refinement materially defeat the V2 baseline?"},
-    {"id": "H3-U006", "decisionRequiredBy": "BEFORE_H3.2_CHECKPOINT_2_IF_AVAILABLE", "question": "Does CHAMPAGNE_FOUNDER_BRAND_DNA_V1 conflict with provisional authority?"},
+    {"id": "H3-U005", "decisionRequiredBy": "H3.2_CANONICAL_BRAND_CONTINUATION", "question": "Can a canonical-brand static study materially defeat the V2 baseline without losing protected colour, wave lineage or readability?"},
     {"id": "H3-U007", "decisionRequiredBy": "BEFORE_H3.3", "question": "What exact motion-score commission follows static settlement?"}
   ]
 }

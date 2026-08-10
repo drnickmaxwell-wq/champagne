@@ -19,19 +19,24 @@ chatbot-engine mutation is authorised.
 
 ## Brand authority
 
-Until `CHAMPAGNE_FOUNDER_BRAND_DNA_V1` is returned, H3.2 is governed by
-`PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10`:
+H3.2 is governed by `CHAMPAGNE_FOUNDER_BRAND_DNA_V1` version `1.0.0` as
+`CANONICAL_CORE_BRAND_AUTHORITY`. It supersedes
+`PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10`.
 
-- retain the genuine Champagne wave/background language and V2 lineage;
-- retain living magenta, turquoise and gold participation;
-- use Persian velvet blue and Porcelain as depth/light counterpoints;
-- pursue luminous, fluid, rich, elegant and luxurious character;
-- use St Mary's House architecture selectively, never as the primary Hero;
-- reject SaaS, generic-medtech, generic navy/gold, over-dark and
-  architecture-first drift.
+The reconciliation in `HERO_V3_H3_2_BRAND_AUTHORITY_RECONCILIATION_V1` finds
+no actual conflict with H3.0. The canonical authority sharpens the visual gate:
 
-When the Founder Brand DNA packet becomes available, ingest and diff it before
-Checkpoint 2. Report conflicts; do not silently reinterpret this phase.
+- the layered wave is foundational, not garnish;
+- magenta `#C2185B`, turquoise `#40C4B4` and gold `#D4AF37` must participate
+  confidently rather than become tiny accents or pastel fog;
+- Persian supplies velvet depth but may not become generic navy, charcoal or a
+  uniformly dark field;
+- Porcelain supplies warm, distinctive editorial lift and may not become bland
+  white SaaS;
+- human warmth and useful editorial intelligence are part of the luxury;
+- St Mary's House is rare provenance, never Hero architecture.
+
+No Hero-local Brand DNA may reinterpret these controls.
 
 ## Baseline and static-study contract
 
@@ -99,9 +104,14 @@ exact commission.
 
 ## Checkpoint results
 
-- Checkpoint 1: no A-D candidate was selected; V2 remained stronger.
-- Checkpoint 2: the single bounded V2-led static depth/spectral-plane refinement
+- Provisional-authority Checkpoint 1: no A-D candidate was selected; V2
+  remained stronger.
+- Provisional-authority Checkpoint 2: the single bounded V2-led static
+  depth/spectral-plane refinement
   preserved readability and added no asset cost, but produced no material
   visual gain over V2. It was rejected and removed from the laboratory.
 - Current static winner: `V2_STATIC_REFERENCE_BASELINE`.
+- Canonical-brand continuation: active static convergence may derive a new
+  bounded study from the canonical pack; previous failed studies remain
+  evidence and are not silently promoted.
 - H3.2 does not approve a public replacement. H3.3 remains unauthorised.

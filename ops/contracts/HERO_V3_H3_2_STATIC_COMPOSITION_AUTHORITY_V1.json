@@ -5,13 +5,26 @@
   "pullRequest": 867,
   "acceptedStartHead": "8b119baabb08dcf4d008aa63d62f6b113afec13d",
   "acceptedStartTree": "db1b040993938e6a4483a3b543de6a44b60ea4d2",
-  "brandAuthority": "PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10",
+  "brandAuthority": {
+    "id": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1",
+    "version": "1.0.0",
+    "state": "CANONICAL_CORE_BRAND_AUTHORITY",
+    "supersedes": "PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10",
+    "jsonSha256": "4bba482dc2c3892c1be0f5d9d3413159f033ea86534848372cdb88b944d0cd5f",
+    "markdownSha256": "7edc8325a13b19d70c5e67d97c72555424b067e6fac9ece6be45233f3039d359",
+    "reconciliation": "NO_ACTUAL_CONFLICT_CANONICAL_AUTHORITY_SHARPENS_EXISTING_DIRECTION"
+  },
   "baseline": "static:complete",
   "baselineRole": "V2_STATIC_REFERENCE_BASELINE",
   "checkpoint1Studies": ["V2_PRECISION", "SPECTRAL_WAVE", "VELVET_PORCELAIN_DEPTH", "LUMINOUS_COUNTERFLOW"],
   "founderCheckpoint1Disposition": "NO_CANDIDATE_SELECTED_V2_REMAINS_STRONGER",
   "checkpoint2Rule": "ONE_BOUNDED_V2_LED_REFINEMENT_WITH_DIRECT_V2_COMPARISON",
-  "checkpoint2Disposition": "REJECTED_NO_MATERIAL_VISUAL_GAIN_V2_REMAINS_STRONGER",
+  "checkpoint2Disposition": "PROVISIONAL_AUTHORITY_REFINEMENT_REJECTED_CANONICAL_BRAND_CONTINUATION_ACTIVE",
+  "canonicalBrandContinuation": {
+    "firstGradientOverrideDisposition": "REJECTED_AND_REMOVED_MAGENTA_DOMINANCE_PORCELAIN_GLARE_MOBILE_READING_REGRESSION",
+    "directV2BlendOverrideDisposition": "NOT_CREDIBLE_CONVERGENCE_MECHANISM",
+    "nextMechanism": "SEPARATELY_VERSIONED_V3_STATIC_COMPOSITION_SURFACE_OR_MASK_WITH_PROVENANCE_AND_REAL_PIXEL_EVIDENCE"
+  },
   "responsiveSafeZones": {
     "desktop": {"horizontalPercent": 8, "verticalPercent": 14},
     "tablet": {"horizontalPercent": 7, "verticalPercent": 12},
