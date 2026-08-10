@@ -46,10 +46,7 @@ const families: Array<Pick<DesignProposal, "title" | "rationale" | "affinity" | 
 ];
 
 const implantPageFamilies: Array<Pick<DesignProposal, "title" | "rationale" | "affinity" | "family">> = [
-  { title: "Persian Architectural", rationale: "A deep architectural exhibition with monumental thresholds, restrained gilding and dramatic chapter transitions.", affinity: "DNA_ALIGNED", family: "aperture" },
-  { title: "Architectural Editorial Hybrid", rationale: "Persian exhibition chapters and Porcelain reading chapters alternate to pace understanding and make the 3D moment singular.", affinity: "DNA_ALIGNED", family: "luminous" },
-  { title: "Porcelain Editorial", rationale: "An exceptional light reading environment with folio margins, scientific clarity and selective dark interruptions.", affinity: "DNA_ALIGNED", family: "folio" },
-  { title: "Mineral Gallery Promenade", rationale: "A museum-like vertical promenade uses an anchored chapter spine, offset compositions and one monumental exhibition plinth.", affinity: "EXPLORATORY_OUTLIER", family: "monolith" },
+  { title: "Canonical Champagne Implant Page", rationale: "One wave-led, editorial composition alternates Persian depth and Porcelain lift while preserving governed explanation, future visual seams and page-context CTA review.", affinity: "DNA_ALIGNED", family: "luminous" },
 ];
 
 export function generateProposalSet(input: { sequence: number; domain: GenerationDomain; scope: string; semanticOwner: string; targetKind: GenerationTargetKind; pageKey?: DesignProposal["pageKey"]; componentId?: string | null; mode: GenerationMode; parentId?: string | null; references?: string[]; inheritedTraits?: DesignTrait[]; changedDimension?: DesignTrait | null; preferredFamily?: DesignProposal["family"] | null }): DesignProposal[] {

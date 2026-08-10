@@ -1,0 +1,39 @@
+{
+  "schema": "CHAMPAGNE_ATELIER_R4_14_ASSUMPTION_DISPOSITION_V1",
+  "brandAuthority": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1@1.0.0",
+  "status": "CANONICAL_BRAND_DNA_CONSUMED",
+  "dispositions": [
+    {
+      "assumption": "ARCHITECTURE_AS_PRIMARY_BRAND",
+      "previousR4Evidence": ["Persian Architectural", "Architectural Editorial Hybrid", "architectural plinth", "architectural aperture"],
+      "disposition": "SUPERSEDED",
+      "controllingRule": "ARCHITECTURE_AS_PRIMARY_BRAND_GRAMMAR_REJECTED",
+      "replacement": "Layered wave and fluid motion language is the primary visual grammar. St Mary's House remains selective supporting provenance."
+    },
+    {
+      "assumption": "FOUR_ABSTRACT_IMPLANT_PAGE_FAMILIES",
+      "previousR4Evidence": ["aperture", "folio", "luminous", "monolith"],
+      "disposition": "SUPERSEDED",
+      "replacement": "One canonical Brand-DNA-led Implant page with page-context alternatives only where Founder decisions remain open."
+    },
+    {
+      "assumption": "FIXED_DARK_GALLERY_RAIL",
+      "previousR4Evidence": ["aperture rail", "monolith spine"],
+      "disposition": "STALE",
+      "replacement": "Compact responsive chapter navigation; Persian and Porcelain remain a varied rhythm."
+    },
+    {
+      "assumption": "ARCHITECTURAL_3D_PLINTH",
+      "previousR4Evidence": ["R4.12 replacement visual plinth"],
+      "disposition": "SUPERSEDED",
+      "replacement": "Wave-led, provenance-truthful future visual seam with no model or generated media integrated."
+    }
+  ],
+  "preserved": [
+    "governed Implant Content Bundle V1.1",
+    "Sacred Hero V2 seam",
+    "productionBinding=false",
+    "media and 3D capability truth",
+    "responsive Founder preview machinery"
+  ]
+}
