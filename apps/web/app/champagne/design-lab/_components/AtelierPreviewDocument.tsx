@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { CSSProperties, MouseEvent, ReactNode } from "react";
 import architecturalClosingConcept from "../assets/st-marys-architectural-closing-concept-v1.png";
 import type { BrandDecision } from "../data/atelier-convergence";
 import type { AtelierContentSection, AtelierPageKey } from "../data/content-bundle-adapter";
@@ -64,9 +64,85 @@ export function AtelierPreviewDocument({ heroes }: { heroes: Record<AtelierPageK
               : <ContentSection item={item} />}
         {state.selected === item.id && !state.cleanPreview ? <div className="dl4-selection"><strong>{item.label}</strong><span>{item.locked ? "Canonical Hero V2 · protected" : "Selected in Atelier"}</span></div> : null}
       </section>)}
+      {state.page === "home" ? <GoldenConcierge /> : null}
     </article>
   </main>;
 }
+
+type ConciergeStage = "closed" | "invited" | "host" | "need" | "answer" | "threeD" | "human";
+type ImplantPart = "fixture" | "abutment" | "crown";
+const CONCIERGE_FOCUSABLE = "button:not([disabled]), a[href], summary, [tabindex]:not([tabindex='-1'])";
+const IMPLANT_PARTS: Record<ImplantPart, { label: string; explanation: string }> = {
+  fixture: { label: "Fixture", explanation: "Synthetic education state. The governed implant page remains the canonical explanation owner." },
+  abutment: { label: "Abutment", explanation: "Synthetic education state showing the middle component relationship without clinical personalisation." },
+  crown: { label: "Crown", explanation: "Synthetic education state showing the visible restoration relationship without a treatment claim." },
+};
+
+function GoldenConcierge() {
+  const [stage, setStage] = useState<ConciergeStage>("invited");
+  const [sourceOpen, setSourceOpen] = useState(false);
+  const [part, setPart] = useState<ImplantPart>("fixture");
+  const [labels, setLabels] = useState(true);
+  const dialogRef = useRef<HTMLElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
+  const isOpen = !["closed", "invited"].includes(stage);
+  const openHost = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    openerRef.current = event.currentTarget;
+    setSourceOpen(false);
+    setStage("host");
+  }, []);
+  const close = useCallback(() => {
+    setSourceOpen(false);
+    setStage("closed");
+    window.requestAnimationFrame(() => openerRef.current?.focus());
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    closeRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { event.preventDefault(); close(); return; }
+      if (event.key !== "Tab" || !dialogRef.current) return;
+      const focusable = [...dialogRef.current.querySelectorAll<HTMLElement>(CONCIERGE_FOCUSABLE)].filter(item => !item.hasAttribute("disabled"));
+      if (!focusable.length) return;
+      const first = focusable[0]; const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [close, isOpen]);
+
+  if (stage === "closed") return <button className="dl48-concierge-closed" data-concierge-state="closed" onClick={openHost} aria-label="Open Champagne Concierge"><i aria-hidden="true" />Ask Champagne</button>;
+  if (stage === "invited") return <aside className="dl48-concierge-invitation" data-concierge-state="invited" aria-label="Champagne Concierge invitation"><i aria-hidden="true" /><div><span>Champagne Concierge</span><strong>A quieter way to explore.</strong><small>Digital guide · not a person</small></div><button onClick={openHost}>Open Champagne Concierge</button><button onClick={() => setStage("closed")}>Not now</button></aside>;
+
+  return <div className="dl48-concierge-layer" data-concierge-state={stage} data-source-open={sourceOpen}>
+    <button className="dl48-concierge-scrim" aria-label="Close Champagne Concierge" onClick={close} />
+    <section ref={dialogRef} className="dl48-concierge-panel" role="dialog" aria-modal="true" aria-labelledby="dl48-concierge-heading" aria-describedby="dl48-concierge-disclosure">
+      <header><div className="dl48-host-identity"><i aria-hidden="true">S</i><div><span>Champagne Concierge</span><small id="dl48-concierge-disclosure">Digital guide · synthetic simulation · not a person</small></div></div><div><button onClick={() => setStage("human")}>Speak to the practice</button><button ref={closeRef} onClick={close} aria-label="Close Champagne Concierge">Close</button></div></header>
+      <div className="dl48-concierge-safety"><span>PUBLIC_NON_PHI · Zone A</span><span>No diagnosis · no suitability · no personalised recommendation</span></div>
+      <div className="dl48-concierge-body">
+        {stage === "host" ? <HostWelcome onContinue={() => setStage("need")} /> : null}
+        {stage === "need" ? <NeedExplorer onImplants={() => setStage("answer")} onHuman={() => setStage("human")} /> : null}
+        {stage === "answer" ? <ImplantAnswer sourceOpen={sourceOpen} onSource={() => setSourceOpen(value => !value)} onThreeD={() => setStage("threeD")} onHuman={() => setStage("human")} /> : null}
+        {stage === "threeD" ? <SyntheticImplantExhibit part={part} labels={labels} onPart={setPart} onLabels={setLabels} onBack={() => setStage("answer")} onHuman={() => setStage("human")} /> : null}
+        {stage === "human" ? <HumanDestination onBack={() => setStage("answer")} /> : null}
+      </div>
+      <footer><span>NAVIGATION_ONLY · no live booking state</span><button onClick={() => setStage("human")}>Human contact</button></footer>
+    </section>
+  </div>;
+}
+
+function HostWelcome({ onContinue }: { onContinue: () => void }) { return <section className="dl48-host-welcome"><span>Architectural Light</span><h2 id="dl48-concierge-heading">How can I help you explore?</h2><p>I can guide you through the website’s governed pages and explain where to find human help. I cannot diagnose or decide what is suitable for you.</p><button onClick={onContinue}>Explore by what you need</button></section>; }
+
+function NeedExplorer({ onImplants, onHuman }: { onImplants: () => void; onHuman: () => void }) { return <section className="dl48-need"><span>Quiet Guidance</span><h2 id="dl48-concierge-heading">What would you like help with?</h2><p>Choose a need, not a diagnosis.</p><div><button onClick={onImplants}><strong>Replace a missing tooth</strong><small>Continue to the canonical Dental Implants page</small></button><button onClick={onHuman}><strong>I would rather speak to someone</strong><small>Continue to the practice contact destination</small></button></div><button onClick={onHuman}>Something else</button></section>; }
+
+function ImplantAnswer({ sourceOpen, onSource, onThreeD, onHuman }: { sourceOpen: boolean; onSource: () => void; onThreeD: () => void; onHuman: () => void }) { return <section className="dl48-answer"><div className="dl48-answer-copy"><span>Editorial Host · canonical navigation</span><h2 id="dl48-concierge-heading">Dental implant education</h2><p>The canonical treatment owner explains what implants are and what assessment considers. This Atelier simulation does not reproduce blocked authoritative content.</p><a href="/treatments/implants">Open /treatments/implants</a><div><button onClick={onThreeD}>See how the parts fit</button><button aria-expanded={sourceOpen} onClick={onSource}>Sources and evidence</button></div><button onClick={onHuman}>Continue with the practice</button></div>{sourceOpen ? <aside className="dl48-source-drawer" aria-label="Sources and evidence"><span>Editorial evidence drawer</span><h3>Authority stays visible.</h3><dl><div><dt>Canonical owner</dt><dd>/treatments/implants</dd></div><div><dt>Response status</dt><dd>Synthetic simulation only</dd></div><div><dt>Evidence rendering</dt><dd>Governed sources withheld until authoritative content is available</dd></div></dl><details><summary>Open text alternative</summary><p>This synthetic journey points to the canonical Implant page and makes no clinical or suitability claim.</p></details></aside> : null}</section>; }
+
+function SyntheticImplantExhibit({ part, labels, onPart, onLabels, onBack, onHuman }: { part: ImplantPart; labels: boolean; onPart: (part: ImplantPart) => void; onLabels: (labels: boolean) => void; onBack: () => void; onHuman: () => void }) { const selected = IMPLANT_PARTS[part]; return <section className="dl48-three-d"><div className="dl48-model" data-part={part}><span>Synthetic 3D education handoff</span><div className="dl48-implant-proxy" aria-label={`Synthetic implant model highlighting ${selected.label}`}><i data-component="fixture" /><i data-component="abutment" /><i data-component="crown" />{labels ? <><b data-label="fixture">Fixture</b><b data-label="abutment">Abutment</b><b data-label="crown">Crown</b></> : null}</div><small>Code-native proxy · final GLB not connected</small></div><div className="dl48-model-copy"><span>Luminous Digital</span><h2 id="dl48-concierge-heading">Fixture · abutment · crown</h2><p>{selected.explanation}</p><div>{(Object.keys(IMPLANT_PARTS) as ImplantPart[]).map(id => <button key={id} aria-pressed={part === id} onClick={() => onPart(id)}>{IMPLANT_PARTS[id].label}</button>)}</div><button onClick={() => onLabels(!labels)}>{labels ? "Hide labels" : "Show labels"}</button><details><summary>Read instead</summary><p>{Object.values(IMPLANT_PARTS).map(item => `${item.label}: ${item.explanation}`).join(" ")}</p></details><div><button onClick={onBack}>Back to implant page</button><button onClick={onHuman}>Continue to human contact</button></div><small>OPEN_MODEL · HIGHLIGHT_COMPONENT · SHOW_LABELS · HIDE_LABELS · OPEN_TEXT_ALTERNATIVE</small></div></section>; }
+
+function HumanDestination({ onBack }: { onBack: () => void }) { return <section className="dl48-human"><span>Human destination</span><h2 id="dl48-concierge-heading">Continue with the practice.</h2><p>The simulated journey ends with an explicit human-contact destination. It does not claim a live appointment or transmit patient information.</p><a href="/contact">Open the contact page</a><a href="/contact">Ask the practice to contact me</a><button onClick={onBack}>Back to implant education</button><small>Navigation only · no diagnosis · no booking confirmation</small></section>; }
 
 function ContentSection({ item }: { item: PlacedSection }) { return <div className={`dl4-native dl44-content dl44-${item.id.replaceAll(".", "-")}`}><span>{item.label}</span><h2>{item.title}</h2>{item.copy ? item.copy.split("\n\n").map(paragraph => <p key={paragraph}>{paragraph}</p>) : null}{item.pathways ? <div className="dl44-pathways">{item.pathways.map((pathway, index) => <a href={pathway.href} key={pathway.href}><b>{String(index + 1).padStart(2, "0")}</b><strong>{pathway.label}</strong><span>{pathway.description}</span><i>Explore →</i></a>)}</div> : null}{item.steps ? <ol className="dl44-steps">{item.steps.map((step, index) => <li key={step.label}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{step.label}</strong><p>{step.copy}</p></div></li>)}</ol> : null}{item.faqs ? <div className="dl44-faqs">{item.faqs.map(faq => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div> : null}<SectionGeometry id={item.id} />{item.contentMediaSlotIds?.length ? <div className="dl44-media-intent"><span>Media intention</span><strong>{item.contentMediaSlotIds[0]}</strong><small>Real asset not yet supplied · deliberate text-led fallback</small></div> : null}{item.ctas?.length ? <div className="dl44-ctas">{item.ctas.map(cta => <a key={cta.href} href={cta.href}>{cta.label}</a>)}</div> : null}{item.modelSlot ? <div className="dl4-static-fallback"><strong>Static educational fallback</strong><small>Interactive 3D remains off · transcript required</small></div> : null}</div>; }
 

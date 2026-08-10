@@ -279,7 +279,7 @@ jobs:
           if-no-files-found: ignore
 
   atelier-r45-visual-qa:
-    name: Atelier R4.7 Homepage art-direction visual QA artifact
+    name: Atelier R4.8 Golden Homepage + Concierge visual QA artifact
     runs-on: ubuntu-latest
     env:
       ALLOW_CHAMPAGNE_ROUTES: "true"
@@ -327,19 +327,21 @@ jobs:
           echo "ATELIER_EXECUTION_SHA=$GITHUB_SHA" >> "$GITHUB_ENV"
           echo "ATELIER_BRANCH_HEAD_TREE=$branch_tree" >> "$GITHUB_ENV"
           echo "ATELIER_EXECUTION_TREE=$execution_tree" >> "$GITHUB_ENV"
-      - name: Capture truthful responsive Founder evidence
+      - name: Validate Golden Concierge contract
+        run: node --test apps/web/tests/design-lab/r4-8-golden.test.mjs
+      - name: Capture truthful Golden Homepage evidence
         env:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
-          ATELIER_QA_OUTPUT: atelier-r4.7-art-direction-qa
+          ATELIER_QA_OUTPUT: atelier-r4.8-golden-homepage-concierge-qa
           ATELIER_BASE_SHA: a00f718a93710028b364930566d7f6a44483bc25
-        run: node apps/web/tests/design-lab/r4-7-art-direction-qa.mjs
-      - name: Upload exact-tree responsive Founder evidence
+        run: node apps/web/tests/design-lab/r4-8-golden-qa.mjs
+      - name: Upload exact-tree Golden Homepage evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: CHAMPAGNE_ATELIER_R4_7_HOMEPAGE_ART_DIRECTION_VISUAL_QA_V1
+          name: CHAMPAGNE_ATELIER_R4_8_GOLDEN_HOMEPAGE_CONCIERGE_VISUAL_QA_V1
           path: |
-            atelier-r4.7-art-direction-qa/
+            atelier-r4.8-golden-homepage-concierge-qa/
             ${{ runner.temp }}/atelier-r45-web.log
           if-no-files-found: error
 
