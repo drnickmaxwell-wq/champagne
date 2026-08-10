@@ -2,6 +2,8 @@ export type GenerationDomain = "webpage" | "concierge";
 export type GenerationMode = "COMPLETELY_NEW" | "MORE_LIKE_THIS" | "CHANGE_ONE_THING" | "REMIX" | "REFERENCE_LED" | "SURPRISE_ME" | "NONE_OF_THESE";
 export type ProposalDecision = "love" | "keep" | "maybe" | "reject";
 export type ProposalAffinity = "DNA_ALIGNED" | "EXPLORATORY_OUTLIER";
+export type DesignTrait = "composition" | "asymmetry" | "type-hierarchy" | "spacing-rhythm" | "interaction-model" | "media-geometry" | "motion" | "density" | "mobile-composition";
+export type ReferenceKind = "screenshot" | "sketch" | "photograph" | "url-note" | "visual-archive-item" | "existing-proposal";
 
 export const GENERATION_SURFACES = {
   webpage: ["whole-page", "semantic-section", "component"],
@@ -23,6 +25,10 @@ export type DesignProposal = {
   references: string[];
   responsiveIntent: string;
   accessibilityIntent: string;
+  inheritedTraits: DesignTrait[];
+  changedDimension: DesignTrait | null;
+  generationDistance: number;
+  renderPayload: { family: DesignProposal["family"]; target: string; version: 1 };
   governance: "DESIGN_CANDIDATE_ALLOWED";
   label: "LAB_GENERATED_PROPOSAL";
   productionBinding: false;
@@ -35,9 +41,11 @@ const families: Array<Pick<DesignProposal, "title" | "rationale" | "affinity" | 
   { title: "Quiet Monolith", rationale: "One strong spatial gesture removes competing chrome and concentrates the decision.", affinity: "EXPLORATORY_OUTLIER", family: "monolith" },
 ];
 
-export function generateProposalSet(input: { sequence: number; domain: GenerationDomain; scope: string; semanticOwner: string; mode: GenerationMode; parentId?: string | null; references?: string[] }): DesignProposal[] {
+export function generateProposalSet(input: { sequence: number; domain: GenerationDomain; scope: string; semanticOwner: string; mode: GenerationMode; parentId?: string | null; references?: string[]; inheritedTraits?: DesignTrait[]; changedDimension?: DesignTrait | null }): DesignProposal[] {
   const setId = `r49-${input.domain}-${input.sequence}`;
-  return families.map((family, index) => ({
+  const distance = input.mode === "NONE_OF_THESE" ? input.sequence : 0;
+  const ordered = distance ? [...families.slice(distance % families.length), ...families.slice(0, distance % families.length)] : families;
+  return ordered.map((family, index) => ({
     ...family,
     id: `${setId}-${String(index + 1).padStart(2, "0")}`,
     setId,
@@ -49,6 +57,10 @@ export function generateProposalSet(input: { sequence: number; domain: Generatio
     references: input.references ?? [],
     responsiveIntent: "Independent compositions at 1440, 1024, 768 and 390 CSS pixels.",
     accessibilityIntent: "Keyboard operable, visible focus, reduced-motion safe, readable contrast and semantic labels.",
+    inheritedTraits: input.inheritedTraits ?? [],
+    changedDimension: input.changedDimension ?? null,
+    generationDistance: distance,
+    renderPayload: { family: family.family, target: input.semanticOwner, version: 1 },
     governance: "DESIGN_CANDIDATE_ALLOWED",
     label: "LAB_GENERATED_PROPOSAL",
     productionBinding: false,
@@ -61,8 +73,23 @@ export type FounderDesignStudioState = {
   decisions: Record<string, ProposalDecision>;
   selectedIds: string[];
   lineage: Array<{ proposalId: string; parentId: string | null; setId: string; mode: GenerationMode }>;
-  founderDesignDNA: { schema: "champagne.atelier.founder-design-dna.v1"; status: "LAB_WORKING_MODEL"; positiveSignals: string[]; openQuestions: string[]; explicitInputOnly: true; productionBinding: false };
+  founderDesignDNA: { schema: "champagne.atelier.founder-design-dna.v1"; status: "FOUNDER_WORKING_PREFERENCE_MODEL"; positiveSignals: string[]; ignoredDecisionIds: string[]; openQuestions: string[]; explicitInputOnly: true; productionBinding: false };
   weosHandoff: { schema: "champagne.weos.design-generation-handoff.proposal.v1"; status: "FUTURE_CONTRACT_ONLY"; liveRuntime: false };
   generationDisclosure: "DETERMINISTIC_CODE_NATIVE_PROPOSALS_NOT_AI";
   productionBinding: false;
 };
+
+export type FutureDesignWorkerRequest = {
+  schema: "champagne.weos.design-worker.request.v1";
+  founderIntent: string;
+  semanticOwner: string;
+  baselineProposalId: string | null;
+  generationMode: GenerationMode;
+  selectedInheritanceTraits: DesignTrait[];
+  founderDesignDNA: FounderDesignStudioState["founderDesignDNA"];
+  references: Array<{ kind: ReferenceKind; value: string; authority: "DESIGN_REFERENCE_ONLY" }>;
+  governanceEnvelope: { accessibilityRequired: true; semanticAuthorityMutable: false; productionBinding: false };
+  deviceTargets: readonly [1440, 1024, 768, 390];
+};
+
+export type FutureDesignWorkerResponse = { schema: "champagne.weos.design-worker.response.v1"; candidates: DesignProposal[]; lineage: FounderDesignStudioState["lineage"]; responsiveStatus: "PASS" | "REJECTED"; governanceStatus: "PASS" | "REJECTED"; renderPayloads: DesignProposal["renderPayload"][] };

@@ -25,6 +25,7 @@ export type AtelierPreviewState = {
   closingPlacement: ClosingPlacement;
   closingTreatment: ClosingTreatment;
   artDirections: ArtDirectionSelections;
+  experiment: { id: string; domain: "webpage" | "concierge"; semanticOwner: string; family: "aperture" | "folio" | "luminous" | "monolith"; scope: string } | null;
 };
 
 const assetFor = (id: string) => `/assets/champagne/design-lab/v27/${id}.png`;
@@ -55,16 +56,20 @@ export function AtelierPreviewDocument({ heroes }: { heroes: Record<AtelierPageK
       data-time-canon={TEMPORAL_SIMULATIONS[state.time].canon}
       data-time-runtime={TEMPORAL_SIMULATIONS[state.time].heroRuntime}
       data-time-scope={TEMPORAL_SIMULATIONS[state.time].scope}
+      data-experiment-id={state.experiment?.id ?? "GOLDEN"}
+      data-experiment-domain={state.experiment?.domain ?? "golden"}
+      data-experiment-family={state.experiment?.family ?? "golden"}
       style={state.canvasStyle}
     >
-      {state.sections.map(item => <section key={item.id} data-semantic-id={item.id} data-content-state={item.contentState} data-tone={item.tone} data-art-direction={state.artDirections[item.id] ?? "a"} data-treatment={item.id === "home.closing-invitation" ? state.closingTreatment : undefined} className={state.selected === item.id ? "is-selected" : ""}>
+      {state.sections.map(item => <section key={item.id} data-semantic-id={item.id} data-content-state={item.contentState} data-tone={item.tone} data-art-direction={state.artDirections[item.id] ?? "a"} data-treatment={item.id === "home.closing-invitation" ? state.closingTreatment : undefined} data-lab-proposal={state.experiment?.domain === "webpage" && state.experiment.semanticOwner === item.id ? state.experiment.family : undefined} className={state.selected === item.id ? "is-selected" : ""}>
         {item.locked ? heroes[state.page]
           : item.id === "home.closing-invitation" ? <ArchitecturalClosing item={item} placement={state.closingPlacement} treatment={state.closingTreatment} />
             : item.archiveId ? <figure className="dl4-placed"><img src={assetFor(item.archiveId)} alt={`${item.label} visual proposal`} /><figcaption><span>Archive proposal</span></figcaption></figure>
               : <ContentSection item={item} />}
         {state.selected === item.id && !state.cleanPreview ? <div className="dl4-selection"><strong>{item.label}</strong><span>{item.locked ? "Canonical Hero V2 · protected" : "Selected in Atelier"}</span></div> : null}
       </section>)}
-      {state.page === "home" ? <GoldenConcierge /> : null}
+      {state.experiment ? <div className="dl410-preview-truth"><strong>LAB GENERATED PROPOSAL</strong><span>{state.experiment.id} · NOT GOLDEN BASELINE · productionBinding=false</span></div> : null}
+      {state.page === "home" ? <GoldenConcierge experiment={state.experiment?.domain === "concierge" ? state.experiment : null} /> : null}
     </article>
   </main>;
 }
@@ -78,7 +83,7 @@ const IMPLANT_PARTS: Record<ImplantPart, { label: string; explanation: string }>
   crown: { label: "Crown", explanation: "Synthetic education state showing the visible restoration relationship without a treatment claim." },
 };
 
-function GoldenConcierge() {
+function GoldenConcierge({ experiment }: { experiment: AtelierPreviewState["experiment"] }) {
   const [stage, setStage] = useState<ConciergeStage>("invited");
   const [sourceOpen, setSourceOpen] = useState(false);
   const [part, setPart] = useState<ImplantPart>("fixture");
@@ -114,12 +119,12 @@ function GoldenConcierge() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [close, isOpen]);
 
-  if (stage === "closed") return <button className="dl48-concierge-closed" data-concierge-state="closed" onClick={openHost} aria-label="Open Champagne Concierge"><i aria-hidden="true" />Ask Champagne</button>;
-  if (stage === "invited") return <aside className="dl48-concierge-invitation" data-concierge-state="invited" aria-label="Champagne Concierge invitation"><i aria-hidden="true" /><div><span>Champagne Concierge</span><strong>A quieter way to explore.</strong><small>Digital guide · not a person</small></div><button onClick={openHost}>Open Champagne Concierge</button><button onClick={() => setStage("closed")}>Not now</button></aside>;
+  if (stage === "closed") return <button className="dl48-concierge-closed" data-concierge-state="closed" data-lab-proposal={experiment?.family} onClick={openHost} aria-label="Open Champagne Concierge"><i aria-hidden="true" />Ask Champagne</button>;
+  if (stage === "invited") return <aside className="dl48-concierge-invitation" data-concierge-state="invited" data-lab-proposal={experiment?.family} aria-label="Champagne Concierge invitation"><i aria-hidden="true" /><div><span>Champagne Concierge</span><strong>A quieter way to explore.</strong><small>Digital guide · not a person</small></div><button onClick={openHost}>Open Champagne Concierge</button><button onClick={() => setStage("closed")}>Not now</button></aside>;
 
   return <div className="dl48-concierge-layer" data-concierge-state={stage} data-source-open={sourceOpen}>
     <button className="dl48-concierge-scrim" aria-label="Close Champagne Concierge" onClick={close} />
-    <section ref={dialogRef} className="dl48-concierge-panel" role="dialog" aria-modal="true" aria-labelledby="dl48-concierge-heading" aria-describedby="dl48-concierge-disclosure">
+    <section ref={dialogRef} className="dl48-concierge-panel" data-lab-proposal={experiment?.family} data-lab-scope={experiment?.scope} role="dialog" aria-modal="true" aria-labelledby="dl48-concierge-heading" aria-describedby="dl48-concierge-disclosure">
       <header><div className="dl48-host-identity"><i aria-hidden="true">S</i><div><span>Champagne Concierge</span><small id="dl48-concierge-disclosure">Digital guide · synthetic simulation · not a person</small></div></div><div><button onClick={() => setStage("human")}>Speak to the practice</button><button ref={closeRef} onClick={close} aria-label="Close Champagne Concierge">Close</button></div></header>
       <div className="dl48-concierge-safety"><span>PUBLIC_NON_PHI · Zone A</span><span>No diagnosis · no suitability · no personalised recommendation</span></div>
       <div className="dl48-concierge-body">

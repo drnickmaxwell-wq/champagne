@@ -10,6 +10,7 @@ import "./atelier-r4.6.css";
 import "./atelier-r4.7.css";
 import "./atelier-r4.8.css";
 import "./atelier-r4.9.css";
+import "./atelier-r4.10.css";
 
 export const metadata: Metadata = { title: "Champagne Atelier", robots: { index: false, follow: false } };
 
