@@ -24,7 +24,7 @@ await page.setViewportSize({ width: 1440, height: 1000 });
 await page.goto(`${baseURL}/champagne/design-lab`, { waitUntil: "networkidle" });
 await page.getByRole("button", { name: "Open Dental Implants", exact: true }).click();
 await page.getByText("Accepted Implant Content Bundle connected", { exact: true }).waitFor();
-assert.equal(await frame().locator('[data-semantic-id^="implants."]').count(), 12);
+assert.equal(await page.locator(".dl4-layers li").count(), 12);
 assert.equal(await frame().locator('[data-semantic-id="implants.case-evidence"]').count(), 0);
 assert.match(await frame().locator("body").innerText(), /Founder-rejected T0\.1 geometry is not integrated/);
 await snap("01-implant-canvas-1440.png", "IMPLANT_GOLDEN_1440");
