@@ -112,6 +112,9 @@ const chooseDevice = async (device, width, height, orientation) => {
 };
 const enterCleanPreview = async () => {
   await page.getByRole("button", { name: "Clean preview", exact: true }).click();
+  await page.locator(".dl45-preview-scroll").evaluate(element => element.scrollTo({ top: 0, left: 0, behavior: "instant" }));
+  await page.waitForTimeout(50);
+  assert.equal(await page.locator(".dl45-preview-scroll").evaluate(element => element.scrollTop), 0);
   assert.equal(await page.locator(".dl4-pages").isVisible(), false);
   assert.equal(await page.getByRole("button", { name: "Return to studio", exact: true }).isVisible(), true);
   assert.equal(await page.locator(".dl45-preview-stage").getAttribute("data-display-scale"), "100");
