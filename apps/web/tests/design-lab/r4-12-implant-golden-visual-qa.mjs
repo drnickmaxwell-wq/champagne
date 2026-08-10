@@ -27,6 +27,27 @@ await page.getByRole("button", { name: "Open Dental Implants", exact: true }).cl
 await page.getByText("Accepted Implant Content Bundle connected", { exact: true }).waitFor();
 const frame = () => page.frameLocator("iframe.dl46-preview-viewport");
 const dialog = () => page.getByRole("dialog", { name: "Judge the design, not the machinery.", exact: true });
+const captureFullPage = async path => {
+  const height = await frame().locator("article.dl46-canvas").evaluate(article => article.scrollHeight);
+  const viewport = page.locator("iframe.dl46-preview-viewport");
+  const previous = await viewport.evaluate((element, canvasHeight) => {
+    const wrapper = element.parentElement;
+    const state = { viewport: element.getAttribute("style"), wrapper: wrapper?.getAttribute("style") ?? null };
+    if (wrapper) wrapper.setAttribute("style", `width:1440px;height:${canvasHeight}px;transform:none;overflow:visible`);
+    element.setAttribute("style", `width:1440px;height:${canvasHeight}px`);
+    return state;
+  }, height);
+  await page.locator(".dl45-preview-studio").evaluate(element => { element.style.visibility = "hidden"; });
+  await viewport.screenshot({ path });
+  await viewport.evaluate((element, state) => {
+    const wrapper = element.parentElement;
+    if (state.viewport === null) element.removeAttribute("style"); else element.setAttribute("style", state.viewport);
+    if (wrapper) {
+      if (state.wrapper === null) wrapper.removeAttribute("style"); else wrapper.setAttribute("style", state.wrapper);
+    }
+  }, previous);
+  await page.locator(".dl45-preview-studio").evaluate(element => { element.style.visibility = ""; });
+};
 await page.locator("iframe.dl46-preview-viewport").screenshot({ path: `${output}/00-r4.11-golden-before.png` });
 await page.getByRole("button", { name: "Generate & explore", exact: true }).click();
 await dialog().getByLabel("Describe the change", { exact: true }).fill("Create the first luxury architectural educational Implant Golden candidates while preserving every governed word.");
@@ -42,7 +63,7 @@ for (const [title, family, letter] of territories) {
   assert.equal(await frame().locator('[data-semantic-id="implants.case-evidence"]').count(), 0);
   assert.match(await frame().locator("body").innerText(), /Real media required/);
   assert.match(await frame().locator("body").innerText(), /Founder-rejected T0\.1 geometry is not integrated/);
-  await frame().locator("article.dl46-canvas").screenshot({ path: `${output}/${letter}-${family}-full-page.png` });
+  await captureFullPage(`${output}/${letter}-${family}-full-page.png`);
   captures.push({ title, family, fullPage: `${letter}-${family}-full-page.png` });
   await page.getByRole("button", { name: "Generate & explore", exact: true }).click();
   await dialog().getByRole("button", { name: /Compare/ }).click();
