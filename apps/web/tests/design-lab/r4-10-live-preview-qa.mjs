@@ -33,6 +33,8 @@ assert.match(await frame().locator(".dl410-preview-truth").innerText(), /NOT GOL
 await snap("03-live-page-candidate.png", "LIVE_PAGE_CANDIDATE");
 await page.getByRole("button", { name: "Golden vs candidate", exact: true }).click();
 assert.equal(await page.locator("iframe.dl46-preview-viewport").count(), 2);
+await page.frameLocator("iframe.dl46-preview-viewport").nth(0).locator('[data-semantic-id="home.hero.v2"]').waitFor();
+await page.frameLocator("iframe.dl46-preview-viewport").nth(1).locator('[data-semantic-id="home.hero.v2"]').waitFor();
 await snap("04-golden-vs-candidate.png", "GOLDEN_VS_CANDIDATE");
 await page.getByRole("button", { name: "Refine in Studio", exact: true }).click();
 await page.getByRole("button", { name: /Compare 4/ }).click();
