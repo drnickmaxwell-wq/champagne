@@ -130,10 +130,10 @@ await capture("15-media-studio", "Media Studio");
 await page.getByRole("button", { name: "concierge", exact: true }).click();
 const territoryOptions = [["architectural-light","16-concierge-architectural"],["editorial-host","17-concierge-editorial"],["luminous-digital","18-concierge-luminous"],["quiet-companion","19-concierge-quiet"]];
 for (const [value,name] of territoryOptions) {
-  await page.locator(".dl44-concierge-controls label").filter({ hasText: "Direction A" }).locator("select").selectOption(value);
+  await page.locator(".dl44-concierge-tools label").filter({ hasText: "Direction A" }).locator("select").selectOption(value);
   await capture(name, `Concierge ${value}`);
 }
-await page.locator(".dl44-concierge-controls label").filter({ hasText: "Direction A" }).locator("select").selectOption("architectural-light");
+await page.locator(".dl44-concierge-tools label").filter({ hasText: "Direction A" }).locator("select").selectOption("architectural-light");
 await page.getByRole("button", { name: "Compare two", exact: true }).click();
 await capture("20-concierge-two-up", "Architectural Light versus Editorial Host");
 await capture("21-selected-hybrid", "Selected intentional hybrid", page.locator(".dl44-mix"));
