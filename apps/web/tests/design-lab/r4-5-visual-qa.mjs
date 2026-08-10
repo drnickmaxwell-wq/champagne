@@ -65,6 +65,36 @@ const capture = async (name, scenario, locator, widthRange) => {
   assert.equal(state.mode, "CLEAN");
   captures.push({ artifactSchema: "CHAMPAGNE_ATELIER_R4_5_2_FOUNDER_VISUAL_QA_V1", branchHeadSha, branchHeadTree, executionSha, executionTree, productionBinding: false, screenshotFilename: `${name}.png`, scenario, actualPngWidth: dimensions.width, actualPngHeight: dimensions.height, outerBrowserViewport: page.viewportSize(), url: page.url(), ...state });
 };
+const captureCompletePage = async (name, scenario, widthRange) => {
+  const selectors = [".dl45-app", ".dl4-workspace", ".dl45-preview-stage", ".dl45-preview-frame", ".dl45-preview-scroll"];
+  const originalStyles = await page.evaluate((items) => items.map(selector => {
+    const element = document.querySelector(selector);
+    return { selector, style: element?.getAttribute("style") ?? null };
+  }), selectors);
+  await page.evaluate(() => {
+    const app = document.querySelector(".dl45-app");
+    const workspace = document.querySelector(".dl4-workspace");
+    const stage = document.querySelector(".dl45-preview-stage");
+    const frame = document.querySelector(".dl45-preview-frame");
+    const scroll = document.querySelector(".dl45-preview-scroll");
+    if (!(app && workspace && stage && frame && scroll)) throw new Error("Complete-page capture surface is unavailable");
+    app.style.height = "auto"; workspace.style.height = "auto"; stage.style.height = "auto";
+    stage.style.overflow = "visible"; frame.style.height = "auto"; frame.style.overflow = "visible";
+    scroll.style.height = "auto"; scroll.style.overflow = "visible";
+  });
+  await page.locator("[data-semantic-id]").last().scrollIntoViewIfNeeded();
+  await page.waitForTimeout(100);
+  await capture(name, scenario, page.locator(".dl45-canvas").first(), widthRange);
+  await page.evaluate((items) => {
+    for (const item of items) {
+      const element = document.querySelector(item.selector);
+      if (!element) continue;
+      if (item.style === null) element.removeAttribute("style");
+      else element.setAttribute("style", item.style);
+    }
+  }, originalStyles);
+};
+
 const chooseDevice = async (device, width, height, orientation) => {
   await page.getByLabel("Device preset", { exact: true }).selectOption(device);
   const stage = page.locator(".dl45-preview-stage");
@@ -96,7 +126,7 @@ await assertHomepage();
 await chooseDevice("desktop", 1440, 900, "landscape");
 await enterCleanPreview();
 await capture("01-desktop-clean-first-viewport", "Desktop Clean Preview first viewport · 1440×900 · native 100% scale", page.locator(".dl45-preview-frame").first(), { min: 1400, max: 1480 });
-await capture("02-home-desktop-complete", "Complete 12-chapter Homepage desktop · native 100% scale", page.locator(".dl45-canvas").first(), { min: 1400, max: 1480 });
+await captureCompletePage("02-home-desktop-complete", "Complete 12-chapter Homepage desktop · native 100% scale", { min: 1400, max: 1480 });
 await returnToStudio();
 
 await chooseDevice("ipad-portrait", 768, 1024, "portrait");
@@ -112,7 +142,7 @@ await returnToStudio();
 await chooseDevice("iphone", 390, 844, "portrait");
 await enterCleanPreview();
 await capture("05-iphone-clean-first-viewport", "iPhone Clean Preview first viewport · 390×844 · native 100% scale", page.locator(".dl45-preview-frame").first(), { min: 370, max: 410 });
-await capture("06-home-iphone-complete", "Complete 12-chapter Homepage iPhone · native 100% scale", page.locator(".dl45-canvas").first(), { min: 370, max: 410 });
+await captureCompletePage("06-home-iphone-complete", "Complete 12-chapter Homepage iPhone · native 100% scale", { min: 370, max: 410 });
 
 assert.equal(captures.length, 6);
 assert.ok(captures.every(item => item.displayScale === 100 && item.mode === "CLEAN" && item.productionBinding === false));
