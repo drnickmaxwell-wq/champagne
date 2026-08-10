@@ -24,9 +24,13 @@ await dialog.waitFor();
 const captures = [];
 async function capture(filename, viewport, state) {
   await page.setViewportSize(viewport);
-  const buffer = await dialog.screenshot({ path: `${output}/${filename}` });
+  if (viewport.width <= 390) await page.locator(".dl49-candidate").first().scrollIntoViewIfNeeded();
+  const buffer = viewport.width <= 390
+    ? await page.screenshot({ path: `${output}/${filename}`, fullPage: false })
+    : await dialog.screenshot({ path: `${output}/${filename}` });
   const width = buffer.readUInt32BE(16); const height = buffer.readUInt32BE(20);
   assert.ok(width <= viewport.width && width > viewport.width * .9);
+  if (viewport.width <= 390) assert.equal(height, viewport.height);
   captures.push({ filename, state, outerViewport: viewport, width, height, productionBinding: false });
 }
 
