@@ -52,6 +52,10 @@ const previewIframe = () => page.locator("iframe.dl46-preview-viewport").first()
 const measure = async () => previewFrame().locator("body").evaluate((body, expectedOrder) => {
   const document = body.ownerDocument;
   const view = document.defaultView;
+  const transparentProbe = document.createElement("div");
+  document.body.appendChild(transparentProbe);
+  const transparentColor = getComputedStyle(transparentProbe).backgroundColor;
+  transparentProbe.remove();
   const sections = [...document.querySelectorAll("[data-semantic-id]")];
   const sectionMetrics = sections.map(section => {
     const rect = section.getBoundingClientRect();
@@ -67,7 +71,7 @@ const measure = async () => previewFrame().locator("body").evaluate((body, expec
       contentHeight: content ? Math.round(content.height) : null,
       contentMarginTop: contentStyle ? parseFloat(contentStyle.marginTop) : null,
       contentMarginBottom: contentStyle ? parseFloat(contentStyle.marginBottom) : null,
-      ownedSurface: sectionStyle.backgroundImage !== "none" || sectionStyle.backgroundColor !== "rgba(0, 0, 0, 0)",
+      ownedSurface: sectionStyle.backgroundImage !== "none" || sectionStyle.backgroundColor !== transparentColor,
       width: Math.round(rect.width),
       overflowWidth: section.scrollWidth - section.clientWidth,
       clippedHeadings: headings.filter(node => node.scrollWidth > node.clientWidth + 1).map(node => node.textContent?.trim()),
