@@ -40,10 +40,10 @@ await capture("04-clean-preview", "Clean preview · editor chrome hidden with a 
 await page.getByRole("button", { name: "Return to studio" }).click();
 
 await page.getByRole("button", { name: "Experience layers" }).click();
-await page.getByRole("button", { name: "concierge" }).click();
+await page.getByRole("button", { name: "concierge", exact: true }).click();
 await page.getByRole("button", { name: "Compare two" }).click();
 await capture("05-concierge-compare", "Concierge · Architectural Light versus Editorial Host");
-await page.getByRole("button", { name: "journey" }).click();
+await page.getByRole("button", { name: "journey", exact: true }).click();
 await page.getByRole("button", { name: "Open the Host" }).click();
 await page.getByRole("button", { name: "Replace a missing tooth" }).click();
 await page.getByRole("button", { name: "See how the parts fit" }).click();
