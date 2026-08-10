@@ -223,7 +223,7 @@ await previewFrame().getByRole("button", { name: "Not now", exact: true }).click
 await captureConcierge("closed", "concierge-00-closed.png");
 await previewFrame().getByRole("button", { name: "Open Champagne Concierge", exact: true }).click();
 await captureConcierge("host", "concierge-02-host-open.png");
-assert.equal(await previewFrame().getByRole("button", { name: "Close Champagne Concierge", exact: true }).evaluate(node => node === node.ownerDocument.activeElement), true);
+assert.equal(await previewFrame().locator('.dl48-concierge-panel>header button[aria-label="Close Champagne Concierge"]').evaluate(node => node === node.ownerDocument.activeElement), true);
 await previewFrame().getByRole("button", { name: "Explore by what you need", exact: true }).click();
 await previewFrame().getByRole("button", { name: /Replace a missing tooth/ }).click();
 await captureConcierge("answer", "concierge-03-answer.png");
