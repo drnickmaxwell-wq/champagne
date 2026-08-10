@@ -3,8 +3,10 @@
 .dl46-preview-viewport{display:block;width:100%;height:100%;border:0;background:var(--surface-0)}
 .dl45-preview-stage[data-device-frame=true] .dl46-preview-frame{border:12px solid var(--surface-ink);border-radius:1.4rem;box-shadow:0 1.5rem 4rem color-mix(in srgb,var(--surface-ink) 22%,transparent);overflow:hidden}
 .dl46-canvas{width:100%;max-width:none;margin:0;box-shadow:none}
-.dl46-canvas>section{border-width:0;overflow:clip}
-.dl46-canvas>section>.dl44-content{box-sizing:border-box;width:100%}
+.dl46-canvas>section{margin:0;border-width:0;overflow:clip}
+.dl46-canvas>section[data-tone=persian]{background:var(--atelier-persian)}
+.dl46-canvas>section[data-tone=porcelain],.dl46-canvas>section[data-tone=luminous]{background:var(--atelier-porcelain)}
+.dl46-canvas>section>.dl44-content{box-sizing:border-box;width:100%;margin-block:0;margin-inline:auto}
 .dl46-canvas[data-preview-mode=clean] .dl44-media-intent{display:none}
 @media(max-width:50rem){
   .dl46-canvas .dl44-content{width:100%;max-width:none;min-height:0;padding:4rem 1.35rem}

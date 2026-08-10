@@ -55,13 +55,19 @@ const measure = async () => previewFrame().locator("body").evaluate((body, expec
   const sections = [...document.querySelectorAll("[data-semantic-id]")];
   const sectionMetrics = sections.map(section => {
     const rect = section.getBoundingClientRect();
-    const content = section.firstElementChild?.getBoundingClientRect();
+    const contentNode = section.firstElementChild;
+    const content = contentNode?.getBoundingClientRect();
+    const sectionStyle = getComputedStyle(section);
+    const contentStyle = contentNode ? getComputedStyle(contentNode) : null;
     const headings = [...section.querySelectorAll("h1,h2,h3")];
     const controls = [...section.querySelectorAll("a,button,summary")];
     return {
       semanticId: section.getAttribute("data-semantic-id"),
       height: Math.round(rect.height),
       contentHeight: content ? Math.round(content.height) : null,
+      contentMarginTop: contentStyle ? parseFloat(contentStyle.marginTop) : null,
+      contentMarginBottom: contentStyle ? parseFloat(contentStyle.marginBottom) : null,
+      ownedSurface: sectionStyle.backgroundImage !== "none" || sectionStyle.backgroundColor !== "rgba(0, 0, 0, 0)",
       width: Math.round(rect.width),
       overflowWidth: section.scrollWidth - section.clientWidth,
       clippedHeadings: headings.filter(node => node.scrollWidth > node.clientWidth + 1).map(node => node.textContent?.trim()),
@@ -162,6 +168,8 @@ for (const device of devices) {
   assert.equal(metrics.hasProof, false);
   assert.ok(metrics.gaps.every(gap => Math.abs(gap) <= 1), `${device.id} has an unowned inter-section gap: ${metrics.gaps}`);
   assert.ok(metrics.sectionMetrics.every(section => section.overflowWidth <= 1 && section.clippedHeadings.length === 0 && section.clippedControls.length === 0), `${device.id} contains clipped or overflowing semantic content`);
+  assert.ok(metrics.sectionMetrics.every(section => section.ownedSurface), `${device.id} contains a semantic section without an owned surface`);
+  assert.ok(metrics.sectionMetrics.every(section => section.contentMarginTop === 0 && section.contentMarginBottom === 0), `${device.id} contains vertical content margins that can expose the parent canvas`);
   assert.equal(metrics.visibleMediaDiagnostics, 0);
   const viewportFilename = `${device.id}-homepage-first-viewport.png`;
   const viewportBuffer = await previewIframe().screenshot({ path: `${output}/${viewportFilename}` });
