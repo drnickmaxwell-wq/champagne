@@ -41,7 +41,7 @@ export function FounderDesignStudio({ initialDomain, onClose, onGovernedChange, 
 
   useEffect(() => {
     returnFocus.current = document.activeElement as HTMLElement;
-    try { const saved = window.localStorage.getItem(STORAGE_KEY); if (saved) { const parsed = JSON.parse(saved) as Partial<FounderDesignStudioState>; setState({ ...initialState, ...parsed, founderDesignDNA: { ...initialState.founderDesignDNA, ...parsed.founderDesignDNA, ignoredDecisionIds: parsed.founderDesignDNA?.ignoredDecisionIds ?? [] } }); } } catch { /* Private preferences remain optional. */ }
+    try { const saved = window.localStorage.getItem(STORAGE_KEY); if (saved) { const parsed = JSON.parse(saved) as Partial<FounderDesignStudioState>; const highestSequence = (parsed.proposals ?? []).reduce((highest, proposal) => Math.max(highest, Number(proposal.setId.split("-").at(-1)) || 0), 0); sequenceRef.current = highestSequence + 1; setState({ ...initialState, ...parsed, founderDesignDNA: { ...initialState.founderDesignDNA, ...parsed.founderDesignDNA, ignoredDecisionIds: parsed.founderDesignDNA?.ignoredDecisionIds ?? [] } }); } } catch { /* Private preferences remain optional. */ }
     closeRef.current?.focus();
     const keydown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
