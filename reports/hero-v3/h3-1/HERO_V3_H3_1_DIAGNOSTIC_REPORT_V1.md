@@ -95,19 +95,23 @@ no-index/no-follow. It changes no public Hero route or Sacred runtime file.
 
 ## Visual evidence
 
-- `HERO_V3_H3_1_STATIC_LAYER_CONTACT_SHEET_V1.jpg` shows the real resolved source
-  layers and exposes the zero-byte mask fact.
+- `HERO_V3_H3_1_STATIC_LAYER_CONTACT_SHEET_V1.jpg` inventories resolved raster
+  source layers and exposes the zero-byte mask fact. Its colour tile is only an
+  illustrative diagnostic swatch: it is not a browser render of
+  `var(--smh-gradient)`, the assembled Hero, or Founder-approved gradient evidence.
 - `HERO_V3_H3_1_MOTION_FRAME_CONTACT_SHEET_V1.jpg` shows real frames at 0.0,
   2.5 and 5.0 seconds for every active motion asset.
 - `HERO_V3_H3_1_RESPONSIVE_ASSET_CONTACT_SHEET_V1.jpg` compares the actual
   desktop/mobile source assets.
 
-Browser runtime capture remains outstanding in this execution environment: no
-Chromium binary was installed and the restricted Playwright mirrors returned
-invalid downloads. This is not concealed as a pass. The production build
-successfully generated the diagnostic route, and the lab carries the runtime
-probes needed for Founder or preview-browser evidence without changing public
-behaviour.
+A temporary Chromium runtime outside the repository subsequently captured the
+real V2 renderer in complete-static desktop and mobile states. Those captures
+confirm that `gradient.base` resolves through the protected
+`var(--smh-gradient)` token inside the assembled wave composition. The same
+headless runtime produced visible text-compositing corruption when active VP9
+motion layers were captured, so its motion screenshots are not valid visual
+approval evidence. Motion appearance still requires a normal GPU-capable
+browser or preview capture; the asset/timing loop diagnosis is unaffected.
 
 ## H3.2 decisions required
 
