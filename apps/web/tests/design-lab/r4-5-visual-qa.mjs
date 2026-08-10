@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { mkdir, writeFile } from "node:fs/promises";
 import { chromium } from "playwright";
+import sharp from "sharp";
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3000";
 const output = process.env.ATELIER_QA_OUTPUT ?? "atelier-r4.5.2-founder-visual-qa";
@@ -66,33 +67,40 @@ const capture = async (name, scenario, locator, widthRange) => {
   captures.push({ artifactSchema: "CHAMPAGNE_ATELIER_R4_5_2_FOUNDER_VISUAL_QA_V1", branchHeadSha, branchHeadTree, executionSha, executionTree, productionBinding: false, screenshotFilename: `${name}.png`, scenario, actualPngWidth: dimensions.width, actualPngHeight: dimensions.height, outerBrowserViewport: page.viewportSize(), url: page.url(), ...state });
 };
 const captureCompletePage = async (name, scenario, widthRange) => {
-  const selectors = [".dl45-app", ".dl4-workspace", ".dl45-preview-stage", ".dl45-preview-frame", ".dl45-preview-scroll"];
-  const originalStyles = await page.evaluate((items) => items.map(selector => {
-    const element = document.querySelector(selector);
-    return { selector, style: element?.getAttribute("style") ?? null };
-  }), selectors);
-  await page.evaluate(() => {
-    const app = document.querySelector(".dl45-app");
-    const workspace = document.querySelector(".dl4-workspace");
-    const stage = document.querySelector(".dl45-preview-stage");
-    const frame = document.querySelector(".dl45-preview-frame");
-    const scroll = document.querySelector(".dl45-preview-scroll");
-    if (!(app && workspace && stage && frame && scroll)) throw new Error("Complete-page capture surface is unavailable");
-    app.style.height = "auto"; workspace.style.height = "auto"; stage.style.height = "auto";
-    stage.style.overflow = "visible"; frame.style.height = "auto"; frame.style.overflow = "visible";
-    scroll.style.height = "auto"; scroll.style.overflow = "visible";
+  const segments = [];
+  let compositeWidth = null;
+  let compositeHeight = 0;
+  for (const semanticId of expectedHomepageOrder) {
+    const buffer = await page.locator(`[data-semantic-id="${semanticId}"]`).first().screenshot();
+    const metadata = await sharp(buffer).metadata();
+    assert.ok(metadata.width && metadata.height, `${semanticId} did not produce measurable PNG evidence`);
+    assert.ok(metadata.width >= widthRange.min && metadata.width <= widthRange.max, `${semanticId} width ${metadata.width}px is outside native 100%-scale range`);
+    if (compositeWidth === null) compositeWidth = metadata.width;
+    assert.equal(metadata.width, compositeWidth);
+    segments.push({ input: buffer, top: compositeHeight, left: 0 });
+    compositeHeight += metadata.height;
+  }
+  assert.ok(compositeWidth);
+  const buffer = await sharp({
+    create: { width: compositeWidth, height: compositeHeight, channels: 4, background: { r: 31, g: 32, b: 33, alpha: 1 } },
+  }).composite(segments).png().toBuffer();
+  const path = `${output}/${name}.png`;
+  await writeFile(path, buffer);
+  const dimensions = pngDimensions(buffer);
+  assert.equal(dimensions.width, compositeWidth);
+  assert.equal(dimensions.height, compositeHeight);
+  const state = await previewState();
+  assert.equal(state.displayScale, 100);
+  assert.equal(state.mode, "CLEAN");
+  captures.push({
+    artifactSchema: "CHAMPAGNE_ATELIER_R4_5_2_FOUNDER_VISUAL_QA_V1",
+    branchHeadSha, branchHeadTree, executionSha, executionTree,
+    productionBinding: false, screenshotFilename: `${name}.png`, scenario,
+    captureMethod: "NATIVE_SECTION_PNG_VERTICAL_STITCH_NO_RESIZE",
+    stitchedSemanticIds: expectedHomepageOrder,
+    actualPngWidth: dimensions.width, actualPngHeight: dimensions.height,
+    outerBrowserViewport: page.viewportSize(), url: page.url(), ...state,
   });
-  await page.locator("[data-semantic-id]").last().scrollIntoViewIfNeeded();
-  await page.waitForTimeout(100);
-  await capture(name, scenario, page.locator(".dl45-canvas").first(), widthRange);
-  await page.evaluate((items) => {
-    for (const item of items) {
-      const element = document.querySelector(item.selector);
-      if (!element) continue;
-      if (item.style === null) element.removeAttribute("style");
-      else element.setAttribute("style", item.style);
-    }
-  }, originalStyles);
 };
 
 const chooseDevice = async (device, width, height, orientation) => {
