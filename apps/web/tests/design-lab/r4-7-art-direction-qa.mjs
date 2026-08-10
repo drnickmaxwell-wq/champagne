@@ -129,6 +129,7 @@ const stitchCompletePage = async (device, metrics) => {
       return view.scrollY;
     }, requestedPosition);
     assert.ok(Math.abs(actualPosition - requestedPosition) <= 1, `${device.id} could not reach native scroll position ${requestedPosition}`);
+    await page.mouse.move(1799, 1);
     const buffer = await previewIframe().screenshot();
     const metadata = await sharp(buffer).metadata();
     assert.equal(metadata.width, device.width, `${device.id} slice is not native ${device.width}px evidence`);
@@ -186,6 +187,7 @@ for (const device of devices) {
   assert.ok(metrics.sectionMetrics.every(section => section.contentMarginTop === 0 && section.contentMarginBottom === 0), `${device.id} contains vertical content margins that can expose the parent canvas`);
   assert.equal(metrics.visibleMediaDiagnostics, 0);
   const viewportFilename = `${device.id}-homepage-first-viewport.png`;
+  await page.mouse.move(1799, 1);
   const viewportBuffer = await previewIframe().screenshot({ path: `${output}/${viewportFilename}` });
   assert.deepEqual(pngDimensions(viewportBuffer), { width: device.width, height: device.height });
   const complete = await stitchCompletePage(device, metrics);
@@ -211,10 +213,12 @@ for (const semanticId of differentiatedChapterIds) {
   await previewFrame().locator(".dl47-canvas").evaluate(canvas => canvas.classList.remove("dl47-canvas"));
   await section.evaluate(node => node.scrollIntoView({ block: "start" }));
   const beforeFilename = `before-${semanticId}.png`;
+  await page.mouse.move(1799, 1);
   const beforeBuffer = await previewIframe().screenshot({ path: `${output}/${beforeFilename}` });
   await previewFrame().locator(".dl46-canvas").evaluate(canvas => canvas.classList.add("dl47-canvas"));
   await section.evaluate(node => node.scrollIntoView({ block: "start" }));
   const afterFilename = `after-${semanticId}.png`;
+  await page.mouse.move(1799, 1);
   const afterBuffer = await previewIframe().screenshot({ path: `${output}/${afterFilename}` });
   const before = pngDimensions(beforeBuffer);
   const after = pngDimensions(afterBuffer);
