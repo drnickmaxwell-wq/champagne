@@ -1,0 +1,31 @@
+{
+  "schema": "CHAMPAGNE_HERO_CONTENT_AUTHORITY_CONFLICT_V1",
+  "status": "DIAGNOSTIC_ONLY",
+  "sacredHero": {
+    "heading": "Advanced cosmetic dentistry crafted with calm precision.",
+    "supportingCopy": "Digital workflows, gentle clinicians, and beautifully layered studio light for confident smiles.",
+    "ctas": [
+      "Book a consultation",
+      "Explore treatments"
+    ],
+    "renderingAuthority": "CURRENT_RENDER_WINNER",
+    "lockObserved": "VISUAL_AND_CONTENT_AS_IMPLEMENTED"
+  },
+  "governedHomeContentHero": {
+    "heading": "Advanced dentistry, planned with calm precision.",
+    "supportingCopy": "At St Mary's House, everyday care and more complex treatment begin the same way: by listening, examining carefully and explaining what the next step would involve.",
+    "ctas": [
+      "Contact the practice",
+      "Explore treatments"
+    ],
+    "authority": "CHAMPAGNE_HOME_CONTENT_BUNDLE_V1"
+  },
+  "conflict": [
+    "crafted with calm precision vs planned with calm precision",
+    "Book a consultation vs Contact the practice",
+    "supporting copy differs"
+  ],
+  "smallestFutureDecision": "Founder must state whether Sacred Hero V2 protects composition only, allowing governed copy/CTA projection, or protects composition and current content. No visual redesign is required.",
+  "sacredHeroMutation": false,
+  "productionBinding": false
+}
