@@ -59,13 +59,13 @@
       "historical route-navigation stack remount",
       "42-second CSS endpoint discontinuity"
     ],
-    "browserRuntimeQualification": "The lab contains live time-regression and node-identity probes. Browser capture could not execute in this environment because no browser binary was installed and the restricted Playwright mirror returned invalid downloads. Production build and source/asset probes passed."
+    "browserRuntimeQualification": "A temporary Chromium runtime outside the repository captured the real V2 renderer in complete-static desktop and mobile states. Active VP9 motion captures showed headless text-compositing corruption and are not valid visual approval evidence; motion appearance still requires a normal GPU-capable browser or preview capture. The asset/timing loop diagnosis is unaffected."
   },
   "diagnosticControls": ["visibility", "opacity", "blend", "crop", "position", "focal X and Y", "media phase", "CSS phase", "playback rate"],
   "presets": ["every static layer independently", "cumulative static builds", "complete static", "every motion layer independently", "complete motion", "reduced motion"],
-  "responsiveEvidence": ["desktop 1440 frame", "tablet 900 frame", "mobile 390 frame", "real browser viewport remains required for media-query capture"],
+  "responsiveEvidence": ["real complete-static desktop browser capture at 1440px", "real complete-static mobile browser capture at 430px", "tablet frame available in the lab but not yet browser-captured", "motion appearance requires GPU-capable browser evidence"],
   "visualEvidence": [
-    "evidence/HERO_V3_H3_1_STATIC_LAYER_CONTACT_SHEET_V1.jpg",
+    "evidence/HERO_V3_H3_1_STATIC_LAYER_CONTACT_SHEET_V1.jpg (raster-source inventory only; illustrative colour tile is not assembled-gradient evidence)",
     "evidence/HERO_V3_H3_1_MOTION_FRAME_CONTACT_SHEET_V1.jpg",
     "evidence/HERO_V3_H3_1_RESPONSIVE_ASSET_CONTACT_SHEET_V1.jpg"
   ],
