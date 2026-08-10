@@ -28,6 +28,15 @@ type StaticId = (typeof STATIC_IDS)[number];
 type MotionId = (typeof MOTION_IDS)[number];
 type SurfaceId = StaticId | MotionId;
 type ViewportMode = "desktop" | "tablet" | "mobile";
+type StaticStudyId = "v2-reference" | "v2-precision" | "spectral-wave" | "velvet-porcelain-depth" | "luminous-counterflow";
+
+const STATIC_STUDIES: ReadonlyArray<{ id: StaticStudyId; label: string }> = [
+  { id: "v2-reference", label: "V2 static reference baseline" },
+  { id: "v2-precision", label: "A — V2 Precision" },
+  { id: "spectral-wave", label: "B — Spectral Wave" },
+  { id: "velvet-porcelain-depth", label: "C — Velvet Porcelain Depth" },
+  { id: "luminous-counterflow", label: "D — Luminous Counterflow" },
+];
 
 type Preset = {
   id: string;
@@ -99,11 +108,25 @@ export function HeroV3DiagnosticLab() {
   const [telemetry, setTelemetry] = useState<SurfaceTelemetry[]>([]);
   const [events, setEvents] = useState<LoopEvent[]>([]);
   const [sampleCount, setSampleCount] = useState(0);
+  const [staticStudy, setStaticStudy] = useState<StaticStudyId>("v2-reference");
+  const [showGuides, setShowGuides] = useState(false);
+  const [evidenceMode, setEvidenceMode] = useState(false);
   const surfaceRoot = useRef<HTMLDivElement | null>(null);
   const nodeIds = useRef(new WeakMap<Element, string>());
   const nodeSequence = useRef(0);
   const previousTimes = useRef(new Map<string, number>());
   const previousNodes = useRef(new Map<string, Element>());
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const requestedStudy = params.get("study") as StaticStudyId | null;
+    if (requestedStudy && STATIC_STUDIES.some((entry) => entry.id === requestedStudy)) setStaticStudy(requestedStudy);
+    const requestedViewport = params.get("viewport") as ViewportMode | null;
+    if (requestedViewport && ["desktop", "tablet", "mobile"].includes(requestedViewport)) setViewport(requestedViewport);
+    setShowGuides(params.get("guides") === "1");
+    setEvidenceMode(params.get("evidence") === "1");
+    setPresetId("static:complete");
+  }, []);
 
   const preset = useMemo(() => PRESETS.find((entry) => entry.id === presetId) ?? PRESETS[0], [presetId]);
   const visibleSet = useMemo(() => new Set<string>(preset.visible), [preset.visible]);
@@ -270,7 +293,7 @@ export function HeroV3DiagnosticLab() {
   const frameStyle = { "--h3-frame-width": viewport === "desktop" ? "1440px" : viewport === "tablet" ? "900px" : "390px" } as CSSProperties;
 
   return (
-    <main className={styles.page} data-h3-lab="true">
+    <main className={`${styles.page} ${evidenceMode ? styles.evidenceMode : ""}`} data-h3-lab="true" data-h3-static-study={staticStudy}>
       <header className={styles.header}>
         <div>
           <p className={styles.kicker}>H3.1 · isolated · productionBinding=false</p>
@@ -284,10 +307,12 @@ export function HeroV3DiagnosticLab() {
       </header>
 
       <section className={styles.controls} aria-label="Diagnostic controls">
+        <label>H3.2 static study<select value={staticStudy} onChange={(event) => { setStaticStudy(event.target.value as StaticStudyId); setPresetId("static:complete"); }} data-h3-study-control="true">{STATIC_STUDIES.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}</select></label>
         <label>Evidence preset<select value={presetId} onChange={(event) => { setPresetId(event.target.value); resetControls(); }}>{PRESETS.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}</select></label>
         <label>Viewport frame<select value={viewport} onChange={(event) => setViewport(event.target.value as ViewportMode)}><option value="desktop">Desktop · 1440</option><option value="tablet">Tablet · 900</option><option value="mobile">Mobile · 390</option></select></label>
         <label>Selected surface<select value={selectedId} onChange={(event) => { setSelectedId(event.target.value as SurfaceId); resetControls(); }}>{[...STATIC_IDS, ...MOTION_IDS].map((id) => <option key={id}>{id}</option>)}</select></label>
         <label className={styles.checkbox}><input type="checkbox" checked={visible} onChange={(event) => setVisible(event.target.checked)} /> Visible</label>
+        <label className={styles.checkbox}><input type="checkbox" checked={showGuides} onChange={(event) => setShowGuides(event.target.checked)} /> H3.2 safe-zone guides</label>
         <label>Opacity <output>{opacity}%</output><input type="range" min="0" max="100" value={opacity} onChange={(event) => setOpacity(Number(event.target.value))} /></label>
         <label>Blend<select value={blend} onChange={(event) => setBlend(event.target.value)}><option value="source">Renderer source</option><option value="normal">Normal</option><option value="screen">Screen</option><option value="overlay">Overlay</option><option value="soft-light">Soft light</option><option value="multiply">Multiply</option></select></label>
         <label>Focal X <output>{positionX}%</output><input type="range" min="0" max="100" value={positionX} onChange={(event) => setPositionX(Number(event.target.value))} /></label>
@@ -298,10 +323,17 @@ export function HeroV3DiagnosticLab() {
         <div className={styles.actions}><button type="button" onClick={resetControls}>Reset selected overrides</button><button type="button" onClick={() => setEvents([])}>Clear events</button><button type="button" onClick={exportEvidence}>Export evidence JSON</button></div>
       </section>
 
-      <section className={styles.stageShell} style={frameStyle} aria-label="Real V2 render">
+      <section className={styles.stageShell} style={frameStyle} aria-label="Real V2 render" data-h3-viewport={viewport} data-h3-guides={showGuides ? "true" : "false"}>
         <div className={styles.viewportLabel}>{viewport} evidence frame · use true browser viewports for media-query captures</div>
-        <div className={styles.stage}>
+        <div className={`${styles.stage} ${styles.staticStudy}`} data-h3-study={staticStudy}>
+          <div className={styles.compositionFields} aria-hidden="true" />
           <HeroRendererV2 prm={preset.reducedMotion} particles filmGrain diagnosticBoost={false} surfaceRef={surfaceRoot} pageSlugOrPath="/" />
+          <div className={styles.safeZoneGuides} aria-hidden="true">
+            <span className={styles.headerExclusion}>Header / navigation exclusion</span>
+            <span className={styles.copySafe}>Copy / action safe zone</span>
+            <span className={styles.focalRegion}>Focal visual region</span>
+            <span className={styles.cropSafe}>Crop-safe region</span>
+          </div>
         </div>
       </section>
 

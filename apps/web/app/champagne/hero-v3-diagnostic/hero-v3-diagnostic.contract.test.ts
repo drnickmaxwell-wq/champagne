@@ -23,4 +23,13 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
     expect(source).toContain("HERO_V3_H3_1_LIVE_EVIDENCE_V1");
     expect(source).toContain("productionBinding=false");
   });
+
+  it("exposes the bounded H3.2 static candidate family without motion repair", () => {
+    expect(source).toContain("V2 static reference baseline");
+    expect(source).toContain("A — V2 Precision");
+    expect(source).toContain("B — Spectral Wave");
+    expect(source).toContain("C — Velvet Porcelain Depth");
+    expect(source).toContain("D — Luminous Counterflow");
+    expect(source).not.toContain("crossfade");
+  });
 });
