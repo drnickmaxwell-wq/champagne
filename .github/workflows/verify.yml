@@ -279,7 +279,7 @@ jobs:
           if-no-files-found: ignore
 
   atelier-r45-visual-qa:
-    name: Atelier R4.5.2 Founder visual QA artifact
+    name: Atelier R4.6 true-device responsive QA artifact
     runs-on: ubuntu-latest
     env:
       ALLOW_CHAMPAGNE_ROUTES: "true"
@@ -327,19 +327,19 @@ jobs:
           echo "ATELIER_EXECUTION_SHA=$GITHUB_SHA" >> "$GITHUB_ENV"
           echo "ATELIER_BRANCH_HEAD_TREE=$branch_tree" >> "$GITHUB_ENV"
           echo "ATELIER_EXECUTION_TREE=$execution_tree" >> "$GITHUB_ENV"
-      - name: Capture Founder decision loop
+      - name: Capture truthful responsive Founder evidence
         env:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
-          ATELIER_QA_OUTPUT: atelier-r4.5.2-founder-visual-qa
+          ATELIER_QA_OUTPUT: atelier-r4.6-responsive-qa
           ATELIER_BASE_SHA: a00f718a93710028b364930566d7f6a44483bc25
-        run: node apps/web/tests/design-lab/r4-5-visual-qa.mjs
-      - name: Upload exact-tree Founder visual evidence
+        run: node apps/web/tests/design-lab/r4-6-responsive-qa.mjs
+      - name: Upload exact-tree responsive Founder evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: CHAMPAGNE_ATELIER_R4_5_2_FOUNDER_VISUAL_QA_V1
+          name: CHAMPAGNE_ATELIER_R4_6_TRUE_DEVICE_RESPONSIVE_QA_V1
           path: |
-            atelier-r4.5.2-founder-visual-qa/
+            atelier-r4.6-responsive-qa/
             ${{ runner.temp }}/atelier-r45-web.log
           if-no-files-found: error
 

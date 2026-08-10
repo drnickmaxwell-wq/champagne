@@ -1,0 +1,29 @@
+/* R4.6 truthful responsive browsing context. Scaling belongs to the outer frame only. */
+.dl46-preview-frame{position:relative;flex:none;transform-origin:top left;background:var(--surface-0)}
+.dl46-preview-viewport{display:block;width:100%;height:100%;border:0;background:var(--surface-0)}
+.dl45-preview-stage[data-device-frame=true] .dl46-preview-frame{border:12px solid var(--surface-ink);border-radius:1.4rem;box-shadow:0 1.5rem 4rem color-mix(in srgb,var(--surface-ink) 22%,transparent);overflow:hidden}
+.dl46-canvas{width:100%;max-width:none;margin:0;box-shadow:none}
+.dl46-canvas>section{border-width:0;overflow:clip}
+.dl46-canvas>section>.dl44-content{box-sizing:border-box;width:100%}
+.dl46-canvas[data-preview-mode=clean] .dl44-media-intent{display:none}
+@media(max-width:50rem){
+  .dl46-canvas .dl44-content{width:100%;max-width:none;min-height:0;padding:4rem 1.35rem}
+  .dl46-canvas .dl44-content h2{max-width:100%;font-size:clamp(2.45rem,11.5vw,3.3rem);overflow-wrap:break-word}
+  .dl46-canvas .dl44-content>p{max-width:100%}
+  .dl46-canvas .dl44-home-practice-answer,.dl46-canvas .dl44-home-team-continuity{padding-right:1.35rem;padding-left:1.35rem}
+  .dl46-canvas[data-brand-rhythm=editorial] .dl44-content:nth-child(even){padding-left:1.35rem}
+  .dl46-canvas .dl44-pathways,.dl46-canvas .dl44-steps{grid-template-columns:minmax(0,1fr)}
+  .dl46-canvas .dl44-pathways a{min-width:0;min-height:0;padding:1.5rem}
+  .dl46-canvas .dl44-pathways strong{max-width:none;font-size:1.5rem}
+  .dl46-canvas .dl44-steps li{min-width:0;padding:1.5rem}
+  .dl46-canvas .dl44-steps strong{margin-top:1.25rem}
+  .dl46-canvas .dl44-home-complex-care,.dl46-canvas .dl44-home-founder-authority,.dl46-canvas .dl44-home-heritage-story{min-height:32rem}
+  .dl46-canvas .dl44-home-team-continuity{border-left-width:.5rem}
+  .dl46-canvas .dl44-home-founder-authority::after{width:100%;max-width:100%;text-align:left}
+  .dl46-canvas .dl44-ctas{align-items:stretch;flex-direction:column}
+  .dl46-canvas .dl44-ctas a{box-sizing:border-box;width:100%;text-align:center}
+  .dl46-canvas .dl44-media-intent{box-sizing:border-box;width:100%;margin-top:2rem}
+  .dl46-canvas .dl4-architectural-copy{max-width:none}
+  .dl46-canvas .dl4-architectural-copy h2{max-width:100%;overflow-wrap:break-word}
+}
+@media(prefers-reduced-motion:reduce){.dl46-preview-frame{transition:none}}
