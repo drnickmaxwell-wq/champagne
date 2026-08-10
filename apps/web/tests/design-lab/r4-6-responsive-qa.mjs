@@ -117,24 +117,33 @@ const measureLegacyProjection = async () => page.evaluate(expectedOrder => {
 
 const stitchCompletePage = async (device, metrics) => {
   const segments = [];
-  let width = null;
-  let top = 0;
-  for (const semanticId of expectedHomepageOrder) {
-    const buffer = await previewFrame().locator(`[data-semantic-id="${semanticId}"]`).screenshot();
+  const maximumScroll = Math.max(0, metrics.scrollHeight - device.height);
+  const scrollPositions = [];
+  for (let position = 0; position < maximumScroll; position += device.height) scrollPositions.push(position);
+  if (scrollPositions.at(-1) !== maximumScroll) scrollPositions.push(maximumScroll);
+  for (const [index, requestedPosition] of scrollPositions.entries()) {
+    const actualPosition = await previewFrame().locator("body").evaluate((body, position) => {
+      const view = body.ownerDocument.defaultView;
+      view.scrollTo(0, position);
+      return view.scrollY;
+    }, requestedPosition);
+    assert.ok(Math.abs(actualPosition - requestedPosition) <= 1, `${device.id} could not reach native scroll position ${requestedPosition}`);
+    const buffer = await previewIframe().screenshot();
     const metadata = await sharp(buffer).metadata();
-    assert.equal(metadata.width, device.width, `${semanticId} is not native ${device.width}px evidence`);
-    assert.ok(metadata.height);
-    width ??= metadata.width;
-    segments.push({ input: buffer, top, left: 0 });
-    top += metadata.height;
+    assert.equal(metadata.width, device.width, `${device.id} slice is not native ${device.width}px evidence`);
+    assert.equal(metadata.height, device.height, `${device.id} slice changed the real inner viewport height`);
+    const nextPosition = scrollPositions[index + 1] ?? metrics.scrollHeight;
+    const sliceHeight = nextPosition - requestedPosition;
+    const slice = await sharp(buffer).extract({ left: 0, top: 0, width: device.width, height: sliceHeight }).toBuffer();
+    segments.push({ input: slice, top: requestedPosition, left: 0 });
   }
-  const buffer = await sharp({ create: { width, height: top, channels: 4, background: { r: 31, g: 32, b: 33, alpha: 1 } } }).composite(segments).png().toBuffer();
+  const buffer = await sharp({ create: { width: device.width, height: metrics.scrollHeight, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } }).composite(segments).png().toBuffer();
   const filename = `${device.id}-homepage-complete.png`;
   await writeFile(`${output}/${filename}`, buffer);
   const dimensions = pngDimensions(buffer);
   assert.equal(dimensions.width, device.width);
   assert.ok(dimensions.height < (device.id === "iphone" ? 18000 : 15000), `${device.id} complete page remains implausibly tall at ${dimensions.height}px`);
-  return { filename, ...dimensions, captureMethod: "NATIVE_IFRAME_SECTION_PNG_VERTICAL_STITCH_NO_RESIZE", sectionHeights: metrics.sectionMetrics.map(({ semanticId, height }) => ({ semanticId, height })) };
+  return { filename, ...dimensions, captureMethod: "NATIVE_IFRAME_VIEWPORT_SLICE_VERTICAL_STITCH_NO_RESIZE", sectionHeights: metrics.sectionMetrics.map(({ semanticId, height }) => ({ semanticId, height })) };
 };
 
 await page.goto(`${baseURL}/champagne/design-lab`, { waitUntil: "networkidle" });
