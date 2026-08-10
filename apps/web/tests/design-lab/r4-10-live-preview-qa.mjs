@@ -35,6 +35,7 @@ await page.getByRole("button", { name: "Golden vs candidate", exact: true }).cli
 assert.equal(await page.locator("iframe.dl46-preview-viewport").count(), 2);
 await snap("04-golden-vs-candidate.png", "GOLDEN_VS_CANDIDATE");
 await page.getByRole("button", { name: "Refine in Studio", exact: true }).click();
+await page.getByRole("button", { name: /Compare 4/ }).click();
 await page.getByRole("button", { name: /None of these/ }).click();
 const familyTwo = await page.locator(".dl49-candidate").first().getAttribute("data-family");
 await page.getByRole("button", { name: /None of these/ }).click();
@@ -52,6 +53,8 @@ await page.getByRole("button", { name: "Remix selected ideas", exact: true }).cl
 const remixSelects = page.locator(".dl410-remix select");
 await remixSelects.nth(0).selectOption({ index: 1 }); await remixSelects.nth(1).selectOption({ index: 2 });
 await snap("07-remix-builder.png", "REMIX_BUILDER");
+await page.getByRole("button", { name: "Generate new remix proposal", exact: true }).click();
+assert.equal(await page.locator(".dl49-candidate").count(), 4);
 await page.getByRole("button", { name: "Design DNA", exact: true }).click();
 assert.match(await dialog().innerText(), /explicit decision/);
 await snap("08-explainable-dna.png", "EXPLAINABLE_DNA");
