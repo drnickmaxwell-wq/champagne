@@ -39,7 +39,7 @@ const captureFullPage = async path => {
   await evidencePage.setViewportSize({ width: 1440, height: 1000 });
   await evidencePage.goto(`${baseURL}/champagne/design-lab/preview`, { waitUntil: "networkidle" });
   await evidencePage.evaluate(previewState => window.postMessage({ type: "CHAMPAGNE_ATELIER_PREVIEW_STATE", state: previewState }, window.location.origin), state);
-  await evidencePage.locator(`[data-whole-page-proposal="${state.activeProposal.family}"]`).waitFor();
+  await evidencePage.locator(`[data-whole-page-proposal="${state.experiment.family}"]`).waitFor();
   await evidencePage.screenshot({ path, fullPage: true });
   await evidencePage.close();
 };
