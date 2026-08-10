@@ -28,7 +28,7 @@ await page.getByText("Accepted Implant Content Bundle connected", { exact: true 
 const frame = () => page.frameLocator("iframe.dl46-preview-viewport");
 const dialog = () => page.getByRole("dialog", { name: "Judge the design, not the machinery.", exact: true });
 await page.locator("iframe.dl46-preview-viewport").screenshot({ path: `${output}/00-r4.11-golden-before.png` });
-await page.getByRole("button", { name: "Generate more", exact: true }).click();
+await page.getByRole("button", { name: "Generate & explore", exact: true }).click();
 await dialog().getByLabel("Describe the change", { exact: true }).fill("Create the first luxury architectural educational Implant Golden candidates while preserving every governed word.");
 await dialog().getByRole("button", { name: "Create four code-native proposals", exact: true }).click();
 assert.equal(await page.locator(".dl411-candidate").count(), 4);
@@ -44,7 +44,7 @@ for (const [title, family, letter] of territories) {
   assert.match(await frame().locator("body").innerText(), /Founder-rejected T0\.1 geometry is not integrated/);
   await frame().locator("article.dl46-canvas").screenshot({ path: `${output}/${letter}-${family}-full-page.png` });
   captures.push({ title, family, fullPage: `${letter}-${family}-full-page.png` });
-  await page.getByRole("button", { name: "Generate more", exact: true }).click();
+  await page.getByRole("button", { name: "Generate & explore", exact: true }).click();
   await dialog().getByRole("button", { name: /Compare/ }).click();
 }
 for (const [title, family, letter] of territories.slice(0, 2)) {
@@ -57,7 +57,7 @@ for (const [title, family, letter] of territories.slice(0, 2)) {
     await page.locator("iframe.dl46-preview-viewport").screenshot({ path: `${output}/${letter}-${family}-${width}.png` });
   }
   await device.selectOption("desktop");
-  await page.getByRole("button", { name: "Generate more", exact: true }).click();
+  await page.getByRole("button", { name: "Generate & explore", exact: true }).click();
   await dialog().getByRole("button", { name: /Compare/ }).click();
 }
 assert.equal(await page.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), true);
