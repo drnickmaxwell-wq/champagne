@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "HERO_V3_FOUNDER_DECISION_LOG_V1",
+  "status": "ACTIVE_PHASE_GATED",
+  "updatedAt": "2026-08-10",
+  "brandAuthority": {
+    "current": "PROVISIONAL_EXPLICIT_FOUNDER_AUTHORITY",
+    "futurePacket": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1",
+    "h3_2MustLoadCurrentPacket": true
+  },
+  "decisions": [
+    {"id": "H3-D001", "state": "ACCEPTED", "decision": "Use the eight-phase H3.0 through H3.7 programme."},
+    {"id": "H3-D002", "state": "PROTECTED", "decision": "Hero V2 is the sacred ancestor, live fallback and rollback target."},
+    {"id": "H3-D003", "state": "PROTECTED", "decision": "Preserve gradient-cut wave lineage and luminous multi-colour play."},
+    {"id": "H3-D004", "state": "ACCEPTED", "decision": "The eventual Sacred Hero may change only after direct complete V2 versus V3 Founder comparison."},
+    {"id": "H3-D005", "state": "NOT_SACRED", "decision": "Current copy and CTA visual design may be replaced; production wording remains governed."},
+    {"id": "H3-D006", "state": "PROVISIONAL_EXPLICIT_FOUNDER_AUTHORITY", "decision": "Magenta, turquoise and gold are core Champagne brand colours."},
+    {"id": "H3-D007", "state": "PROVISIONAL_EXPLICIT_FOUNDER_AUTHORITY", "decision": "Deep Persian velvet blue and Porcelain are important wider luxury surfaces, not compulsory dominant Hero art direction."},
+    {"id": "H3-D008", "state": "PROVISIONAL_EXPLICIT_FOUNDER_AUTHORITY", "decision": "Champagne should feel luminous, fluid, rich and elegant."},
+    {"id": "H3-D009", "state": "PROVISIONAL_EXPLICIT_FOUNDER_AUTHORITY", "decision": "St Mary's House influence is supporting and selective, not primary."},
+    {"id": "H3-D010", "state": "REJECTED", "decision": "Over-architectural, SaaS-like, overly dark and generic-luxury drift."},
+    {"id": "H3-D011", "state": "REJECTED", "decision": "Detached thick glossy CGI ribbon or toothpaste-like replacement concepts."},
+    {"id": "H3-D012", "state": "ACCEPTED", "decision": "Diagnose the visible current motion seam independently before repair."},
+    {"id": "H3-D013", "state": "ACCEPTED", "decision": "Motion V3 must satisfy NO_DETECTABLE_COLLECTIVE_RESTART."},
+    {"id": "H3-D014", "state": "ACCEPTED", "decision": "Make the static composition exceptional before scored motion convergence."},
+    {"id": "H3-D015", "state": "ACCEPTED", "decision": "First family tranche proves approximately four materially different grammars before expansion."},
+    {"id": "H3-D016", "state": "ACCEPTED", "decision": "The tenant engine must prove organic botanical and precise geometric tenants without Champagne brand leakage."},
+    {"id": "H3-D017", "state": "BOUNDARY", "decision": "Do not hard-code Champagne Brand DNA into the tenant-neutral renderer."},
+    {"id": "H3-D018", "state": "BOUNDARY", "decision": "No production replacement, Ready, merge, deployment, cutover or production binding is authorised."}
+  ],
+  "unresolved": [
+    {"id": "H3-U001", "decisionRequiredBy": "H3.2", "question": "Which then-current Founder Brand DNA packet and domain profile versions govern visual convergence?"},
+    {"id": "H3-U002", "decisionRequiredBy": "H3.2", "question": "Which diagnostic static state becomes the Founder-approved H3.2 starting preset?"},
+    {"id": "H3-U003", "decisionRequiredBy": "H3.2", "question": "Which desktop, tablet and mobile focal zones are approved for the first static exploration?"},
+    {"id": "H3-U004", "decisionRequiredBy": "H3.2", "question": "What measured numeric first-paint, network, memory and GPU budgets should become hard gates?"}
+  ]
+}
