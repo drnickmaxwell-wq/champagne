@@ -335,6 +335,13 @@ jobs:
           ATELIER_QA_OUTPUT: atelier-r4.10-founder-studio-live-preview-qa
           ATELIER_BASE_SHA: a00f718a93710028b364930566d7f6a44483bc25
         run: node apps/web/tests/design-lab/r4-10-live-preview-qa.mjs
+      - name: Validate R4.12 Implant visual-convergence contract
+        run: node --test apps/web/tests/design-lab/r4-12-implant-golden-visual-convergence.test.mjs
+      - name: Capture R4.12 full-page Founder-review evidence
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
+          ATELIER_R412_QA_OUTPUT: atelier-r4.12-implant-golden-visual-qa
+        run: node apps/web/tests/design-lab/r4-12-implant-golden-visual-qa.mjs
       - name: Upload exact-tree Founder Studio live-preview evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -342,6 +349,7 @@ jobs:
           name: CHAMPAGNE_ATELIER_R4_10_FOUNDER_STUDIO_LIVE_PREVIEW_QA_V1
           path: |
             atelier-r4.10-founder-studio-live-preview-qa/
+            atelier-r4.12-implant-golden-visual-qa/
             ${{ runner.temp }}/atelier-r45-web.log
           if-no-files-found: error
 
