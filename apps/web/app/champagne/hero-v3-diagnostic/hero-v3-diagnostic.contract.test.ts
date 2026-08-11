@@ -62,6 +62,7 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
   it("isolates evidence captures from the persistent site-shell Hero stack", () => {
     expect(styles).toContain(":global(body):has(.page)");
     expect(styles).toContain(":global(body):has(.evidenceMode) :global(.hero-renderer-v2)");
+    expect(styles).toContain(":global(body):has(.evidenceMode) > div > main > div:has(> :global(.hero-renderer-v2))");
     expect(styles).toContain(":global(body):has(.evidenceMode) .stage :global(.hero-renderer-v2)");
     expect(styles).toContain('.stage[data-h3-study="v2-reference"]');
   });

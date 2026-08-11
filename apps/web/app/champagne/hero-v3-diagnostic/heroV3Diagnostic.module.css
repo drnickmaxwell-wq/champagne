@@ -437,6 +437,10 @@
   display: none !important;
 }
 
+:global(body):has(.evidenceMode) > div > main > div:has(> :global(.hero-renderer-v2)) {
+  display: none !important;
+}
+
 :global(body):has(.evidenceMode) .stage :global(.hero-renderer-v2) {
   display: block !important;
 }
