@@ -399,6 +399,14 @@
   border-radius: 0;
 }
 
+:global(body:has([data-h3-lab])) :global(.hero-surface-stack) {
+  display: none !important;
+}
+
+.stage[data-h3-study="v2-reference"] :global(.hero-surface-stack) {
+  display: block !important;
+}
+
 .stage :global(.hero-renderer-v2) {
   min-height: min(72vh, 820px);
 }

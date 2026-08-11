@@ -58,4 +58,9 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
     expect(styles).toMatch(/data-h3-study\^=\"v3-\"[\s\S]*?display:\s*none\s*!important/);
     expect(styles).not.toMatch(/data-h3-study\^=\"v3-\"[^}]*?hero-content[^}]*?display:\s*none/);
   });
+
+  it("isolates evidence captures from the persistent site-shell Hero stack", () => {
+    expect(styles).toContain("body:has([data-h3-lab])");
+    expect(styles).toContain('.stage[data-h3-study="v2-reference"]');
+  });
 });
