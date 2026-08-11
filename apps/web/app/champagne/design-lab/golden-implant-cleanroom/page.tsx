@@ -1,3 +1,5 @@
+import "@fontsource-variable/inter";
+import "@fontsource-variable/playfair-display";
 import type { ReactNode } from "react";
 import { HeroV2LabAdapter } from "../_components/HeroV2LabAdapter";
 import implantBundle from "../data/authority/CHAMPAGNE_IMPLANTS_CONTENT_BUNDLE_V1_1.json";
@@ -27,29 +29,33 @@ const nextStep = byId("implants.next-step");
 
 const paragraphs = (copy: string) => copy.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>);
 
-function Eyebrow({ children, index }: { children: ReactNode; index: string }) {
-  return <p className={styles.eyebrow}><span>{index}</span>{children}</p>;
+function Chapter({ index, children, light = false }: { index: string; children: ReactNode; light?: boolean }) {
+  return <p className={styles.chapter} data-light={light || undefined}><span>{index}</span>{children}</p>;
 }
 
-function Links({ ctas, quiet = false }: { ctas: ReadonlyArray<{ label: string; href: string }>; quiet?: boolean }) {
-  return <div className={quiet ? styles.quietLinks : styles.links}>{ctas.map((cta, index) => <a href={cta.href} key={`${cta.href}-${cta.label}`} data-primary={index === 0 || undefined}>{cta.label}<span aria-hidden="true">→</span></a>)}</div>;
+function Links({ ctas, light = false }: { ctas: ReadonlyArray<{ label: string; href: string }>; light?: boolean }) {
+  return <div className={styles.links} data-light={light || undefined}>{ctas.map((cta, index) => <a href={cta.href} key={`${cta.href}-${cta.label}`} data-primary={index === 0 || undefined}>{cta.label}<span aria-hidden="true">→</span></a>)}</div>;
 }
 
-function WaveCurrent({ quiet = false }: { quiet?: boolean }) {
-  return <div className={quiet ? styles.waveCurrentQuiet : styles.waveCurrent} aria-hidden="true" />;
+function Wave({ className = "" }: { className?: string }) {
+  return <div className={`${styles.wave} ${className}`} aria-hidden="true" />;
 }
 
 function GoldenImplantFooter() {
-  return <footer className={styles.footer}>
+  return <footer className={styles.footer} data-reference="CVA-FOOTER-F03-E02">
     <div className={styles.footerPorcelain}>
-      <div className={styles.footerBrand}><strong>St Mary’s House<br />Dental Care</strong><span>Going the extra smile</span></div>
+      <div className={styles.footerBrand}>
+        <strong>St Mary’s House<br />Dental Care</strong>
+        <span>Going the extra smile</span>
+      </div>
       <nav aria-label="Footer pathways">
-        <a href="/treatments">Explore treatments <span aria-hidden="true">→</span></a>
-        <a href="/about">Meet the team <span aria-hidden="true">→</span></a>
-        <a href="/contact">Plan your visit <span aria-hidden="true">→</span></a>
+        <a href="/treatments">Explore treatments <span>→</span></a>
+        <a href="/about">Your first visit <span>→</span></a>
+        <a href="/about">Meet our team <span>→</span></a>
+        <a href="/insights">Read our insights <span>→</span></a>
       </nav>
     </div>
-    <div className={styles.footerDescent} aria-hidden="true"><WaveCurrent /></div>
+    <div className={styles.footerDescent} aria-hidden="true"><Wave /></div>
     <div className={styles.footerPersian}>
       <div><strong>Care</strong><a href="/treatments">Treatments</a><a href="/treatments/implants">Dental implants</a><a href="/treatments/composite-bonding">Composite dentistry</a></div>
       <div><strong>Your visit</strong><a href="/contact">Contact</a><a href="/fees">Fees</a><a href="/about">Our practice</a></div>
@@ -61,62 +67,72 @@ function GoldenImplantFooter() {
 }
 
 export default function GoldenImplantCleanroomPage() {
+  const componentCards = "componentCards" in components ? components.componentCards : undefined;
+  const assessmentLinks = "ctas" in assessment ? assessment.ctas : undefined;
+  const planningLinks = "ctas" in planning ? planning.ctas : undefined;
+  const steps = "steps" in stages ? stages.steps : undefined;
+  const comparisonRows = "comparisonRows" in comparison ? comparison.comparisonRows : undefined;
+  const costLinks = "ctas" in cost ? cost.ctas : undefined;
+  const aftercareLinks = "ctas" in aftercare ? aftercare.ctas : undefined;
+  const faqs = "faqs" in faq ? faq.faqs : undefined;
+  const nextLinks = "ctas" in nextStep ? nextStep.ctas : undefined;
+
   return <main className={styles.page} data-candidate="CHAMPAGNE_GOLDEN_IMPLANT_CLEANROOM_CANDIDATE_V1" data-production-binding="false">
     <section className={styles.hero} data-semantic-id="implants.hero"><HeroV2LabAdapter route="/treatments/dental-implants" /></section>
 
-    <section className={styles.opening} data-semantic-id={directAnswer.sectionId}>
-      <div className={styles.openingDepth} aria-hidden="true"><WaveCurrent /></div>
+    <section className={styles.opening} data-semantic-id={directAnswer.sectionId} data-reference="CVA-SECTION-B011-E01">
       <div className={styles.openingCopy}>
-        <Eyebrow index="01">{directAnswer.eyebrow}</Eyebrow>
+        <Chapter index="01">{directAnswer.eyebrow}</Chapter>
         <h1>{directAnswer.heading}</h1>
         <div className={styles.reading}>{paragraphs(directAnswer.visibleCopy.standard)}</div>
       </div>
-      <div className={styles.openingConstellation} aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /></div>
-      <aside className={styles.openingRoles} aria-label="The three roles in an implant restoration">
-        <span><b>Fixture</b>support within the jaw</span>
-        <span><b>Abutment</b>the connecting component</span>
-        <span><b>Restoration</b>the replacement tooth or teeth</span>
+      <Wave className={styles.openingWave} />
+      <aside className={styles.roleRail} aria-label="The three roles in an implant restoration">
+        <div><span>01</span><strong>Fixture</strong><p>Support within the jaw</p></div>
+        <div><span>02</span><strong>Abutment</strong><p>The connecting component</p></div>
+        <div><span>03</span><strong>Restoration</strong><p>The replacement tooth or teeth</p></div>
       </aside>
     </section>
 
-    <section className={styles.components} data-semantic-id={components.sectionId}>
-      <div className={styles.componentsCopy}>
-        <Eyebrow index="02">{components.eyebrow}</Eyebrow>
+    <section className={styles.components} data-semantic-id={components.sectionId} data-reference="CVA-SECTION-B032-E01">
+      <header className={styles.componentsIntro}>
+        <Chapter index="02" light>{components.eyebrow}</Chapter>
         <h2>{components.heading}</h2>
+      </header>
+      <div className={styles.modelStage} aria-label="Reserved future interactive Implant model stage">
+        <div className={styles.modelTabs} aria-hidden="true"><span>Assembled</span><strong>Exploded</strong><span>Planning</span></div>
+        <div className={styles.modelVoid}><span>Future approved interactive model</span><small>Static poster · interactive model · complete text alternative</small></div>
+        <ol>{componentCards?.map((card, index) => <li key={card.answerObjectId}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{card.label}</strong><p>{card.copy}</p></div></li>)}</ol>
+      </div>
+      <div className={styles.componentsCopy}>
         <div className={styles.reading}>{paragraphs(components.visibleCopy.standard)}</div>
-        {"componentCards" in components && components.componentCards ? <ol className={styles.componentList}>{components.componentCards.map((card, index) => <li key={card.answerObjectId}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{card.label}</strong><p>{card.copy}</p></div></li>)}</ol> : null}
+        <p className={styles.modelBoundary}>Generic education only · never patient-specific</p>
       </div>
-      <div className={styles.futureStage} aria-label="Reserved future interactive Implant model stage">
-        <div className={styles.stageOrbit} aria-hidden="true"><i /><i /><i /><b /><b /><b /></div>
-        <div className={styles.stagePlane}>
-          <span>Future interactive education stage</span>
-          <strong>Relationships,<br />not a diagnosis.</strong>
-          <p>Reserved for the approved Champagne Implant model. No rejected procedural anatomy or generated Implant media is present.</p>
-          <small>Static poster · interactive model · complete text alternative</small>
-        </div>
-      </div>
-      <WaveCurrent />
     </section>
 
-    <section className={styles.assessment} data-semantic-id={assessment.sectionId}>
-      <div className={styles.assessmentArc} aria-hidden="true"><WaveCurrent quiet /></div>
-      <div className={styles.assessmentTitle}><Eyebrow index="03">{assessment.eyebrow}</Eyebrow><h2>{assessment.heading}</h2></div>
-      <div className={styles.assessmentCopy}>{paragraphs(assessment.visibleCopy.standard)}{"ctas" in assessment && assessment.ctas ? <Links ctas={assessment.ctas} quiet /> : null}</div>
-      <p className={styles.assessmentStatement}>The factors interact.<br /><span>No public page can decide for you.</span></p>
+    <section className={styles.assessment} data-semantic-id={assessment.sectionId} data-reference="CVA-SURFACE-B038-E02">
+      <div className={styles.assessmentCopy}>
+        <Chapter index="03">{assessment.eyebrow}</Chapter>
+        <h2>{assessment.heading}</h2>
+        <div className={styles.reading}>{paragraphs(assessment.visibleCopy.standard)}</div>
+        {assessmentLinks ? <Links ctas={assessmentLinks} /> : null}
+      </div>
+      <div className={styles.assessmentConstellation} aria-hidden="true" />
+      <p className={styles.assessmentStatement}>The factors interact.<span>No public page can decide suitability for you.</span></p>
     </section>
 
-    <section className={styles.planning} data-semantic-id={planning.sectionId}>
+    <section className={styles.planning} data-semantic-id={planning.sectionId} data-reference="CVA-SECTION-B029-E03">
       <div className={styles.planningCopy}>
-        <Eyebrow index="04">{planning.eyebrow}</Eyebrow>
+        <Chapter index="04" light>{planning.eyebrow}</Chapter>
         <h2>{planning.heading}</h2>
         <div className={styles.reading}>{paragraphs(planning.visibleCopy.standard)}</div>
-        {"ctas" in planning && planning.ctas ? <Links ctas={planning.ctas} quiet /> : null}
+        {planningLinks ? <Links ctas={planningLinks} light /> : null}
       </div>
-      <figure className={styles.questionMap}>
-        <figcaption>Each record begins with a question</figcaption>
-        <div aria-hidden="true" className={styles.questionRings}><i /><i /><i /><i /></div>
+      <figure className={styles.planningStage}>
+        <figcaption>Approved clinical planning media stage</figcaption>
+        <div className={styles.planningField} aria-hidden="true"><i /><i /><i /><i /></div>
         <ol>
-          <li><span>01</span><strong>Conversation</strong><small>What matters, and what needs understanding?</small></li>
+          <li><span>01</span><strong>Conversation</strong><small>What matters and needs understanding?</small></li>
           <li><span>02</span><strong>Examination</strong><small>What is healthy, changing or relevant?</small></li>
           <li><span>03</span><strong>Records</strong><small>What additional information is justified?</small></li>
           <li><span>04</span><strong>Explanation</strong><small>What are the realistic choices and trade-offs?</small></li>
@@ -124,46 +140,54 @@ export default function GoldenImplantCleanroomPage() {
       </figure>
     </section>
 
-    <section className={styles.biology} data-semantic-id={stages.sectionId}>
-      <div className={styles.biologyIntro}><Eyebrow index="05">{stages.eyebrow}</Eyebrow><h2>{stages.heading}</h2><p>{stages.visibleCopy.standard}</p></div>
-      {"steps" in stages && stages.steps ? <ol className={styles.biologicalFlow}>{stages.steps.map((step, index) => <li key={step.contentStageId}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{step.label}</strong><p>{step.copy}</p></div></li>)}</ol> : null}
-      <WaveCurrent quiet />
+    <section className={styles.biology} data-semantic-id={stages.sectionId} data-reference="CVA-SECTION-B034-E04">
+      <div className={styles.biologyIntro}>
+        <Chapter index="05">{stages.eyebrow}</Chapter>
+        <h2>{stages.heading}</h2>
+        <p>{stages.visibleCopy.standard}</p>
+      </div>
+      <ol className={styles.biologicalFlow}>{steps?.map((step, index) => <li key={step.contentStageId}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{step.label}</strong><p>{step.copy}</p></div></li>)}</ol>
+      <Wave className={styles.biologyWave} />
     </section>
 
-    <section className={styles.options} data-semantic-id={comparison.sectionId}>
-      <div className={styles.optionsIntro}><Eyebrow index="06">{comparison.eyebrow}</Eyebrow><h2>{comparison.heading}</h2><p>{comparison.visibleCopy.standard}</p></div>
-      {"comparisonRows" in comparison && comparison.comparisonRows ? <div className={styles.comparisonFrame}><table><thead><tr><th>Pathway</th><th>What it does</th><th>Neighbouring teeth</th><th>Fixed or removable</th><th>Maintenance</th><th>Broad limitations</th></tr></thead><tbody>{comparison.comparisonRows.map((row) => <tr key={row.option}><th scope="row">{row.option}</th><td>{row.purpose}</td><td>{row.adjacentTeeth}</td><td>{row.removability}</td><td>{row.maintenance}</td><td>{row.broadLimitations}</td></tr>)}</tbody></table></div> : null}
+    <section className={styles.options} data-semantic-id={comparison.sectionId} data-reference="F06">
+      <header className={styles.optionsIntro}>
+        <div><Chapter index="06">{comparison.eyebrow}</Chapter><h2>{comparison.heading}</h2></div>
+        <p>{comparison.visibleCopy.standard}</p>
+      </header>
+      <div className={styles.comparisonFrame}>
+        <table>
+          <thead><tr><th>Pathway</th><th>What it does</th><th>Neighbouring teeth</th><th>Fixed or removable</th><th>Maintenance</th><th>Broad limitations</th></tr></thead>
+          <tbody>{comparisonRows?.map((row) => <tr key={row.option}><th scope="row">{row.option}</th><td>{row.purpose}</td><td>{row.adjacentTeeth}</td><td>{row.removability}</td><td>{row.maintenance}</td><td>{row.broadLimitations}</td></tr>)}</tbody>
+        </table>
+      </div>
     </section>
 
-    <section className={styles.balance} data-semantic-id={benefitsRisks.sectionId}>
-      <div className={styles.balanceHalo} aria-hidden="true"><i /><i /><i /></div>
-      <div className={styles.balanceTitle}><Eyebrow index="07">{benefitsRisks.eyebrow}</Eyebrow><h2>{benefitsRisks.heading}</h2></div>
+    <section className={styles.balance} data-semantic-id={benefitsRisks.sectionId} data-reference="F02">
+      <div className={styles.balanceTitle}><Chapter index="07">{benefitsRisks.eyebrow}</Chapter><h2>{benefitsRisks.heading}</h2></div>
       <div className={styles.balanceCopy}>{paragraphs(benefitsRisks.visibleCopy.standard)}</div>
-      <p className={styles.balanceMarker}>Potential benefit <span>must be weighed with</span> limitation and risk</p>
+      <div className={styles.balancePersian}><Wave /><p>Potential benefit <span>must be weighed with</span> limitation and risk</p></div>
     </section>
 
     <section className={styles.cost} data-semantic-id={cost.sectionId}>
-      <div className={styles.costSteps} aria-hidden="true"><i /><i /><i /><i /></div>
-      <div className={styles.costCopy}><Eyebrow index="08">{cost.eyebrow}</Eyebrow><h2>{cost.heading}</h2><div className={styles.reading}>{paragraphs(cost.visibleCopy.standard)}</div>{"ctas" in cost && cost.ctas ? <Links ctas={cost.ctas} quiet /> : null}</div>
-      <aside className={styles.costAside}><span>A responsible fee conversation follows</span><strong>Assessment</strong><i /><strong>Options</strong><i /><strong>A written plan</strong></aside>
+      <div className={styles.costCopy}><Chapter index="08">{cost.eyebrow}</Chapter><h2>{cost.heading}</h2><div className={styles.reading}>{paragraphs(cost.visibleCopy.standard)}</div>{costLinks ? <Links ctas={costLinks} /> : null}</div>
+      <aside className={styles.costRail}><span>A responsible fee conversation follows</span><strong>Assessment</strong><i /><strong>Options</strong><i /><strong>A written plan</strong></aside>
     </section>
 
-    <section className={styles.aftercare} data-semantic-id={aftercare.sectionId}>
-      <div className={styles.aftercareCopy}><Eyebrow index="09">{aftercare.eyebrow}</Eyebrow><h2>{aftercare.heading}</h2><div className={styles.reading}>{paragraphs(aftercare.visibleCopy.standard)}</div></div>
-      <div className={styles.careOrbit} aria-hidden="true"><i /><i /><i /><span>clean</span><span>review</span><span>respond</span></div>
-      {"ctas" in aftercare && aftercare.ctas ? <Links ctas={aftercare.ctas} /> : null}
-      <WaveCurrent />
+    <section className={styles.aftercare} data-semantic-id={aftercare.sectionId} data-reference="CVA-SECTION-B011-E02">
+      <div className={styles.aftercareCopy}><Chapter index="09" light>{aftercare.eyebrow}</Chapter><h2>{aftercare.heading}</h2><div className={styles.reading}>{paragraphs(aftercare.visibleCopy.standard)}</div>{aftercareLinks ? <Links ctas={aftercareLinks} light /> : null}</div>
+      <div className={styles.careRail} aria-label="Long-term care themes"><div><span>01</span><strong>Clean</strong></div><div><span>02</span><strong>Review</strong></div><div><span>03</span><strong>Respond</strong></div></div>
+      <Wave className={styles.aftercareWave} />
     </section>
 
-    <section className={styles.faq} data-semantic-id={faq.sectionId}>
-      <div className={styles.faqIntro}><Eyebrow index="10">{faq.eyebrow}</Eyebrow><h2>{faq.heading}</h2><p>{faq.visibleCopy.standard}</p></div>
-      {"faqs" in faq && faq.faqs ? <div className={styles.faqList}>{faq.faqs.map((item, index) => <details key={item.answerObjectId} open={index === 0}><summary><span>{String(index + 1).padStart(2, "0")}</span>{item.question}<i aria-hidden="true">+</i></summary><p>{item.answer}</p></details>)}</div> : null}
-      <div className={styles.faqPersian} aria-hidden="true"><WaveCurrent quiet /></div>
+    <section className={styles.faq} data-semantic-id={faq.sectionId} data-reference="CVA-SEQUENCE-B009-E01">
+      <div className={styles.faqIntro}><Chapter index="10" light>{faq.eyebrow}</Chapter><h2>{faq.heading}</h2><p>{faq.visibleCopy.standard}</p></div>
+      <div className={styles.faqList}>{faqs?.map((item, index) => <details key={item.answerObjectId} open={index === 0}><summary><span>{String(index + 1).padStart(2, "0")}</span>{item.question}<i aria-hidden="true">+</i></summary><p>{item.answer}</p></details>)}</div>
     </section>
 
-    <section className={styles.closing} data-semantic-id={nextStep.sectionId}>
-      <WaveCurrent />
-      <div className={styles.closingCopy}><Eyebrow index="11">{nextStep.eyebrow}</Eyebrow><h2>{nextStep.heading}</h2><p>{nextStep.visibleCopy.standard}</p>{"ctas" in nextStep && nextStep.ctas ? <Links ctas={nextStep.ctas} /> : null}</div>
+    <section className={styles.closing} data-semantic-id={nextStep.sectionId} data-reference="CVA-BAND-B020-E03">
+      <Wave />
+      <div className={styles.closingCopy}><Chapter index="11">{nextStep.eyebrow}</Chapter><h2>{nextStep.heading}</h2><p>{nextStep.visibleCopy.standard}</p>{nextLinks ? <Links ctas={nextLinks} /> : null}</div>
     </section>
 
     <GoldenImplantFooter />
