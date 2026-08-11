@@ -151,6 +151,11 @@
   display: none !important;
 }
 
+.stage[data-h3-study="v2-reference"] :global(video[data-surface-id^="sacred.motion."]),
+.stage[data-h3-study="v2-light-depth-enhanced"] :global(video[data-surface-id^="sacred.motion."]) {
+  display: block !important;
+}
+
 .compositionFields {
   position: absolute;
   inset: 0;
@@ -404,6 +409,10 @@
 }
 
 .stage[data-h3-study="v2-reference"] :global(.hero-surface-stack) {
+  display: block !important;
+}
+
+.stage[data-h3-study="v2-light-depth-enhanced"] :global(.hero-surface-stack) {
   display: block !important;
 }
 

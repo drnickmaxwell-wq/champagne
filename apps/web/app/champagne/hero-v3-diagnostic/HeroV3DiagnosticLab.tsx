@@ -29,10 +29,11 @@ type StaticId = (typeof STATIC_IDS)[number];
 type MotionId = (typeof MOTION_IDS)[number];
 type SurfaceId = StaticId | MotionId;
 type ViewportMode = "desktop" | "tablet" | "mobile";
-type StaticStudyId = "v2-reference" | "v2-precision" | "spectral-wave" | "velvet-porcelain-depth" | "luminous-counterflow" | HeroV3StaticCandidateId;
+type StaticStudyId = "v2-reference" | "v2-light-depth-enhanced" | "v2-precision" | "spectral-wave" | "velvet-porcelain-depth" | "luminous-counterflow" | HeroV3StaticCandidateId;
 
 const STATIC_STUDIES: ReadonlyArray<{ id: StaticStudyId; label: string }> = [
-  { id: "v2-reference", label: "V2 static reference baseline" },
+  { id: "v2-reference", label: "V2 untouched motion reference" },
+  { id: "v2-light-depth-enhanced", label: "V2 — light, depth + motion enhancement" },
   { id: "v2-precision", label: "A — V2 Precision" },
   { id: "spectral-wave", label: "B — Spectral Wave" },
   { id: "velvet-porcelain-depth", label: "C — Velvet Porcelain Depth" },
@@ -43,6 +44,14 @@ const STATIC_STUDIES: ReadonlyArray<{ id: StaticStudyId; label: string }> = [
 ];
 
 const V3_STATIC_CANDIDATES = new Set<StaticStudyId>(["v3-editorial-current", "v3-velvet-ribbon", "v3-luminous-tide"]);
+const V2_MOTION_STUDIES = new Set<StaticStudyId>(["v2-reference", "v2-light-depth-enhanced"]);
+
+const ENHANCED_MOTION: Partial<Record<MotionId, { opacity: number; blend: string; filter: string }>> = {
+  "sacred.motion.waveCaustics": { opacity: 0.78, blend: "screen", filter: "contrast(1.08) brightness(1.04)" },
+  "sacred.motion.glassShimmer": { opacity: 0.68, blend: "soft-light", filter: "contrast(1.12) saturate(0.92)" },
+  "sacred.motion.particleDrift": { opacity: 0.38, blend: "screen", filter: "brightness(1.08)" },
+  "sacred.motion.goldDust": { opacity: 0.46, blend: "screen", filter: "contrast(1.08) brightness(1.06)" },
+};
 
 type Preset = {
   id: string;
@@ -131,7 +140,7 @@ export function HeroV3DiagnosticLab() {
     if (requestedViewport && ["desktop", "tablet", "mobile"].includes(requestedViewport)) setViewport(requestedViewport);
     setShowGuides(params.get("guides") === "1");
     setEvidenceMode(params.get("evidence") === "1");
-    setPresetId("static:complete");
+    setPresetId(requestedStudy && V2_MOTION_STUDIES.has(requestedStudy) ? "motion:complete" : "static:complete");
   }, []);
 
   const preset = useMemo(() => PRESETS.find((entry) => entry.id === presetId) ?? PRESETS[0], [presetId]);
@@ -216,12 +225,16 @@ export function HeroV3DiagnosticLab() {
         node.dataset.h3SourcePosition = source.backgroundPosition;
         node.dataset.h3SourceSize = source.backgroundSize;
         node.dataset.h3SourceAnimationDelay = source.animationDelay;
+        node.dataset.h3SourceFilter = source.filter;
         node.dataset.h3SourcePlaybackRate = node instanceof HTMLVideoElement ? String(node.playbackRate) : "";
       }
       const isSelected = id === selectedId;
-      const shouldShow = visibleSet.has(id) && (!isSelected || visible);
-      node.style.setProperty("opacity", shouldShow ? (isSelected ? String(opacity / 100) : node.dataset.h3SourceOpacity || "1") : "0", "important");
-      if (isSelected) {
+      const controlSelected = isSelected && !evidenceMode;
+      const shouldShow = visibleSet.has(id) && (!controlSelected || visible);
+      const enhanced = staticStudy === "v2-light-depth-enhanced" ? ENHANCED_MOTION[id as MotionId] : undefined;
+      const sourceOpacity = node.dataset.motionTargetOpacity || node.dataset.h3SourceOpacity || "1";
+      node.style.setProperty("opacity", shouldShow ? (controlSelected ? String(opacity / 100) : enhanced ? String(enhanced.opacity) : sourceOpacity) : "0", "important");
+      if (controlSelected) {
         if (blend === "source") node.style.setProperty("mix-blend-mode", node.dataset.h3SourceBlend || "normal", "important");
         else node.style.setProperty("mix-blend-mode", blend, "important");
         node.style.setProperty("background-position", `${pct(positionX)} ${pct(positionY)}`, "important");
@@ -233,17 +246,18 @@ export function HeroV3DiagnosticLab() {
           if (Number.isFinite(node.duration) && phase <= node.duration) node.currentTime = phase;
         }
       } else {
-        node.style.setProperty("mix-blend-mode", node.dataset.h3SourceBlend || "normal", "important");
+        node.style.setProperty("mix-blend-mode", enhanced?.blend || node.dataset.h3SourceBlend || "normal", "important");
         node.style.setProperty("background-position", node.dataset.h3SourcePosition || "0% 0%", "important");
         node.style.setProperty("background-size", node.dataset.h3SourceSize || "auto", "important");
         node.style.setProperty("transform-origin", "center", "important");
         node.style.setProperty("animation-delay", node.dataset.h3SourceAnimationDelay || "0s", "important");
+        node.style.setProperty("filter", enhanced?.filter || node.dataset.h3SourceFilter || "none", "important");
         if (node instanceof HTMLVideoElement) node.playbackRate = Number(node.dataset.h3SourcePlaybackRate || "1");
       }
     });
     const frame = window.requestAnimationFrame(capture);
     return () => window.cancelAnimationFrame(frame);
-  }, [blend, capture, crop, opacity, phase, playbackRate, positionX, positionY, selectedId, visible, visibleSet]);
+  }, [blend, capture, crop, evidenceMode, opacity, phase, playbackRate, positionX, positionY, selectedId, staticStudy, visible, visibleSet]);
 
   useEffect(() => {
     const root = surfaceRoot.current;
@@ -314,7 +328,7 @@ export function HeroV3DiagnosticLab() {
       </header>
 
       <section className={styles.controls} aria-label="Diagnostic controls">
-        <label>H3.2 static study<select value={staticStudy} onChange={(event) => { setStaticStudy(event.target.value as StaticStudyId); setPresetId("static:complete"); }} data-h3-study-control="true">{STATIC_STUDIES.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}</select></label>
+        <label>H3.2 static study<select value={staticStudy} onChange={(event) => { const nextStudy = event.target.value as StaticStudyId; setStaticStudy(nextStudy); setPresetId(V2_MOTION_STUDIES.has(nextStudy) ? "motion:complete" : "static:complete"); }} data-h3-study-control="true">{STATIC_STUDIES.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}</select></label>
         <label>Evidence preset<select value={presetId} onChange={(event) => { setPresetId(event.target.value); resetControls(); }}>{PRESETS.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}</select></label>
         <label>Viewport frame<select value={viewport} onChange={(event) => setViewport(event.target.value as ViewportMode)}><option value="desktop">Desktop · 1440</option><option value="tablet">Tablet · 900</option><option value="mobile">Mobile · 390</option></select></label>
         <label>Selected surface<select value={selectedId} onChange={(event) => { setSelectedId(event.target.value as SurfaceId); resetControls(); }}>{[...STATIC_IDS, ...MOTION_IDS].map((id) => <option key={id}>{id}</option>)}</select></label>

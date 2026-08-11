@@ -27,7 +27,7 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
   });
 
   it("exposes the bounded H3.2 static candidate family without motion repair", () => {
-    expect(source).toContain("V2 static reference baseline");
+    expect(source).toContain("V2 untouched motion reference");
     expect(source).toContain("A — V2 Precision");
     expect(source).toContain("B — Spectral Wave");
     expect(source).toContain("C — Velvet Porcelain Depth");
@@ -62,5 +62,23 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
   it("isolates evidence captures from the persistent site-shell Hero stack", () => {
     expect(styles).toContain(":global(body):has(.page)");
     expect(styles).toContain('.stage[data-h3-study="v2-reference"]');
+  });
+
+  it("compares complete V2 motion against a motion-plate-only enhancement", () => {
+    expect(source).toContain("v2-light-depth-enhanced");
+    expect(source).toContain("V2_MOTION_STUDIES");
+    expect(source).toContain("ENHANCED_MOTION");
+    expect(source).toContain("controlSelected = isSelected && !evidenceMode");
+    expect(source).toContain('"sacred.motion.waveCaustics"');
+    expect(source).toContain('"sacred.motion.glassShimmer"');
+    expect(source).toContain('"sacred.motion.particleDrift"');
+    expect(source).toContain('"sacred.motion.goldDust"');
+    expect(styles).toMatch(/v2-light-depth-enhanced[\s\S]*?sacred\.motion/);
+  });
+
+  it("does not replace V2 artwork, geometry, copy or actions in the enhancement state", () => {
+    expect(source).not.toContain("HeroV2EnhancedSurface");
+    expect(styles).not.toMatch(/data-h3-study="v2-light-depth-enhanced"[^}]*background\s*:/);
+    expect(styles).not.toMatch(/data-h3-study="v2-light-depth-enhanced"[^}]*transform\s*:/);
   });
 });
