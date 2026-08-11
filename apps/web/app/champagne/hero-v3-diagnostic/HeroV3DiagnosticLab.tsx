@@ -46,11 +46,21 @@ const STATIC_STUDIES: ReadonlyArray<{ id: StaticStudyId; label: string }> = [
 const V3_STATIC_CANDIDATES = new Set<StaticStudyId>(["v3-editorial-current", "v3-velvet-ribbon", "v3-luminous-tide"]);
 const V2_MOTION_STUDIES = new Set<StaticStudyId>(["v2-reference", "v2-light-depth-enhanced"]);
 
-const ENHANCED_MOTION: Partial<Record<MotionId, { opacity: number; blend: string; filter: string }>> = {
-  "sacred.motion.waveCaustics": { opacity: 0.27, blend: "screen", filter: "contrast(1.03) brightness(1.01)" },
-  "sacred.motion.glassShimmer": { opacity: 0.24, blend: "soft-light", filter: "contrast(1.04) saturate(0.96)" },
-  "sacred.motion.particleDrift": { opacity: 0.12, blend: "screen", filter: "brightness(1.03)" },
-  "sacred.motion.goldDust": { opacity: 0.19, blend: "soft-light", filter: "contrast(1.03) brightness(1.02)" },
+const CHOREOGRAPHY_DURATION_MS = 24_000;
+
+const ENHANCED_MOTION: Partial<Record<MotionId, { floor: number; lift: number; peak: number; blend: string; filter: string }>> = {
+  "sacred.motion.waveCaustics": { floor: 0.2, lift: 0.11, peak: 0.18, blend: "screen", filter: "contrast(1.04) brightness(1.015)" },
+  "sacred.motion.glassShimmer": { floor: 0.16, lift: 0.11, peak: 0.36, blend: "soft-light", filter: "contrast(1.045) saturate(0.96)" },
+  "sacred.motion.particleDrift": { floor: 0.08, lift: 0.06, peak: 0.58, blend: "screen", filter: "brightness(1.035)" },
+  "sacred.motion.goldDust": { floor: 0.12, lift: 0.09, peak: 0.74, blend: "soft-light", filter: "contrast(1.035) brightness(1.025)" },
+};
+
+const circularDistance = (phase: number, peak: number) => Math.min(Math.abs(phase - peak), 1 - Math.abs(phase - peak));
+
+const choreographyOpacity = (phase: number, motion: NonNullable<(typeof ENHANCED_MOTION)[MotionId]>) => {
+  const influence = Math.max(0, 1 - circularDistance(phase, motion.peak) / 0.28);
+  const eased = influence * influence * (3 - 2 * influence);
+  return motion.floor + motion.lift * eased;
 };
 
 type Preset = {
@@ -231,9 +241,8 @@ export function HeroV3DiagnosticLab() {
       const isSelected = id === selectedId;
       const controlSelected = isSelected && !evidenceMode;
       const shouldShow = visibleSet.has(id) && (!controlSelected || visible);
-      const enhanced = staticStudy === "v2-light-depth-enhanced" ? ENHANCED_MOTION[id as MotionId] : undefined;
       const sourceOpacity = node.dataset.motionTargetOpacity || node.dataset.h3SourceOpacity || "1";
-      node.style.setProperty("opacity", shouldShow ? (controlSelected ? String(opacity / 100) : enhanced ? String(enhanced.opacity) : sourceOpacity) : "0", "important");
+      node.style.setProperty("opacity", shouldShow ? (controlSelected ? String(opacity / 100) : sourceOpacity) : "0", "important");
       if (controlSelected) {
         if (blend === "source") node.style.setProperty("mix-blend-mode", node.dataset.h3SourceBlend || "normal", "important");
         else node.style.setProperty("mix-blend-mode", blend, "important");
@@ -246,12 +255,12 @@ export function HeroV3DiagnosticLab() {
           if (Number.isFinite(node.duration) && phase <= node.duration) node.currentTime = phase;
         }
       } else {
-        node.style.setProperty("mix-blend-mode", enhanced?.blend || node.dataset.h3SourceBlend || "normal", "important");
+        node.style.setProperty("mix-blend-mode", node.dataset.h3SourceBlend || "normal", "important");
         node.style.setProperty("background-position", node.dataset.h3SourcePosition || "0% 0%", "important");
         node.style.setProperty("background-size", node.dataset.h3SourceSize || "auto", "important");
         node.style.setProperty("transform-origin", "center", "important");
         node.style.setProperty("animation-delay", node.dataset.h3SourceAnimationDelay || "0s", "important");
-        node.style.setProperty("filter", enhanced?.filter || node.dataset.h3SourceFilter || "none", "important");
+        node.style.setProperty("filter", node.dataset.h3SourceFilter || "none", "important");
         if (node instanceof HTMLVideoElement) node.playbackRate = Number(node.dataset.h3SourcePlaybackRate || "1");
       }
     });
@@ -263,19 +272,21 @@ export function HeroV3DiagnosticLab() {
     if (staticStudy !== "v2-light-depth-enhanced") return;
     const root = surfaceRoot.current;
     if (!root) return;
-    const enforceEnhancement = () => {
+    let frame = 0;
+    const choreograph = (now: number) => {
+      const phase = (now % CHOREOGRAPHY_DURATION_MS) / CHOREOGRAPHY_DURATION_MS;
       MOTION_IDS.forEach((id) => {
         const node = root.querySelector<HTMLElement>(`[data-surface-id="${id}"]`);
         const enhanced = ENHANCED_MOTION[id];
         if (!node || !enhanced) return;
-        node.style.setProperty("opacity", String(enhanced.opacity), "important");
+        node.style.setProperty("opacity", choreographyOpacity(phase, enhanced).toFixed(3), "important");
         node.style.setProperty("mix-blend-mode", enhanced.blend, "important");
         node.style.setProperty("filter", enhanced.filter, "important");
       });
+      frame = window.requestAnimationFrame(choreograph);
     };
-    enforceEnhancement();
-    const timer = window.setInterval(enforceEnhancement, 120);
-    return () => window.clearInterval(timer);
+    frame = window.requestAnimationFrame(choreograph);
+    return () => window.cancelAnimationFrame(frame);
   }, [staticStudy]);
 
   useEffect(() => {

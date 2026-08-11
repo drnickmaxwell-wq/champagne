@@ -156,6 +156,10 @@
   display: block !important;
 }
 
+.stage[data-h3-study="v2-light-depth-enhanced"] :global(video[data-surface-id^="sacred.motion."]) {
+  will-change: opacity;
+}
+
 .compositionFields {
   position: absolute;
   inset: 0;

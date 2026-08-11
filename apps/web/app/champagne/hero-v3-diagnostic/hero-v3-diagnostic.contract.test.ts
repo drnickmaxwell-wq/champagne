@@ -69,12 +69,22 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
     expect(source).toContain("V2_MOTION_STUDIES");
     expect(source).toContain("ENHANCED_MOTION");
     expect(source).toContain("controlSelected = isSelected && !evidenceMode");
-    expect(source).toContain("enforceEnhancement");
+    expect(source).toContain("CHOREOGRAPHY_DURATION_MS = 24_000");
+    expect(source).toContain("choreographyOpacity");
+    expect(source).toContain("requestAnimationFrame(choreograph)");
     expect(source).toContain('"sacred.motion.waveCaustics"');
     expect(source).toContain('"sacred.motion.glassShimmer"');
     expect(source).toContain('"sacred.motion.particleDrift"');
     expect(source).toContain('"sacred.motion.goldDust"');
     expect(styles).toMatch(/v2-light-depth-enhanced[\s\S]*?sacred\.motion/);
+  });
+
+  it("sequences the four existing plates instead of applying one fixed lift", () => {
+    expect(source).toContain("peak: 0.18");
+    expect(source).toContain("peak: 0.36");
+    expect(source).toContain("peak: 0.58");
+    expect(source).toContain("peak: 0.74");
+    expect(source).not.toContain("setInterval(enforceEnhancement");
   });
 
   it("does not replace V2 artwork, geometry, copy or actions in the enhancement state", () => {
