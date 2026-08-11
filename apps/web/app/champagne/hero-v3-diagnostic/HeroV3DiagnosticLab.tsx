@@ -49,10 +49,10 @@ const V2_MOTION_STUDIES = new Set<StaticStudyId>(["v2-reference", "v2-light-dept
 const CHOREOGRAPHY_DURATION_MS = 24_000;
 
 const ENHANCED_MOTION: Partial<Record<MotionId, { floor: number; lift: number; peak: number; width: number; blend: string; filter: string; moment: string }>> = {
-  "sacred.motion.waveCaustics": { floor: 0.025, lift: 0.17, peak: 0.16, width: 0.16, blend: "screen", filter: "brightness(0.54) contrast(3.05) saturate(1.08)", moment: "caustic-passage" },
-  "sacred.motion.glassShimmer": { floor: 0.018, lift: 0.16, peak: 0.43, width: 0.09, blend: "screen", filter: "brightness(0.48) contrast(3.3) saturate(0.62)", moment: "edge-shimmer" },
-  "sacred.motion.particleDrift": { floor: 0.012, lift: 0.052, peak: 0.69, width: 0.16, blend: "screen", filter: "brightness(0.42) contrast(3.5) saturate(0.68)", moment: "gold-resolution" },
-  "sacred.motion.goldDust": { floor: 0.018, lift: 0.115, peak: 0.76, width: 0.13, blend: "screen", filter: "brightness(0.47) contrast(3.35) saturate(1.04)", moment: "gold-resolution" },
+  "sacred.motion.waveCaustics": { floor: 0.08, lift: 0.26, peak: 0.16, width: 0.16, blend: "screen", filter: "brightness(0.62) contrast(3.4) saturate(1.12)", moment: "caustic-passage" },
+  "sacred.motion.glassShimmer": { floor: 0.08, lift: 0.24, peak: 0.43, width: 0.09, blend: "screen", filter: "brightness(0.58) contrast(3.65) saturate(0.68)", moment: "edge-shimmer" },
+  "sacred.motion.particleDrift": { floor: 0.08, lift: 0.08, peak: 0.69, width: 0.16, blend: "screen", filter: "brightness(0.5) contrast(3.7) saturate(0.72)", moment: "gold-resolution" },
+  "sacred.motion.goldDust": { floor: 0.08, lift: 0.18, peak: 0.76, width: 0.13, blend: "screen", filter: "brightness(0.56) contrast(3.6) saturate(1.08)", moment: "gold-resolution" },
 };
 
 const circularDistance = (phase: number, peak: number) => Math.min(Math.abs(phase - peak), 1 - Math.abs(phase - peak));
@@ -105,6 +105,9 @@ type SurfaceTelemetry = {
     playbackRate: number;
     readyState: number;
     paused: boolean;
+    width: number;
+    height: number;
+    effectivelyVisible: boolean;
   };
 };
 
@@ -136,11 +139,13 @@ export function HeroV3DiagnosticLab() {
   const [staticStudy, setStaticStudy] = useState<StaticStudyId>("v2-reference");
   const [showGuides, setShowGuides] = useState(false);
   const [evidenceMode, setEvidenceMode] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const surfaceRoot = useRef<HTMLDivElement | null>(null);
   const nodeIds = useRef(new WeakMap<Element, string>());
   const nodeSequence = useRef(0);
   const previousTimes = useRef(new Map<string, number>());
   const previousNodes = useRef(new Map<string, Element>());
+  const choreographyClock = useRef({ elapsed: 0, previous: 0 });
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -181,6 +186,8 @@ export function HeroV3DiagnosticLab() {
       const video = node instanceof HTMLVideoElement ? node : null;
       let media: SurfaceTelemetry["media"] = null;
       if (video) {
+        const rect = video.getBoundingClientRect();
+        const opacity = Number.parseFloat(computed.opacity);
         const duration = Number.isFinite(video.duration) ? video.duration : null;
         const priorTime = previousTimes.current.get(id);
         if (priorTime !== undefined && video.currentTime + 0.12 < priorTime) {
@@ -195,6 +202,9 @@ export function HeroV3DiagnosticLab() {
           playbackRate: video.playbackRate,
           readyState: video.readyState,
           paused: video.paused,
+          width: rect.width,
+          height: rect.height,
+          effectivelyVisible: rect.width > 0 && rect.height > 0 && !video.paused && opacity >= 0.08 && computed.display !== "none" && computed.visibility !== "hidden",
         };
       }
 
@@ -274,7 +284,10 @@ export function HeroV3DiagnosticLab() {
     if (!root) return;
     let frame = 0;
     const choreograph = (now: number) => {
-      const phase = (now % CHOREOGRAPHY_DURATION_MS) / CHOREOGRAPHY_DURATION_MS;
+      const clock = choreographyClock.current;
+      if (clock.previous) clock.elapsed = (clock.elapsed + now - clock.previous) % CHOREOGRAPHY_DURATION_MS;
+      clock.previous = now;
+      const phase = clock.elapsed / CHOREOGRAPHY_DURATION_MS;
       MOTION_IDS.forEach((id) => {
         const node = root.querySelector<HTMLElement>(`[data-surface-id="${id}"]`);
         const enhanced = ENHANCED_MOTION[id];
@@ -287,9 +300,40 @@ export function HeroV3DiagnosticLab() {
       });
       frame = window.requestAnimationFrame(choreograph);
     };
-    frame = window.requestAnimationFrame(choreograph);
+    if (isPlaying) frame = window.requestAnimationFrame(choreograph);
+    else choreographyClock.current.previous = 0;
     return () => window.cancelAnimationFrame(frame);
-  }, [staticStudy]);
+  }, [isPlaying, staticStudy]);
+
+  const setMotionPlayback = useCallback(async (playing: boolean) => {
+    const videos = Array.from(surfaceRoot.current?.querySelectorAll<HTMLVideoElement>('video[data-surface-id^="sacred.motion."]') ?? []);
+    if (playing) await Promise.allSettled(videos.map((video) => video.play()));
+    else videos.forEach((video) => video.pause());
+    setIsPlaying(playing);
+    window.requestAnimationFrame(capture);
+  }, [capture]);
+
+  useEffect(() => {
+    if (!V2_MOTION_STUDIES.has(staticStudy)) return;
+    const root = surfaceRoot.current;
+    if (!root) return;
+    const ensurePlayback = () => {
+      root.querySelectorAll<HTMLVideoElement>('video[data-surface-id^="sacred.motion."]').forEach((video) => {
+        video.muted = true;
+        video.playsInline = true;
+        if (isPlaying && video.paused) void video.play();
+      });
+    };
+    ensurePlayback();
+    const videos = Array.from(root.querySelectorAll<HTMLVideoElement>('video[data-surface-id^="sacred.motion."]'));
+    videos.forEach((video) => video.addEventListener("canplay", ensurePlayback));
+    const observer = new MutationObserver(ensurePlayback);
+    observer.observe(root, { childList: true, subtree: true });
+    return () => {
+      observer.disconnect();
+      videos.forEach((video) => video.removeEventListener("canplay", ensurePlayback));
+    };
+  }, [isPlaying, staticStudy]);
 
   useEffect(() => {
     const root = surfaceRoot.current;
@@ -377,6 +421,10 @@ export function HeroV3DiagnosticLab() {
       </section>
 
       <section className={styles.stageShell} style={frameStyle} aria-label="Real V2 render" data-h3-viewport={viewport} data-h3-guides={showGuides ? "true" : "false"}>
+        <div className={styles.motionEvidenceControl} data-h3-motion-evidence-control="true">
+          <button type="button" onClick={() => void setMotionPlayback(!isPlaying)} aria-pressed={!isPlaying}>{isPlaying ? "Pause motion" : "Play motion"}</button>
+          <span>{isPlaying ? "Motion playing" : "Motion paused"}</span>
+        </div>
         <div className={styles.viewportLabel}>{viewport} evidence frame · use true browser viewports for media-query captures</div>
         <div className={`${styles.stage} ${styles.staticStudy}`} data-h3-study={staticStudy}>
           <div className={styles.compositionFields} aria-hidden="true" />
@@ -394,7 +442,7 @@ export function HeroV3DiagnosticLab() {
       <section className={styles.readouts}>
         <div className={styles.panel}>
           <h2>Current layer timing and paint</h2>
-          <div className={styles.tableWrap}><table><thead><tr><th>Surface</th><th>Node</th><th>Opacity</th><th>Blend / z</th><th>Animation</th><th>Media time / duration</th><th>Boundary</th></tr></thead><tbody>{telemetry.map((entry) => <tr key={entry.id}><td><code>{entry.id}</code></td><td>{entry.nodeIdentity}<br />{entry.tag}</td><td>{entry.opacity}</td><td>{entry.blend} / {entry.zIndex}</td><td>{entry.animationName}<br />{entry.animationDuration} · delay {entry.animationDelay}</td><td>{entry.media ? `${entry.media.currentTime.toFixed(2)} / ${entry.media.duration?.toFixed(2) ?? "?"}s` : "static"}</td><td>{entry.media?.distanceToBoundary?.toFixed(2) ?? "—"}</td></tr>)}</tbody></table></div>
+          <div className={styles.tableWrap}><table><thead><tr><th>Surface</th><th>Node</th><th>Opacity</th><th>Blend / z</th><th>Animation</th><th>Media time / duration</th><th>Visible playback</th></tr></thead><tbody>{telemetry.map((entry) => <tr key={entry.id}><td><code>{entry.id}</code></td><td>{entry.nodeIdentity}<br />{entry.tag}</td><td>{entry.opacity}</td><td>{entry.blend} / {entry.zIndex}</td><td>{entry.animationName}<br />{entry.animationDuration} · delay {entry.animationDelay}</td><td>{entry.media ? `${entry.media.currentTime.toFixed(2)} / ${entry.media.duration?.toFixed(2) ?? "?"}s` : "static"}</td><td>{entry.media ? `${entry.media.width.toFixed(0)} × ${entry.media.height.toFixed(0)} · ${entry.media.paused ? "paused" : "playing"} · ${entry.media.effectivelyVisible ? "visible" : "FAILED"}` : "—"}</td></tr>)}</tbody></table></div>
         </div>
         <div className={styles.panel}>
           <h2>Measured loop and node events</h2>

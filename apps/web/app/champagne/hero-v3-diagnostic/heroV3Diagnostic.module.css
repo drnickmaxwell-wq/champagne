@@ -120,6 +120,29 @@
   margin: 0 auto 1.25rem;
 }
 
+.motionEvidenceControl {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--champagne-keyline-gold);
+  border-bottom: 0;
+  background: var(--surface-ink-soft);
+  color: var(--text-high);
+  font-size: 0.78rem;
+}
+
+.motionEvidenceControl button {
+  min-height: 2.5rem;
+  padding-inline: 1rem;
+  border: 1px solid var(--brand-gold);
+  border-radius: var(--radius-md);
+  color: var(--text-high);
+  background: var(--surface-ink);
+  cursor: pointer;
+}
+
 .viewportLabel {
   padding: 0.5rem 0.75rem;
   color: var(--text-medium);
@@ -410,6 +433,14 @@
   display: none;
 }
 
+:global(body):has(.evidenceMode) :global(.hero-renderer-v2) {
+  display: none !important;
+}
+
+:global(body):has(.evidenceMode) .stage :global(.hero-renderer-v2) {
+  display: block !important;
+}
+
 .evidenceMode .stageShell {
   width: 100%;
   margin: 0;
@@ -418,6 +449,15 @@
 .evidenceMode .stage {
   border: 0;
   border-radius: 0;
+}
+
+.evidenceMode .motionEvidenceControl {
+  position: absolute;
+  z-index: 100;
+  top: 0.75rem;
+  right: 0.75rem;
+  border-bottom: 1px solid var(--champagne-keyline-gold);
+  border-radius: var(--radius-md);
 }
 
 :global(body):has(.page) :global(.hero-surface-stack) {

@@ -61,7 +61,22 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
 
   it("isolates evidence captures from the persistent site-shell Hero stack", () => {
     expect(styles).toContain(":global(body):has(.page)");
+    expect(styles).toContain(":global(body):has(.evidenceMode) :global(.hero-renderer-v2)");
+    expect(styles).toContain(":global(body):has(.evidenceMode) .stage :global(.hero-renderer-v2)");
     expect(styles).toContain('.stage[data-h3-study="v2-reference"]');
+  });
+
+  it("provides explicit playback proof and rejects non-rendering motion layers", () => {
+    expect(source).toContain('data-h3-motion-evidence-control="true"');
+    expect(source).toContain('"Pause motion" : "Play motion"');
+    expect(source).toContain("video.play()");
+    expect(source).toContain("video.pause()");
+    expect(source).toContain("getBoundingClientRect()");
+    expect(source).toContain("rect.width > 0 && rect.height > 0");
+    expect(source).toContain("!video.paused && opacity >= 0.08");
+    expect(source).toContain("opacity >= 0.08");
+    expect(source).toContain('addEventListener("canplay", ensurePlayback)');
+    expect(source).toContain('entry.media.effectivelyVisible ? "visible" : "FAILED"');
   });
 
   it("compares complete V2 motion against a motion-plate-only enhancement", () => {
@@ -72,6 +87,7 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
     expect(source).toContain("CHOREOGRAPHY_DURATION_MS = 24_000");
     expect(source).toContain("choreographyOpacity");
     expect(source).toContain("requestAnimationFrame(choreograph)");
+    expect(source).toContain("choreographyClock");
     expect(source).toContain('"sacred.motion.waveCaustics"');
     expect(source).toContain('"sacred.motion.glassShimmer"');
     expect(source).toContain('"sacred.motion.particleDrift"');
@@ -90,8 +106,8 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
     expect(source).toContain("/ motion.width");
     expect(source).toContain('dataset.h3OpticalPlate = "highlights-only"');
     expect(source).toContain("dataset.h3LightMoment = enhanced.moment");
-    expect(source).toContain("brightness(0.54) contrast(3.05)");
-    expect(source).toContain("brightness(0.48) contrast(3.3)");
+    expect(source).toContain("brightness(0.62) contrast(3.4)");
+    expect(source).toContain("brightness(0.58) contrast(3.65)");
     expect(styles).toContain("mask-image: linear-gradient(90deg");
     expect(styles).toContain("mask-image: linear-gradient(180deg");
     expect(styles).toContain('data-surface-id="sacred.motion.waveCaustics"');
