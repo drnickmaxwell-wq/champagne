@@ -60,7 +60,7 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
   });
 
   it("isolates evidence captures from the persistent site-shell Hero stack", () => {
-    expect(styles).toContain("body:has([data-h3-lab])");
+    expect(styles).toContain(":global(body):has(.page)");
     expect(styles).toContain('.stage[data-h3-study="v2-reference"]');
   });
 });

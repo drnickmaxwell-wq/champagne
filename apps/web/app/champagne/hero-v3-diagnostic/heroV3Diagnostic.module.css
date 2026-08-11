@@ -399,7 +399,7 @@
   border-radius: 0;
 }
 
-:global(body:has([data-h3-lab])) :global(.hero-surface-stack) {
+:global(body):has(.page) :global(.hero-surface-stack) {
   display: none !important;
 }
 
