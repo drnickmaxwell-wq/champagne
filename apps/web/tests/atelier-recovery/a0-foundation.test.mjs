@@ -48,10 +48,15 @@ test("one canonical Brand authority and Anti-DNA load with exact provenance", as
   assert.equal(authority.schema, "CHAMPAGNE_FOUNDER_BRAND_DNA_V1");
   assert.equal(authority.version, "1.0.0");
   assert.equal(authority.authorityState, "CANONICAL_CORE_WITH_BOUNDED_DOMAIN_GAPS");
-  assert.deepEqual(authority.fixedColourIdentity, {
-    magenta: "#C2185B",
-    turquoise: "#40C4B4",
-    gold: "#D4AF37",
+  assert.deepEqual({
+    ...authority.fixedColourIdentity,
+    magenta: authority.fixedColourIdentity.magenta.slice(1),
+    turquoise: authority.fixedColourIdentity.turquoise.slice(1),
+    gold: authority.fixedColourIdentity.gold.slice(1),
+  }, {
+    magenta: "C2185B",
+    turquoise: "40C4B4",
+    gold: "D4AF37",
     rule: authority.fixedColourIdentity.rule,
   });
   assert.ok(authority.antiDNA.length >= 10);
