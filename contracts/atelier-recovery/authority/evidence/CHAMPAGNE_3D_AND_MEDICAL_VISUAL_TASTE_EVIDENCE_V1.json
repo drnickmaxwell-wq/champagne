@@ -1,0 +1,76 @@
+{
+  "schema": "CHAMPAGNE_3D_AND_MEDICAL_VISUAL_TASTE_EVIDENCE_V1",
+  "founder": "Dr Nick Maxwell",
+  "status": "INTERVIEW_ACTIVE_PROFILE_NOT_YET_AUTHORISED",
+  "rounds": [
+    {
+      "round": 1,
+      "traitUnderTest": "background_atmosphere",
+      "selected": [
+        {
+          "id": "A",
+          "meaning": "clean neutral anatomical studio"
+        },
+        {
+          "id": "C",
+          "meaning": "dark cinematic product stage"
+        }
+      ],
+      "notSelected": ["B", "D"],
+      "unresolved": [
+        "Porcelain versus Persian mapping",
+        "degree of magenta, turquoise and gold participation"
+      ],
+      "scopeLock": "Approves background atmosphere only."
+    },
+    {
+      "round": 2,
+      "traitUnderTest": "anatomy_realism",
+      "selected": [
+        {
+          "id": "1",
+          "meaning": "clean educational realism"
+        },
+        {
+          "id": "3",
+          "meaning": "translucent anatomical realism showing spatial relationships"
+        }
+      ],
+      "notSelected": ["2", "4"],
+      "scopeLock": "Approves anatomy realism only; it does not approve background, lighting, colour, implant material or composition."
+    },
+    {
+      "round": 3,
+      "traitUnderTest": "material_surface_character",
+      "selected": [
+        {
+          "id": "A",
+          "meaning": "refined natural anatomy"
+        },
+        {
+          "id": "B",
+          "meaning": "precise technical materials"
+        },
+        {
+          "id": "C",
+          "meaning": "highly polished product-grade CGI"
+        },
+        {
+          "id": "D",
+          "meaning": "translucent anatomical material"
+        }
+      ],
+      "notSelected": [],
+      "scopeLock": "Approves material and surface character only. Selection of D is the Founder's explicit correction to the earlier A/B/C record."
+    }
+  ],
+  "remainingTraitInterviews": [
+    "lighting",
+    "camera and viewpoint",
+    "cutaway versus exploded construction",
+    "clinical versus editorial balance",
+    "exact brand-colour participation",
+    "anti-generic traits in controlled like-for-like comparisons"
+  ],
+  "profileGate": "CHAMPAGNE_3D_ART_DIRECTION_PROFILE_V1 must not be issued until enough explicit Founder evidence exists for the remaining traits."
+}

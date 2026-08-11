@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ATELIER_FOUNDER_VISUAL_PREFERENCE_DATASET_V1",
+  "title": "Atelier Founder Visual Preference Dataset V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "authority", "persistence", "decisions"],
+  "properties": {
+    "schema": { "const": "ATELIER_FOUNDER_VISUAL_PREFERENCE_DATASET_V1" },
+    "version": { "type": "integer", "minimum": 1 },
+    "authority": { "const": "FOUNDER_EXPLICIT_DECISIONS_ONLY" },
+    "persistence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "browserLocalStorageIsAuthoritative", "appendOnlyEvents"],
+      "properties": {
+        "mode": { "enum": ["REPOSITORY_BACKED", "GOVERNED_EQUIVALENT"] },
+        "browserLocalStorageIsAuthoritative": { "const": false },
+        "appendOnlyEvents": { "const": true }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/decision" }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "identifier", "provenance", "exactMapping"],
+      "properties": {
+        "kind": { "enum": ["FOUNDER_REVIEW", "EXACT_IMPORT", "SUPERSESSION"] },
+        "identifier": { "type": "string", "minLength": 1 },
+        "provenance": { "type": "string", "minLength": 1 },
+        "exactMapping": { "type": "boolean" }
+      }
+    },
+    "trait": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "signal"],
+      "properties": {
+        "dimension": {
+          "enum": ["colour", "surface", "composition", "geometry", "typography", "spacing/density", "image treatment", "wave", "luminosity", "dark/light balance", "human warmth", "interaction", "motion", "mobile composition"]
+        },
+        "signal": { "enum": ["POSITIVE", "NEGATIVE", "MIXED", "UNRESOLVED"] },
+        "note": { "type": "string" }
+      }
+    },
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keepConcept", "needsRefinement", "needsUpgrade", "wrongColours", "wrongTypography", "wrongImagery", "wrongGeometry", "wrongComposition", "wrongInteraction"],
+      "properties": {
+        "keepConcept": { "type": "boolean" },
+        "needsRefinement": { "type": "boolean" },
+        "needsUpgrade": { "type": "boolean" },
+        "wrongColours": { "type": "boolean" },
+        "wrongTypography": { "type": "boolean" },
+        "wrongImagery": { "type": "boolean" },
+        "wrongGeometry": { "type": "boolean" },
+        "wrongComposition": { "type": "boolean" },
+        "wrongInteraction": { "type": "boolean" }
+      }
+    },
+    "supersession": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decisionId", "version", "timestamp", "reason"],
+      "properties": {
+        "decisionId": { "type": "string", "minLength": 1 },
+        "version": { "type": "integer", "minimum": 1 },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "reason": { "type": "string" }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decisionId", "cvaId", "wholeItemSignal", "notes", "traits", "flags", "source", "timestamp", "version", "supersedes", "history"],
+      "properties": {
+        "decisionId": { "type": "string", "minLength": 1 },
+        "cvaId": { "type": "string", "pattern": "^CVA-" },
+        "wholeItemSignal": { "enum": ["LOVE", "LIKE", "MAYBE", "NOT_ME", "UNRATED"] },
+        "notes": { "type": "string" },
+        "traits": { "type": "array", "items": { "$ref": "#/$defs/trait" } },
+        "flags": { "$ref": "#/$defs/flags" },
+        "source": { "$ref": "#/$defs/source" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "version": { "type": "integer", "minimum": 1 },
+        "supersedes": { "type": ["string", "null"] },
+        "history": { "type": "array", "items": { "$ref": "#/$defs/supersession" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "ATELIER_A0_PRESERVE_RETIRE_REBUILD_MATRIX_V1",
+  "cleanBase": "a00f718a93710028b364930566d7f6a44483bc25",
+  "forensicSourceHead": "cc3f7fabff0af8ec6137c0a778b557e5bf79fb9e",
+  "auditVerdict": "ATELIER_PARTIAL_REBUILD_REQUIRED",
+  "recoveryRoute": "OPTION_B",
+  "entries": [
+    { "subsystem": "V27 visual archive assets", "classification": "PRESERVE", "reason": "331 unique CVA assets reconcile and decode; pixels remain reference evidence only." },
+    { "subsystem": "Stable CVA identifiers", "classification": "PRESERVE", "reason": "All 331 identities are stable and required for review, lineage and supersession." },
+    { "subsystem": "Archive provenance registry", "classification": "PRESERVE_WITH_REFACTOR", "reason": "Source path, parent board and crop evidence are valuable; implementationAvailable remains truthful." },
+    { "subsystem": "Archive catalogue and search", "classification": "PRESERVE_WITH_REFACTOR", "reason": "Useful browsing foundation; A1 must add rating/progress/category workflow." },
+    { "subsystem": "Semantic page and section ownership", "classification": "PRESERVE_WITH_REFACTOR", "reason": "Semantic jobs and protected boundaries are sound; fixed visual-family coupling is not." },
+    { "subsystem": "Governed content adapters", "classification": "PRESERVE_WITH_REFACTOR", "reason": "Truthful current content ownership is reusable after visual-family assumptions are removed." },
+    { "subsystem": "Editor shell and navigation", "classification": "PRESERVE_WITH_REFACTOR", "reason": "Useful interaction shell; recovery information architecture replaces misleading generation controls." },
+    { "subsystem": "Responsive preview machinery", "classification": "PRESERVE", "reason": "1440, 1024, 768 and 390 viewport truth remains a core proving boundary." },
+    { "subsystem": "Golden, candidate and reversion concepts", "classification": "PRESERVE_WITH_REFACTOR", "reason": "Governance concepts survive; fixed family implementations do not." },
+    { "subsystem": "Accessibility foundations", "classification": "PRESERVE", "reason": "Labels, semantic controls, focus behaviour and forced-colour support remain required." },
+    { "subsystem": "Reduced-motion support", "classification": "PRESERVE", "reason": "Recovery UI and every future grammar must preserve an explicit reduced-motion plan." },
+    { "subsystem": "Noindex and route isolation", "classification": "PRESERVE", "reason": "Atelier remains an internal non-public surface." },
+    { "subsystem": "productionBinding=false", "classification": "PRESERVE", "reason": "A0 and every experimental candidate remain non-production-binding." },
+    { "subsystem": "Sacred Hero boundary", "classification": "PRESERVE", "reason": "Hero V2/V3 files and production binding are outside A0 and untouched." },
+    { "subsystem": "Media and 3D semantic boundaries", "classification": "PRESERVE", "reason": "Unsettled domains remain explicit gaps; no generated media or 3D work is implied." },
+    { "subsystem": "Versioned export and receipt concepts", "classification": "PRESERVE_WITH_REFACTOR", "reason": "Future exports must include exact decision and grammar lineage, not browser-only counters." },
+    { "subsystem": "Aperture, Folio, Luminous and Monolith renderer", "classification": "RETIRE_FROM_ACTIVE_AUTHORITY", "reason": "The fixed-family renderer cannot represent archive grammar and cannot be a fallback." },
+    { "subsystem": "Accumulated R4 CSS override stack", "classification": "LEGACY_EVIDENCE_ONLY", "reason": "Twelve layered stylesheets document experiments but are not recovery authority." },
+    { "subsystem": "R4 page templates", "classification": "LEGACY_EVIDENCE_ONLY", "reason": "Useful historical comparison only; they are not reconstructed adaptive components." },
+    { "subsystem": "Working Brand DNA browser counter", "classification": "RETIRE_FROM_ACTIVE_AUTHORITY", "reason": "It could be mistaken for canonical Founder Brand authority." },
+    { "subsystem": "Browser-local Founder preference authority", "classification": "RETIRE_FROM_ACTIVE_AUTHORITY", "reason": "Founder decisions require governed durable persistence and supersession history." },
+    { "subsystem": "Text-only visual reference intake", "classification": "RETIRE_FROM_ACTIVE_AUTHORITY", "reason": "It must not be presented as screenshot, sketch, photo or URL understanding." },
+    { "subsystem": "Component reconstruction", "classification": "REBUILD_LATER", "reason": "A2 will reconstruct the first code-native components against ATELIER_COMPONENT_GRAMMAR_V1." },
+    { "subsystem": "Component adaptation", "classification": "REBUILD_LATER", "reason": "Must retain approved source grammar while accepting governed content shapes." },
+    { "subsystem": "Page composition", "classification": "REBUILD_LATER", "reason": "Must compose approved grammars by semantic job, content, viewport and preference evidence." },
+    { "subsystem": "Assisted candidate worker", "classification": "REBUILD_LATER", "reason": "A0 defines its contract only; no LLM or training wiring is authorised." },
+    { "subsystem": "R4.10 copy-dependent visual QA", "classification": "RETIRE_FROM_ACTIVE_AUTHORITY", "reason": "Recovery visual QA uses semantic A0 selectors and separately versioned artefacts." }
+  ],
+  "invariants": [
+    "NO_GENERIC_LEGACY_FAMILY_FALLBACK",
+    "ONE_CANONICAL_FOUNDER_BRAND_AUTHORITY",
+    "BRAND_COMPONENT_GAP",
+    "productionBinding=false"
+  ]
+}
