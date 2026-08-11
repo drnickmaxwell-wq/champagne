@@ -1,0 +1,33 @@
+{
+  "schema": "CHAMPAGNE_GOLDEN_IMPLANT_CLEANROOM_REFERENCE_TRACE_V1",
+  "candidate": "CHAMPAGNE_GOLDEN_IMPLANT_CLEANROOM_CANDIDATE_V1",
+  "productionBinding": false,
+  "heroMutation": false,
+  "records": [
+    {
+      "sourceCva": ["CVA-SECTION-B011-E01", "CVA-SECTION-B011-E03", "CVA-SURFACE-B038-E02"],
+      "compositionSignature": "Warm Porcelain editorial plane, large left-set serif title, dot constellation, layered colour-wave rising into the reading field, then Persian depth physically entering rather than following as a slab.",
+      "implementedPageDecision": "Direct-answer opening keeps a substantial Porcelain reading environment while an elliptical Persian wave intrudes beneath the copy and carries the three component roles."
+    },
+    {
+      "sourceCva": ["CVA-SURFACE-B038-E04", "CVA-SECTION-B032-E01", "CVA-SECTION-B011-E02"],
+      "compositionSignature": "Velvet Persian field, turquoise orbital explanation, large deliberate media stage, shaped light explanatory plane, high text-to-visual balance and selective gold hierarchy.",
+      "implementedPageDecision": "Component education reverses the material relationship: Persian contains a luminous orbital future-model stage and a clipped Porcelain explanation plane, with no model or generated media integrated."
+    },
+    {
+      "sourceCva": ["CVA-SECTION-B029-E03", "CVA-SEQUENCE-B009-E01", "CVA-SURFACE-B038-E04"],
+      "compositionSignature": "Dark planning studio with a dominant explanatory graphic, turquoise controls and lines, magenta human emphasis, gold precision rules, asymmetric information distribution rather than dashboard tiles.",
+      "implementedPageDecision": "Planning uses an editorial copy column beside a large clinical-question orbit with four positioned explanation points and no patient data or simulated scan."
+    },
+    {
+      "sourceCva": ["CVA-PAGE-B021-E01", "CVA-SECTION-B034-E04", "CVA-SEQUENCE-B009-E01"],
+      "compositionSignature": "Varied chapter scale, readable serif hierarchy, comparison and FAQ information carried in open editorial rails, with calm Porcelain interrupted by deep explanatory moments.",
+      "implementedPageDecision": "Biology, options, benefits/risks, cost, maintenance and FAQ each use a distinct rhythm: flowing sequence, wide comparison ledger, circular balance field, stepped fee plane, orbit reassurance and editorial disclosure list."
+    },
+    {
+      "sourceCva": ["CVA-BAND-B020-E03", "CVA-FOOTER-F03-E02", "CVA-FOOTER-F03-E03", "CVA-SEQUENCE-B010-E01"],
+      "compositionSignature": "Confident spectrum CTA field followed by Porcelain-to-Persian wave descent, layered navigation, luminous currents and generous closing depth tied back to Hero V2.",
+      "implementedPageDecision": "The final assessment CTA sits in a full spectrum wave environment and descends into a reconstructed two-material footer with code-native navigation and the repository wave/gold-dust assets."
+    }
+  ]
+}
