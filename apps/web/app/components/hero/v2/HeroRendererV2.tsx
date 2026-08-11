@@ -8,6 +8,8 @@ import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 import { buildHeroV2Model } from "./buildHeroV2Model";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
+const HERO_V2_OPTICAL_PRODUCTION_BINDING = false;
+const HERO_V2_OPTICAL_PREVIEW_PARAM = "heroOpticalCandidate";
 const heroV2ModelCache = new Map<string, HeroV2Model>();
 let lastResolvedHeroV2Model: HeroV2Model | null = null;
 
@@ -177,6 +179,7 @@ type HeroV2FrameProps = {
   motionCount?: number;
   prm?: boolean;
   debug?: boolean;
+  opticalCandidate?: boolean;
   children: ReactNode;
 };
 
@@ -258,6 +261,29 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 --hero-motion-y: -0.9%;
                 --hero-motion-scale: 1.008;
               }
+              .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--motion {
+                color: var(--text-high);
+                mix-blend-mode: screen !important;
+                mask-image: linear-gradient(90deg, transparent 0 32%, currentColor 62% 100%);
+                mask-size: 100% 100%;
+                mask-repeat: no-repeat;
+                filter: brightness(0.54) contrast(3.6) saturate(0.82);
+                will-change: opacity, filter, transform;
+              }
+              .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--caustics {
+                mask-image: linear-gradient(90deg, transparent 0 34%, currentColor 58% 92%, transparent 100%);
+                filter: brightness(0.62) contrast(3.4) saturate(1.12);
+              }
+              .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--glass-shimmer {
+                mask-image: linear-gradient(90deg, transparent 0 43%, currentColor 64% 94%, transparent 100%);
+                filter: brightness(0.58) contrast(3.65) saturate(0.68);
+              }
+              .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--particles-drift {
+                filter: brightness(0.5) contrast(3.7) saturate(0.72);
+              }
+              .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--gold-dust {
+                filter: brightness(0.56) contrast(3.6) saturate(1.08);
+              }
               .hero-renderer-v2 .hero-surface-layer {
                 pointer-events: none;
               }
@@ -282,6 +308,13 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 }
                 .hero-renderer-v2 {
                   min-height: 68vh;
+                }
+                .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--motion {
+                  mask-image: linear-gradient(180deg, transparent 0 46%, currentColor 74% 100%);
+                }
+                .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--caustics,
+                .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--glass-shimmer {
+                  mask-image: linear-gradient(180deg, transparent 0 50%, currentColor 72% 96%, transparent 100%);
                 }
               }
               @media (prefers-reduced-motion: reduce) {
@@ -554,6 +587,7 @@ export function HeroV2Frame({
   motionCount,
   prm,
   debug,
+  opticalCandidate = false,
   children,
 }: HeroV2FrameProps) {
   const dataAttributes = debug
@@ -572,6 +606,7 @@ export function HeroV2Frame({
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
       data-hero-renderer="v2"
       data-hero-root="true"
+      data-optical-candidate={opticalCandidate ? "true" : "false"}
       style={{
         ["--hero-gradient" as string]: gradient,
         background: "var(--hero-gradient)",
@@ -776,6 +811,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [isHeroVisuallyReady, setIsHeroVisuallyReady] = useState(false);
   const visualReadyRef = useRef(false);
   const debugEnabled = searchParams?.get("heroDebug") === "1";
+  const opticalCandidate =
+    !prm &&
+    (HERO_V2_OPTICAL_PRODUCTION_BINDING || searchParams?.get(HERO_V2_OPTICAL_PREVIEW_PARAM) === "1");
   const routePageCategory =
     resolvePageCategoryForPathname(pathnameKey) ??
     (pathnameKey === normalizedInitialPathname ? pageCategory : undefined);
@@ -999,6 +1037,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       motionCount={motionCount}
       prm={activeModel.surfaceStack.prmEnabled}
       debug={debugEnabled}
+      opticalCandidate={opticalCandidate}
     >
       {debugEnabled ? (
         <div
@@ -1024,7 +1063,11 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         </div>
       ) : null}
       <div style={{ position: "absolute", inset: 0 }}>
-        <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...activeModel.surfaceStack} />
+        <HeroSurfaceStackV2
+          surfaceRef={surfaceRef}
+          opticalCandidate={opticalCandidate}
+          {...activeModel.surfaceStack}
+        />
       </div>
       <HeroContentFade>
         <HeroContentV2 content={activeModel.content} layout={activeModel.layout} />

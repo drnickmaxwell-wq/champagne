@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useRef, useState, type ReactNode } from "react";
+import { memo, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { CSSProperties, Ref } from "react";
 import { BloomDriver } from "./BloomDriver";
@@ -11,6 +11,25 @@ const HERO_CONTENT_FADE_ENABLED = process.env.NEXT_PUBLIC_HERO_CONTENT_FADE !== 
 
 type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
+  opticalCandidate?: boolean;
+};
+
+const OPTICAL_CHOREOGRAPHY_DURATION_MS = 24_000;
+const OPTICAL_MOTION = {
+  "sacred.motion.waveCaustics": { floor: 0.08, lift: 0.26, peak: 0.16, width: 0.16 },
+  "sacred.motion.glassShimmer": { floor: 0.08, lift: 0.24, peak: 0.43, width: 0.09 },
+  "sacred.motion.particleDrift": { floor: 0.08, lift: 0.08, peak: 0.69, width: 0.16 },
+  "sacred.motion.goldDust": { floor: 0.08, lift: 0.18, peak: 0.76, width: 0.13 },
+} as const;
+
+type OpticalMotionId = keyof typeof OPTICAL_MOTION;
+
+const opticalOpacity = (phase: number, motion: (typeof OPTICAL_MOTION)[OpticalMotionId]) => {
+  const rawDistance = Math.abs(phase - motion.peak);
+  const circularDistance = Math.min(rawDistance, 1 - rawDistance);
+  const influence = Math.max(0, 1 - circularDistance / motion.width);
+  const eased = influence * influence * (3 - 2 * influence);
+  return motion.floor + motion.lift * eased;
 };
 
 const normalizeHeroPathname = (path?: string) => {
@@ -113,11 +132,18 @@ function HeroSurfaceStackV2Base({
   heroVideo,
   sacredBloom,
   surfaceRef,
+  opticalCandidate = false,
   bloomEnabled,
   heroId: _heroId,
   variantId: _variantId,
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
+  const stackRef = useRef<HTMLDivElement | null>(null);
+  const setStackRef = useCallback((node: HTMLDivElement | null) => {
+    stackRef.current = node;
+    if (typeof surfaceRef === "function") surfaceRef(node);
+    else if (surfaceRef) surfaceRef.current = node;
+  }, [surfaceRef]);
   const pathname = usePathname();
   const pathnameKey = normalizeHeroPathname(pathname);
   const heroDebugEnabled = isHeroNavDebugEnabled();
@@ -144,6 +170,58 @@ function HeroSurfaceStackV2Base({
     navStartRef.current = performance.now();
     mediaLogCountRef.current = 0;
   }, [heroDebugEnabled, pathnameKey]);
+
+  useEffect(() => {
+    if (!opticalCandidate || prmEnabled) return;
+    const root = stackRef.current;
+    if (!root) return;
+
+    const videos = Array.from(
+      root.querySelectorAll<HTMLVideoElement>('video[data-surface-id^="sacred.motion."]'),
+    ).filter((video) => {
+      const id = video.dataset.surfaceId;
+      return Boolean(id && id in OPTICAL_MOTION);
+    });
+    if (videos.length === 0) return;
+
+    const originalOpacity = new Map(videos.map((video) => [video, video.style.getPropertyValue("opacity")]));
+    let frameId = 0;
+    let active = true;
+    const startedAt = performance.now();
+    const recoverPlayback = (video: HTMLVideoElement) => {
+      if (!active || !video.paused) return;
+      void video.play().catch(() => {
+        video.dataset.opticalAutoplay = "blocked";
+      });
+    };
+    const render = (now: number) => {
+      const phase = ((now - startedAt) % OPTICAL_CHOREOGRAPHY_DURATION_MS) / OPTICAL_CHOREOGRAPHY_DURATION_MS;
+      videos.forEach((video) => {
+        const id = video.dataset.surfaceId as OpticalMotionId;
+        video.style.setProperty("opacity", opticalOpacity(phase, OPTICAL_MOTION[id]).toFixed(3), "important");
+      });
+      frameId = requestAnimationFrame(render);
+    };
+    const handleCanPlay = (event: Event) => recoverPlayback(event.currentTarget as HTMLVideoElement);
+    videos.forEach((video) => {
+      video.dataset.opticalAutoplay = "pending";
+      video.addEventListener("canplay", handleCanPlay);
+      recoverPlayback(video);
+    });
+    frameId = requestAnimationFrame(render);
+
+    return () => {
+      active = false;
+      cancelAnimationFrame(frameId);
+      videos.forEach((video) => {
+        video.removeEventListener("canplay", handleCanPlay);
+        const opacity = originalOpacity.get(video);
+        if (opacity) video.style.setProperty("opacity", opacity);
+        else video.style.removeProperty("opacity");
+        delete video.dataset.opticalAutoplay;
+      });
+    };
+  }, [opticalCandidate, prmEnabled]);
 
   useEffect(() => {
     if (!HERO_V2_DEBUG) return;
@@ -476,7 +554,7 @@ function HeroSurfaceStackV2Base({
       <div
         aria-hidden
         className="hero-surface-stack"
-        ref={surfaceRef}
+        ref={setStackRef}
         data-prm={prmEnabled ? "true" : "false"}
         data-v2-composite-stabilized="true"
         data-v2-contain="paint"
@@ -484,6 +562,7 @@ function HeroSurfaceStackV2Base({
         data-v2-persistent-stack="true"
         data-v2-stack-instance={instanceId.current}
         data-v2-bloom-driver-active={bloomEnabled ? "true" : "false"}
+        data-v2-optical-candidate={opticalCandidate ? "true" : "false"}
         style={surfaceVars}
       >
         {layers.map((layer) => (
