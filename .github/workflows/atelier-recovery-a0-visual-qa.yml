@@ -1,4 +1,4 @@
-name: Atelier Recovery A0 Visual QA
+name: Atelier Recovery A1 Visual QA
 
 on:
   pull_request:
@@ -15,8 +15,8 @@ permissions:
   contents: read
 
 jobs:
-  recovery-a0:
-    name: recovery-a0-foundation-and-visual-truth
+  recovery-a1:
+    name: recovery-a1-contract-persistence-and-visual-truth
     runs-on: ubuntu-latest
     env:
       ALLOW_CHAMPAGNE_ROUTES: "true"
@@ -33,37 +33,75 @@ jobs:
           corepack prepare pnpm@9.15.4 --activate
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Validate A0 manifests and contracts
+      - name: Validate inherited A0 and A1 contracts
         run: |
           set -euxo pipefail
           pnpm atelier:a0:check
           pnpm atelier:a0:test
+          pnpm atelier:a1:check
+          pnpm atelier:a1:test
       - name: Install Chromium
         run: pnpm exec playwright install --with-deps chromium
       - name: Build and start recovery route
         run: |
           set -euxo pipefail
           pnpm build:web
-          pnpm --filter web start --hostname 127.0.0.1 --port 3000 > "$RUNNER_TEMP/atelier-a0-web.log" 2>&1 &
+          pnpm --filter web start --hostname 127.0.0.1 --port 3000 > "$RUNNER_TEMP/atelier-a1-production.log" 2>&1 &
           for attempt in {1..60}; do
             if curl --fail --silent http://127.0.0.1:3000/champagne/atelier-recovery > /dev/null; then
               exit 0
             fi
             sleep 1
           done
-          cat "$RUNNER_TEMP/atelier-a0-web.log"
+          cat "$RUNNER_TEMP/atelier-a1-production.log"
           exit 1
-      - name: Capture semantic recovery evidence
+      - name: Exercise A1 review and capture visual evidence
         env:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
-          ATELIER_A0_EVIDENCE_DIR: ${{ runner.temp }}/atelier-a0-evidence
-        run: pnpm atelier:a0:visual-qa
-      - name: Upload A0 evidence
+          ATELIER_A1_EVIDENCE_DIR: ${{ runner.temp }}/atelier-a1-evidence
+        run: pnpm atelier:a1:visual-qa
+      - name: Prove explicit local persistence and restore canonical seed
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:3001
+          ATELIER_A1_EVIDENCE_DIR: ${{ runner.temp }}/atelier-a1-evidence
+        run: |
+          set -euxo pipefail
+          dataset="apps/web/app/champagne/atelier-recovery/data/preferences/founder-visual-preferences.v1.json"
+          pnpm atelier:a1:generate
+          env -u CI \
+            ALLOW_CHAMPAGNE_ROUTES=true \
+            CHAMPAGNE_ATELIER_LOCAL_WORK_MODE=A1_EXPLICIT_WRITE \
+            ATELIER_WORKTREE_FILE_PERSISTENCE=ENABLED \
+            pnpm --filter web dev --hostname 127.0.0.1 --port 3001 > "$RUNNER_TEMP/atelier-a1-persistence.log" 2>&1 &
+          server_pid=$!
+          restore_seed() {
+            kill "$server_pid" 2>/dev/null || true
+            pnpm atelier:a1:generate
+          }
+          trap restore_seed EXIT
+          for attempt in {1..60}; do
+            if curl --fail --silent http://127.0.0.1:3001/champagne/atelier-recovery > /dev/null; then
+              break
+            fi
+            if [[ "$attempt" == "60" ]]; then
+              cat "$RUNNER_TEMP/atelier-a1-persistence.log"
+              exit 1
+            fi
+            sleep 1
+          done
+          PLAYWRIGHT_CHROMIUM_EXECUTABLE="$(node -e "const { chromium } = require('playwright'); process.stdout.write(chromium.executablePath())")" \
+            pnpm atelier:a1:persistence-qa
+          restore_seed
+          trap - EXIT
+          pnpm atelier:a1:check
+          git diff --exit-code -- "$dataset"
+      - name: Upload A1 evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: atelier-recovery-a0-render-evidence
+          name: atelier-recovery-a1-render-evidence
           path: |
-            ${{ runner.temp }}/atelier-a0-evidence
-            ${{ runner.temp }}/atelier-a0-web.log
+            ${{ runner.temp }}/atelier-a1-evidence
+            ${{ runner.temp }}/atelier-a1-production.log
+            ${{ runner.temp }}/atelier-a1-persistence.log
           if-no-files-found: warn
