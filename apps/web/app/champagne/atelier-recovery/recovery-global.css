@@ -1,9 +1,13 @@
-body:has([data-atelier-recovery-route="A0"]) > div.flex > div.sticky,
-body:has([data-atelier-recovery-route="A0"]) > div.flex > footer,
-body:has([data-atelier-recovery-route="A0"]) > div[class*="concierge_root"] {
+body:has([data-atelier-recovery-route="A1"]) > div.flex > div.sticky,
+body:has([data-atelier-recovery-route="A1"]) > div.flex > footer,
+body:has([data-atelier-recovery-route="A1"]) > div[class*="concierge_root"] {
   display: none;
 }
 
-body:has([data-atelier-recovery-route="A0"]) > div.flex > main:has(> [data-atelier-recovery-route="A0"]) {
+body:has([data-atelier-recovery-route="A1"]) [data-hero-engine] {
+  display: none;
+}
+
+body:has([data-atelier-recovery-route="A1"]) > div.flex > main:has(> [data-atelier-recovery-route="A1"]) {
   padding: 0;
 }

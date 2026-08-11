@@ -1,0 +1,1210 @@
+{
+  "schema": "ATELIER_FOUNDER_VISUAL_PREFERENCE_DATASET_V1",
+  "version": 1,
+  "datasetRevision": 1,
+  "authority": "FOUNDER_EXPLICIT_DECISIONS_ONLY",
+  "productionBinding": false,
+  "sourceManifest": {
+    "id": "champagne-v27-provisional-inventory",
+    "sha256": "2db810212a349c727763eb22140036db4ee105c8d2133d1f6a603b5e8109bcf3",
+    "itemCount": 331
+  },
+  "persistence": {
+    "mode": "WORKTREE_FILE",
+    "browserLocalStorageIsAuthoritative": false,
+    "appendOnlyDecisionHistory": true
+  },
+  "session": {
+    "lastCvaId": null,
+    "updatedAt": "2026-08-11T00:00:00.000Z"
+  },
+  "decisions": [
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E01::0",
+      "cvaId": "CVA-SURFACE-B038-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#0",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "image treatment",
+          "composition",
+          "geometry",
+          "typography"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E03::1",
+      "cvaId": "CVA-SURFACE-B038-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#1",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "colour",
+          "image treatment",
+          "geometry",
+          "typography"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E05::2",
+      "cvaId": "CVA-SURFACE-B038-E05",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "not sure about the wave",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#2",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E06::3",
+      "cvaId": "CVA-SURFACE-B038-E06",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "but little washed out and my brand colours being lost, BUT i love this",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#3",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "composition",
+          "interaction",
+          "human warmth"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E08::4",
+      "cvaId": "CVA-SURFACE-B038-E08",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#4",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "interaction",
+          "typography",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B018-E01::5",
+      "cvaId": "CVA-PAGE-B018-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "MAYBE",
+      "notes": "its not my brand but i love all the drawings and info",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#5",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B021-E01::6",
+      "cvaId": "CVA-PAGE-B021-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "this is slowly becoming my brand feel, but needs the blockiness breaking up and more colour bought in thoughfully",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#6",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "composition",
+          "image treatment",
+          "human warmth",
+          "geometry",
+          "typography"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B035-E01::7",
+      "cvaId": "CVA-PAGE-B035-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "little too generic and not my hero. looks like saas",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#7",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "image treatment",
+          "typography",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B036-E01::8",
+      "cvaId": "CVA-PAGE-B036-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "again looking more saas and going too dark and not my hero ",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#8",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "typography",
+          "geometry",
+          "image treatment"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B023-E01::9",
+      "cvaId": "CVA-PAGE-B023-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "feels like a scrap book at moment but with a better layout and design could be nice.  I wanted a persian blue header and footer. my footer is supposed to have layers like my hero v2, not just a generic blue and gold. i want luxury",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#9",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-SACRED-HERO-E01::10",
+      "cvaId": "CVA-PAGE-SACRED-HERO-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "NOT_ME",
+      "notes": "just too dark",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#10",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SEQUENCE-B005-E01::11",
+      "cvaId": "CVA-SEQUENCE-B005-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "this is my wave background that is within my hero v2. i like this BUT not as a hero as too boring. ",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#11",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "image treatment",
+          "geometry",
+          "composition",
+          "wave"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SEQUENCE-B010-E01::12",
+      "cvaId": "CVA-SEQUENCE-B010-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "its the wrong perisan blue. this is my sacred hero v2 that is on every page at present. i still love it",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#12",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "luminosity",
+          "composition",
+          "interaction",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SEQUENCE-B017-E01::13",
+      "cvaId": "CVA-SEQUENCE-B017-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "i love it but dont think is my brand and could be too different, but if could be done in my actual brand colours and made lighter may be nice",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#13",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "dark/light balance"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SEQUENCE-B009-E01::14",
+      "cvaId": "CVA-SEQUENCE-B009-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "love these",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#14",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "image treatment",
+          "interaction",
+          "typography",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B011-E01::15",
+      "cvaId": "CVA-SECTION-B011-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#15",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "image treatment",
+          "interaction",
+          "composition"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B011-E02::16",
+      "cvaId": "CVA-SECTION-B011-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "could be improved and made more my brand",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#16",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "image treatment",
+          "composition",
+          "dark/light balance",
+          "colour",
+          "luminosity"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B011-E03::17",
+      "cvaId": "CVA-SECTION-B011-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#17",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B011-E08::18",
+      "cvaId": "CVA-SECTION-B011-E08",
+      "status": "CURRENT",
+      "wholeItemSignal": "NOT_ME",
+      "notes": "colours nOT my brand",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#18",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B025-E01::19",
+      "cvaId": "CVA-SECTION-B025-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "nice luxurious feel",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#19",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B025-E05::20",
+      "cvaId": "CVA-SECTION-B025-E05",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "nice colour",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#20",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B029-E03::21",
+      "cvaId": "CVA-SECTION-B029-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "i WANT this in my repo - love the diagram and would like more of these in repo",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#21",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B034-E04::22",
+      "cvaId": "CVA-SECTION-B034-E04",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "love this",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#22",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "interaction"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B032-E01::23",
+      "cvaId": "CVA-SECTION-B032-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "love it and want more of these created and added",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#23",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "image treatment",
+          "interaction",
+          "composition"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-MEDIA-B032-E01::24",
+      "cvaId": "CVA-MEDIA-B032-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "want 3D models on every treatment page. we are alos planning small ines for the concierge",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#24",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-CAPTAIN-B042-E01::25",
+      "cvaId": "CVA-CAPTAIN-B042-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "nice but boring and needs more champagne brand",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#25",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-BAND-B020-E05::26",
+      "cvaId": "CVA-BAND-B020-E05",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "ok",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#26",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-BAND-B020-E03::27",
+      "cvaId": "CVA-BAND-B020-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "THIS I LOVE",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#27",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-CTA-B004-E01::28",
+      "cvaId": "CVA-CTA-B004-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "MAYBE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#28",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-CTA-B004-E03::29",
+      "cvaId": "CVA-CTA-B004-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "MAYBE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#29",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-FOOTER-F03-E02::30",
+      "cvaId": "CVA-FOOTER-F03-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "love this",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#30",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-FOOTER-F03-E03::31",
+      "cvaId": "CVA-FOOTER-F03-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "needs some work as feels cramped but like the concept. colours not correct",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#31",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-HERITAGE-B039-E01::32",
+      "cvaId": "CVA-HERITAGE-B039-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "thats actrually the building my practice is inside. use sparingly",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#32",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "image treatment"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-HERITAGE-B040-E03::33",
+      "cvaId": "CVA-HERITAGE-B040-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "i do like this but still in the right position",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#33",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "image treatment",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B036-E03::34",
+      "cvaId": "CVA-SECTION-B036-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "little bland",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#34",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-HERITAGE-B040-E06::35",
+      "cvaId": "CVA-HERITAGE-B040-E06",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "its st marys.  ",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#35",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E02::0",
+      "cvaId": "CVA-SURFACE-B038-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "Whole-reference LOVE. No individual trait is automatically approved without separate evidence.",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED#0",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E04::1",
+      "cvaId": "CVA-SURFACE-B038-E04",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "Whole-reference LOVE. No individual trait is automatically approved without separate evidence.",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED#1",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    }
+  ]
+}

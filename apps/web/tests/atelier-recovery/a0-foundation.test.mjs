@@ -73,6 +73,7 @@ test("preference schema and exact import plan preserve all 38 decisions without 
   const plan = await readJson("recovery/ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1.json");
   assert.equal(schema.$id, "ATELIER_FOUNDER_VISUAL_PREFERENCE_DATASET_V1");
   assert.ok(schema.$defs.decision.required.includes("supersedes"));
+  assert.ok(schema.$defs.decision.required.includes("status"));
   assert.equal(plan.policy.speculativeMappingsAllowed, false);
   assert.equal(plan.policy.parentApprovalPropagatesToChildren, false);
   assert.equal(plan.exactImports.length, 38);

@@ -32,18 +32,18 @@ export type RecoveryCapabilityState = {
   archiveCount: 331;
   exactImportedPreferenceCandidates: 38;
   reconstructedComponentCount: 0;
-  reviewSystem: "COMING_NEXT_A1";
+  reviewSystem: "ACTIVE_A1";
   componentReconstruction: "NOT_STARTED_A2";
   pageComposition: "NOT_AUTHORISED_A0";
   legacyFamilyAuthority: false;
   productionBinding: false;
 };
 
-export const A0_CAPABILITY_STATE: RecoveryCapabilityState = Object.freeze({
+export const A1_CAPABILITY_STATE: RecoveryCapabilityState = Object.freeze({
   archiveCount: 331,
   exactImportedPreferenceCandidates: 38,
   reconstructedComponentCount: 0,
-  reviewSystem: "COMING_NEXT_A1",
+  reviewSystem: "ACTIVE_A1",
   componentReconstruction: "NOT_STARTED_A2",
   pageComposition: "NOT_AUTHORISED_A0",
   legacyFamilyAuthority: false,

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AtelierRecoveryLayout({ children }: { children: ReactNode }) {
   return (
-    <div data-atelier-recovery-route="A0" data-production-binding="false">
+    <div data-atelier-recovery-route="A1" data-production-binding="false">
       {children}
     </div>
   );

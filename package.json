@@ -47,7 +47,12 @@
     "atelier:a0:generate": "node apps/web/scripts/atelier-recovery/build-a0-manifests.mjs",
     "atelier:a0:check": "node apps/web/scripts/atelier-recovery/build-a0-manifests.mjs --check",
     "atelier:a0:test": "node --test apps/web/tests/atelier-recovery/a0-foundation.test.mjs",
-    "atelier:a0:visual-qa": "node apps/web/tests/atelier-recovery/a0-visual-qa.mjs"
+    "atelier:a0:visual-qa": "node apps/web/tests/atelier-recovery/a0-visual-qa.mjs",
+    "atelier:a1:generate": "node apps/web/scripts/atelier-recovery/build-a1-dataset.mjs",
+    "atelier:a1:check": "node apps/web/scripts/atelier-recovery/build-a1-dataset.mjs --check",
+    "atelier:a1:test": "node --test apps/web/tests/atelier-recovery/a1-founder-review.test.mjs",
+    "atelier:a1:visual-qa": "node apps/web/tests/atelier-recovery/a1-visual-qa.mjs",
+    "atelier:a1:persistence-qa": "node apps/web/tests/atelier-recovery/a1-local-persistence-qa.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
