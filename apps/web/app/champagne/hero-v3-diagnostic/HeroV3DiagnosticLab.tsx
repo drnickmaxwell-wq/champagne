@@ -49,10 +49,10 @@ const V2_MOTION_STUDIES = new Set<StaticStudyId>(["v2-reference", "v2-light-dept
 const CHOREOGRAPHY_DURATION_MS = 24_000;
 
 const ENHANCED_MOTION: Partial<Record<MotionId, { floor: number; lift: number; peak: number; blend: string; filter: string }>> = {
-  "sacred.motion.waveCaustics": { floor: 0.2, lift: 0.11, peak: 0.18, blend: "screen", filter: "contrast(1.04) brightness(1.015)" },
-  "sacred.motion.glassShimmer": { floor: 0.16, lift: 0.11, peak: 0.36, blend: "soft-light", filter: "contrast(1.045) saturate(0.96)" },
-  "sacred.motion.particleDrift": { floor: 0.08, lift: 0.06, peak: 0.58, blend: "screen", filter: "brightness(1.035)" },
-  "sacred.motion.goldDust": { floor: 0.12, lift: 0.09, peak: 0.74, blend: "soft-light", filter: "contrast(1.035) brightness(1.025)" },
+  "sacred.motion.waveCaustics": { floor: 0.14, lift: 0.22, peak: 0.18, blend: "screen", filter: "brightness(0.58) contrast(2.65) saturate(1.12)" },
+  "sacred.motion.glassShimmer": { floor: 0.1, lift: 0.2, peak: 0.36, blend: "screen", filter: "brightness(0.52) contrast(2.85) saturate(0.72)" },
+  "sacred.motion.particleDrift": { floor: 0.06, lift: 0.14, peak: 0.58, blend: "screen", filter: "brightness(0.46) contrast(3.2) saturate(0.78)" },
+  "sacred.motion.goldDust": { floor: 0.08, lift: 0.18, peak: 0.74, blend: "screen", filter: "brightness(0.5) contrast(3) saturate(1.08)" },
 };
 
 const circularDistance = (phase: number, peak: number) => Math.min(Math.abs(phase - peak), 1 - Math.abs(phase - peak));
@@ -282,6 +282,7 @@ export function HeroV3DiagnosticLab() {
         node.style.setProperty("opacity", choreographyOpacity(phase, enhanced).toFixed(3), "important");
         node.style.setProperty("mix-blend-mode", enhanced.blend, "important");
         node.style.setProperty("filter", enhanced.filter, "important");
+        node.dataset.h3OpticalPlate = "highlights-only";
       });
       frame = window.requestAnimationFrame(choreograph);
     };

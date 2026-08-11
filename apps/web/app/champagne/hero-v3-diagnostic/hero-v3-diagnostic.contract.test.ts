@@ -79,11 +79,16 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
     expect(styles).toMatch(/v2-light-depth-enhanced[\s\S]*?sacred\.motion/);
   });
 
-  it("sequences the four existing plates instead of applying one fixed lift", () => {
+  it("suppresses opaque plate backgrounds and sequences the retained highlights", () => {
     expect(source).toContain("peak: 0.18");
     expect(source).toContain("peak: 0.36");
     expect(source).toContain("peak: 0.58");
     expect(source).toContain("peak: 0.74");
+    expect(source).toContain('dataset.h3OpticalPlate = "highlights-only"');
+    expect(source).toContain("brightness(0.58) contrast(2.65)");
+    expect(source).toContain("brightness(0.52) contrast(2.85)");
+    expect(styles).toContain("mask-image: linear-gradient(90deg");
+    expect(styles).toContain("mask-image: linear-gradient(180deg");
     expect(source).not.toContain("setInterval(enforceEnhancement");
   });
 
