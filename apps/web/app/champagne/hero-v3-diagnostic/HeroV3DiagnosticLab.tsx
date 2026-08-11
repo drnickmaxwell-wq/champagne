@@ -47,10 +47,10 @@ const V3_STATIC_CANDIDATES = new Set<StaticStudyId>(["v3-editorial-current", "v3
 const V2_MOTION_STUDIES = new Set<StaticStudyId>(["v2-reference", "v2-light-depth-enhanced"]);
 
 const ENHANCED_MOTION: Partial<Record<MotionId, { opacity: number; blend: string; filter: string }>> = {
-  "sacred.motion.waveCaustics": { opacity: 0.78, blend: "screen", filter: "contrast(1.08) brightness(1.04)" },
-  "sacred.motion.glassShimmer": { opacity: 0.68, blend: "soft-light", filter: "contrast(1.12) saturate(0.92)" },
-  "sacred.motion.particleDrift": { opacity: 0.38, blend: "screen", filter: "brightness(1.08)" },
-  "sacred.motion.goldDust": { opacity: 0.46, blend: "screen", filter: "contrast(1.08) brightness(1.06)" },
+  "sacred.motion.waveCaustics": { opacity: 0.27, blend: "screen", filter: "contrast(1.03) brightness(1.01)" },
+  "sacred.motion.glassShimmer": { opacity: 0.24, blend: "soft-light", filter: "contrast(1.04) saturate(0.96)" },
+  "sacred.motion.particleDrift": { opacity: 0.12, blend: "screen", filter: "brightness(1.03)" },
+  "sacred.motion.goldDust": { opacity: 0.19, blend: "soft-light", filter: "contrast(1.03) brightness(1.02)" },
 };
 
 type Preset = {
