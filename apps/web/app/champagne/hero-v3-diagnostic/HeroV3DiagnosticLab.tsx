@@ -48,17 +48,17 @@ const V2_MOTION_STUDIES = new Set<StaticStudyId>(["v2-reference", "v2-light-dept
 
 const CHOREOGRAPHY_DURATION_MS = 24_000;
 
-const ENHANCED_MOTION: Partial<Record<MotionId, { floor: number; lift: number; peak: number; blend: string; filter: string }>> = {
-  "sacred.motion.waveCaustics": { floor: 0.14, lift: 0.22, peak: 0.18, blend: "screen", filter: "brightness(0.58) contrast(2.65) saturate(1.12)" },
-  "sacred.motion.glassShimmer": { floor: 0.1, lift: 0.2, peak: 0.36, blend: "screen", filter: "brightness(0.52) contrast(2.85) saturate(0.72)" },
-  "sacred.motion.particleDrift": { floor: 0.06, lift: 0.14, peak: 0.58, blend: "screen", filter: "brightness(0.46) contrast(3.2) saturate(0.78)" },
-  "sacred.motion.goldDust": { floor: 0.08, lift: 0.18, peak: 0.74, blend: "screen", filter: "brightness(0.5) contrast(3) saturate(1.08)" },
+const ENHANCED_MOTION: Partial<Record<MotionId, { floor: number; lift: number; peak: number; width: number; blend: string; filter: string; moment: string }>> = {
+  "sacred.motion.waveCaustics": { floor: 0.025, lift: 0.17, peak: 0.16, width: 0.16, blend: "screen", filter: "brightness(0.54) contrast(3.05) saturate(1.08)", moment: "caustic-passage" },
+  "sacred.motion.glassShimmer": { floor: 0.018, lift: 0.16, peak: 0.43, width: 0.09, blend: "screen", filter: "brightness(0.48) contrast(3.3) saturate(0.62)", moment: "edge-shimmer" },
+  "sacred.motion.particleDrift": { floor: 0.012, lift: 0.052, peak: 0.69, width: 0.16, blend: "screen", filter: "brightness(0.42) contrast(3.5) saturate(0.68)", moment: "gold-resolution" },
+  "sacred.motion.goldDust": { floor: 0.018, lift: 0.115, peak: 0.76, width: 0.13, blend: "screen", filter: "brightness(0.47) contrast(3.35) saturate(1.04)", moment: "gold-resolution" },
 };
 
 const circularDistance = (phase: number, peak: number) => Math.min(Math.abs(phase - peak), 1 - Math.abs(phase - peak));
 
 const choreographyOpacity = (phase: number, motion: NonNullable<(typeof ENHANCED_MOTION)[MotionId]>) => {
-  const influence = Math.max(0, 1 - circularDistance(phase, motion.peak) / 0.28);
+  const influence = Math.max(0, 1 - circularDistance(phase, motion.peak) / motion.width);
   const eased = influence * influence * (3 - 2 * influence);
   return motion.floor + motion.lift * eased;
 };
@@ -283,6 +283,7 @@ export function HeroV3DiagnosticLab() {
         node.style.setProperty("mix-blend-mode", enhanced.blend, "important");
         node.style.setProperty("filter", enhanced.filter, "important");
         node.dataset.h3OpticalPlate = "highlights-only";
+        node.dataset.h3LightMoment = enhanced.moment;
       });
       frame = window.requestAnimationFrame(choreograph);
     };

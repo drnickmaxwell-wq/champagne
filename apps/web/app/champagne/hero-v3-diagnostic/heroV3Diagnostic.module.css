@@ -158,10 +158,18 @@
 
 .stage[data-h3-study="v2-light-depth-enhanced"] :global(video[data-surface-id^="sacred.motion."]) {
   color: var(--text-high);
-  mask-image: linear-gradient(90deg, transparent 0 26%, currentColor 66% 100%);
+  mask-image: linear-gradient(90deg, transparent 0 32%, currentColor 62% 100%);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
   will-change: opacity, filter;
+}
+
+.stage[data-h3-study="v2-light-depth-enhanced"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) {
+  mask-image: linear-gradient(90deg, transparent 0 34%, currentColor 58% 92%, transparent 100%);
+}
+
+.stage[data-h3-study="v2-light-depth-enhanced"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) {
+  mask-image: linear-gradient(90deg, transparent 0 43%, currentColor 64% 94%, transparent 100%);
 }
 
 .compositionFields {
@@ -502,7 +510,12 @@
   }
 
   .stage[data-h3-study="v2-light-depth-enhanced"] :global(video[data-surface-id^="sacred.motion."]) {
-    mask-image: linear-gradient(180deg, transparent 0 38%, currentColor 72% 100%);
+    mask-image: linear-gradient(180deg, transparent 0 46%, currentColor 74% 100%);
+  }
+
+  .stage[data-h3-study="v2-light-depth-enhanced"] :global(video[data-surface-id="sacred.motion.waveCaustics"]),
+  .stage[data-h3-study="v2-light-depth-enhanced"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) {
+    mask-image: linear-gradient(180deg, transparent 0 50%, currentColor 72% 96%, transparent 100%);
   }
 
   .stage[data-h3-study^="v3-"] .v3StaticSvg {

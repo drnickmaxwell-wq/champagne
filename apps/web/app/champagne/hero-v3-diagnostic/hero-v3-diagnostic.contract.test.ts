@@ -80,15 +80,22 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
   });
 
   it("suppresses opaque plate backgrounds and sequences the retained highlights", () => {
-    expect(source).toContain("peak: 0.18");
-    expect(source).toContain("peak: 0.36");
-    expect(source).toContain("peak: 0.58");
-    expect(source).toContain("peak: 0.74");
+    expect(source).toContain('moment: "caustic-passage"');
+    expect(source).toContain('moment: "edge-shimmer"');
+    expect(source.match(/moment: "gold-resolution"/g)).toHaveLength(2);
+    expect(source).toContain("peak: 0.16, width: 0.16");
+    expect(source).toContain("peak: 0.43, width: 0.09");
+    expect(source).toContain("peak: 0.69, width: 0.16");
+    expect(source).toContain("peak: 0.76, width: 0.13");
+    expect(source).toContain("/ motion.width");
     expect(source).toContain('dataset.h3OpticalPlate = "highlights-only"');
-    expect(source).toContain("brightness(0.58) contrast(2.65)");
-    expect(source).toContain("brightness(0.52) contrast(2.85)");
+    expect(source).toContain("dataset.h3LightMoment = enhanced.moment");
+    expect(source).toContain("brightness(0.54) contrast(3.05)");
+    expect(source).toContain("brightness(0.48) contrast(3.3)");
     expect(styles).toContain("mask-image: linear-gradient(90deg");
     expect(styles).toContain("mask-image: linear-gradient(180deg");
+    expect(styles).toContain('data-surface-id="sacred.motion.waveCaustics"');
+    expect(styles).toContain('data-surface-id="sacred.motion.glassShimmer"');
     expect(source).not.toContain("setInterval(enforceEnhancement");
   });
 
