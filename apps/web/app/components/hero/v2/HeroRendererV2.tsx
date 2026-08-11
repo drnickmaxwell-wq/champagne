@@ -271,18 +271,30 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 will-change: opacity, filter, transform;
               }
               .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--caustics {
-                mask-image: linear-gradient(90deg, transparent 0 34%, currentColor 58% 92%, transparent 100%);
-                filter: brightness(0.62) contrast(3.4) saturate(1.12);
+                mask-image: linear-gradient(90deg, transparent 0 32%, currentColor 54% 94%, transparent 100%);
+                filter: brightness(0.72) contrast(3.15) saturate(1.2);
+                animation-name: heroOpticalCausticTravel;
+                animation-duration: 24s;
+                animation-timing-function: ease-in-out;
               }
               .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--glass-shimmer {
-                mask-image: linear-gradient(90deg, transparent 0 43%, currentColor 64% 94%, transparent 100%);
-                filter: brightness(0.58) contrast(3.65) saturate(0.68);
+                mask-image: linear-gradient(90deg, transparent 0 40%, currentColor 59% 96%, transparent 100%);
+                filter: brightness(0.68) contrast(3.45) saturate(0.78);
+                animation-name: heroOpticalEdgeTravel;
+                animation-duration: 24s;
+                animation-timing-function: ease-in-out;
               }
               .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--particles-drift {
-                filter: brightness(0.5) contrast(3.7) saturate(0.72);
+                filter: brightness(0.58) contrast(3.5) saturate(0.8);
+                --hero-motion-x: -1.2%;
+                --hero-motion-y: -1.4%;
+                --hero-motion-scale: 1.014;
               }
               .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--gold-dust {
-                filter: brightness(0.56) contrast(3.6) saturate(1.08);
+                filter: brightness(0.66) contrast(3.35) saturate(1.16);
+                --hero-motion-x: 1.1%;
+                --hero-motion-y: 1.5%;
+                --hero-motion-scale: 1.018;
               }
               .hero-renderer-v2 .hero-surface-layer {
                 pointer-events: none;
@@ -314,7 +326,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 }
                 .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--caustics,
                 .hero-renderer-v2[data-optical-candidate="true"] .hero-surface--glass-shimmer {
-                  mask-image: linear-gradient(180deg, transparent 0 50%, currentColor 72% 96%, transparent 100%);
+                  mask-image: linear-gradient(180deg, transparent 0 47%, currentColor 68% 97%, transparent 100%);
                 }
               }
               @media (prefers-reduced-motion: reduce) {
@@ -344,6 +356,33 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 }
                 84% {
                   filter: brightness(1.08) contrast(1.12);
+                }
+              }
+              @keyframes heroOpticalCausticTravel {
+                0%,
+                100% {
+                  transform: translate3d(2.2%, -1.2%, 0) scale(1.025);
+                }
+                16% {
+                  transform: translate3d(-2.8%, 1.8%, 0) scale(1.055);
+                }
+                38% {
+                  transform: translate3d(-1.2%, 0.8%, 0) scale(1.038);
+                }
+                62% {
+                  transform: translate3d(1.4%, -0.8%, 0) scale(1.03);
+                }
+              }
+              @keyframes heroOpticalEdgeTravel {
+                0%,
+                100% {
+                  transform: translate3d(-1.4%, 0.9%, 0) scale(1.02);
+                }
+                43% {
+                  transform: translate3d(2.4%, -1.6%, 0) scale(1.045);
+                }
+                64% {
+                  transform: translate3d(0.8%, -0.5%, 0) scale(1.03);
                 }
               }
             `,

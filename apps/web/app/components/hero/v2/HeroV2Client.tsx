@@ -16,10 +16,10 @@ type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
 
 const OPTICAL_CHOREOGRAPHY_DURATION_MS = 24_000;
 const OPTICAL_MOTION = {
-  "sacred.motion.waveCaustics": { floor: 0.08, lift: 0.26, peak: 0.16, width: 0.16 },
-  "sacred.motion.glassShimmer": { floor: 0.08, lift: 0.24, peak: 0.43, width: 0.09 },
-  "sacred.motion.particleDrift": { floor: 0.08, lift: 0.08, peak: 0.69, width: 0.16 },
-  "sacred.motion.goldDust": { floor: 0.08, lift: 0.18, peak: 0.76, width: 0.13 },
+  "sacred.motion.waveCaustics": { floor: 0.1, lift: 0.38, peak: 0.16, width: 0.19 },
+  "sacred.motion.glassShimmer": { floor: 0.09, lift: 0.35, peak: 0.43, width: 0.12 },
+  "sacred.motion.particleDrift": { floor: 0.08, lift: 0.14, peak: 0.69, width: 0.18 },
+  "sacred.motion.goldDust": { floor: 0.09, lift: 0.29, peak: 0.76, width: 0.16 },
 } as const;
 
 type OpticalMotionId = keyof typeof OPTICAL_MOTION;
