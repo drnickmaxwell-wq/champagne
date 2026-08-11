@@ -175,7 +175,7 @@
 }
 
 .stage[data-h3-study^="v3-"] :global([data-surface-id]:not([data-surface-id="hero.contentFrame"])) {
-  opacity: 0 !important;
+  display: none !important;
 }
 
 .stage[data-h3-study^="v3-"] :global(.hero-renderer-v2) {

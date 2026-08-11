@@ -52,4 +52,9 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
     expect(styles).toContain("var(--brand-teal)");
     expect(styles).toContain("var(--brand-gold)");
   });
+
+  it("removes inherited V2 visual layers without hiding the content frame", () => {
+    expect(styles).toContain('[data-surface-id]:not([data-surface-id="hero.contentFrame"])');
+    expect(styles).toMatch(/data-h3-study\^=\"v3-\"[\s\S]*?display:\s*none\s*!important/);
+  });
 });
