@@ -1,0 +1,38 @@
+{
+  "schema": "CHAMPAGNE_GOLDEN_IMPLANT_CLEANROOM_REFERENCE_TRACE_V1",
+  "candidate": "CHAMPAGNE_GOLDEN_IMPLANT_CLEANROOM_CANDIDATE_V1",
+  "productionBinding": false,
+  "heroMutation": false,
+  "records": [
+    {
+      "sourceCva": ["CVA-SECTION-B011-E01", "CVA-SURFACE-B038-E02"],
+      "compositionSignature": "Founder-loved Porcelain editorial opening with restrained serif scale, dotted supporting field, exact archive wave and a slim information rail.",
+      "implementedPageDecision": "The governed direct answer remains the focus while the approved archive wave and a three-role rail establish the Implant chapter without inventing a new hero or symbol system."
+    },
+    {
+      "sourceCva": ["CVA-SECTION-B032-E01", "CVA-SURFACE-B038-E04"],
+      "compositionSignature": "Founder-loved deep educational chapter with a large model stage, light explanatory field and disciplined gold and turquoise annotation.",
+      "implementedPageDecision": "The component chapter reserves an honest future-model stage and carries all education in governed text; no generated Implant anatomy or patient media is introduced."
+    },
+    {
+      "sourceCva": ["CVA-SECTION-B029-E03", "CVA-SEQUENCE-B009-E01"],
+      "compositionSignature": "Founder-loved planning composition with one dominant explanatory field, asymmetric copy and precise turquoise, magenta and gold information rails.",
+      "implementedPageDecision": "Planning is presented as a clinical sequence around one media-safe field, followed by four explicit governed questions rather than dashboard cards or decorative orbits."
+    },
+    {
+      "sourceCva": ["CVA-SECTION-B034-E04", "F06", "F02"],
+      "compositionSignature": "Founder-loved editorial education: open numbered sequence, broad comparison table and a measured light-to-deep benefits chapter.",
+      "implementedPageDecision": "Biology, options and benefits use three distinct proven families—sequence, comparison and editorial split—while keeping every claim inside the approved content bundle."
+    },
+    {
+      "sourceCva": ["CVA-SECTION-B011-E02", "CVA-SEQUENCE-B009-E01"],
+      "compositionSignature": "Founder-loved Persian aftercare chapter and long-form editorial disclosure rhythm with high legibility and limited decorative interruption.",
+      "implementedPageDecision": "Maintenance receives a deep wave-backed chapter; FAQ answers remain native semantic disclosures with no interaction framework or production binding."
+    },
+    {
+      "sourceCva": ["CVA-BAND-B020-E03", "CVA-FOOTER-F03-E02"],
+      "compositionSignature": "Founder-loved compact spectrum CTA followed by the canonical Porcelain-to-Persian wave descent and layered navigation close.",
+      "implementedPageDecision": "The governed next step closes in the approved spectrum treatment, then resolves through a code-native canonical footer using the existing archive wave only."
+    }
+  ]
+}
