@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { HeroRendererV2 } from "../../components/hero/v2/HeroRendererV2";
+import { HeroV3StaticCompositionSurface, type HeroV3StaticCandidateId } from "./HeroV3StaticCompositionSurface";
 import styles from "./heroV3Diagnostic.module.css";
 
 const STATIC_IDS = [
@@ -28,7 +29,7 @@ type StaticId = (typeof STATIC_IDS)[number];
 type MotionId = (typeof MOTION_IDS)[number];
 type SurfaceId = StaticId | MotionId;
 type ViewportMode = "desktop" | "tablet" | "mobile";
-type StaticStudyId = "v2-reference" | "v2-precision" | "spectral-wave" | "velvet-porcelain-depth" | "luminous-counterflow";
+type StaticStudyId = "v2-reference" | "v2-precision" | "spectral-wave" | "velvet-porcelain-depth" | "luminous-counterflow" | HeroV3StaticCandidateId;
 
 const STATIC_STUDIES: ReadonlyArray<{ id: StaticStudyId; label: string }> = [
   { id: "v2-reference", label: "V2 static reference baseline" },
@@ -36,7 +37,12 @@ const STATIC_STUDIES: ReadonlyArray<{ id: StaticStudyId; label: string }> = [
   { id: "spectral-wave", label: "B — Spectral Wave" },
   { id: "velvet-porcelain-depth", label: "C — Velvet Porcelain Depth" },
   { id: "luminous-counterflow", label: "D — Luminous Counterflow" },
+  { id: "v3-editorial-current", label: "V3 — Editorial Current" },
+  { id: "v3-velvet-ribbon", label: "V3 — Velvet Ribbon" },
+  { id: "v3-luminous-tide", label: "V3 — Luminous Tide" },
 ];
+
+const V3_STATIC_CANDIDATES = new Set<StaticStudyId>(["v3-editorial-current", "v3-velvet-ribbon", "v3-luminous-tide"]);
 
 type Preset = {
   id: string;
@@ -291,6 +297,7 @@ export function HeroV3DiagnosticLab() {
   };
 
   const frameStyle = { "--h3-frame-width": viewport === "desktop" ? "1440px" : viewport === "tablet" ? "900px" : "390px" } as CSSProperties;
+  const v3Candidate = V3_STATIC_CANDIDATES.has(staticStudy) ? staticStudy as HeroV3StaticCandidateId : null;
 
   return (
     <main className={`${styles.page} ${evidenceMode ? styles.evidenceMode : ""}`} data-h3-lab="true" data-h3-static-study={staticStudy}>
@@ -327,6 +334,7 @@ export function HeroV3DiagnosticLab() {
         <div className={styles.viewportLabel}>{viewport} evidence frame · use true browser viewports for media-query captures</div>
         <div className={`${styles.stage} ${styles.staticStudy}`} data-h3-study={staticStudy}>
           <div className={styles.compositionFields} aria-hidden="true" />
+          {v3Candidate ? <HeroV3StaticCompositionSurface candidate={v3Candidate} /> : null}
           <HeroRendererV2 prm={preset.reducedMotion} particles filmGrain diagnosticBoost={false} surfaceRef={surfaceRoot} pageSlugOrPath="/" />
           <div className={styles.safeZoneGuides} aria-hidden="true">
             <span className={styles.headerExclusion}>Header / navigation exclusion</span>

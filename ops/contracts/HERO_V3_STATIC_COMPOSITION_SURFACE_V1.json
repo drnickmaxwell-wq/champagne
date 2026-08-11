@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "HERO_V3_STATIC_COMPOSITION_SURFACE_V1",
+  "status": "EXPERIMENTAL_LAB_ONLY_FOUNDER_REVIEW_REQUIRED",
+  "repository": "drnickmaxwell-wq/champagne",
+  "pullRequest": 867,
+  "acceptedParent": "51236d54d7ce9dcc7c027e49bc3d883bcac32d4d",
+  "brandAuthority": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1 v1.0.0",
+  "productionBinding": false,
+  "renderer": {
+    "kind": "DETERMINISTIC_INLINE_SVG_STATIC_ONLY",
+    "externalTransferBytes": 0,
+    "rasterDecodeBytes": 0,
+    "animation": false,
+    "motionAssets": false,
+    "sacredV2Mutation": false,
+    "legacyMaskMutation": false
+  },
+  "independentControls": [
+    "waveGeometry",
+    "protectedColourParticipation",
+    "persianDepth",
+    "porcelainLuminance",
+    "copyActionQuietZone",
+    "desktopMobileComposition"
+  ],
+  "candidates": [
+    {"id": "v3-editorial-current", "intent": "balanced editorial current with equal protected-colour presence"},
+    {"id": "v3-velvet-ribbon", "intent": "deeper Persian velvet with a restrained spectral ribbon"},
+    {"id": "v3-luminous-tide", "intent": "greater Porcelain lift and a broader counter-flow sculpture"}
+  ],
+  "founderReviewGate": "REAL_PIXEL_DESKTOP_1440_AND_MOBILE_390_430_REQUIRED",
+  "prohibitions": ["H3.3", "motion repair", "Hero copy rewrite", "production binding", "Ready", "merge", "deployment"]
+}

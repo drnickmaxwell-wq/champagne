@@ -159,6 +159,85 @@
   opacity: 0;
 }
 
+.v3StaticSurface {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--surface-0);
+}
+
+.v3StaticSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stage[data-h3-study^="v3-"] :global([data-surface-id]:not([data-surface-id="hero.contentFrame"])) {
+  opacity: 0 !important;
+}
+
+.stage[data-h3-study^="v3-"] :global(.hero-renderer-v2) {
+  z-index: 2;
+  background: transparent !important;
+}
+
+.stopPorcelainWarm { stop-color: var(--surface-0); }
+.stopPorcelainLift { stop-color: var(--surface-1); }
+.stopPersianSoft { stop-color: var(--bg-ink); stop-opacity: 0.22; }
+.stopMagenta { stop-color: var(--brand-magenta); stop-opacity: 0.9; }
+.stopTurquoise { stop-color: var(--brand-teal); stop-opacity: 0.92; }
+.stopGold { stop-color: var(--brand-gold); stop-opacity: 0.9; }
+.stopMagentaSoft { stop-color: var(--brand-magenta); stop-opacity: 0.62; }
+.stopPersianDeep { stop-color: var(--bg-ink); stop-opacity: 0.94; }
+.stopPersianClear { stop-color: var(--bg-ink); stop-opacity: 0.58; }
+.stopPersianTransparent { stop-color: var(--bg-ink); stop-opacity: 0; }
+.stopPorcelainGlow { stop-color: var(--surface-0); stop-opacity: 0.88; }
+.stopGoldGlow { stop-color: var(--brand-gold); stop-opacity: 0.16; }
+.stopTransparent { stop-color: var(--surface-0); stop-opacity: 0; }
+
+.v3WaveSculpture {
+  fill: none;
+  stroke: var(--surface-0);
+  stroke-width: 54;
+  stroke-linecap: round;
+  opacity: 0.28;
+}
+
+.v3WaveSculpture path:nth-child(2) { stroke-width: 24; opacity: 0.7; }
+.v3WaveSculpture path:nth-child(3) { stroke-width: 9; opacity: 0.86; }
+
+.v3SpectralRibbon,
+.v3SpectralHighlight {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.v3SpectralRibbon { stroke-width: 34; opacity: 0.88; }
+.v3SpectralHighlight { stroke-width: 72; opacity: 0.2; }
+
+.v3EditorialConstellation {
+  fill: var(--brand-gold);
+  opacity: 0.68;
+}
+
+.stage[data-h3-study="v3-velvet-ribbon"] .v3StaticSvg {
+  filter: saturate(1.06) contrast(1.08) brightness(0.9);
+}
+
+.stage[data-h3-study="v3-velvet-ribbon"] .v3VelvetField { transform: scaleX(1.18); transform-origin: left center; }
+.stage[data-h3-study="v3-velvet-ribbon"] .v3SpectralRibbon { stroke-width: 26; }
+.stage[data-h3-study="v3-velvet-ribbon"] .v3WaveSculpture { opacity: 0.2; }
+
+.stage[data-h3-study="v3-luminous-tide"] .v3StaticSvg {
+  filter: saturate(1.08) brightness(1.04);
+}
+
+.stage[data-h3-study="v3-luminous-tide"] .v3VelvetField { transform: translateX(-150px) scaleX(0.88); transform-origin: left center; }
+.stage[data-h3-study="v3-luminous-tide"] .v3LightField { transform: translate(-90px, 34px) scale(1.18); transform-origin: center; }
+.stage[data-h3-study="v3-luminous-tide"] .v3SpectralRibbon { stroke-width: 44; opacity: 0.78; }
+
 .stage[data-h3-study="v2-precision"] :global([data-surface-id="field.waveBackdrop"]) {
   background-position: 52% 49% !important;
   opacity: 0.72 !important;
@@ -396,6 +475,15 @@
   .status {
     justify-content: flex-start;
   }
+
+  .stage[data-h3-study^="v3-"] .v3StaticSvg {
+    width: 210%;
+    max-width: none;
+    transform: translateX(-46%);
+  }
+
+  .stage[data-h3-study="v3-velvet-ribbon"] .v3StaticSvg { transform: translateX(-40%); }
+  .stage[data-h3-study="v3-luminous-tide"] .v3StaticSvg { transform: translateX(-51%); }
 
   .stage[data-h3-study="v2-precision"] :global([data-surface-id="field.waveBackdrop"]),
   .stage[data-h3-study="v2-precision"] :global([data-surface-id="field.waveRings"]) {
