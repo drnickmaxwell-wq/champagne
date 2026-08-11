@@ -260,6 +260,25 @@ export function HeroV3DiagnosticLab() {
   }, [blend, capture, crop, evidenceMode, opacity, phase, playbackRate, positionX, positionY, selectedId, staticStudy, visible, visibleSet]);
 
   useEffect(() => {
+    if (staticStudy !== "v2-light-depth-enhanced") return;
+    const root = surfaceRoot.current;
+    if (!root) return;
+    const enforceEnhancement = () => {
+      MOTION_IDS.forEach((id) => {
+        const node = root.querySelector<HTMLElement>(`[data-surface-id="${id}"]`);
+        const enhanced = ENHANCED_MOTION[id];
+        if (!node || !enhanced) return;
+        node.style.setProperty("opacity", String(enhanced.opacity), "important");
+        node.style.setProperty("mix-blend-mode", enhanced.blend, "important");
+        node.style.setProperty("filter", enhanced.filter, "important");
+      });
+    };
+    enforceEnhancement();
+    const timer = window.setInterval(enforceEnhancement, 120);
+    return () => window.clearInterval(timer);
+  }, [staticStudy]);
+
+  useEffect(() => {
     const root = surfaceRoot.current;
     if (!root) return;
     const eventNames = ["ended", "emptied", "loadstart"] as const;

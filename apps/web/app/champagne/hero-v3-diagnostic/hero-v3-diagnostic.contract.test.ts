@@ -69,6 +69,7 @@ describe("Hero V3 H3.1 diagnostic contract", () => {
     expect(source).toContain("V2_MOTION_STUDIES");
     expect(source).toContain("ENHANCED_MOTION");
     expect(source).toContain("controlSelected = isSelected && !evidenceMode");
+    expect(source).toContain("enforceEnhancement");
     expect(source).toContain('"sacred.motion.waveCaustics"');
     expect(source).toContain('"sacred.motion.glassShimmer"');
     expect(source).toContain('"sacred.motion.particleDrift"');
