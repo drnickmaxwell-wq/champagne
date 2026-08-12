@@ -20,6 +20,15 @@ const deployedWriteStatus = (await page.context().request.put(`${baseUrl}/champa
 if (deployedWriteStatus !== 403) throw new Error(`Preview/production write endpoint did not fail closed: ${deployedWriteStatus}`);
 if ((await page.getByTestId("large-artwork").count()) !== 1) throw new Error("Large artwork missing");
 if ((await page.locator("body").evaluate((body) => body.scrollWidth > document.documentElement.clientWidth))) throw new Error("Desktop horizontal overflow");
+const staleDataset = await page.evaluate(async () => {
+  const response = await fetch("/champagne/atelier-recovery/api/preferences");
+  const body = await response.json();
+  return { ...body.dataset, datasetRevision: 14 };
+});
+await page.evaluate((dataset) => localStorage.setItem("champagne-atelier-a1-working-copy-v1", `${JSON.stringify(dataset, null, 2)}\n`), staleDataset);
+await page.reload({ waitUntil: "networkidle" });
+await page.getByTestId("persistence-status").getByText(/STALE BROWSER COPY UPGRADED · REVISION 21/).waitFor();
+await page.getByLabel("51 of 331 decided").waitFor();
 await page.screenshot({ path: path.join(evidenceDir, "01-large-unrated-review.png"), fullPage: true });
 await page.getByRole("button", { name: "Zoom in" }).click();
 if ((await page.getByLabel("Current zoom").textContent()) !== "120%") throw new Error("Zoom control failed");
@@ -28,6 +37,16 @@ if (!(await page.getByRole("button", { name: "Exit focus" }).count())) throw new
 await page.getByRole("button", { name: "Exit focus" }).click();
 
 await page.getByRole("button", { name: "ARCHIVE", exact: true }).click();
+const assetResults = await page.getByTestId("archive-view").locator("img").evaluateAll(async (images) => {
+  const results = await Promise.all(images.map(async (element) => {
+    const image = new Image();
+    image.src = element.src;
+    try { await image.decode(); return { src: element.getAttribute("src"), width: image.naturalWidth, height: image.naturalHeight, ok: image.naturalWidth > 0 && image.naturalHeight > 0 }; }
+    catch (error) { return { src: element.getAttribute("src"), width: 0, height: 0, ok: false, error: String(error) }; }
+  }));
+  return { count: results.length, failures: results.filter((result) => !result.ok) };
+});
+if (assetResults.count !== 331 || assetResults.failures.length) throw new Error(`Archive asset render failures: ${JSON.stringify(assetResults)}`);
 await page.getByRole("button", { name: /CVA-SURFACE-B038-E01/ }).click();
 await page.getByTestId("imported-provenance").waitFor();
 await page.screenshot({ path: path.join(evidenceDir, "02-exact-import-provenance.png"), fullPage: true });
@@ -107,7 +126,7 @@ await page.screenshot({ path: path.join(evidenceDir, "15-local-persistence-statu
 
 await page.selectOption("label:has-text('Work queue') select", "UNRATED");
 await page.locator("body").press("1");
-await page.getByLabel("39 of 331 decided").waitFor();
+await page.getByLabel("52 of 331 decided").waitFor();
 if (problems.length) throw new Error(`Console problems:\n${problems.join("\n")}`);
 await browser.close();
 console.log(`Atelier A1 visual evidence written to ${evidenceDir}`);

@@ -29,6 +29,7 @@ type View = "REVIEW" | "SUMMARY" | "ARCHIVE";
 
 const SIGNALS = ["LOVE", "LIKE", "MAYBE", "NOT_ME"] as const;
 const SHORTCUTS: Record<string, string> = { "1": "LOVE", "2": "LIKE", "3": "MAYBE", "4": "NOT_ME" };
+const WORKING_COPY_KEY = "champagne-atelier-a1-working-copy-v1";
 const FLAG_LABELS: Record<string, string> = {
   keepConcept: "Keep concept", needsRefinement: "Needs refinement", needsUpgrade: "Needs upgrade",
   wrongColours: "Wrong colours", wrongTypography: "Wrong typography", wrongImagery: "Wrong imagery",
@@ -38,6 +39,15 @@ const FLAG_LABELS: Record<string, string> = {
 function isEditable(target: EventTarget | null) {
   const element = target as HTMLElement | null;
   return Boolean(element?.closest("input, textarea, select, [contenteditable='true']"));
+}
+
+function storeWorkingCopy(dataset: Dataset) {
+  try {
+    localStorage.setItem(WORKING_COPY_KEY, deterministicExport(dataset));
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export function RecoveryWorkspace({ archive, initialDataset, persistence }: { archive: ArchiveItem[]; initialDataset: Dataset; persistence: Persistence }) {
@@ -60,9 +70,13 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
   useEffect(() => {
     if (persistence.canonicalWriteEnabled) return;
     try {
-      const stored = localStorage.getItem("champagne-atelier-a1-working-copy-v1");
+      const stored = localStorage.getItem(WORKING_COPY_KEY);
       if (!stored) return;
       const validated = validateDataset(JSON.parse(stored), archive.map((item) => item.id), initialDataset.sourceManifest.sha256);
+      if (validated.datasetRevision < initialDataset.datasetRevision) {
+        setSaveState(storeWorkingCopy(initialDataset) ? `STALE BROWSER COPY UPGRADED · REVISION ${initialDataset.datasetRevision}` : "BROWSER STORAGE UNAVAILABLE · EXPORT CHECKPOINT");
+        return;
+      }
       setDataset(validated);
       if (validated.session.lastCvaId) {
         setQueue("ALL");
@@ -70,10 +84,10 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
       }
       setSaveState("BROWSER CHECKPOINT RESTORED · NOT CANONICAL");
     } catch {
-      localStorage.removeItem("champagne-atelier-a1-working-copy-v1");
+      try { localStorage.removeItem(WORKING_COPY_KEY); } catch { /* storage is unavailable */ }
       setSaveState("INVALID BROWSER COPY REJECTED");
     }
-  }, [archive, initialDataset.sourceManifest.sha256, persistence.canonicalWriteEnabled]);
+  }, [archive, initialDataset, persistence.canonicalWriteEnabled]);
 
   const decisionMap = useMemo(() => currentDecisionMap(dataset) as Map<string, Decision>, [dataset]);
   const progress = useMemo(() => deriveProgress(dataset, archive), [dataset, archive]);
@@ -98,8 +112,7 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
     setDataset(next);
     setSaveState("SAVING…");
     if (!persistence.canonicalWriteEnabled) {
-      localStorage.setItem("champagne-atelier-a1-working-copy-v1", deterministicExport(next));
-      setSaveState("BROWSER CHECKPOINT SAVED · NOT CANONICAL");
+      setSaveState(storeWorkingCopy(next) ? "BROWSER CHECKPOINT SAVED · NOT CANONICAL" : "BROWSER STORAGE UNAVAILABLE · EXPORT CHECKPOINT");
       return;
     }
     saveQueueRef.current = saveQueueRef.current.then(async () => {
@@ -112,8 +125,8 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
         if (!response.ok) throw new Error(body.error);
         setSaveState("CANONICAL WORKTREE FILE SAVED");
       } catch (error) {
-        localStorage.setItem("champagne-atelier-a1-working-copy-v1", deterministicExport(next));
-        setSaveState(`SAVE REJECTED · CHECKPOINT RETAINED · ${error instanceof Error ? error.message : "UNKNOWN"}`);
+        const retained = storeWorkingCopy(next);
+        setSaveState(`SAVE REJECTED · ${retained ? "CHECKPOINT RETAINED" : "BROWSER STORAGE UNAVAILABLE"} · ${error instanceof Error ? error.message : "UNKNOWN"}`);
       }
     });
     await saveQueueRef.current;
@@ -195,7 +208,7 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
 
     <input ref={importRef} className={styles.hiddenInput} type="file" accept="application/json,.json" onChange={async (event) => {
       const file = event.target.files?.[0]; if (!file) return;
-      try { const imported = validateDataset(JSON.parse(await file.text()), archive.map((entry) => entry.id), initialDataset.sourceManifest.sha256) as Dataset; setDataset(imported); if (!persistence.canonicalWriteEnabled) localStorage.setItem("champagne-atelier-a1-working-copy-v1", deterministicExport(imported)); setSaveState("CHECKPOINT IMPORTED · REVIEW BEFORE CANONICAL SAVE"); }
+      try { const imported = validateDataset(JSON.parse(await file.text()), archive.map((entry) => entry.id), initialDataset.sourceManifest.sha256) as Dataset; if (imported.datasetRevision < dataset.datasetRevision) throw new Error("STALE_CHECKPOINT_REVISION"); setDataset(imported); if (!persistence.canonicalWriteEnabled && !storeWorkingCopy(imported)) throw new Error("BROWSER_STORAGE_UNAVAILABLE"); setSaveState("CHECKPOINT IMPORTED · REVIEW BEFORE CANONICAL SAVE"); }
       catch (error) { setSaveState(error instanceof Error ? error.message : "IMPORT REJECTED"); }
       event.target.value = "";
     }} />

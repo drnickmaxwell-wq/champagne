@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { EMPTY_FLAGS } from "../../app/champagne/atelier-recovery/data/preferences/preference-model.mjs";
+import { EMPTY_FLAGS, validateDataset } from "../../app/champagne/atelier-recovery/data/preferences/preference-model.mjs";
 
 const runtimeRoot = process.cwd();
 const webRoot = runtimeRoot.endsWith(path.join("apps", "web")) ? runtimeRoot : path.join(runtimeRoot, "apps", "web");
@@ -49,8 +49,17 @@ const dataset = {
 };
 const output = `${JSON.stringify(dataset, null, 2)}\n`;
 if (process.argv.includes("--check")) {
-  const current = await readFile(outputPath, "utf8").catch(() => "");
-  if (current !== output) throw new Error("A1 preference dataset is stale; run atelier:a1:generate");
+  const current = JSON.parse(await readFile(outputPath, "utf8"));
+  validateDataset(current, registry.items.map((item) => item.id), dataset.sourceManifest.sha256);
+  for (const imported of dataset.decisions) {
+    const preserved = current.decisions.find((decision) => decision.decisionId === imported.decisionId);
+    if (!preserved) throw new Error(`A1 exact import missing: ${imported.decisionId}`);
+    const { status: _expectedStatus, ...expectedEvidence } = imported;
+    const { status: _currentStatus, ...currentEvidence } = preserved;
+    if (JSON.stringify(currentEvidence) !== JSON.stringify(expectedEvidence)) throw new Error(`A1 exact import changed: ${imported.decisionId}`);
+  }
 } else {
+  const current = JSON.parse(await readFile(outputPath, "utf8").catch(() => "null"));
+  if (current?.datasetRevision > 1) throw new Error("Refusing to overwrite append-only Founder review evidence; use a bounded reconciliation transaction");
   await writeFile(outputPath, output);
 }

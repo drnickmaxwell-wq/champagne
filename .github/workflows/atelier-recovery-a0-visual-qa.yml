@@ -67,7 +67,8 @@ jobs:
         run: |
           set -euxo pipefail
           dataset="apps/web/app/champagne/atelier-recovery/data/preferences/founder-visual-preferences.v1.json"
-          pnpm atelier:a1:generate
+          backup="$RUNNER_TEMP/founder-visual-preferences.rev21.json"
+          cp "$dataset" "$backup"
           env -u CI \
             ALLOW_CHAMPAGNE_ROUTES=true \
             CHAMPAGNE_ATELIER_LOCAL_WORK_MODE=A1_EXPLICIT_WRITE \
@@ -76,7 +77,7 @@ jobs:
           server_pid=$!
           restore_seed() {
             kill "$server_pid" 2>/dev/null || true
-            pnpm atelier:a1:generate
+            cp "$backup" "$dataset"
           }
           trap restore_seed EXIT
           for attempt in {1..60}; do

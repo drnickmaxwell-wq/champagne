@@ -17,29 +17,54 @@ const initial = await readJson("data/preferences/founder-visual-preferences.v1.j
 const archive = registry.items.map((item) => ({ id: item.id, labRoom: item.labRoom, family: item.family, parentBoard: item.provenance.parentBoard }));
 const ids = archive.map((item) => item.id);
 
-test("331 / 38 / 293 initial truth reconciles exactly", () => {
+test("revision 21 reconciles 331 archive items, 51 distinct ratings and 58 history records", () => {
   const dataset = validateDataset(initial, ids, initial.sourceManifest.sha256);
   const progress = deriveProgress(dataset, archive);
   assert.equal(archive.length, 331);
-  assert.equal(dataset.decisions.length, 38);
-  assert.equal(currentDecisionMap(dataset).size, 38);
-  assert.equal(progress.decided, 38);
-  assert.equal(progress.remaining, 293);
+  assert.equal(dataset.datasetRevision, 21);
+  assert.equal(dataset.decisions.length, 58);
+  assert.equal(currentDecisionMap(dataset).size, 51);
+  assert.equal(progress.decided, 51);
+  assert.equal(progress.remaining, 280);
   assert.equal(Object.values(progress.categories).reduce((sum, category) => sum + category.total, 0), 331);
 });
 
-test("all 38 imports match the exact A0 plan without inferred trait polarity", async () => {
+test("all 38 imports remain exact append-only evidence without inferred trait polarity", async () => {
   const plan = await readJson("data/recovery/ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1.json");
-  const map = currentDecisionMap(initial);
+  const imports = initial.decisions.filter((decision) => decision.source.kind === "EXACT_IMPORT");
   assert.equal(plan.exactImports.length, 38);
+  assert.equal(imports.length, 38);
   for (const imported of plan.exactImports) {
-    const decision = map.get(imported.cvaId);
+    const decision = imports.find((entry) => entry.decisionId === `EXACT_IMPORT::${imported.cvaId}::${imported.sourceIndex}`);
+    assert.ok(decision, imported.cvaId);
     assert.equal(decision.wholeItemSignal, imported.signal, imported.cvaId);
     assert.equal(decision.notes, imported.note, imported.cvaId);
     assert.equal(decision.source.kind, "EXACT_IMPORT");
+    assert.equal(decision.source.identifier, `${imported.source}#${imported.sourceIndex}`);
     assert.deepEqual(decision.source.originalTraitDimensions, imported.traits);
     assert.deepEqual(decision.traits, [], "mentioned dimensions must not become invented positive/negative ratings");
   }
+});
+
+test("Founder Decisions 51 through 57 are current with their explicit refinement boundaries", () => {
+  const map = currentDecisionMap(initial);
+  const expected = [
+    ["CVA-SECTION-B029-E02", "LOVE", "LOVE LOVE LOVE again more diagrams like this"],
+    ["CVA-SECTION-B029-E03", "LOVE", "my favorite!! LOVE LOVE LOVE MORE LOVE - need more of these for ALL treatment pages, classic but modern and just my brand. maybe some designs with porcelain as well and more brand colours?"],
+    ["CVA-HERITAGE-B039-E01", "LOVE", "no its not . i know what picvture it is and will LOVE it"],
+    ["CVA-HERITAGE-B040-E01", "LOVE", "LOVE LOVE as the actual building is my practice building St Mary's House. The cta could be better. ALSO LIKE to see this modernised slightly and even with more brand colours."],
+    ["CVA-SECTION-B031-E02", "LIKE", ""],
+    ["CVA-SURFACE-B038-E05", "MAYBE", "MAYBE not as nice as others, slightly boring"],
+    ["CVA-SECTION-B029-E05", "LOVE", "LOVE but blue is not the persian blue i want, but love the use of brand colours to brighten"],
+  ];
+  for (const [cvaId, signal, notes] of expected) {
+    assert.equal(map.get(cvaId)?.wholeItemSignal, signal, cvaId);
+    assert.equal(map.get(cvaId)?.notes, notes, cvaId);
+  }
+  assert.equal(map.get("CVA-SECTION-B029-E03")?.flags.keepConcept, true);
+  assert.equal(map.get("CVA-HERITAGE-B040-E01")?.flags.needsRefinement, true);
+  assert.equal(map.get("CVA-SURFACE-B038-E05")?.flags.needsRefinement, true);
+  assert.equal(map.get("CVA-SECTION-B029-E05")?.flags.wrongColours, true);
 });
 
 test("rating an unrated item persists without implying trait evidence", () => {
@@ -52,7 +77,7 @@ test("rating an unrated item persists without implying trait evidence", () => {
 });
 
 test("editing an exact import preserves its immutable predecessor in supersession history", () => {
-  const imported = initial.decisions[0];
+  const imported = initial.decisions.find((decision) => decision.source.kind === "EXACT_IMPORT" && decision.status === "CURRENT");
   const next = applyReview(initial, imported.cvaId, { wholeItemSignal: "NOT_ME" }, "2026-08-11T01:01:00.000Z");
   const records = next.decisions.filter((decision) => decision.cvaId === imported.cvaId);
   assert.equal(records.length, 2);
@@ -77,8 +102,8 @@ test("all trait signals, flags and verbatim notes round-trip", () => {
 
 test("undo creates a new supersession record and restores the previous state", () => {
   const cvaId = initial.decisions[0].cvaId;
-  const changed = applyReview(initial, cvaId, { wholeItemSignal: "NOT_ME", notes: "temporary" }, "2026-08-11T01:03:00.000Z");
-  const undone = undoLast(changed, "2026-08-11T01:04:00.000Z");
+  const changed = applyReview(initial, cvaId, { wholeItemSignal: "NOT_ME", notes: "temporary" }, "2026-08-12T01:03:00.000Z");
+  const undone = undoLast(changed, "2026-08-12T01:04:00.000Z");
   const current = currentDecisionMap(undone).get(cvaId);
   assert.equal(current.wholeItemSignal, initial.decisions[0].wholeItemSignal);
   assert.equal(current.notes, initial.decisions[0].notes);
@@ -91,7 +116,7 @@ test("derived future-consumer index is deterministic and retains explicit eviden
   const second = deriveIndex(initial, archive);
   assert.deepEqual(first, second);
   assert.equal(first.length, 331);
-  assert.equal(first.filter((row) => row.wholeItemSignal !== "UNRATED").length, 38);
+  assert.equal(first.filter((row) => row.wholeItemSignal !== "UNRATED").length, 51);
   assert.ok(first.every((row) => "notePresent" in row && "currentDecisionVersion" in row));
 });
 

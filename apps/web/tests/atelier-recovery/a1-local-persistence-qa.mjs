@@ -20,7 +20,7 @@ if (process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE && process.env.ATELIER_A1_EVIDENC
   await browser.close();
 }
 const existing = currentDecisionMap(dataset);
-const target = "CVA-BAND-B019-E01";
+const target = "CVA-SECTION-B029-E06";
 if (existing.has(target)) throw new Error("Persistence QA target must begin unrated");
 const next = applyReview(dataset, target, { wholeItemSignal: "LIKE", notes: "A1 atomic persistence QA" }, "2026-08-11T02:00:00.000Z");
 const response = await fetch(endpoint, {
