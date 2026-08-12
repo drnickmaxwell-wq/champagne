@@ -1,0 +1,1832 @@
+{
+  "schema": "ATELIER_FOUNDER_VISUAL_PREFERENCE_DATASET_V1",
+  "version": 1,
+  "datasetRevision": 21,
+  "authority": "FOUNDER_EXPLICIT_DECISIONS_ONLY",
+  "productionBinding": false,
+  "sourceManifest": {
+    "id": "champagne-v27-provisional-inventory",
+    "sha256": "2db810212a349c727763eb22140036db4ee105c8d2133d1f6a603b5e8109bcf3",
+    "itemCount": 331
+  },
+  "persistence": {
+    "mode": "WORKTREE_FILE",
+    "browserLocalStorageIsAuthoritative": false,
+    "appendOnlyDecisionHistory": true
+  },
+  "session": {
+    "lastCvaId": "CVA-SECTION-B029-E05",
+    "updatedAt": "2026-08-11T17:06:00.000Z"
+  },
+  "decisions": [
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E01::0",
+      "cvaId": "CVA-SURFACE-B038-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#0",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "image treatment",
+          "composition",
+          "geometry",
+          "typography"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E03::1",
+      "cvaId": "CVA-SURFACE-B038-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#1",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "colour",
+          "image treatment",
+          "geometry",
+          "typography"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E05::2",
+      "cvaId": "CVA-SURFACE-B038-E05",
+      "status": "SUPERSEDED",
+      "wholeItemSignal": "LIKE",
+      "notes": "not sure about the wave",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#2",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E06::3",
+      "cvaId": "CVA-SURFACE-B038-E06",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "but little washed out and my brand colours being lost, BUT i love this",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#3",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "composition",
+          "interaction",
+          "human warmth"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E08::4",
+      "cvaId": "CVA-SURFACE-B038-E08",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#4",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "interaction",
+          "typography",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B018-E01::5",
+      "cvaId": "CVA-PAGE-B018-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "MAYBE",
+      "notes": "its not my brand but i love all the drawings and info",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#5",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B021-E01::6",
+      "cvaId": "CVA-PAGE-B021-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "this is slowly becoming my brand feel, but needs the blockiness breaking up and more colour bought in thoughfully",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#6",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "composition",
+          "image treatment",
+          "human warmth",
+          "geometry",
+          "typography"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B035-E01::7",
+      "cvaId": "CVA-PAGE-B035-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "little too generic and not my hero. looks like saas",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#7",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "image treatment",
+          "typography",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B036-E01::8",
+      "cvaId": "CVA-PAGE-B036-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "again looking more saas and going too dark and not my hero ",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#8",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "typography",
+          "geometry",
+          "image treatment"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-B023-E01::9",
+      "cvaId": "CVA-PAGE-B023-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "feels like a scrap book at moment but with a better layout and design could be nice.  I wanted a persian blue header and footer. my footer is supposed to have layers like my hero v2, not just a generic blue and gold. i want luxury",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#9",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-PAGE-SACRED-HERO-E01::10",
+      "cvaId": "CVA-PAGE-SACRED-HERO-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "NOT_ME",
+      "notes": "just too dark",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#10",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SEQUENCE-B005-E01::11",
+      "cvaId": "CVA-SEQUENCE-B005-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "this is my wave background that is within my hero v2. i like this BUT not as a hero as too boring. ",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#11",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "image treatment",
+          "geometry",
+          "composition",
+          "wave"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SEQUENCE-B010-E01::12",
+      "cvaId": "CVA-SEQUENCE-B010-E01",
+      "status": "SUPERSEDED",
+      "wholeItemSignal": "LOVE",
+      "notes": "its the wrong perisan blue. this is my sacred hero v2 that is on every page at present. i still love it",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#12",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "luminosity",
+          "composition",
+          "interaction",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SEQUENCE-B017-E01::13",
+      "cvaId": "CVA-SEQUENCE-B017-E01",
+      "status": "SUPERSEDED",
+      "wholeItemSignal": "LIKE",
+      "notes": "i love it but dont think is my brand and could be too different, but if could be done in my actual brand colours and made lighter may be nice",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#13",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "dark/light balance"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SEQUENCE-B009-E01::14",
+      "cvaId": "CVA-SEQUENCE-B009-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "love these",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#14",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "image treatment",
+          "interaction",
+          "typography",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B011-E01::15",
+      "cvaId": "CVA-SECTION-B011-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#15",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "image treatment",
+          "interaction",
+          "composition"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B011-E02::16",
+      "cvaId": "CVA-SECTION-B011-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "could be improved and made more my brand",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#16",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "image treatment",
+          "composition",
+          "dark/light balance",
+          "colour",
+          "luminosity"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B011-E03::17",
+      "cvaId": "CVA-SECTION-B011-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#17",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B011-E08::18",
+      "cvaId": "CVA-SECTION-B011-E08",
+      "status": "CURRENT",
+      "wholeItemSignal": "NOT_ME",
+      "notes": "colours nOT my brand",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#18",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B025-E01::19",
+      "cvaId": "CVA-SECTION-B025-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "nice luxurious feel",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#19",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B025-E05::20",
+      "cvaId": "CVA-SECTION-B025-E05",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "nice colour",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#20",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B029-E03::21",
+      "cvaId": "CVA-SECTION-B029-E03",
+      "status": "SUPERSEDED",
+      "wholeItemSignal": "LOVE",
+      "notes": "i WANT this in my repo - love the diagram and would like more of these in repo",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#21",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B034-E04::22",
+      "cvaId": "CVA-SECTION-B034-E04",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "love this",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#22",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "interaction"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B032-E01::23",
+      "cvaId": "CVA-SECTION-B032-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "love it and want more of these created and added",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#23",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "colour",
+          "image treatment",
+          "interaction",
+          "composition"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-MEDIA-B032-E01::24",
+      "cvaId": "CVA-MEDIA-B032-E01",
+      "status": "SUPERSEDED",
+      "wholeItemSignal": "LOVE",
+      "notes": "want 3D models on every treatment page. we are alos planning small ines for the concierge",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#24",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-CAPTAIN-B042-E01::25",
+      "cvaId": "CVA-CAPTAIN-B042-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "nice but boring and needs more champagne brand",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#25",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-BAND-B020-E05::26",
+      "cvaId": "CVA-BAND-B020-E05",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "ok",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#26",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-BAND-B020-E03::27",
+      "cvaId": "CVA-BAND-B020-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "THIS I LOVE",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#27",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-CTA-B004-E01::28",
+      "cvaId": "CVA-CTA-B004-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "MAYBE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#28",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-CTA-B004-E03::29",
+      "cvaId": "CVA-CTA-B004-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "MAYBE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#29",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-FOOTER-F03-E02::30",
+      "cvaId": "CVA-FOOTER-F03-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "love this",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#30",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-FOOTER-F03-E03::31",
+      "cvaId": "CVA-FOOTER-F03-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "needs some work as feels cramped but like the concept. colours not correct",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#31",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-HERITAGE-B039-E01::32",
+      "cvaId": "CVA-HERITAGE-B039-E01",
+      "status": "SUPERSEDED",
+      "wholeItemSignal": "LOVE",
+      "notes": "thats actrually the building my practice is inside. use sparingly",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#32",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "image treatment"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-HERITAGE-B040-E03::33",
+      "cvaId": "CVA-HERITAGE-B040-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "i do like this but still in the right position",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#33",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "image treatment",
+          "geometry"
+        ]
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SECTION-B036-E03::34",
+      "cvaId": "CVA-SECTION-B036-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "little bland",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#34",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-HERITAGE-B040-E06::35",
+      "cvaId": "CVA-HERITAGE-B040-E06",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "its st marys.  ",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1#35",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E02::0",
+      "cvaId": "CVA-SURFACE-B038-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "Whole-reference LOVE. No individual trait is automatically approved without separate evidence.",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED#0",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "EXACT_IMPORT::CVA-SURFACE-B038-E04::1",
+      "cvaId": "CVA-SURFACE-B038-E04",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "Whole-reference LOVE. No individual trait is automatically approved without separate evidence.",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "EXACT_IMPORT",
+        "identifier": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED#1",
+        "provenance": "Exact prior Founder decision imported by ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T00:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-BAND-B019-E01::v1::20260811T111854193Z",
+      "cvaId": "CVA-BAND-B019-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "keep the flowing lines and dark blue; refine the button.",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-BAND-B019-E01_V1",
+        "provenance": "Restored verbatim from the active Founder Review Session transcript after workspace maintenance",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T11:18:54.193Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-BAND-B028-E01::v1::20260811T111855193Z",
+      "cvaId": "CVA-BAND-B028-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "just not sure yet about the architectural buttons, bUT the WAVE is lovely. The rest is a bit boring . so needs a rethink",
+      "traits": [
+        {
+          "dimension": "wave",
+          "signal": "POSITIVE",
+          "note": "the WAVE is lovely"
+        },
+        {
+          "dimension": "interaction",
+          "signal": "UNRESOLVED",
+          "note": "not sure yet about the architectural buttons"
+        },
+        {
+          "dimension": "composition",
+          "signal": "MIXED",
+          "note": "The rest is a bit boring . so needs a rethink"
+        }
+      ],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": true,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-BAND-B028-E01_V1",
+        "provenance": "Restored verbatim from the active Founder Review Session transcript after workspace maintenance",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T11:18:55.193Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-BAND-B041-E01::v1::20260811T111856193Z",
+      "cvaId": "CVA-BAND-B041-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "just not sure about the buttons inside architectural blue part, but the design and colours are perfect.",
+      "traits": [
+        {
+          "dimension": "colour",
+          "signal": "POSITIVE",
+          "note": "the design and colours are perfect"
+        },
+        {
+          "dimension": "interaction",
+          "signal": "UNRESOLVED",
+          "note": "not sure about the buttons inside architectural blue part"
+        }
+      ],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": true,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-BAND-B041-E01_V1",
+        "provenance": "Restored verbatim from the active Founder Review Session transcript after workspace maintenance",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T11:18:56.193Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-CAPTAIN-B042-E02::v1::20260811T111857193Z",
+      "cvaId": "CVA-CAPTAIN-B042-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "its ok but may need \"champagne-ing\"",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": true,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-CAPTAIN-B042-E02_V1",
+        "provenance": "Restored verbatim from the active Founder Review Session transcript after workspace maintenance",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T11:18:57.193Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-CARD-B009-E02A::v1::20260811T111858193Z",
+      "cvaId": "CVA-CARD-B009-E02A",
+      "status": "CURRENT",
+      "wholeItemSignal": "MAYBE",
+      "notes": "boring but ok reoresentation in gols",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": true,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_FOUNDER_REVIEW_CVA-CARD-B009-E02A_V1",
+        "provenance": "Founder review system A1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T11:18:58.193Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-CARD-B025-E01A::v1::20260811T153412320Z",
+      "cvaId": "CVA-CARD-B025-E01A",
+      "status": "SUPERSEDED",
+      "wholeItemSignal": "MAYBE",
+      "notes": "same thing as before but just different text!",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": true,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_FOUNDER_REVIEW_CVA-CARD-B025-E01A_V1",
+        "provenance": "Founder review system A1; Founder identified this as a near-duplicate family variant",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T15:34:12.320Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-MEDIA-B013-E01::v1::20260811T153810811Z",
+      "cvaId": "CVA-MEDIA-B013-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "lovely implant diagrams . KEEP and show more.",
+      "traits": [
+        {
+          "dimension": "image treatment",
+          "signal": "POSITIVE",
+          "note": "lovely implant diagrams"
+        }
+      ],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_FOUNDER_REVIEW_CVA-MEDIA-B013-E01_V1",
+        "provenance": "Founder review system A1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T15:38:10.811Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-CARD-B025-E01A::v2::20260811T153810812Z",
+      "cvaId": "CVA-CARD-B025-E01A",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "this one slipped past me!!! this is LOVE but would like to see some different ones as well",
+      "traits": [],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_FOUNDER_REVIEW_CVA-CARD-B025-E01A_V2",
+        "provenance": "Founder review system A1; supersedes the earlier MAYBE after Founder correction",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T15:38:10.812Z",
+      "version": 2,
+      "supersedes": "CVA-CARD-B025-E01A::v1::20260811T153412320Z"
+    },
+    {
+      "decisionId": "CVA-MEDIA-B022-E01::v1::20260811T154500000Z",
+      "cvaId": "CVA-MEDIA-B022-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "LOVE LOVE LOVE - more like these and even in porcelain and a mix of blue/porcelain",
+      "traits": [],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-MEDIA-B022-E01_V1",
+        "provenance": "Restored verbatim from the active Founder Review Session transcript",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T15:45:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-SECTION-B029-E01::v1::20260811T155000000Z",
+      "cvaId": "CVA-SECTION-B029-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "LOVE - more diagrams & again with some more colours ",
+      "traits": [],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-SECTION-B029-E01_V1",
+        "provenance": "Restored verbatim from the active Founder Review Session transcript",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T15:50:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-MEDIA-B032-E01::v2::20260811T161256696Z",
+      "cvaId": "CVA-MEDIA-B032-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "LOVE MORE OF THESE FOR ALL TREATMENTS",
+      "traits": [],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_FOUNDER_REVIEW_CVA-MEDIA-B032-E01_V2",
+        "provenance": "Founder review system A1",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T16:12:56.696Z",
+      "version": 2,
+      "supersedes": "EXACT_IMPORT::CVA-MEDIA-B032-E01::24"
+    },
+    {
+      "decisionId": "CVA-SEQUENCE-B010-E01::v2::20260811T162500000Z",
+      "cvaId": "CVA-SEQUENCE-B010-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "thats my actual hero v2 but i LOVE the section underneath and how it flows from my champagne her v2 into the page using persian blue",
+      "traits": [
+        {
+          "dimension": "composition",
+          "signal": "POSITIVE",
+          "note": "the section underneath and its flowing transition into Persian blue"
+        }
+      ],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-SEQUENCE-B010-E01_V2",
+        "provenance": "Restored verbatim from the validated revision-13 Founder Review Session checkpoint; canonical Champagne Hero V2 excluded from the new-concept rating",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T16:25:00.000Z",
+      "version": 2,
+      "supersedes": "EXACT_IMPORT::CVA-SEQUENCE-B010-E01::12"
+    },
+    {
+      "decisionId": "CVA-SEQUENCE-B017-E01::v2::20260811T165335000Z",
+      "cvaId": "CVA-SEQUENCE-B017-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "LOVE the concept just not sure if its pushing my brand out the window, BUT would like to see if this fits somewhere on site. may need to be branded more",
+      "traits": [],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": true,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_FOUNDER_REVIEW_CVA-SEQUENCE-B017-E01_V2",
+        "provenance": "Founder review system A1; concept loved, site fit and Champagne brand alignment explicitly unresolved",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T16:53:35.000Z",
+      "version": 2,
+      "supersedes": "EXACT_IMPORT::CVA-SEQUENCE-B017-E01::13"
+    },
+    {
+      "decisionId": "CVA-SECTION-B029-E02::v1::20260811T170000000Z",
+      "cvaId": "CVA-SECTION-B029-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "LOVE LOVE LOVE again more diagrams like this",
+      "traits": [],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-SECTION-B029-E02_V1",
+        "provenance": "Restored verbatim from Founder Review Decision 51; Porcelain exploded-diagram direction and request for more diagrams like this",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T17:00:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-SECTION-B029-E03::v2::20260811T170100000Z",
+      "cvaId": "CVA-SECTION-B029-E03",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "my favorite!! LOVE LOVE LOVE MORE LOVE - need more of these for ALL treatment pages, classic but modern and just my brand. maybe some designs with porcelain as well and more brand colours?",
+      "traits": [],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-SECTION-B029-E03_V2",
+        "provenance": "Restored verbatim from Founder Review Decision 52; strongest preference so far, requested across all treatment pages with Porcelain and broader brand-colour variants for later review",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T17:01:00.000Z",
+      "version": 2,
+      "supersedes": "EXACT_IMPORT::CVA-SECTION-B029-E03::21"
+    },
+    {
+      "decisionId": "CVA-HERITAGE-B039-E01::v2::20260811T170200000Z",
+      "cvaId": "CVA-HERITAGE-B039-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "no its not . i know what picvture it is and will LOVE it",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-HERITAGE-B039-E01_V2",
+        "provenance": "Restored verbatim from Founder Review Decision 53; Founder recognised the known archive image although it did not render in chat",
+        "exactMapping": true,
+        "originalTraitDimensions": [
+          "composition",
+          "image treatment"
+        ]
+      },
+      "timestamp": "2026-08-11T17:02:00.000Z",
+      "version": 2,
+      "supersedes": "EXACT_IMPORT::CVA-HERITAGE-B039-E01::32"
+    },
+    {
+      "decisionId": "CVA-HERITAGE-B040-E01::v1::20260811T170300000Z",
+      "cvaId": "CVA-HERITAGE-B040-E01",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "LOVE LOVE as the actual building is my practice building St Mary's House. The cta could be better. ALSO LIKE to see this modernised slightly and even with more brand colours.",
+      "traits": [],
+      "flags": {
+        "keepConcept": true,
+        "needsRefinement": true,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-HERITAGE-B040-E01_V1",
+        "provenance": "Restored verbatim from Founder Review Decision 54; preserve authentic St Mary's House identity while CTA, modernisation and broader brand-colour variants remain refinement requests",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T17:03:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-SECTION-B031-E02::v1::20260811T170400000Z",
+      "cvaId": "CVA-SECTION-B031-E02",
+      "status": "CURRENT",
+      "wholeItemSignal": "LIKE",
+      "notes": "",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-SECTION-B031-E02_V1",
+        "provenance": "Restored exactly from Founder Review Decision 55; no additional criticism or refinement inferred",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T17:04:00.000Z",
+      "version": 1,
+      "supersedes": null
+    },
+    {
+      "decisionId": "CVA-SURFACE-B038-E05::v2::20260811T170500000Z",
+      "cvaId": "CVA-SURFACE-B038-E05",
+      "status": "CURRENT",
+      "wholeItemSignal": "MAYBE",
+      "notes": "MAYBE not as nice as others, slightly boring",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": true,
+        "needsUpgrade": false,
+        "wrongColours": false,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-SURFACE-B038-E05_V2",
+        "provenance": "Restored verbatim from Founder Review Decision 56; criticism applies to this execution rather than mixed Porcelain/Persian compositions generally",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T17:05:00.000Z",
+      "version": 2,
+      "supersedes": "EXACT_IMPORT::CVA-SURFACE-B038-E05::2"
+    },
+    {
+      "decisionId": "CVA-SECTION-B029-E05::v1::20260811T170600000Z",
+      "cvaId": "CVA-SECTION-B029-E05",
+      "status": "CURRENT",
+      "wholeItemSignal": "LOVE",
+      "notes": "LOVE but blue is not the persian blue i want, but love the use of brand colours to brighten",
+      "traits": [],
+      "flags": {
+        "keepConcept": false,
+        "needsRefinement": false,
+        "needsUpgrade": false,
+        "wrongColours": true,
+        "wrongTypography": false,
+        "wrongImagery": false,
+        "wrongGeometry": false,
+        "wrongComposition": false,
+        "wrongInteraction": false
+      },
+      "source": {
+        "kind": "FOUNDER_REVIEW",
+        "identifier": "A1_SESSION_TRANSCRIPT_RECOVERY_CVA-SECTION-B029-E05_V1",
+        "provenance": "Restored verbatim from Founder Review Decision 57; bright multi-colour treatment loved while the non-canonical blue is specifically rejected",
+        "exactMapping": true,
+        "originalTraitDimensions": []
+      },
+      "timestamp": "2026-08-11T17:06:00.000Z",
+      "version": 1,
+      "supersedes": null
+    }
+  ]
+}
