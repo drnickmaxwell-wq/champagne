@@ -1,4 +1,6 @@
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
+import { buildHeroV2Model } from "../../components/hero/v2/buildHeroV2Model";
+import { FullHeroLoopComparison } from "./FullHeroLoopComparison";
 
 const loopComparisons = [
   {
@@ -182,6 +184,7 @@ function renderPreview(asset: { id: string; path?: string; type: string }) {
 
 export default async function HeroAssetLabPage() {
   const runtime = await getHeroRuntime({ mode: "home", variantId: "default" });
+  const heroModel = await buildHeroV2Model({ pageSlugOrPath: "/", particles: true, filmGrain: true, prm: false });
   const stack = runtime.surfaces.surfaceStack ?? [];
   const seen = new Set<string>();
   const layers = stack.filter((layer) => {
@@ -291,6 +294,8 @@ export default async function HeroAssetLabPage() {
           </article>
         ))}
       </section>
+
+      {heroModel ? <FullHeroLoopComparison model={heroModel} /> : null}
 
       <script dangerouslySetInnerHTML={{ __html: synchronizedLoopScript }} />
 
