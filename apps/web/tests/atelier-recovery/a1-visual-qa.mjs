@@ -47,7 +47,7 @@ const assetResults = await page.getByTestId("archive-view").locator("img").evalu
   return { count: results.length, failures: results.filter((result) => !result.ok) };
 });
 if (assetResults.count !== 331 || assetResults.failures.length) throw new Error(`Archive asset render failures: ${JSON.stringify(assetResults)}`);
-await page.getByRole("button", { name: /CVA-SURFACE-B038-E01/ }).click();
+await page.getByRole("button", { name: /CVA-SURFACE-B038-E03/ }).click();
 await page.getByTestId("imported-provenance").waitFor();
 await page.screenshot({ path: path.join(evidenceDir, "02-exact-import-provenance.png"), fullPage: true });
 
@@ -58,7 +58,7 @@ await page.getByRole("button", { name: "Close parent board context" }).click();
 
 await page.getByRole("button", { name: /LIKE$/ }).click();
 await page.getByRole("button", { name: "ARCHIVE", exact: true }).click();
-await page.getByRole("button", { name: /CVA-SURFACE-B038-E01/ }).click();
+await page.getByRole("button", { name: /CVA-SURFACE-B038-E03/ }).click();
 if ((await page.getByRole("button", { name: /LIKE$/ }).getAttribute("aria-pressed")) !== "true") throw new Error("Whole-item rating did not persist");
 await page.screenshot({ path: path.join(evidenceDir, "04-whole-item-rating.png"), fullPage: true });
 
