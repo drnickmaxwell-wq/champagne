@@ -31,7 +31,15 @@ for (const [index, componentId] of componentIds.entries()) {
   await render.waitFor();
   if ((await render.locator("img").count()) !== 0) throw new Error(`${componentId} rendered a PNG/image body`);
   const source = page.locator("figure img");
+  await source.evaluate(async (image) => {
+    if (!image.complete || image.naturalWidth < 1) await image.decode();
+  });
   if ((await source.evaluate((image) => image.naturalWidth)) < 1) throw new Error(`${componentId} source reference failed to load`);
+  const unnamedInteractive = await render.locator("a, button").evaluateAll((elements) => elements.some((element) => {
+    const label = element.getAttribute("aria-label")?.trim();
+    return !label && !element.textContent?.trim();
+  }));
+  if (unnamedInteractive) throw new Error(`${componentId} contains an unnamed interactive control`);
   for (const width of [1440, 1024, 768, 390]) {
     await page.getByRole("button", { name: String(width), exact: true }).click();
     const overflow = await render.evaluate((element) => element.scrollWidth > element.clientWidth + 1);
