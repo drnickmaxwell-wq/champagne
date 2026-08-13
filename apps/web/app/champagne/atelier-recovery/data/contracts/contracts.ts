@@ -20,7 +20,7 @@ export type TraitDimension =
   | "motion"
   | "mobile composition";
 
-export type ComponentMaturity = "EXPERIMENTAL" | "FOUNDER_APPROVED" | "GOLDEN";
+export type ComponentMaturity = "EXPERIMENTAL_RECONSTRUCTION" | "FOUNDER_APPROVED" | "GOLDEN";
 export type CandidateOperation =
   | "MORE_LIKE_THIS"
   | "LESS_LIKE_THIS"
@@ -31,20 +31,20 @@ export type CandidateOperation =
 export type RecoveryCapabilityState = {
   archiveCount: 331;
   exactImportedPreferenceCandidates: 38;
-  reconstructedComponentCount: 0;
-  reviewSystem: "ACTIVE_A1";
-  componentReconstruction: "NOT_STARTED_A2";
+  reconstructedComponentCount: 8;
+  reviewSystem: "A1_CORPUS_CLOSED";
+  componentReconstruction: "A2_FOUNDER_REVIEW_REQUIRED";
   pageComposition: "NOT_AUTHORISED_A0";
   legacyFamilyAuthority: false;
   productionBinding: false;
 };
 
-export const A1_CAPABILITY_STATE: RecoveryCapabilityState = Object.freeze({
+export const A2_CAPABILITY_STATE: RecoveryCapabilityState = Object.freeze({
   archiveCount: 331,
   exactImportedPreferenceCandidates: 38,
-  reconstructedComponentCount: 0,
-  reviewSystem: "ACTIVE_A1",
-  componentReconstruction: "NOT_STARTED_A2",
+  reconstructedComponentCount: 8,
+  reviewSystem: "A1_CORPUS_CLOSED",
+  componentReconstruction: "A2_FOUNDER_REVIEW_REQUIRED",
   pageComposition: "NOT_AUTHORISED_A0",
   legacyFamilyAuthority: false,
   productionBinding: PRODUCTION_BINDING,

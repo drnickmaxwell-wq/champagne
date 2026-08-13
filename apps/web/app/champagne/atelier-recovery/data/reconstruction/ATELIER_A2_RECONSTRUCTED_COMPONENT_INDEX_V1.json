@@ -1,0 +1,339 @@
+{
+  "schema": "ATELIER_A2_RECONSTRUCTED_COMPONENT_INDEX_V1",
+  "version": 1,
+  "maturity": "EXPERIMENTAL_RECONSTRUCTION",
+  "productionBinding": false,
+  "sourceCorpus": "CHAMPAGNE_FOUNDER_VISUAL_CORPUS_V1",
+  "supportedViewports": [
+    1440,
+    1024,
+    768,
+    390
+  ],
+  "components": [
+    {
+      "componentId": "A2-DECISION-CLARITY-01",
+      "sourceCvaId": "CVA-SECTION-B029-E05",
+      "exportName": "DecisionClaritySection",
+      "semanticRole": "comparison / decision support",
+      "founderSignal": "LOVE",
+      "rationale": "High-information structure with strong colour participation; reconstructable without specialist media.",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-SECTION-B029-E05.png",
+      "status": "IMPLEMENTED_AWAITING_FOUNDER_REVIEW",
+      "accessibility": [
+        "semantic landmarks/headings",
+        "keyboard-visible focus",
+        "minimum touch target",
+        "meaning does not depend on colour alone",
+        "responsive reading order"
+      ],
+      "responsiveBehaviour": {
+        "390": "single-column, touch-safe, no horizontal overflow",
+        "768": "compact grid or intentional stack",
+        "1024": "rebalanced columns without content loss",
+        "1440": "full editorial composition"
+      },
+      "contentSlots": [
+        "heading",
+        "intro",
+        "benefits[]",
+        "limitations[]",
+        "alternatives[]",
+        "questions[]",
+        "summary",
+        "actionLabel"
+      ],
+      "surfaces": [
+        "Persian field",
+        "gold summary edge",
+        "turquoise and magenta semantic markers"
+      ],
+      "typography": "Playfair display heading; Inter labels and body; responsive editorial scale",
+      "spacingDensity": "dense desktop decision rail; readable stacked mobile chapters",
+      "waveLayerOverlap": "quiet dotted current only; no decorative container stack",
+      "mediaSlotGeometry": null,
+      "knownLimits": [
+        "Source blue is corrected to the canonical Persian token environment; this is a deliberate Founder-note response."
+      ]
+    },
+    {
+      "componentId": "A2-CLINICIAN-INSIGHT-01",
+      "sourceCvaId": "CVA-SECTION-B025-E01",
+      "exportName": "ClinicianInsightSection",
+      "semanticRole": "major clinician chapter",
+      "founderSignal": "LOVE",
+      "rationale": "Proves asymmetric Porcelain/Persian chapter composition and verified-content slots.",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-SECTION-B025-E01.png",
+      "status": "IMPLEMENTED_AWAITING_FOUNDER_REVIEW",
+      "accessibility": [
+        "semantic landmarks/headings",
+        "keyboard-visible focus",
+        "minimum touch target",
+        "meaning does not depend on colour alone",
+        "responsive reading order"
+      ],
+      "responsiveBehaviour": {
+        "390": "single-column, touch-safe, no horizontal overflow",
+        "768": "compact grid or intentional stack",
+        "1024": "rebalanced columns without content loss",
+        "1440": "full editorial composition"
+      },
+      "contentSlots": [
+        "heading",
+        "body",
+        "relatedLabel",
+        "relatedHref",
+        "portrait",
+        "credentials[]"
+      ],
+      "surfaces": [
+        "Porcelain editorial field",
+        "Persian credential field",
+        "gold verification rail"
+      ],
+      "typography": "Playfair editorial heading; Inter evidence labels",
+      "spacingDensity": "asymmetric 38/62 split; single-column mobile order retains story before proof",
+      "waveLayerOverlap": "fine contour current on Persian field",
+      "mediaSlotGeometry": "portrait slot 4:5 with accessible labelled fallback",
+      "knownLimits": [
+        "No genuine clinician portrait is bundled in A2; the slot is truthful and awaits approved practice media."
+      ]
+    },
+    {
+      "componentId": "A2-SPECTRUM-CLOSING-BAND-01",
+      "sourceCvaId": "CVA-BAND-B020-E03",
+      "exportName": "SpectrumConsultationBand",
+      "semanticRole": "reassurance / closing band",
+      "founderSignal": "LOVE",
+      "rationale": "Small but distinctive full-width brand-energy bridge.",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-BAND-B020-E03.png",
+      "status": "IMPLEMENTED_AWAITING_FOUNDER_REVIEW",
+      "accessibility": [
+        "semantic landmarks/headings",
+        "keyboard-visible focus",
+        "minimum touch target",
+        "meaning does not depend on colour alone",
+        "responsive reading order"
+      ],
+      "responsiveBehaviour": {
+        "390": "single-column, touch-safe, no horizontal overflow",
+        "768": "compact grid or intentional stack",
+        "1024": "rebalanced columns without content loss",
+        "1440": "full editorial composition"
+      },
+      "contentSlots": [
+        "heading",
+        "actionLabel",
+        "href"
+      ],
+      "surfaces": [
+        "luminous brand spectrum on Porcelain"
+      ],
+      "typography": "Playfair centred heading; Inter action",
+      "spacingDensity": "shallow full-width band; taller touch-safe mobile",
+      "waveLayerOverlap": "layered spectrum currents cross behind content",
+      "mediaSlotGeometry": null,
+      "knownLimits": [
+        "Spectrum is token-composed and intentionally excludes off-palette rainbow colours."
+      ]
+    },
+    {
+      "componentId": "A2-PORCELAIN-DESCENT-FOOTER-01",
+      "sourceCvaId": "CVA-FOOTER-F03-E02",
+      "exportName": "PorcelainDescentFooter",
+      "semanticRole": "footer",
+      "founderSignal": "LOVE",
+      "rationale": "Proves layered wave descent, navigation density and mobile regrouping.",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-FOOTER-F03-E02.png",
+      "status": "IMPLEMENTED_AWAITING_FOUNDER_REVIEW",
+      "accessibility": [
+        "semantic landmarks/headings",
+        "keyboard-visible focus",
+        "minimum touch target",
+        "meaning does not depend on colour alone",
+        "responsive reading order"
+      ],
+      "responsiveBehaviour": {
+        "390": "single-column, touch-safe, no horizontal overflow",
+        "768": "compact grid or intentional stack",
+        "1024": "rebalanced columns without content loss",
+        "1440": "full editorial composition"
+      },
+      "contentSlots": [
+        "practiceName",
+        "tagline",
+        "navigationGroups[]",
+        "closingAction",
+        "legalLinks[]"
+      ],
+      "surfaces": [
+        "Porcelain navigation ledge",
+        "Persian deep footer",
+        "magenta/turquoise/gold wave seam"
+      ],
+      "typography": "Playfair practice identity; Inter navigation and legal text",
+      "spacingDensity": "multi-column desktop; disclosure-free stacked mobile groups",
+      "waveLayerOverlap": "three-layer descending seam",
+      "mediaSlotGeometry": null,
+      "knownLimits": [
+        "No building illustration is reconstructed; this source is selected for footer anatomy and wave descent, not heritage artwork."
+      ]
+    },
+    {
+      "componentId": "A2-ARCHITECTURAL-CTA-01",
+      "sourceCvaId": "CVA-CTA-B004-E01",
+      "exportName": "ArchitecturalCta",
+      "semanticRole": "CTA grammar",
+      "founderSignal": "MAYBE",
+      "rationale": "Chosen deliberately from the weak CTA cluster to test whether the frame grammar can be retained without architecture dominating.",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-CTA-B004-E01.png",
+      "status": "IMPLEMENTED_AWAITING_FOUNDER_REVIEW",
+      "accessibility": [
+        "semantic landmarks/headings",
+        "keyboard-visible focus",
+        "minimum touch target",
+        "meaning does not depend on colour alone",
+        "responsive reading order"
+      ],
+      "responsiveBehaviour": {
+        "390": "single-column, touch-safe, no horizontal overflow",
+        "768": "compact grid or intentional stack",
+        "1024": "rebalanced columns without content loss",
+        "1440": "full editorial composition"
+      },
+      "contentSlots": [
+        "label",
+        "href",
+        "variant",
+        "compact"
+      ],
+      "surfaces": [
+        "Porcelain or Persian host surfaces"
+      ],
+      "typography": "Playfair action label with restrained Inter-independent geometry",
+      "spacingDensity": "three desktop states and compact mobile icon mode",
+      "waveLayerOverlap": "none",
+      "mediaSlotGeometry": null,
+      "knownLimits": [
+        "Founder signal is MAYBE. Geometry remains experimental and specifically avoids arch/portal dominance."
+      ]
+    },
+    {
+      "componentId": "A2-CLINICIAN-CREDENTIAL-CARD-01",
+      "sourceCvaId": "CVA-CARD-B025-E01A",
+      "exportName": "ClinicianCredentialCard",
+      "semanticRole": "information / credential card",
+      "founderSignal": "LOVE",
+      "rationale": "Reusable proof structure with real portrait/content slots.",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-CARD-B025-E01A.png",
+      "status": "IMPLEMENTED_AWAITING_FOUNDER_REVIEW",
+      "accessibility": [
+        "semantic landmarks/headings",
+        "keyboard-visible focus",
+        "minimum touch target",
+        "meaning does not depend on colour alone",
+        "responsive reading order"
+      ],
+      "responsiveBehaviour": {
+        "390": "single-column, touch-safe, no horizontal overflow",
+        "768": "compact grid or intentional stack",
+        "1024": "rebalanced columns without content loss",
+        "1440": "full editorial composition"
+      },
+      "contentSlots": [
+        "portrait",
+        "name",
+        "role",
+        "credentials[]"
+      ],
+      "surfaces": [
+        "Persian card",
+        "gold proof rail"
+      ],
+      "typography": "Playfair identity; Inter verified evidence",
+      "spacingDensity": "balanced two-column card; stacked mobile",
+      "waveLayerOverlap": "fine contour corner",
+      "mediaSlotGeometry": "portrait slot 4:5",
+      "knownLimits": [
+        "Awaits a rights-cleared portrait; A2 demonstrates the real slot and credential anatomy only."
+      ]
+    },
+    {
+      "componentId": "A2-PORCELAIN-CONSTELLATION-STRIP-01",
+      "sourceCvaId": "CVA-SURFACE-B038-E02",
+      "exportName": "PorcelainConstellationStrip",
+      "semanticRole": "reassurance / trust strip",
+      "founderSignal": "LOVE",
+      "rationale": "Founder-approved Porcelain grammar with dots, gold current and trust rail.",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-SURFACE-B038-E02.png",
+      "status": "IMPLEMENTED_AWAITING_FOUNDER_REVIEW",
+      "accessibility": [
+        "semantic landmarks/headings",
+        "keyboard-visible focus",
+        "minimum touch target",
+        "meaning does not depend on colour alone",
+        "responsive reading order"
+      ],
+      "responsiveBehaviour": {
+        "390": "single-column, touch-safe, no horizontal overflow",
+        "768": "compact grid or intentional stack",
+        "1024": "rebalanced columns without content loss",
+        "1440": "full editorial composition"
+      },
+      "contentSlots": [
+        "heading",
+        "body",
+        "proofItems[]"
+      ],
+      "surfaces": [
+        "Porcelain field",
+        "magenta dot constellation",
+        "gold current"
+      ],
+      "typography": "Playfair statement; Inter proof labels",
+      "spacingDensity": "open editorial strip; proof rail stacks on mobile",
+      "waveLayerOverlap": "dotted field rises from lower edge",
+      "mediaSlotGeometry": null,
+      "knownLimits": []
+    },
+    {
+      "componentId": "A2-QUESTION-FIRST-PANEL-01",
+      "sourceCvaId": "CVA-DECISION-B031-E02A",
+      "exportName": "QuestionFirstPanel",
+      "semanticRole": "question-first decision panel",
+      "founderSignal": "LIKE",
+      "rationale": "Compact, insertion-ready decision support that broadens semantic coverage.",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-DECISION-B031-E02A.png",
+      "status": "IMPLEMENTED_AWAITING_FOUNDER_REVIEW",
+      "accessibility": [
+        "semantic landmarks/headings",
+        "keyboard-visible focus",
+        "minimum touch target",
+        "meaning does not depend on colour alone",
+        "responsive reading order"
+      ],
+      "responsiveBehaviour": {
+        "390": "single-column, touch-safe, no horizontal overflow",
+        "768": "compact grid or intentional stack",
+        "1024": "rebalanced columns without content loss",
+        "1440": "full editorial composition"
+      },
+      "contentSlots": [
+        "question",
+        "actionLabel",
+        "href"
+      ],
+      "surfaces": [
+        "Persian panel",
+        "turquoise question marker"
+      ],
+      "typography": "Inter question and action",
+      "spacingDensity": "compact insertion-ready panel; full-width mobile action",
+      "waveLayerOverlap": "none",
+      "mediaSlotGeometry": null,
+      "knownLimits": [
+        "Source is LIKE rather than LOVE; retained as a useful, low-risk semantic primitive."
+      ]
+    }
+  ]
+}

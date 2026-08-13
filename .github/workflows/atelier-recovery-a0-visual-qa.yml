@@ -1,4 +1,4 @@
-name: Atelier Recovery A1 Visual QA
+name: Atelier Recovery A1 + A2 Visual QA
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   recovery-a1:
-    name: recovery-a1-contract-persistence-and-visual-truth
+    name: recovery-a1-a2-contract-persistence-and-visual-truth
     runs-on: ubuntu-latest
     env:
       ALLOW_CHAMPAGNE_ROUTES: "true"
@@ -33,13 +33,15 @@ jobs:
           corepack prepare pnpm@9.15.4 --activate
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Validate inherited A0 and A1 contracts
+      - name: Validate inherited A0, closed A1 and A2 contracts
         run: |
           set -euxo pipefail
           pnpm atelier:a0:check
           pnpm atelier:a0:test
           pnpm atelier:a1:check
           pnpm atelier:a1:test
+          pnpm atelier:a2:check
+          pnpm atelier:a2:test
       - name: Install Chromium
         run: pnpm exec playwright install --with-deps chromium
       - name: Build and start recovery route
@@ -60,6 +62,11 @@ jobs:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
           ATELIER_A1_EVIDENCE_DIR: ${{ runner.temp }}/atelier-a1-evidence
         run: pnpm atelier:a1:visual-qa
+      - name: Exercise A2 reconstructions and capture responsive evidence
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
+          ATELIER_A2_EVIDENCE_DIR: ${{ runner.temp }}/atelier-a2-evidence
+        run: pnpm atelier:a2:visual-qa
       - name: Prove explicit local persistence and restore canonical seed
         env:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:3001
@@ -67,7 +74,7 @@ jobs:
         run: |
           set -euxo pipefail
           dataset="apps/web/app/champagne/atelier-recovery/data/preferences/founder-visual-preferences.v1.json"
-          backup="$RUNNER_TEMP/founder-visual-preferences.rev21.json"
+          backup="$RUNNER_TEMP/founder-visual-preferences.rev558.json"
           cp "$dataset" "$backup"
           env -u CI \
             ALLOW_CHAMPAGNE_ROUTES=true \
@@ -95,14 +102,16 @@ jobs:
           restore_seed
           trap - EXIT
           pnpm atelier:a1:check
+          pnpm atelier:a2:check
           git diff --exit-code -- "$dataset"
-      - name: Upload A1 evidence
+      - name: Upload A1 and A2 evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: atelier-recovery-a1-render-evidence
+          name: atelier-recovery-a1-a2-render-evidence
           path: |
             ${{ runner.temp }}/atelier-a1-evidence
+            ${{ runner.temp }}/atelier-a2-evidence
             ${{ runner.temp }}/atelier-a1-production.log
             ${{ runner.temp }}/atelier-a1-persistence.log
           if-no-files-found: warn

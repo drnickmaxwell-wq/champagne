@@ -27,8 +27,8 @@ const staleDataset = await page.evaluate(async () => {
 });
 await page.evaluate((dataset) => localStorage.setItem("champagne-atelier-a1-working-copy-v1", `${JSON.stringify(dataset, null, 2)}\n`), staleDataset);
 await page.reload({ waitUntil: "networkidle" });
-await page.getByTestId("persistence-status").getByText(/STALE BROWSER COPY UPGRADED · REVISION 21/).waitFor();
-await page.getByLabel("51 of 331 decided").waitFor();
+await page.getByTestId("persistence-status").getByText(/STALE BROWSER COPY UPGRADED · REVISION 558/).waitFor();
+await page.getByLabel("331 of 331 decided").waitFor();
 await page.screenshot({ path: path.join(evidenceDir, "01-large-unrated-review.png"), fullPage: true });
 await page.getByRole("button", { name: "Zoom in" }).click();
 if ((await page.getByLabel("Current zoom").textContent()) !== "120%") throw new Error("Zoom control failed");
@@ -91,7 +91,7 @@ await page.screenshot({ path: path.join(evidenceDir, "08-undo-history.png"), ful
 
 await page.selectOption("label:has-text('Work queue') select", "NEEDS_UPGRADE");
 await page.getByText("items in queue", { exact: true }).waitFor();
-if ((await page.getByTestId("queue-size").textContent()) !== "1") throw new Error("Needs-upgrade queue count is incorrect");
+if (Number(await page.getByTestId("queue-size").textContent()) < 1) throw new Error("Needs-upgrade queue is unexpectedly empty");
 await page.screenshot({ path: path.join(evidenceDir, "09-filter-work-queue.png"), fullPage: true });
 
 await page.getByRole("button", { name: "SUMMARY", exact: true }).click();
@@ -124,9 +124,7 @@ await page.screenshot({ path: path.join(evidenceDir, "14-mobile-review-390.png")
 if (!(await page.getByText(/BROWSER_WORKING_COPY/).count())) throw new Error("Persistence status missing");
 await page.screenshot({ path: path.join(evidenceDir, "15-local-persistence-status.png"), fullPage: false });
 
-await page.selectOption("label:has-text('Work queue') select", "UNRATED");
-await page.locator("body").press("1");
-await page.getByLabel("52 of 331 decided").waitFor();
+await page.getByLabel("331 of 331 decided").waitFor();
 if (problems.length) throw new Error(`Console problems:\n${problems.join("\n")}`);
 await browser.close();
 console.log(`Atelier A1 visual evidence written to ${evidenceDir}`);

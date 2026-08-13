@@ -21,8 +21,9 @@ if (process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE && process.env.ATELIER_A1_EVIDENC
 }
 const existing = currentDecisionMap(dataset);
 const target = "CVA-SECTION-B029-E06";
-if (existing.has(target)) throw new Error("Persistence QA target must begin unrated");
-const next = applyReview(dataset, target, { wholeItemSignal: "LIKE", notes: "A1 atomic persistence QA" }, "2026-08-11T02:00:00.000Z");
+if (!existing.has(target)) throw new Error("Persistence QA target must exist in the completed corpus");
+const nextSignal = existing.get(target).wholeItemSignal === "LIKE" ? "LOVE" : "LIKE";
+const next = applyReview(dataset, target, { wholeItemSignal: nextSignal, notes: "A1 atomic persistence QA" }, "2026-08-14T02:00:00.000Z");
 const response = await fetch(endpoint, {
   method: "PUT",
   headers: { "Content-Type": "application/json", Origin: baseUrl, "Sec-Fetch-Site": "same-origin" },
@@ -30,7 +31,7 @@ const response = await fetch(endpoint, {
 });
 const body = await response.json();
 if (!response.ok) throw new Error(`PUT failed: ${response.status} ${body.error}`);
-if (currentDecisionMap(body.dataset).get(target)?.wholeItemSignal !== "LIKE") throw new Error("Persisted decision missing");
+if (currentDecisionMap(body.dataset).get(target)?.wholeItemSignal !== nextSignal) throw new Error("Persisted decision missing");
 const stale = await fetch(endpoint, {
   method: "PUT",
   headers: { "Content-Type": "application/json", Origin: baseUrl, "Sec-Fetch-Site": "same-origin" },
