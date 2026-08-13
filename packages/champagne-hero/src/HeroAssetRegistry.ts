@@ -25,9 +25,9 @@ const HERO_ASSET_FILES = {
   grainMobile: "film-grain/film-grain-mobile.webp",
   textureCaustics: "textures/wave-light-overlay.webp",
   textureGoldDust: "textures/wave-gold-dust.png",
-  motionWaveCaustics: "motion/wave-caustics.webm",
+  motionWaveCaustics: "motion/wave-caustics-seamless.webm",
   motionGlassShimmer: "motion/glass-shimmer.webm",
-  motionGoldDust: "motion/gold-dust-drift.webm",
+  motionGoldDust: "motion/gold-dust-drift-seamless.webm",
   motionParticlesDrift: "motion/particles-drift.webm",
   motionHeroVideo: "motion/dental-hero-4k.mp4",
 } as const;

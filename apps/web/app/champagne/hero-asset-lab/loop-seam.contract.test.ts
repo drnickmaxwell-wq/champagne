@@ -10,6 +10,20 @@ const stylesSource = readFileSync(join(currentDir, "page.module.css"), "utf8");
 const motionDir = join(currentDir, "../../../public/assets/champagne/motion");
 
 describe("Sacred Hero loop-seam demonstrator contract", () => {
+  it("binds both canonical runtime IDs to the Founder-approved seamless assets", () => {
+    const registrySource = readFileSync(
+      join(currentDir, "../../../../../packages/champagne-hero/src/HeroAssetRegistry.ts"),
+      "utf8",
+    );
+
+    expect(registrySource).toContain('motionWaveCaustics: "motion/wave-caustics-seamless.webm"');
+    expect(registrySource).toContain('motionGoldDust: "motion/gold-dust-drift-seamless.webm"');
+    expect(registrySource).toContain('"sacred.motion.waveCaustics"');
+    expect(registrySource).toContain("path: assetPath(HERO_ASSET_FILES.motionWaveCaustics)");
+    expect(registrySource).toContain('"sacred.motion.goldDust"');
+    expect(registrySource).toContain("path: assetPath(HERO_ASSET_FILES.motionGoldDust)");
+  });
+
   it("preserves the canonical source assets and references separate corrected derivatives", () => {
     expect(pageSource).toContain('original: "/assets/champagne/motion/wave-caustics.webm"');
     expect(pageSource).toContain('corrected: "/assets/champagne/motion/wave-caustics-seamless.webm"');
