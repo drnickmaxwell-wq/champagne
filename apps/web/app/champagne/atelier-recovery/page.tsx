@@ -1,5 +1,6 @@
 import archiveRegistry from "./data/archive/v27-registry.json";
 import { persistenceStatus, readPreferenceDataset } from "./data/preferences/persistence";
+import { readReconstructionReviewDataset, reconstructionReviewPersistenceStatus } from "./data/reconstruction-review/persistence";
 import { RecoveryWorkspace } from "./RecoveryWorkspace";
 
 type RegistryItem = (typeof archiveRegistry.items)[number];
@@ -26,6 +27,6 @@ export default async function AtelierRecoveryPage() {
     throw new Error("Atelier recovery requires the complete 331-item archive");
   }
 
-  const dataset = await readPreferenceDataset();
-  return <RecoveryWorkspace archive={archiveRegistry.items.map(toArchiveItem)} initialDataset={dataset} persistence={persistenceStatus()} />;
+  const [dataset, reconstructionReviewDataset] = await Promise.all([readPreferenceDataset(), readReconstructionReviewDataset()]);
+  return <RecoveryWorkspace archive={archiveRegistry.items.map(toArchiveItem)} initialDataset={dataset} persistence={persistenceStatus()} initialReconstructionReviewDataset={reconstructionReviewDataset} reconstructionReviewPersistence={reconstructionReviewPersistenceStatus()} />;
 }

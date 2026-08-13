@@ -21,6 +21,8 @@ export type TraitDimension =
   | "mobile composition";
 
 export type ComponentMaturity = "EXPERIMENTAL_RECONSTRUCTION" | "FOUNDER_APPROVED" | "GOLDEN";
+export type ReconstructionDisposition = "APPROVE" | "REFINE" | "FAIL";
+export type ReconstructionGate = "FOUNDER_RECONSTRUCTION_REVIEWS_COMPLETE_A3_GATE_REQUIRED" | "RECONSTRUCTION_KERNEL_GAP";
 export type CandidateOperation =
   | "MORE_LIKE_THIS"
   | "LESS_LIKE_THIS"

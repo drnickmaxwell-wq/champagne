@@ -1,0 +1,26 @@
+{
+  "schema": "ATELIER_FOUNDER_RECONSTRUCTION_REVIEW_DATASET_V1",
+  "version": 1,
+  "datasetRevision": 1,
+  "authority": "FOUNDER_RECONSTRUCTION_FIDELITY_DECISIONS_ONLY",
+  "productionBinding": false,
+  "sourceKernel": {
+    "id": "A2_RECONSTRUCTION_KERNEL_V1",
+    "pr": 873,
+    "head": "4e923e69aa41f43d0ce7b6496ef812d7ebbc944c",
+    "tree": "b65f7e79acd76217df25569e8cedcafc18598d72",
+    "componentCount": 8,
+    "componentIndexSchema": "ATELIER_A2_RECONSTRUCTED_COMPONENT_INDEX_V1"
+  },
+  "persistence": {
+    "mode": "WORKTREE_FILE",
+    "browserLocalStorageIsAuthoritative": false,
+    "appendOnlyReviewHistory": true,
+    "sourcePreferenceCorpusMutable": false
+  },
+  "session": {
+    "lastComponentId": null,
+    "updatedAt": "2026-08-13T20:00:17.000Z"
+  },
+  "reviews": []
+}
