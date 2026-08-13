@@ -57,7 +57,7 @@ await page.setViewportSize({ width: 390, height: 844 });
 await page.reload({ waitUntil: "networkidle" });
 await page.getByRole("button", { name: "COMPONENTS", exact: true }).click();
 await page.getByTestId("a2-component-library").waitFor();
-if (await page.locator("body").evaluate((body) => body.scrollWidth > document.documentElent.clientWidth + 1)) throw new Error("A2 library overflows at 390px");
+if (await page.locator("body").evaluate((body) => body.scrollWidth > body.ownerDocument.documentElement.clientWidth + 1)) throw new Error("A2 library overflows at 390px");
 await page.screenshot({ path: path.join(evidenceDir, "17-a2-library-mobile-390.png"), fullPage: true });
 if (problems.length) throw new Error(`Console problems:\n${problems.join("\n")}`);
 await browser.close();
