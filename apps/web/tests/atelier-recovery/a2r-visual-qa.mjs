@@ -30,6 +30,9 @@ for (const componentId of componentIds) {
   const source = page.locator("figure img");
   await Promise.all([render.waitFor(), source.waitFor()]);
   if ((await render.locator("img").count()) !== 0) throw new Error(`${componentId} rendered source imagery in the component body`);
+  await source.evaluate(async (image) => {
+    if (!image.complete || image.naturalWidth < 1) await image.decode();
+  });
   if ((await source.evaluate((image) => image.naturalWidth)) < 1) throw new Error(`${componentId} source PNG did not load`);
   for (const width of [1440, 1024, 768, 390]) {
     await page.getByRole("button", { name: String(width), exact: true }).click();
