@@ -51,7 +51,7 @@ The derived frequencies are transparent keyword classification of verbatim curre
 - One exact asset-hash duplicate group: CVA-MEDIA-B013-E01 / CVA-SECTION-B013-E01.
 - 48 shared-parent-board sibling groups are recorded as near-duplicate families. They are not claimed to be pixel duplicates.
 - CTA evidence is the weakest large cluster: 106 items, 6 LOVE, 14 LIKE, 82 MAYBE and 4 NOT_ME.
-- Section evidence is the strongest large cluster: 92 items, 68 LOVE.
+- Raw CVA-SECTION evidence is the strongest large source-type group: 92 items, 68 LOVE. The semantic SECTION_CHAPTER_COMPOSITIONS cluster in the candidate matrix also includes non-SECTION chapter references and reports its own exact signal mix.
 - The Founder-favourite `CVA-SECTION-B029-E03` is retained as especially strong lineage. Its realistic 3D/CBCT media is not faked in A2.
 - `CVA-SEQUENCE-B010-E01` remains transition authority only because it contains Sacred Hero V2 lineage.
 
