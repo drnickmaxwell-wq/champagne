@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./recovery.module.css";
+import { ReconstructionLibrary } from "./components/a2/ReconstructionLibrary";
 import {
   applyReview, currentDecisionMap, deriveIndex, deriveProgress, deterministicExport,
   EMPTY_FLAGS, FLAG_KEYS, TRAIT_DIMENSIONS, TRAIT_SIGNALS, undoLast, validateDataset,
@@ -25,7 +26,7 @@ type Dataset = {
 };
 type Persistence = { mode: string; canonicalWriteEnabled: boolean; browserStateIsCanonical: false; productionBinding: false };
 type Queue = "ALL" | "UNRATED" | "LOVE" | "LIKE" | "MAYBE" | "NOT_ME" | "NEEDS_REFINEMENT" | "NEEDS_UPGRADE" | "BEST_OF_LOVE";
-type View = "REVIEW" | "SUMMARY" | "ARCHIVE";
+type View = "REVIEW" | "SUMMARY" | "ARCHIVE" | "COMPONENTS";
 
 const SIGNALS = ["LOVE", "LIKE", "MAYBE", "NOT_ME"] as const;
 const SHORTCUTS: Record<string, string> = { "1": "LOVE", "2": "LIKE", "3": "MAYBE", "4": "NOT_ME" };
@@ -163,9 +164,9 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
 
   return <main className={styles.a1Shell} data-testid="atelier-recovery" data-production-binding="false">
     <header className={styles.a1Header}>
-      <div><strong>CHAMPAGNE ATELIER</strong><span>Founder Visual Review · A1</span></div>
+      <div><strong>CHAMPAGNE ATELIER</strong><span>Founder Corpus · A1 closed · A2 review</span></div>
       <nav aria-label="Review system areas">
-        {(["REVIEW", "SUMMARY", "ARCHIVE"] as View[]).map((name) => <button key={name} type="button" aria-current={view === name ? "page" : undefined} onClick={() => setView(name)}>{name}</button>)}
+        {(["REVIEW", "SUMMARY", "ARCHIVE", "COMPONENTS"] as View[]).map((name) => <button key={name} type="button" aria-current={view === name ? "page" : undefined} onClick={() => setView(name)}>{name}</button>)}
       </nav>
       <div className={styles.headerProgress} aria-label={`${progress.decided} of 331 decided`}><strong>{progress.decided} / 331</strong><span>{progress.remaining} remaining</span></div>
     </header>
@@ -205,6 +206,7 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
 
     {view === "SUMMARY" ? <Summary dataset={dataset} archive={archive} progress={progress} onExport={() => download("ATELIER_FOUNDER_VISUAL_PREFERENCE_DATASET_V1.json", deterministicExport(dataset))} onIndex={() => download("ATELIER_FOUNDER_VISUAL_PREFERENCE_DERIVED_INDEX_V1.json", `${JSON.stringify(deriveIndex(dataset, archive), null, 2)}\n`)} onImport={() => importRef.current?.click()} /> : null}
     {view === "ARCHIVE" ? <ArchiveIndex archive={archive} decisionMap={decisionMap} onOpen={(cvaId) => { setQueue("ALL"); setCategory("ALL"); setBoard("ALL"); setIndex(archive.findIndex((entry) => entry.id === cvaId)); setView("REVIEW"); }} /> : null}
+    {view === "COMPONENTS" ? <ReconstructionLibrary /> : null}
 
     <input ref={importRef} className={styles.hiddenInput} type="file" accept="application/json,.json" onChange={async (event) => {
       const file = event.target.files?.[0]; if (!file) return;
@@ -213,7 +215,7 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
       event.target.value = "";
     }} />
     {showParent && item ? <ParentContext item={item} siblings={siblings} onClose={() => setShowParent(false)} /> : null}
-    <footer className={styles.a1Status}><span>OPEN · DRAFT · UNMERGED</span><span>NO COMPONENT RECONSTRUCTION · NO PAGE DESIGN</span><strong>productionBinding=false</strong></footer>
+    <footer className={styles.a1Status}><span>OPEN · DRAFT · UNMERGED</span><span>A2 EXPERIMENTAL RECONSTRUCTIONS · NO PAGE DESIGN</span><strong>productionBinding=false</strong></footer>
   </main>;
 }
 

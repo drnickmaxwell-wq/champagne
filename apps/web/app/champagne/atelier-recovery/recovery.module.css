@@ -343,7 +343,7 @@
 @media (max-width: 30rem) {
   .a1Header { gap: .7rem; padding: .7rem; }
   .a1Header > div:first-child strong { font-size: .82rem; }
-  .a1Header nav { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; }
+  .a1Header nav { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; }
   .a1Header nav button { padding: 0 .35rem; }
   .reviewRail { grid-template-columns: 1fr; padding: 1rem; }
   .signalCounts, .persistenceTruth { grid-column: auto; }
