@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ATELIER_FOUNDER_RECONSTRUCTION_REVIEW_DATASET_V1",
+  "title": "Atelier Founder Reconstruction Review Dataset V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "datasetRevision", "authority", "productionBinding", "sourceKernel", "persistence", "session", "reviews"],
+  "properties": {
+    "schema": { "const": "ATELIER_FOUNDER_RECONSTRUCTION_REVIEW_DATASET_V1" },
+    "version": { "const": 1 },
+    "datasetRevision": { "type": "integer", "minimum": 1 },
+    "authority": { "const": "FOUNDER_RECONSTRUCTION_FIDELITY_DECISIONS_ONLY" },
+    "productionBinding": { "const": false },
+    "sourceKernel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "pr", "head", "tree", "componentCount", "componentIndexSchema"],
+      "properties": {
+        "id": { "const": "A2_RECONSTRUCTION_KERNEL_V1" },
+        "pr": { "const": 873 },
+        "head": { "const": "4e923e69aa41f43d0ce7b6496ef812d7ebbc944c" },
+        "tree": { "const": "b65f7e79acd76217df25569e8cedcafc18598d72" },
+        "componentCount": { "const": 8 },
+        "componentIndexSchema": { "const": "ATELIER_A2_RECONSTRUCTED_COMPONENT_INDEX_V1" }
+      }
+    },
+    "persistence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "browserLocalStorageIsAuthoritative", "appendOnlyReviewHistory", "sourcePreferenceCorpusMutable"],
+      "properties": {
+        "mode": { "const": "WORKTREE_FILE" },
+        "browserLocalStorageIsAuthoritative": { "const": false },
+        "appendOnlyReviewHistory": { "const": true },
+        "sourcePreferenceCorpusMutable": { "const": false }
+      }
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lastComponentId", "updatedAt"],
+      "properties": {
+        "lastComponentId": { "type": ["string", "null"] },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["reviewId", "componentId", "componentVersion", "sourceCvaId", "sourceFounderRating", "status", "disposition", "fidelityFlags", "founderNote", "reviewedResponsiveViewports", "timestamp", "version", "supersedes"],
+        "properties": {
+          "reviewId": { "type": "string", "minLength": 1 },
+          "componentId": { "type": "string", "minLength": 1 },
+          "componentVersion": { "const": 1 },
+          "sourceCvaId": { "type": "string", "pattern": "^CVA-" },
+          "sourceFounderRating": { "enum": ["LOVE", "LIKE", "MAYBE", "NOT_ME"] },
+          "status": { "enum": ["CURRENT", "SUPERSEDED"] },
+          "disposition": { "enum": ["APPROVE", "REFINE", "FAIL"] },
+          "fidelityFlags": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lostColour", "lostSurfaceMaterialCharacter", "lostComposition", "lostGeometry", "lostTypography", "lostSpacingDensity", "lostImageryTreatment", "lostWaveLayering", "lostLuminosity", "tooGeneric", "tooDark", "tooWashedOut", "interactionIssue", "responsiveIssue"],
+            "properties": {
+              "lostColour": { "type": "boolean" }, "lostSurfaceMaterialCharacter": { "type": "boolean" },
+              "lostComposition": { "type": "boolean" }, "lostGeometry": { "type": "boolean" },
+              "lostTypography": { "type": "boolean" }, "lostSpacingDensity": { "type": "boolean" },
+              "lostImageryTreatment": { "type": "boolean" }, "lostWaveLayering": { "type": "boolean" },
+              "lostLuminosity": { "type": "boolean" }, "tooGeneric": { "type": "boolean" },
+              "tooDark": { "type": "boolean" }, "tooWashedOut": { "type": "boolean" },
+              "interactionIssue": { "type": "boolean" }, "responsiveIssue": { "type": "boolean" }
+            }
+          },
+          "founderNote": { "type": "string" },
+          "reviewedResponsiveViewports": { "type": "array", "uniqueItems": true, "items": { "enum": [1440, 1024, 768, 390] } },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "version": { "type": "integer", "minimum": 1 },
+          "supersedes": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

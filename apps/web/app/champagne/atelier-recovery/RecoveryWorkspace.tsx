@@ -25,6 +25,16 @@ type Dataset = {
   session: { lastCvaId: string | null; updatedAt: string };
 };
 type Persistence = { mode: string; canonicalWriteEnabled: boolean; browserStateIsCanonical: false; productionBinding: false };
+type ReconstructionReviewDataset = {
+  schema: string; version: number; datasetRevision: number; productionBinding: false;
+  sourceKernel: { head: string; tree: string }; reviews: Array<{
+    reviewId: string; componentId: string; sourceCvaId: string; sourceFounderRating: string;
+    status: string; disposition: "APPROVE" | "REFINE" | "FAIL"; fidelityFlags: Record<string, boolean>;
+    founderNote: string; reviewedResponsiveViewports: number[]; timestamp: string; version: number; supersedes: string | null;
+  }>;
+  session: { lastComponentId: string | null; updatedAt: string };
+};
+type ReconstructionReviewPersistence = { mode: string; canonicalWriteEnabled: boolean; browserStateIsCanonical: false; sourcePreferenceCorpusMutable: false; productionBinding: false };
 type Queue = "ALL" | "UNRATED" | "LOVE" | "LIKE" | "MAYBE" | "NOT_ME" | "NEEDS_REFINEMENT" | "NEEDS_UPGRADE" | "BEST_OF_LOVE";
 type View = "REVIEW" | "SUMMARY" | "ARCHIVE" | "COMPONENTS";
 
@@ -51,7 +61,7 @@ function storeWorkingCopy(dataset: Dataset) {
   }
 }
 
-export function RecoveryWorkspace({ archive, initialDataset, persistence }: { archive: ArchiveItem[]; initialDataset: Dataset; persistence: Persistence }) {
+export function RecoveryWorkspace({ archive, initialDataset, persistence, initialReconstructionReviewDataset, reconstructionReviewPersistence }: { archive: ArchiveItem[]; initialDataset: Dataset; persistence: Persistence; initialReconstructionReviewDataset: ReconstructionReviewDataset; reconstructionReviewPersistence: ReconstructionReviewPersistence }) {
   const [dataset, setDataset] = useState<Dataset>(initialDataset);
   const [view, setView] = useState<View>("REVIEW");
   const [queue, setQueue] = useState<Queue>(initialDataset.session.lastCvaId ? "ALL" : "UNRATED");
@@ -206,7 +216,7 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
 
     {view === "SUMMARY" ? <Summary dataset={dataset} archive={archive} progress={progress} onExport={() => download("ATELIER_FOUNDER_VISUAL_PREFERENCE_DATASET_V1.json", deterministicExport(dataset))} onIndex={() => download("ATELIER_FOUNDER_VISUAL_PREFERENCE_DERIVED_INDEX_V1.json", `${JSON.stringify(deriveIndex(dataset, archive), null, 2)}\n`)} onImport={() => importRef.current?.click()} /> : null}
     {view === "ARCHIVE" ? <ArchiveIndex archive={archive} decisionMap={decisionMap} onOpen={(cvaId) => { setQueue("ALL"); setCategory("ALL"); setBoard("ALL"); setIndex(archive.findIndex((entry) => entry.id === cvaId)); setView("REVIEW"); }} /> : null}
-    {view === "COMPONENTS" ? <ReconstructionLibrary /> : null}
+    {view === "COMPONENTS" ? <ReconstructionLibrary initialReviewDataset={initialReconstructionReviewDataset} reviewPersistence={reconstructionReviewPersistence} /> : null}
 
     <input ref={importRef} className={styles.hiddenInput} type="file" accept="application/json,.json" onChange={async (event) => {
       const file = event.target.files?.[0]; if (!file) return;
@@ -215,7 +225,7 @@ export function RecoveryWorkspace({ archive, initialDataset, persistence }: { ar
       event.target.value = "";
     }} />
     {showParent && item ? <ParentContext item={item} siblings={siblings} onClose={() => setShowParent(false)} /> : null}
-    <footer className={styles.a1Status}><span>OPEN · DRAFT · UNMERGED</span><span>A2 EXPERIMENTAL RECONSTRUCTIONS · NO PAGE DESIGN</span><strong>productionBinding=false</strong></footer>
+    <footer className={styles.a1Status}><span>OPEN · DRAFT · UNMERGED</span><span>A2 EXPERIMENTAL RECONSTRUCTIONS · NO PAGE DESIGN · A2R FIDELITY REVIEW · A3 GATE REQUIRED</span><strong>productionBinding=false</strong></footer>
   </main>;
 }
 

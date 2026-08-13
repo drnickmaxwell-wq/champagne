@@ -3,6 +3,10 @@
 .libraryHeader > span, .componentHeader span { color: var(--brand-teal); font-size: .68rem; font-weight: 700; letter-spacing: .13em; }
 .libraryHeader h1 { max-width: 16ch; margin: 1rem 0; font: 500 clamp(3rem, 7vw, 7rem)/.9 var(--font-playfair, Georgia, serif); letter-spacing: -.05em; }
 .libraryHeader p { max-width: 64ch; color: color-mix(in oklab, var(--text-high) 68%, transparent); line-height: 1.65; }
+.libraryHeader > strong { display: inline-block; margin-top: 1rem; color: var(--champagne-keyline-gold); font-size: .76rem; letter-spacing: .08em; }
+.filters { position: sticky; z-index: 3; top: 4.7rem; display: flex; gap: .5rem; padding: .75rem clamp(1rem, 3vw, 3rem); overflow-x: auto; border-bottom: 1px solid color-mix(in oklab, var(--text-high) 15%, transparent); background: color-mix(in oklab, var(--surface-ink) 94%, transparent); backdrop-filter: blur(1rem); }
+.filters button { min-height: 2.5rem; padding: 0 1rem; white-space: nowrap; color: var(--text-high); border: 1px solid color-mix(in oklab, var(--text-high) 22%, transparent); background: transparent; font-size: .64rem; cursor: pointer; }
+.filters button[aria-pressed="true"] { color: var(--surface-ink); border-color: var(--champagne-keyline-gold); background: var(--champagne-keyline-gold); }
 .libraryLayout { display: grid; grid-template-columns: 18rem minmax(0, 1fr); }
 .componentRail { position: sticky; top: 4.8rem; align-self: start; display: grid; max-height: calc(100vh - 4.8rem); overflow-y: auto; border-right: 1px solid color-mix(in oklab, var(--text-high) 14%, transparent); }
 .componentRail button { display: grid; gap: .45rem; min-height: 7rem; padding: 1.1rem; color: var(--text-high); text-align: left; border: 0; border-bottom: 1px solid color-mix(in oklab, var(--text-high) 12%, transparent); background: var(--surface-ink-soft); cursor: pointer; }
@@ -10,21 +14,28 @@
 .componentRail span { color: var(--champagne-keyline-gold); font-size: .6rem; }
 .componentRail strong { font: 500 .9rem/1.25 var(--font-playfair, Georgia, serif); overflow-wrap: anywhere; }
 .componentRail small { color: color-mix(in oklab, var(--text-high) 62%, transparent); font-size: .62rem; text-transform: uppercase; }
+.emptyFilter { padding: 2rem 1rem; color: color-mix(in oklab, var(--text-high) 62%, transparent); font-size: .72rem; line-height: 1.5; }
 .inspector { min-width: 0; padding: clamp(1.2rem, 3vw, 3rem); }
 .componentHeader { display: flex; justify-content: space-between; gap: 2rem; align-items: end; padding-bottom: 1.5rem; }
 .componentHeader h2 { margin: .5rem 0; font: 500 clamp(2rem, 4vw, 4.2rem)/.95 var(--font-playfair, Georgia, serif); }
 .componentHeader p { margin: 0; color: color-mix(in oklab, var(--text-high) 62%, transparent); }
-.componentHeader > strong { color: var(--brand-teal); font: .65rem/1 ui-monospace, monospace; }
-.comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .55fr); border-top: 1px solid var(--champagne-keyline-gold); border-bottom: 1px solid color-mix(in oklab, var(--text-high) 15%, transparent); }
-.sourceEvidence { display: grid; grid-template-rows: auto minmax(18rem, 38vh); margin: 0; border-right: 1px solid color-mix(in oklab, var(--text-high) 15%, transparent); }
+.authorities { display: grid; gap: .55rem; min-width: 13rem; padding: 1rem; border: 1px solid color-mix(in oklab, var(--text-high) 18%, transparent); }
+.authorities strong { color: var(--champagne-keyline-gold); font: .65rem/1 ui-monospace, monospace; }
+.authorities strong + strong { color: var(--brand-teal); }
+.authorities small { color: color-mix(in oklab, var(--text-high) 55%, transparent); font: .6rem/1 ui-monospace, monospace; }
+.comparisonWorkbench { display: grid; grid-template-columns: minmax(22rem, .8fr) minmax(0, 1.2fr); border-top: 1px solid var(--champagne-keyline-gold); border-bottom: 1px solid color-mix(in oklab, var(--text-high) 15%, transparent); }
+.sourceEvidence { position: sticky; top: 8.5rem; align-self: start; display: grid; grid-template-rows: auto minmax(32rem, calc(100vh - 13rem)); margin: 0; border-right: 1px solid color-mix(in oklab, var(--text-high) 15%, transparent); }
 .sourceEvidence figcaption, .liveEvidence > header { display: flex; justify-content: space-between; gap: 1rem; padding: .75rem 1rem; color: color-mix(in oklab, var(--text-high) 64%, transparent); font-size: .64rem; }
 .sourceEvidence figcaption strong, .liveEvidence header strong { color: var(--text-high); }
+.sourceEvidence figcaption a { color: var(--brand-teal); text-underline-offset: .2rem; }
 .sourceEvidence img { width: 100%; height: 100%; object-fit: contain; background: var(--surface-0); }
 .liveEvidence { display: flex; flex-direction: column; }
-.viewportControls { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: auto 1rem 1rem; }
+.viewportControls { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; padding: 1rem; }
 .viewportControls button { min-height: 3.5rem; color: var(--text-high); border: 1px solid color-mix(in oklab, var(--text-high) 24%, transparent); background: transparent; font: 700 .7rem/1 var(--font-inter, Arial, sans-serif); cursor: pointer; }
 .viewportControls button[aria-pressed="true"] { color: var(--surface-ink); border-color: var(--brand-teal); background: var(--brand-teal); }
-.previewStage { display: grid; justify-items: center; min-height: 30rem; padding: clamp(1rem, 3vw, 3rem); overflow: auto; background: color-mix(in oklab, var(--surface-ink-soft) 74%, var(--surface-ink)); }
+.viewportControls small { display: block; margin-top: .3rem; font-size: .5rem; font-weight: 500; opacity: .72; }
+.viewportControls button[data-reviewed="true"] { box-shadow: inset 0 -.2rem var(--champagne-keyline-gold); }
+.previewStage { display: grid; justify-items: center; min-height: 38rem; padding: clamp(1rem, 3vw, 3rem); overflow: auto; background: color-mix(in oklab, var(--surface-ink-soft) 74%, var(--surface-ink)); }
 .previewFrame { container-type: inline-size; min-width: min(100%, 390px); overflow: hidden; color: var(--surface-ink); background: var(--surface-0); box-shadow: var(--shadow-soft); }
 .ctaExamples { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; min-height: 18rem; padding: clamp(2rem, 7cqi, 7rem); background: var(--surface-0); }
 .panelExample { display: grid; place-items: center; min-height: 20rem; padding: 2rem; background: color-mix(in oklab, var(--surface-0) 92%, var(--brand-teal) 8%); }
@@ -32,23 +43,63 @@
 .metadata > div { padding: 1.4rem; background: var(--surface-ink-soft); }
 .metadata h3 { margin: 0 0 .8rem; color: var(--champagne-keyline-gold); font: 500 1.15rem/1 var(--font-playfair, Georgia, serif); }
 .metadata p { margin: 0; color: color-mix(in oklab, var(--text-high) 66%, transparent); font-size: .72rem; line-height: 1.55; }
+.reviewPanel { margin-top: 1px; padding: clamp(1.25rem, 3vw, 3rem); background: var(--surface-ink-soft); }
+.reviewPanel > header { display: flex; justify-content: space-between; gap: 2rem; align-items: end; padding-bottom: 1.5rem; border-bottom: 1px solid color-mix(in oklab, var(--text-high) 15%, transparent); }
+.reviewPanel > header span, .checkpoint span, .gateSummary > span { color: var(--champagne-keyline-gold); font-size: .62rem; font-weight: 700; letter-spacing: .12em; }
+.reviewPanel h3 { margin: .45rem 0 0; font: 500 clamp(1.6rem, 3vw, 2.8rem)/1 var(--font-playfair, Georgia, serif); }
+.reviewPanel > header p { max-width: 30ch; margin: 0; color: var(--brand-teal); font-size: .68rem; text-align: right; }
+.dispositions { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1.5rem 0; }
+.dispositions button { min-height: 4.5rem; color: var(--text-high); border: 1px solid color-mix(in oklab, var(--text-high) 25%, transparent); background: transparent; font-weight: 700; letter-spacing: .08em; cursor: pointer; }
+.dispositions button[aria-pressed="true"] { color: var(--surface-ink); border-color: var(--brand-teal); background: var(--brand-teal); }
+.flags { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; margin: 0; padding: 1.25rem; border: 1px solid color-mix(in oklab, var(--text-high) 18%, transparent); }
+.flags legend { padding: 0 .6rem; color: color-mix(in oklab, var(--text-high) 68%, transparent); font-size: .68rem; }
+.flags label { display: flex; gap: .7rem; align-items: center; min-height: 2.8rem; padding: .5rem .7rem; color: color-mix(in oklab, var(--text-high) 76%, transparent); border: 1px solid color-mix(in oklab, var(--text-high) 10%, transparent); font-size: .7rem; cursor: pointer; }
+.flags input { width: 1rem; height: 1rem; accent-color: var(--brand-teal); }
+.note { display: grid; gap: .7rem; margin-top: 1.25rem; }
+.note > span { color: var(--text-high); font: 500 1.2rem/1 var(--font-playfair, Georgia, serif); }
+.note textarea { width: 100%; padding: 1rem; resize: vertical; color: var(--text-high); border: 1px solid color-mix(in oklab, var(--text-high) 22%, transparent); background: var(--surface-ink); font: .9rem/1.55 var(--font-inter, Arial, sans-serif); }
+.note small { color: color-mix(in oklab, var(--text-high) 58%, transparent); }
+.saveEvidence { min-height: 3.2rem; margin-top: 1rem; padding: 0 1.2rem; color: var(--surface-ink); border: 1px solid var(--brand-teal); background: var(--brand-teal); font-size: .68rem; font-weight: 700; cursor: pointer; }
+.history { margin-top: 1.25rem; border-top: 1px solid color-mix(in oklab, var(--text-high) 14%, transparent); }
+.history summary { padding: 1rem 0; color: var(--brand-teal); font-size: .7rem; cursor: pointer; }
+.history p { display: flex; justify-content: space-between; gap: 1rem; margin: 0; padding: .7rem 0; color: color-mix(in oklab, var(--text-high) 65%, transparent); border-top: 1px solid color-mix(in oklab, var(--text-high) 10%, transparent); font-size: .65rem; }
+.history p strong { color: var(--text-high); }
+.reviewNavigation { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; padding: 1rem 0 0; }
+.reviewNavigation button, .checkpoint button { min-height: 3.2rem; padding: 0 1.2rem; color: var(--text-high); border: 1px solid color-mix(in oklab, var(--text-high) 22%, transparent); background: transparent; cursor: pointer; }
+.reviewNavigation button:last-child { justify-self: end; }
+.reviewNavigation strong { color: var(--champagne-keyline-gold); font-size: .68rem; }
+.checkpoint, .gateSummary { display: flex; justify-content: space-between; gap: 2rem; align-items: end; padding: clamp(2rem, 5vw, 5rem); border-top: 1px solid var(--champagne-keyline-gold); background: var(--surface-ink-soft); }
+.checkpoint h2, .gateSummary h2 { margin: .6rem 0; font: 500 clamp(2rem, 5vw, 4rem)/1 var(--font-playfair, Georgia, serif); }
+.checkpoint p, .gateSummary p { max-width: 68ch; color: color-mix(in oklab, var(--text-high) 66%, transparent); line-height: 1.55; }
+.checkpoint > div:last-child { display: flex; gap: .75rem; flex-shrink: 0; }
+.gateSummary { display: block; background: color-mix(in oklab, var(--brand-teal) 12%, var(--surface-ink)); }
+.gateSummary > strong { display: block; margin-top: 1.5rem; color: var(--champagne-keyline-gold); }
 
 @media (max-width: 64rem) {
   .libraryLayout { grid-template-columns: 14rem minmax(0, 1fr); }
-  .comparison { grid-template-columns: 1fr; }
-  .sourceEvidence { border-right: 0; border-bottom: 1px solid color-mix(in oklab, var(--text-high) 15%, transparent); }
+  .comparisonWorkbench { grid-template-columns: 1fr; }
+  .sourceEvidence { position: relative; top: 0; grid-template-rows: auto minmax(26rem, 55vh); border-right: 0; border-bottom: 1px solid color-mix(in oklab, var(--text-high) 15%, transparent); }
   .metadata { grid-template-columns: 1fr 1fr; }
+  .flags { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 48rem) {
   .libraryLayout { display: block; }
   .componentRail { position: relative; top: 0; grid-template-columns: 1fr 1fr; max-height: none; border-right: 0; }
   .componentHeader { align-items: start; flex-direction: column; }
+  .authorities { width: 100%; }
+  .reviewPanel > header, .checkpoint { align-items: start; flex-direction: column; }
+  .reviewPanel > header p { text-align: left; }
 }
 @media (max-width: 30rem) {
   .libraryHeader { padding: 2.5rem 1rem; }
   .componentRail { grid-template-columns: 1fr; }
   .inspector { padding: .75rem; }
   .metadata { grid-template-columns: 1fr; }
+  .viewportControls, .flags { grid-template-columns: 1fr 1fr; }
   .previewStage { padding: .6rem; }
   .ctaExamples { display: grid; padding: 2rem 1rem; }
+  .dispositions { grid-template-columns: 1fr; }
+  .history p { display: grid; }
+  .checkpoint > div:last-child { width: 100%; flex-direction: column; }
+  .checkpoint button { width: 100%; }
 }

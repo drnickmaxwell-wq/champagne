@@ -1,4 +1,4 @@
-name: Atelier Recovery A1 + A2 Visual QA
+name: Atelier Recovery A1 + A2 + A2R Visual QA
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   recovery-a1:
-    name: recovery-a1-a2-contract-persistence-and-visual-truth
+    name: recovery-a1-a2-a2r-contract-persistence-and-visual-truth
     runs-on: ubuntu-latest
     env:
       ALLOW_CHAMPAGNE_ROUTES: "true"
@@ -42,6 +42,7 @@ jobs:
           pnpm atelier:a1:test
           pnpm atelier:a2:check
           pnpm atelier:a2:test
+          pnpm atelier:a2r:test
       - name: Install Chromium
         run: pnpm exec playwright install --with-deps chromium
       - name: Build and start recovery route
@@ -67,6 +68,11 @@ jobs:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
           ATELIER_A2_EVIDENCE_DIR: ${{ runner.temp }}/atelier-a2-evidence
         run: pnpm atelier:a2:visual-qa
+      - name: Exercise A2R fidelity review and checkpoint restoration
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:3000
+          ATELIER_A2R_EVIDENCE_DIR: ${{ runner.temp }}/atelier-a2r-evidence
+        run: pnpm atelier:a2r:visual-qa
       - name: Prove explicit local persistence and restore canonical seed
         env:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:3001
@@ -104,14 +110,52 @@ jobs:
           pnpm atelier:a1:check
           pnpm atelier:a2:check
           git diff --exit-code -- "$dataset"
-      - name: Upload A1 and A2 evidence
+      - name: Prove separate A2R explicit persistence and restore empty seed
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:3002
+        run: |
+          set -euxo pipefail
+          dataset="apps/web/app/champagne/atelier-recovery/data/reconstruction-review/founder-reconstruction-reviews.v1.json"
+          source_dataset="apps/web/app/champagne/atelier-recovery/data/preferences/founder-visual-preferences.v1.json"
+          backup="$RUNNER_TEMP/founder-reconstruction-reviews.rev1.json"
+          source_hash_before="$(sha256sum "$source_dataset")"
+          cp "$dataset" "$backup"
+          env -u CI \
+            ALLOW_CHAMPAGNE_ROUTES=true \
+            CHAMPAGNE_ATELIER_LOCAL_WORK_MODE=A2R_EXPLICIT_WRITE \
+            ATELIER_WORKTREE_FILE_PERSISTENCE=ENABLED \
+            pnpm --filter web dev --hostname 127.0.0.1 --port 3002 > "$RUNNER_TEMP/atelier-a2r-persistence.log" 2>&1 &
+          server_pid=$!
+          restore_seed() {
+            kill "$server_pid" 2>/dev/null || true
+            cp "$backup" "$dataset"
+          }
+          trap restore_seed EXIT
+          for attempt in {1..60}; do
+            if curl --fail --silent http://127.0.0.1:3002/champagne/atelier-recovery > /dev/null; then
+              break
+            fi
+            if [[ "$attempt" == "60" ]]; then
+              cat "$RUNNER_TEMP/atelier-a2r-persistence.log"
+              exit 1
+            fi
+            sleep 1
+          done
+          pnpm atelier:a2r:persistence-qa
+          restore_seed
+          trap - EXIT
+          test "$(sha256sum "$source_dataset")" = "$source_hash_before"
+          git diff --exit-code -- "$dataset" "$source_dataset"
+      - name: Upload A1, A2 and A2R evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: atelier-recovery-a1-a2-render-evidence
+          name: atelier-recovery-a1-a2-a2r-render-evidence
           path: |
             ${{ runner.temp }}/atelier-a1-evidence
             ${{ runner.temp }}/atelier-a2-evidence
+            ${{ runner.temp }}/atelier-a2r-evidence
             ${{ runner.temp }}/atelier-a1-production.log
             ${{ runner.temp }}/atelier-a1-persistence.log
+            ${{ runner.temp }}/atelier-a2r-persistence.log
           if-no-files-found: warn
