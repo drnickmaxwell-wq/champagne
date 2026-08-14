@@ -1,0 +1,9 @@
+body:has([data-atelier-recovery-route="A0"]) > div.flex > div.sticky,
+body:has([data-atelier-recovery-route="A0"]) > div.flex > footer,
+body:has([data-atelier-recovery-route="A0"]) > div[class*="concierge_root"] {
+  display: none;
+}
+
+body:has([data-atelier-recovery-route="A0"]) > div.flex > main:has(> [data-atelier-recovery-route="A0"]) {
+  padding: 0;
+}

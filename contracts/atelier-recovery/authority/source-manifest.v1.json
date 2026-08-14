@@ -1,0 +1,39 @@
+{
+  "schema": "ATELIER_CANONICAL_BRAND_AUTHORITY_SOURCE_MANIFEST_V1",
+  "authority": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1@1.0.0",
+  "canonicalFile": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1.json",
+  "antiDnaPath": "antiDNA",
+  "sourcePack": {
+    "fileName": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1_PACK(6).zip",
+    "sha256": "4f75830c76564a3ef249235b606e53c459d20b88f9b9695cb1029aaf3e8c2f6d",
+    "settlementState": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1_CORE_SETTLED"
+  },
+  "files": [
+    {
+      "path": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1.json",
+      "sha256": "4bba482dc2c3892c1be0f5d9d3413159f033ea86534848372cdb88b944d0cd5f",
+      "role": "ONE_CANONICAL_FOUNDER_BRAND_AUTHORITY"
+    },
+    {
+      "path": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED.json",
+      "sha256": "d1c1a91e854669d39451892cdc9da1144b9fd1c5d8c8409e65b94786a9d6f91a",
+      "role": "CLOSURE_EVIDENCE"
+    },
+    {
+      "path": "evidence/CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_36_OF_38.json",
+      "sha256": "b9f57d075d9bc7e4265720df363e17e4913735baa60d7f906cb08556dcf8265f",
+      "role": "PRESERVED_EXACT_DECISION_EVIDENCE"
+    },
+    {
+      "path": "evidence/CHAMPAGNE_3D_AND_MEDICAL_VISUAL_TASTE_EVIDENCE_V1.json",
+      "sha256": "b979c42ca323550eb03e3ccec9308f9c569d3c8861ebae4fbe310995cd60bccc",
+      "role": "UNRESOLVED_DOMAIN_EVIDENCE"
+    }
+  ],
+  "rules": {
+    "readOnly": true,
+    "canonicalAuthorityCount": 1,
+    "implementationBinding": false,
+    "founderJudgementRequired": true
+  }
+}

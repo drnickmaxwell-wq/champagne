@@ -1,0 +1,193 @@
+{
+  "schema": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1",
+  "version": "1.0.0",
+  "founder": "Dr Nick Maxwell",
+  "authorityState": "CANONICAL_CORE_WITH_BOUNDED_DOMAIN_GAPS",
+  "evidence": {
+    "atlasDecisionState": "COMPLETE_38_OF_38",
+    "preservedFounderDecisions": 36,
+    "newFounderDecisions": 2,
+    "componentEvidence": {
+      "familyF": {
+        "status": "APPROVED",
+        "signals": {
+          "F02": "LOVE",
+          "F06": "LOVE",
+          "F08": "LOVE",
+          "F09": "LOVE",
+          "F10": "LOVE"
+        }
+      },
+      "familyGOriginal": "REJECTED_OFF_BRAND",
+      "familyGReplacement": "REJECTED_ZERO_AUTHORITY"
+    },
+    "threeDInterview": "ACTIVE_SEPARATE_TRAIT_EVIDENCE"
+  },
+  "coreEssence": "Fluid, luminous, editorial luxury moving between Persian depth and warm Porcelain, animated by confident magenta, turquoise and gold, with human warmth, visual intelligence and St Mary's House used only as selective provenance.",
+  "recognitionHierarchy": [
+    "layered Champagne wave and fluid motion language",
+    "luminous magenta-turquoise-gold spectrum participation",
+    "Persian depth balanced by Porcelain lift",
+    "editorial composition with rich, useful explanation",
+    "warm human and practice presence",
+    "interactive visual teaching and refined medical intelligence",
+    "rare St Mary's House provenance"
+  ],
+  "fixedColourIdentity": {
+    "magenta": "#C2185B",
+    "turquoise": "#40C4B4",
+    "gold": "#D4AF37",
+    "rule": "These are real participating brand colours, not apologetic micro-accents. Their dosage varies by composition; their identity must not be replaced or washed away."
+  },
+  "environmentDNA": {
+    "persian": {
+      "role": "depth, drama, velvet luminosity and authority",
+      "approvedEvidence": [
+        "CVA-SURFACE-B038-E03",
+        "CVA-SURFACE-B038-E04",
+        "CVA-SECTION-B011-E02"
+      ],
+      "constraints": [
+        "not generic navy",
+        "not charcoal or dark grey",
+        "not uniformly dark",
+        "not navy-and-gold hotel luxury"
+      ]
+    },
+    "porcelain": {
+      "role": "warm lift, editorial breathing space, clarity and tactile lightness",
+      "approvedEvidence": [
+        "CVA-SURFACE-B038-E02",
+        "CVA-SECTION-B011-E01",
+        "CVA-SECTION-B034-E04",
+        "CVA-FOOTER-F03-E02"
+      ],
+      "constraints": [
+        "must remain distinctive",
+        "must not become generic white SaaS",
+        "must retain wave, material, colour or editorial lineage",
+        "must not become bland"
+      ]
+    },
+    "balanceRule": "Champagne is not a permanently dark site and not a pale minimal site. Persian and Porcelain form a deliberately varied rhythm."
+  },
+  "waveAndSurfaceDNA": {
+    "authority": "FOUNDATIONAL",
+    "description": "Large layered waves, fine contour lines, dotted fields, translucent mineral texture, currents, orbits and luminous transitions provide the primary visual grammar.",
+    "heroAnchor": "CVA-SEQUENCE-B010-E01",
+    "backgroundAnchor": "CVA-SEQUENCE-B005-E01",
+    "newSurfaceAnchors": [
+      "CVA-SURFACE-B038-E02",
+      "CVA-SURFACE-B038-E04"
+    ],
+    "constraint": "A wave background alone may be loved yet still be insufficient as a complete Hero. Composition, interaction and narrative layering must complete it."
+  },
+  "compositionDNA": {
+    "desired": [
+      "editorial rhythm rather than uniform component stacking",
+      "fluid transitions that break blockiness",
+      "rich information presented beautifully",
+      "alternation of deep and light chapters",
+      "large visual gestures balanced with calm reading areas",
+      "mixing compatible component families instead of forcing one repeated template"
+    ],
+    "approvedSectionSystems": [
+      "split editorial block",
+      "comparison and highlight panel",
+      "warm image plus editorial copy",
+      "layered reassurance strip",
+      "polished compact mobile sections"
+    ],
+    "guardrail": "Approval of multiple section types authorises a curated rhythm, not use of all types on every page."
+  },
+  "contentAndIntelligenceDNA": {
+    "desired": [
+      "beautifully explained treatment information",
+      "diagrams and visual planning",
+      "interactive 3D teaching",
+      "clinically useful reassurance",
+      "human handover and practitioner authority"
+    ],
+    "rule": "Champagne luxury includes clarity, intelligence and usefulness; it is not decorative emptiness."
+  },
+  "humanWarmthDNA": {
+    "role": "Essential counterweight to clinical precision and cinematic depth",
+    "desired": [
+      "warm genuine practice imagery",
+      "clinician presence",
+      "human handover",
+      "editorial rather than stock-photo treatment"
+    ],
+    "constraint": "Generic glamour photography and invented people are not substitutes for genuine warmth."
+  },
+  "heritageAndPlaceDNA": {
+    "authority": "SUPPORTING_ACCENT",
+    "subject": "The real St Mary's House",
+    "approvedUses": [
+      "rare gilded elevation",
+      "wave-and-place bridge in the right position",
+      "small heritage micro-marks",
+      "selective place-story moment"
+    ],
+    "hardRule": "ARCHITECTURE_AS_PRIMARY_BRAND_GRAMMAR_REJECTED"
+  },
+  "heroDNA": {
+    "currentSacredAuthority": "CVA-SEQUENCE-B010-E01",
+    "founderSignal": "LOVE",
+    "requiredTraits": [
+      "large layered wave",
+      "luminosity",
+      "composition and interaction",
+      "confident spectrum participation",
+      "more than a passive background"
+    ],
+    "knownCorrection": "The Persian blue in the recorded reference is not yet the exact final Persian."
+  },
+  "footerDNA": {
+    "desired": "A layered closing environment with a Porcelain-to-Persian descent or refined spectrum ember lineage, visually related to Hero V2 rather than a generic blue-and-gold footer.",
+    "approvedPrimaryReference": "CVA-FOOTER-F03-E02",
+    "qualifiedReference": "CVA-FOOTER-F03-E03",
+    "constraints": [
+      "avoid cramped composition",
+      "correct the colour fidelity",
+      "retain layering"
+    ]
+  },
+  "conciergeVisualBoundary": {
+    "positiveRequirement": "A useful, highly interactive Concierge born from the same Champagne wave, editorial and visual-intelligence system.",
+    "rejected": [
+      "generic chatbot widget",
+      "hotel or bell-service styling",
+      "boxy SaaS component catalogue",
+      "sticky utility tray as the primary identity",
+      "vague fashion or glamour mood-board",
+      "invented building, bell or tooth emblem as a proxy for identity"
+    ],
+    "status": "DOMAIN_PROFILE_NOT_YET_SETTLED"
+  },
+  "antiDNA": [
+    "architecture dominating the brand",
+    "Persian reduced to arches",
+    "generic navy-and-gold luxury",
+    "dark grey as the primary dark environment",
+    "uniformly dark pages",
+    "washed-out brand colours",
+    "off-palette spectrum colour",
+    "generic SaaS blockiness and repetitive card grids",
+    "ordinary chatbot or hotel-service Concierge language",
+    "generic polished dental CGI without Champagne lineage",
+    "cold clinical minimalism",
+    "scrapbook fragmentation",
+    "Porcelain treated as bland white space",
+    "technical impressiveness mistaken for brand approval"
+  ],
+  "domainStatus": {
+    "heroStyleProfile": "SUFFICIENT_EVIDENCE_FOR_DERIVATION",
+    "pageStyleProfile": "SUFFICIENT_EVIDENCE_FOR_DERIVATION",
+    "generatedMediaStyleProfile": "MORE_TRAIT_EVIDENCE_REQUIRED",
+    "threeDArtDirectionProfile": "INTERVIEW_ACTIVE_NOT_AUTHORISED",
+    "conciergeVisualProfile": "REQUIRES_NEW_SOURCE_GROUNDED_INTERVIEW"
+  },
+  "implementationBinding": false,
+  "founderJudgementRule": "Machine alignment reports and derived profiles assist critique; they never replace explicit Founder judgement."
+}
