@@ -1,0 +1,72 @@
+{
+  "schema": "ATELIER_A2F_RECONSTRUCTION_FIDELITY_CALIBRATION_V1",
+  "version": 1,
+  "productionBinding": false,
+  "parent": {
+    "pr": 874,
+    "head": "a10fe4530dc4d9c4ee9d7edc9b9659be4665dffa",
+    "tree": "0cdf9727d7014df6c04f740d999b83bb6224aaa6"
+  },
+  "authority": {
+    "founderA2rReview": "CANCELLED",
+    "founderReconstructionReviewCount": 0,
+    "a3Authorised": false,
+    "reconstructionKernelGap": "CONFIRMED",
+    "directorGate": "MAIN_DIRECTORATE_FIDELITY_REVIEW_REQUIRED",
+    "readyForFounderReconstructionReview": false
+  },
+  "calibrationSet": [
+    {
+      "sourceCvaId": "CVA-SECTION-B029-E05",
+      "componentId": "A2-DECISION-CLARITY-01",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-SECTION-B029-E05.png",
+      "nativeDimensions": { "width": 836, "height": 257 },
+      "sourceFounderRating": "LOVE",
+      "authoritativeFounderNote": "LOVE but blue is not the persian blue i want, but love the use of brand colours to brighten",
+      "explicitCorrectiveAuthority": ["blue must use the intended Persian blue"],
+      "stage1": "IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED",
+      "stage2": "BLOCKED_PENDING_DIRECTOR_FIDELITY_PASS",
+      "knownGaps": ["fine icon stroke character and source raster texture remain visual-comparison questions"],
+      "directorFidelityPass": false
+    },
+    {
+      "sourceCvaId": "CVA-BAND-B020-E03",
+      "componentId": "A2-SPECTRUM-CLOSING-BAND-01",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-BAND-B020-E03.png",
+      "nativeDimensions": { "width": 820, "height": 188 },
+      "sourceFounderRating": "LOVE",
+      "authoritativeFounderNote": "THIS I LOVE",
+      "explicitCorrectiveAuthority": [],
+      "stage1": "IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED",
+      "stage2": "BLOCKED_PENDING_DIRECTOR_FIDELITY_PASS",
+      "knownGaps": ["the token-rendered luminous field may still differ from the source raster texture at pixel level"],
+      "directorFidelityPass": false
+    },
+    {
+      "sourceCvaId": "CVA-FOOTER-F03-E02",
+      "componentId": "A2-PORCELAIN-DESCENT-FOOTER-01",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-FOOTER-F03-E02.png",
+      "nativeDimensions": { "width": 1167, "height": 279 },
+      "sourceFounderRating": "LOVE",
+      "authoritativeFounderNote": "love this",
+      "explicitCorrectiveAuthority": [],
+      "stage1": "IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED",
+      "stage2": "BLOCKED_PENDING_DIRECTOR_FIDELITY_PASS",
+      "knownGaps": ["FOOTER_HERITAGE_ILLUSTRATION_ASSET_GAP: no approved rights-safe St Mary’s heritage vector or source artwork is present; the code-native line drawing preserves placement and visual weight but cannot claim illustration fidelity"],
+      "directorFidelityPass": false
+    }
+  ],
+  "comparisonWorkbench": {
+    "lockedIdenticalFrames": true,
+    "modes": ["SIDE_BY_SIDE", "SPLIT", "OVERLAY", "BLINK"],
+    "adjustableSourceOverlayOpacity": true,
+    "lockedZoomPan": true,
+    "sourceNativeDimensions": true,
+    "exactViewportDisplay": true,
+    "viewports": [1440, 1024, 768, 390],
+    "directorChecklist": ["shape/silhouette", "proportions", "layering", "surfaces", "colour distribution", "typography hierarchy", "spacing", "negative space", "wave/detail", "density"],
+    "automatedArtisticPassScore": false
+  },
+  "frozenNotRepairedComponentCount": 5,
+  "terminal": "MAIN_DIRECTORATE_FIDELITY_REVIEW_REQUIRED"
+}

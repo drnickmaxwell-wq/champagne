@@ -69,10 +69,10 @@ test("every indexed reconstruction links a real source and declares adaptive exp
   }
 });
 
-test("reconstructed component bodies are code-native and cannot render source PNGs", () => {
+test("reconstructed semantic bodies stay code-native and cannot render complete source PNGs", () => {
   assert.equal(componentSource.includes("<img"), false);
   assert.equal(componentSource.includes(".png"), false);
-  assert.match(librarySource, /Source reference/);
+  assert.match(librarySource, /SOURCE PNG/);
   assert.match(librarySource, /data-testid="a2-component-render"/);
   assert.equal((librarySource.match(/<img/g) ?? []).length, 1, "only the source-evidence pane may use an image");
 });
@@ -80,7 +80,7 @@ test("reconstructed component bodies are code-native and cannot render source PN
 test("A2 styling uses canonical tokens and adaptive container rules", () => {
   assert.equal(/#[0-9a-f]{3,8}\b/i.test(componentCss), false, "no raw colour literals");
   for (const token of ["--brand-magenta", "--brand-teal", "--champagne-keyline-gold", "--surface-0", "--surface-ink"]) assert.match(componentCss, new RegExp(token), token);
-  assert.match(componentCss, /@container \(max-width: 52rem\)/);
+  assert.match(componentCss, /@container \(max-width: 600px\)/);
   assert.match(componentCss, /@container \(max-width: 30rem\)/);
 });
 

@@ -1,0 +1,101 @@
+{
+  "schema": "ATELIER_A2H_HYBRID_FIDELITY_CALIBRATION_V1",
+  "version": 1,
+  "productionBinding": false,
+  "parent": {
+    "pr": 875,
+    "head": "9a70c2626d528a9d612adfc39682fdf04a8f7843",
+    "tree": "19580d69e2b1b0d2c832e23c22a6e0473fadbd76"
+  },
+  "strategy": {
+    "pureCssPixelReconstructionAsGeneralStrategy": "RETIRED",
+    "fidelityWorkbench": "PRESERVED",
+    "architecture": "LIVE_SEMANTIC_COMPONENT_PLUS_SOURCE_DERIVED_DECORATIVE_VISUAL_LAYERS",
+    "completeSourcePngAsLiveBody": false,
+    "semanticContentBakedIntoDecorativeAssets": false,
+    "automatedArtisticPassScore": false
+  },
+  "authority": {
+    "founderReview": "NOT_AUTHORISED",
+    "founderReconstructionReviewCount": 0,
+    "a3Authorised": false,
+    "directorGate": "MAIN_DIRECTORATE_HYBRID_FIDELITY_REVIEW_REQUIRED",
+    "readyForFounderReconstructionReview": false
+  },
+  "sources": [
+    {
+      "sourceCvaId": "CVA-SECTION-B029-E05",
+      "componentId": "A2-DECISION-CLARITY-01",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-SECTION-B029-E05.png",
+      "sourceSha256": "30d7ebddcbca1c6d08ef144ca48758cff976140fb7c69e37df22b4e3052f4a9d",
+      "nativeDimensions": { "width": 836, "height": 257 },
+      "sourceFounderRating": "LOVE",
+      "authoritativeFounderNote": "LOVE but blue is not the persian blue i want, but love the use of brand colours to brighten",
+      "explicitCorrectiveAuthority": ["blue must use the intended Persian blue"],
+      "measuredRegions": {
+        "chapter": { "x": 18, "y": 18, "width": 47, "height": 38 },
+        "titleRail": { "x": 89, "y": 18, "width": 391, "height": 65 },
+        "informationRails": { "x": 20, "y": 98, "width": 597, "height": 131 },
+        "summary": { "x": 636, "y": 81, "width": 174, "height": 152 }
+      },
+      "liveSemanticSlots": ["chapter", "eyebrow", "heading", "intro", "four labelled information lists", "summary", "consultation link"],
+      "decorativeAssets": ["decision-persian-surface.webp"],
+      "status": "HYBRID_IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED"
+    },
+    {
+      "sourceCvaId": "CVA-BAND-B020-E03",
+      "componentId": "A2-SPECTRUM-CLOSING-BAND-01",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-BAND-B020-E03.png",
+      "sourceSha256": "8ae32add3679a66ef3ec5c3646250695c0f40983ef9892fd0c265e02e1854eea",
+      "nativeDimensions": { "width": 820, "height": 188 },
+      "sourceFounderRating": "LOVE",
+      "authoritativeFounderNote": "THIS I LOVE",
+      "explicitCorrectiveAuthority": [],
+      "measuredRegions": {
+        "headline": { "x": 275, "y": 52, "width": 270, "height": 31 },
+        "ornament": { "x": 318, "y": 99, "width": 184, "height": 4 },
+        "action": { "x": 317, "y": 119, "width": 184, "height": 36 },
+        "semanticExclusionMask": { "x": 232, "y": 26, "width": 356, "height": 152, "radius": 26 }
+      },
+      "liveSemanticSlots": ["heading", "consultation link"],
+      "decorativeAssets": ["spectrum-luminous-field.webp", "spectrum-edge-currents.webp"],
+      "status": "HYBRID_IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED"
+    },
+    {
+      "sourceCvaId": "CVA-FOOTER-F03-E02",
+      "componentId": "A2-PORCELAIN-DESCENT-FOOTER-01",
+      "sourceAsset": "/assets/champagne/design-lab/v27/CVA-FOOTER-F03-E02.png",
+      "sourceSha256": "3e5756051c465232375315a8718c869ed58c93ca450b43a1ea0625295e4572e5",
+      "nativeDimensions": { "width": 1167, "height": 279 },
+      "sourceFounderRating": "LOVE",
+      "authoritativeFounderNote": "love this",
+      "explicitCorrectiveAuthority": [],
+      "measuredRegions": {
+        "heritageIllustration": { "x": 0, "y": 0, "width": 300, "height": 164 },
+        "brandLockup": { "x": 300, "y": 8, "width": 238, "height": 72 },
+        "utilityRail": { "x": 570, "y": 37, "width": 503, "height": 35 },
+        "waveEnvelope": { "x": 0, "y": 49, "width": 1167, "height": 143 },
+        "navigationField": { "x": 557, "y": 112, "width": 379, "height": 114 },
+        "closingAction": { "x": 1003, "y": 134, "width": 116, "height": 89 },
+        "legalRail": { "x": 0, "y": 238, "width": 1167, "height": 41 }
+      },
+      "liveSemanticSlots": ["practice name", "tagline", "utility links", "group headings", "navigation links", "closing action", "legal links", "copyright"],
+      "decorativeAssets": ["footer-porcelain-field.webp", "footer-persian-depth.webp", "footer-heritage-house.webp", "footer-practice-mark.webp", "footer-wave-transition.webp", "footer-particles-left.webp"],
+      "status": "HYBRID_IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED"
+    }
+  ],
+  "derivedAssetRoot": "/assets/champagne/atelier-recovery/a2h/",
+  "derivedAssets": [
+    { "name": "decision-persian-surface.webp", "sha256": "0dfc53220718356b567fd6426cf044abbc69cf5de15a3ca969cf694149c97d21", "role": "clean source crop scaled as the Persian material field", "containsSemanticContent": false },
+    { "name": "spectrum-luminous-field.webp", "sha256": "eaff4a1e199f796fb2e7e349cc690b593144484da0867d5281acdea567a5c85b", "role": "low-frequency source colour field", "containsSemanticContent": false },
+    { "name": "spectrum-edge-currents.webp", "sha256": "7247f0df29732a295764a56299e2a0b0d6e42c767b1189d26797a5252e603c23", "role": "source wave, line and texture detail with a hard-transparent semantic centre and feathered outer transition", "containsSemanticContent": false },
+    { "name": "footer-heritage-house.webp", "sha256": "27a7e6ae0d6b78541c380de9136435d30f0463cb820a09bd68638b0dbcb1fd4e", "role": "source-specific non-semantic heritage illustration isolated above the shared wave layer", "containsSemanticContent": false },
+    { "name": "footer-practice-mark.webp", "sha256": "bbcca3fbac7f5413565ec7c095b40e5ea61388f928c374e04d37c3ce955608ff", "role": "source-specific non-text practice ornament", "containsSemanticContent": false },
+    { "name": "footer-wave-transition.webp", "sha256": "5cd5a19579f2443d21fd31e3d4d49604e5c623eda2e178beecf0614e1a150776", "role": "masked source wave envelope with non-wave regions transparent", "containsSemanticContent": false },
+    { "name": "footer-particles-left.webp", "sha256": "4974816d8dfbff0adad84940afacbfbedfea37fb4e2fded25fe9d818b0e1992b", "role": "source particle field from a semantic-free region", "containsSemanticContent": false },
+    { "name": "footer-persian-depth.webp", "sha256": "7aec61dbec1de10a35d9c110079d606e9b0e7959af1207bb1964cac9804b5ad3", "role": "clean source Persian crop masked to the measured descending lower-field silhouette", "containsSemanticContent": false },
+    { "name": "footer-porcelain-field.webp", "sha256": "6fb689f3b726541c5d8f124c24815798392b64586599ac2b6b45e9b12d4f9b4d", "role": "clean source crop scaled as the Porcelain field", "containsSemanticContent": false }
+  ],
+  "frozenNotRebuiltComponentCount": 5,
+  "terminal": "MAIN_DIRECTORATE_HYBRID_FIDELITY_REVIEW_REQUIRED"
+}

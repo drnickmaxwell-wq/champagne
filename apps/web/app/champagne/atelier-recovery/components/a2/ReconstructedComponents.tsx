@@ -25,6 +25,13 @@ function QuestionIcon() {
   return <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.8 9a2.4 2.4 0 0 1 4.6 1c0 2-2.4 2.1-2.4 4M12 17.5v.1" /></svg>;
 }
 
+function DecisionIcon({ kind }: { kind: "heart" | "alert" | "arrows" | "question" }) {
+  if (kind === "heart") return <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 4.8c-2.2-2.2-5.7-1.9-7.6.5L12 6.8l-1.2-1.5C8.9 2.9 5.4 2.6 3.2 4.8.8 7.2 1 11 3.6 13.4L12 21l8.4-7.6c2.6-2.4 2.8-6.2.4-8.6Z" /></svg>;
+  if (kind === "alert") return <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 6.8v7M12 17.2v.1" /></svg>;
+  if (kind === "arrows") return <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h15M15 3l4 4-4 4M20 17H5M9 13l-4 4 4 4" /></svg>;
+  return <QuestionIcon />;
+}
+
 export function ArchitecturalCta({ label, href, variant = "gold", compact = false }: LinkSlot & { variant?: "gold" | "teal" | "magenta"; compact?: boolean }) {
   return (
     <a className={`${styles.architecturalCta} ${styles[variant]}`} data-compact={compact} href={href}>
@@ -34,23 +41,24 @@ export function ArchitecturalCta({ label, href, variant = "gold", compact = fals
 }
 
 export function DecisionClaritySection({
-  heading, intro, benefits, limitations, alternatives, questions, summary, action,
+  eyebrow = "Porcelain risks & decisions", chapter = "05", heading, intro, benefits, limitations, alternatives, questions, summary, action,
 }: {
-  heading: string; intro: string; benefits: string[]; limitations: string[]; alternatives: string[];
+  eyebrow?: string; chapter?: string; heading: string; intro: string; benefits: string[]; limitations: string[]; alternatives: string[];
   questions: string[]; summary: string; action: LinkSlot;
 }) {
   const columns = [
-    { title: "Benefits", items: benefits, tone: "teal" },
-    { title: "Limitations", items: limitations, tone: "gold" },
-    { title: "Alternatives", items: alternatives, tone: "magenta" },
-    { title: "Questions to ask", items: questions, tone: "teal" },
+    { title: "Benefits", items: benefits, tone: "teal", icon: "heart" as const },
+    { title: "Limitations", items: limitations, tone: "gold", icon: "alert" as const },
+    { title: "Alternatives", items: alternatives, tone: "teal", icon: "arrows" as const },
+    { title: "Questions to ask", items: questions, tone: "teal", icon: "question" as const },
   ];
   return (
     <section className={styles.decisionClarity} data-a2-component="A2-DECISION-CLARITY-01" aria-labelledby="decision-clarity-heading">
-      <header><span>05</span><div><h2 id="decision-clarity-heading">{heading}</h2><p>{intro}</p></div></header>
+      <span className={styles.decisionSurface} data-hybrid-layer="source-derived-persian-surface" aria-hidden="true" />
+      <header><span>{chapter}</span><div><small>{eyebrow}</small><h2 id="decision-clarity-heading">{heading}<i aria-hidden="true">◆</i></h2><p>{intro}</p></div></header>
       <div className={styles.decisionColumns}>
-        {columns.map((column) => <section key={column.title} data-tone={column.tone}><h3>{column.title}</h3><ul>{column.items.map((item) => <li key={item}>{item}</li>)}</ul></section>)}
-        <aside><strong>In summary</strong><p>{summary}</p><ArchitecturalCta {...action} variant="magenta" /></aside>
+        {columns.map((column) => <section key={column.title} data-tone={column.tone}><h3><DecisionIcon kind={column.icon} /><span>{column.title}</span></h3><ul>{column.items.map((item) => <li key={item}>{item}</li>)}</ul></section>)}
+        <aside><strong>In summary <i aria-hidden="true">◆</i></strong><p>{summary}</p><a href={action.href}>{action.label}<ArrowIcon /></a></aside>
       </div>
     </section>
   );
@@ -78,27 +86,35 @@ export function ClinicianInsightSection({
 export function SpectrumConsultationBand({ heading, action }: { heading: string; action: LinkSlot }) {
   return (
     <section className={styles.spectrumBand} data-a2-component="A2-SPECTRUM-CLOSING-BAND-01" aria-labelledby="spectrum-band-heading">
-      <div className={styles.spectrumCurrents} aria-hidden="true"><i /><i /><i /></div>
-      <h2 id="spectrum-band-heading">{heading}</h2><ArchitecturalCta {...action} variant="magenta" />
+      <div className={styles.spectrumField} data-hybrid-layer="source-derived-luminous-field" aria-hidden="true" />
+      <div className={styles.spectrumCurrents} data-hybrid-layer="source-derived-edge-currents" aria-hidden="true" />
+      <h2 id="spectrum-band-heading">{heading}</h2><div className={styles.spectrumRule} aria-hidden="true"><i /></div><a className={styles.spectrumAction} href={action.href}>{action.label}</a>
     </section>
   );
 }
 
 export function PorcelainDescentFooter({
-  practiceName, tagline, groups, closingAction, legalLinks,
+  practiceName, tagline, groups, utilityLinks = [], closingAction, legalLinks,
 }: {
   practiceName: string; tagline: string; groups: Array<{ heading: string; links: LinkSlot[] }>;
-  closingAction: LinkSlot; legalLinks: LinkSlot[];
+  utilityLinks?: LinkSlot[]; closingAction: LinkSlot; legalLinks: LinkSlot[];
 }) {
   return (
     <footer className={styles.descentFooter} data-a2-component="A2-PORCELAIN-DESCENT-FOOTER-01">
+      <div className={styles.footerPorcelainField} data-hybrid-layer="source-derived-porcelain-field" aria-hidden="true" />
       <div className={styles.footerLedge}>
-        <div className={styles.footerIdentity}><strong>{practiceName}</strong><span>{tagline}</span></div>
-        <nav aria-label="Footer navigation">{groups.map((group) => <section key={group.heading}><h2>{group.heading}</h2>{group.links.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</section>)}</nav>
-        <ArchitecturalCta {...closingAction} variant="gold" />
+        <span className={styles.houseLineArt} data-hybrid-layer="source-derived-heritage-illustration" aria-hidden="true" />
+        <div className={styles.footerIdentity}><span className={styles.practiceMark} data-hybrid-layer="source-derived-practice-mark" aria-hidden="true" /><div><strong>{practiceName}</strong><span>{tagline}</span></div></div>
+        <nav className={styles.footerUtilities} aria-label="Footer shortcuts">{utilityLinks.map((link) => <a key={link.label} href={link.href}>{link.label}<ArrowIcon /></a>)}</nav>
       </div>
-      <div className={styles.footerWave} aria-hidden="true"><i /><i /><i /></div>
-      <div className={styles.footerLegal}><span>St Mary’s House Dental Care</span><nav aria-label="Legal information">{legalLinks.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</nav></div>
+      <div className={styles.footerDepthField} data-hybrid-layer="source-derived-persian-depth" aria-hidden="true" />
+      <div className={styles.footerWave} data-hybrid-layer="source-derived-wave-transition" aria-hidden="true" />
+      <div className={styles.footerParticles} data-hybrid-layer="source-derived-particle-field" aria-hidden="true"><i /><i /></div>
+      <div className={styles.footerDepth}>
+        <nav aria-label="Footer navigation">{groups.map((group) => <section key={group.heading}><h2>{group.heading}</h2>{group.links.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</section>)}</nav>
+        <a className={styles.footerAction} href={closingAction.href}><strong>{closingAction.label}</strong><span>Arrange a consultation<br />in confidence.</span></a>
+      </div>
+      <div className={styles.footerLegal}><nav aria-label="Legal information">{legalLinks.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</nav><span>© {practiceName}</span></div>
     </footer>
   );
 }

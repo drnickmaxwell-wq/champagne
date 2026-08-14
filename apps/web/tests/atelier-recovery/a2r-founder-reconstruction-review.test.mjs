@@ -94,16 +94,17 @@ test("progress reports only current dispositions and leaves A3 gated", () => {
   assert.deepEqual(deriveReconstructionReviewProgress(dataset, index), {
     counts: { APPROVE: 2, REFINE: 3, FAIL: 3, UNREVIEWED: 0 }, complete: 8, remaining: 0, total: 8,
   });
-  assert.match(librarySource, /RECONSTRUCTION_KERNEL_GAP/);
-  assert.match(librarySource, /A3 remains unauthorised/);
+  assert.match(librarySource, /FOUNDER A2R REVIEW CANCELLED/);
+  assert.match(librarySource, /A3 not authorised/);
 });
 
-test("Atelier review surface has the required rapid workflow and keeps PNGs evidence-only", () => {
-  for (const text of ["ONLY_UNREVIEWED", "APPROVED", "REFINE", "FAILED", "Previous", "Next", "Open source full size", "Verbatim Founder note"]) assert.match(librarySource, new RegExp(text));
+test("A2R UI machinery is preserved but cannot fabricate Founder decisions during A2H", () => {
+  for (const text of ["APPROVE", "REFINE", "FAIL", "Preserved A2R Founder review machinery", "disabled"]) assert.match(librarySource, new RegExp(text));
   for (const disposition of ["APPROVE", "REFINE", "FAIL"]) assert.match(librarySource, new RegExp(disposition));
   assert.equal((librarySource.match(/<img/g) ?? []).length, 1, "only source evidence may render an image");
-  assert.match(librarySource, /No source PNG in component body/);
-  assert.match(librarySource, /source-preference corpus/);
+  assert.match(librarySource, /no source PNG body/);
+  assert.match(librarySource, /reviews\.length !== 0/);
+  assert.match(librarySource, /writes are disabled throughout A2H/);
 });
 
 test("A2R persistence is explicit, atomic, optimistic and same-origin guarded", () => {
