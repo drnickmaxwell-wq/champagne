@@ -84,3 +84,12 @@ test("A2 index stays generated and separate A2F metadata carries the Director ga
   assert.equal(/#[0-9a-f]{3,8}\b/i.test(componentCss), false);
   for (const token of ["--brand-magenta", "--brand-teal", "--champagne-keyline-gold", "--surface-0", "--surface-ink"]) assert.match(componentCss, new RegExp(token));
 });
+
+test("native correction preserves source-led density and declares the footer asset gap", () => {
+  assert.match(components, /length: 46/);
+  assert.match(components, /length: 19/);
+  assert.match(components, /footerWaveFill/);
+  assert.match(componentCss, /grid-template-columns: \.95fr 1\.23fr 1\.2fr 1\.02fr 1\.38fr/);
+  assert.match(componentCss, /top: 6\.22cqi/);
+  assert.match(calibration.calibrationSet.find((item) => item.componentId === "A2-PORCELAIN-DESCENT-FOOTER-01").knownGaps.join(" "), /FOOTER_HERITAGE_ILLUSTRATION_ASSET_GAP/);
+});

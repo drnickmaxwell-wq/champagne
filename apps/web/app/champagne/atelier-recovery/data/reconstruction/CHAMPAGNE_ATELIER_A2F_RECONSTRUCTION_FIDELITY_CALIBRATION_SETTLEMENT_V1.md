@@ -38,7 +38,7 @@ Known comparison question: exact icon stroke character and fine raster texture r
 
 1. Macro composition: A2 placed blurred colour near the lower edge of a mostly plain field; A2F restores a full-frame luminous spectrum.
 2. Silhouette: the source’s shallow rounded 820:188 band controls the reference viewport.
-3. Layering: three colour fields, eighteen etched currents and a masked dot field are independently code-native layers.
+3. Layering: three colour fields, forty-six etched currents and two token-bound texture fields are independently code-native layers.
 4. Hierarchy: centred serif heading, gold rule/diamond and restrained magenta outline action restore the source sequence.
 5. Density: the decorative line field crosses the full surface rather than becoming generic background colour.
 
@@ -49,10 +49,10 @@ Known comparison question: exact luminosity, texture softness and etched-current
 1. Macro composition: A2 used one generic porcelain navigation ledge; A2F restores porcelain identity/shortcut ledge → multi-strand descent → Persian navigation → legal rail.
 2. Proportions: the source’s shallow 1167:279 footer controls the native viewport.
 3. Lineage detail: the building and practice mark are rebuilt as semantic-free inline SVG linework, not copied PNG content.
-4. Wave/detail: eleven independently coloured code-native strands replace the three broad generic blobs.
+4. Wave/detail: nineteen independently coloured code-native strands follow a source-measured descending curve.
 5. Density: four navigation groups, four utility shortcuts, closing action and five legal links reproduce the source’s information rhythm.
 
-Known comparison question: heritage illustration and practice-mark detail are approximations and must be judged rather than silently described as exact.
+Known comparison question: `FOOTER_HERITAGE_ILLUSTRATION_ASSET_GAP` — no approved rights-safe St Mary’s heritage vector or source artwork is present. The code-native line drawing preserves placement and visual weight but cannot claim exact illustration fidelity.
 
 ## Director fidelity workbench
 

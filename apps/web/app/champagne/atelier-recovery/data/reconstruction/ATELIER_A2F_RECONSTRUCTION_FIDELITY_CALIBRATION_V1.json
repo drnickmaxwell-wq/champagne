@@ -26,7 +26,7 @@
       "explicitCorrectiveAuthority": ["blue must use the intended Persian blue"],
       "stage1": "IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED",
       "stage2": "BLOCKED_PENDING_DIRECTOR_FIDELITY_PASS",
-      "knownGaps": ["fine icon stroke and raster texture remain visual-comparison questions"],
+      "knownGaps": ["fine icon stroke character and source raster texture remain visual-comparison questions"],
       "directorFidelityPass": false
     },
     {
@@ -39,7 +39,7 @@
       "explicitCorrectiveAuthority": [],
       "stage1": "IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED",
       "stage2": "BLOCKED_PENDING_DIRECTOR_FIDELITY_PASS",
-      "knownGaps": ["source luminosity and etched-current density remain visual-comparison questions"],
+      "knownGaps": ["the token-rendered luminous field may still differ from the source raster texture at pixel level"],
       "directorFidelityPass": false
     },
     {
@@ -52,7 +52,7 @@
       "explicitCorrectiveAuthority": [],
       "stage1": "IMPLEMENTED_DIRECTOR_REVIEW_REQUIRED",
       "stage2": "BLOCKED_PENDING_DIRECTOR_FIDELITY_PASS",
-      "knownGaps": ["code-native heritage linework intentionally approximates rather than copies the source artwork"],
+      "knownGaps": ["FOOTER_HERITAGE_ILLUSTRATION_ASSET_GAP: no approved rights-safe St Mary’s heritage vector or source artwork is present; the code-native line drawing preserves placement and visual weight but cannot claim illustration fidelity"],
       "directorFidelityPass": false
     }
   ],

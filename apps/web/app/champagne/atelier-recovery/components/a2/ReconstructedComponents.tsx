@@ -37,7 +37,10 @@ function PracticeMark() {
 }
 
 function HouseLineArt() {
-  return <svg className={styles.houseLineArt} aria-hidden="true" viewBox="0 0 360 150" preserveAspectRatio="xMidYMax meet"><path d="M18 140h324M38 140V61l28-16h83l22 16v79M62 45V22h13v23M143 45V17h14v34M48 71h112M49 93h111M49 116h111M82 140V93h43v47M57 78h15v15H57zM88 78h15v15H88zM120 78h15v15h-15zM135 100h15v16h-15zM181 140V79l25-13h73l29 17v57M198 89h92M194 112h101M215 140v-36h40v36M202 94h14v14h-14zM266 94h14v14h-14z" /></svg>;
+  return <svg className={styles.houseLineArt} aria-hidden="true" viewBox="0 0 360 170" preserveAspectRatio="xMinYMax meet">
+    <path d="M8 160h344M24 160V77l23-15V30h11v25l27-18h118l29 20V29h12v37l28 17v77M35 83h226M35 105h226M35 132h226M48 77V62h167v15M61 55V20h13v27M190 48V14h14v35M75 160v-51h35v51M119 160v-51h35v51M164 160v-51h35v51M212 160v-46h32v46M48 89h18v16H48zM78 89h18v16H78zM109 89h18v16h-18zM140 89h18v16h-18zM171 89h18v16h-18zM202 89h18v16h-18zM232 89h18v16h-18zM49 117h17v15H49zM231 117h18v15h-18zM272 160V92l22-13 34 18v63M283 105h34M280 128h42M291 160v-37h19v37M281 112h10v12h-10zM311 112h9v12h-9z" />
+    <path d="M18 160c33-8 59-9 88-5 38 5 73 5 111-1 40-6 77-6 129 3M25 75l79-50 124 31 42 27M40 71l67-39 112 28M92 37l12-18 14 16M101 19h9v12" />
+  </svg>;
 }
 
 export function ArchitecturalCta({ label, href, variant = "gold", compact = false }: LinkSlot & { variant?: "gold" | "teal" | "magenta"; compact?: boolean }) {
@@ -93,7 +96,7 @@ export function ClinicianInsightSection({
 export function SpectrumConsultationBand({ heading, action }: { heading: string; action: LinkSlot }) {
   return (
     <section className={styles.spectrumBand} data-a2-component="A2-SPECTRUM-CLOSING-BAND-01" aria-labelledby="spectrum-band-heading">
-      <div className={styles.spectrumCurrents} aria-hidden="true"><i /><i /><i /><span>{Array.from({ length: 18 }, (_, index) => <b key={index} style={{ "--current": index } as CSSProperties} />)}</span></div>
+      <div className={styles.spectrumCurrents} aria-hidden="true"><i /><i /><i /><span>{Array.from({ length: 46 }, (_, index) => <b key={index} style={{ "--current-offset": `${-69 + (index * 2.75)}%`, "--current-rotation": `${-13 + (index * .3)}deg` } as CSSProperties} />)}</span></div>
       <h2 id="spectrum-band-heading">{heading}</h2><div className={styles.spectrumRule} aria-hidden="true"><i /></div><a className={styles.spectrumAction} href={action.href}>{action.label}</a>
     </section>
   );
@@ -112,7 +115,10 @@ export function PorcelainDescentFooter({
         <div className={styles.footerIdentity}><PracticeMark /><div><strong>{practiceName}</strong><span>{tagline}</span></div></div>
         <nav className={styles.footerUtilities} aria-label="Footer shortcuts">{utilityLinks.map((link) => <a key={link.label} href={link.href}>{link.label}<ArrowIcon /></a>)}</nav>
       </div>
-      <div className={styles.footerWave} aria-hidden="true">{Array.from({ length: 11 }, (_, index) => <i key={index} style={{ "--strand": index } as CSSProperties} />)}</div>
+      <svg className={styles.footerWave} aria-hidden="true" viewBox="0 0 1167 279" preserveAspectRatio="none">
+        <path className={styles.footerWaveFill} d="M0 138C104 143 196 170 302 161C412 152 488 105 600 96C767 82 948 105 1167 62V279H0Z" />
+        {Array.from({ length: 19 }, (_, index) => <path key={index} style={{ "--strand-offset": `${6 + (index * 1.55)}px` } as CSSProperties} d="M-18 132C98 136 193 164 300 155C411 146 487 99 599 90C766 77 950 99 1182 54" />)}
+      </svg>
       <div className={styles.footerDepth}>
         <nav aria-label="Footer navigation">{groups.map((group) => <section key={group.heading}><h2>{group.heading}</h2>{group.links.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</section>)}</nav>
         <a className={styles.footerAction} href={closingAction.href}><strong>{closingAction.label}</strong><span>Arrange a consultation<br />in confidence.</span></a>

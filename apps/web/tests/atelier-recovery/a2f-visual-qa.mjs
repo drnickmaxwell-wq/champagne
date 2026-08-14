@@ -31,9 +31,13 @@ for (const [componentId, nativeWidth] of calibration) {
   if ((await render.locator("img").count()) !== 0) throw new Error(`${componentId} uses an image in its live body`);
   if (await render.evaluate((element) => element.scrollWidth > element.clientWidth + 1)) throw new Error(`${componentId} overflows its native source viewport`);
   await page.getByRole("button", { name: "SPLIT", exact: true }).click();
-  await page.getByLabel("Source overlay opacity").fill("62");
+  await page.getByLabel("Source overlay opacity").fill("50");
   await page.getByRole("button", { name: "OVERLAY", exact: true }).click();
-  await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-overlay.png`) });
+  await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-overlay-50.png`) });
+  await page.getByRole("button", { name: "BLINK", exact: true }).click();
+  await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-blink-source.png`) });
+  await page.waitForTimeout(700);
+  await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-blink-live.png`) });
   await page.getByRole("button", { name: "SIDE BY SIDE", exact: true }).click();
   await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-side-by-side.png`) });
   for (const width of [1440, 1024, 768, 390]) {
