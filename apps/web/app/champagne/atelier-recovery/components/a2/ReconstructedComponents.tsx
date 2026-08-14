@@ -112,7 +112,7 @@ export function PorcelainDescentFooter({
         <div className={styles.footerIdentity}><PracticeMark /><div><strong>{practiceName}</strong><span>{tagline}</span></div></div>
         <nav className={styles.footerUtilities} aria-label="Footer shortcuts">{utilityLinks.map((link) => <a key={link.label} href={link.href}>{link.label}<ArrowIcon /></a>)}</nav>
       </div>
-      <div className={styles.footerWave} aria-hidden="true">{Array.from({ length: 11 }, (_, index) => <i key={index} style={{ "--strand": index } as CSSProperties} />}</div>
+      <div className={styles.footerWave} aria-hidden="true">{Array.from({ length: 11 }, (_, index) => <i key={index} style={{ "--strand": index } as CSSProperties} />)}</div>
       <div className={styles.footerDepth}>
         <nav aria-label="Footer navigation">{groups.map((group) => <section key={group.heading}><h2>{group.heading}</h2>{group.links.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</section>)}</nav>
         <a className={styles.footerAction} href={closingAction.href}><strong>{closingAction.label}</strong><span>Arrange a consultation<br />in confidence.</span></a>
