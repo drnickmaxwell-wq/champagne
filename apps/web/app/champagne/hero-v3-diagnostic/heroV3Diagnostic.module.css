@@ -18,10 +18,8 @@
 .stage[data-h3-viewport="mobile"] { min-height: 780px; }
 .stage :global(.hero-renderer-v2) { position: relative; min-height: inherit; }
 .stage[data-h3-engine-mode="h3-3-engine"] :global(video[data-surface-id^="sacred.motion."]) { opacity: var(--h3-score-opacity) !important; animation-delay: var(--h3-score-phase), var(--h3-score-phase) !important; transition: opacity 320ms ease; }
-.stage[data-h3-engine-mode="h3-3-engine"] :global([data-surface-id="overlay.lighting"]) { opacity: .34 !important; mix-blend-mode: screen !important; }
-.stage[data-h3-engine-mode="h3-3-engine"] :global([data-surface-id="overlay.sacredBloom"]) { filter: saturate(1.08) brightness(1.06); }
+.stage[data-h3-engine-mode="h3-3-engine"] :global(.hero-renderer-v2) { filter: saturate(1.025) contrast(1.035); }
 .stage[data-h3-motion-health="static-fallback"] :global(video[data-surface-id^="sacred.motion."]) { display: none !important; }
-.stage[data-h3-motion-health="static-fallback"] :global([data-surface-id="overlay.lighting"]) { opacity: .26 !important; }
 .safeZones { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: var(--brand-gold); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 .copyZone, .ctaZone { position: absolute; left: 7%; width: 43%; padding: .4rem; border: 1px dashed var(--brand-gold); background: color-mix(in srgb, var(--surface-ink) 8%, transparent); }
 .copyZone { top: 15%; height: 38%; }

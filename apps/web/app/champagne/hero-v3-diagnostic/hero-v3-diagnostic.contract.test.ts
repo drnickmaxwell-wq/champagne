@@ -21,6 +21,7 @@ describe("Hero V3 H3.3 engine enhancement", () => {
   });
   it("fails safely for autoplay and reduced motion", () => {
     expect(controller).toContain('setState("baseline")');
+    expect(controller).toContain('removeProperty("mix-blend-mode")');
     expect(controller).toContain('"static-fallback"');
     expect(controller).toContain("prefers-reduced-motion: reduce");
     expect(controller).toContain("Promise.all");
@@ -33,6 +34,7 @@ describe("Hero V3 H3.3 engine enhancement", () => {
     expect(engine).toContain("logoAssetId");
     expect(engine).toContain("desiredCharacter");
     expect(engine).not.toMatch(/#[0-9a-f]{3,8}/i);
+    expect(engine).toContain('blend: "soft-light"');
   });
   it("remains isolated and production-unbound", () => {
     expect(source).toContain('data-production-binding="false"');

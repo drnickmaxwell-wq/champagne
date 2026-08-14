@@ -7,6 +7,8 @@ H3.3 applies a separately modelled light/depth and motion score to the accepted 
 
 The score coordinates the four canonical motion layers across a 42-second envelope with distinct phases and no permitted collective restart. Reduced-motion preference, media errors and rejected autoplay settle to the intact static Sacred V2 equivalent.
 
+Director visual QA rejected an initial over-luminous pass: converting the glass and gold layers to screen blend washed the hero toward white, and comparison-state styles were not completely reversible. The corrected candidate preserves Sacred V2's original screen/soft-light blend grammar, reduces additive energy, adds contrast without a brightness lift, and explicitly restores all engine-owned inline properties before returning to the V2 baseline.
+
 ## Future variants and tenants
 
 The engine contract is deliberately brand-neutral:

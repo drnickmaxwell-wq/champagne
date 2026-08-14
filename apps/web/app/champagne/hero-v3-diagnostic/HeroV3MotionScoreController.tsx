@@ -12,8 +12,15 @@ export function HeroV3MotionScoreController({ rootRef, enabled, forceFallback }:
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const videos = Array.from(root.querySelectorAll<HTMLVideoElement>('video[data-surface-id^="sacred.motion."]'));
     const setState = (state: "baseline" | "active" | "static-fallback") => { root.dataset.h3MotionHealth = state; };
+    const restoreBaseline = () => videos.forEach((video) => {
+      video.style.removeProperty("--h3-score-opacity");
+      video.style.removeProperty("--h3-score-phase");
+      video.style.removeProperty("mix-blend-mode");
+      video.playbackRate = 1;
+    });
     const settle = () => {
       if (!enabled) {
+        restoreBaseline();
         setState("baseline");
         return;
       }
@@ -37,6 +44,7 @@ export function HeroV3MotionScoreController({ rootRef, enabled, forceFallback }:
     media.addEventListener?.("change", settle);
     settle();
     return () => {
+      restoreBaseline();
       videos.forEach((video) => video.removeEventListener("error", fail));
       media.removeEventListener?.("change", settle);
     };
