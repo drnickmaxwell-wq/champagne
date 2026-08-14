@@ -1,0 +1,108 @@
+.fullHeroSection {
+  display: grid;
+  gap: 1rem;
+  border: 1px solid var(--surface-ink-soft);
+  border-radius: var(--radius-lg);
+  background: var(--surface-ink);
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.sectionIntro {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sectionIntro p:not(.eyebrow) {
+  max-width: 880px;
+  color: var(--text-medium);
+  line-height: 1.5;
+}
+
+.eyebrow {
+  color: var(--text-medium);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.heroComparisonGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.heroComparisonCard {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+}
+
+.heroLabelRow {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.heroVersion {
+  font-weight: 700;
+}
+
+.heroDifference {
+  margin-top: 0.2rem;
+  color: var(--text-medium);
+  font-size: 0.88rem;
+}
+
+.heroCounters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 0.35rem 0.75rem;
+  color: var(--text-medium);
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.heroCounters output {
+  color: var(--text-high);
+  font-weight: 700;
+}
+
+.heroViewport {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--champagne-keyline-gold);
+  border-radius: var(--radius-lg);
+}
+
+.heroViewport :global(.hero-renderer-v2) {
+  min-height: clamp(430px, 52vw, 72vh);
+}
+
+@media (max-width: 900px) {
+  .heroComparisonGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroViewport :global(.hero-renderer-v2) {
+    min-height: 72vh;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroLabelRow {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .heroCounters {
+    justify-content: start;
+  }
+}
