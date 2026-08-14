@@ -30,6 +30,19 @@ for (const [componentId, nativeWidth] of calibration) {
   await Promise.all([render.waitFor(), source.waitFor()]);
   if ((await render.locator("img").count()) !== 0) throw new Error(`${componentId} uses an image in its live body`);
   if (await render.evaluate((element) => element.scrollWidth > element.clientWidth + 1)) throw new Error(`${componentId} overflows its native source viewport`);
+  if (componentId === "A2-DECISION-CLARITY-01") {
+    const nativeRailIsComplete = await render.evaluate((element) => {
+      const root = element.querySelector('[data-a2-component="A2-DECISION-CLARITY-01"]');
+      if (!root) return false;
+      const rootRect = root.getBoundingClientRect();
+      const rails = [...root.querySelectorAll("h3"), root.querySelector("aside")].filter(Boolean);
+      return rails.length === 5 && rails.every((rail) => {
+        const rect = rail.getBoundingClientRect();
+        return rect.left >= rootRect.left && rect.right <= rootRect.right && rect.top >= rootRect.top && rect.bottom <= rootRect.bottom;
+      });
+    });
+    if (!nativeRailIsComplete) throw new Error(`${componentId} does not expose all four information rails and the summary inside its native frame`);
+  }
   await page.getByRole("button", { name: "SPLIT", exact: true }).click();
   await page.getByLabel("Source overlay opacity").fill("50");
   await page.getByRole("button", { name: "OVERLAY", exact: true }).click();
