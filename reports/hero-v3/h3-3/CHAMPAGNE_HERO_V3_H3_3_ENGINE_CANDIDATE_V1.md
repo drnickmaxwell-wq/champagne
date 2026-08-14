@@ -11,6 +11,8 @@ Director visual QA rejected an initial over-luminous pass: converting the glass 
 
 H3.3L adds a bounded Champagne optical-material profile rather than a new composition: a Persian depth veil, token-driven subsurface colour blooms, a low-opacity mother-of-pearl interference field, travelling ridge light and sparse specular glints. A single-highlight luminance budget prevents additive washout. The copy/CTA start zone is protected by the optical mask, and reduced-motion/autoplay fallback retains a static material equivalent.
 
+The founder-authorised visible-expression correction preserves restrained head `822f8a56ac8cf44a6a7f274b3e23e5f3b503d9ef` as comparison evidence and concentrates the stronger candidate at the existing wave/gradient intersection. Its 36-second optical score moves from turquoise depth through pearlescent migration and narrow porcelain ridge travel into one brief ridge-bound warm-gold resolution before returning to turquoise. Mobile uses independent focal coordinates across the visible diagonal wave. General particles, Sacred V2 geometry, gradient, copy, CTAs, crop and canonical motion assets remain unchanged.
+
 ## Future variants and tenants
 
 The engine contract is deliberately brand-neutral:

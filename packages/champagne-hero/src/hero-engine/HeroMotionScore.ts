@@ -57,7 +57,7 @@ export type HeroOpticalMaterialProfile = {
 };
 
 export const CHAMPAGNE_SACRED_V2_OPTICAL_MATERIAL_PROFILE: HeroOpticalMaterialProfile = {
-  id: "champagne-sacred-v2-mother-of-pearl-h3.3l",
+  id: "champagne-sacred-v2-opalescent-wave-cut-h3.3l-visible",
   material: "iridescent-fluid",
   paletteRoles: {
     humanEnergy: "var(--brand-magenta)",

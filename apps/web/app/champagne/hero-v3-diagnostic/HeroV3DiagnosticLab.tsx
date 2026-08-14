@@ -28,6 +28,7 @@ const opticalLuxuryLayers = (
     <span className={styles.subsurfaceBloom} />
     <span className={styles.interferenceVeil} />
     <span className={styles.ridgeLight} />
+    <span className={styles.goldResolution} />
     <span className={styles.specularGlints} />
   </div>
 );
