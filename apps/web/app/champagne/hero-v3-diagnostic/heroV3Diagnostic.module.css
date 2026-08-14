@@ -20,7 +20,7 @@
 .stage[data-h3-engine-mode="h3-3-engine"][data-h3-motion-health="active"] :global(video[data-surface-id^="sacred.motion."]) { opacity: var(--h3-score-opacity) !important; animation-delay: var(--h3-score-phase), var(--h3-score-phase) !important; transition: opacity 320ms ease; }
 .stage[data-h3-engine-mode="h3-3-engine"] :global(.hero-renderer-v2) { filter: saturate(1.025) contrast(1.035); }
 .stage[data-h3-motion-health="static-fallback"] :global(video[data-surface-id^="sacred.motion."]) { display: none !important; }
-.opticalLuxury { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; isolation: isolate; mask-image: linear-gradient(104deg, transparent 0 29%, rgb(0 0 0 / .12) 38%, rgb(0 0 0) 48% 92%, transparent 100%); }
+.opticalLuxury { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; isolation: isolate; mask-image: linear-gradient(104deg, transparent 0 29%, color-mix(in srgb, var(--surface-ink) 12%, transparent) 38%, var(--surface-ink) 48% 92%, transparent 100%); }
 .opticalLuxury > span { position: absolute; inset: -12%; pointer-events: none; }
 .depthVeil { background: radial-gradient(ellipse 44% 68% at 54% 54%, color-mix(in srgb, var(--h3-optical-depth) 24%, transparent), transparent 72%), linear-gradient(112deg, transparent 32%, color-mix(in srgb, var(--h3-optical-depth) 13%, transparent) 54%, transparent 78%); mix-blend-mode: multiply; opacity: .2; }
 .subsurfaceBloom { background: radial-gradient(circle at 38% 34%, color-mix(in srgb, var(--h3-optical-human) 34%, transparent), transparent 29%), radial-gradient(circle at 64% 45%, color-mix(in srgb, var(--h3-optical-digital) 38%, transparent), transparent 34%), radial-gradient(circle at 86% 74%, color-mix(in srgb, var(--h3-optical-precision) 28%, transparent), transparent 26%); filter: blur(30px) saturate(1.16); mix-blend-mode: soft-light; opacity: min(var(--h3-optical-ambient-max), .12); animation: h3SubsurfaceBreathe 32s ease-in-out infinite alternate; }
@@ -55,7 +55,7 @@
   .stage :global(.hero-content p) { max-width: 100% !important; font-size: .98rem !important; line-height: 1.5 !important; }
   .stage :global(.hero-content > div:last-child) { display: grid !important; width: 100%; gap: .65rem !important; }
   .stage :global(.hero-content > div:last-child a) { padding: .8rem 1rem !important; text-align: center; }
-  .opticalLuxury { mask-image: linear-gradient(104deg, transparent 0 18%, rgb(0 0 0 / .16) 31%, rgb(0 0 0) 48% 94%, transparent 100%); }
+  .opticalLuxury { mask-image: linear-gradient(104deg, transparent 0 18%, color-mix(in srgb, var(--surface-ink) 16%, transparent) 31%, var(--surface-ink) 48% 94%, transparent 100%); }
   .subsurfaceBloom { opacity: .075; }
   .interferenceVeil { opacity: .07; }
   .ridgeLight { opacity: .075; }
