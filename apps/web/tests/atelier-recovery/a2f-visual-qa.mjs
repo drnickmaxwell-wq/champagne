@@ -42,6 +42,7 @@ for (const [componentId, nativeWidth] of calibration) {
   }
 }
 
+await page.getByText(/Preserved A2R Founder review machinery/).click();
 for (const disposition of ["APPROVE", "REFINE", "FAIL"]) {
   if (await page.getByRole("button", { name: disposition, exact: true }).isEnabled()) throw new Error(`${disposition} must remain disabled in A2F`);
 }
