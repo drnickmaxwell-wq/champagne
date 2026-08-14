@@ -52,7 +52,9 @@ for (const [componentId, nativeWidth] of calibration) {
   await page.waitForTimeout(700);
   await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-blink-live.png`) });
   await page.getByRole("button", { name: "SIDE BY SIDE", exact: true }).click();
+  await page.setViewportSize({ width: Math.max(2200, (nativeWidth * 2) + 420), height: 1200 });
   await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-side-by-side.png`) });
+  await page.setViewportSize({ width: 1440, height: 1000 });
   for (const width of [1440, 1024, 768, 390]) {
     await page.getByRole("button", { name: String(width), exact: true }).click();
     if (await render.evaluate((element) => element.scrollWidth > element.clientWidth + 1)) throw new Error(`${componentId} overflows at ${width}`);
