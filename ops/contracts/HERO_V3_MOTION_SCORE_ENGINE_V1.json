@@ -1,0 +1,20 @@
+{
+  "contract": "HERO_V3_MOTION_SCORE_ENGINE_V1",
+  "phase": "H3.3",
+  "status": "ISOLATED_RUNTIME_CANDIDATE",
+  "productionBinding": false,
+  "visualInvariant": "SACRED_V2_DESIGN_UNCHANGED",
+  "expression": "ENGINE + TENANT_BRAND_PROFILE + HERO_GRAMMAR + HERO_INSTANCE",
+  "engineOwns": ["rendering", "light and depth execution", "motion score", "responsive machinery", "reduced motion", "autoplay fallback"],
+  "engineMustNotOwn": ["Champagne palette", "Champagne waves", "Champagne logo", "Champagne typography", "tenant colours", "tenant logos", "tenant visual desires"],
+  "champagneCandidate": {
+    "baseline": "Accepted Sacred V2",
+    "motionScore": "champagne-sacred-v2-h3.3",
+    "durationSeconds": 42,
+    "collectiveRestartAllowed": false,
+    "canonicalMotionLayers": ["sacred.motion.waveCaustics", "sacred.motion.glassShimmer", "sacred.motion.particleDrift", "sacred.motion.goldDust"]
+  },
+  "fallbacks": {"reducedMotion": "static-equivalent", "autoplayFailure": "static-equivalent", "SacredV2Rollback": true},
+  "futureProofing": {"treatmentVariants": "profiled-not-implemented", "tenantGeneration": "input-contract-established-not-implemented"},
+  "excluded": ["hero redesign", "production binding", "H3.4", "H3.5 implementation", "H3.6 implementation", "ready", "merge", "deployment"]
+}

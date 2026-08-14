@@ -42,7 +42,7 @@
     {"id": "H3.0", "name": "Canonical authority and acceptance contract", "programmeStatus": "APPROVED", "implementationAuthority": "AUTHORISED", "gate": "COMMIT_AND_INTERNAL_VERIFY_BEFORE_H3_1"},
     {"id": "H3.1", "name": "V2 diagnostic rendering laboratory", "programmeStatus": "APPROVED", "implementationAuthority": "AUTHORISED_AFTER_H3_0", "gate": "RETURN_SETTLEMENT_BEFORE_H3_2"},
     {"id": "H3.2", "name": "Sacred Hero static composition upgrade", "programmeStatus": "APPROVED", "implementationAuthority": "AUTHORISED_STATIC_ONLY_AT_8B119BA", "gate": "FOUNDER_STATIC_REVIEW_THEN_SETTLEMENT_BEFORE_H3_3"},
-    {"id": "H3.3", "name": "Seamless motion-score engine", "programmeStatus": "APPROVED", "implementationAuthority": "NOT_AUTHORISED", "gate": "STATIC_CONVERGENCE_AND_NEW_EXACT_COMMISSION"},
+    {"id": "H3.3", "name": "Seamless motion-score engine", "programmeStatus": "APPROVED", "implementationAuthority": "AUTHORISED_AT_FAF52812", "gate": "FOUNDER_ENGINE_RUNTIME_REVIEW_BEFORE_H3_4"},
     {"id": "H3.4", "name": "Complete Sacred Hero V3", "programmeStatus": "APPROVED", "implementationAuthority": "NOT_AUTHORISED", "gate": "DIRECT_COMPLETE_V2_V3_FOUNDER_COMPARISON"},
     {"id": "H3.5", "name": "Champagne treatment Hero family", "programmeStatus": "APPROVED", "implementationAuthority": "NOT_AUTHORISED", "gate": "FIRST_PROVE_APPROXIMATELY_FOUR_MATERIALLY_DIFFERENT_GRAMMARS"},
     {"id": "H3.6", "name": "Tenant engine and synthetic-tenant proof", "programmeStatus": "APPROVED", "implementationAuthority": "NOT_AUTHORISED", "gate": "TWO_NON_CHAMPAGNE_TENANTS_AND_ANTI_BRAND_LEAKAGE_ASSERTIONS"},
@@ -65,5 +65,5 @@
   "motionDefectCandidates": ["intrinsic video loop boundary", "clustered media seams", "CSS animation phase boundary", "opacity or reveal choreography", "cross-layer synchronization", "asset encoding", "stack remount", "other measured cause"],
   "motionInvariant": "NO_DETECTABLE_COLLECTIVE_RESTART",
   "laterHardening": ["visual regression", "accessibility", "reduced motion", "keyboard and focus", "mobile safe areas", "performance budgets", "asset provenance", "schema validation", "hostile configuration handling", "deterministic rendering", "migrations and versioning", "immutable approvals", "production safeguards", "V2 rollback", "Chromium and Safari WebKit device evidence"],
-  "prohibitions": ["Ready", "merge", "production binding", "public deployment", "public cutover", "Atelier PR 866 reuse", "Agent mutation", "Router mutation", "WEOS mutation", "chatbot-engine mutation", "H3.3 implementation", "motion repair"]
+  "prohibitions": ["Ready", "merge", "production binding", "public deployment", "public cutover", "Atelier PR 866 reuse", "Agent mutation", "Router mutation", "WEOS mutation", "chatbot-engine mutation", "unauthorised H3.3 expansion", "production motion binding"]
 }
