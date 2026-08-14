@@ -6,119 +6,68 @@ const source = readFileSync(join(__dirname, "HeroV3DiagnosticLab.tsx"), "utf8");
 const surface = readFileSync(join(__dirname, "HeroV3StaticCompositionSurface.tsx"), "utf8");
 const styles = readFileSync(join(__dirname, "heroV3Diagnostic.module.css"), "utf8");
 
-describe("Hero V3 H3.1 diagnostic contract", () => {
-  it("uses the real V2 renderer without importing sacred runtime internals", () => {
+describe("Hero V3 H3.2R single static convergence contract", () => {
+  it("shows only the accepted Sacred V2 baseline and one new V3 candidate", () => {
+    expect(source).toContain("Accepted Sacred V2");
+    expect(source).toContain("Champagne V3 candidate");
+    expect(source).toContain("v2-reference");
+    expect(surface).toContain('HERO_V3_STATIC_CANDIDATE_ID = "v3-champagne-sculpted-current"');
+    expect(source.match(/label: /g)).toHaveLength(4);
+  });
+
+  it("retires rejected choreography and unselected static studies from active review", () => {
+    for (const retired of ["v2-light-depth-enhanced", "v3-editorial-current", "v3-velvet-ribbon", "v3-luminous-tide", "ENHANCED_MOTION", "CHOREOGRAPHY_DURATION_MS"]) expect(source).not.toContain(retired);
+    expect(source).not.toContain("requestAnimationFrame");
+    expect(source).not.toContain("video.play");
+  });
+
+  it("keeps the Sacred V2 renderer as the canonical copy and CTA source", () => {
     expect(source).toContain("HeroRendererV2");
+    expect(source).toContain("<HeroRendererV2");
+    expect(source).toContain("prm");
+    expect(source).toContain('pageSlugOrPath="/"');
     expect(source).not.toContain("HeroAssetRegistry");
     expect(source).not.toContain("HeroManifestAdapter");
   });
 
-  it("includes static, motion, reduced-motion and loop evidence", () => {
-    expect(source).toContain("Complete V2 static");
-    expect(source).toContain("Complete V2 motion");
-    expect(source).toContain("Reduced-motion V2");
-    expect(source).toContain("time-regression");
-    expect(source).toContain("node-replaced");
-  });
-
-  it("keeps exported evidence explicitly diagnostic", () => {
-    expect(source).toContain("HERO_V3_H3_1_LIVE_EVIDENCE_V1");
+  it("is deterministic, static, versioned and production-unbound", () => {
+    expect(surface).toContain("HERO_V3_STATIC_COMPOSITION_SURFACE_V1");
+    expect(surface).toContain("<svg");
+    expect(surface).not.toContain("<video");
+    expect(surface).not.toContain("requestAnimationFrame");
+    expect(surface).not.toMatch(/#[0-9a-f]{3,8}/i);
+    expect(source).toContain('data-production-binding="false"');
     expect(source).toContain("productionBinding=false");
   });
 
-  it("exposes the bounded H3.2 static candidate family without motion repair", () => {
-    expect(source).toContain("V2 untouched motion reference");
-    expect(source).toContain("A — V2 Precision");
-    expect(source).toContain("B — Spectral Wave");
-    expect(source).toContain("C — Velvet Porcelain Depth");
-    expect(source).toContain("D — Luminous Counterflow");
-    expect(source).not.toContain("crossfade");
-  });
-
-  it("mounts no more than three versioned V3-only static candidates", () => {
-    expect(source).toContain("v3-editorial-current");
-    expect(source).toContain("v3-velvet-ribbon");
-    expect(source).toContain("v3-luminous-tide");
-    expect(surface).toContain("HERO_V3_STATIC_COMPOSITION_SURFACE_V1");
-    expect(surface.match(/\| "v3-/g)).toHaveLength(3);
-  });
-
-  it("keeps the V3 substrate deterministic, static and token-bound", () => {
-    expect(surface).toContain("<svg");
-    expect(surface).not.toContain("video");
-    expect(surface).not.toContain("requestAnimationFrame");
-    expect(surface).not.toMatch(/#[0-9a-f]{3,8}/i);
+  it("uses founder brand tokens with layered wave sculpture", () => {
     expect(styles).toContain("var(--brand-magenta)");
     expect(styles).toContain("var(--brand-teal)");
     expect(styles).toContain("var(--brand-gold)");
+    for (const layer of ["waveTealBack", "wavePorcelain", "waveTealFront", "waveMagenta", "goldEdge"]) expect(surface).toContain(layer);
   });
 
-  it("removes the inherited V2 surface stack without hiding the sibling content", () => {
-    expect(styles).toContain(":global(.hero-surface-stack)");
-    expect(styles).toMatch(/data-h3-study\^=\"v3-\"[\s\S]*?display:\s*none\s*!important/);
-    expect(styles).not.toMatch(/data-h3-study\^=\"v3-\"[^}]*?hero-content[^}]*?display:\s*none/);
+  it("provides independent desktop and mobile art direction", () => {
+    expect(source).toContain('{ id: "desktop", label: "Desktop · 1440" }');
+    expect(source).toContain('{ id: "mobile", label: "Mobile · 390" }');
+    expect(surface).toContain("desktopComposition");
+    expect(surface).toContain("mobileComposition");
+    expect(styles).toContain('.stage[data-h3-viewport="mobile"] .desktopComposition');
+    expect(styles).toContain('.stage[data-h3-viewport="mobile"] .mobileComposition');
   });
 
-  it("isolates evidence captures from the persistent site-shell Hero stack", () => {
+  it("protects copy and CTA safe zones", () => {
+    expect(source).toContain("Copy / CTA safe zones");
+    expect(source).toContain("Protected copy");
+    expect(source).toContain("Protected CTA");
+    expect(styles).toContain(".copyZone");
+    expect(styles).toContain(".ctaZone");
+  });
+
+  it("replaces only the V3 surface while retaining sibling hero content", () => {
+    expect(styles).toMatch(/v3-champagne-sculpted-current[^}]+hero-surface-stack[^}]+display:\s*none\s*!important/);
+    expect(styles).not.toMatch(/v3-champagne-sculpted-current[^}]+hero-content[^}]+display:\s*none/);
     expect(styles).toContain(":global(body):has(.page)");
-    expect(styles).toContain(":global(body):has(.evidenceMode) :global(.hero-renderer-v2)");
-    expect(styles).toContain(":global(body):has(.evidenceMode) > div > main > div:has(> :global(.hero-renderer-v2))");
-    expect(styles).toContain(":global(body):has(.evidenceMode) .stage :global(.hero-renderer-v2)");
-    expect(styles).toContain('.stage[data-h3-study="v2-reference"]');
-  });
-
-  it("provides explicit playback proof and rejects non-rendering motion layers", () => {
-    expect(source).toContain('data-h3-motion-evidence-control="true"');
-    expect(source).toContain('"Pause motion" : "Play motion"');
-    expect(source).toContain("video.play()");
-    expect(source).toContain("video.pause()");
-    expect(source).toContain("getBoundingClientRect()");
-    expect(source).toContain("rect.width > 0 && rect.height > 0");
-    expect(source).toContain("!video.paused && opacity >= 0.08");
-    expect(source).toContain("opacity >= 0.08");
-    expect(source).toContain('addEventListener("canplay", ensurePlayback)');
-    expect(source).toContain('entry.media.effectivelyVisible ? "visible" : "FAILED"');
-  });
-
-  it("compares complete V2 motion against a motion-plate-only enhancement", () => {
-    expect(source).toContain("v2-light-depth-enhanced");
-    expect(source).toContain("V2_MOTION_STUDIES");
-    expect(source).toContain("ENHANCED_MOTION");
-    expect(source).toContain("controlSelected = isSelected && !evidenceMode");
-    expect(source).toContain("CHOREOGRAPHY_DURATION_MS = 24_000");
-    expect(source).toContain("choreographyOpacity");
-    expect(source).toContain("requestAnimationFrame(choreograph)");
-    expect(source).toContain("choreographyClock");
-    expect(source).toContain('"sacred.motion.waveCaustics"');
-    expect(source).toContain('"sacred.motion.glassShimmer"');
-    expect(source).toContain('"sacred.motion.particleDrift"');
-    expect(source).toContain('"sacred.motion.goldDust"');
-    expect(styles).toMatch(/v2-light-depth-enhanced[\s\S]*?sacred\.motion/);
-  });
-
-  it("suppresses opaque plate backgrounds and sequences the retained highlights", () => {
-    expect(source).toContain('moment: "caustic-passage"');
-    expect(source).toContain('moment: "edge-shimmer"');
-    expect(source.match(/moment: "gold-resolution"/g)).toHaveLength(2);
-    expect(source).toContain("peak: 0.16, width: 0.16");
-    expect(source).toContain("peak: 0.43, width: 0.09");
-    expect(source).toContain("peak: 0.69, width: 0.16");
-    expect(source).toContain("peak: 0.76, width: 0.13");
-    expect(source).toContain("/ motion.width");
-    expect(source).toContain('dataset.h3OpticalPlate = "highlights-only"');
-    expect(source).toContain("dataset.h3LightMoment = enhanced.moment");
-    expect(source).toContain("brightness(0.62) contrast(3.4)");
-    expect(source).toContain("brightness(0.58) contrast(3.65)");
-    expect(styles).toContain("mask-image: linear-gradient(90deg");
-    expect(styles).toContain("mask-image: linear-gradient(180deg");
-    expect(styles).toContain('data-surface-id="sacred.motion.waveCaustics"');
-    expect(styles).toContain('data-surface-id="sacred.motion.glassShimmer"');
-    expect(source).not.toContain("setInterval(enforceEnhancement");
-  });
-
-  it("does not replace V2 artwork, geometry, copy or actions in the enhancement state", () => {
-    expect(source).not.toContain("HeroV2EnhancedSurface");
-    expect(styles).not.toMatch(/data-h3-study="v2-light-depth-enhanced"[^}]*background\s*:/);
-    expect(styles).not.toMatch(/data-h3-study="v2-light-depth-enhanced"[^}]*transform\s*:/);
+    expect(styles).toContain(".stage :global(.hero-renderer-v2)");
   });
 });

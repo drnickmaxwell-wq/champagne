@@ -1,88 +1,28 @@
-# Champagne Hero V3 H3.2 Static Composition Settlement V1
+# Champagne Hero V3 H3.2R — single static convergence candidate
 
-**Status:** `SUPERSEDED_AS_TERMINAL_SETTLEMENT_BY_CANONICAL_BRAND_AUTHORITY_CONTINUATION`
+Status: `FOUNDER_STATIC_CANDIDATE_REVIEW_PENDING`  
+Production binding: `false`  
+Active candidate: `v3-champagne-sculpted-current`
 
-**Repository:** `drnickmaxwell-wq/champagne`
+## Recovery record
 
-**Pull request:** `#867` (`OPEN / DRAFT / UNMERGED`)
+Draft PR #867 was reconciled with authoritative `main` at `f0280b683fa9721287fdc5cdcdb227b40af4f095` by a merge commit, without rewriting branch history. The accepted Sacred Hero V2, including the founder-accepted seamless wave and gold motion assets, remains the unchanged baseline and fallback.
 
-**Accepted H3.2 start:** `8b119baabb08dcf4d008aa63d62f6b113afec13d`
+## Active founder review
 
-## Brand authority at the time of this evidence
+The active review flow now contains exactly two studies:
 
-H3.2 used `PROVISIONAL_EXPLICIT_FOUNDER_BRAND_AUTHORITY_2026_08_10`.
-`CHAMPAGNE_FOUNDER_BRAND_DNA_V1` was not available during this tranche, so no
-candidate is Founder-final.
+1. `v2-reference` — accepted Sacred V2.
+2. `v3-champagne-sculpted-current` — the single new static V3 convergence candidate.
 
-`CHAMPAGNE_FOUNDER_BRAND_DNA_V1` version `1.0.0` is now canonical and H3.2
-static convergence has been explicitly continued. This document remains the
-truthful settlement of the provisional-authority pass; it no longer closes
-H3.2. See `HERO_V3_H3_2_BRAND_AUTHORITY_RECONCILIATION_V1`.
+Both are available at desktop and mobile review widths. The V3 candidate uses a deterministic static SVG, canonical V2 copy and CTAs, protected copy/CTA zones, and independently composed mobile artwork.
 
-## Baseline and studies
+The candidate expresses the founder brand DNA through luminous Persian depth, warm porcelain lift, controlled magenta `#C2185B`, turquoise `#40C4B4`, gold `#D4AF37`, and a stronger multi-layer wave sculpture.
 
-`static:complete` remained the directly available
-`V2_STATIC_REFERENCE_BASELINE`. The initial study family was exactly:
+## Retired from active review
 
-1. `V2_PRECISION`
-2. `SPECTRAL_WAVE`
-3. `VELVET_PORCELAIN_DEPTH`
-4. `LUMINOUS_COUNTERFLOW`
+The rejected optical choreography (`v2-light-depth-enhanced`) and the previous unselected static studies (`v3-editorial-current`, `v3-velvet-ribbon`, and `v3-luminous-tide`) no longer appear in the active founder review flow. Their prior reports, contracts, commits, and review evidence remain in history; no historical evidence was deleted.
 
-Real desktop and independently composed mobile renders showed that none
-defeated V2. The Founder selected no candidate.
+## Boundary
 
-The one bounded Checkpoint 2 V2-led study used a separate static CSS
-depth/spectral plane without changing inherited V2 layer values. Real 1440px
-desktop and 410px mobile comparison showed no material gain in luxury, visual
-sculpture or hierarchy. It was rejected and removed before publication.
-
-## Responsive and safe-zone evidence
-
-The H3.2 laboratory exposes desktop, tablet and mobile frames plus header,
-copy/action, focal and crop-safe guides. The starting safe geometry remains:
-
-- desktop: approximately 8% horizontal / 14% vertical;
-- tablet: approximately 7% horizontal / 12% vertical;
-- mobile: approximately 6% horizontal / 10% vertical.
-
-No safe-zone change is proposed because no candidate survived.
-
-## Performance
-
-The published H3.2 laboratory adds no raster, video or font asset and creates no
-continuous animation or `requestAnimationFrame` requirement for its static
-studies. Motion surfaces are hidden in H3.2. No public runtime or critical-paint
-path is bound to the laboratory.
-
-The rejected Checkpoint 2 plane also added no asset transfer or decoded-image
-memory. Because it was rejected, no performance-budget exception is requested.
-
-## Masks
-
-The zero-byte V2 mask files remain untouched. Their V3 disposition remains
-`V3_LEGACY_MASKS_RETIRED_NOT_REPAIRED_IN_PLACE`. No new V3 mask was created.
-
-## Static disposition
-
-`V2_STATIC_REFERENCE_BASELINE_REMAINS_WINNER`
-
-No H3.2 candidate is approved for production, and Sacred Hero V2 remains
-untouched. The H3.2 work is isolated, `productionBinding=false`, and introduces
-no public Hero replacement.
-
-## H3.3 decisions still required
-
-1. Fresh exact H3.3 authority.
-2. Whether motion should preserve V2's four-layer vocabulary or reduce the
-   number of concurrent motion surfaces.
-3. Loop duration, phase offsets and seam strategy per motion surface.
-4. GPU-capable Chromium plus Safari/WebKit evidence environment.
-5. Motion, decoding, memory and battery budgets.
-6. Reduced-motion equivalence and rollback criteria.
-7. Completed: `CHAMPAGNE_FOUNDER_BRAND_DNA_V1` was ingested with no actual
-   H3.0 conflict; its sharpened controls now govern continued H3.2 work.
-
-H3.3 has not started. No Ready transition, merge, deployment, production
-binding, public replacement, Agent, Router, WEOS or chatbot-engine mutation is
-authorised or performed.
+This is a static founder-review candidate only. It does not mutate Sacred V2, introduce motion, bind production, begin H3.3, implement Tenant B, mark the PR ready, merge, or deploy. Settlement remains pending the founder static-candidate verdict.
