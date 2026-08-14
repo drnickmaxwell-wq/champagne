@@ -19,7 +19,7 @@
 .decisionClarity > header, .decisionColumns { position: relative; z-index: 1; }
 .decisionClarity > header { display: grid; grid-template-columns: 7.2cqi 1fr; gap: 1.45cqi; align-items: start; padding: 0; border: 0; }
 .decisionClarity > header > span { color: var(--champagne-keyline-gold); font: 400 5.35cqi/.78 var(--font-playfair, Georgia, serif); letter-spacing: -.04em; }
-.decisionClarity > header small { display: block; margin-bottom: .55cqi; color: var(--text-high); font: 600 .72cqi/1.15 var(--font-inter, Arial, sans-serif); letter-spacing: .14em; text-transform: uppercase; }
+.decisionClarity > header small { display: block; margin-bottom: 1.5cqi; color: var(--text-high); font: 600 .72cqi/1.15 var(--font-inter, Arial, sans-serif); letter-spacing: .14em; text-transform: uppercase; }
 .decisionClarity h2 { margin: 0; font: 400 3.05cqi/1.03 var(--font-playfair, Georgia, serif); letter-spacing: -.015em; }
 .decisionClarity h2 i, .decisionColumns aside strong i { margin-left: .5cqi; color: var(--brand-magenta); font-size: .55em; font-style: normal; }
 .decisionClarity header p { margin: .75cqi 0 0; color: color-mix(in oklab, var(--text-high) 90%, transparent); font: 400 1.18cqi/1.25 var(--font-playfair, Georgia, serif); }
@@ -30,7 +30,7 @@
 .decisionColumns h3 svg { flex: 0 0 auto; width: 2.45cqi; height: 2.45cqi; fill: none; stroke: var(--brand-teal); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
 .decisionColumns section[data-tone="gold"] h3 svg { stroke: var(--brand-teal); }
 .decisionColumns ul { margin: 0; padding: 0; list-style: none; }
-.decisionColumns li { position: relative; margin: 0 0 .64cqi; padding-left: .8cqi; color: color-mix(in oklab, var(--text-high) 92%, transparent); font: 400 1.14cqi/1.34 var(--font-playfair, Georgia, serif); }
+.decisionColumns li { position: relative; margin: 0 0 .64cqi; padding-left: .8cqi; color: color-mix(in oklab, var(--text-high) 92%, transparent); font: 400 1.18cqi/1.34 var(--font-playfair, Georgia, serif); }
 .decisionColumns li::before { position: absolute; left: 0; color: var(--champagne-keyline-gold); content: "•"; }
 .decisionColumns > aside { display: flex; flex-direction: column; min-width: 0; margin: -2.05cqi 0 -.75cqi 1.65cqi; padding: 1.65cqi 1.75cqi; border: 1px solid var(--champagne-keyline-gold); }
 .decisionColumns aside strong { margin: 0 0 1cqi; color: var(--text-high); font: 400 1.58cqi/1.2 var(--font-playfair, Georgia, serif); }
@@ -67,7 +67,7 @@
 .descentFooter { position: relative; aspect-ratio: 1167 / 279; min-height: 0; overflow: hidden; color: var(--surface-ink); background: var(--surface-0); }
 .footerPorcelainField, .footerDepthField, .footerWave, .footerParticles { position: absolute; pointer-events: none; }
 .footerPorcelainField { z-index: 0; inset: 0 0 auto; height: 10cqi; background: url("/assets/champagne/atelier-recovery/a2h/footer-porcelain-field.webp") center top / 100% 100% no-repeat; }
-.footerDepthField { z-index: 1; inset: 8cqi 0 0; background: var(--surface-ink) url("/assets/champagne/atelier-recovery/a2h/footer-persian-depth.webp") center bottom / 100% 100% no-repeat; }
+.footerDepthField { z-index: 1; inset: 0; background: url("/assets/champagne/atelier-recovery/a2h/footer-persian-depth.webp") center / 100% 100% no-repeat; }
 .footerLedge { position: absolute; z-index: 3; inset: 0 0 auto; display: grid; grid-template-columns: 25% 22% 1fr; gap: 1.7cqi; align-items: center; height: 8.5cqi; padding: .35cqi 8cqi .2cqi 1.35cqi; }
 .houseLineArt { align-self: start; width: 100%; height: 13cqi; background: url("/assets/champagne/atelier-recovery/a2h/footer-heritage-house.webp") left top / 100% 100% no-repeat; transform: translate(-1.35cqi, -.35cqi); }
 .footerIdentity { display: grid; grid-template-columns: 4.8cqi 1fr; gap: 1.1cqi; align-items: center; transform: translateY(-.8cqi); }
@@ -83,7 +83,6 @@
 .footerParticles i { position: absolute; left: 0; width: 42.8cqi; height: 100%; background: url("/assets/champagne/atelier-recovery/a2h/footer-particles-left.webp") left center / 100% 100% no-repeat; }
 .footerParticles i + i { right: 0; left: auto; transform: scaleX(-1); }
 .footerDepth { position: absolute; z-index: 3; inset: 10cqi 0 3.2cqi; display: grid; grid-template-columns: 1fr 12cqi; gap: 3cqi; padding: .4cqi 5cqi 0 48cqi; color: var(--text-high); }
-.footerDepth::before { position: absolute; inset: 42% 70% -20% -5%; opacity: .65; background-image: radial-gradient(circle, var(--champagne-keyline-gold) 0 .09cqi, transparent .12cqi); background-size: 1.15cqi 1.15cqi; mask-image: radial-gradient(ellipse, var(--surface-ink), transparent 72%); content: ""; }
 .footerDepth > nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.3cqi; }
 .footerDepth section h2 { margin: 0 0 .7cqi; color: var(--champagne-keyline-gold); font: 500 .85cqi/1 var(--font-inter, Arial, sans-serif); letter-spacing: .11em; text-transform: uppercase; }
 .footerDepth section a { display: block; margin: 0 0 .42cqi; color: color-mix(in oklab, var(--text-high) 80%, transparent); font: 400 .68cqi/1.15 var(--font-playfair, Georgia, serif); text-decoration: none; }

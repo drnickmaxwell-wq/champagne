@@ -88,12 +88,12 @@
   "derivedAssets": [
     { "name": "decision-persian-surface.webp", "sha256": "0dfc53220718356b567fd6426cf044abbc69cf5de15a3ca969cf694149c97d21", "role": "clean source crop scaled as the Persian material field", "containsSemanticContent": false },
     { "name": "spectrum-luminous-field.webp", "sha256": "eaff4a1e199f796fb2e7e349cc690b593144484da0867d5281acdea567a5c85b", "role": "low-frequency source colour field", "containsSemanticContent": false },
-    { "name": "spectrum-edge-currents.webp", "sha256": "a7aad899e660b615afbbf21564b6596f0fef7be16f36627794792c0f0798d527", "role": "source wave, line and texture detail with the complete semantic centre made transparent", "containsSemanticContent": false },
+    { "name": "spectrum-edge-currents.webp", "sha256": "7247f0df29732a295764a56299e2a0b0d6e42c767b1189d26797a5252e603c23", "role": "source wave, line and texture detail with a hard-transparent semantic centre and feathered outer transition", "containsSemanticContent": false },
     { "name": "footer-heritage-house.webp", "sha256": "3defbedff6c2ba970c1f0e952183f7d024bc2189ae8a9b6f75540b73de06825f", "role": "source-specific non-semantic heritage illustration", "containsSemanticContent": false },
     { "name": "footer-practice-mark.webp", "sha256": "bbcca3fbac7f5413565ec7c095b40e5ea61388f928c374e04d37c3ce955608ff", "role": "source-specific non-text practice ornament", "containsSemanticContent": false },
     { "name": "footer-wave-transition.webp", "sha256": "5cd5a19579f2443d21fd31e3d4d49604e5c623eda2e178beecf0614e1a150776", "role": "masked source wave envelope with non-wave regions transparent", "containsSemanticContent": false },
     { "name": "footer-particles-left.webp", "sha256": "4974816d8dfbff0adad84940afacbfbedfea37fb4e2fded25fe9d818b0e1992b", "role": "source particle field from a semantic-free region", "containsSemanticContent": false },
-    { "name": "footer-persian-depth.webp", "sha256": "5fb3a5913972ca8d60898be0d8a3adca46d53a209e96bba186e2ea4d888612c5", "role": "clean source crop scaled as the Persian lower field", "containsSemanticContent": false },
+    { "name": "footer-persian-depth.webp", "sha256": "7aec61dbec1de10a35d9c110079d606e9b0e7959af1207bb1964cac9804b5ad3", "role": "clean source Persian crop masked to the measured descending lower-field silhouette", "containsSemanticContent": false },
     { "name": "footer-porcelain-field.webp", "sha256": "6fb689f3b726541c5d8f124c24815798392b64586599ac2b6b45e9b12d4f9b4d", "role": "clean source crop scaled as the Porcelain field", "containsSemanticContent": false }
   ],
   "frozenNotRebuiltComponentCount": 5,
