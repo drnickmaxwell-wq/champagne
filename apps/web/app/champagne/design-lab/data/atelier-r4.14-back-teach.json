@@ -1,0 +1,48 @@
+{
+  "schema": "CHAMPAGNE_ATELIER_R4_14_BRAND_DNA_PAGE_DECISION_TRACE_V1",
+  "brandAuthority": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1@1.0.0",
+  "implementationBinding": false,
+  "weosMutation": false,
+  "records": [
+    {
+      "brandDnaInput": "Layered Champagne wave and fluid motion language is foundational.",
+      "pageDecision": "Replace architectural apertures and the model plinth with wave-led transitions, orbital fields and a luminous future-visual stage.",
+      "renderedResult": "Planning, 3D seam, CTA and closing chapters carry connected wave/current geometry without pretending to contain approved media.",
+      "founderResponse": null
+    },
+    {
+      "brandDnaInput": "Persian depth must balance Porcelain lift; the site is neither permanently dark nor pale minimal.",
+      "pageDecision": "Alternate deep explanatory chapters with warm reading chapters instead of applying one family to the whole page.",
+      "renderedResult": "The governed sequence moves between Persian components/planning/comparison/aftercare and Porcelain answer/assessment/stages/risk/cost/FAQ/action chapters.",
+      "founderResponse": null
+    },
+    {
+      "brandDnaInput": "Magenta #C2185B, turquoise #40C4B4 and gold #D4AF37 are participating colours.",
+      "pageDecision": "Use all three for chapter numbers, current lines, CTA waves, orbit points, boundaries and focus states rather than micro-accents only.",
+      "renderedResult": "Colour visibly shapes navigation, transitions, action areas and the educational seam while body reading remains calm.",
+      "founderResponse": null
+    },
+    {
+      "brandDnaInput": "Family F split editorial, comparison, warm editorial, reassurance and mobile systems are loved as ingredients, not a stack.",
+      "pageDecision": "Assign different composition roles by semantic job and collapse each intentionally for tablet/mobile.",
+      "renderedResult": "Direct answer, assessment, components, pathway, comparison, FAQ and action chapters use distinct container models.",
+      "founderResponse": null
+    },
+    {
+      "brandDnaInput": "Founder wants final CTA judgement on actual pages.",
+      "pageDecision": "Place three accepted CTA treatments inside assessment and final-action chapters without changing governed CTA labels or destinations.",
+      "renderedResult": "Wave Luxe, Porcelain Editorial and Signature Wave Motion are interactive, keyboard-operable page-context choices.",
+      "founderResponse": null
+    },
+    {
+      "brandDnaInput": "Architecture is supporting provenance, not primary grammar.",
+      "pageDecision": "Remove the architecture-led Implant families, arches, monumental thresholds and architecture-labelled placeholders.",
+      "renderedResult": "No architecture-led motif appears in R4.14; St Mary's House remains available for a future selective provenance chapter only.",
+      "founderResponse": null
+    }
+  ],
+  "founderDecisionCapture": {
+    "status": "PENDING_VISUAL_REVIEW",
+    "allowedResponses": ["LOVE_CHAPTER", "HATE_SECTION", "CTA_A", "CTA_B", "CTA_C", "LIGHTER", "MORE_COLOUR", "LESS_BLOCKY", "FEELS_CHAMPAGNE", "NOT_CHAMPAGNE"]
+  }
+}

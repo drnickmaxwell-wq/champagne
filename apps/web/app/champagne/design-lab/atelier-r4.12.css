@@ -1,0 +1,99 @@
+/* R4.12 — Implant Golden visual-convergence study. Isolated Lab only. */
+.dl46-canvas[data-whole-page-proposal]{position:relative;isolation:isolate;--r412-reading:min(74ch,100%)}
+.dl46-canvas[data-whole-page-proposal] section{position:relative;scroll-margin-top:24px}
+.dl46-canvas[data-whole-page-proposal] section::before{content:attr(data-chapter);position:absolute;z-index:4;top:30px;left:clamp(20px,3.2vw,54px);font:500 10px/1 var(--font-inter),Arial,sans-serif;letter-spacing:.18em;color:var(--brand-gold)}
+.dl46-canvas[data-whole-page-proposal] .dl411-copy>p{max-width:var(--r412-reading)}
+.dl412-chapter-rail{display:none}
+.dl412-media-composition,.dl412-3d-exhibition{margin:0;overflow:hidden;position:relative}
+.dl412-media-composition>div{height:clamp(180px,22vw,360px);display:grid;grid-template-columns:1.15fr .6fr .85fr;gap:1px;background:var(--brand-gold)}
+.dl412-media-composition>div i{display:block;background:var(--surface-ink-soft);position:relative}
+.dl412-media-composition>div i::after{content:"";position:absolute;inset:16%;border:1px solid var(--border-subtle)}
+.dl412-media-composition>div i:nth-child(2)::after{inset:8% 28%;border-radius:50% 50% 0 0}
+.dl412-media-composition figcaption,.dl412-3d-exhibition figcaption{padding-top:22px;display:flex;flex-direction:column}
+.dl412-media-composition small{margin-top:10px;color:var(--text-muted)}
+.dl412-3d-exhibition{min-height:clamp(520px,65vw,860px);justify-content:flex-end!important;background:var(--surface-ink)!important;color:var(--surface-0)!important}
+.dl412-plinth{position:absolute;inset:6% 7% 31%;border:1px solid var(--brand-gold);background:var(--surface-ink-soft);display:grid;place-items:center;overflow:hidden}
+.dl412-plinth::before{content:"REPLACEMENT VISUAL PENDING";letter-spacing:.24em;font-size:10px;color:var(--brand-gold);z-index:2}
+.dl412-plinth::after{content:"";position:absolute;width:42%;height:28%;bottom:-8%;border:1px solid var(--brand-gold);border-radius:50% 50% 0 0;background:var(--surface-ink)}
+.dl412-plinth i{position:absolute;border:1px solid var(--border-subtle)}
+.dl412-plinth i:nth-child(1){width:56%;height:56%;border-radius:50%}
+.dl412-plinth i:nth-child(2){width:1px;height:100%;background:var(--brand-gold)}
+.dl412-plinth i:nth-child(3){width:100%;height:1px;background:var(--brand-gold)}
+.dl412-3d-exhibition figcaption{z-index:2;max-width:700px}
+.dl412-evidence-host{position:static!important;max-width:none!important;margin-top:42px!important;border-top:1px solid var(--brand-gold);padding-top:20px}
+.dl412-evidence-host summary{font:400 clamp(22px,2.6vw,34px)/1.15 var(--font-playfair),Georgia,serif!important;text-transform:none!important;letter-spacing:0!important}
+.dl412-evidence-host dl{margin-top:18px!important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--border-subtle)!important;padding:1px!important}
+.dl412-evidence-host dl>div{background:var(--surface-1);padding:18px!important;display:block!important}
+
+/* A — Persian Architectural: a deep exhibition paced by monumental thresholds. */
+.dl46-canvas[data-whole-page-proposal=aperture]{background:var(--surface-ink);padding-left:clamp(0px,10vw,176px)}
+.dl46-canvas[data-whole-page-proposal=aperture] .dl412-chapter-rail{display:flex;position:fixed;z-index:20;inset:0 auto 0 0;width:clamp(0px,10vw,176px);min-width:150px;padding:34px 18px 24px;background:var(--surface-ink);color:var(--surface-0);border-right:1px solid var(--brand-gold);flex-direction:column}
+.dl46-canvas[data-whole-page-proposal=aperture] .dl412-chapter-rail strong{font:400 22px/1.05 var(--font-playfair),Georgia,serif;color:var(--brand-gold)}
+.dl46-canvas[data-whole-page-proposal=aperture] .dl412-chapter-rail ol{list-style:none;padding:0;margin:28px 0;display:grid;gap:7px;overflow:auto}
+.dl46-canvas[data-whole-page-proposal=aperture] .dl412-chapter-rail a{display:grid;grid-template-columns:26px 1fr;color:var(--surface-0);text-decoration:none;font-size:9px;line-height:1.25}
+.dl46-canvas[data-whole-page-proposal=aperture] .dl412-chapter-rail a span{color:var(--brand-gold)}
+.dl46-canvas[data-whole-page-proposal=aperture] .dl412-chapter-rail small{margin-top:auto;color:var(--text-muted);font-size:8px}
+.dl46-canvas[data-whole-page-proposal=aperture] section>.dl4-native{max-width:none;margin:0;border:0}
+.dl46-canvas[data-whole-page-proposal=aperture] section:nth-of-type(3n+1)>.dl4-native{min-height:76vh;padding-block:clamp(100px,14vw,220px)}
+.dl46-canvas[data-whole-page-proposal=aperture] section:nth-of-type(3n+2)>.dl4-native{grid-template-columns:minmax(260px,.6fr) minmax(0,1.4fr);padding-left:clamp(70px,12vw,190px)}
+.dl46-canvas[data-whole-page-proposal=aperture] section[data-tone=porcelain]>.dl4-native{background:var(--atelier-porcelain)}
+.dl46-canvas[data-whole-page-proposal=aperture] section[data-tone=persian]>.dl4-native{background:var(--atelier-persian)}
+.dl46-canvas[data-whole-page-proposal=aperture] [data-semantic-id="implants.hero"]>.dl4-native{min-height:95vh;background:var(--surface-ink)}
+.dl46-canvas[data-whole-page-proposal=aperture] [data-semantic-id="implants.hero"]>.dl4-native::after{content:"";position:absolute;right:7%;top:10%;width:38%;height:70%;border:1px solid var(--brand-gold);border-radius:50% 50% 0 0;box-shadow:inset 0 0 0 24px var(--surface-ink-soft)}
+.dl46-canvas[data-whole-page-proposal=aperture] [data-semantic-id="implants.hero"] .dl411-copy{z-index:2;max-width:62%}
+
+/* B — Porcelain Editorial: folios, margins and readable scientific calm. */
+.dl46-canvas[data-whole-page-proposal=folio]{background:var(--atelier-porcelain);padding:0 clamp(18px,4vw,72px)}
+.dl46-canvas[data-whole-page-proposal=folio] section{border-bottom:1px solid var(--border-subtle)}
+.dl46-canvas[data-whole-page-proposal=folio] section>.dl4-native{max-width:1240px;margin-inline:auto;border-left:0;grid-template-columns:minmax(180px,.48fr) minmax(0,1.52fr);gap:clamp(30px,7vw,110px);padding-block:clamp(70px,9vw,130px)}
+.dl46-canvas[data-whole-page-proposal=folio] section:nth-of-type(4n)>.dl4-native{max-width:none;background:var(--surface-ink);color:var(--surface-0)}
+.dl46-canvas[data-whole-page-proposal=folio] section:nth-of-type(4n+2)>.dl4-native{grid-template-columns:minmax(0,1.4fr) minmax(280px,.6fr)}
+.dl46-canvas[data-whole-page-proposal=folio] h2{font-size:clamp(40px,5.3vw,74px)!important}
+.dl46-canvas[data-whole-page-proposal=folio] [data-semantic-id="implants.hero"]>.dl4-native{min-height:88vh;grid-template-columns:minmax(0,.8fr) minmax(360px,1.2fr);align-items:center}
+.dl46-canvas[data-whole-page-proposal=folio] [data-semantic-id="implants.hero"]>.dl4-native::after{content:"ARCHITECTURAL MEDIA APERTURE · REAL CAPTURE REQUIRED";display:grid;place-items:center;min-height:56vh;border:1px solid var(--border-subtle);color:var(--text-muted);font-size:9px;letter-spacing:.16em}
+.dl46-canvas[data-whole-page-proposal=folio] [data-semantic-id="implants.hero"] .dl411-copy{grid-column:1}
+
+/* C — Architectural / Editorial Hybrid: the strongest alternating journey. */
+.dl46-canvas[data-whole-page-proposal=luminous]{background:var(--atelier-porcelain)}
+.dl46-canvas[data-whole-page-proposal=luminous] section>.dl4-native{max-width:none;border:0;margin:0}
+.dl46-canvas[data-whole-page-proposal=luminous] section:nth-of-type(odd)>.dl4-native{background:var(--atelier-porcelain);color:var(--text-high);padding-left:clamp(42px,11vw,180px)}
+.dl46-canvas[data-whole-page-proposal=luminous] section:nth-of-type(even)>.dl4-native{background:var(--surface-ink);color:var(--surface-0);min-height:68vh;padding-right:clamp(42px,11vw,180px)}
+.dl46-canvas[data-whole-page-proposal=luminous] section:nth-of-type(even)>.dl4-native::after{content:"";position:absolute;inset:12% 5% 12% auto;width:28%;border:1px solid var(--brand-gold);border-radius:50% 50% 0 0;opacity:.58}
+.dl46-canvas[data-whole-page-proposal=luminous] section:nth-of-type(even) .dl411-copy{z-index:2;max-width:64%}
+.dl46-canvas[data-whole-page-proposal=luminous] [data-semantic-id="implants.hero"]>.dl4-native{min-height:92vh;background:var(--atelier-porcelain);color:var(--text-high);grid-template-columns:.75fr 1.25fr}
+.dl46-canvas[data-whole-page-proposal=luminous] [data-semantic-id="implants.hero"]>.dl4-native::after{content:"INTRODUCTORY ARCHITECTURAL COMPOSITION · REAL MEDIA PENDING";display:grid;place-items:center;min-height:62vh;border:1px solid var(--border-subtle);color:var(--text-muted);font-size:9px;letter-spacing:.15em}
+.dl46-canvas[data-whole-page-proposal=luminous] .dl412-3d-exhibition{box-shadow:inset 0 0 0 1px var(--brand-gold)}
+
+/* D — Mineral Gallery Promenade: anchored spine, offset rooms, central plinth. */
+.dl46-canvas[data-whole-page-proposal=monolith]{background:var(--surface-ink);padding-left:clamp(110px,14vw,230px)}
+.dl46-canvas[data-whole-page-proposal=monolith] .dl412-chapter-rail{display:flex;position:fixed;z-index:20;inset:0 auto 0 0;width:clamp(110px,14vw,230px);padding:34px 22px;background:var(--surface-ink-soft);color:var(--surface-0);border-right:1px solid var(--border-subtle);flex-direction:column}
+.dl46-canvas[data-whole-page-proposal=monolith] .dl412-chapter-rail strong{font:400 clamp(18px,2vw,28px)/1 var(--font-playfair),Georgia,serif}
+.dl46-canvas[data-whole-page-proposal=monolith] .dl412-chapter-rail ol{list-style:none;padding:0;margin:32px 0;display:grid;grid-template-columns:1fr;gap:10px;overflow:auto}
+.dl46-canvas[data-whole-page-proposal=monolith] .dl412-chapter-rail a{display:flex;gap:10px;color:var(--surface-0);font-size:9px;text-decoration:none}
+.dl46-canvas[data-whole-page-proposal=monolith] .dl412-chapter-rail a span{color:var(--brand-gold)}
+.dl46-canvas[data-whole-page-proposal=monolith] .dl412-chapter-rail small{margin-top:auto;color:var(--brand-gold)}
+.dl46-canvas[data-whole-page-proposal=monolith] section>.dl4-native{max-width:none;margin:0;border:0;border-bottom:1px solid var(--border-subtle);grid-template-columns:minmax(220px,.55fr) minmax(0,1.45fr);padding:clamp(64px,8vw,118px)}
+.dl46-canvas[data-whole-page-proposal=monolith] section:nth-of-type(3n+1)>.dl4-native{background:var(--atelier-porcelain);color:var(--text-high)}
+.dl46-canvas[data-whole-page-proposal=monolith] section:nth-of-type(3n+2)>.dl4-native{margin:clamp(12px,2vw,28px);background:var(--surface-ink-soft);color:var(--surface-0);box-shadow:inset 0 0 0 1px var(--brand-gold)}
+.dl46-canvas[data-whole-page-proposal=monolith] section:nth-of-type(3n)>.dl4-native{background:var(--surface-1);color:var(--text-high);padding-left:clamp(100px,16vw,250px)}
+.dl46-canvas[data-whole-page-proposal=monolith] [data-semantic-id="implants.hero"]>.dl4-native{min-height:96vh;background:var(--atelier-porcelain);color:var(--text-high);grid-template-columns:.65fr 1.35fr}
+.dl46-canvas[data-whole-page-proposal=monolith] [data-semantic-id="implants.hero"]>.dl4-native::after{content:"GALLERY PLINTH · PROVENANCE-SAFE PLACEHOLDER";display:grid;place-items:center;min-height:66vh;border:1px solid var(--brand-gold);background:var(--surface-1);color:var(--text-muted);font-size:9px;letter-spacing:.16em}
+
+@media(max-width:900px){
+  .dl46-canvas[data-whole-page-proposal]{padding-left:0}
+  .dl46-canvas[data-whole-page-proposal] .dl412-chapter-rail{display:none}
+  .dl46-canvas[data-whole-page-proposal] section>.dl4-native,.dl46-canvas[data-whole-page-proposal] section:nth-of-type(n)>.dl4-native{grid-template-columns:1fr;margin:0;padding:clamp(58px,9vw,90px) clamp(24px,7vw,70px)}
+  .dl46-canvas[data-whole-page-proposal] [data-semantic-id="implants.hero"]>.dl4-native{grid-template-columns:1fr;min-height:82vh}
+  .dl46-canvas[data-whole-page-proposal] [data-semantic-id="implants.hero"]>.dl4-native::after{min-height:34vh;width:auto;position:static;border-radius:0;box-shadow:none}
+  .dl46-canvas[data-whole-page-proposal] [data-semantic-id="implants.hero"] .dl411-copy,.dl46-canvas[data-whole-page-proposal] section:nth-of-type(even) .dl411-copy{max-width:none}
+  .dl46-canvas[data-whole-page-proposal=luminous] section:nth-of-type(even)>.dl4-native::after{display:none}
+  .dl412-evidence-host dl{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .dl46-canvas[data-whole-page-proposal] section::before{top:20px}
+  .dl46-canvas[data-whole-page-proposal] section>.dl4-native,.dl46-canvas[data-whole-page-proposal] section:nth-of-type(n)>.dl4-native{padding:62px 22px}
+  .dl46-canvas[data-whole-page-proposal] h2{font-size:clamp(40px,12vw,54px)!important}
+  .dl412-media-composition>div{grid-template-columns:1fr 1fr}.dl412-media-composition>div i:first-child{grid-column:1/-1}
+  .dl412-3d-exhibition{min-height:620px}
+}
+@media(prefers-reduced-motion:reduce){.dl46-canvas[data-whole-page-proposal]{scroll-behavior:auto}}

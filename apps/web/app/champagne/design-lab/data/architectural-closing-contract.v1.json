@@ -1,0 +1,101 @@
+{
+  "schema": "champagne.atelier.architectural-closing.v1",
+  "id": "CDC-ARCH-CLOSING-ST-MARYS-V1",
+  "name": "St Mary's House Architectural Closing",
+  "status": "LAB_PROPOSAL_AWAITING_AUTHENTIC_FOUNDER_PHOTOGRAPH",
+  "evidenceLevel": "CONCEPT",
+  "productionBinding": false,
+  "allowedPlacements": [
+    "PRE_FOOTER_CLOSING_SECTION",
+    "FULL_FOOTER"
+  ],
+  "defaultPlacement": "PRE_FOOTER_CLOSING_SECTION",
+  "treatments": [
+    {
+      "id": "PERSIAN_ARCHITECTURAL",
+      "label": "Persian architectural",
+      "roles": ["cinematic overlay", "primary contrast", "quiet authority"]
+    },
+    {
+      "id": "PORCELAIN_GALLERY",
+      "label": "Porcelain gallery",
+      "roles": ["light navigation field", "calm transition", "editorial clarity"]
+    },
+    {
+      "id": "GILDED_BRAND_GOLD",
+      "label": "Gilded brand gold",
+      "roles": ["fine keylines", "typographic accent", "architectural highlights", "CTA edge"]
+    }
+  ],
+  "editableCopy": {
+    "statement": "Exceptional care. Enduring confidence.",
+    "practiceName": "St Mary's House Dental Care",
+    "ctaLabel": "Book a consultation"
+  },
+  "interimConceptMedia": {
+    "asset": "../assets/st-marys-architectural-closing-concept-v1.png",
+    "classification": "FICTIONAL_ARCHITECTURE_LAYOUT_REFERENCE_ONLY",
+    "authenticStMarysHouse": false,
+    "mustDisplayDisclosure": true,
+    "sourceHashSha256": "8463a230690b27fb8e1a5b0d4fc317fce44edc23156dada173392f1659b61840"
+  },
+  "futurePhotoInput": {
+    "required": true,
+    "subject": "Genuine St Mary's House entrance, doorway and steps",
+    "rightsRequired": true,
+    "preferredCapture": [
+      "high resolution",
+      "straight-on or slightly angled",
+      "complete doorway and steps visible",
+      "soft daylight",
+      "wide crop allowance",
+      "no people, cars, bins or avoidable obstructions"
+    ]
+  },
+  "regenerationInstruction": "Replace only the fictional architecture in the approved Champagne architectural-closing concept with the supplied genuine St Mary's House entrance photograph. Preserve the approved composition, wording, Persian and Porcelain material roles, typography, spacing, CTA treatment and code-native navigation structure. Also create a Gilded Brand Gold direction using restrained brand-gold linework, typography, borders and warm architectural highlights; do not recolour the whole building gold. Keep the building architecturally truthful. Permit only restrained relighting, crop, perspective correction, removal of transient obstructions and atmospheric edge extension. Do not invent doors, windows, steps, signage, accessibility features, neighbouring structures or practice facilities. Produce desktop, tablet portrait, tablet landscape, mobile and 320px crops for both PRE_FOOTER_CLOSING_SECTION and FULL_FOOTER placements. Record the original photograph, owner or licence, capture date when known, source hash, every generated region, alteration, crop and derivative in the provenance ledger. Keep all outputs LAB_PROPOSAL until Founder review; never bind production automatically.",
+  "lockedInvariants": [
+    "building identity and permanent architectural features remain truthful",
+    "generated regions remain provenance-labelled",
+    "navigation and CTA remain code-native",
+    "responsive crops do not hide the entrance or fabricate access",
+    "no production use before Founder approval"
+  ],
+  "requiredDerivatives": [
+    "desktop-pre-footer",
+    "desktop-full-footer",
+    "tablet-landscape",
+    "tablet-portrait",
+    "mobile-390",
+    "mobile-320"
+  ],
+  "provenanceLedgerFields": [
+    "owner",
+    "consentOrLicence",
+    "capturedDate",
+    "sourceHash",
+    "originalDimensions",
+    "cropSafeZones",
+    "perspectiveCorrections",
+    "removedTransientObjects",
+    "generatedRegions",
+    "lightingChanges",
+    "derivatives",
+    "altTextPurpose",
+    "founderDecision",
+    "reviewDate"
+  ],
+  "backTeach": {
+    "champagneSpecific": ["St Mary's House identity", "Persian", "Porcelain", "Champagne brand gold"],
+    "tenantNeutralPattern": [
+      "authentic architectural anchor",
+      "replaceable media layer",
+      "code-native closing content and navigation",
+      "material-treatment variants",
+      "responsive crop contract",
+      "media rights and generated-region provenance",
+      "Founder approval gate"
+    ],
+    "candidateConsumers": ["Captain", "WEOS"],
+    "boundary": "PACKET_ONLY_NO_AGENT_OR_WEOS_MUTATION"
+  }
+}
