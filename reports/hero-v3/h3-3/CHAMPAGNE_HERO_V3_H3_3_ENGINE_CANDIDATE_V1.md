@@ -9,6 +9,8 @@ The score coordinates the four canonical motion layers across a 42-second envelo
 
 Director visual QA rejected an initial over-luminous pass: converting the glass and gold layers to screen blend washed the hero toward white, and comparison-state styles were not completely reversible. The corrected candidate preserves Sacred V2's original screen/soft-light blend grammar, reduces additive energy, adds contrast without a brightness lift, and explicitly restores all engine-owned inline properties before returning to the V2 baseline.
 
+H3.3L adds a bounded Champagne optical-material profile rather than a new composition: a Persian depth veil, token-driven subsurface colour blooms, a low-opacity mother-of-pearl interference field, travelling ridge light and sparse specular glints. A single-highlight luminance budget prevents additive washout. The copy/CTA start zone is protected by the optical mask, and reduced-motion/autoplay fallback retains a static material equivalent.
+
 ## Future variants and tenants
 
 The engine contract is deliberately brand-neutral:

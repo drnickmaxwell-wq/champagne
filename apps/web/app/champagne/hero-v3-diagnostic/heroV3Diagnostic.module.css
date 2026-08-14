@@ -20,6 +20,22 @@
 .stage[data-h3-engine-mode="h3-3-engine"][data-h3-motion-health="active"] :global(video[data-surface-id^="sacred.motion."]) { opacity: var(--h3-score-opacity) !important; animation-delay: var(--h3-score-phase), var(--h3-score-phase) !important; transition: opacity 320ms ease; }
 .stage[data-h3-engine-mode="h3-3-engine"] :global(.hero-renderer-v2) { filter: saturate(1.025) contrast(1.035); }
 .stage[data-h3-motion-health="static-fallback"] :global(video[data-surface-id^="sacred.motion."]) { display: none !important; }
+.opticalLuxury { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; isolation: isolate; mask-image: linear-gradient(104deg, transparent 0 29%, rgb(0 0 0 / .12) 38%, rgb(0 0 0) 48% 92%, transparent 100%); }
+.opticalLuxury > span { position: absolute; inset: -12%; pointer-events: none; }
+.depthVeil { background: radial-gradient(ellipse 44% 68% at 54% 54%, color-mix(in srgb, var(--h3-optical-depth) 24%, transparent), transparent 72%), linear-gradient(112deg, transparent 32%, color-mix(in srgb, var(--h3-optical-depth) 13%, transparent) 54%, transparent 78%); mix-blend-mode: multiply; opacity: .2; }
+.subsurfaceBloom { background: radial-gradient(circle at 38% 34%, color-mix(in srgb, var(--h3-optical-human) 34%, transparent), transparent 29%), radial-gradient(circle at 64% 45%, color-mix(in srgb, var(--h3-optical-digital) 38%, transparent), transparent 34%), radial-gradient(circle at 86% 74%, color-mix(in srgb, var(--h3-optical-precision) 28%, transparent), transparent 26%); filter: blur(30px) saturate(1.16); mix-blend-mode: soft-light; opacity: min(var(--h3-optical-ambient-max), .12); animation: h3SubsurfaceBreathe 32s ease-in-out infinite alternate; }
+.interferenceVeil { background: conic-gradient(from 204deg at 68% 54%, transparent 0 10%, color-mix(in srgb, var(--h3-optical-human) 34%, transparent) 18%, color-mix(in srgb, var(--h3-optical-lift) 28%, transparent) 25%, color-mix(in srgb, var(--h3-optical-digital) 38%, transparent) 34%, color-mix(in srgb, var(--h3-optical-precision) 30%, transparent) 41%, transparent 52% 100%); background-size: 132% 128%; filter: blur(14px) saturate(1.28); mix-blend-mode: soft-light; opacity: .1; transform-origin: 68% 54%; animation: h3InterferenceRoll 38s cubic-bezier(.42, 0, .58, 1) infinite alternate; }
+.ridgeLight { inset: -24%; background: repeating-radial-gradient(ellipse 88% 76% at 86% 54%, transparent 0 14px, color-mix(in srgb, var(--h3-optical-lift) 34%, transparent) 15px, color-mix(in srgb, var(--h3-optical-precision) 18%, transparent) 16px, transparent 18px 34px); filter: blur(.45px); mix-blend-mode: soft-light; opacity: .11; transform-origin: 86% 54%; animation: h3RidgeTravel 29s ease-in-out infinite; }
+.specularGlints { background: radial-gradient(ellipse 1.8% .7% at 55% 42%, color-mix(in srgb, var(--h3-optical-lift) 88%, transparent), transparent 72%), radial-gradient(ellipse 1.3% .55% at 69% 58%, color-mix(in srgb, var(--h3-optical-precision) 76%, transparent), transparent 74%), radial-gradient(ellipse 1.6% .6% at 82% 36%, color-mix(in srgb, var(--h3-optical-lift) 70%, transparent), transparent 72%); filter: blur(.6px); mix-blend-mode: screen; opacity: 0; animation: h3SpecularCadence 23s ease-in-out infinite; }
+.stage[data-h3-motion-health="static-fallback"] .opticalLuxury > span { animation: none !important; }
+.stage[data-h3-motion-health="static-fallback"] .interferenceVeil { opacity: .055; transform: none; }
+.stage[data-h3-motion-health="static-fallback"] .subsurfaceBloom { opacity: .07; }
+.stage[data-h3-motion-health="static-fallback"] .ridgeLight { opacity: .06; }
+.stage[data-h3-motion-health="static-fallback"] .specularGlints { display: none; }
+@keyframes h3SubsurfaceBreathe { 0% { opacity: .07; transform: translate3d(-1.2%, .5%, 0) scale(.99); } 52% { opacity: min(var(--h3-optical-ambient-max), .12); } 100% { opacity: .085; transform: translate3d(1.4%, -.7%, 0) scale(1.025); } }
+@keyframes h3InterferenceRoll { 0% { opacity: .065; transform: translate3d(-2%, .8%, 0) rotate(-1deg) scale(.98); } 48% { opacity: .11; } 100% { opacity: .075; transform: translate3d(2.2%, -.9%, 0) rotate(1.2deg) scale(1.025); } }
+@keyframes h3RidgeTravel { 0%, 18% { opacity: .045; transform: translate3d(-1.4%, .7%, 0) scale(.995); } 48% { opacity: min(var(--h3-optical-highlight-max), .18); } 72%, 100% { opacity: .055; transform: translate3d(1.8%, -.8%, 0) scale(1.012); } }
+@keyframes h3SpecularCadence { 0%, 38%, 62%, 100% { opacity: 0; transform: translate3d(-1%, .4%, 0); } 45% { opacity: min(var(--h3-optical-highlight-max), .18); } 52% { opacity: .07; transform: translate3d(1.2%, -.5%, 0); } }
 .safeZones { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: var(--brand-gold); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 .copyZone, .ctaZone { position: absolute; left: 7%; width: 43%; padding: .4rem; border: 1px dashed var(--brand-gold); background: color-mix(in srgb, var(--surface-ink) 8%, transparent); }
 .copyZone { top: 15%; height: 38%; }
@@ -39,6 +55,10 @@
   .stage :global(.hero-content p) { max-width: 100% !important; font-size: .98rem !important; line-height: 1.5 !important; }
   .stage :global(.hero-content > div:last-child) { display: grid !important; width: 100%; gap: .65rem !important; }
   .stage :global(.hero-content > div:last-child a) { padding: .8rem 1rem !important; text-align: center; }
+  .opticalLuxury { mask-image: linear-gradient(104deg, transparent 0 18%, rgb(0 0 0 / .16) 31%, rgb(0 0 0) 48% 94%, transparent 100%); }
+  .subsurfaceBloom { opacity: .075; }
+  .interferenceVeil { opacity: .07; }
+  .ridgeLight { opacity: .075; }
 }
 
 @media (max-width: 900px) {
@@ -47,4 +67,12 @@
   .guideToggle { width: 100%; margin-inline-start: 0; }
   .stage[data-h3-viewport="mobile"] .copyZone { top: 10%; left: 7%; width: 86%; height: 35%; }
   .stage[data-h3-viewport="mobile"] .ctaZone { top: 47%; left: 7%; width: 72%; height: 13%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opticalLuxury > span { animation: none !important; }
+  .interferenceVeil { opacity: .055; transform: none; }
+  .subsurfaceBloom { opacity: .07; }
+  .ridgeLight { opacity: .06; }
+  .specularGlints { display: none; }
 }

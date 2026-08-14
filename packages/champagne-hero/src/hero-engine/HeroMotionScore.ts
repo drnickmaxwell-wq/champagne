@@ -37,6 +37,44 @@ export type HeroMotionScore = {
   collectiveRestartAllowed: false;
 };
 
+export type HeroOpticalMaterialProfile = {
+  id: string;
+  material: "iridescent-fluid" | "crystalline" | "architectural" | "matte" | string;
+  paletteRoles: {
+    humanEnergy: string;
+    digitalClarity: string;
+    precision: string;
+    lift: string;
+    depth: string;
+  };
+  lightBudget: {
+    ambientOpacityMax: number;
+    localHighlightOpacityMax: number;
+    simultaneousHighlightPeaks: number;
+  };
+  protectedContentZone: "start" | "center" | "end";
+  reducedMotion: "static-material-equivalent";
+};
+
+export const CHAMPAGNE_SACRED_V2_OPTICAL_MATERIAL_PROFILE: HeroOpticalMaterialProfile = {
+  id: "champagne-sacred-v2-mother-of-pearl-h3.3l",
+  material: "iridescent-fluid",
+  paletteRoles: {
+    humanEnergy: "var(--brand-magenta)",
+    digitalClarity: "var(--brand-turquoise)",
+    precision: "var(--brand-gold)",
+    lift: "var(--text-high)",
+    depth: "var(--surface-ink)",
+  },
+  lightBudget: {
+    ambientOpacityMax: 0.12,
+    localHighlightOpacityMax: 0.18,
+    simultaneousHighlightPeaks: 1,
+  },
+  protectedContentZone: "start",
+  reducedMotion: "static-material-equivalent",
+};
+
 export const CHAMPAGNE_SACRED_V2_MOTION_SCORE: HeroMotionScore = {
   id: "champagne-sacred-v2-h3.3",
   durationSeconds: 42,

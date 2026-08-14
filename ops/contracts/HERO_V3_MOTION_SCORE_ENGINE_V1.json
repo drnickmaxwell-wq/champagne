@@ -5,6 +5,7 @@
   "productionBinding": false,
   "visualInvariant": "SACRED_V2_DESIGN_UNCHANGED",
   "expression": "ENGINE + TENANT_BRAND_PROFILE + HERO_GRAMMAR + HERO_INSTANCE",
+  "materialExpression": "ENGINE + BRAND_PROFILE + HERO_GRAMMAR + MATERIAL_PROFILE + LIGHTING_SCORE + MOTION_SCORE + HERO_INSTANCE",
   "engineOwns": ["rendering", "light and depth execution", "motion score", "responsive machinery", "reduced motion", "autoplay fallback"],
   "engineMustNotOwn": ["Champagne palette", "Champagne waves", "Champagne logo", "Champagne typography", "tenant colours", "tenant logos", "tenant visual desires"],
   "champagneCandidate": {
@@ -14,6 +15,9 @@
     "luminancePolicy": "PRESERVE_SACRED_V2_RANGE_NO_SCREEN_WASHOUT",
     "comparisonIsolation": "ENGINE_SETTINGS_MUST_RESTORE_ON_BASELINE_SWITCH",
     "activationGate": "ALL_CANONICAL_MOTION_LAYERS_MOUNTED",
+    "opticalMaterialProfile": "champagne-sacred-v2-mother-of-pearl-h3.3l",
+    "opticalLayers": ["depth veil", "subsurface colour bloom", "iridescent interference veil", "wave-ridge travelling light", "micro-specular glints"],
+    "lightBudget": {"ambientOpacityMax": 0.12, "localHighlightOpacityMax": 0.18, "simultaneousHighlightPeaks": 1},
     "collectiveRestartAllowed": false,
     "canonicalMotionLayers": ["sacred.motion.waveCaustics", "sacred.motion.glassShimmer", "sacred.motion.particleDrift", "sacred.motion.goldDust"]
   },

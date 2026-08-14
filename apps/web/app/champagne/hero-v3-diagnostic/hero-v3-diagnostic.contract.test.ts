@@ -37,6 +37,15 @@ describe("Hero V3 H3.3 engine enhancement", () => {
     expect(engine).toContain("desiredCharacter");
     expect(engine).not.toMatch(/#[0-9a-f]{3,8}/i);
     expect(engine).toContain('blend: "soft-light"');
+    expect(engine).toContain("HeroOpticalMaterialProfile");
+    expect(engine).toContain("simultaneousHighlightPeaks: 1");
+  });
+  it("adds optical luxury without changing the Sacred V2 composition", () => {
+    expect(source).toContain("CHAMPAGNE_SACRED_V2_OPTICAL_MATERIAL_PROFILE");
+    expect(source).toContain("data-h3-optical-material");
+    for (const layer of ["depthVeil", "subsurfaceBloom", "interferenceVeil", "ridgeLight", "specularGlints"]) expect(source).toContain(`styles.${layer}`);
+    expect(styles).toContain("h3InterferenceRoll");
+    expect(styles).toContain("prefers-reduced-motion: reduce");
   });
   it("remains isolated and production-unbound", () => {
     expect(source).toContain('data-production-binding="false"');
