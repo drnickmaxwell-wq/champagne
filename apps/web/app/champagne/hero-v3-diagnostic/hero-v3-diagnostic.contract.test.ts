@@ -20,6 +20,7 @@ describe("Hero V3 H3.3 engine enhancement", () => {
     expect(engine).toContain("durationSeconds: 42");
   });
   it("fails safely for autoplay and reduced motion", () => {
+    expect(controller).toContain('setState("baseline")');
     expect(controller).toContain('"static-fallback"');
     expect(controller).toContain("prefers-reduced-motion: reduce");
     expect(controller).toContain("Promise.all");

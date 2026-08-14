@@ -11,9 +11,13 @@ export function HeroV3MotionScoreController({ rootRef, enabled, forceFallback }:
     if (!root) return;
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const videos = Array.from(root.querySelectorAll<HTMLVideoElement>('video[data-surface-id^="sacred.motion."]'));
-    const setState = (state: "active" | "static-fallback") => { root.dataset.h3MotionHealth = state; };
+    const setState = (state: "baseline" | "active" | "static-fallback") => { root.dataset.h3MotionHealth = state; };
     const settle = () => {
-      if (!enabled || forceFallback || media.matches || videos.some((video) => video.error)) {
+      if (!enabled) {
+        setState("baseline");
+        return;
+      }
+      if (forceFallback || media.matches || videos.some((video) => video.error)) {
         videos.forEach((video) => video.pause());
         setState("static-fallback");
         return;
