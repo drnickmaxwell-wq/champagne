@@ -69,7 +69,7 @@ test("every indexed reconstruction links a real source and declares adaptive exp
   }
 });
 
-test("reconstructed component bodies are code-native and cannot render source PNGs", () => {
+test("reconstructed semantic bodies stay code-native and cannot render complete source PNGs", () => {
   assert.equal(componentSource.includes("<img"), false);
   assert.equal(componentSource.includes(".png"), false);
   assert.match(librarySource, /SOURCE PNG/);

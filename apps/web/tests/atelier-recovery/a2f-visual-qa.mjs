@@ -4,7 +4,7 @@ import process from "node:process";
 import { chromium } from "playwright";
 
 const baseUrl = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3100";
-const evidenceDir = process.env.ATELIER_A2F_EVIDENCE_DIR ?? "/tmp/atelier-a2f-evidence";
+const evidenceDir = process.env.ATELIER_A2H_EVIDENCE_DIR ?? process.env.ATELIER_A2F_EVIDENCE_DIR ?? "/tmp/atelier-a2h-evidence";
 await mkdir(evidenceDir, { recursive: true });
 const browser = await chromium.launch({ headless: true, executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
@@ -18,17 +18,25 @@ await page.getByTestId("a2-component-library").waitFor();
 await page.getByText(/A2R remains 0 \/ 8/).waitFor();
 
 const calibration = [
-  ["A2-DECISION-CLARITY-01", 836],
-  ["A2-SPECTRUM-CLOSING-BAND-01", 820],
-  ["A2-PORCELAIN-DESCENT-FOOTER-01", 1167],
+  ["A2-DECISION-CLARITY-01", 836, 1],
+  ["A2-SPECTRUM-CLOSING-BAND-01", 820, 2],
+  ["A2-PORCELAIN-DESCENT-FOOTER-01", 1167, 6],
 ];
-for (const [componentId, nativeWidth] of calibration) {
+for (const [componentId, nativeWidth, expectedHybridLayers] of calibration) {
   await page.getByRole("button", { name: new RegExp(componentId) }).click();
   await page.getByRole("button", { name: `SOURCE ${nativeWidth}` }).click();
   const render = page.getByTestId("a2-component-render");
   const source = page.locator("figure img");
   await Promise.all([render.waitFor(), source.waitFor()]);
   if ((await render.locator("img").count()) !== 0) throw new Error(`${componentId} uses an image in its live body`);
+  if ((await render.locator("[data-hybrid-layer]").count()) !== expectedHybridLayers) throw new Error(`${componentId} does not expose its declared hybrid decorative layers`);
+  const missingHybridAssets = await render.locator("[data-hybrid-layer]").evaluateAll((layers) => layers.flatMap((layer) => {
+    const match = getComputedStyle(layer).backgroundImage.match(/url\(["']?([^"')]+)["']?\)/);
+    if (!match) return [`${layer.getAttribute("data-hybrid-layer")}:missing-background-url`];
+    const loaded = performance.getEntriesByType("resource").some((entry) => entry.name === new URL(match[1], location.href).href && entry.duration > 0);
+    return loaded ? [] : [`${layer.getAttribute("data-hybrid-layer")}:asset-not-loaded`];
+  }));
+  if (missingHybridAssets.length) throw new Error(`${componentId} hybrid asset failures: ${missingHybridAssets.join(", ")}`);
   if (await render.evaluate((element) => element.scrollWidth > element.clientWidth + 1)) throw new Error(`${componentId} overflows its native source viewport`);
   if (componentId === "A2-DECISION-CLARITY-01") {
     const nativeRailIsComplete = await render.evaluate((element) => {
@@ -63,9 +71,9 @@ for (const [componentId, nativeWidth] of calibration) {
 
 await page.getByText(/Preserved A2R Founder review machinery/).click();
 for (const disposition of ["APPROVE", "REFINE", "FAIL"]) {
-  if (await page.getByRole("button", { name: disposition, exact: true }).isEnabled()) throw new Error(`${disposition} must remain disabled in A2F`);
+  if (await page.getByRole("button", { name: disposition, exact: true }).isEnabled()) throw new Error(`${disposition} must remain disabled in A2H`);
 }
-if (await page.locator("body").evaluate((body) => body.scrollWidth > body.ownerDocument.documentElement.clientWidth + 1)) throw new Error("A2F workbench causes page-level overflow");
+if (await page.locator("body").evaluate((body) => body.scrollWidth > body.ownerDocument.documentElement.clientWidth + 1)) throw new Error("A2H workbench causes page-level overflow");
 if (problems.length) throw new Error(`Console problems:\n${problems.join("\n")}`);
 await browser.close();
-console.log(`Atelier A2F visual evidence written to ${evidenceDir}`);
+console.log(`Atelier A2H hybrid visual evidence written to ${evidenceDir}`);

@@ -98,13 +98,13 @@ test("progress reports only current dispositions and leaves A3 gated", () => {
   assert.match(librarySource, /A3 not authorised/);
 });
 
-test("A2R UI machinery is preserved but cannot fabricate Founder decisions during A2F", () => {
+test("A2R UI machinery is preserved but cannot fabricate Founder decisions during A2H", () => {
   for (const text of ["APPROVE", "REFINE", "FAIL", "Preserved A2R Founder review machinery", "disabled"]) assert.match(librarySource, new RegExp(text));
   for (const disposition of ["APPROVE", "REFINE", "FAIL"]) assert.match(librarySource, new RegExp(disposition));
   assert.equal((librarySource.match(/<img/g) ?? []).length, 1, "only source evidence may render an image");
-  assert.match(librarySource, /no PNG body/);
+  assert.match(librarySource, /no source PNG body/);
   assert.match(librarySource, /reviews\.length !== 0/);
-  assert.match(librarySource, /writes are disabled throughout A2F/);
+  assert.match(librarySource, /writes are disabled throughout A2H/);
 });
 
 test("A2R persistence is explicit, atomic, optimistic and same-origin guarded", () => {
