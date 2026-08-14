@@ -14,7 +14,7 @@
 .architecturalCta:focus-visible { outline: .18rem solid var(--brand-magenta); outline-offset: .2rem; }
 
 .decisionClarity, .clinicianInsight, .spectrumBand, .descentFooter, .credentialCard, .constellationStrip, .questionPanel { container-type: inline-size; }
-.decisionClarity { display: grid; grid-template-rows: 31cqi 1fr; aspect-ratio: 836 / 257; min-height: 0; padding: 2.1cqi 2cqi 2.25cqi; color: var(--text-high); background: color-mix(in oklab, var(--surface-ink) 91%, var(--brand-teal) 9%); }
+.decisionClarity { display: grid; grid-template-rows: 10.1cqi 1fr; aspect-ratio: 836 / 257; min-height: 0; padding: 2.1cqi 2cqi 2.25cqi; color: var(--text-high); background: color-mix(in oklab, var(--surface-ink) 91%, var(--brand-teal) 9%); }
 .decisionClarity > header { display: grid; grid-template-columns: 7.2cqi 1fr; gap: 1.45cqi; align-items: start; padding: 0; border: 0; }
 .decisionClarity > header > span { color: var(--champagne-keyline-gold); font: 400 5.2cqi/.78 var(--font-playfair, Georgia, serif); letter-spacing: -.04em; }
 .decisionClarity > header small { display: block; margin-bottom: .55cqi; color: var(--text-high); font: 600 .72cqi/1.15 var(--font-inter, Arial, sans-serif); letter-spacing: .14em; text-transform: uppercase; }
