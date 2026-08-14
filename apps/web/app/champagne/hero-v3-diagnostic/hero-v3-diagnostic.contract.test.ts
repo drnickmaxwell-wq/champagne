@@ -22,6 +22,8 @@ describe("Hero V3 H3.3 engine enhancement", () => {
   it("fails safely for autoplay and reduced motion", () => {
     expect(controller).toContain('setState("baseline")');
     expect(controller).toContain('removeProperty("mix-blend-mode")');
+    expect(controller).toContain("MutationObserver");
+    expect(controller).toContain("videos.length !== CHAMPAGNE_SACRED_V2_MOTION_SCORE.layers.length");
     expect(controller).toContain('"static-fallback"');
     expect(controller).toContain("prefers-reduced-motion: reduce");
     expect(controller).toContain("Promise.all");

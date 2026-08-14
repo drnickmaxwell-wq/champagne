@@ -10,21 +10,37 @@ export function HeroV3MotionScoreController({ rootRef, enabled, forceFallback }:
     const root = rootRef.current;
     if (!root) return;
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const videos = Array.from(root.querySelectorAll<HTMLVideoElement>('video[data-surface-id^="sacred.motion."]'));
-    const setState = (state: "baseline" | "active" | "static-fallback") => { root.dataset.h3MotionHealth = state; };
-    const restoreBaseline = () => videos.forEach((video) => {
+    const boundVideos = new Set<HTMLVideoElement>();
+    const getVideos = () => Array.from(root.querySelectorAll<HTMLVideoElement>('video[data-surface-id^="sacred.motion."]'));
+    const setState = (state: "pending" | "baseline" | "active" | "static-fallback") => { root.dataset.h3MotionHealth = state; };
+    const restoreBaseline = (videos: HTMLVideoElement[]) => videos.forEach((video) => {
       video.style.removeProperty("--h3-score-opacity");
       video.style.removeProperty("--h3-score-phase");
       video.style.removeProperty("mix-blend-mode");
       video.playbackRate = 1;
     });
     const settle = () => {
+      const videos = getVideos();
+      videos.forEach((video) => {
+        if (boundVideos.has(video)) return;
+        video.addEventListener("error", settle);
+        boundVideos.add(video);
+      });
       if (!enabled) {
-        restoreBaseline();
+        restoreBaseline(videos);
         setState("baseline");
         return;
       }
-      if (forceFallback || media.matches || videos.some((video) => video.error)) {
+      if (forceFallback || media.matches) {
+        videos.forEach((video) => video.pause());
+        setState("static-fallback");
+        return;
+      }
+      if (videos.length !== CHAMPAGNE_SACRED_V2_MOTION_SCORE.layers.length) {
+        setState("pending");
+        return;
+      }
+      if (videos.some((video) => video.error)) {
         videos.forEach((video) => video.pause());
         setState("static-fallback");
         return;
@@ -39,13 +55,14 @@ export function HeroV3MotionScoreController({ rootRef, enabled, forceFallback }:
       });
       void Promise.all(videos.map((video) => video.play())).then(() => setState("active")).catch(() => setState("static-fallback"));
     };
-    const fail = () => setState("static-fallback");
-    videos.forEach((video) => video.addEventListener("error", fail));
+    const observer = new MutationObserver(settle);
+    observer.observe(root, { childList: true, subtree: true });
     media.addEventListener?.("change", settle);
     settle();
     return () => {
-      restoreBaseline();
-      videos.forEach((video) => video.removeEventListener("error", fail));
+      observer.disconnect();
+      restoreBaseline(getVideos());
+      boundVideos.forEach((video) => video.removeEventListener("error", settle));
       media.removeEventListener?.("change", settle);
     };
   }, [enabled, forceFallback, rootRef]);

@@ -13,6 +13,7 @@
     "durationSeconds": 42,
     "luminancePolicy": "PRESERVE_SACRED_V2_RANGE_NO_SCREEN_WASHOUT",
     "comparisonIsolation": "ENGINE_SETTINGS_MUST_RESTORE_ON_BASELINE_SWITCH",
+    "activationGate": "ALL_CANONICAL_MOTION_LAYERS_MOUNTED",
     "collectiveRestartAllowed": false,
     "canonicalMotionLayers": ["sacred.motion.waveCaustics", "sacred.motion.glassShimmer", "sacred.motion.particleDrift", "sacred.motion.goldDust"]
   },
