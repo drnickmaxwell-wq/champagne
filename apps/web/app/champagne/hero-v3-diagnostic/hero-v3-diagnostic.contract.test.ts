@@ -41,5 +41,7 @@ describe("Hero V3 H3.3 engine enhancement", () => {
   it("remains isolated and production-unbound", () => {
     expect(source).toContain('data-production-binding="false"');
     expect(source).toContain("Future Champagne variants and tenant heroes");
+    expect(styles).toContain("@container (max-width: 640px)");
+    expect(styles).toContain('[class*="concierge_root"]');
   });
 });

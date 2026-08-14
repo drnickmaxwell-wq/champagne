@@ -14,7 +14,7 @@
 .guideToggle input { accent-color: var(--brand-magenta); }
 .stageShell { width: min(100%, var(--h3-frame-width)); margin: 0 auto; }
 .viewportLabel { padding: .55rem .75rem; color: var(--text-medium); border: 1px solid var(--champagne-keyline-gold); border-bottom: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: var(--surface-ink-soft); font-size: .78rem; text-transform: capitalize; }
-.stage { position: relative; min-height: min(57vw, 820px); overflow: hidden; isolation: isolate; border: 1px solid var(--champagne-keyline-gold); border-radius: 0 0 var(--radius-lg) var(--radius-lg); background: var(--surface-ink); }
+.stage { container-type: inline-size; position: relative; min-height: min(57vw, 820px); overflow: hidden; isolation: isolate; border: 1px solid var(--champagne-keyline-gold); border-radius: 0 0 var(--radius-lg) var(--radius-lg); background: var(--surface-ink); }
 .stage[data-h3-viewport="mobile"] { min-height: 780px; }
 .stage :global(.hero-renderer-v2) { position: relative; min-height: inherit; }
 .stage[data-h3-engine-mode="h3-3-engine"][data-h3-motion-health="active"] :global(video[data-surface-id^="sacred.motion."]) { opacity: var(--h3-score-opacity) !important; animation-delay: var(--h3-score-phase), var(--h3-score-phase) !important; transition: opacity 320ms ease; }
@@ -29,6 +29,17 @@
 .engineBrief p { line-height: 1.5; }
 :global(body):has(.page) > div > main > div:has(> :global(.hero-renderer-v2)) { display: none !important; }
 :global(body):has(.page) .stage :global(.hero-renderer-v2) { display: block !important; }
+:global(body):has(.page) [class*="concierge_root"] { display: none !important; }
+
+@container (max-width: 640px) {
+  .stage :global(.hero-renderer-v2),
+  .stage :global(.hero-renderer-v2 > div) { min-height: 780px !important; }
+  .stage :global(.hero-content) { gap: .85rem !important; padding: 2rem 1.5rem !important; transform: none !important; }
+  .stage :global(.hero-content h1) { max-width: 100% !important; font-size: 2.15rem !important; line-height: 1.08 !important; }
+  .stage :global(.hero-content p) { max-width: 100% !important; font-size: .98rem !important; line-height: 1.5 !important; }
+  .stage :global(.hero-content > div:last-child) { display: grid !important; width: 100%; gap: .65rem !important; }
+  .stage :global(.hero-content > div:last-child a) { padding: .8rem 1rem !important; text-align: center; }
+}
 
 @media (max-width: 900px) {
   .header { display: grid; gap: 1rem; }
