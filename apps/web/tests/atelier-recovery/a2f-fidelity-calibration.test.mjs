@@ -91,5 +91,7 @@ test("native correction preserves source-led density and declares the footer ass
   assert.match(components, /footerWaveFill/);
   assert.match(componentCss, /grid-template-columns: \.95fr 1\.23fr 1\.2fr 1\.02fr 1\.38fr/);
   assert.match(componentCss, /top: 6\.22cqi/);
+  assert.match(componentCss, /@container \(max-width: 800px\)/);
+  assert.doesNotMatch(componentCss, /@container \(max-width: 52rem\)/);
   assert.match(calibration.calibrationSet.find((item) => item.componentId === "A2-PORCELAIN-DESCENT-FOOTER-01").knownGaps.join(" "), /FOOTER_HERITAGE_ILLUSTRATION_ASSET_GAP/);
 });

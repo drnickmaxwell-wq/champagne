@@ -43,6 +43,12 @@ function HouseLineArt() {
   </svg>;
 }
 
+function footerWavePath(index: number) {
+  const progress = index / 18;
+  const between = (top: number, bottom: number) => Number((top + ((bottom - top) * progress)).toFixed(2));
+  return `M-18 ${between(138, 160)}C98 ${between(143, 165)} 193 ${between(165, 178)} 300 ${between(155, 166)}C411 ${between(146, 157)} 487 ${between(99, 111)} 599 ${between(90, 103)}C766 ${between(77, 90)} 950 ${between(99, 112)} 1182 ${between(58, 94)}`;
+}
+
 export function ArchitecturalCta({ label, href, variant = "gold", compact = false }: LinkSlot & { variant?: "gold" | "teal" | "magenta"; compact?: boolean }) {
   return (
     <a className={`${styles.architecturalCta} ${styles[variant]}`} data-compact={compact} href={href}>
@@ -116,8 +122,8 @@ export function PorcelainDescentFooter({
         <nav className={styles.footerUtilities} aria-label="Footer shortcuts">{utilityLinks.map((link) => <a key={link.label} href={link.href}>{link.label}<ArrowIcon /></a>)}</nav>
       </div>
       <svg className={styles.footerWave} aria-hidden="true" viewBox="0 0 1167 279" preserveAspectRatio="none">
-        <path className={styles.footerWaveFill} d="M0 138C104 143 196 170 302 161C412 152 488 105 600 96C767 82 948 105 1167 62V279H0Z" />
-        {Array.from({ length: 19 }, (_, index) => <path key={index} style={{ "--strand-offset": `${6 + (index * 1.55)}px` } as CSSProperties} d="M-18 132C98 136 193 164 300 155C411 146 487 99 599 90C766 77 950 99 1182 54" />)}
+        <path className={styles.footerWaveFill} d={`${footerWavePath(18)}V279H-18Z`} />
+        {Array.from({ length: 19 }, (_, index) => <path key={index} d={footerWavePath(index)} />)}
       </svg>
       <div className={styles.footerDepth}>
         <nav aria-label="Footer navigation">{groups.map((group) => <section key={group.heading}><h2>{group.heading}</h2>{group.links.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</section>)}</nav>

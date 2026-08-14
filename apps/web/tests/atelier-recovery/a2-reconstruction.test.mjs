@@ -80,7 +80,7 @@ test("reconstructed component bodies are code-native and cannot render source PN
 test("A2 styling uses canonical tokens and adaptive container rules", () => {
   assert.equal(/#[0-9a-f]{3,8}\b/i.test(componentCss), false, "no raw colour literals");
   for (const token of ["--brand-magenta", "--brand-teal", "--champagne-keyline-gold", "--surface-0", "--surface-ink"]) assert.match(componentCss, new RegExp(token), token);
-  assert.match(componentCss, /@container \(max-width: 52rem\)/);
+  assert.match(componentCss, /@container \(max-width: 800px\)/);
   assert.match(componentCss, /@container \(max-width: 30rem\)/);
 });
 
