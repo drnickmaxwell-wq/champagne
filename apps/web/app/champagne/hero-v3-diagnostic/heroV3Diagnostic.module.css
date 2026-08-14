@@ -1,11 +1,12 @@
 .page { min-height: 100vh; padding: clamp(1rem, 2vw, 2rem); color: var(--text-high); background: var(--surface-ink); }
 .header { display: flex; justify-content: space-between; align-items: end; gap: 2rem; max-width: 1440px; margin: 0 auto 1.25rem; }
-.header h1, .header p, .viewportLabel, .boundaryNote { margin: 0; }
+.header h1, .header p, .controls p, .viewportLabel, .engineBrief h2, .engineBrief p { margin: 0; }
 .header h1 { margin-block: .35rem .65rem; font-size: clamp(1.8rem, 4vw, 3.3rem); line-height: 1; }
 .header > div > p:last-child { max-width: 760px; color: var(--text-medium); line-height: 1.5; }
 .kicker { color: var(--brand-gold); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; }
 .status { flex: 0 0 auto; padding: .55rem .75rem; color: var(--text-medium); border: 1px solid var(--champagne-keyline-gold); border-radius: var(--radius-md); font-size: .78rem; }
 .controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; max-width: 1440px; margin: 0 auto 1.25rem; padding: .8rem; border: 1px solid var(--champagne-keyline-gold); border-radius: var(--radius-lg); background: var(--surface-ink-soft); }
+.controls > p { color: var(--text-medium); }
 .controlGroup { display: flex; flex-wrap: wrap; gap: .45rem; }
 .controls button { min-height: 2.55rem; padding: .55rem .8rem; color: var(--text-high); border: 1px solid var(--champagne-keyline-gold); border-radius: var(--radius-md); background: var(--surface-ink); cursor: pointer; }
 .controls button[aria-pressed="true"] { color: var(--surface-ink); border-color: var(--brand-gold); background: var(--brand-gold); }
@@ -15,47 +16,15 @@
 .viewportLabel { padding: .55rem .75rem; color: var(--text-medium); border: 1px solid var(--champagne-keyline-gold); border-bottom: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: var(--surface-ink-soft); font-size: .78rem; text-transform: capitalize; }
 .stage { position: relative; min-height: min(57vw, 820px); overflow: hidden; isolation: isolate; border: 1px solid var(--champagne-keyline-gold); border-radius: 0 0 var(--radius-lg) var(--radius-lg); background: var(--surface-ink); }
 .stage[data-h3-viewport="mobile"] { min-height: 780px; }
-.stage :global(.hero-renderer-v2) { position: relative; z-index: 2; min-height: inherit; }
+.stage :global(.hero-renderer-v2) { position: relative; min-height: inherit; }
 .stage :global(video[data-surface-id^="sacred.motion."]) { display: none !important; }
-.stage[data-h3-study="v3-champagne-sculpted-current"] :global(.hero-surface-stack) { display: none !important; }
-.stage[data-h3-study="v3-champagne-sculpted-current"] :global(.hero-renderer-v2) { background: transparent !important; }
-.v3StaticSurface { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; background: var(--surface-ink); }
-.v3StaticSvg { display: block; width: 100%; height: 100%; }
-.desktopComposition { display: block; }
-.mobileComposition { display: none; }
-.stage[data-h3-viewport="mobile"] .desktopComposition { display: none; }
-.stage[data-h3-viewport="mobile"] .mobileComposition { display: block; }
-.stage[data-h3-viewport="mobile"] .v3StaticSvg { width: auto; min-width: 100%; height: 100%; transform: translateX(-35%); }
-.stage[data-h3-viewport="mobile"] .goldConstellation { transform: translate(-160px, 40px); }
-.stopPersianDeep { stop-color: var(--surface-ink); }
-.stopPersianClear { stop-color: var(--brand-persian); }
-.stopPersianSoft { stop-color: var(--surface-ink-soft); }
-.stopPorcelainWarm { stop-color: var(--surface-0); stop-opacity: .96; }
-.stopPorcelainLift { stop-color: var(--text-high); stop-opacity: .82; }
-.stopPorcelainFade { stop-color: var(--surface-0); stop-opacity: .12; }
-.stopTurquoiseDeep { stop-color: var(--brand-teal); stop-opacity: .28; }
-.stopTurquoise { stop-color: var(--brand-teal); stop-opacity: .84; }
-.stopTurquoiseFade { stop-color: var(--brand-teal); stop-opacity: .08; }
-.stopMagentaFade { stop-color: var(--brand-magenta); stop-opacity: .16; }
-.stopMagenta { stop-color: var(--brand-magenta); stop-opacity: .76; }
-.stopMagentaDeep { stop-color: var(--brand-magenta); stop-opacity: .9; }
-.stopPorcelainGlow { stop-color: var(--surface-0); stop-opacity: .24; }
-.stopTurquoiseGlow { stop-color: var(--brand-teal); stop-opacity: .08; }
-.stopTransparent { stop-color: var(--surface-ink); stop-opacity: 0; }
-.luminousField { mix-blend-mode: screen; }
-.waveShadow { fill: var(--surface-ink); opacity: .82; }
-.waveTealBack { opacity: .72; }
-.wavePorcelain { opacity: .9; }
-.waveTealFront { opacity: .68; mix-blend-mode: screen; }
-.waveMagenta { opacity: .72; }
-.goldEdge, .goldEdgeSoft { fill: none; stroke: var(--brand-gold); stroke-width: 2.2; opacity: .9; }
-.goldEdgeSoft { stroke-width: 1; opacity: .38; }
-.goldConstellation { fill: var(--brand-gold); opacity: .7; }
 .safeZones { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: var(--brand-gold); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
-.copyZone, .ctaZone { position: absolute; left: 7%; width: 43%; border: 1px dashed var(--brand-gold); background: color-mix(in srgb, var(--surface-ink) 8%, transparent); padding: .4rem; }
+.copyZone, .ctaZone { position: absolute; left: 7%; width: 43%; padding: .4rem; border: 1px dashed var(--brand-gold); background: color-mix(in srgb, var(--surface-ink) 8%, transparent); }
 .copyZone { top: 15%; height: 38%; }
 .ctaZone { top: 57%; width: 35%; height: 16%; }
-.boundaryNote { max-width: 1440px; margin: 1rem auto 0; color: var(--text-medium); font-size: .78rem; text-align: center; }
+.engineBrief { max-width: 900px; margin: 1rem auto 0; padding: 1rem; color: var(--text-medium); border: 1px solid var(--champagne-keyline-gold); border-radius: var(--radius-lg); background: var(--surface-ink-soft); text-align: center; }
+.engineBrief h2 { margin-bottom: .35rem; color: var(--text-high); font-size: 1rem; }
+.engineBrief p { line-height: 1.5; }
 :global(body):has(.page) > div > main > div:has(> :global(.hero-renderer-v2)) { display: none !important; }
 :global(body):has(.page) .stage :global(.hero-renderer-v2) { display: block !important; }
 

@@ -1,28 +1,29 @@
-# Champagne Hero V3 H3.2R — single static convergence candidate
+# Champagne Hero V3 H3.2R — Founder correction
 
-Status: `FOUNDER_STATIC_CANDIDATE_REVIEW_PENDING`  
+Status: `SACRED_V2_VISUAL_BASELINE_RESTORED`  
 Production binding: `false`  
-Active candidate: `v3-champagne-sculpted-current`
+Active visual baseline: `v2-reference`
 
-## Recovery record
+## Founder correction
 
-Draft PR #867 was reconciled with authoritative `main` at `f0280b683fa9721287fdc5cdcdb227b40af4f095` by a merge commit, without rewriting branch history. The accepted Sacred Hero V2, including the founder-accepted seamless wave and gold motion assets, remains the unchanged baseline and fallback.
+The Founder confirmed that the sculpted-current composition was attractive but was not the authorised direction for Champagne Hero V3. The Hero V3 programme exists to improve the accepted Sacred V2 engine, not to replace or redesign the Champagne hero.
 
-## Active founder review
+The active review flow therefore contains no new visual candidate. It shows only accepted Sacred V2 at desktop and mobile widths, with optional copy/CTA safe-zone guides.
 
-The active review flow now contains exactly two studies:
+## Preserved Champagne baseline
 
-1. `v2-reference` — accepted Sacred V2.
-2. `v3-champagne-sculpted-current` — the single new static V3 convergence candidate.
+Sacred V2 remains unchanged in composition, geometry, copy, CTAs, brand identity, layered wave language, responsive behaviour and reduced-motion behaviour. Its founder-accepted seamless wave and gold assets remain the baseline and fallback.
 
-Both are available at desktop and mobile review widths. The V3 candidate uses a deterministic static SVG, canonical V2 copy and CTAs, protected copy/CTA zones, and independently composed mobile artwork.
+Hero V3 work must improve the engine beneath that identity: rendering fidelity, luminous depth, seamless motion, responsive reliability, reduced-motion equivalence and governed future variants. Any visible Champagne composition redesign requires separate Founder authority.
 
-The candidate expresses the founder brand DNA through luminous Persian depth, warm porcelain lift, controlled magenta `#C2185B`, turquoise `#40C4B4`, gold `#D4AF37`, and a stronger multi-layer wave sculpture.
+## Optional visual study retained
 
-## Retired from active review
+The attractive but misclassified `v3-champagne-sculpted-current` concept is preserved at:
 
-The rejected optical choreography (`v2-light-depth-enhanced`) and the previous unselected static studies (`v3-editorial-current`, `v3-velvet-ribbon`, and `v3-luminous-tide`) no longer appear in the active founder review flow. Their prior reports, contracts, commits, and review evidence remain in history; no historical evidence was deleted.
+`reports/hero-v3/h3-2/optional-visual-studies/champagne-sculpted-current-concept.webp`
+
+Its disposition is `OPTIONAL_VISUAL_STUDY_NOT_HERO_V3`. It may inform a future section, campaign or alternative visual choice, but it is inactive and has no production binding. The earlier implementation remains available in commit history; no historical evidence was destroyed.
 
 ## Boundary
 
-This is a static founder-review candidate only. It does not mutate Sacred V2, introduce motion, bind production, begin H3.3, implement Tenant B, mark the PR ready, merge, or deploy. Settlement remains pending the founder static-candidate verdict.
+This correction does not mutate Sacred V2, create a new hero design or motion system, begin H3.3, implement Tenant B, mark the PR ready, merge, or deploy.

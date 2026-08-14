@@ -1,58 +1,56 @@
 {
   "contract": "HERO_V3_STATIC_COMPOSITION_SURFACE_V1",
-  "phase": "H3.2R",
-  "status": "FOUNDER_STATIC_CANDIDATE_REVIEW_PENDING",
+  "phase": "H3.2R_FOUNDER_CORRECTION",
+  "status": "SACRED_V2_VISUAL_BASELINE_RESTORED",
   "productionBinding": false,
+  "founderCorrection": {
+    "decision": "HERO_V3_IMPROVES_ENGINE_NOT_CHAMPAGNE_HERO_DESIGN",
+    "activeVisualCandidateCount": 0,
+    "activeBaseline": "v2-reference"
+  },
   "baseline": {
     "id": "v2-reference",
     "label": "Accepted Sacred V2",
-    "mutation": false,
+    "visualMutation": false,
     "fallback": true,
-    "seamlessMotionAssetsPreserved": [
-      "sacred.motion.waveCaustics",
-      "sacred.motion.goldDust"
+    "preserve": [
+      "composition",
+      "geometry",
+      "copy",
+      "CTAs",
+      "brand identity",
+      "layered wave language",
+      "seamless wave and gold assets",
+      "responsive behaviour",
+      "reduced-motion behaviour"
     ]
   },
-  "activeReview": {
-    "studies": [
-      "v2-reference",
-      "v3-champagne-sculpted-current"
-    ],
-    "candidateCount": 1,
-    "viewports": [
-      "desktop",
-      "mobile"
+  "engineV3Direction": {
+    "redesignChampagneHero": false,
+    "improve": [
+      "rendering fidelity",
+      "luminous depth",
+      "seamless motion",
+      "responsive reliability",
+      "reduced-motion equivalence",
+      "governed treatment variants",
+      "future tenant adaptability"
     ]
   },
-  "candidate": {
+  "retiredStudy": {
     "id": "v3-champagne-sculpted-current",
-    "kind": "deterministic-static-svg",
-    "brandDNA": {
-      "persianDepth": "luminous",
-      "porcelainLift": "warm",
-      "magenta": "#C2185B",
-      "turquoise": "#40C4B4",
-      "gold": "#D4AF37"
-    },
-    "composition": {
-      "layeredWaveSculpture": true,
-      "protectedCopyZone": true,
-      "protectedCtaZone": true,
-      "independentMobileArtDirection": true,
-      "newMotion": false
-    }
-  },
-  "retiredFromActiveReview": {
+    "active": false,
+    "disposition": "OPTIONAL_VISUAL_STUDY_NOT_HERO_V3",
     "historicalEvidencePreserved": true,
-    "rejectedOpticalChoreography": "v2-light-depth-enhanced",
-    "unselectedStaticStudies": [
-      "v3-editorial-current",
-      "v3-velvet-ribbon",
-      "v3-luminous-tide"
-    ]
+    "archive": "reports/hero-v3/h3-2/optional-visual-studies/champagne-sculpted-current-concept.webp"
   },
+  "reviewViewports": [
+    "desktop",
+    "mobile"
+  ],
   "excluded": [
     "Sacred V2 mutation",
+    "new hero design",
     "new motion",
     "H3.3",
     "Tenant-B implementation",
