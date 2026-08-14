@@ -1,0 +1,51 @@
+import { mkdir } from "node:fs/promises";
+import path from "node:path";
+import process from "node:process";
+import { chromium } from "playwright";
+
+const baseUrl = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3100";
+const evidenceDir = process.env.ATELIER_A2F_EVIDENCE_DIR ?? "/tmp/atelier-a2f-evidence";
+await mkdir(evidenceDir, { recursive: true });
+const browser = await chromium.launch({ headless: true, executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE });
+const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
+const problems = [];
+page.on("console", (message) => { if (["error", "warning"].includes(message.type())) problems.push(`${message.type()}: ${message.text()}`); });
+page.on("pageerror", (error) => problems.push(`pageerror: ${error.message}`));
+
+await page.goto(`${baseUrl}/champagne/atelier-recovery`, { waitUntil: "networkidle" });
+await page.getByRole("button", { name: "COMPONENTS", exact: true }).click();
+await page.getByTestId("a2-component-library").waitFor();
+await page.getByText(/A2R remains 0 \/ 8/).waitFor();
+
+const calibration = [
+  ["A2-DECISION-CLARITY-01", 836],
+  ["A2-SPECTRUM-CLOSING-BAND-01", 820],
+  ["A2-PORCELAIN-DESCENT-FOOTER-01", 1167],
+];
+for (const [componentId, nativeWidth] of calibration) {
+  await page.getByRole("button", { name: new RegExp(componentId) }).click();
+  await page.getByRole("button", { name: `SOURCE ${nativeWidth}` }).click();
+  const render = page.getByTestId("a2-component-render");
+  const source = page.locator("figure img");
+  await Promise.all([render.waitFor(), source.waitFor()]);
+  if ((await render.locator("img").count()) !== 0) throw new Error(`${componentId} uses an image in its live body`);
+  if (await render.evaluate((element) => element.scrollWidth > element.clientWidth + 1)) throw new Error(`${componentId} overflows its native source viewport`);
+  await page.getByRole("button", { name: "SPLIT", exact: true }).click();
+  await page.getByLabel("Source overlay opacity").fill("62");
+  await page.getByRole("button", { name: "OVERLAY", exact: true }).click();
+  await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-overlay.png`) });
+  await page.getByRole("button", { name: "SIDE BY SIDE", exact: true }).click();
+  await page.locator("section[aria-label='Director source fidelity workbench']").screenshot({ path: path.join(evidenceDir, `${componentId}-native-side-by-side.png`) });
+  for (const width of [1440, 1024, 768, 390]) {
+    await page.getByRole("button", { name: String(width), exact: true }).click();
+    if (await render.evaluate((element) => element.scrollWidth > element.clientWidth + 1)) throw new Error(`${componentId} overflows at ${width}`);
+  }
+}
+
+for (const disposition of ["APPROVE", "REFINE", "FAIL"]) {
+  if (await page.getByRole("button", { name: disposition, exact: true }).isEnabled()) throw new Error(`${disposition} must remain disabled in A2F`);
+}
+if (await page.locator("body").evaluate((body) => body.scrollWidth > body.ownerDocument.documentElement.clientWidth + 1)) throw new Error("A2F workbench causes page-level overflow");
+if (problems.length) throw new Error(`Console problems:\n${problems.join("\n")}`);
+await browser.close();
+console.log(`Atelier A2F visual evidence written to ${evidenceDir}`);

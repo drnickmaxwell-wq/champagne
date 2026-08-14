@@ -59,7 +59,9 @@
     "atelier:a2:visual-qa": "node apps/web/tests/atelier-recovery/a2-visual-qa.mjs",
     "atelier:a2r:test": "node --test apps/web/tests/atelier-recovery/a2r-founder-reconstruction-review.test.mjs",
     "atelier:a2r:visual-qa": "node apps/web/tests/atelier-recovery/a2r-visual-qa.mjs",
-    "atelier:a2r:persistence-qa": "node apps/web/tests/atelier-recovery/a2r-local-persistence-qa.mjs"
+    "atelier:a2r:persistence-qa": "node apps/web/tests/atelier-recovery/a2r-local-persistence-qa.mjs",
+    "atelier:a2f:test": "node --test apps/web/tests/atelier-recovery/a2f-fidelity-calibration.test.mjs",
+    "atelier:a2f:visual-qa": "node apps/web/tests/atelier-recovery/a2f-visual-qa.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",

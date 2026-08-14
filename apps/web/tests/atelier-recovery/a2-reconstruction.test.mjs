@@ -72,7 +72,7 @@ test("every indexed reconstruction links a real source and declares adaptive exp
 test("reconstructed component bodies are code-native and cannot render source PNGs", () => {
   assert.equal(componentSource.includes("<img"), false);
   assert.equal(componentSource.includes(".png"), false);
-  assert.match(librarySource, /Source reference/);
+  assert.match(librarySource, /SOURCE PNG/);
   assert.match(librarySource, /data-testid="a2-component-render"/);
   assert.equal((librarySource.match(/<img/g) ?? []).length, 1, "only the source-evidence pane may use an image");
 });
