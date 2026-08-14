@@ -31,9 +31,10 @@ for (const [componentId, nativeWidth, expectedHybridLayers] of calibration) {
   if ((await render.locator("img").count()) !== 0) throw new Error(`${componentId} uses an image in its live body`);
   if ((await render.locator("[data-hybrid-layer]").count()) !== expectedHybridLayers) throw new Error(`${componentId} does not expose its declared hybrid decorative layers`);
   const missingHybridAssets = await render.locator("[data-hybrid-layer]").evaluateAll((layers) => layers.flatMap((layer) => {
-    const match = getComputedStyle(layer).backgroundImage.match(/url\(["']?([^"')]+)["']?\)/);
-    if (!match) return [`${layer.getAttribute("data-hybrid-layer")}:missing-background-url`];
-    const loaded = performance.getEntriesByType("resource").some((entry) => entry.name === new URL(match[1], location.href).href && entry.duration > 0);
+    const candidates = [layer, ...layer.querySelectorAll("*")];
+    const urls = candidates.flatMap((candidate) => [...getComputedStyle(candidate).backgroundImage.matchAll(/url\(["']?([^"')]+)["']?\)/g)].map((match) => match[1]));
+    if (!urls.length) return [`${layer.getAttribute("data-hybrid-layer")}:missing-background-url`];
+    const loaded = urls.every((url) => performance.getEntriesByType("resource").some((entry) => entry.name === new URL(url, location.href).href));
     return loaded ? [] : [`${layer.getAttribute("data-hybrid-layer")}:asset-not-loaded`];
   }));
   if (missingHybridAssets.length) throw new Error(`${componentId} hybrid asset failures: ${missingHybridAssets.join(", ")}`);
