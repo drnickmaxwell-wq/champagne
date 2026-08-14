@@ -1,4 +1,74 @@
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
+import { buildHeroV2Model } from "../../components/hero/v2/buildHeroV2Model";
+import { FullHeroLoopComparison } from "./FullHeroLoopComparison";
+
+const loopComparisons = [
+  {
+    id: "wave-caustics",
+    title: "Rounded turquoise waves",
+    original: "/assets/champagne/motion/wave-caustics.webm",
+    corrected: "/assets/champagne/motion/wave-caustics-seamless.webm",
+  },
+  {
+    id: "gold-dust-drift",
+    title: "Gold particles",
+    original: "/assets/champagne/motion/gold-dust-drift.webm",
+    corrected: "/assets/champagne/motion/gold-dust-drift-seamless.webm",
+  },
+] as const;
+
+const synchronizedLoopScript = `(() => {
+  const videos = Array.from(document.querySelectorAll('[data-loop-video]'));
+  const restart = document.querySelector('[data-loop-restart]');
+  const toggle = document.querySelector('[data-loop-toggle]');
+  const counters = new Map();
+  let playing = true;
+
+  videos.forEach((video) => {
+    counters.set(video, { loops: 0, previousTime: 0 });
+    video.addEventListener('timeupdate', () => {
+      const state = counters.get(video);
+      if (!state) return;
+      if (video.currentTime + 0.25 < state.previousTime) {
+        state.loops += 1;
+        const output = document.querySelector('[data-loop-count="' + video.dataset.loopVideo + '"]');
+        if (output) output.textContent = String(state.loops);
+      }
+      state.previousTime = video.currentTime;
+    });
+  });
+
+  const restartAll = async () => {
+    videos.forEach((video) => {
+      const state = counters.get(video);
+      if (state) {
+        state.loops = 0;
+        state.previousTime = 0;
+      }
+      video.currentTime = 0;
+      const output = document.querySelector('[data-loop-count="' + video.dataset.loopVideo + '"]');
+      if (output) output.textContent = '0';
+    });
+    playing = true;
+    if (toggle) toggle.textContent = 'Pause all';
+    await Promise.allSettled(videos.map((video) => video.play()));
+  };
+
+  restart?.addEventListener('click', restartAll);
+  toggle?.addEventListener('click', async () => {
+    if (playing) {
+      videos.forEach((video) => video.pause());
+      playing = false;
+      toggle.textContent = 'Play all';
+      return;
+    }
+    await Promise.allSettled(videos.map((video) => video.play()));
+    playing = true;
+    toggle.textContent = 'Pause all';
+  });
+
+  restartAll();
+})();`;
 
 function getAssetForToken(
   token: string,
@@ -114,6 +184,7 @@ function renderPreview(asset: { id: string; path?: string; type: string }) {
 
 export default async function HeroAssetLabPage() {
   const runtime = await getHeroRuntime({ mode: "home", variantId: "default" });
+  const heroModel = await buildHeroV2Model({ pageSlugOrPath: "/", particles: true, filmGrain: true, prm: false });
   const stack = runtime.surfaces.surfaceStack ?? [];
   const seen = new Set<string>();
   const layers = stack.filter((layer) => {
@@ -143,6 +214,90 @@ export default async function HeroAssetLabPage() {
           so we can see the exact asset pixels coming from the manifests.
         </p>
       </header>
+
+      <section
+        aria-labelledby="loop-seam-title"
+        style={{
+          display: "grid",
+          gap: "1rem",
+          border: "1px solid var(--surface-ink-soft)",
+          borderRadius: "var(--radius-lg)",
+          background: "var(--surface-ink)",
+          padding: "clamp(1rem, 2vw, 1.5rem)",
+        }}
+      >
+        <div style={{ display: "grid", gap: "0.5rem" }}>
+          <p style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
+            Isolated loop-seam demonstrator
+          </p>
+          <h2 id="loop-seam-title" style={{ fontSize: "clamp(1.45rem, 2vw, 1.9rem)" }}>
+            Original hard loop versus corrected continuous loop
+          </h2>
+          <p style={{ color: "var(--text-medium)", maxWidth: "880px", lineHeight: 1.5 }}>
+            All four clips start together. Let them run through several numbered loops and compare each left-hand reset with the
+            corrected version on the right. No Hero styling, lighting or runtime behaviour is changed here.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.65rem" }}>
+            <button type="button" data-loop-restart>
+              Restart together
+            </button>
+            <button type="button" data-loop-toggle>
+              Pause all
+            </button>
+          </div>
+        </div>
+
+        {loopComparisons.map((comparison) => (
+          <article key={comparison.id} style={{ display: "grid", gap: "0.7rem" }}>
+            <h3 style={{ fontSize: "1.1rem" }}>{comparison.title}</h3>
+            <div
+              style={{
+                display: "grid",
+                gap: "0.75rem",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+              }}
+            >
+              {([
+                ["original", comparison.original],
+                ["corrected", comparison.corrected],
+              ] as const).map(([version, source]) => {
+                const videoId = `${comparison.id}-${version}`;
+                return (
+                  <figure key={version} style={{ margin: 0, display: "grid", gap: "0.45rem" }}>
+                    <video
+                      src={source}
+                      muted
+                      loop
+                      autoPlay
+                      playsInline
+                      preload="auto"
+                      data-loop-video={videoId}
+                      aria-label={`${comparison.title}: ${version} loop`}
+                      style={{
+                        width: "100%",
+                        aspectRatio: "16 / 9",
+                        objectFit: "cover",
+                        borderRadius: "var(--radius-md)",
+                        background: "var(--bg-ink)",
+                      }}
+                    />
+                    <figcaption style={{ display: "flex", justifyContent: "space-between", gap: "0.75rem" }}>
+                      <strong style={{ textTransform: "capitalize" }}>{version}</strong>
+                      <span style={{ color: "var(--text-medium)" }}>
+                        Loops: <output data-loop-count={videoId}>0</output>
+                      </span>
+                    </figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+          </article>
+        ))}
+      </section>
+
+      {heroModel ? <FullHeroLoopComparison model={heroModel} /> : null}
+
+      <script dangerouslySetInnerHTML={{ __html: synchronizedLoopScript }} />
 
       <div
         style={{
