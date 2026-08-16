@@ -29,16 +29,16 @@
 @keyframes h3PearlMigration { 0%, 100% { opacity: .1; filter: saturate(1.08) contrast(1.02) brightness(1); } 14% { opacity: .26; filter: saturate(1.42) contrast(1.08) brightness(1.06) hue-rotate(-9deg); } 31% { opacity: .4; filter: saturate(1.82) contrast(1.13) brightness(1.13) hue-rotate(9deg); } 48% { opacity: .18; filter: saturate(1.22) contrast(1.04) brightness(1.03); } 66% { opacity: .36; filter: saturate(1.72) contrast(1.12) brightness(1.11) hue-rotate(-6deg); } 84% { opacity: .14; filter: saturate(1.18) contrast(1.04) brightness(1.02); } }
 @keyframes h3GoldMaterialResolve { 0%, 48%, 82%, 100% { opacity: .07; filter: saturate(1.02) contrast(1.02) brightness(.98); } 56% { opacity: .18; filter: saturate(1.22) contrast(1.08) brightness(1.04); } 64% { opacity: .38; filter: saturate(1.58) contrast(1.18) brightness(1.14); } 72% { opacity: .24; filter: saturate(1.36) contrast(1.14) brightness(1.09); } }
 .stage[data-h3-phase-lock]:not([data-h3-phase-lock="LIVE"]) :global(video[data-surface-id^="sacred.motion."]) { animation: none !important; }
-.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { opacity: .15 !important; filter: saturate(1.05) contrast(1.02) brightness(.98) !important; }
-.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { opacity: .11 !important; filter: saturate(1.08) contrast(1.02) !important; }
-.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.goldDust"]) { opacity: .08 !important; }
-.stage[data-h3-phase-lock="PEARL"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { opacity: .3 !important; filter: saturate(1.42) contrast(1.08) brightness(1.06) !important; }
-.stage[data-h3-phase-lock="PEARL"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { opacity: .4 !important; filter: saturate(1.82) contrast(1.13) brightness(1.13) hue-rotate(9deg) !important; }
-.stage[data-h3-phase-lock="RIDGE"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { opacity: .42 !important; filter: saturate(1.58) contrast(1.12) brightness(1.11) hue-rotate(-6deg) !important; }
-.stage[data-h3-phase-lock="RIDGE"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { opacity: .16 !important; }
-.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { opacity: .24 !important; filter: saturate(1.28) contrast(1.08) brightness(1.04) !important; }
-.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { opacity: .14 !important; }
-.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.goldDust"]) { opacity: .38 !important; filter: saturate(1.58) contrast(1.18) brightness(1.14) !important; }
+.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { --h3-score-opacity: .15 !important; opacity: .15 !important; filter: saturate(1.05) contrast(1.02) brightness(.98) !important; }
+.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { --h3-score-opacity: .11 !important; opacity: .11 !important; filter: saturate(1.08) contrast(1.02) !important; }
+.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.goldDust"]) { --h3-score-opacity: .08 !important; opacity: .08 !important; }
+.stage[data-h3-phase-lock="PEARL"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { --h3-score-opacity: .3 !important; opacity: .3 !important; filter: saturate(1.42) contrast(1.08) brightness(1.06) !important; }
+.stage[data-h3-phase-lock="PEARL"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { --h3-score-opacity: .4 !important; opacity: .4 !important; filter: saturate(1.82) contrast(1.13) brightness(1.13) hue-rotate(9deg) !important; }
+.stage[data-h3-phase-lock="RIDGE"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { --h3-score-opacity: .42 !important; opacity: .42 !important; filter: saturate(1.58) contrast(1.12) brightness(1.11) hue-rotate(-6deg) !important; }
+.stage[data-h3-phase-lock="RIDGE"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { --h3-score-opacity: .16 !important; opacity: .16 !important; }
+.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { --h3-score-opacity: .24 !important; opacity: .24 !important; filter: saturate(1.28) contrast(1.08) brightness(1.04) !important; }
+.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { --h3-score-opacity: .14 !important; opacity: .14 !important; }
+.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.goldDust"]) { --h3-score-opacity: .38 !important; opacity: .38 !important; filter: saturate(1.58) contrast(1.18) brightness(1.14) !important; }
 .stage[data-h3-layer-isolation]:not([data-h3-layer-isolation="ALL"]) :global(video[data-surface-id^="sacred.motion."]) { opacity: 0 !important; }
 .stage[data-h3-layer-isolation="PEARL"] :global(video[data-surface-id="sacred.motion.glassShimmer"]),
 .stage[data-h3-layer-isolation="RIDGE"] :global(video[data-surface-id="sacred.motion.waveCaustics"]),
