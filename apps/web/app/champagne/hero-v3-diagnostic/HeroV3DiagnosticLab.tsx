@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { HeroRendererV2 } from "../../components/hero/v2/HeroRendererV2";
 import { HeroV3MotionScoreController } from "./HeroV3MotionScoreController";
-import { HeroV3WaveMaterial } from "./HeroV3WaveMaterial";
 import styles from "./heroV3Diagnostic.module.css";
 
 const MODES = [{ id: "v2-reference", label: "Accepted Sacred V2" }, { id: "h3-3-engine", label: "V3 engine enhancement" }] as const;
@@ -46,7 +45,7 @@ export function HeroV3DiagnosticLab() {
     return <div className={styles.stage} data-h3-engine-mode={stageMode} data-h3-viewport={viewport} data-h3-phase-lock={phase} data-h3-layer-isolation={isolation} ref={ref}>
       <HeroV3MotionScoreController rootRef={ref} enabled={enhanced} forceFallback={forceFallback} />
       <HeroRendererV2 prm={forceFallback} particles filmGrain diagnosticBoost={false} pageSlugOrPath="/" />
-      {enhanced ? <HeroV3WaveMaterial viewport={viewport} staticMode={forceFallback} /> : null}
+      
     </div>;
   };
   return (

@@ -20,43 +20,32 @@
 .stage[data-h3-viewport="mobile"] { min-height: 780px; }
 .stage :global(.hero-renderer-v2) { position: relative; min-height: inherit; }
 .stage[data-h3-engine-mode="h3-3-engine"][data-h3-motion-health="active"] :global(video[data-surface-id^="sacred.motion."]) { opacity: var(--h3-score-opacity) !important; animation-delay: var(--h3-score-phase), var(--h3-score-phase) !important; transition: opacity 320ms ease; }
-.stage[data-h3-engine-mode="h3-3-engine"] :global(.hero-renderer-v2) { filter: saturate(1.025) contrast(1.035); }
+
+.stage[data-h3-engine-mode="h3-3-engine"] :global(.hero-renderer-v2) { filter: saturate(1.045) brightness(1.005); }
+.stage[data-h3-engine-mode="h3-3-engine"][data-h3-motion-health="active"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { animation-name: heroMotionTide, h3CausticPassage; animation-duration: 42s, 42s; animation-timing-function: ease-in-out, cubic-bezier(.42, 0, .58, 1); animation-iteration-count: infinite, infinite; }
+.stage[data-h3-engine-mode="h3-3-engine"][data-h3-motion-health="active"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { animation-name: heroMotionTide, h3PearlMigration; animation-duration: 42s, 42s; animation-timing-function: ease-in-out, cubic-bezier(.42, 0, .58, 1); animation-iteration-count: infinite, infinite; }
+.stage[data-h3-engine-mode="h3-3-engine"][data-h3-motion-health="active"] :global(video[data-surface-id="sacred.motion.goldDust"]) { animation-name: heroMotionTide, h3GoldMaterialResolve; animation-duration: 42s, 42s; animation-timing-function: ease-in-out, ease-in-out; animation-iteration-count: infinite, infinite; }
+@keyframes h3CausticPassage { 0%, 100% { opacity: .15; filter: saturate(1.05) contrast(1.02) brightness(.98); } 18% { opacity: .24; filter: saturate(1.28) contrast(1.08) brightness(1.06); } 36% { opacity: .34; filter: saturate(1.48) contrast(1.12) brightness(1.1) hue-rotate(-5deg); } 52% { opacity: .2; filter: saturate(1.18) contrast(1.06) brightness(1.02); } 72% { opacity: .3; filter: saturate(1.42) contrast(1.1) brightness(1.08) hue-rotate(6deg); } }
+@keyframes h3PearlMigration { 0%, 100% { opacity: .11; filter: saturate(1.08) contrast(1.02) brightness(1); } 14% { opacity: .2; filter: saturate(1.35) contrast(1.08) brightness(1.05) hue-rotate(-8deg); } 31% { opacity: .3; filter: saturate(1.7) contrast(1.13) brightness(1.12) hue-rotate(8deg); } 48% { opacity: .16; filter: saturate(1.2) contrast(1.04) brightness(1.03); } 66% { opacity: .28; filter: saturate(1.62) contrast(1.12) brightness(1.1) hue-rotate(-5deg); } 84% { opacity: .15; filter: saturate(1.18) contrast(1.04) brightness(1.02); } }
+@keyframes h3GoldMaterialResolve { 0%, 48%, 82%, 100% { opacity: .08; filter: saturate(1.02) contrast(1.02) brightness(.98); } 56% { opacity: .14; filter: saturate(1.18) contrast(1.08) brightness(1.04); } 64% { opacity: .28; filter: saturate(1.42) contrast(1.2) brightness(1.18); } 72% { opacity: .2; filter: saturate(1.3) contrast(1.14) brightness(1.1); } }
+.stage[data-h3-phase-lock]:not([data-h3-phase-lock="LIVE"]) :global(video[data-surface-id^="sacred.motion."]) { animation-play-state: paused !important; }
+.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { opacity: .15 !important; filter: saturate(1.05) contrast(1.02) brightness(.98); }
+.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { opacity: .11 !important; filter: saturate(1.08) contrast(1.02); }
+.stage[data-h3-phase-lock="REST"] :global(video[data-surface-id="sacred.motion.goldDust"]) { opacity: .08 !important; }
+.stage[data-h3-phase-lock="PEARL"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { opacity: .24 !important; filter: saturate(1.3) contrast(1.08) brightness(1.06); }
+.stage[data-h3-phase-lock="PEARL"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { opacity: .3 !important; filter: saturate(1.7) contrast(1.13) brightness(1.12) hue-rotate(8deg); }
+.stage[data-h3-phase-lock="RIDGE"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { opacity: .34 !important; filter: saturate(1.48) contrast(1.12) brightness(1.1) hue-rotate(-5deg); }
+.stage[data-h3-phase-lock="RIDGE"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { opacity: .16 !important; }
+.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.waveCaustics"]) { opacity: .22 !important; filter: saturate(1.24) contrast(1.08) brightness(1.04); }
+.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.glassShimmer"]) { opacity: .14 !important; }
+.stage[data-h3-phase-lock="GOLD"] :global(video[data-surface-id="sacred.motion.goldDust"]) { opacity: .28 !important; filter: saturate(1.42) contrast(1.2) brightness(1.18); }
+.stage[data-h3-layer-isolation]:not([data-h3-layer-isolation="ALL"]) :global(video[data-surface-id^="sacred.motion."]) { opacity: 0 !important; }
+.stage[data-h3-layer-isolation="PEARL"] :global(video[data-surface-id="sacred.motion.glassShimmer"]),
+.stage[data-h3-layer-isolation="RIDGE"] :global(video[data-surface-id="sacred.motion.waveCaustics"]),
+.stage[data-h3-layer-isolation="GOLD"] :global(video[data-surface-id="sacred.motion.goldDust"]) { opacity: var(--h3-score-opacity) !important; }
 .stage[data-h3-motion-health="static-fallback"] :global(video[data-surface-id^="sacred.motion."]) { display: none !important; }
 
 
-.waveMaterial { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; isolation: isolate; }
-.waveMaterial > span { position: absolute; inset: 0; pointer-events: none; background-size: 220% 100%; background-position: 100% 50%; mask-image: url("/assets/champagne/waves/wave-ridge-edge-mask.png"); mask-size: cover; mask-position: center; mask-repeat: no-repeat; clip-path: polygon(76% 0, 100% 0, 100% 100%, 45% 100%, 45% 55%, 76% 55%); }
-.waveDepth { background: var(--h3-wave-depth); mix-blend-mode: multiply; opacity: .22; filter: blur(2px); transform: translate3d(0, 2px, 0); }
-.wavePearl { background-image: linear-gradient(108deg, transparent 0 19%, var(--h3-wave-magenta) 30%, var(--h3-wave-turquoise) 42%, var(--h3-wave-porcelain) 51%, var(--h3-wave-turquoise) 61%, var(--h3-wave-gold) 70%, transparent 82%); mix-blend-mode: screen; opacity: .28; filter: saturate(1.3) drop-shadow(0 0 3px color-mix(in srgb, var(--h3-wave-turquoise) 36%, transparent)); animation: h3WavePearlTravel 36s cubic-bezier(.42, 0, .58, 1) infinite; }
-.waveRidge { background-image: linear-gradient(108deg, transparent 0 43%, color-mix(in srgb, var(--h3-wave-porcelain) 84%, transparent) 48%, var(--h3-wave-porcelain) 50%, color-mix(in srgb, var(--h3-wave-turquoise) 72%, transparent) 53%, transparent 59%); mix-blend-mode: screen; opacity: .05; filter: drop-shadow(0 0 2px color-mix(in srgb, var(--h3-wave-porcelain) 64%, transparent)); animation: h3WaveRidgeTravel 36s ease-in-out infinite; }
-.waveGold { background-image: linear-gradient(108deg, transparent 0 44%, color-mix(in srgb, var(--h3-wave-gold) 76%, transparent) 48%, var(--h3-wave-gold) 50%, color-mix(in srgb, var(--h3-wave-gold) 64%, transparent) 54%, transparent 60%); mix-blend-mode: screen; opacity: 0; filter: saturate(1.28) drop-shadow(0 0 3px color-mix(in srgb, var(--h3-wave-gold) 52%, transparent)); animation: h3WaveGoldResolve 36s ease-in-out infinite; }
-@keyframes h3WavePearlTravel { 0%, 100% { opacity: .18; background-position: 108% 50%; } 15% { opacity: .48; } 31% { opacity: .3; background-position: 72% 50%; } 48% { opacity: .56; } 69% { opacity: .26; background-position: 34% 50%; } 82% { opacity: .2; } }
-@keyframes h3WaveRidgeTravel { 0%, 8%, 100% { opacity: 0; background-position: 112% 50%; } 14% { opacity: .78; } 22% { opacity: .12; background-position: 78% 50%; } 42% { opacity: .72; } 51% { opacity: .06; background-position: 42% 50%; } }
-@keyframes h3WaveGoldResolve { 0%, 48%, 78%, 100% { opacity: 0; background-position: 108% 50%; } 55% { opacity: .18; } 61% { opacity: .82; } 69% { opacity: .5; background-position: 50% 50%; } 74% { opacity: .05; } }
-.stage[data-h3-phase-lock]:not([data-h3-phase-lock="LIVE"]) .waveMaterial > span,
-.stage[data-h3-motion-health="static-fallback"] .waveMaterial > span,
-.waveMaterial[data-h3-wave-static="true"] > span { animation: none !important; }
-.stage[data-h3-phase-lock="REST"] .wavePearl { opacity: .1; }
-.stage[data-h3-phase-lock="REST"] .waveRidge, .stage[data-h3-phase-lock="REST"] .waveGold { opacity: 0; }
-.stage[data-h3-phase-lock="PEARL"] .wavePearl { opacity: .62; background-position: 58% 50%; }
-.stage[data-h3-phase-lock="PEARL"] .waveRidge, .stage[data-h3-phase-lock="PEARL"] .waveGold { opacity: 0; }
-.stage[data-h3-phase-lock="RIDGE"] .wavePearl { opacity: .18; }
-.stage[data-h3-phase-lock="RIDGE"] .waveRidge { opacity: .82; background-position: 52% 50%; }
-.stage[data-h3-phase-lock="RIDGE"] .waveGold { opacity: 0; }
-.stage[data-h3-phase-lock="GOLD"] .wavePearl { opacity: .24; }
-.stage[data-h3-phase-lock="GOLD"] .waveRidge { opacity: .14; }
-.stage[data-h3-phase-lock="GOLD"] .waveGold { opacity: .86; background-position: 48% 50%; }
-.stage[data-h3-layer-isolation]:not([data-h3-layer-isolation="ALL"]) .waveMaterial > span { display: none; }
-.stage[data-h3-layer-isolation="PEARL"] .wavePearl,
-.stage[data-h3-layer-isolation="RIDGE"] .waveRidge,
-.stage[data-h3-layer-isolation="DEPTH"] .waveDepth,
-.stage[data-h3-layer-isolation="GOLD"] .waveGold { display: block !important; }
-.stage[data-h3-motion-health="static-fallback"] .wavePearl,
-.waveMaterial[data-h3-wave-static="true"] .wavePearl { opacity: .2; background-position: 58% 50%; }
-.stage[data-h3-motion-health="static-fallback"] .waveRidge,
-.waveMaterial[data-h3-wave-static="true"] .waveRidge { opacity: .16; background-position: 52% 50%; }
-.stage[data-h3-motion-health="static-fallback"] .waveGold,
-.waveMaterial[data-h3-wave-static="true"] .waveGold { opacity: .1; background-position: 48% 50%; }
 .safeZones { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: var(--brand-gold); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 .copyZone, .ctaZone { position: absolute; left: 7%; width: 43%; padding: .4rem; border: 1px dashed var(--brand-gold); background: color-mix(in srgb, var(--surface-ink) 8%, transparent); }
 .copyZone { top: 15%; height: 38%; }
@@ -76,9 +65,6 @@
   .stage :global(.hero-content p) { max-width: 100% !important; font-size: .98rem !important; line-height: 1.5 !important; }
   .stage :global(.hero-content > div:last-child) { display: grid !important; width: 100%; gap: .65rem !important; }
   .stage :global(.hero-content > div:last-child a) { padding: .8rem 1rem !important; text-align: center; }
-  .waveMaterial > span { clip-path: inset(55% 0 0 12%); mask-position: 52% center; background-size: 260% 100%; }
-  .wavePearl { opacity: .32; }
-  .waveRidge { opacity: .08; }
 }
 
 @media (max-width: 900px) {
@@ -90,8 +76,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .waveMaterial > span { animation: none !important; }
-  .wavePearl { opacity: .2; background-position: 58% 50%; }
-  .waveRidge { opacity: .16; background-position: 52% 50%; }
-  .waveGold { opacity: .1; background-position: 48% 50%; }
+  .stage[data-h3-engine-mode="h3-3-engine"] :global(video[data-surface-id^="sacred.motion."]) { display: none !important; }
 }

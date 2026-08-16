@@ -43,11 +43,11 @@ describe("Hero V3 H3.3 engine enhancement", () => {
   it("adds optical luxury without changing the Sacred V2 composition", () => {
     expect(source).toContain("CHAMPAGNE_SACRED_V2_OPTICAL_MATERIAL_PROFILE");
     expect(source).toContain("data-h3-optical-material");
-    expect(source).toContain("HeroV3WaveMaterial");
-    expect(styles).toContain("h3WavePearlTravel");
-    expect(styles).toContain("h3WaveRidgeTravel");
-    expect(styles).toContain("h3WaveGoldResolve");
-    expect(styles).not.toContain("radial-gradient(ellipse 52%");
+    expect(source).not.toContain("HeroV3WaveMaterial");
+    expect(styles).toContain("h3CausticPassage");
+    expect(styles).toContain("h3PearlMigration");
+    expect(styles).toContain("h3GoldMaterialResolve");
+    expect(styles).not.toContain("clip-path");
     expect(styles).toContain("prefers-reduced-motion: reduce");
   });
   it("provides perceptual phase locks, layer isolation and synchronized comparison", () => {
@@ -60,8 +60,9 @@ describe("Hero V3 H3.3 engine enhancement", () => {
     expect(styles).toContain('data-h3-phase-lock="RIDGE"');
     expect(styles).toContain('data-h3-phase-lock="GOLD"');
     expect(styles).toContain('data-h3-layer-isolation="DEPTH"');
-    expect(styles).toContain("wave-ridge-edge-mask.png");
-    expect(styles).toContain("mask-size: cover");
+    expect(styles).toContain('sacred.motion.waveCaustics');
+    expect(styles).toContain('sacred.motion.glassShimmer');
+    expect(styles).toContain('sacred.motion.goldDust');
     expect(engine).toContain("localHighlightOpacityMax: 0.72");
   });
   it("remains isolated and production-unbound", () => {
