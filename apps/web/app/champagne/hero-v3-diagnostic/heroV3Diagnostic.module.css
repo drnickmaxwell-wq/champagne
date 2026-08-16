@@ -25,7 +25,7 @@
 
 
 .waveMaterial { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; isolation: isolate; }
-.waveMaterial > span { position: absolute; inset: 0; pointer-events: none; background-size: 220% 100%; background-position: 100% 50%; mask-image: url("/assets/champagne/waves/wave-ridge-edge-mask.png"); mask-size: cover; mask-position: center; mask-repeat: no-repeat; clip-path: inset(0 0 0 34%); }
+.waveMaterial > span { position: absolute; inset: 0; pointer-events: none; background-size: 220% 100%; background-position: 100% 50%; mask-image: url("/assets/champagne/waves/wave-ridge-edge-mask.png"); mask-size: cover; mask-position: center; mask-repeat: no-repeat; clip-path: inset(0 0 0 52%); }
 .waveDepth { background: var(--h3-wave-depth); mix-blend-mode: multiply; opacity: .22; filter: blur(2px); transform: translate3d(0, 2px, 0); }
 .wavePearl { background-image: linear-gradient(108deg, transparent 0 19%, var(--h3-wave-magenta) 30%, var(--h3-wave-turquoise) 42%, var(--h3-wave-porcelain) 51%, var(--h3-wave-turquoise) 61%, var(--h3-wave-gold) 70%, transparent 82%); mix-blend-mode: screen; opacity: .28; filter: saturate(1.3) drop-shadow(0 0 3px color-mix(in srgb, var(--h3-wave-turquoise) 36%, transparent)); animation: h3WavePearlTravel 36s cubic-bezier(.42, 0, .58, 1) infinite; }
 .waveRidge { background-image: linear-gradient(108deg, transparent 0 43%, color-mix(in srgb, var(--h3-wave-porcelain) 84%, transparent) 48%, var(--h3-wave-porcelain) 50%, color-mix(in srgb, var(--h3-wave-turquoise) 72%, transparent) 53%, transparent 59%); mix-blend-mode: screen; opacity: .05; filter: drop-shadow(0 0 2px color-mix(in srgb, var(--h3-wave-porcelain) 64%, transparent)); animation: h3WaveRidgeTravel 36s ease-in-out infinite; }
@@ -76,7 +76,7 @@
   .stage :global(.hero-content p) { max-width: 100% !important; font-size: .98rem !important; line-height: 1.5 !important; }
   .stage :global(.hero-content > div:last-child) { display: grid !important; width: 100%; gap: .65rem !important; }
   .stage :global(.hero-content > div:last-child a) { padding: .8rem 1rem !important; text-align: center; }
-  .waveMaterial > span { clip-path: inset(0 0 0 18%); mask-position: 52% center; background-size: 260% 100%; }
+  .waveMaterial > span { clip-path: inset(42% 0 0 12%); mask-position: 52% center; background-size: 260% 100%; }
   .wavePearl { opacity: .32; }
   .waveRidge { opacity: .08; }
 }
