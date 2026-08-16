@@ -46,8 +46,21 @@ describe("Hero V3 H3.3 engine enhancement", () => {
     for (const layer of ["depthVeil", "subsurfaceBloom", "interferenceVeil", "ridgeLight", "goldResolution", "specularGlints"]) expect(source).toContain(`styles.${layer}`);
     expect(styles).toContain("h3InterferenceRoll");
     expect(styles).toContain("h3GoldResolution");
-    expect(styles).toContain("--h3-optical-focus-x: 64%");
+    expect(styles).toContain("--h3-optical-focus-x: 65%");
     expect(styles).toContain("prefers-reduced-motion: reduce");
+  });
+  it("provides perceptual phase locks, layer isolation and synchronized comparison", () => {
+    for (const phase of ["REST", "PEARL", "RIDGE", "GOLD"]) expect(source).toContain(`\"${phase}\"`);
+    for (const comparison of ["side-by-side", "blink"]) expect(source).toContain(`\"${comparison}\"`);
+    expect(source).toContain("data-h3-phase-lock");
+    expect(source).toContain("data-h3-layer-isolation");
+    expect(source).toContain("Synchronized Sacred V2 comparison");
+    expect(styles).toContain('data-h3-phase-lock="PEARL"');
+    expect(styles).toContain('data-h3-phase-lock="RIDGE"');
+    expect(styles).toContain('data-h3-phase-lock="GOLD"');
+    expect(styles).toContain('data-h3-layer-isolation="DEPTH"');
+    expect(styles).toContain("0%, 8%, 100%");
+    expect(engine).toContain("localHighlightOpacityMax: 0.72");
   });
   it("remains isolated and production-unbound", () => {
     expect(source).toContain('data-production-binding="false"');

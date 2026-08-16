@@ -57,7 +57,7 @@ export type HeroOpticalMaterialProfile = {
 };
 
 export const CHAMPAGNE_SACRED_V2_OPTICAL_MATERIAL_PROFILE: HeroOpticalMaterialProfile = {
-  id: "champagne-sacred-v2-opalescent-wave-cut-h3.3l-visible",
+  id: "champagne-sacred-v2-perceptual-convergence-h3.3l-v2",
   material: "iridescent-fluid",
   paletteRoles: {
     humanEnergy: "var(--brand-magenta)",
@@ -68,7 +68,7 @@ export const CHAMPAGNE_SACRED_V2_OPTICAL_MATERIAL_PROFILE: HeroOpticalMaterialPr
   },
   lightBudget: {
     ambientOpacityMax: 0.12,
-    localHighlightOpacityMax: 0.18,
+    localHighlightOpacityMax: 0.72,
     simultaneousHighlightPeaks: 1,
   },
   protectedContentZone: "start",

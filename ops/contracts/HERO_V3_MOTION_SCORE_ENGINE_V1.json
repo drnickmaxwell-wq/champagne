@@ -15,11 +15,20 @@
     "luminancePolicy": "PRESERVE_SACRED_V2_RANGE_NO_SCREEN_WASHOUT",
     "comparisonIsolation": "ENGINE_SETTINGS_MUST_RESTORE_ON_BASELINE_SWITCH",
     "activationGate": "ALL_CANONICAL_MOTION_LAYERS_MOUNTED",
-    "opticalMaterialProfile": "champagne-sacred-v2-opalescent-wave-cut-h3.3l-visible",
+    "opticalMaterialProfile": "champagne-sacred-v2-perceptual-convergence-h3.3l-v2",
+    "reviewedFailureHead": "ea3aae903f367e2e8a97129777c8981c2cc56ff6",
     "restrainedComparisonHead": "822f8a56ac8cf44a6a7f274b3e23e5f3b503d9ef",
     "opticalSequence": ["turquoise depth", "pearlescent migration", "porcelain ridge travel", "ridge-bound gold resolution", "turquoise recovery"],
     "opticalLayers": ["depth veil", "subsurface colour bloom", "iridescent wave-cut interference", "selected-ridge travelling light", "ridge-bound gold resolution", "micro-specular glints"],
-    "lightBudget": {"ambientOpacityMax": 0.12, "localHighlightOpacityMax": 0.18, "simultaneousHighlightPeaks": 1},
+    "lightBudget": {"ambientOpacityMax": 0.12, "localHighlightOpacityMax": 0.72, "simultaneousHighlightPeaks": 1, "policy": "STRONGER_NARROW_LOCAL_PEAKS_NOT_GLOBAL_LIFT"},
+    "perceptualReview": {
+      "manualPhaseLocks": ["REST", "PEARL", "RIDGE", "GOLD"],
+      "layerIsolation": ["interference veil", "ridge light", "depth veil", "gold and specular"],
+      "comparisonModes": ["synchronized side-by-side", "blink"],
+      "firstUnmistakableEventMaximumSeconds": 5,
+      "goldToken": "var(--brand-gold)",
+      "normalViewingSizeRequired": true
+    },
     "collectiveRestartAllowed": false,
     "canonicalMotionLayers": ["sacred.motion.waveCaustics", "sacred.motion.glassShimmer", "sacred.motion.particleDrift", "sacred.motion.goldDust"]
   },

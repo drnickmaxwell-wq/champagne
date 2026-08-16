@@ -13,6 +13,8 @@ H3.3L adds a bounded Champagne optical-material profile rather than a new compos
 
 The founder-authorised visible-expression correction preserves restrained head `822f8a56ac8cf44a6a7f274b3e23e5f3b503d9ef` as comparison evidence and concentrates the stronger candidate at the existing wave/gradient intersection. Its 36-second optical score moves from turquoise depth through pearlescent migration and narrow porcelain ridge travel into one brief ridge-bound warm-gold resolution before returning to turquoise. Mobile uses independent focal coordinates across the visible diagonal wave. General particles, Sacred V2 geometry, gradient, copy, CTAs, crop and canonical motion assets remain unchanged.
 
+Founder review rejected head `ea3aae903f367e2e8a97129777c8981c2cc56ff6` as `TECHNICALLY_PRESENT_BUT_VISUALLY_INDISTINGUISHABLE`: the 0.18 local ceiling, broad masks, blur and screen blending prevented the requested events from reading at normal size. This perceptual-convergence correction does not treat green tests as visual evidence. The lab now provides deterministic REST, PEARL, RIDGE and GOLD locks, individual material-layer isolation, synchronized side-by-side rendering and blink comparison. Optical energy is confined to the wave cut; a local depth counterpoint supports a narrow porcelain highlight, while canonical token gold travels selected ridges using normal colour separation instead of disappearing into a pale screen blend. The first pearl/ridge event peaks inside five seconds. Narrow local highlights may peak at 0.72 while the ambient field remains capped at 0.12 and the protected start zone remains masked.
+
 ## Future variants and tenants
 
 The engine contract is deliberately brand-neutral:
