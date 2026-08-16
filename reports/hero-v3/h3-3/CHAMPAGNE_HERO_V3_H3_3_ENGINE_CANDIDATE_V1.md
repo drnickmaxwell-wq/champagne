@@ -24,3 +24,10 @@ The engine contract is deliberately brand-neutral:
 Future Champagne treatment variants can select governed Champagne grammars and instances. Future tenants provide their own palette, logo asset, typography and desired character. The engine executes those inputs but does not own or leak Champagne’s waves, palette, assets or temperament.
 
 This tranche establishes those input boundaries only. It does not implement H3.5 treatment variants or H3.6 Tenant-B generation.
+
+
+## H3.3L founder visual correction — wave-bound material recovery
+
+Founder review rejected `ea3aae903f367e2e8a97129777c8981c2cc56ff6` and its opacity-increased follow-up `52ca8531eb5c9bb38153f0d92e2dde2430e78993`. Both used broad CSS fields and synthetic radial ridges, producing an opaque central region and visible white rings without credible mother-of-pearl or gold material response.
+
+The active recovery removes that overlay family completely. Optical colour, porcelain ridge light and the gold-resolution event now travel only along the five canonical paths from `wave-field.svg`. Outside those real Sacred wave paths the renderer is transparent by construction. Sacred V2 gradient, dense wave artwork, geometry, copy, CTAs, crop, motion assets and particles are unchanged. Desktop and mobile retain independent path timing/crop alignment. Reduced motion and autoplay failure resolve to a restrained static wave-bound frame.

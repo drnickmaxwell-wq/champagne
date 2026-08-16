@@ -22,45 +22,41 @@
 .stage[data-h3-engine-mode="h3-3-engine"][data-h3-motion-health="active"] :global(video[data-surface-id^="sacred.motion."]) { opacity: var(--h3-score-opacity) !important; animation-delay: var(--h3-score-phase), var(--h3-score-phase) !important; transition: opacity 320ms ease; }
 .stage[data-h3-engine-mode="h3-3-engine"] :global(.hero-renderer-v2) { filter: saturate(1.025) contrast(1.035); }
 .stage[data-h3-motion-health="static-fallback"] :global(video[data-surface-id^="sacred.motion."]) { display: none !important; }
-.opticalLuxury { --h3-optical-focus-x: 65%; --h3-optical-focus-y: 55%; --h3-ridge-focus-x: 92%; --h3-ridge-focus-y: 56%; position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; isolation: isolate; mask-image: linear-gradient(104deg, transparent 0 35%, color-mix(in srgb, var(--surface-ink) 55%, transparent) 43%, var(--surface-ink) 51% 91%, transparent 100%); }
-.opticalLuxury > span { position: absolute; inset: -12%; pointer-events: none; }
-.depthVeil { background: radial-gradient(ellipse 31% 46% at 69% 59%, color-mix(in srgb, var(--h3-optical-depth) 72%, transparent) 0 26%, color-mix(in srgb, var(--h3-optical-depth) 34%, transparent) 49%, transparent 73%), linear-gradient(109deg, transparent 43%, color-mix(in srgb, var(--h3-optical-depth) 48%, transparent) 54%, transparent 67%); filter: blur(5px); mix-blend-mode: multiply; opacity: .42; animation: h3DepthCounterpoint 36s ease-in-out infinite; }
-.subsurfaceBloom { background: radial-gradient(circle at 38% 34%, color-mix(in srgb, var(--h3-optical-human) 34%, transparent), transparent 29%), radial-gradient(circle at var(--h3-optical-focus-x) var(--h3-optical-focus-y), color-mix(in srgb, var(--h3-optical-digital) 48%, transparent), transparent 32%), radial-gradient(circle at 86% 74%, color-mix(in srgb, var(--h3-optical-precision) 28%, transparent), transparent 26%); filter: blur(28px) saturate(1.2); mix-blend-mode: soft-light; opacity: min(var(--h3-optical-ambient-max), .12); animation: h3SubsurfaceBreathe 36s ease-in-out infinite; }
-.interferenceVeil { background: conic-gradient(from 205deg at var(--h3-optical-focus-x) var(--h3-optical-focus-y), color-mix(in srgb, var(--h3-optical-digital) 76%, transparent) 0 10%, color-mix(in srgb, var(--h3-optical-human) 82%, transparent) 17%, color-mix(in srgb, var(--h3-optical-lift) 70%, transparent) 25%, color-mix(in srgb, var(--h3-optical-digital) 92%, transparent) 34%, color-mix(in srgb, var(--h3-optical-precision) 72%, transparent) 42%, color-mix(in srgb, var(--h3-optical-human) 70%, transparent) 50%, color-mix(in srgb, var(--h3-optical-digital) 82%, transparent) 59%, transparent 67% 100%); filter: blur(2.5px) saturate(1.78) contrast(1.18); mix-blend-mode: color; opacity: .16; transform-origin: var(--h3-optical-focus-x) var(--h3-optical-focus-y); mask-image: radial-gradient(ellipse 27% 35% at var(--h3-optical-focus-x) var(--h3-optical-focus-y), var(--surface-ink) 0 38%, color-mix(in srgb, var(--surface-ink) 85%, transparent) 53%, transparent 72%); animation: h3InterferenceRoll 36s cubic-bezier(.42, 0, .58, 1) infinite; }
-.ridgeLight { inset: -18%; background: radial-gradient(ellipse 52% 42% at var(--h3-ridge-focus-x) var(--h3-ridge-focus-y), transparent 47.6%, color-mix(in srgb, var(--h3-optical-lift) 98%, transparent) 48.1% 48.45%, transparent 49%), radial-gradient(ellipse 61% 49% at var(--h3-ridge-focus-x) var(--h3-ridge-focus-y), transparent 47.85%, color-mix(in srgb, var(--h3-optical-lift) 94%, transparent) 48.3% 48.65%, transparent 49.2%), radial-gradient(ellipse 70% 56% at var(--h3-ridge-focus-x) var(--h3-ridge-focus-y), transparent 48%, color-mix(in srgb, var(--h3-optical-lift) 90%, transparent) 48.45% 48.8%, transparent 49.35%), radial-gradient(ellipse 79% 63% at var(--h3-ridge-focus-x) var(--h3-ridge-focus-y), transparent 48.15%, color-mix(in srgb, var(--h3-optical-lift) 86%, transparent) 48.55% 48.9%, transparent 49.4%); filter: blur(.2px); mix-blend-mode: screen; opacity: .08; transform-origin: var(--h3-ridge-focus-x) var(--h3-ridge-focus-y); animation: h3RidgeTravel 36s ease-in-out infinite; }
-.goldResolution { inset: -18%; background: radial-gradient(ellipse 57% 45% at var(--h3-ridge-focus-x) var(--h3-ridge-focus-y), transparent 47.9%, color-mix(in srgb, var(--h3-optical-precision) 100%, transparent) 48.35% 48.85%, transparent 49.4%), radial-gradient(ellipse 66% 52% at var(--h3-ridge-focus-x) var(--h3-ridge-focus-y), transparent 48.05%, color-mix(in srgb, var(--h3-optical-precision) 96%, transparent) 48.5% 49%, transparent 49.55%), radial-gradient(ellipse 75% 59% at var(--h3-ridge-focus-x) var(--h3-ridge-focus-y), transparent 48.2%, color-mix(in srgb, var(--h3-optical-precision) 92%, transparent) 48.65% 49.12%, transparent 49.65%); filter: saturate(1.45) contrast(1.12); mix-blend-mode: normal; opacity: 0; transform-origin: var(--h3-ridge-focus-x) var(--h3-ridge-focus-y); animation: h3GoldResolution 36s ease-in-out infinite; }
-.specularGlints { background: linear-gradient(112deg, transparent 44%, color-mix(in srgb, var(--h3-optical-lift) 96%, transparent) 49.25% 49.65%, transparent 54%), radial-gradient(ellipse 3.2% 1.1% at 61% 49%, color-mix(in srgb, var(--h3-optical-lift) 100%, transparent), transparent 72%), radial-gradient(ellipse 2.5% .9% at 72% 61%, color-mix(in srgb, var(--h3-optical-precision) 96%, transparent), transparent 74%), radial-gradient(ellipse 2.8% 1% at 83% 38%, color-mix(in srgb, var(--h3-optical-lift) 92%, transparent), transparent 72%); filter: blur(.25px); mix-blend-mode: screen; opacity: 0; mask-image: radial-gradient(ellipse 31% 42% at var(--h3-optical-focus-x) var(--h3-optical-focus-y), var(--surface-ink) 0 56%, transparent 78%); animation: h3SpecularCadence 36s ease-in-out infinite; }
-.stage[data-h3-motion-health="static-fallback"] .opticalLuxury > span { animation: none !important; }
-.stage[data-h3-motion-health="static-fallback"] .interferenceVeil { opacity: .055; transform: none; }
-.stage[data-h3-motion-health="static-fallback"] .subsurfaceBloom { opacity: .07; }
-.stage[data-h3-motion-health="static-fallback"] .ridgeLight { opacity: .06; }
-.stage[data-h3-motion-health="static-fallback"] .goldResolution { opacity: .035; }
-.stage[data-h3-motion-health="static-fallback"] .specularGlints { display: none; }
-@keyframes h3SubsurfaceBreathe { 0%, 100% { opacity: .07; transform: translate3d(-1%, .4%, 0) scale(.99); } 28% { opacity: min(var(--h3-optical-ambient-max), .12); transform: translate3d(.4%, -.3%, 0) scale(1.015); } 72% { opacity: .085; transform: translate3d(1.2%, -.6%, 0) scale(1.02); } }
-@keyframes h3DepthCounterpoint { 0%, 100% { opacity: .3; transform: translate3d(-1%, .4%, 0); } 10%, 20% { opacity: .5; transform: translate3d(.5%, -.2%, 0); } 31%, 43% { opacity: .58; transform: translate3d(1%, -.4%, 0); } 57%, 70% { opacity: .52; transform: translate3d(1.5%, -.6%, 0); } }
-@keyframes h3InterferenceRoll { 0%, 100% { opacity: .15; transform: translate3d(-2%, 1%, 0) rotate(-2deg) scale(.97); } 8% { opacity: .36; } 12% { opacity: min(var(--h3-optical-highlight-max), .72); transform: translate3d(.4%, -.2%, 0) rotate(1deg) scale(1.025); } 21% { opacity: .42; transform: translate3d(1.5%, -.7%, 0) rotate(2deg) scale(1.04); } 42% { opacity: .6; transform: translate3d(-.2%, .2%, 0) rotate(-1deg) scale(1.015); } 64% { opacity: .28; transform: translate3d(2%, -1%, 0) rotate(2.5deg) scale(1.045); } 78% { opacity: .18; } }
-@keyframes h3RidgeTravel { 0%, 8%, 100% { opacity: .04; transform: translate3d(-2%, 1%, 0) scale(.985); } 12% { opacity: .28; } 16% { opacity: min(var(--h3-optical-highlight-max), .72); transform: translate3d(.2%, -.15%, 0) scale(1.004); } 22% { opacity: .32; transform: translate3d(1.4%, -.6%, 0) scale(1.014); } 45% { opacity: .56; transform: translate3d(-.3%, .15%, 0) scale(1.002); } 54% { opacity: .08; transform: translate3d(1.8%, -.8%, 0) scale(1.018); } }
-@keyframes h3GoldResolution { 0%, 45%, 76%, 100% { opacity: 0; transform: translate3d(-1.5%, .7%, 0) scale(.99); } 51% { opacity: .22; } 57% { opacity: min(var(--h3-optical-highlight-max), .72); transform: translate3d(.2%, -.12%, 0) scale(1.003); } 65% { opacity: .68; transform: translate3d(.9%, -.45%, 0) scale(1.01); } 71% { opacity: .16; transform: translate3d(1.7%, -.75%, 0) scale(1.018); } }
-@keyframes h3SpecularCadence { 0%, 7%, 26%, 100% { opacity: 0; transform: translate3d(-2%, .8%, 0); } 11% { opacity: min(var(--h3-optical-highlight-max), .72); } 17% { opacity: .38; transform: translate3d(1.5%, -.6%, 0); } 42% { opacity: .58; transform: translate3d(.2%, -.1%, 0); } 49% { opacity: 0; transform: translate3d(2%, -.8%, 0); } }
 
-.stage[data-h3-phase-lock]:not([data-h3-phase-lock="LIVE"]) .opticalLuxury > span { animation: none !important; }
-.stage[data-h3-phase-lock="REST"] .interferenceVeil, .stage[data-h3-phase-lock="REST"] .ridgeLight, .stage[data-h3-phase-lock="REST"] .goldResolution, .stage[data-h3-phase-lock="REST"] .specularGlints { opacity: 0; }
-.stage[data-h3-phase-lock="REST"] .depthVeil { opacity: .3; }
-.stage[data-h3-phase-lock="PEARL"] .depthVeil { opacity: .58; transform: translate3d(.5%, -.2%, 0); }
-.stage[data-h3-phase-lock="PEARL"] .interferenceVeil { opacity: min(var(--h3-optical-highlight-max), .72); transform: translate3d(.4%, -.2%, 0) rotate(1deg) scale(1.025); }
-.stage[data-h3-phase-lock="PEARL"] .specularGlints { opacity: min(var(--h3-optical-highlight-max), .72); transform: translate3d(.2%, -.1%, 0); }
-.stage[data-h3-phase-lock="PEARL"] .ridgeLight, .stage[data-h3-phase-lock="PEARL"] .goldResolution { opacity: 0; }
-.stage[data-h3-phase-lock="RIDGE"] .depthVeil { opacity: .52; }
-.stage[data-h3-phase-lock="RIDGE"] .ridgeLight { opacity: min(var(--h3-optical-highlight-max), .72); transform: translate3d(.2%, -.15%, 0) scale(1.004); }
-.stage[data-h3-phase-lock="RIDGE"] .interferenceVeil { opacity: .24; }
-.stage[data-h3-phase-lock="RIDGE"] .goldResolution, .stage[data-h3-phase-lock="RIDGE"] .specularGlints { opacity: 0; }
-.stage[data-h3-phase-lock="GOLD"] .depthVeil { opacity: .54; }
-.stage[data-h3-phase-lock="GOLD"] .goldResolution { opacity: min(var(--h3-optical-highlight-max), .72); transform: translate3d(.5%, -.25%, 0) scale(1.006); }
-.stage[data-h3-phase-lock="GOLD"] .specularGlints { opacity: .42; }
-.stage[data-h3-phase-lock="GOLD"] .interferenceVeil { opacity: .2; }
-.stage[data-h3-phase-lock="GOLD"] .ridgeLight { opacity: .14; }
-.stage[data-h3-layer-isolation]:not([data-h3-layer-isolation="ALL"]) .opticalLuxury > span { display: none; }
-.stage[data-h3-layer-isolation="PEARL"] .interferenceVeil, .stage[data-h3-layer-isolation="RIDGE"] .ridgeLight, .stage[data-h3-layer-isolation="DEPTH"] .depthVeil, .stage[data-h3-layer-isolation="GOLD"] .goldResolution, .stage[data-h3-layer-isolation="GOLD"] .specularGlints { display: block; }
+.waveMaterial { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; overflow: visible; pointer-events: none; mix-blend-mode: screen; }
+.waveMaterialField { transform-origin: center; }
+.waveMaterial path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.waveDepth path { stroke: var(--h3-wave-depth); stroke-width: 5; opacity: .22; filter: blur(2px); }
+.wavePearl path { stroke-width: 3.2; opacity: .42; stroke-dasharray: 310 690; stroke-dashoffset: calc(var(--h3-wave-index) * -31); filter: drop-shadow(0 0 5px color-mix(in srgb, var(--h3-wave-turquoise) 42%, transparent)); animation: h3WavePearlTravel 36s cubic-bezier(.42, 0, .58, 1) infinite; animation-delay: calc(var(--h3-wave-index) * -1.35s); }
+.waveRidge path { stroke-width: 2.4; opacity: .08; stroke-dasharray: 52 948; stroke-dashoffset: calc(var(--h3-wave-index) * -54); filter: drop-shadow(0 0 3px color-mix(in srgb, var(--h3-wave-porcelain) 70%, transparent)); animation: h3WaveRidgeTravel 36s ease-in-out infinite; animation-delay: calc(var(--h3-wave-index) * -.72s); }
+.waveGold path { stroke: var(--h3-wave-gold); stroke-width: 3; opacity: 0; stroke-dasharray: 86 914; stroke-dashoffset: calc(var(--h3-wave-index) * -67); filter: drop-shadow(0 0 4px color-mix(in srgb, var(--h3-wave-gold) 58%, transparent)); animation: h3WaveGoldResolve 36s ease-in-out infinite; animation-delay: calc(var(--h3-wave-index) * -.48s); }
+@keyframes h3WavePearlTravel { 0%, 100% { opacity: .22; stroke-dashoffset: 80; } 18% { opacity: .62; } 38% { opacity: .34; stroke-dashoffset: -210; } 55% { opacity: .68; } 76% { opacity: .3; stroke-dashoffset: -520; } }
+@keyframes h3WaveRidgeTravel { 0%, 8%, 100% { opacity: .02; stroke-dashoffset: 150; } 14% { opacity: .92; } 22% { opacity: .14; stroke-dashoffset: -120; } 42% { opacity: .82; } 51% { opacity: .08; stroke-dashoffset: -390; } }
+@keyframes h3WaveGoldResolve { 0%, 48%, 78%, 100% { opacity: 0; stroke-dashoffset: 100; } 55% { opacity: .24; } 61% { opacity: .88; } 69% { opacity: .55; stroke-dashoffset: -235; } 74% { opacity: .08; } }
+.stage[data-h3-phase-lock]:not([data-h3-phase-lock="LIVE"]) .waveMaterial path,
+.stage[data-h3-motion-health="static-fallback"] .waveMaterial path,
+.waveMaterial[data-h3-wave-static="true"] path { animation: none !important; }
+.stage[data-h3-phase-lock="REST"] .wavePearl path { opacity: .12; }
+.stage[data-h3-phase-lock="REST"] .waveRidge path, .stage[data-h3-phase-lock="REST"] .waveGold path { opacity: 0; }
+.stage[data-h3-phase-lock="PEARL"] .wavePearl path { opacity: .72; stroke-dashoffset: -180; }
+.stage[data-h3-phase-lock="PEARL"] .waveRidge path, .stage[data-h3-phase-lock="PEARL"] .waveGold path { opacity: 0; }
+.stage[data-h3-phase-lock="RIDGE"] .wavePearl path { opacity: .22; }
+.stage[data-h3-phase-lock="RIDGE"] .waveRidge path { opacity: .92; stroke-dashoffset: -300; }
+.stage[data-h3-phase-lock="RIDGE"] .waveGold path { opacity: 0; }
+.stage[data-h3-phase-lock="GOLD"] .wavePearl path { opacity: .3; }
+.stage[data-h3-phase-lock="GOLD"] .waveRidge path { opacity: .18; }
+.stage[data-h3-phase-lock="GOLD"] .waveGold path { opacity: .9; stroke-dashoffset: -260; }
+.stage[data-h3-layer-isolation]:not([data-h3-layer-isolation="ALL"]) .waveMaterialField > g { display: none; }
+.stage[data-h3-layer-isolation="PEARL"] .wavePearl,
+.stage[data-h3-layer-isolation="RIDGE"] .waveRidge,
+.stage[data-h3-layer-isolation="DEPTH"] .waveDepth,
+.stage[data-h3-layer-isolation="GOLD"] .waveGold { display: block !important; }
+.stage[data-h3-motion-health="static-fallback"] .wavePearl path,
+.waveMaterial[data-h3-wave-static="true"] .wavePearl path { opacity: .24; stroke-dashoffset: -160; }
+.stage[data-h3-motion-health="static-fallback"] .waveRidge path,
+.waveMaterial[data-h3-wave-static="true"] .waveRidge path { opacity: .2; stroke-dashoffset: -260; }
+.stage[data-h3-motion-health="static-fallback"] .waveGold path,
+.waveMaterial[data-h3-wave-static="true"] .waveGold path { opacity: .12; stroke-dashoffset: -330; }
 .safeZones { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: var(--brand-gold); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 .copyZone, .ctaZone { position: absolute; left: 7%; width: 43%; padding: .4rem; border: 1px dashed var(--brand-gold); background: color-mix(in srgb, var(--surface-ink) 8%, transparent); }
 .copyZone { top: 15%; height: 38%; }
@@ -80,10 +76,9 @@
   .stage :global(.hero-content p) { max-width: 100% !important; font-size: .98rem !important; line-height: 1.5 !important; }
   .stage :global(.hero-content > div:last-child) { display: grid !important; width: 100%; gap: .65rem !important; }
   .stage :global(.hero-content > div:last-child a) { padding: .8rem 1rem !important; text-align: center; }
-  .opticalLuxury { --h3-optical-focus-x: 63%; --h3-optical-focus-y: 57%; --h3-ridge-focus-x: 101%; --h3-ridge-focus-y: 60%; mask-image: linear-gradient(104deg, transparent 0 24%, color-mix(in srgb, var(--surface-ink) 68%, transparent) 34%, var(--surface-ink) 48% 94%, transparent 100%); }
-  .subsurfaceBloom { opacity: .075; }
-  .interferenceVeil { opacity: .16; mask-image: radial-gradient(ellipse 42% 31% at var(--h3-optical-focus-x) var(--h3-optical-focus-y), var(--surface-ink) 0 42%, color-mix(in srgb, var(--surface-ink) 86%, transparent) 58%, transparent 78%); }
-  .ridgeLight { opacity: .08; }
+  .waveMaterialField { transform: translate3d(-7%, 4%, 0) scale(1.08); }
+  .wavePearl path { stroke-dasharray: 270 730; }
+  .waveRidge path { stroke-dasharray: 46 954; }
 }
 
 @media (max-width: 900px) {
@@ -95,10 +90,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .opticalLuxury > span { animation: none !important; }
-  .interferenceVeil { opacity: .055; transform: none; }
-  .subsurfaceBloom { opacity: .07; }
-  .ridgeLight { opacity: .06; }
-  .goldResolution { opacity: .035; }
-  .specularGlints { display: none; }
+  .waveMaterial path { animation: none !important; }
+  .wavePearl path { opacity: .24; stroke-dashoffset: -160; }
+  .waveRidge path { opacity: .2; stroke-dashoffset: -260; }
+  .waveGold path { opacity: .12; stroke-dashoffset: -330; }
 }

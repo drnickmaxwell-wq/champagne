@@ -43,10 +43,11 @@ describe("Hero V3 H3.3 engine enhancement", () => {
   it("adds optical luxury without changing the Sacred V2 composition", () => {
     expect(source).toContain("CHAMPAGNE_SACRED_V2_OPTICAL_MATERIAL_PROFILE");
     expect(source).toContain("data-h3-optical-material");
-    for (const layer of ["depthVeil", "subsurfaceBloom", "interferenceVeil", "ridgeLight", "goldResolution", "specularGlints"]) expect(source).toContain(`styles.${layer}`);
-    expect(styles).toContain("h3InterferenceRoll");
-    expect(styles).toContain("h3GoldResolution");
-    expect(styles).toContain("--h3-optical-focus-x: 65%");
+    expect(source).toContain("HeroV3WaveMaterial");
+    expect(styles).toContain("h3WavePearlTravel");
+    expect(styles).toContain("h3WaveRidgeTravel");
+    expect(styles).toContain("h3WaveGoldResolve");
+    expect(styles).not.toContain("radial-gradient(ellipse 52%");
     expect(styles).toContain("prefers-reduced-motion: reduce");
   });
   it("provides perceptual phase locks, layer isolation and synchronized comparison", () => {
@@ -59,7 +60,7 @@ describe("Hero V3 H3.3 engine enhancement", () => {
     expect(styles).toContain('data-h3-phase-lock="RIDGE"');
     expect(styles).toContain('data-h3-phase-lock="GOLD"');
     expect(styles).toContain('data-h3-layer-isolation="DEPTH"');
-    expect(styles).toContain("0%, 8%, 100%");
+    expect(styles).toContain("stroke-dasharray");
     expect(engine).toContain("localHighlightOpacityMax: 0.72");
   });
   it("remains isolated and production-unbound", () => {
