@@ -1,0 +1,123 @@
+{
+  "contract": "HERO_V3_MOTION_SCORE_ENGINE_V1",
+  "phase": "H3.3",
+  "status": "ISOLATED_RUNTIME_CANDIDATE",
+  "productionBinding": false,
+  "visualInvariant": "SACRED_V2_DESIGN_UNCHANGED",
+  "expression": "ENGINE + TENANT_BRAND_PROFILE + HERO_GRAMMAR + HERO_INSTANCE",
+  "materialExpression": "ENGINE + BRAND_PROFILE + HERO_GRAMMAR + MATERIAL_PROFILE + LIGHTING_SCORE + MOTION_SCORE + HERO_INSTANCE",
+  "engineOwns": [
+    "rendering",
+    "light and depth execution",
+    "motion score",
+    "responsive machinery",
+    "reduced motion",
+    "autoplay fallback"
+  ],
+  "engineMustNotOwn": [
+    "Champagne palette",
+    "Champagne waves",
+    "Champagne logo",
+    "Champagne typography",
+    "tenant colours",
+    "tenant logos",
+    "tenant visual desires"
+  ],
+  "champagneCandidate": {
+    "baseline": "Accepted Sacred V2",
+    "motionScore": "champagne-sacred-v2-h3.3",
+    "durationSeconds": 42,
+    "luminancePolicy": "PRESERVE_SACRED_V2_RANGE_NO_SCREEN_WASHOUT",
+    "comparisonIsolation": "ENGINE_SETTINGS_MUST_RESTORE_ON_BASELINE_SWITCH",
+    "activationGate": "ALL_CANONICAL_MOTION_LAYERS_MOUNTED",
+    "opticalMaterialProfile": "champagne-sacred-v2-perceptual-convergence-h3.3l-v2",
+    "reviewedFailureHead": "ea3aae903f367e2e8a97129777c8981c2cc56ff6",
+    "restrainedComparisonHead": "822f8a56ac8cf44a6a7f274b3e23e5f3b503d9ef",
+    "opticalSequence": [
+      "turquoise depth",
+      "pearlescent migration",
+      "porcelain ridge travel",
+      "ridge-bound gold resolution",
+      "turquoise recovery"
+    ],
+    "opticalLayers": [
+      "depth veil",
+      "subsurface colour bloom",
+      "iridescent wave-cut interference",
+      "selected-ridge travelling light",
+      "ridge-bound gold resolution",
+      "micro-specular glints"
+    ],
+    "lightBudget": {
+      "ambientOpacityMax": 0.12,
+      "localHighlightOpacityMax": 0.72,
+      "simultaneousHighlightPeaks": 1,
+      "policy": "STRONGER_NARROW_LOCAL_PEAKS_NOT_GLOBAL_LIFT"
+    },
+    "perceptualReview": {
+      "manualPhaseLocks": [
+        "REST",
+        "PEARL",
+        "RIDGE",
+        "GOLD"
+      ],
+      "layerIsolation": [
+        "interference veil",
+        "ridge light",
+        "depth veil",
+        "gold and specular"
+      ],
+      "comparisonModes": [
+        "synchronized side-by-side",
+        "blink"
+      ],
+      "firstUnmistakableEventMaximumSeconds": 5,
+      "goldToken": "var(--brand-gold)",
+      "normalViewingSizeRequired": true
+    },
+    "collectiveRestartAllowed": false,
+    "canonicalMotionLayers": [
+      "sacred.motion.waveCaustics",
+      "sacred.motion.glassShimmer",
+      "sacred.motion.particleDrift",
+      "sacred.motion.goldDust"
+    ]
+  },
+  "fallbacks": {
+    "reducedMotion": "static-equivalent",
+    "autoplayFailure": "static-equivalent",
+    "SacredV2Rollback": true
+  },
+  "futureProofing": {
+    "treatmentVariants": "profiled-not-implemented",
+    "tenantGeneration": "input-contract-established-not-implemented"
+  },
+  "excluded": [
+    "hero redesign",
+    "production binding",
+    "H3.4",
+    "H3.5 implementation",
+    "H3.6 implementation",
+    "ready",
+    "merge",
+    "deployment"
+  ],
+  "h3_3l_wave_material_recovery": {
+    "rejected_heads": [
+      "ea3aae903f367e2e8a97129777c8981c2cc56ff6",
+      "52ca8531eb5c9bb38153f0d92e2dde2430e78993",
+      "877852ba66720d8bfa540b875786aeb25427deb6"
+    ],
+    "renderer": "canonical-motion-material-score",
+    "canonical_layers": [
+      "sacred.motion.waveCaustics",
+      "sacred.motion.glassShimmer",
+      "sacred.motion.goldDust"
+    ],
+    "adds_geometry": false,
+    "broad_optical_field": false,
+    "hard_focal_window": false,
+    "derived_ridge_mask": false,
+    "productionBinding": false
+  }
+}
