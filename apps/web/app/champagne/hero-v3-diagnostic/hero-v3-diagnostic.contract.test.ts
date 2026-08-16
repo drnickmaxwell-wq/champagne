@@ -60,7 +60,8 @@ describe("Hero V3 H3.3 engine enhancement", () => {
     expect(styles).toContain('data-h3-phase-lock="RIDGE"');
     expect(styles).toContain('data-h3-phase-lock="GOLD"');
     expect(styles).toContain('data-h3-layer-isolation="DEPTH"');
-    expect(styles).toContain("stroke-dasharray");
+    expect(styles).toContain("wave-ridge-edge-mask.png");
+    expect(styles).toContain("mask-size: cover");
     expect(engine).toContain("localHighlightOpacityMax: 0.72");
   });
   it("remains isolated and production-unbound", () => {

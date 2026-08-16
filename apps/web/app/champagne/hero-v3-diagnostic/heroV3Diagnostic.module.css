@@ -23,40 +23,40 @@
 .stage[data-h3-engine-mode="h3-3-engine"] :global(.hero-renderer-v2) { filter: saturate(1.025) contrast(1.035); }
 .stage[data-h3-motion-health="static-fallback"] :global(video[data-surface-id^="sacred.motion."]) { display: none !important; }
 
-.waveMaterial { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; overflow: visible; pointer-events: none; mix-blend-mode: screen; }
-.waveMaterialField { transform-origin: center; }
-.waveMaterial path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; }
-.waveDepth path { stroke: var(--h3-wave-depth); stroke-width: 5; opacity: .22; filter: blur(2px); }
-.wavePearl path { stroke-width: 3.2; opacity: .42; stroke-dasharray: 310 690; stroke-dashoffset: calc(var(--h3-wave-index) * -31); filter: drop-shadow(0 0 5px color-mix(in srgb, var(--h3-wave-turquoise) 42%, transparent)); animation: h3WavePearlTravel 36s cubic-bezier(.42, 0, .58, 1) infinite; animation-delay: calc(var(--h3-wave-index) * -1.35s); }
-.waveRidge path { stroke-width: 2.4; opacity: .08; stroke-dasharray: 52 948; stroke-dashoffset: calc(var(--h3-wave-index) * -54); filter: drop-shadow(0 0 3px color-mix(in srgb, var(--h3-wave-porcelain) 70%, transparent)); animation: h3WaveRidgeTravel 36s ease-in-out infinite; animation-delay: calc(var(--h3-wave-index) * -.72s); }
-.waveGold path { stroke: var(--h3-wave-gold); stroke-width: 3; opacity: 0; stroke-dasharray: 86 914; stroke-dashoffset: calc(var(--h3-wave-index) * -67); filter: drop-shadow(0 0 4px color-mix(in srgb, var(--h3-wave-gold) 58%, transparent)); animation: h3WaveGoldResolve 36s ease-in-out infinite; animation-delay: calc(var(--h3-wave-index) * -.48s); }
-@keyframes h3WavePearlTravel { 0%, 100% { opacity: .22; stroke-dashoffset: 80; } 18% { opacity: .62; } 38% { opacity: .34; stroke-dashoffset: -210; } 55% { opacity: .68; } 76% { opacity: .3; stroke-dashoffset: -520; } }
-@keyframes h3WaveRidgeTravel { 0%, 8%, 100% { opacity: .02; stroke-dashoffset: 150; } 14% { opacity: .92; } 22% { opacity: .14; stroke-dashoffset: -120; } 42% { opacity: .82; } 51% { opacity: .08; stroke-dashoffset: -390; } }
-@keyframes h3WaveGoldResolve { 0%, 48%, 78%, 100% { opacity: 0; stroke-dashoffset: 100; } 55% { opacity: .24; } 61% { opacity: .88; } 69% { opacity: .55; stroke-dashoffset: -235; } 74% { opacity: .08; } }
-.stage[data-h3-phase-lock]:not([data-h3-phase-lock="LIVE"]) .waveMaterial path,
-.stage[data-h3-motion-health="static-fallback"] .waveMaterial path,
-.waveMaterial[data-h3-wave-static="true"] path { animation: none !important; }
-.stage[data-h3-phase-lock="REST"] .wavePearl path { opacity: .12; }
-.stage[data-h3-phase-lock="REST"] .waveRidge path, .stage[data-h3-phase-lock="REST"] .waveGold path { opacity: 0; }
-.stage[data-h3-phase-lock="PEARL"] .wavePearl path { opacity: .72; stroke-dashoffset: -180; }
-.stage[data-h3-phase-lock="PEARL"] .waveRidge path, .stage[data-h3-phase-lock="PEARL"] .waveGold path { opacity: 0; }
-.stage[data-h3-phase-lock="RIDGE"] .wavePearl path { opacity: .22; }
-.stage[data-h3-phase-lock="RIDGE"] .waveRidge path { opacity: .92; stroke-dashoffset: -300; }
-.stage[data-h3-phase-lock="RIDGE"] .waveGold path { opacity: 0; }
-.stage[data-h3-phase-lock="GOLD"] .wavePearl path { opacity: .3; }
-.stage[data-h3-phase-lock="GOLD"] .waveRidge path { opacity: .18; }
-.stage[data-h3-phase-lock="GOLD"] .waveGold path { opacity: .9; stroke-dashoffset: -260; }
-.stage[data-h3-layer-isolation]:not([data-h3-layer-isolation="ALL"]) .waveMaterialField > g { display: none; }
+
+.waveMaterial { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; isolation: isolate; }
+.waveMaterial > span { position: absolute; inset: 0; pointer-events: none; background-size: 220% 100%; background-position: 100% 50%; mask-image: url("/assets/champagne/waves/wave-ridge-edge-mask.png"); mask-size: cover; mask-position: center; mask-repeat: no-repeat; clip-path: inset(0 0 0 34%); }
+.waveDepth { background: var(--h3-wave-depth); mix-blend-mode: multiply; opacity: .22; filter: blur(2px); transform: translate3d(0, 2px, 0); }
+.wavePearl { background-image: linear-gradient(108deg, transparent 0 19%, var(--h3-wave-magenta) 30%, var(--h3-wave-turquoise) 42%, var(--h3-wave-porcelain) 51%, var(--h3-wave-turquoise) 61%, var(--h3-wave-gold) 70%, transparent 82%); mix-blend-mode: screen; opacity: .28; filter: saturate(1.3) drop-shadow(0 0 3px color-mix(in srgb, var(--h3-wave-turquoise) 36%, transparent)); animation: h3WavePearlTravel 36s cubic-bezier(.42, 0, .58, 1) infinite; }
+.waveRidge { background-image: linear-gradient(108deg, transparent 0 43%, color-mix(in srgb, var(--h3-wave-porcelain) 84%, transparent) 48%, var(--h3-wave-porcelain) 50%, color-mix(in srgb, var(--h3-wave-turquoise) 72%, transparent) 53%, transparent 59%); mix-blend-mode: screen; opacity: .05; filter: drop-shadow(0 0 2px color-mix(in srgb, var(--h3-wave-porcelain) 64%, transparent)); animation: h3WaveRidgeTravel 36s ease-in-out infinite; }
+.waveGold { background-image: linear-gradient(108deg, transparent 0 44%, color-mix(in srgb, var(--h3-wave-gold) 76%, transparent) 48%, var(--h3-wave-gold) 50%, color-mix(in srgb, var(--h3-wave-gold) 64%, transparent) 54%, transparent 60%); mix-blend-mode: screen; opacity: 0; filter: saturate(1.28) drop-shadow(0 0 3px color-mix(in srgb, var(--h3-wave-gold) 52%, transparent)); animation: h3WaveGoldResolve 36s ease-in-out infinite; }
+@keyframes h3WavePearlTravel { 0%, 100% { opacity: .18; background-position: 108% 50%; } 15% { opacity: .48; } 31% { opacity: .3; background-position: 72% 50%; } 48% { opacity: .56; } 69% { opacity: .26; background-position: 34% 50%; } 82% { opacity: .2; } }
+@keyframes h3WaveRidgeTravel { 0%, 8%, 100% { opacity: 0; background-position: 112% 50%; } 14% { opacity: .78; } 22% { opacity: .12; background-position: 78% 50%; } 42% { opacity: .72; } 51% { opacity: .06; background-position: 42% 50%; } }
+@keyframes h3WaveGoldResolve { 0%, 48%, 78%, 100% { opacity: 0; background-position: 108% 50%; } 55% { opacity: .18; } 61% { opacity: .82; } 69% { opacity: .5; background-position: 50% 50%; } 74% { opacity: .05; } }
+.stage[data-h3-phase-lock]:not([data-h3-phase-lock="LIVE"]) .waveMaterial > span,
+.stage[data-h3-motion-health="static-fallback"] .waveMaterial > span,
+.waveMaterial[data-h3-wave-static="true"] > span { animation: none !important; }
+.stage[data-h3-phase-lock="REST"] .wavePearl { opacity: .1; }
+.stage[data-h3-phase-lock="REST"] .waveRidge, .stage[data-h3-phase-lock="REST"] .waveGold { opacity: 0; }
+.stage[data-h3-phase-lock="PEARL"] .wavePearl { opacity: .62; background-position: 58% 50%; }
+.stage[data-h3-phase-lock="PEARL"] .waveRidge, .stage[data-h3-phase-lock="PEARL"] .waveGold { opacity: 0; }
+.stage[data-h3-phase-lock="RIDGE"] .wavePearl { opacity: .18; }
+.stage[data-h3-phase-lock="RIDGE"] .waveRidge { opacity: .82; background-position: 52% 50%; }
+.stage[data-h3-phase-lock="RIDGE"] .waveGold { opacity: 0; }
+.stage[data-h3-phase-lock="GOLD"] .wavePearl { opacity: .24; }
+.stage[data-h3-phase-lock="GOLD"] .waveRidge { opacity: .14; }
+.stage[data-h3-phase-lock="GOLD"] .waveGold { opacity: .86; background-position: 48% 50%; }
+.stage[data-h3-layer-isolation]:not([data-h3-layer-isolation="ALL"]) .waveMaterial > span { display: none; }
 .stage[data-h3-layer-isolation="PEARL"] .wavePearl,
 .stage[data-h3-layer-isolation="RIDGE"] .waveRidge,
 .stage[data-h3-layer-isolation="DEPTH"] .waveDepth,
 .stage[data-h3-layer-isolation="GOLD"] .waveGold { display: block !important; }
-.stage[data-h3-motion-health="static-fallback"] .wavePearl path,
-.waveMaterial[data-h3-wave-static="true"] .wavePearl path { opacity: .24; stroke-dashoffset: -160; }
-.stage[data-h3-motion-health="static-fallback"] .waveRidge path,
-.waveMaterial[data-h3-wave-static="true"] .waveRidge path { opacity: .2; stroke-dashoffset: -260; }
-.stage[data-h3-motion-health="static-fallback"] .waveGold path,
-.waveMaterial[data-h3-wave-static="true"] .waveGold path { opacity: .12; stroke-dashoffset: -330; }
+.stage[data-h3-motion-health="static-fallback"] .wavePearl,
+.waveMaterial[data-h3-wave-static="true"] .wavePearl { opacity: .2; background-position: 58% 50%; }
+.stage[data-h3-motion-health="static-fallback"] .waveRidge,
+.waveMaterial[data-h3-wave-static="true"] .waveRidge { opacity: .16; background-position: 52% 50%; }
+.stage[data-h3-motion-health="static-fallback"] .waveGold,
+.waveMaterial[data-h3-wave-static="true"] .waveGold { opacity: .1; background-position: 48% 50%; }
 .safeZones { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: var(--brand-gold); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 .copyZone, .ctaZone { position: absolute; left: 7%; width: 43%; padding: .4rem; border: 1px dashed var(--brand-gold); background: color-mix(in srgb, var(--surface-ink) 8%, transparent); }
 .copyZone { top: 15%; height: 38%; }
@@ -76,9 +76,9 @@
   .stage :global(.hero-content p) { max-width: 100% !important; font-size: .98rem !important; line-height: 1.5 !important; }
   .stage :global(.hero-content > div:last-child) { display: grid !important; width: 100%; gap: .65rem !important; }
   .stage :global(.hero-content > div:last-child a) { padding: .8rem 1rem !important; text-align: center; }
-  .waveMaterialField { transform: translate3d(-7%, 4%, 0) scale(1.08); }
-  .wavePearl path { stroke-dasharray: 270 730; }
-  .waveRidge path { stroke-dasharray: 46 954; }
+  .waveMaterial > span { clip-path: inset(0 0 0 18%); mask-position: 52% center; background-size: 260% 100%; }
+  .wavePearl { opacity: .32; }
+  .waveRidge { opacity: .08; }
 }
 
 @media (max-width: 900px) {
@@ -90,8 +90,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .waveMaterial path { animation: none !important; }
-  .wavePearl path { opacity: .24; stroke-dashoffset: -160; }
-  .waveRidge path { opacity: .2; stroke-dashoffset: -260; }
-  .waveGold path { opacity: .12; stroke-dashoffset: -330; }
+  .waveMaterial > span { animation: none !important; }
+  .wavePearl { opacity: .2; background-position: 58% 50%; }
+  .waveRidge { opacity: .16; background-position: 52% 50%; }
+  .waveGold { opacity: .1; background-position: 48% 50%; }
 }

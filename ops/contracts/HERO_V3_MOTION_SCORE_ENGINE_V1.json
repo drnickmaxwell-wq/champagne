@@ -107,12 +107,13 @@
       "ea3aae903f367e2e8a97129777c8981c2cc56ff6",
       "52ca8531eb5c9bb38153f0d92e2dde2430e78993"
     ],
-    "geometry_source": "/assets/champagne/waves/wave-field.svg",
-    "renderer": "wave-bound-svg-stroke-material",
+    "geometry_source": "/assets/champagne/waves/waves-bg-1920.webp",
+    "renderer": "wave-edge-masked-material",
     "transparent_outside_wave_paths": true,
     "synthetic_radial_rings": false,
     "broad_optical_field": false,
     "mobile_art_direction": "independent-path-phase-and-crop",
-    "productionBinding": false
+    "productionBinding": false,
+    "derived_mask": "/assets/champagne/waves/wave-ridge-edge-mask.png"
   }
 }
