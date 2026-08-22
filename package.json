@@ -17,6 +17,7 @@
     "generate:critical-paint": "node packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs --write",
     "check:critical-paint-generated": "node packages/champagne-tokens/scripts/generate-critical-paint.v1.mjs --check",
     "test:critical-paint-generator": "node --test tests/champagne-critical-first-paint-generator.test.mjs",
+    "test:stock-proxy": "vitest run apps/stock/app/api/stock/_internal/__tests__/stockProxy.test.ts",
     "guard:hero": "pnpm --filter @champagne/guards guard:hero",
     "guard:rogue-hex": "pnpm --filter @champagne/guards guard:rogue-hex",
     "guard:canon": "pnpm --filter @champagne/guards guard:canon",
