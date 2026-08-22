@@ -307,6 +307,10 @@ jobs:
         run: |
           set -euxo pipefail
           pnpm install --frozen-lockfile
+      - name: Run Stock V2 producer contract tests
+        run: |
+          set -euxo pipefail
+          pnpm -w test:stock-proxy
       - name: Run verify
         run: |
           set -euxo pipefail

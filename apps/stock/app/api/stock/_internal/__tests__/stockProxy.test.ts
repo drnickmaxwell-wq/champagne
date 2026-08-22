@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash, createHmac } from "node:crypto";
 import { describe, test } from "vitest";
 import { buildV2CanonicalString, forwardStockServiceRequest } from "../stockProxy";
+import { GET as readEvents } from "../../events/read/route";
 
 const secret = Buffer.from("0123456789abcdef0123456789abcdef");
 const secretBase64 = secret.toString("base64");
@@ -86,9 +87,40 @@ test("fails closed for duplicate, unknown, malformed, and legacy configuration",
     process.env.STOCK_SERVICE_KEY_ID = vector.keyId;
     process.env.STOCK_SERVICE_INTERNAL_KEYS = `{"${vector.keyId}":"${secretBase64}","${vector.keyId}":"${secretBase64}"}`;
     assert.equal((await forwardStockServiceRequest({ request, method: "POST", path: "/v1/events", bodyBytes: vector.bodyBytes })).status, 503);
+    for (const rawKeys of ["null", "[]", "true", `{"${vector.keyId}":"not-base64"}`]) {
+      process.env.STOCK_SERVICE_INTERNAL_KEYS = rawKeys;
+      assert.equal((await forwardStockServiceRequest({ request, method: "POST", path: "/v1/events", bodyBytes: vector.bodyBytes })).status, 503);
+    }
   } finally {
     globalThis.fetch = originalFetch;
     for (const name of ["STOCK_SERVICE_URL", "STOCK_SERVICE_KEY_ID", "STOCK_SERVICE_SUBJECT", "STOCK_SERVICE_INTERNAL_KEYS", "INTERNAL_HMAC_SECRET"]) delete process.env[name];
+  }
+});
+
+test("preserves raw events-read query representation", async () => {
+  const originalFetch = globalThis.fetch;
+  let forwardedRequest: Request | undefined;
+  globalThis.fetch = async (input, init) => {
+    forwardedRequest = new Request(input, init);
+    return new Response("ok");
+  };
+  process.env.STOCK_SERVICE_URL = "https://stock.test";
+  process.env.STOCK_SERVICE_KEY_ID = vector.keyId;
+  process.env.STOCK_SERVICE_SUBJECT = vector.subject;
+  process.env.STOCK_SERVICE_INTERNAL_KEYS = JSON.stringify({ [vector.keyId]: secretBase64 });
+  try {
+    const response = await readEvents(new Request(
+      "https://champagne.test/api/stock/events/read?b=2&a=1&repeat=x%20y&repeat=x+y",
+      { headers: { "x-tenant-id": "tenant-a", "x-request-id": "req-raw-query" } }
+    ));
+    assert.equal(response.status, 200);
+    assert.equal(
+      forwardedRequest?.url,
+      "https://stock.test/v1/events?b=2&a=1&repeat=x%20y&repeat=x+y"
+    );
+  } finally {
+    globalThis.fetch = originalFetch;
+    for (const name of ["STOCK_SERVICE_URL", "STOCK_SERVICE_KEY_ID", "STOCK_SERVICE_SUBJECT", "STOCK_SERVICE_INTERNAL_KEYS"]) delete process.env[name];
   }
 });
 });

@@ -210,6 +210,10 @@ const readInternalSecret = () => {
     return null;
   }
 
+  if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return null;
+  }
+
   if (!KEY_ID_PATTERN.test(keyId) || !hasOwn(parsed, keyId)) {
     return null;
   }

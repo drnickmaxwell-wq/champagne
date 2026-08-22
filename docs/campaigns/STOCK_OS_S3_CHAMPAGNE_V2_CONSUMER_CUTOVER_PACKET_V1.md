@@ -4,8 +4,9 @@ Status: prepared; no merge or deployment performed.
 
 ## Exact heads
 
-- Champagne base target: `origin/main` as reconstructed locally at `a00f718a` (the Director-observed `f0280b683fa9721287fdc5cdcdb227b40af4f095` was not present in this clone).
-- Champagne working head: `3e3821634c0a548b7d083262f4ca677151a64ea4` before this tranche.
+- Champagne PR base: `f0280b683fa9721287fdc5cdcdb227b40af4f095`.
+- Historical recovery source context: local implementation was recovered from the working tree at `3e3821634c0a548b7d083262f4ca677151a64ea4`.
+- Reviewed Champagne PR head: `83b46f6311d0b2f46c609154475710ea41f98ad7` before this review repair.
 - Stock candidate compatibility target: `1590b616baba38aa60f4e966020984ed0463b73b` (PR #50).
 
 ## Contract and configuration
