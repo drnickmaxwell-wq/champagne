@@ -7,7 +7,7 @@ export const GET = async (request: Request) => {
     request,
     method: "GET",
     path: "/v1/events",
-    queryString: url.searchParams.toString(),
+    queryString: url.search.startsWith("?") ? url.search.slice(1) : undefined,
     bodyBytes: new Uint8Array()
   });
 };
