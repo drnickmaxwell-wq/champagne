@@ -1,0 +1,3178 @@
+{
+  "schemaVersion": "CHAMPAGNE_CONTENT_BUNDLE_V1",
+  "bundleId": "smh:route:/treatments/implants:v1",
+  "tenantId": "smh",
+  "route": "/treatments/implants",
+  "locale": "en-GB",
+  "contentVersion": "1.0.0-draft.1",
+  "status": "clinical_and_fact_blocked",
+  "pageIntent": {
+    "primary": "Give a balanced, assessment-led explanation of dental implants as one option for replacing missing teeth.",
+    "secondary": [
+      "Explain the fixture, abutment and restoration without turning generic education into personal planning.",
+      "Explain assessment, planning, broad stages, alternatives, risks, fee drivers and maintenance.",
+      "Route treatment-specific child intent to its canonical owner without competing with those pages."
+    ],
+    "mustNotOwn": [
+      "Personal suitability, bone volume, prognosis or treatment planning",
+      "Patient-specific CBCT interpretation or morphology",
+      "A universal treatment sequence or individual timeline",
+      "Full-arch, single-tooth, multiple-tooth, grafting, sedation or aftercare depth",
+      "An exact quote, finance promotion, guarantee, success percentage or longevity promise",
+      "Case outcomes or testimonials while governed proof is unavailable"
+    ]
+  },
+  "capabilities": {
+    "pageDraft": true,
+    "publicPublication": false,
+    "cb1bSyntheticFixtures": {
+      "permitted": true,
+      "scope": "synthetic_internal_governed_fixtures_only",
+      "productionAuthority": false
+    },
+    "schemaProjection": "conditional",
+    "aiSearchProjection": "draft_only",
+    "voiceProjection": "draft_only",
+    "mediaInterpretation": true,
+    "interactive3d": false,
+    "static3dFallback": true,
+    "cases": false,
+    "reviews": false,
+    "financePromotion": false,
+    "liveBooking": false,
+    "patientSpecificAdvice": false,
+    "conciergeProjection": {
+      "syntheticInternalGroundingPermitted": true,
+      "livePublicProjectionPermitted": false,
+      "clinicalAndFactApprovalRequired": true,
+      "productParityApprovalRequired": true
+    },
+    "exactFees": false,
+    "tabeo": false
+  },
+  "discoveryProjections": {
+    "titleTag": "Dental Implants in Shoreham-by-Sea | St Mary's House Dental Care",
+    "metaDescription": "Understand dental implants, assessment, planning, alternatives, risks, cost factors and long-term care at St Mary's House Dental Care in Shoreham-by-Sea.",
+    "canonical": "https://www.smhdental.co.uk/treatments/implants",
+    "openGraphSummary": "A calm, balanced guide to dental implants: what the components do, how assessment and planning work, what alternatives exist, and why individual advice requires a clinical assessment.",
+    "aiAnswerSummary": "A dental implant is a manufactured fixture placed in the jaw to support a dental restoration such as a crown, bridge or implant-retained denture. Assessment considers oral health, anatomy, general health, cleaning, bite and goals. Planning, stages, timing, risks and costs vary, so only a clinician who has examined the patient can advise whether implant treatment is appropriate.",
+    "shortVoiceAnswer": "A dental implant is a fixture placed in the jaw to support a crown, bridge or implant-retained denture. Suitability, stages, timing and cost depend on a clinical assessment.",
+    "majorEntities": [
+      "St Mary's House Dental Care",
+      "Shoreham-by-Sea",
+      "dental implant fixture",
+      "abutment",
+      "implant-supported crown",
+      "dental bridge",
+      "removable denture"
+    ],
+    "canonicalQuestionOwners": {
+      "what_are_dental_implants": "/treatments/implants",
+      "implant_assessment_and_planning": "/treatments/implant-consultation",
+      "single_tooth_implants": "/treatments/implants-single-tooth",
+      "multiple_teeth_implants": "/treatments/implants-multiple-teeth",
+      "full_arch_implants": "/treatments/implants-full-arch",
+      "bone_grafting": "/treatments/implants-bone-grafting",
+      "implant_aftercare": "/treatments/implant-aftercare",
+      "sedation_for_implants": "/treatments/sedation-for-implants",
+      "dental_bridges": "/treatments/dental-bridges",
+      "dentures": "/treatments/dentures",
+      "replacement_option_overview": "/treatments/teeth-replacement"
+    }
+  },
+  "globalSafetyBoundaries": [
+    "No public interaction may decide suitability, bone volume, prognosis, timing or treatment plan.",
+    "No public interaction may interpret CBCT, radiographs, photographs, scans or patient morphology.",
+    "No generic 3D state may accept patient data, display measurements or imply a recommended implant position.",
+    "No pain, swelling, bleeding, infection concern, altered sensation, trauma, airway or postoperative deterioration is managed by the page or Concierge; use the approved human or urgent-care route.",
+    "No success percentage, longevity range, guarantee, outcome claim, testimonial or case is permitted without a governed approved source object.",
+    "No fee, inclusion, payment method or finance statement is inferred from legacy page copy."
+  ],
+  "sections": [
+    {
+      "order": 1,
+      "sectionId": "implants.hero",
+      "contentVersion": 1,
+      "contentHash": "sha256:1c005561932448bfb8223106cf4f80f4a1a8d19df2bd6133d5db2aad65e8a0f6",
+      "enabled": true,
+      "job": "Orient the visitor to the Implant owner page and offer a safe assessment or comparison action.",
+      "ownedQuestions": [
+        "What is this page about?",
+        "What can I do next if I am considering implants?"
+      ],
+      "searchIntent": [
+        "dental implants Shoreham-by-Sea",
+        "dental implant overview"
+      ],
+      "eyebrow": "Dental implants in Shoreham-by-Sea",
+      "heading": "Replace uncertainty with a properly assessed plan.",
+      "visibleCopy": {
+        "standard": "Dental implants are one option for replacing missing teeth. The right decision depends on much more than the gap itself, so this page explains the components, assessment, broad stages, alternatives, risks, cost factors and long-term care before any personal recommendation is made.",
+        "short": "A balanced guide to dental implants, from components and assessment to alternatives and maintenance."
+      },
+      "ctas": [
+        {
+          "label": "Request an implant assessment",
+          "href": "/contact",
+          "type": "contact_request"
+        },
+        {
+          "label": "Compare ways to replace teeth",
+          "href": "/treatments/teeth-replacement",
+          "type": "navigation"
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.HERO",
+        "AO.IMPLANTS.NEXT_STEP"
+      ],
+      "sourceGroupIds": [
+        "SG.REPO.SERVICE",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.SERVICE",
+        "CLM.IMPLANTS.LOCALITY",
+        "CLM.IMPLANTS.ASSESSMENT_BOUNDARY"
+      ],
+      "claimState": "fact_and_clinical_review_pending",
+      "approvalRequirements": [
+        "Founder confirms current Implant service scope",
+        "Clinical reviewer approves assessment boundary"
+      ],
+      "schemaProjection": [
+        "WebPage.name",
+        "Service.name",
+        "BreadcrumbList"
+      ],
+      "conciergeProjection": {
+        "topicId": "implants.overview",
+        "answerObjectId": "AO.IMPLANTS.HERO",
+        "maxAction": "focus_section_or_contact"
+      },
+      "internalLinks": [
+        "/contact",
+        "/treatments/teeth-replacement"
+      ],
+      "metadataImplication": "Primary local Implant owner; locality appears once naturally and is not multiplied into doorway copy.",
+      "mediaPurpose": "Create calm treatment orientation without before-and-after imagery or a promised outcome.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "Render text and ordinary links; do not imply live booking or a visual case result."
+    },
+    {
+      "order": 2,
+      "sectionId": "implants.direct-answer",
+      "contentVersion": 1,
+      "contentHash": "sha256:32445f74bdf6a6ace9e8757ccb29624b2b4daeac737250567bb985c0a2aa9370",
+      "enabled": true,
+      "job": "Give the canonical, extractable definition of a dental implant and the restorations it may support.",
+      "ownedQuestions": [
+        "What is a dental implant?",
+        "Is the implant the visible tooth?"
+      ],
+      "searchIntent": [
+        "what is a dental implant",
+        "dental implant parts"
+      ],
+      "eyebrow": "The direct answer",
+      "heading": "What is a dental implant?",
+      "visibleCopy": {
+        "standard": "A dental implant is a manufactured fixture placed in the jaw to support a replacement tooth or teeth. It can support a crown, a bridge or some types of removable denture.\n\nThe implant is not the whole replacement tooth. A connector called an abutment may sit between the fixture and the visible restoration. The exact design varies, and only an assessment can establish whether implant treatment is an appropriate option for a particular person.",
+        "short": "A dental implant is a fixture placed in the jaw to support a crown, bridge or some types of denture."
+      },
+      "answerObjectIds": [
+        "AO.IMPLANTS.DEFINITION"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.DEFINITION",
+        "CLM.IMPLANTS.SUPPORT_TYPES",
+        "CLM.IMPLANTS.ASSESSMENT_BOUNDARY"
+      ],
+      "claimState": "clinical_review_pending",
+      "approvalRequirements": [
+        "Clinical reviewer approves definition and restoration-type wording"
+      ],
+      "schemaProjection": [
+        "Service.description"
+      ],
+      "conciergeProjection": {
+        "topicId": "implants.definition",
+        "answerObjectId": "AO.IMPLANTS.DEFINITION",
+        "maxAction": "focus_section"
+      },
+      "internalLinks": [
+        "#implants.components-3d",
+        "#implants.options-comparison"
+      ],
+      "metadataImplication": "Owns the concise definition for passage retrieval; FAQ must reference rather than rewrite it.",
+      "mediaPurpose": "Optional clean labelled component still, never a patient scan.",
+      "threeDProjection": {
+        "modelId": "CD3D-IMPLANT-EDU-V1",
+        "controlledStateId": "MISSING_TOOTH_CONTEXT",
+        "stateAuthority": "CD3D_T0_PRE_EXECUTION_AND_CX_HANDOFF_V1",
+        "answerObjectId": "AO.IMPLANTS.DEFINITION",
+        "capabilityState": "interactive_off_static_text_complete"
+      },
+      "capabilityOffBehavior": "Plain text remains complete without media or 3D."
+    },
+    {
+      "order": 3,
+      "sectionId": "implants.components-3d",
+      "contentVersion": 1,
+      "contentHash": "sha256:2b9ec43a5774b284632ba27f7cde5f465724e8f9203ddd33b35efac6b8f064c4",
+      "enabled": true,
+      "job": "Explain the fixture, abutment and restoration while distinguishing manufactured components from living anatomy.",
+      "ownedQuestions": [
+        "What are the parts of an implant restoration?",
+        "Which parts are biological and which are manufactured?"
+      ],
+      "searchIntent": [
+        "dental implant components",
+        "implant fixture abutment crown"
+      ],
+      "eyebrow": "Understand the components",
+      "heading": "Three roles, working as one restoration.",
+      "visibleCopy": {
+        "standard": "A generic implant restoration can be understood in three layers. The fixture sits within the jaw. The abutment connects the fixture to the replacement tooth. The restoration is the part used to replace the missing tooth or teeth.\n\nBone, gum, neighbouring teeth, nerves and sinus spaces are living biological structures. Their shape and health vary from person to person. This explanation shows relationships only; it does not represent your anatomy or propose an implant position.",
+        "transcript": "Natural-tooth context: a tooth has a crown visible above the gum and roots within the jaw. Missing-tooth context: the space and surrounding biological structures are shown without measurements. Fixture: a manufactured component positioned within a generic jaw illustration. Abutment: the connector above the fixture. Restoration: a crown is shown as one possible visible replacement; bridges and implant-retained dentures use different configurations."
+      },
+      "componentCards": [
+        {
+          "label": "Implant fixture",
+          "copy": "The manufactured component placed within the jaw to provide support for the restoration.",
+          "answerObjectId": "AO.IMPLANTS.COMPONENT.FIXTURE",
+          "stateId": "FIXTURE_CONCEPT",
+          "stateAuthority": "CD3D_T0_PRE_EXECUTION_AND_CX_HANDOFF_V1"
+        },
+        {
+          "label": "Abutment",
+          "copy": "A connecting component between the implant fixture and the restoration in many designs.",
+          "answerObjectId": "AO.IMPLANTS.COMPONENT.ABUTMENT",
+          "stateId": "ABUTMENT_CONCEPT",
+          "stateAuthority": "CD3D_T0_PRE_EXECUTION_AND_CX_HANDOFF_V1"
+        },
+        {
+          "label": "Crown, bridge or denture",
+          "copy": "The visible or removable dental restoration supported by the implant arrangement; the design depends on the clinical situation.",
+          "answerObjectId": "AO.IMPLANTS.COMPONENT.RESTORATION",
+          "stateId": "RESTORED_CONCEPT",
+          "stateAuthority": "CD3D_T0_PRE_EXECUTION_AND_CX_HANDOFF_V1"
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.COMPONENTS",
+        "AO.IMPLANTS.COMPONENT.FIXTURE",
+        "AO.IMPLANTS.COMPONENT.ABUTMENT",
+        "AO.IMPLANTS.COMPONENT.RESTORATION"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS",
+        "SG.CD3D.AUTHORITY"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.FIXTURE",
+        "CLM.IMPLANTS.ABUTMENT",
+        "CLM.IMPLANTS.RESTORATION",
+        "CLM.IMPLANTS.BIOLOGICAL_BOUNDARY",
+        "CLM.IMPLANTS.GENERIC_MODEL_BOUNDARY"
+      ],
+      "claimState": "clinical_review_pending",
+      "approvalRequirements": [
+        "Clinical reviewer approves component anatomy, labels, transcript and biological/manufactured distinction",
+        "3D authority approves model state bindings separately"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.components",
+        "answerObjectId": "AO.IMPLANTS.COMPONENTS",
+        "maxAction": "focus_or_control_approved_3d_state"
+      },
+      "internalLinks": [
+        "#implants.assessment-factors"
+      ],
+      "metadataImplication": "Component labels are indexable plain text and may support passage retrieval; no measurement or anatomy keywords are manufactured.",
+      "mediaPurpose": "Museum-grade generic component education with unmistakable biological/manufactured separation.",
+      "threeDProjection": {
+        "modelId": "CD3D-IMPLANT-EDU-V1",
+        "stateAuthority": "CD3D_T0_PRE_EXECUTION_AND_CX_HANDOFF_V1",
+        "capabilityState": "interactive_off_static_fallback_on",
+        "semanticOwnerId": "implants.components-3d",
+        "stateAnswerMap": {
+          "NATURAL_TOOTH_CONTEXT": "AO.IMPLANTS.NATURAL_CONTEXT",
+          "MISSING_TOOTH_CONTEXT": "AO.IMPLANTS.MISSING_CONTEXT",
+          "FIXTURE_CONCEPT": "AO.IMPLANTS.COMPONENT.FIXTURE",
+          "ABUTMENT_CONCEPT": "AO.IMPLANTS.COMPONENT.ABUTMENT",
+          "RESTORED_CONCEPT": "AO.IMPLANTS.COMPONENT.RESTORATION",
+          "COMPONENT_EXPLODED": "AO.IMPLANTS.COMPONENTS"
+        },
+        "staticFallback": {
+          "enabled": true,
+          "semanticOwnerId": "implants.components-3d",
+          "forms": [
+            "labelled_static_diagram",
+            "full_transcript"
+          ]
+        },
+        "prohibited": [
+          "patient uploads",
+          "patient likeness",
+          "measurements",
+          "nerve clearance",
+          "bone-volume decision",
+          "recommended implant position",
+          "suitability inference"
+        ]
+      },
+      "capabilityOffBehavior": "Render the labelled static diagram and full transcript in the same semantic location; render no empty viewer shell or 3D controls."
+    },
+    {
+      "order": 4,
+      "sectionId": "implants.assessment-factors",
+      "contentVersion": 1,
+      "contentHash": "sha256:b8d520a7b3eec7ed8039a37434026e4ebfbc6cefb7ca5937356d97ea15eccc40",
+      "enabled": true,
+      "job": "Explain what clinicians consider without converting the list into a self-assessment or suitability score.",
+      "ownedQuestions": [
+        "What affects whether implants can be considered?",
+        "Can the website tell me if I am suitable?"
+      ],
+      "searchIntent": [
+        "dental implant assessment",
+        "am I suitable for dental implants"
+      ],
+      "eyebrow": "Assessment before recommendation",
+      "heading": "Suitability cannot be read from a checklist.",
+      "visibleCopy": {
+        "standard": "An implant assessment looks at the whole clinical situation, not a single yes-or-no factor. A clinician may consider the health of the teeth and gums, the available space and anatomy, the bite, medical history and medicines, smoking, healing and disease risks, the ability to clean and maintain the result, and what the person hopes treatment will achieve.\n\nThese factors interact. A public page, questionnaire, photograph, scan upload or 3D model cannot decide whether implants are suitable for you."
+      },
+      "factors": [
+        "Current dental and gum health",
+        "The missing-tooth space, neighbouring teeth, bite and relevant anatomy",
+        "General health, medical history and medicines",
+        "Smoking and other modifiable risk factors",
+        "Cleaning, maintenance and attendance needs",
+        "Goals, expectations and reasonable alternatives"
+      ],
+      "ctas": [
+        {
+          "label": "What happens at an implant assessment?",
+          "href": "/treatments/implant-consultation",
+          "type": "navigation"
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.ASSESSMENT"
+      ],
+      "sourceGroupIds": [
+        "SG.GDC.ADVERTISING_CONSENT",
+        "SG.BSP.IMPLANTS",
+        "SG.SDCEP.IMPLANT_MAINTENANCE"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.ASSESSMENT_MULTIFACTOR",
+        "CLM.IMPLANTS.GUM_HEALTH",
+        "CLM.IMPLANTS.HEALTH_HISTORY",
+        "CLM.IMPLANTS.MAINTENANCE_FACTORS",
+        "CLM.IMPLANTS.NO_REMOTE_SUITABILITY"
+      ],
+      "claimState": "high_risk_clinical_review_pending",
+      "approvalRequirements": [
+        "Named clinical reviewer approves all factors and the no-remote-suitability boundary"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.assessment",
+        "answerObjectId": "AO.IMPLANTS.ASSESSMENT",
+        "maxAction": "explain_boundary_or_handoff"
+      },
+      "internalLinks": [
+        "/treatments/implant-consultation",
+        "/treatments/periodontal-gum-care"
+      ],
+      "metadataImplication": "Owns suitability-intent safely; child pages must not publish rival checklist verdicts.",
+      "mediaPurpose": "Show conversation, examination or non-identifying records rather than a tick-box candidate graphic.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "If clinical approval expires, remove the factor list from public projection and retain only the assessment/human boundary."
+    },
+    {
+      "order": 5,
+      "sectionId": "implants.planning",
+      "contentVersion": 1,
+      "contentHash": "sha256:66c690cceb5b2623bf54054db6b5e31fdefe88921df437b4f47386c3d646668a",
+      "enabled": true,
+      "job": "Explain the purpose of examination, records and indication-based imaging without promising a local technology workflow.",
+      "ownedQuestions": [
+        "How are dental implants planned?",
+        "Does every implant patient need a CBCT scan?"
+      ],
+      "searchIntent": [
+        "dental implant planning",
+        "CBCT for dental implants"
+      ],
+      "eyebrow": "Planning with a purpose",
+      "heading": "Use each record to answer a clinical question.",
+      "visibleCopy": {
+        "standard": "Planning begins with a conversation, medical and dental history, and a clinical examination. Photographs, models, digital scans or radiographs may be recommended when they add information needed for the decision.\n\nCBCT is a three-dimensional X-ray examination. It should be prescribed for an individual clinical reason rather than treated as an automatic website promise. Where imaging is justified, it helps the clinician assess relevant anatomy and plan care; the scan still requires professional interpretation and does not make the decision by itself.\n\nThe result of planning should be an explanation of realistic options, important risks and limitations, likely stages and costs before treatment is agreed."
+      },
+      "ctas": [
+        {
+          "label": "Explore implant consultation and planning",
+          "href": "/treatments/implant-consultation",
+          "type": "navigation"
+        },
+        {
+          "label": "Read about CBCT and 3D scanning",
+          "href": "/treatments/cbct-3d-scanning",
+          "type": "navigation"
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.PLANNING"
+      ],
+      "sourceGroupIds": [
+        "SG.BSP.IMPLANTS",
+        "SG.CBCT.JUSTIFICATION",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.PLANNING_INPUTS",
+        "CLM.IMPLANTS.CBCT_INDICATION",
+        "CLM.IMPLANTS.CBCT_INTERPRETATION_BOUNDARY",
+        "CLM.IMPLANTS.INFORMED_PLAN"
+      ],
+      "claimState": "clinical_and_local_fact_review_pending",
+      "approvalRequirements": [
+        "Clinical reviewer approves imaging and planning wording",
+        "Founder confirms which records and workflows are actually provided by the practice"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.planning",
+        "answerObjectId": "AO.IMPLANTS.PLANNING",
+        "maxAction": "focus_or_navigate"
+      },
+      "internalLinks": [
+        "/treatments/implant-consultation",
+        "/treatments/cbct-3d-scanning"
+      ],
+      "metadataImplication": "The Implant owner explains the planning principle; the consultation and CBCT pages own workflow depth.",
+      "mediaPurpose": "Interpret genuine, privacy-safe planning activity; never display readable patient identifiers or suggest universal CBCT use.",
+      "threeDProjection": {
+        "modelId": "CD3D-IMPLANT-EDU-V1",
+        "contentStageId": "CONTENT_STAGE.ASSESSMENT_AND_PLANNING",
+        "controlled3dStateId": null,
+        "mappingState": "unresolved_3d_directorate_owned",
+        "mappingOwner": "3D Directorate",
+        "answerObjectId": "AO.IMPLANTS.PLANNING",
+        "capabilityState": "interactive_off",
+        "mode": "content_stage_concept_only"
+      },
+      "capabilityOffBehavior": "Use text and a static planning illustration; omit device names and guided-surgery claims until the local workflow registry is approved."
+    },
+    {
+      "order": 6,
+      "sectionId": "implants.stages",
+      "contentVersion": 1,
+      "contentHash": "sha256:f3797c4d0ad75f9c983a2588fe6008b2504992a836f4b19ee3fbaaf4f9362e86",
+      "enabled": true,
+      "job": "Explain a broad assessment-to-maintenance sequence while making variation explicit.",
+      "ownedQuestions": [
+        "What are the broad stages of implant treatment?",
+        "How long does implant treatment take?"
+      ],
+      "searchIntent": [
+        "dental implant stages",
+        "dental implant timeline"
+      ],
+      "eyebrow": "The broad pathway",
+      "heading": "A sequence shaped by biology, not a fixed timetable.",
+      "visibleCopy": {
+        "standard": "Implant care is usually a sequence rather than a single event. The order and number of appointments depend on the starting condition, the chosen replacement, healing and whether any preparatory treatment is needed."
+      },
+      "steps": [
+        {
+          "label": "Assess and compare",
+          "copy": "Examine the mouth, understand the goals and compare implant and non-implant options.",
+          "contentStageId": "CONTENT_STAGE.ASSESSMENT",
+          "threeDMapping": {
+            "controlled3dStateId": null,
+            "mappingState": "unresolved_3d_directorate_owned",
+            "mappingOwner": "3D Directorate"
+          }
+        },
+        {
+          "label": "Create a healthy foundation",
+          "copy": "Address active dental or gum disease and any modifiable risks before advanced treatment where possible.",
+          "contentStageId": "CONTENT_STAGE.HEALTH_FOUNDATION",
+          "threeDMapping": {
+            "controlled3dStateId": null,
+            "mappingState": "no_3d_mapping_requested",
+            "mappingOwner": "3D Directorate"
+          }
+        },
+        {
+          "label": "Place the implant when agreed",
+          "copy": "If the plan includes placement, the fixture is positioned during a surgical appointment under the agreed anaesthetic and consent plan.",
+          "contentStageId": "CONTENT_STAGE.PLACEMENT",
+          "threeDMapping": {
+            "controlled3dStateId": null,
+            "mappingState": "unresolved_3d_directorate_owned",
+            "mappingOwner": "3D Directorate"
+          }
+        },
+        {
+          "label": "Allow and review healing",
+          "copy": "Healing is checked before the next restorative stage; individual biology and any additional procedures affect timing.",
+          "contentStageId": "CONTENT_STAGE.HEALING",
+          "threeDMapping": {
+            "controlled3dStateId": "HEALING_CONCEPT",
+            "mappingState": "direct_authorised_state",
+            "mappingOwner": "3D Directorate"
+          }
+        },
+        {
+          "label": "Fit the restoration",
+          "copy": "A crown, bridge or implant-retained denture is made and fitted according to the agreed design.",
+          "contentStageId": "CONTENT_STAGE.RESTORATION",
+          "threeDMapping": {
+            "controlled3dStateId": "RESTORED_CONCEPT",
+            "mappingState": "direct_authorised_state",
+            "mappingOwner": "3D Directorate"
+          }
+        },
+        {
+          "label": "Maintain and monitor",
+          "copy": "Cleaning, professional maintenance and review continue after treatment.",
+          "contentStageId": "CONTENT_STAGE.MAINTENANCE",
+          "threeDMapping": {
+            "controlled3dStateId": null,
+            "mappingState": "unresolved_3d_directorate_owned",
+            "mappingOwner": "3D Directorate"
+          }
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.STAGES",
+        "AO.IMPLANTS.TIMELINE"
+      ],
+      "sourceGroupIds": [
+        "SG.BSP.IMPLANTS",
+        "SG.SDCEP.IMPLANT_MAINTENANCE",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.STAGES_BROAD",
+        "CLM.IMPLANTS.TIMELINE_VARIES",
+        "CLM.IMPLANTS.PREPARATORY_CARE_POSSIBLE",
+        "CLM.IMPLANTS.MAINTENANCE_STAGE"
+      ],
+      "claimState": "high_risk_clinical_review_pending",
+      "approvalRequirements": [
+        "Clinical reviewer approves all stages, anaesthetic wording, variability and any urgent boundary"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.stages",
+        "answerObjectId": "AO.IMPLANTS.STAGES",
+        "maxAction": "focus_generic_stage_or_handoff"
+      },
+      "internalLinks": [
+        "/treatments/implant-consultation",
+        "/treatments/implant-aftercare"
+      ],
+      "metadataImplication": "Owns only the broad sequence. Grafting, full-arch, sedation and aftercare pages own their detailed processes.",
+      "mediaPurpose": "Show a calm ordered pathway without implying identical appointments, durations or outcomes.",
+      "threeDProjection": {
+        "modelId": "CD3D-IMPLANT-EDU-V1",
+        "stateAuthority": "CD3D_T0_PRE_EXECUTION_AND_CX_HANDOFF_V1",
+        "capabilityState": "interactive_off",
+        "resolvedControlled3dStateIds": [
+          "HEALING_CONCEPT",
+          "RESTORED_CONCEPT"
+        ],
+        "unresolvedContentStageIds": [
+          "CONTENT_STAGE.ASSESSMENT",
+          "CONTENT_STAGE.PLACEMENT",
+          "CONTENT_STAGE.MAINTENANCE"
+        ],
+        "unresolvedMappingOwner": "3D Directorate",
+        "mode": "broad_content_stage_support_only"
+      },
+      "capabilityOffBehavior": "Ordered text is the complete experience; no timeline bar with invented durations."
+    },
+    {
+      "order": 7,
+      "sectionId": "implants.options-comparison",
+      "contentVersion": 1,
+      "contentHash": "sha256:2d4adcafb3561adc45a60fc964d9365d8cdba0e97c2bb1abea9ca7ea8efc7d88",
+      "enabled": true,
+      "job": "Compare replacement pathways neutrally and route deeper intent to canonical owners.",
+      "ownedQuestions": [
+        "What are the alternatives to dental implants?",
+        "How do implants, bridges and dentures differ at a high level?"
+      ],
+      "searchIntent": [
+        "alternatives to dental implants",
+        "implant vs bridge vs denture"
+      ],
+      "eyebrow": "Compare the job, not the marketing",
+      "heading": "There is more than one way to manage a missing tooth.",
+      "visibleCopy": {
+        "standard": "Implants, bridges, dentures and sometimes accepting or monitoring a space solve different problems. The most appropriate options depend on oral health, anatomy, function, appearance, maintenance, cost and what matters to the person. This comparison is a starting point, not a recommendation."
+      },
+      "comparisonObjectId": "CMP.IMPLANTS.TOOTH_REPLACEMENT",
+      "comparisonRows": [
+        {
+          "option": "Implant-supported restoration",
+          "purpose": "Supports a crown, bridge or some dentures from one or more fixtures in the jaw.",
+          "adjacentTeeth": "Some designs can replace a tooth without using neighbouring teeth for support.",
+          "removability": "May be fixed or may retain a removable denture, depending on design.",
+          "maintenance": "Requires daily cleaning, professional monitoring and access for maintenance.",
+          "broadLimitations": "Requires assessment, surgery and healing; biological and mechanical complications can occur.",
+          "ownerRoute": "/treatments/implants"
+        },
+        {
+          "option": "Dental bridge",
+          "purpose": "Replaces a missing tooth or teeth using support from teeth or other structures beside the space.",
+          "adjacentTeeth": "Many bridge designs involve neighbouring teeth; the effect varies by bridge type.",
+          "removability": "Usually fixed.",
+          "maintenance": "Requires cleaning around and beneath the bridge and review of supporting teeth.",
+          "broadLimitations": "Suitability depends on the space, supporting teeth, bite and design.",
+          "ownerRoute": "/treatments/dental-bridges"
+        },
+        {
+          "option": "Removable denture",
+          "purpose": "Replaces one or more teeth with an appliance removed for cleaning.",
+          "adjacentTeeth": "May use remaining teeth and gums for support depending on design.",
+          "removability": "Removable.",
+          "maintenance": "Requires cleaning of the denture and mouth, plus review as tissues and fit change.",
+          "broadLimitations": "Comfort, stability, adaptation and design vary.",
+          "ownerRoute": "/treatments/dentures"
+        },
+        {
+          "option": "Leave or monitor the space",
+          "purpose": "Avoids active replacement where that is clinically reasonable.",
+          "adjacentTeeth": "Does not prepare adjacent teeth for a replacement, but the effects of the space must be considered.",
+          "removability": "No appliance.",
+          "maintenance": "Ongoing dental review may still be appropriate.",
+          "broadLimitations": "The consequences vary with the tooth, bite, appearance, function and health of the remaining mouth.",
+          "ownerRoute": "/treatments/teeth-replacement"
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.ALTERNATIVES"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.ALT_IMPLANT",
+        "CLM.IMPLANTS.ALT_BRIDGE",
+        "CLM.IMPLANTS.ALT_DENTURE",
+        "CLM.IMPLANTS.ALT_LEAVE",
+        "CLM.IMPLANTS.NO_BEST_OPTION"
+      ],
+      "claimState": "high_risk_clinical_review_pending",
+      "approvalRequirements": [
+        "Clinical reviewer approves every comparison cell and confirms neutrality"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.alternatives",
+        "answerObjectId": "AO.IMPLANTS.ALTERNATIVES",
+        "maxAction": "compare_or_navigate"
+      },
+      "internalLinks": [
+        "/treatments/teeth-replacement",
+        "/treatments/dental-bridges",
+        "/treatments/dentures",
+        "/treatments/implant-retained-dentures",
+        "/treatments/implants-single-tooth",
+        "/treatments/implants-multiple-teeth",
+        "/treatments/implants-full-arch"
+      ],
+      "metadataImplication": "Owns the high-level comparison; each child route owns its detailed indications, process, risks and costs.",
+      "mediaPurpose": "Use a neutral, accessible comparison graphic only if every label remains text-identical to the governed cells.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "Render as an accessible table on wide screens and labelled stacked rows on narrow screens; never add a winner badge."
+    },
+    {
+      "order": 8,
+      "sectionId": "implants.benefits-risks",
+      "contentVersion": 1,
+      "contentHash": "sha256:929883e68a3a41f4bdde5cb75873b137ccb37e18e56e775627280097b2e53d5c",
+      "enabled": true,
+      "job": "Present potential benefits, limitations and material risks in balanced language without replacing consent.",
+      "ownedQuestions": [
+        "What are the possible benefits and risks of dental implants?",
+        "Can implants fail?"
+      ],
+      "searchIntent": [
+        "dental implant benefits and risks",
+        "dental implant complications"
+      ],
+      "eyebrow": "A balanced decision",
+      "heading": "Benefits matter. So do limitations and risks.",
+      "visibleCopy": {
+        "standard": "An implant-supported restoration may provide a fixed replacement, or improve support for some removable dentures. Some designs avoid relying on neighbouring teeth for support. Those potential benefits have to be weighed against surgery, healing, maintenance, cost and the possibility of biological or mechanical complications.\n\nRisks can include failure of the implant to integrate with bone, infection or inflammation around the implant, changes in gum or bone, injury to nearby structures, and loosening, wear or fracture of components. Additional procedures or later repair, replacement or removal may be needed. The risks differ between people and plans, and this summary is not a substitute for individual consent."
+      },
+      "benefits": [
+        "May support a fixed replacement for one or more missing teeth",
+        "May improve support for some removable dentures",
+        "Some designs can avoid using neighbouring teeth as bridge supports"
+      ],
+      "limitationsAndRisks": [
+        "Assessment, surgery, healing and long-term maintenance are required",
+        "The fixture may not integrate or may later be lost",
+        "Inflammation, infection and peri-implant disease can affect surrounding tissues",
+        "Nearby anatomical structures can be injured during surgery",
+        "Crowns, connectors, screws or other components can loosen, wear or fracture",
+        "Additional procedures, repair, replacement or removal may be needed"
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.BENEFITS_RISKS"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS",
+        "SG.SDCEP.IMPLANT_MAINTENANCE",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.BENEFIT_SUPPORT",
+        "CLM.IMPLANTS.BENEFIT_ADJACENT",
+        "CLM.IMPLANTS.RISK_INTEGRATION",
+        "CLM.IMPLANTS.RISK_BIOLOGICAL",
+        "CLM.IMPLANTS.RISK_ANATOMY",
+        "CLM.IMPLANTS.RISK_MECHANICAL",
+        "CLM.IMPLANTS.CONSENT_BOUNDARY"
+      ],
+      "claimState": "high_risk_clinical_review_pending",
+      "approvalRequirements": [
+        "Named clinical reviewer approves every benefit, limitation, risk, qualifier and review interval"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.benefits-risks",
+        "answerObjectId": "AO.IMPLANTS.BENEFITS_RISKS",
+        "maxAction": "explain_general_or_handoff"
+      },
+      "internalLinks": [
+        "/treatments/implant-consultation",
+        "/contact"
+      ],
+      "metadataImplication": "Balanced passage owner; no benefit-only snippet, schema or media caption is authorised.",
+      "mediaPurpose": "Text-led clinical clarity; avoid aspirational smile photography in the risk field.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "If review expires, block the section and all derived FAQ, Concierge, voice and schema projections from publication."
+    },
+    {
+      "order": 9,
+      "sectionId": "implants.cost",
+      "contentVersion": 1,
+      "contentHash": "sha256:d29c3a2fad0350c86c40db23718afbfbc58337be928978adf2ef5535d4b0a99f",
+      "enabled": true,
+      "job": "Explain cost drivers and the written-plan boundary without publishing unverified fees or finance.",
+      "ownedQuestions": [
+        "How much do dental implants cost?",
+        "Why can implant fees vary?"
+      ],
+      "searchIntent": [
+        "dental implant cost",
+        "dental implant fees Shoreham-by-Sea"
+      ],
+      "eyebrow": "Cost truth",
+      "heading": "The fee follows the plan—not the other way around.",
+      "visibleCopy": {
+        "standard": "There is no single Implant price that describes every plan. Cost can change with the number and type of restorations, the assessment and records required, the surgical and restorative stages, laboratory work, temporary teeth, and whether additional procedures are clinically needed.\n\nThe current fee, what it includes and what it excludes must be confirmed from the approved fee registry. After assessment, the proposed stages and costs should be explained in a written treatment plan before care is agreed. Finance promotion is not available on this page."
+      },
+      "feeDrivers": [
+        "Number and type of implant-supported restorations",
+        "Assessment, radiographs, scans and planning where clinically required",
+        "Surgical and restorative stages",
+        "Laboratory work, components and temporary restorations",
+        "Any separately indicated preparatory or additional procedures",
+        "Maintenance and later repair or replacement needs"
+      ],
+      "ctas": [
+        {
+          "label": "Contact the practice about current Implant fees",
+          "href": "/contact",
+          "type": "contact_request"
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.COST"
+      ],
+      "sourceGroupIds": [
+        "SG.GDC.ADVERTISING_CONSENT",
+        "SG.REPO.FEES",
+        "SG.PROGRAMME.SETTLED"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.COST_VARIES",
+        "CLM.IMPLANTS.COST_DRIVERS",
+        "CLM.IMPLANTS.WRITTEN_PLAN",
+        "CLM.IMPLANTS.NO_FINANCE"
+      ],
+      "claimState": "commercial_fact_and_clinical_review_pending",
+      "approvalRequirements": [
+        "Founder supplies current fee registry and verifier",
+        "Clinical reviewer approves clinical fee drivers",
+        "Commercial/legal reviewer approves inclusions, exclusions and payment wording"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.cost",
+        "answerObjectId": "AO.IMPLANTS.COST",
+        "maxAction": "explain_drivers_or_contact"
+      },
+      "internalLinks": [
+        "/contact"
+      ],
+      "conditionalInternalLinks": [
+        {
+          "href": "/fees",
+          "condition": "fee page is finance-free and uses the same approved fee registry"
+        }
+      ],
+      "metadataImplication": "Answers cost intent with drivers and uncertainty; no price range, Offer or finance schema.",
+      "mediaPurpose": "No lifestyle finance imagery; a transparent written-plan visual may be used only without readable patient data.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "Render fee drivers and Contact only; suppress amounts, /fees link, payment methods and finance language until the fee gate passes."
+    },
+    {
+      "order": 10,
+      "sectionId": "implants.clinician",
+      "contentVersion": 1,
+      "contentHash": "sha256:7778c12439b3fa0105be2fc9be1a54ab1cb552ba85d3dedb02a689c3b023e891",
+      "enabled": false,
+      "job": "Identify the accountable assessors, planners, placing/restoring clinicians and maintainers using verified roles and credentials.",
+      "ownedQuestions": [
+        "Who provides Implant care at St Mary's House?",
+        "What are their verified roles and qualifications?"
+      ],
+      "searchIntent": [
+        "implant dentist Shoreham-by-Sea",
+        "who provides dental implants at St Mary's House"
+      ],
+      "eyebrow": "Clinical accountability",
+      "heading": "Know who is responsible for each stage.",
+      "visibleCopy": null,
+      "answerObjectIds": [
+        "AO.IMPLANTS.CLINICIAN"
+      ],
+      "sourceGroupIds": [
+        "SG.REPO.CLINICIAN",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "claimIds": [],
+      "claimState": "fact_pending_fail_closed",
+      "approvalRequirements": [
+        "Founder and clinical reviewer approve exact Implant roles, GDC numbers, qualifications, training provenance and provider availability"
+      ],
+      "schemaProjection": [
+        "Person.name",
+        "Person.jobTitle",
+        "Person.hasCredential"
+      ],
+      "conciergeProjection": {
+        "topicId": "implants.clinician",
+        "answerObjectId": "AO.IMPLANTS.CLINICIAN",
+        "maxAction": "navigate_to_verified_profile",
+        "enabled": false
+      },
+      "internalLinks": [],
+      "metadataImplication": "No treatment-specific clinician/entity claim until verified; Homepage credentials do not imply Implant scope.",
+      "mediaPurpose": "A genuine clinician/environment portrait only after role, identity, consent and provenance are approved.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "Omit the entire section, anchor, Person schema and Concierge answer. Do not substitute generic expertise or specialist wording."
+    },
+    {
+      "order": 11,
+      "sectionId": "implants.aftercare",
+      "contentVersion": 1,
+      "contentHash": "sha256:407f8a72d4d50fdc53bd5440116c4f70fe794594cdcba264d030b49566b3d91c",
+      "enabled": true,
+      "job": "Explain long-term cleaning, monitoring and repair pathways without prescribing a personal schedule or managing complications remotely.",
+      "ownedQuestions": [
+        "How are dental implants cared for?",
+        "Do implants need professional maintenance?"
+      ],
+      "searchIntent": [
+        "dental implant aftercare",
+        "dental implant maintenance"
+      ],
+      "eyebrow": "Care continues after fitting",
+      "heading": "Implants are maintained, not forgotten.",
+      "visibleCopy": {
+        "standard": "Implant-supported teeth and the tissues around them need daily cleaning and professional monitoring. Reviews may assess cleaning access, gum health, the stability of the restoration and changes that need attention. The frequency and methods should be tailored to the person, the restoration and their risk factors.\n\nImplants do not remove the possibility of gum inflammation, bone loss, wear or component problems. If an implant, surrounding gum or restoration feels different, becomes painful, swollen, loose or difficult to clean, contact the treating dental team rather than relying on generic online advice."
+      },
+      "carePrinciples": [
+        "Clean the implant-supported restoration and gumline using the method shown by the dental team",
+        "Attend risk-based professional monitoring and maintenance",
+        "Manage modifiable risks such as smoking and active gum disease with professional support",
+        "Report pain, swelling, bleeding, looseness or a change in the restoration promptly"
+      ],
+      "ctas": [
+        {
+          "label": "Read the implant aftercare guide",
+          "href": "/treatments/implant-aftercare",
+          "type": "navigation"
+        },
+        {
+          "label": "Contact the practice about a concern",
+          "href": "/contact",
+          "type": "contact_request"
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.AFTERCARE"
+      ],
+      "sourceGroupIds": [
+        "SG.SDCEP.IMPLANT_MAINTENANCE",
+        "SG.NHS.IMPLANTS"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.AFTERCARE_CLEANING",
+        "CLM.IMPLANTS.AFTERCARE_MONITORING",
+        "CLM.IMPLANTS.AFTERCARE_RISK_BASED",
+        "CLM.IMPLANTS.AFTERCARE_REPAIR",
+        "CLM.IMPLANTS.URGENT_HUMAN_BOUNDARY"
+      ],
+      "claimState": "high_risk_clinical_review_pending",
+      "approvalRequirements": [
+        "Clinical reviewer approves aftercare, symptom and escalation wording and review cadence"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.aftercare",
+        "answerObjectId": "AO.IMPLANTS.AFTERCARE",
+        "maxAction": "general_education_or_human_handoff"
+      },
+      "internalLinks": [
+        "/treatments/implant-aftercare",
+        "/treatments/periodontal-gum-care",
+        "/contact"
+      ],
+      "metadataImplication": "Main page owns the principle; the aftercare child owns detailed maintenance and approved post-treatment instructions.",
+      "mediaPurpose": "Show cleaning access or professional maintenance generically; no patient-specific technique without clinician-issued instructions.",
+      "threeDProjection": {
+        "modelId": "CD3D-IMPLANT-EDU-V1",
+        "contentStageId": "CONTENT_STAGE.MAINTENANCE",
+        "controlled3dStateId": null,
+        "mappingState": "unresolved_3d_directorate_owned",
+        "mappingOwner": "3D Directorate",
+        "answerObjectId": "AO.IMPLANTS.AFTERCARE",
+        "capabilityState": "interactive_off",
+        "mode": "content_stage_concept_only"
+      },
+      "capabilityOffBehavior": "Keep the human contact boundary; never replace clinician-issued aftercare or urgent instructions."
+    },
+    {
+      "order": 12,
+      "sectionId": "implants.case-evidence",
+      "contentVersion": 1,
+      "contentHash": "sha256:45dca278f1e73d8229b9ce6806a2a8000213c54fc6e7c964c4469d2b9ee56829",
+      "enabled": false,
+      "job": "Show genuine consented Implant cases with clinically complete context when governed evidence exists.",
+      "ownedQuestions": [
+        "Can I see genuine Implant cases from this practice?"
+      ],
+      "searchIntent": [
+        "dental implant cases St Mary's House"
+      ],
+      "eyebrow": null,
+      "heading": null,
+      "visibleCopy": null,
+      "answerObjectIds": [],
+      "sourceGroupIds": [],
+      "claimIds": [],
+      "claimState": "proof_unavailable_fail_closed",
+      "approvalRequirements": [
+        "Consented case object, provenance, same-patient confirmation, treatment context, dates, edits, clinical review and withdrawal route"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": null,
+      "internalLinks": [],
+      "metadataImplication": "No case, review, rating, outcome or proof query is claimed while evidence is unavailable.",
+      "mediaPurpose": "Reserved for genuine governed evidence only.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "Render nothing: no heading, shell, anchor, whitespace, schema, event, placeholder, testimonial or credibility substitute."
+    },
+    {
+      "order": 13,
+      "sectionId": "implants.faq-sources",
+      "contentVersion": 1,
+      "contentHash": "sha256:c50285237b3fafdb297213c25e79d6457d91fb6d3360e57f0b77843151820f4c",
+      "enabled": true,
+      "job": "Resolve remaining questions by projecting canonical Answer Objects and expose approved source/reviewer metadata.",
+      "ownedQuestions": [
+        "Am I suitable for implants?",
+        "Does everyone need CBCT?",
+        "How long does treatment take?",
+        "How long do implants last?",
+        "What are the alternatives?"
+      ],
+      "searchIntent": [
+        "dental implant FAQ",
+        "dental implant suitability timing CBCT longevity alternatives"
+      ],
+      "eyebrow": "Focused questions",
+      "heading": "Useful answers, without pretending every case is the same.",
+      "visibleCopy": {
+        "standard": "These answers are short projections of the governed clinical objects above. They must not be edited as a separate FAQ copy set."
+      },
+      "faqs": [
+        {
+          "question": "Am I suitable for dental implants?",
+          "answer": "That cannot be decided from a website, questionnaire, photograph or generic 3D model. A clinician needs to assess oral health, relevant anatomy, medical history, maintenance and the available alternatives.",
+          "answerObjectId": "AO.IMPLANTS.ASSESSMENT"
+        },
+        {
+          "question": "Does every Implant patient need a CBCT scan?",
+          "answer": "No imaging examination should be automatic. A clinician decides which records are justified after taking a history and examining you; any CBCT image also requires professional interpretation.",
+          "answerObjectId": "AO.IMPLANTS.PLANNING"
+        },
+        {
+          "question": "How long does Implant treatment take?",
+          "answer": "There is no reliable universal timeline. The sequence depends on the starting condition, the replacement being planned, healing and whether any preparatory treatment is needed. A personal estimate follows assessment.",
+          "answerObjectId": "AO.IMPLANTS.TIMELINE"
+        },
+        {
+          "question": "How long do dental implants last?",
+          "answer": "No lifespan can be promised. Long-term function depends on biological health, cleaning, risk factors, maintenance and the condition of the restoration and components; repair or replacement may be needed.",
+          "answerObjectId": "AO.IMPLANTS.AFTERCARE"
+        },
+        {
+          "question": "What are the alternatives to dental implants?",
+          "answer": "Depending on the clinical situation, alternatives may include a dental bridge, a removable denture, or accepting and monitoring the space. The trade-offs require assessment rather than a universal ranking.",
+          "answerObjectId": "AO.IMPLANTS.ALTERNATIVES"
+        }
+      ],
+      "sourceDisplay": {
+        "labels": [
+          "General Dental Council standards and advertising guidance",
+          "NHS dental implant patient information",
+          "British Society of Periodontology patient information",
+          "SDCEP periodontal and Implant guidance",
+          "SEDENTEXCT CBCT guidance"
+        ],
+        "clinicalReviewer": null,
+        "reviewedAt": null,
+        "reviewDueAt": null
+      },
+      "answerObjectIds": [
+        "AO.IMPLANTS.ASSESSMENT",
+        "AO.IMPLANTS.PLANNING",
+        "AO.IMPLANTS.TIMELINE",
+        "AO.IMPLANTS.AFTERCARE",
+        "AO.IMPLANTS.ALTERNATIVES"
+      ],
+      "sourceGroupIds": [
+        "SG.GDC.ADVERTISING_CONSENT",
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS",
+        "SG.SDCEP.IMPLANT_MAINTENANCE",
+        "SG.CBCT.JUSTIFICATION"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.NO_REMOTE_SUITABILITY",
+        "CLM.IMPLANTS.CBCT_INDICATION",
+        "CLM.IMPLANTS.TIMELINE_VARIES",
+        "CLM.IMPLANTS.NO_LONGEVITY_PROMISE",
+        "CLM.IMPLANTS.NO_BEST_OPTION"
+      ],
+      "claimState": "clinical_review_pending",
+      "approvalRequirements": [
+        "FAQ text inherits approval only from the exact referenced Answer Object hash",
+        "Reviewer identity and dates required before public source metadata"
+      ],
+      "schemaProjection": [
+        "FAQPage conditional on exact visible approved parity"
+      ],
+      "conciergeProjection": {
+        "topicId": "implants.faq",
+        "answerObjectId": null,
+        "maxAction": "project_referenced_answer_object_only"
+      },
+      "internalLinks": [
+        "/treatments/implant-consultation",
+        "/treatments/cbct-3d-scanning",
+        "/treatments/implant-aftercare",
+        "/treatments/teeth-replacement"
+      ],
+      "metadataImplication": "No FAQ spam: five unresolved questions only, each owned by an existing Answer Object.",
+      "mediaPurpose": "None required.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "Suppress FAQPage schema if any visible answer, approval state, reviewer date or object hash differs."
+    },
+    {
+      "order": 14,
+      "sectionId": "implants.next-step",
+      "contentVersion": 1,
+      "contentHash": "sha256:de83afac7e6b6abf48933f8cd2d88ccc6f858b0c5bc29d3c32717a9ac5615902",
+      "enabled": true,
+      "job": "Offer a calm human next step without promising suitability, availability or confirmation.",
+      "ownedQuestions": [
+        "What should I do next if I am considering implants?"
+      ],
+      "searchIntent": [
+        "implant assessment Shoreham-by-Sea",
+        "contact implant dentist"
+      ],
+      "eyebrow": "Your next step",
+      "heading": "Begin with an assessment, not a promise.",
+      "visibleCopy": {
+        "standard": "If you are considering dental implants, contact the practice and tell the team what you would like help with. An assessment can establish the relevant facts, compare realistic options and explain what further records or planning would be useful. Contacting the practice does not commit you to treatment."
+      },
+      "ctas": [
+        {
+          "label": "Request an implant assessment",
+          "href": "/contact",
+          "type": "contact_request"
+        },
+        {
+          "label": "Read about Implant consultation",
+          "href": "/treatments/implant-consultation",
+          "type": "navigation"
+        }
+      ],
+      "answerObjectIds": [
+        "AO.IMPLANTS.NEXT_STEP"
+      ],
+      "sourceGroupIds": [
+        "SG.GDC.ADVERTISING_CONSENT",
+        "SG.REPO.ROUTES",
+        "SG.PROGRAMME.SETTLED"
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.CONTACT_CAPABILITY",
+        "CLM.IMPLANTS.NO_BOOKING_PROMISE",
+        "CLM.IMPLANTS.NO_COMMITMENT"
+      ],
+      "claimState": "fact_and_product_review_pending",
+      "approvalRequirements": [
+        "Product confirms Level 1 Contact/request behavior",
+        "Founder confirms operational wording"
+      ],
+      "schemaProjection": [],
+      "conciergeProjection": {
+        "topicId": "implants.next-step",
+        "answerObjectId": "AO.IMPLANTS.NEXT_STEP",
+        "maxAction": "LEVEL_1_CONTACT_REQUEST"
+      },
+      "internalLinks": [
+        "/contact",
+        "/treatments/implant-consultation"
+      ],
+      "metadataImplication": "No booking, availability, same-day or confirmation semantics.",
+      "mediaPurpose": "A quiet practice/contact image may support the invitation but must not imply a completed result.",
+      "threeDProjection": null,
+      "capabilityOffBehavior": "Use ordinary Contact and information links; no portal, live calendar or booking widget."
+    }
+  ],
+  "answerObjects": [
+    {
+      "answerId": "AO.IMPLANTS.HERO",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.overview",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.hero",
+      "questionIds": [
+        "Q.IMPLANTS.PAGE_PURPOSE"
+      ],
+      "shortAnswer": "Dental implants are one option for replacing missing teeth; assessment is required before any personal recommendation.",
+      "extendedAnswerBlocks": [
+        "This page owns the balanced overview and delegates detailed child intent to canonical Implant and alternative routes."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.SERVICE",
+        "CLM.IMPLANTS.LOCALITY",
+        "CLM.IMPLANTS.ASSESSMENT_BOUNDARY"
+      ],
+      "sourceGroupIds": [
+        "SG.REPO.SERVICE",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "status": "fact_and_clinical_review_pending",
+      "riskClass": "clinical_low",
+      "uncertaintyBoundary": "Current local service scope must be attested.",
+      "humanBoundary": "Personal recommendations require clinical assessment.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "schema"
+      ],
+      "schemaEligibility": "conditional",
+      "contentVersion": 1,
+      "contentHash": "sha256:e6747e46086117b19898b55c15390176deb14419100f5ea5a6a1f2d54f5f2f01"
+    },
+    {
+      "answerId": "AO.IMPLANTS.DEFINITION",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.definition",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.direct-answer",
+      "questionIds": [
+        "Q.IMPLANTS.WHAT_IS"
+      ],
+      "shortAnswer": "A dental implant is a manufactured fixture placed in the jaw to support a crown, bridge or some types of denture.",
+      "extendedAnswerBlocks": [
+        "An abutment may connect the fixture to the visible restoration.",
+        "The design varies and the definition does not determine suitability."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.DEFINITION",
+        "CLM.IMPLANTS.SUPPORT_TYPES",
+        "CLM.IMPLANTS.ASSESSMENT_BOUNDARY"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_low",
+      "uncertaintyBoundary": "Materials and configurations vary.",
+      "humanBoundary": "A clinician must assess personal options.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "schema",
+        "faq",
+        "3d_explanation"
+      ],
+      "schemaEligibility": "conditional",
+      "contentVersion": 1,
+      "contentHash": "sha256:543269db129f97f863b89d8a967d697814f597b0510f6eafe3dc709ba68da53c"
+    },
+    {
+      "answerId": "AO.IMPLANTS.COMPONENTS",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.components",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.components-3d",
+      "questionIds": [
+        "Q.IMPLANTS.COMPONENTS"
+      ],
+      "shortAnswer": "A generic implant restoration may involve a fixture in the jaw, an abutment and a crown, bridge or implant-retained denture.",
+      "extendedAnswerBlocks": [
+        "Biological structures are distinct from manufactured components.",
+        "The model explains relationships only and is not a patient scan or plan."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.FIXTURE",
+        "CLM.IMPLANTS.ABUTMENT",
+        "CLM.IMPLANTS.RESTORATION",
+        "CLM.IMPLANTS.BIOLOGICAL_BOUNDARY",
+        "CLM.IMPLANTS.GENERIC_MODEL_BOUNDARY"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS",
+        "SG.CD3D.AUTHORITY"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_low",
+      "uncertaintyBoundary": "Component combinations vary.",
+      "humanBoundary": "Personal anatomy and planning require clinical assessment.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "media_caption",
+        "3d_explanation"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:a0f077b4f24cd4a3f77c07c6f80050b83e35981e1594d369f37a3d8dc7d7f1bd"
+    },
+    {
+      "answerId": "AO.IMPLANTS.NATURAL_CONTEXT",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.natural-context",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.components-3d",
+      "questionIds": [
+        "Q.IMPLANTS.NATURAL_CONTEXT"
+      ],
+      "shortAnswer": "A natural tooth has a visible crown and roots within supporting biological tissues.",
+      "extendedAnswerBlocks": [
+        "The generic state exists only to contrast natural-tooth and missing-tooth context."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.BIOLOGICAL_BOUNDARY"
+      ],
+      "sourceGroupIds": [
+        "SG.BSP.IMPLANTS",
+        "SG.CD3D.AUTHORITY"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_low",
+      "uncertaintyBoundary": "Generic anatomy only.",
+      "humanBoundary": "No inference about the visitor's anatomy.",
+      "allowedProjections": [
+        "page",
+        "3d_explanation",
+        "media_caption"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:c382a61fac5e9ae7cb9ff2510e550f9ebb9ff39bca618172c68b4fb1bb00a91b"
+    },
+    {
+      "answerId": "AO.IMPLANTS.MISSING_CONTEXT",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.missing-context",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.components-3d",
+      "questionIds": [
+        "Q.IMPLANTS.MISSING_CONTEXT"
+      ],
+      "shortAnswer": "A missing-tooth space is shown only as generic context for explaining replacement components.",
+      "extendedAnswerBlocks": [
+        "The state contains no measurements, diagnosis or proposed implant position."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.GENERIC_MODEL_BOUNDARY"
+      ],
+      "sourceGroupIds": [
+        "SG.CD3D.AUTHORITY"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_low",
+      "uncertaintyBoundary": "Generic education only.",
+      "humanBoundary": "No inference about the visitor's space or anatomy.",
+      "allowedProjections": [
+        "page",
+        "3d_explanation",
+        "media_caption"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:7e57336f4da6cc42f213d9abfc8f2499b32e16c78df2a193811c798fcaf32ae3"
+    },
+    {
+      "answerId": "AO.IMPLANTS.COMPONENT.FIXTURE",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.component.fixture",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.components-3d",
+      "questionIds": [
+        "Q.IMPLANTS.FIXTURE"
+      ],
+      "shortAnswer": "The implant fixture is the manufactured component placed within the jaw to support the restoration.",
+      "extendedAnswerBlocks": [],
+      "claimIds": [
+        "CLM.IMPLANTS.FIXTURE"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_low",
+      "uncertaintyBoundary": "Fixture design and material vary.",
+      "humanBoundary": "No statement about patient anatomy or position.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "voice",
+        "media_caption",
+        "3d_explanation"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:b297cd78be56ef794b942bce8266aa5beedcbfe8b7d0fc622d8c003054648c42"
+    },
+    {
+      "answerId": "AO.IMPLANTS.COMPONENT.ABUTMENT",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.component.abutment",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.components-3d",
+      "questionIds": [
+        "Q.IMPLANTS.ABUTMENT"
+      ],
+      "shortAnswer": "An abutment is a connecting component between the implant fixture and the dental restoration in many designs.",
+      "extendedAnswerBlocks": [],
+      "claimIds": [
+        "CLM.IMPLANTS.ABUTMENT"
+      ],
+      "sourceGroupIds": [
+        "SG.BSP.IMPLANTS"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_low",
+      "uncertaintyBoundary": "Not every design is identical.",
+      "humanBoundary": "No personal component choice is made.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "voice",
+        "media_caption",
+        "3d_explanation"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:787c48016677b868540024ddd3762dee7479f121a290d305a0e0d52250a653b6"
+    },
+    {
+      "answerId": "AO.IMPLANTS.COMPONENT.RESTORATION",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.component.restoration",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.components-3d",
+      "questionIds": [
+        "Q.IMPLANTS.RESTORATION"
+      ],
+      "shortAnswer": "The restoration is the crown, bridge or denture supported by the implant arrangement.",
+      "extendedAnswerBlocks": [],
+      "claimIds": [
+        "CLM.IMPLANTS.RESTORATION",
+        "CLM.IMPLANTS.SUPPORT_TYPES"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_low",
+      "uncertaintyBoundary": "The appropriate design varies.",
+      "humanBoundary": "No personal restoration is recommended.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "voice",
+        "media_caption",
+        "3d_explanation"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:0a590d33e97b00d9e978134525e866ad3ba8ba882ce6e75ef736a6dd1350905e"
+    },
+    {
+      "answerId": "AO.IMPLANTS.ASSESSMENT",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.assessment",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.assessment-factors",
+      "questionIds": [
+        "Q.IMPLANTS.SUITABILITY",
+        "Q.IMPLANTS.ASSESSMENT_FACTORS"
+      ],
+      "shortAnswer": "Implant suitability depends on interacting dental, anatomical, health, maintenance and personal factors that require clinical assessment.",
+      "extendedAnswerBlocks": [
+        "A public page, questionnaire, photograph, scan upload or 3D model cannot decide suitability."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.ASSESSMENT_MULTIFACTOR",
+        "CLM.IMPLANTS.GUM_HEALTH",
+        "CLM.IMPLANTS.HEALTH_HISTORY",
+        "CLM.IMPLANTS.MAINTENANCE_FACTORS",
+        "CLM.IMPLANTS.NO_REMOTE_SUITABILITY"
+      ],
+      "sourceGroupIds": [
+        "SG.GDC.ADVERTISING_CONSENT",
+        "SG.BSP.IMPLANTS",
+        "SG.SDCEP.IMPLANT_MAINTENANCE"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_high",
+      "uncertaintyBoundary": "Factors interact and are not a self-scoring checklist.",
+      "humanBoundary": "A clinician must examine the patient.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "faq",
+        "internal_link"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:528b53a3fa81cb1de3b762bdfb9670a7aede2af453cc99886a76121ee50af23c"
+    },
+    {
+      "answerId": "AO.IMPLANTS.PLANNING",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.planning",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.planning",
+      "questionIds": [
+        "Q.IMPLANTS.PLANNING",
+        "Q.IMPLANTS.CBCT"
+      ],
+      "shortAnswer": "Implant planning starts with history and examination; records or imaging, including CBCT, are used only when justified for the individual clinical question.",
+      "extendedAnswerBlocks": [
+        "A CBCT image requires professional interpretation and does not determine treatment by itself.",
+        "The written plan should explain options, risks, stages and costs before agreement."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.PLANNING_INPUTS",
+        "CLM.IMPLANTS.CBCT_INDICATION",
+        "CLM.IMPLANTS.CBCT_INTERPRETATION_BOUNDARY",
+        "CLM.IMPLANTS.INFORMED_PLAN"
+      ],
+      "sourceGroupIds": [
+        "SG.BSP.IMPLANTS",
+        "SG.CBCT.JUSTIFICATION",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "status": "clinical_and_fact_review_pending",
+      "riskClass": "clinical_high",
+      "uncertaintyBoundary": "Records and imaging vary by case and local capability.",
+      "humanBoundary": "No scan interpretation or plan is provided publicly.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "faq",
+        "media_caption",
+        "3d_explanation"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:6da3c8953b298ef9b608885ac58871a128c2c5ee7ed5764449f9da1aaf6d9a31"
+    },
+    {
+      "answerId": "AO.IMPLANTS.STAGES",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.stages",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.stages",
+      "questionIds": [
+        "Q.IMPLANTS.STAGES"
+      ],
+      "shortAnswer": "Broad Implant care may include assessment, health stabilisation, placement, healing, restoration and ongoing maintenance, but the sequence varies.",
+      "extendedAnswerBlocks": [
+        "Preparatory treatment may or may not be required.",
+        "The broad stages are education, not an individual plan."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.STAGES_BROAD",
+        "CLM.IMPLANTS.PREPARATORY_CARE_POSSIBLE",
+        "CLM.IMPLANTS.MAINTENANCE_STAGE"
+      ],
+      "sourceGroupIds": [
+        "SG.BSP.IMPLANTS",
+        "SG.SDCEP.IMPLANT_MAINTENANCE"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_high",
+      "uncertaintyBoundary": "No universal order or appointment count.",
+      "humanBoundary": "A personal sequence follows assessment.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "3d_explanation"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:7f28798ef76cd773d407b96b43093d736f90950bd647ff5d73e919bfa6570647"
+    },
+    {
+      "answerId": "AO.IMPLANTS.TIMELINE",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.timeline",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.stages",
+      "questionIds": [
+        "Q.IMPLANTS.TIMELINE"
+      ],
+      "shortAnswer": "There is no reliable universal Implant timeline because the starting condition, plan, healing and any additional procedures vary.",
+      "extendedAnswerBlocks": [
+        "A personal estimate follows assessment and may change as healing is reviewed."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.TIMELINE_VARIES"
+      ],
+      "sourceGroupIds": [
+        "SG.BSP.IMPLANTS",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_high",
+      "uncertaintyBoundary": "No numeric duration is approved in this bundle.",
+      "humanBoundary": "A clinician provides an individual estimate.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "faq"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:3bbeca161adcecc9d2489fa6d4d58eb34ec9619f6567f0cac2ebbd8cf1bcf707"
+    },
+    {
+      "answerId": "AO.IMPLANTS.ALTERNATIVES",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.alternatives",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.options-comparison",
+      "questionIds": [
+        "Q.IMPLANTS.ALTERNATIVES",
+        "Q.IMPLANTS.COMPARE"
+      ],
+      "shortAnswer": "Alternatives may include a dental bridge, a removable denture, or accepting and monitoring the space where clinically reasonable.",
+      "extendedAnswerBlocks": [
+        "Implant-supported restorations, bridges, dentures and no active replacement have different trade-offs.",
+        "No option is universally best."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.ALT_IMPLANT",
+        "CLM.IMPLANTS.ALT_BRIDGE",
+        "CLM.IMPLANTS.ALT_DENTURE",
+        "CLM.IMPLANTS.ALT_LEAVE",
+        "CLM.IMPLANTS.NO_BEST_OPTION"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_high",
+      "uncertaintyBoundary": "Availability and relevance vary clinically.",
+      "humanBoundary": "A clinician must compare personal options.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "faq",
+        "internal_link"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:1fecd3d9ced12e7733a2cfe2fc8f540841335e654335ac61236f5374ba5abebf"
+    },
+    {
+      "answerId": "AO.IMPLANTS.BENEFITS_RISKS",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.benefits-risks",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.benefits-risks",
+      "questionIds": [
+        "Q.IMPLANTS.BENEFITS_RISKS",
+        "Q.IMPLANTS.FAILURE"
+      ],
+      "shortAnswer": "Implants may support fixed or removable replacement teeth, but surgery, healing, maintenance and biological or mechanical complications must be considered.",
+      "extendedAnswerBlocks": [
+        "Risks include failure to integrate, infection or inflammation, tissue change, injury to nearby structures and component problems.",
+        "This is not an exhaustive personal consent discussion."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.BENEFIT_SUPPORT",
+        "CLM.IMPLANTS.BENEFIT_ADJACENT",
+        "CLM.IMPLANTS.RISK_INTEGRATION",
+        "CLM.IMPLANTS.RISK_BIOLOGICAL",
+        "CLM.IMPLANTS.RISK_ANATOMY",
+        "CLM.IMPLANTS.RISK_MECHANICAL",
+        "CLM.IMPLANTS.CONSENT_BOUNDARY"
+      ],
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS",
+        "SG.SDCEP.IMPLANT_MAINTENANCE",
+        "SG.GDC.ADVERTISING_CONSENT"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_high",
+      "uncertaintyBoundary": "Risk type and likelihood vary by person and plan.",
+      "humanBoundary": "Individual consent requires a clinician.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "evidence_drawer"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:e150f27a5a56f16d9d9065bce19b1a4db8e9bde5fa3eda79e8dc340b88e1c099"
+    },
+    {
+      "answerId": "AO.IMPLANTS.COST",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.cost",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.cost",
+      "questionIds": [
+        "Q.IMPLANTS.COST"
+      ],
+      "shortAnswer": "Implant cost varies with the treatment configuration, assessment, surgical and restorative stages, laboratory work and any additional procedures.",
+      "extendedAnswerBlocks": [
+        "Current fees, inclusions and exclusions require the approved fee registry.",
+        "A written treatment plan should explain proposed costs before agreement.",
+        "Finance promotion is OFF."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.COST_VARIES",
+        "CLM.IMPLANTS.COST_DRIVERS",
+        "CLM.IMPLANTS.WRITTEN_PLAN",
+        "CLM.IMPLANTS.NO_FINANCE"
+      ],
+      "sourceGroupIds": [
+        "SG.GDC.ADVERTISING_CONSENT",
+        "SG.REPO.FEES",
+        "SG.PROGRAMME.SETTLED"
+      ],
+      "status": "fact_pending",
+      "riskClass": "commercial",
+      "uncertaintyBoundary": "No amount, range, inclusion, payment method or finance claim is inferred.",
+      "humanBoundary": "Contact the practice for current fees and a written plan after assessment.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "faq",
+        "internal_link"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:6c508f9dbba933f72342a01048e947bc916714c1d45c70e46e7bae3ec2516a96"
+    },
+    {
+      "answerId": "AO.IMPLANTS.CLINICIAN",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.clinician",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.clinician",
+      "questionIds": [
+        "Q.IMPLANTS.CLINICIAN"
+      ],
+      "shortAnswer": "PENDING VERIFIED IMPLANT ROLE REGISTRY.",
+      "extendedAnswerBlocks": [],
+      "claimIds": [],
+      "sourceGroupIds": [
+        "SG.REPO.CLINICIAN"
+      ],
+      "status": "fact_pending",
+      "riskClass": "clinical_high",
+      "uncertaintyBoundary": "Homepage credentials do not establish Implant assessment, planning, placement, restoration or maintenance roles.",
+      "humanBoundary": "Ask the practice who would provide each stage.",
+      "allowedProjections": [],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:0d35a0e237a183bad9ff88a0bb12f58b455b079a34866201779e70c070634fe4"
+    },
+    {
+      "answerId": "AO.IMPLANTS.AFTERCARE",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.aftercare",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.aftercare",
+      "questionIds": [
+        "Q.IMPLANTS.AFTERCARE",
+        "Q.IMPLANTS.LONGEVITY"
+      ],
+      "shortAnswer": "Implant-supported teeth need daily cleaning, professional monitoring and risk-based maintenance; no lifespan can be promised.",
+      "extendedAnswerBlocks": [
+        "Biological tissues and manufactured components can develop problems or need repair.",
+        "Pain, swelling, bleeding, looseness or change should be directed to the treating dental team."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.AFTERCARE_CLEANING",
+        "CLM.IMPLANTS.AFTERCARE_MONITORING",
+        "CLM.IMPLANTS.AFTERCARE_RISK_BASED",
+        "CLM.IMPLANTS.AFTERCARE_REPAIR",
+        "CLM.IMPLANTS.NO_LONGEVITY_PROMISE",
+        "CLM.IMPLANTS.URGENT_HUMAN_BOUNDARY"
+      ],
+      "sourceGroupIds": [
+        "SG.SDCEP.IMPLANT_MAINTENANCE",
+        "SG.NHS.IMPLANTS"
+      ],
+      "status": "clinical_review_pending",
+      "riskClass": "clinical_high",
+      "uncertaintyBoundary": "Methods, risk and review interval are individual.",
+      "humanBoundary": "Generic information does not replace clinician-issued aftercare or urgent assessment.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "faq",
+        "internal_link",
+        "3d_explanation"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:64881b11e3522ffa04cec0289eb0b03ee394588e49a6149005c138dff977c11f"
+    },
+    {
+      "answerId": "AO.IMPLANTS.NEXT_STEP",
+      "schemaVersion": "governed-answer.v1",
+      "topicId": "implants.next-step",
+      "pageOwner": "/treatments/implants",
+      "sectionOwner": "implants.next-step",
+      "questionIds": [
+        "Q.IMPLANTS.NEXT_STEP"
+      ],
+      "shortAnswer": "Contact the practice to request an Implant assessment; contacting the practice does not establish suitability or confirm an appointment.",
+      "extendedAnswerBlocks": [
+        "The maximum public action is a Level 1 Contact/request handoff."
+      ],
+      "claimIds": [
+        "CLM.IMPLANTS.CONTACT_CAPABILITY",
+        "CLM.IMPLANTS.NO_BOOKING_PROMISE",
+        "CLM.IMPLANTS.NO_COMMITMENT"
+      ],
+      "sourceGroupIds": [
+        "SG.REPO.ROUTES",
+        "SG.PROGRAMME.SETTLED"
+      ],
+      "status": "fact_review_pending",
+      "riskClass": "editorial",
+      "uncertaintyBoundary": "No live availability or confirmation.",
+      "humanBoundary": "The practice handles the request.",
+      "allowedProjections": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "internal_link"
+      ],
+      "schemaEligibility": "ineligible",
+      "contentVersion": 1,
+      "contentHash": "sha256:c26ca3d83fc844ed266918fccd80356277a47c18ac9c442d9d4d2605e222faa7"
+    }
+  ],
+  "comparisonObjects": [
+    {
+      "comparisonId": "CMP.IMPLANTS.TOOTH_REPLACEMENT",
+      "schemaVersion": "governed-comparison.v1",
+      "ownerRoute": "/treatments/implants",
+      "ownerSection": "implants.options-comparison",
+      "sourceSection": "sections[6].comparisonRows",
+      "status": "clinical_review_pending",
+      "noWinner": true,
+      "contentVersion": 1,
+      "contentHash": "sha256:7db70301f50b9b0e14d4d1724c24d5f5850f3cb6d669f3ead11bf32e395b54ac"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "CLM.IMPLANTS.SERVICE",
+      "atomicText": "Dental implants are a current priority service at St Mary's House Dental Care.",
+      "risk": "medium",
+      "claimType": "service_fact",
+      "sourceGroupId": "SG.REPO.SERVICE",
+      "approvalId": "IMP-DELTA-001",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.LOCALITY",
+      "atomicText": "St Mary's House Dental Care is in Shoreham-by-Sea.",
+      "risk": "low",
+      "claimType": "local_fact",
+      "sourceGroupId": "SG.REPO.SERVICE",
+      "approvalId": "FACT-001",
+      "decision": "approved_for_draft",
+      "projectionEligibility": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "schema"
+      ]
+    },
+    {
+      "claimId": "CLM.IMPLANTS.ASSESSMENT_BOUNDARY",
+      "atomicText": "Implant treatment is conditional on satisfactory clinical assessment.",
+      "risk": "high",
+      "claimType": "clinical_boundary",
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.DEFINITION",
+      "atomicText": "A dental implant is a manufactured fixture placed in the jaw to support a dental restoration.",
+      "risk": "medium",
+      "claimType": "clinical_definition",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.SUPPORT_TYPES",
+      "atomicText": "Implants may support crowns, bridges or some types of denture.",
+      "risk": "medium",
+      "claimType": "clinical_definition",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.FIXTURE",
+      "atomicText": "The fixture is the manufactured component placed within the jaw.",
+      "risk": "medium",
+      "claimType": "component",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.ABUTMENT",
+      "atomicText": "An abutment connects the fixture to the restoration in many implant designs.",
+      "risk": "medium",
+      "claimType": "component",
+      "sourceGroupId": "SG.BSP.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.RESTORATION",
+      "atomicText": "The restoration may be a crown, bridge or implant-retained denture.",
+      "risk": "medium",
+      "claimType": "component",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.BIOLOGICAL_BOUNDARY",
+      "atomicText": "Bone, gum, neighbouring teeth, nerves and sinus spaces are biological structures distinct from manufactured Implant components.",
+      "risk": "medium",
+      "claimType": "3d_boundary",
+      "sourceGroupId": "SG.CD3D.AUTHORITY",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.GENERIC_MODEL_BOUNDARY",
+      "atomicText": "The generic model is not patient anatomy and cannot provide diagnosis, measurements, suitability or a treatment plan.",
+      "risk": "high",
+      "claimType": "3d_boundary",
+      "sourceGroupId": "SG.CD3D.AUTHORITY",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.ASSESSMENT_MULTIFACTOR",
+      "atomicText": "Implant assessment considers interacting dental, anatomical, health, maintenance and personal factors.",
+      "risk": "high",
+      "claimType": "clinical_assessment",
+      "sourceGroupId": "SG.BSP.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.GUM_HEALTH",
+      "atomicText": "Dental and periodontal health are relevant to Implant assessment and planning.",
+      "risk": "high",
+      "claimType": "clinical_assessment",
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.HEALTH_HISTORY",
+      "atomicText": "Medical history, medicines and modifiable risk factors may affect Implant planning and risk.",
+      "risk": "high",
+      "claimType": "clinical_assessment",
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.MAINTENANCE_FACTORS",
+      "atomicText": "Cleaning ability and ongoing maintenance needs are relevant before Implant treatment.",
+      "risk": "high",
+      "claimType": "clinical_assessment",
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.NO_REMOTE_SUITABILITY",
+      "atomicText": "A public page, questionnaire, photo, scan upload or generic model cannot decide Implant suitability.",
+      "risk": "high",
+      "claimType": "clinical_boundary",
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.PLANNING_INPUTS",
+      "atomicText": "Implant planning begins with history and examination; records are selected when they add clinically relevant information.",
+      "risk": "high",
+      "claimType": "clinical_planning",
+      "sourceGroupId": "SG.BSP.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.CBCT_INDICATION",
+      "atomicText": "CBCT must be individually justified and is not an automatic examination for every visitor.",
+      "risk": "high",
+      "claimType": "radiography_boundary",
+      "sourceGroupId": "SG.CBCT.JUSTIFICATION",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.CBCT_INTERPRETATION_BOUNDARY",
+      "atomicText": "CBCT requires professional interpretation and does not determine a treatment plan by itself.",
+      "risk": "high",
+      "claimType": "radiography_boundary",
+      "sourceGroupId": "SG.CBCT.JUSTIFICATION",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.INFORMED_PLAN",
+      "atomicText": "Options, risks, stages and possible costs should be explained before treatment is agreed.",
+      "risk": "high",
+      "claimType": "consent",
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.STAGES_BROAD",
+      "atomicText": "Broad Implant care may include assessment, health stabilisation, placement, healing, restoration and maintenance.",
+      "risk": "high",
+      "claimType": "clinical_process",
+      "sourceGroupId": "SG.BSP.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.TIMELINE_VARIES",
+      "atomicText": "Implant timing varies with the starting condition, plan, healing and any additional procedures.",
+      "risk": "high",
+      "claimType": "timeline",
+      "sourceGroupId": "SG.BSP.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.PREPARATORY_CARE_POSSIBLE",
+      "atomicText": "Some plans may require preparatory treatment; it is not universally required.",
+      "risk": "high",
+      "claimType": "clinical_process",
+      "sourceGroupId": "SG.BSP.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.MAINTENANCE_STAGE",
+      "atomicText": "Maintenance and monitoring continue after the restoration is fitted.",
+      "risk": "high",
+      "claimType": "aftercare",
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.ALT_IMPLANT",
+      "atomicText": "Implant-supported restorations may be fixed or may retain a removable denture depending on design.",
+      "risk": "high",
+      "claimType": "comparison",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.ALT_BRIDGE",
+      "atomicText": "Dental bridges replace missing teeth using support from adjacent teeth or structures depending on design.",
+      "risk": "high",
+      "claimType": "comparison",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.ALT_DENTURE",
+      "atomicText": "A removable denture can replace one or more missing teeth and is removed for cleaning.",
+      "risk": "high",
+      "claimType": "comparison",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.ALT_LEAVE",
+      "atomicText": "Accepting or monitoring a space may be an option where clinically reasonable.",
+      "risk": "high",
+      "claimType": "comparison",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.NO_BEST_OPTION",
+      "atomicText": "No replacement option is universally best; trade-offs require clinical assessment.",
+      "risk": "high",
+      "claimType": "clinical_boundary",
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.BENEFIT_SUPPORT",
+      "atomicText": "Implants may support fixed replacement teeth or improve support for some removable dentures.",
+      "risk": "high",
+      "claimType": "benefit",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.BENEFIT_ADJACENT",
+      "atomicText": "Some implant designs can avoid relying on neighbouring teeth for support.",
+      "risk": "high",
+      "claimType": "benefit",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.RISK_INTEGRATION",
+      "atomicText": "An implant may fail to integrate with bone or may later be lost.",
+      "risk": "high",
+      "claimType": "risk",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.RISK_BIOLOGICAL",
+      "atomicText": "Infection, inflammation, gum change, bone loss and peri-implant disease can affect tissues around implants.",
+      "risk": "high",
+      "claimType": "risk",
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.RISK_ANATOMY",
+      "atomicText": "Nearby anatomical structures can be injured during Implant surgery.",
+      "risk": "high",
+      "claimType": "risk",
+      "sourceGroupId": "SG.BSP.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.RISK_MECHANICAL",
+      "atomicText": "Implant restorations and components can loosen, wear or fracture and may need repair or replacement.",
+      "risk": "high",
+      "claimType": "risk",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.CONSENT_BOUNDARY",
+      "atomicText": "A public risk summary is not a substitute for individual valid consent.",
+      "risk": "high",
+      "claimType": "consent_boundary",
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.COST_VARIES",
+      "atomicText": "Implant cost varies because plans and treatment configurations differ.",
+      "risk": "medium",
+      "claimType": "commercial",
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "approvalId": "IMP-DELTA-004",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.COST_DRIVERS",
+      "atomicText": "Cost drivers may include assessment, records, surgical and restorative stages, laboratory work, temporary restorations and additional procedures.",
+      "risk": "high",
+      "claimType": "commercial_clinical",
+      "sourceGroupId": "SG.REPO.FEES",
+      "approvalId": "IMP-DELTA-004",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.WRITTEN_PLAN",
+      "atomicText": "A written treatment plan should explain proposed stages and costs before treatment is agreed.",
+      "risk": "medium",
+      "claimType": "consent_commercial",
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.NO_FINANCE",
+      "atomicText": "Finance promotion is OFF and Tabeo is discontinued.",
+      "risk": "low",
+      "claimType": "programme_decision",
+      "sourceGroupId": "SG.PROGRAMME.SETTLED",
+      "approvalId": "CAP-001",
+      "decision": "approved",
+      "projectionEligibility": [
+        "page",
+        "concierge",
+        "ai",
+        "voice"
+      ]
+    },
+    {
+      "claimId": "CLM.IMPLANTS.AFTERCARE_CLEANING",
+      "atomicText": "Implant-supported restorations and surrounding tissues need daily cleaning.",
+      "risk": "high",
+      "claimType": "aftercare",
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.AFTERCARE_MONITORING",
+      "atomicText": "Professional monitoring assesses hygiene, tissue health and restoration condition.",
+      "risk": "high",
+      "claimType": "aftercare",
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.AFTERCARE_RISK_BASED",
+      "atomicText": "Maintenance methods and review intervals should reflect individual risk and restoration factors.",
+      "risk": "high",
+      "claimType": "aftercare",
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.AFTERCARE_REPAIR",
+      "atomicText": "Restorations or components may need adjustment, repair or replacement over time.",
+      "risk": "high",
+      "claimType": "aftercare",
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.NO_LONGEVITY_PROMISE",
+      "atomicText": "No Implant or restoration lifespan is promised in this bundle.",
+      "risk": "high",
+      "claimType": "clinical_boundary",
+      "sourceGroupId": "SG.PROGRAMME.SETTLED",
+      "approvalId": "IMP-005",
+      "decision": "approved_as_fallback",
+      "projectionEligibility": [
+        "page",
+        "concierge",
+        "ai",
+        "voice",
+        "faq"
+      ]
+    },
+    {
+      "claimId": "CLM.IMPLANTS.URGENT_HUMAN_BOUNDARY",
+      "atomicText": "Pain, swelling, bleeding, looseness or change around an Implant or restoration requires human clinical contact rather than public automated management.",
+      "risk": "high",
+      "claimType": "urgent_boundary",
+      "sourceGroupId": "SG.PROGRAMME.SETTLED",
+      "approvalId": "IMP-DELTA-006",
+      "decision": "pending",
+      "projectionEligibility": []
+    },
+    {
+      "claimId": "CLM.IMPLANTS.CONTACT_CAPABILITY",
+      "atomicText": "The public surface may send a Level 1 Contact/request to the practice.",
+      "risk": "low",
+      "claimType": "product_capability",
+      "sourceGroupId": "SG.PROGRAMME.SETTLED",
+      "approvalId": "FACT-010",
+      "decision": "approved",
+      "projectionEligibility": [
+        "page",
+        "concierge",
+        "ai",
+        "voice"
+      ]
+    },
+    {
+      "claimId": "CLM.IMPLANTS.NO_BOOKING_PROMISE",
+      "atomicText": "The page and Concierge do not promise live availability, booking or confirmation.",
+      "risk": "low",
+      "claimType": "product_boundary",
+      "sourceGroupId": "SG.PROGRAMME.SETTLED",
+      "approvalId": "CAP-008",
+      "decision": "approved",
+      "projectionEligibility": [
+        "page",
+        "concierge",
+        "ai",
+        "voice"
+      ]
+    },
+    {
+      "claimId": "CLM.IMPLANTS.NO_COMMITMENT",
+      "atomicText": "Contacting the practice does not commit the visitor to treatment.",
+      "risk": "medium",
+      "claimType": "operational",
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "approvalId": "IMP-DELTA-001",
+      "decision": "pending",
+      "projectionEligibility": []
+    }
+  ],
+  "sourceGroups": [
+    {
+      "sourceGroupId": "SG.PROGRAMME.SETTLED",
+      "title": "Settled Champagne programme and Phase 2 decisions",
+      "sourceType": "programme_authority",
+      "jurisdiction": "internal",
+      "sourceRefs": [
+        "CHAMPAGNE_CONTENT_FACT_AND_APPROVAL_PACKET_V1",
+        "MAIN_CHAMPAGNE_DIRECTORATE_CONTENT_PHASE_2_CONTINUATION_2026-08-09"
+      ],
+      "status": "approved_for_stated_boundaries",
+      "limitations": [
+        "Does not approve clinical wording, local workflows, clinician scope or fees"
+      ],
+      "reviewer": "Main Champagne Directorate",
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": null
+    },
+    {
+      "sourceGroupId": "SG.REPO.SERVICE",
+      "title": "Current Champagne service and local identity registries",
+      "sourceType": "practice_registry",
+      "jurisdiction": "GB",
+      "sourceRefs": [
+        "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+        "packages/champagne-manifests/data/seo/local-identity.smh.json",
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json"
+      ],
+      "status": "evidence_requires_founder_reattestation",
+      "limitations": [
+        "Service presence is recorded, but exact Implant subservice and clinician scope remain unresolved"
+      ],
+      "reviewer": null,
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": null
+    },
+    {
+      "sourceGroupId": "SG.REPO.ROUTES",
+      "title": "Accepted live route and canonical owner evidence",
+      "sourceType": "repository_route_registry",
+      "jurisdiction": "internal",
+      "sourceRefs": [
+        "reports/CHAMPAGNE_PAGE_INVENTORY_V1.json",
+        "reports/CHAMPAGNE_RUNTIME_TRUTH_REPORT_V1.json",
+        "CHAMPAGNE_CONTENT_SEARCH_ORIENTATION_REPORT_V1"
+      ],
+      "status": "accepted_for_bundle_routing",
+      "limitations": [
+        "Route existence does not approve treatment availability or copy"
+      ],
+      "reviewer": "Content/Search authority",
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": null
+    },
+    {
+      "sourceGroupId": "SG.REPO.CLINICIAN",
+      "title": "Current repository team and clinician assertions",
+      "sourceType": "clinician_registry",
+      "jurisdiction": "GB",
+      "sourceRefs": [
+        "packages/champagne-manifests/data/seo/approved-facts.smh.json#team",
+        "packages/champagne-manifests/data/sections/smh/treatments.implants.json#implants-clinician"
+      ],
+      "status": "evidence_not_approval",
+      "limitations": [
+        "Home credentials do not establish Implant-specific roles, training provenance, scope or availability",
+        "Legacy Implant manifest claims require Founder and clinical verification"
+      ],
+      "reviewer": null,
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": null
+    },
+    {
+      "sourceGroupId": "SG.REPO.FEES",
+      "title": "Current repository fee-page assertions",
+      "sourceType": "fee_registry_gap",
+      "jurisdiction": "GB",
+      "sourceRefs": [
+        "page-truth/fees.txt",
+        "apps/web/app/fees/page.tsx"
+      ],
+      "status": "conflicted_not_approved",
+      "limitations": [
+        "No current Implant amount, unit, inclusions, exclusions or effective date",
+        "Current fee page contains prohibited finance promotion and cannot be a source of truth"
+      ],
+      "reviewer": null,
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": null
+    },
+    {
+      "sourceGroupId": "SG.GDC.ADVERTISING_CONSENT",
+      "title": "General Dental Council advertising and valid-consent standards",
+      "sourceType": "law_regulator",
+      "jurisdiction": "GB",
+      "sourceRefs": [
+        "https://www.gdc-uk.org/standards-guidance/standards-and-guidance/gdc-guidance-for-dental-professionals/guidance-on-advertising",
+        "https://standards.gdc-uk.org/pages/principle3/principle3"
+      ],
+      "status": "current_source_verified_clinical_projection_pending",
+      "limitations": [
+        "Regulatory principles do not by themselves approve clinical detail or local practice claims"
+      ],
+      "reviewer": null,
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": "2027-02-09"
+    },
+    {
+      "sourceGroupId": "SG.NHS.IMPLANTS",
+      "title": "NHS dental implant patient information",
+      "sourceType": "professional_guidance",
+      "jurisdiction": "GB",
+      "sourceRefs": [
+        "https://www.guysandstthomas.nhs.uk/health-information/dental-implants",
+        "https://www.leedsth.nhs.uk/patients/resources/dental-implants/",
+        "https://www.nhs.uk/tests-and-treatments/dentures/"
+      ],
+      "status": "current_source_verified_clinical_projection_pending",
+      "limitations": [
+        "Hospital patient information supports generic education, not local protocols, personal suitability, outcome prediction or a complete consent list"
+      ],
+      "reviewer": null,
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": "2027-02-09"
+    },
+    {
+      "sourceGroupId": "SG.BSP.IMPLANTS",
+      "title": "British Society of Periodontology dental Implant patient information",
+      "sourceType": "professional_guidance",
+      "jurisdiction": "GB",
+      "sourceRefs": [
+        "https://www.bsperio.org.uk/patients/patient-faqs-dental-implants"
+      ],
+      "status": "current_source_verified_clinical_projection_pending",
+      "limitations": [
+        "Generic patient information does not approve local workflow, individual timing or treatment plan"
+      ],
+      "reviewer": null,
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": "2027-02-09"
+    },
+    {
+      "sourceGroupId": "SG.SDCEP.IMPLANT_MAINTENANCE",
+      "title": "SDCEP periodontal and dental Implant guidance",
+      "sourceType": "clinical_guideline",
+      "jurisdiction": "UK",
+      "sourceRefs": [
+        "https://www.periodontalcare.sdcep.org.uk/guidance/dental-implants/managing-peri-implant-disease-risk/",
+        "https://www.periodontalcare.sdcep.org.uk/guidance/dental-implants/general-care-of-dental-implants/recall/",
+        "https://www.periodontalcare.sdcep.org.uk/guidance/summary/"
+      ],
+      "status": "current_source_verified_clinical_projection_pending",
+      "limitations": [
+        "Professional guidance requires clinician interpretation and does not set a public personal recall schedule"
+      ],
+      "reviewer": null,
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": "2027-02-09"
+    },
+    {
+      "sourceGroupId": "SG.CBCT.JUSTIFICATION",
+      "title": "SEDENTEXCT evidence-based CBCT guidance",
+      "sourceType": "clinical_guideline",
+      "jurisdiction": "EU_UK_RELEVANT",
+      "sourceRefs": [
+        "https://sedentexct.eu/files/guidelines_final.pdf",
+        "https://sedentexct.eu/system/files/sedentexct_project_guidance_uk.pdf"
+      ],
+      "status": "source_verified_clinical_projection_pending",
+      "limitations": [
+        "Guidance is not a local protocol and must be reconciled with current UK radiography law and the practice's procedures before publication"
+      ],
+      "reviewer": null,
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": "2027-02-09"
+    },
+    {
+      "sourceGroupId": "SG.CD3D.AUTHORITY",
+      "title": "Champagne Dental 3D semantic authority",
+      "sourceType": "internal_component_contract",
+      "jurisdiction": "internal",
+      "sourceRefs": [
+        "SEARCH_IA_F1_THREE_EXEMPLAR_SEMANTIC_CONTRACT_PACK_V1#implant-specific-governed-subcontracts",
+        "CD3D_T0_PRE_EXECUTION_AND_CX_HANDOFF_V1",
+        "CD3D-IMPLANT-EDU-V1"
+      ],
+      "status": "frozen_state_contract_ready_runtime_capability_off",
+      "limitations": [
+        "3D owns ontology and actions; this bundle supplies approved explanation objects only",
+        "No clinical claim originates in 3D"
+      ],
+      "reviewer": "3D Directorate pending runtime approval",
+      "accessedVerifiedAt": "2026-08-09",
+      "nextReview": null
+    }
+  ],
+  "internalLinks": [
+    {
+      "fromSectionId": "implants.hero",
+      "toRoute": "/contact",
+      "relationship": "safe_next_step",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.hero",
+      "toRoute": "/treatments/teeth-replacement",
+      "relationship": "parent_comparison_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.assessment-factors",
+      "toRoute": "/treatments/implant-consultation",
+      "relationship": "child_detail_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.assessment-factors",
+      "toRoute": "/treatments/periodontal-gum-care",
+      "relationship": "supporting_health_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.planning",
+      "toRoute": "/treatments/cbct-3d-scanning",
+      "relationship": "technical_detail_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.options-comparison",
+      "toRoute": "/treatments/dental-bridges",
+      "relationship": "alternative_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.options-comparison",
+      "toRoute": "/treatments/dentures",
+      "relationship": "alternative_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.options-comparison",
+      "toRoute": "/treatments/implant-retained-dentures",
+      "relationship": "child_detail_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.options-comparison",
+      "toRoute": "/treatments/implants-single-tooth",
+      "relationship": "child_detail_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.options-comparison",
+      "toRoute": "/treatments/implants-multiple-teeth",
+      "relationship": "child_detail_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.options-comparison",
+      "toRoute": "/treatments/implants-full-arch",
+      "relationship": "child_detail_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.aftercare",
+      "toRoute": "/treatments/implant-aftercare",
+      "relationship": "child_detail_owner",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.next-step",
+      "toRoute": "/contact",
+      "relationship": "safe_next_step",
+      "state": "enabled"
+    },
+    {
+      "fromSectionId": "implants.cost",
+      "toRoute": "/fees",
+      "relationship": "fee_owner",
+      "state": "blocked_until_finance_free_registry_parity"
+    }
+  ],
+  "mediaSlots": [
+    {
+      "mediaSlotId": "MEDIA.IMPLANTS.HERO",
+      "sectionId": "implants.hero",
+      "subject": "Authentic, calm Implant planning or practice environment; no outcome promise",
+      "contentSearchJob": "Support route orientation without carrying clinical claims",
+      "provenanceRequirement": "Practice-owned or fully licensed; no fabricated patient",
+      "consentRequirement": "Required for identifiable people",
+      "altPurpose": "Name the real subject and educational role, not keyword variants",
+      "captionClaimIds": [],
+      "fallback": "Champagne abstract treatment field"
+    },
+    {
+      "mediaSlotId": "MEDIA.IMPLANTS.COMPONENTS",
+      "sectionId": "implants.components-3d",
+      "subject": "Generic labelled fixture, abutment and restoration with biological/manufactured separation",
+      "contentSearchJob": "Support component understanding and image retrieval",
+      "provenanceRequirement": "Clinically reviewed illustration or governed CD3D asset",
+      "consentRequirement": null,
+      "altPurpose": "Describe the component relationship and generic boundary",
+      "captionClaimIds": [
+        "CLM.IMPLANTS.FIXTURE",
+        "CLM.IMPLANTS.ABUTMENT",
+        "CLM.IMPLANTS.RESTORATION",
+        "CLM.IMPLANTS.BIOLOGICAL_BOUNDARY"
+      ],
+      "fallback": "Static labelled diagram plus transcript"
+    },
+    {
+      "mediaSlotId": "MEDIA.IMPLANTS.ASSESSMENT",
+      "sectionId": "implants.assessment-factors",
+      "subject": "Genuine clinician-led assessment or privacy-safe records discussion",
+      "contentSearchJob": "Show that assessment precedes recommendation",
+      "provenanceRequirement": "Authentic practice media; no readable patient data",
+      "consentRequirement": "Required for identifiable people",
+      "altPurpose": "Describe assessment activity without claiming suitability",
+      "captionClaimIds": [
+        "CLM.IMPLANTS.ASSESSMENT_MULTIFACTOR"
+      ],
+      "fallback": "Text-led section"
+    },
+    {
+      "mediaSlotId": "MEDIA.IMPLANTS.PLANNING",
+      "sectionId": "implants.planning",
+      "subject": "Privacy-safe scan/planning context only if local workflow is verified",
+      "contentSearchJob": "Explain why records are selected, not glorify equipment",
+      "provenanceRequirement": "Authentic practice workflow and approved caption",
+      "consentRequirement": "No identifiers; consent if person visible",
+      "altPurpose": "Describe the planning question being answered",
+      "captionClaimIds": [
+        "CLM.IMPLANTS.CBCT_INDICATION",
+        "CLM.IMPLANTS.CBCT_INTERPRETATION_BOUNDARY"
+      ],
+      "fallback": "Static generic planning illustration"
+    },
+    {
+      "mediaSlotId": "MEDIA.IMPLANTS.STAGES",
+      "sectionId": "implants.stages",
+      "subject": "Broad assessment-to-maintenance sequence",
+      "contentSearchJob": "Reinforce order and variability",
+      "provenanceRequirement": "Governed illustration or authentic non-patient objects",
+      "consentRequirement": null,
+      "altPurpose": "Summarise the broad sequence without durations",
+      "captionClaimIds": [
+        "CLM.IMPLANTS.STAGES_BROAD",
+        "CLM.IMPLANTS.TIMELINE_VARIES"
+      ],
+      "fallback": "Ordered text list"
+    },
+    {
+      "mediaSlotId": "MEDIA.IMPLANTS.CLINICIAN",
+      "sectionId": "implants.clinician",
+      "subject": "Verified Implant clinician in real practice environment",
+      "contentSearchJob": "Support accountable entity and credential discovery",
+      "provenanceRequirement": "Named person, current consent, verified role and current image",
+      "consentRequirement": "Mandatory",
+      "altPurpose": "Name the clinician and context only after approval",
+      "captionClaimIds": [],
+      "fallback": "Section omitted while clinician registry is unresolved"
+    },
+    {
+      "mediaSlotId": "MEDIA.IMPLANTS.AFTERCARE",
+      "sectionId": "implants.aftercare",
+      "subject": "Generic cleaning access or professional maintenance",
+      "contentSearchJob": "Support maintenance understanding",
+      "provenanceRequirement": "Clinically reviewed and non-diagnostic",
+      "consentRequirement": "Required for identifiable people",
+      "altPurpose": "Explain maintenance purpose, not personal technique",
+      "captionClaimIds": [
+        "CLM.IMPLANTS.AFTERCARE_CLEANING",
+        "CLM.IMPLANTS.AFTERCARE_MONITORING"
+      ],
+      "fallback": "Text-led care principles"
+    },
+    {
+      "mediaSlotId": "MEDIA.IMPLANTS.CASES",
+      "sectionId": "implants.case-evidence",
+      "subject": "Reserved for consented governed cases",
+      "contentSearchJob": "None while OFF",
+      "provenanceRequirement": "Case contract mandatory",
+      "consentRequirement": "Mandatory with withdrawal route",
+      "altPurpose": "Clinically faithful same-patient description",
+      "captionClaimIds": [],
+      "fallback": "No render"
+    }
+  ],
+  "schemaProjection": {
+    "eligibleNodes": [
+      "WebPage",
+      "Service",
+      "BreadcrumbList"
+    ],
+    "conditionalNodes": [
+      "FAQPage after exact visible approved parity",
+      "Person after verified Implant-role parity"
+    ],
+    "suppressedNodes": [
+      "MedicalProcedure",
+      "Offer",
+      "Review",
+      "AggregateRating",
+      "ImageObject for cases",
+      "VideoObject",
+      "HowTo"
+    ],
+    "reason": "Schema is a projection of approved visible Answer Objects. It cannot add suitability, process, fee, clinician, review, case or outcome facts."
+  },
+  "conciergeBindings": {
+    "sourceRule": "Every Concierge Implant answer is a projection of an Answer Object in this bundle; no parallel chatbot fact set is authorised.",
+    "maximumActionLevel": "LEVEL_1_CONTACT_REQUEST",
+    "topicIds": [
+      "implants.overview",
+      "implants.definition",
+      "implants.components",
+      "implants.assessment",
+      "implants.planning",
+      "implants.stages",
+      "implants.alternatives",
+      "implants.benefits-risks",
+      "implants.cost",
+      "implants.aftercare",
+      "implants.faq",
+      "implants.next-step"
+    ],
+    "blockedTopicIds": [
+      "implants.clinician",
+      "implants.cases",
+      "implants.personal-suitability",
+      "implants.personal-plan",
+      "implants.personal-timeline",
+      "implants.personal-cost",
+      "implants.cbct-interpretation"
+    ],
+    "humanHandoffTriggers": [
+      "personal suitability",
+      "medical history or medicines",
+      "personal risk",
+      "symptoms or postoperative concern",
+      "scan or image interpretation",
+      "personal timing or quote",
+      "clinician availability"
+    ],
+    "prohibited": [
+      "diagnosis",
+      "risk score",
+      "suitability verdict",
+      "personalised recommendation",
+      "treatment plan",
+      "CBCT interpretation",
+      "patient morphology inference",
+      "live booking promise",
+      "sensitive narrative capture"
+    ],
+    "maturity": {
+      "syntheticInternalGrounding": {
+        "permitted": true,
+        "scope": "review_and_cb1b_synthetic_fixture_use_only"
+      },
+      "livePublicProjection": {
+        "permitted": false,
+        "state": "blocked_pending_fact_clinical_and_product_parity_approval"
+      },
+      "consumerRule": "Presence of a topic or Answer Object never grants live/public Concierge authority."
+    }
+  },
+  "cb1bFixtureContract": {
+    "fixtureMode": "synthetic_and_governed_only",
+    "allowedAnswerObjectIds": [
+      "AO.IMPLANTS.DEFINITION",
+      "AO.IMPLANTS.COMPONENTS",
+      "AO.IMPLANTS.ASSESSMENT",
+      "AO.IMPLANTS.PLANNING",
+      "AO.IMPLANTS.STAGES",
+      "AO.IMPLANTS.TIMELINE",
+      "AO.IMPLANTS.ALTERNATIVES",
+      "AO.IMPLANTS.BENEFITS_RISKS",
+      "AO.IMPLANTS.COST",
+      "AO.IMPLANTS.AFTERCARE",
+      "AO.IMPLANTS.NEXT_STEP"
+    ],
+    "blockedAnswerObjectIds": [
+      "AO.IMPLANTS.CLINICIAN"
+    ],
+    "requiredFixtureFields": [
+      "tenantId",
+      "canonicalRoute",
+      "sectionId",
+      "answerObjectId",
+      "contentVersion",
+      "contentHash",
+      "projection",
+      "sourceGroupIds",
+      "claimState",
+      "expectedAction",
+      "expectedBoundary"
+    ],
+    "negativeFixtures": [
+      "asks if suitable",
+      "uploads scan or photo",
+      "asks for exact personal timeline",
+      "asks for diagnosis or prognosis",
+      "asks for exact quote",
+      "reports pain swelling bleeding infection concern altered sensation or looseness",
+      "asks for case success rate or guarantee"
+    ],
+    "failureBehavior": "Return controlled boundary plus approved Contact/human handoff; never improvise missing clinical or commercial facts."
+  },
+  "gaps": [
+    {
+      "gapId": "GAP.IMPLANTS.SERVICE_SCOPE",
+      "owner": "Founder and clinical reviewer",
+      "status": "unknown",
+      "fallback": "Use category-level assessment-led Implant education; omit subservice availability claims",
+      "blocks": [
+        "local service detail",
+        "clinician section",
+        "child-service promotion"
+      ]
+    },
+    {
+      "gapId": "GAP.IMPLANTS.CLINICIAN_ROLES",
+      "owner": "Founder and clinical reviewer",
+      "status": "unknown",
+      "fallback": "Omit clinician section and treatment-specific Person projection",
+      "blocks": [
+        "clinician section",
+        "Person schema",
+        "clinician Concierge answer"
+      ]
+    },
+    {
+      "gapId": "GAP.IMPLANTS.LOCAL_TECHNOLOGY",
+      "owner": "Founder and clinical reviewer",
+      "status": "unknown",
+      "fallback": "Use indication-based generic records language; omit device and guided-surgery claims",
+      "blocks": [
+        "local workflow media",
+        "technology claims"
+      ]
+    },
+    {
+      "gapId": "GAP.IMPLANTS.FEES",
+      "owner": "Founder and commercial verifier",
+      "status": "unknown",
+      "fallback": "Fee drivers plus Contact only; finance OFF",
+      "blocks": [
+        "fee amounts",
+        "/fees link",
+        "payment methods",
+        "Offer schema"
+      ]
+    },
+    {
+      "gapId": "GAP.IMPLANTS.CLINICAL_REVIEW",
+      "owner": "Named implant clinical reviewer",
+      "status": "pending",
+      "fallback": "Atelier and synthetic fixtures only; no public, schema, AI, voice or live Concierge projection",
+      "blocks": [
+        "public publication",
+        "live projections"
+      ]
+    },
+    {
+      "gapId": "GAP.IMPLANTS.URGENT_WORDING",
+      "owner": "Clinical reviewer",
+      "status": "pending",
+      "fallback": "General Contact/human boundary; do not supply symptom management",
+      "blocks": [
+        "specific urgent instructions",
+        "automated aftercare flow"
+      ]
+    },
+    {
+      "gapId": "GAP.IMPLANTS.CASE_EVIDENCE",
+      "owner": "Clinical, consent and media governance",
+      "status": "deferred",
+      "fallback": "No render",
+      "blocks": [
+        "case section",
+        "case schema",
+        "outcome proof"
+      ]
+    },
+    {
+      "gapId": "GAP.IMPLANTS.INTERACTIVE_3D",
+      "owner": "3D Directorate and clinical reviewer",
+      "status": "deferred",
+      "fallback": "Static labelled diagram and transcript",
+      "blocks": [
+        "interactive viewer",
+        "3D control actions in production"
+      ]
+    }
+  ],
+  "approvals": [
+    {
+      "approvalId": "FOUNDER_FACT_ATTESTATION_PENDING",
+      "type": "FactApprovalV1",
+      "status": "pending",
+      "scope": "Implant service matrix, clinician roles, local workflows and current fee registry"
+    },
+    {
+      "approvalId": "CLINICAL_REVIEW_PENDING",
+      "type": "ClinicalApprovalV1",
+      "status": "pending",
+      "scope": "Every clinical claim, comparison cell, FAQ projection, media caption and 3D explanation state"
+    },
+    {
+      "approvalId": "COMMERCIAL_REVIEW_PENDING",
+      "type": "CommercialApprovalV1",
+      "status": "pending",
+      "scope": "Fee unit, inclusions, exclusions, effective date, verifier and payment wording; finance remains OFF"
+    },
+    {
+      "approvalId": "PRODUCT_PARITY_PENDING",
+      "type": "ProductApprovalV1",
+      "status": "pending",
+      "scope": "Page, CB1B, Concierge, schema, AI, voice, Media and 3D hash parity"
+    }
+  ],
+  "newWeosBackTeach": [
+    {
+      "lessonId": "WEOS.BACKTEACH.CLINICAL_COMPARISON_CELL_GOVERNANCE",
+      "champagneEvidence": "The Implant-vs-bridge-vs-denture comparison contains multiple independently risky cells even though it looks like one component.",
+      "tenantNeutralRule": "Every cell in a treatment comparison is an atomic claim with its own owner, source, reviewer state and hash.",
+      "why": "A visually balanced table can still drift into an unsupported recommendation if one cell changes independently.",
+      "captainInput": "Which treatment options actually exist and who can approve clinical trade-offs.",
+      "routerGovernance": "Block publication when any rendered comparison cell lacks current approval or hash parity."
+    },
+    {
+      "lessonId": "WEOS.BACKTEACH.CAPABILITY_OFF_SEMANTIC_REPLACEMENT",
+      "champagneEvidence": "Interactive 3D and case proof are unavailable, but only 3D has a complete static semantic replacement; proof must disappear entirely.",
+      "tenantNeutralRule": "Capability-off behavior is job-specific: substitute an equivalent accessible explanation only when it preserves the same truth; otherwise fail closed with no shell.",
+      "why": "Automatic placeholders can fabricate capability, proof or meaning even when no false sentence is written.",
+      "captainInput": "Which capabilities and genuine assets are available for the tenant.",
+      "routerGovernance": "Require an explicit off-state contract for every optional semantic section before composition."
+    },
+    {
+      "lessonId": "WEOS.BACKTEACH.PARENT_CHILD_QUESTION_BUDGET",
+      "champagneEvidence": "The Implant overview has many live child routes that can easily repeat consultation, full-arch, grafting, sedation and aftercare detail.",
+      "tenantNeutralRule": "A parent treatment page owns the balanced overview and a fixed question budget; child routes own depth and must not be cannibalised by generated parent copy.",
+      "why": "A route graph alone does not stop autonomous copy from answering the same query in full on every related page.",
+      "captainInput": "Which subservices are real and which pages deserve independent ownership.",
+      "routerGovernance": "Compile question ownership before generation and reject cross-route answer-depth collisions."
+    }
+  ],
+  "qa": {
+    "routeValid": true,
+    "semanticContractPreserved": true,
+    "sectionCount": 14,
+    "enabledSectionCount": 12,
+    "caseSectionFailClosed": true,
+    "clinicianSectionFailClosed": true,
+    "interactive3dOffStaticFallbackPresent": true,
+    "financeCapabilityLeak": false,
+    "tabeoLeak": false,
+    "patientSpecificClaimLeak": false,
+    "successOrLongevityClaimLeak": false,
+    "allEnabledInternalLinksInAcceptedLiveContract": true,
+    "legacyPluralImplantSlugsExcluded": true,
+    "pageProjectionParity": true,
+    "conciergeProjectionParity": {
+      "syntheticInternalGroundingParity": true,
+      "livePublicProjectionParity": false,
+      "reason": "Live/public projection is blocked pending exact fact, clinical and product-parity approvals."
+    },
+    "schemaParity": false,
+    "publicPublicationReady": false,
+    "statusReason": "The bundle is structurally complete and safe for Atelier, synthetic CB1B fixtures and review, but named clinical approval, service/clinician/workflow facts and fee registry are unresolved.",
+    "referenceIntegrity": {
+      "allEnabledSectionAnswerObjectReferencesResolve": true,
+      "allSourceGroupReferencesResolve": true,
+      "allClaimReferencesResolve": true,
+      "unresolvedAnswerObjectReferences": [],
+      "unresolvedSourceGroupReferences": [],
+      "unresolvedClaimReferences": []
+    },
+    "duplicateIdChecks": {
+      "duplicateSectionIds": [],
+      "duplicateAnswerObjectIds": [],
+      "duplicateSourceGroupIds": [],
+      "duplicateClaimIds": [],
+      "passed": true
+    },
+    "identityChecks": {
+      "exactCanonicalRoute": true,
+      "exactSemanticOwnerId": true,
+      "exactBundleId": true,
+      "exactContentVersion": true
+    },
+    "threeDChecks": {
+      "interactive3dOff": true,
+      "staticFallbackOn": true,
+      "staticFallbackOwnerExact": true,
+      "unowned3dStateIds": [],
+      "noUnowned3dStateIdentifiers": true
+    },
+    "maturityChecks": {
+      "liveConciergeProjectionFalse": true,
+      "syntheticCb1bFixtureUseExplicitlyPermitted": true,
+      "publicPublicationFalse": true,
+      "clinicianAuthorityOff": true,
+      "caseEvidenceOff": true,
+      "financePromotionOff": true
+    },
+    "routeChecks": {
+      "noStaleLegacyImplantRoute": true,
+      "canonicalRoute": "/treatments/implants"
+    },
+    "bundleHashReproduces": true
+  },
+  "provenance": {
+    "createdAt": "2026-08-09",
+    "updatedAt": "2026-08-09",
+    "supersedes": "CHAMPAGNE_IMPLANTS_CONTENT_BUNDLE_V1",
+    "repositoryCommit": "a00f718a93710028b364930566d7f6a44483bc25",
+    "orientationAuthority": "CHAMPAGNE_CONTENT_SEARCH_ORIENTATION_REPORT_V1",
+    "semanticContractAuthority": "SEARCH_IA_F1_THREE_EXEMPLAR_SEMANTIC_CONTRACT_PACK_V1",
+    "phase2Authority": "MAIN_CHAMPAGNE_DIRECTORATE_CONTENT_PHASE_2_CONTINUATION_2026-08-09",
+    "contentHashAlgorithm": "sha256",
+    "contractClosure": "CHAMPAGNE_IMPLANTS_CONTENT_BUNDLE_V1_1_FINITE_CONVERGENCE_CLOSURE",
+    "contentHashCanonicalization": "sha256 of recursively key-sorted canonical JSON with provenance.contentHash and provenance.contentHashDigest omitted and generated section/answer/comparison contentHash values omitted",
+    "contentHash": "sha256:83d9b76508d583656663c037040274994ec913c04cbb07dfeb3e8ad175fa93ad",
+    "contentHashDigest": "83d9b76508d583656663c037040274994ec913c04cbb07dfeb3e8ad175fa93ad"
+  },
+  "schema": "CHAMPAGNE_CONTENT_BUNDLE_V1",
+  "canonicalRoute": "/treatments/implants",
+  "semanticOwnerId": "implants.components-3d",
+  "canonicalAnswerObjectFamily": "AO.IMPLANTS.*",
+  "canonicalSourceGroupFamily": "SG.*",
+  "identityContract": {
+    "schema": "CHAMPAGNE_CONTENT_BUNDLE_V1",
+    "bundleId": "smh:route:/treatments/implants:v1",
+    "canonicalRoute": "/treatments/implants",
+    "contentVersion": "1.0.0-draft.1",
+    "semanticOwnerId": "implants.components-3d",
+    "canonicalAnswerObjectFamily": "AO.IMPLANTS.*",
+    "canonicalSourceGroupFamily": "SG.*",
+    "aliasPolicy": "canonical_ids_only_no_underscore_aliases"
+  },
+  "cb1bCompatibilityRecords": [
+    {
+      "compatibilityRecordId": "CB1B.COMPAT.IMPLANTS.COMPONENTS.V1",
+      "tenantId": "smh",
+      "canonicalRoute": "/treatments/implants",
+      "semanticSectionId": "implants.components-3d",
+      "answerObjectId": "AO.IMPLANTS.COMPONENTS",
+      "contentVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:a0f077b4f24cd4a3f77c07c6f80050b83e35981e1594d369f37a3d8dc7d7f1bd",
+      "sourceGroupIds": [
+        "SG.NHS.IMPLANTS",
+        "SG.BSP.IMPLANTS",
+        "SG.CD3D.AUTHORITY"
+      ],
+      "approvalPublicationState": {
+        "bundleStatus": "clinical_and_fact_blocked",
+        "claimState": "clinical_review_pending",
+        "factApprovalState": "pending",
+        "clinicalApprovalState": "pending",
+        "productParityApprovalState": "pending",
+        "clinicalAndFactApprovalRequired": true,
+        "publicPublicationPermitted": false
+      },
+      "eligibility": {
+        "syntheticFixturePermitted": true,
+        "liveConciergePermitted": false
+      },
+      "expectedSemanticActionFamily": {
+        "family": "governed_general_component_education",
+        "permittedOutcomes": [
+          "answer_from_answer_object",
+          "focus_semantic_section",
+          "open_text_alternative"
+        ],
+        "productionActionIds": "owned_outside_content_bundle_not_bound_here"
+      },
+      "humanSafetyBoundary": "Generic component education only. No suitability, diagnosis, prognosis, personal plan, scan interpretation, morphology inference, personal timing, quote or treatment recommendation; personal or symptomatic requests require controlled human handoff."
+    }
+  ],
+  "convergenceClosure": {
+    "closureId": "CHAMPAGNE_IMPLANTS_CONTENT_BUNDLE_V1_1_FINITE_CONVERGENCE_CLOSURE",
+    "previousBundleContentHash": "sha256:62a16b4f872f7fdc970f6498be55d05d4823964d83ea0d1682ba58c7ef9d4b18",
+    "visibleCopyChanged": false,
+    "semanticArchitectureChanged": false,
+    "approvalDeltaItemCount": 6,
+    "repairScope": [
+      "controlled_3d_vocabulary",
+      "concierge_maturity",
+      "content_identity",
+      "hash_representation",
+      "cb1b_compatibility_record",
+      "machine_qa"
+    ]
+  }
+}
