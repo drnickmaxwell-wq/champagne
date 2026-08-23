@@ -1,0 +1,314 @@
+{
+  "schema": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+  "createdAt": "2026-08-10T14:13:00.120Z",
+  "source": {
+    "atlas": "CHAMPAGNE_FOUNDER_VISUAL_DNA_DISCOVERY_AND_ATLAS_V1",
+    "repository": "drnickmaxwell-wq/champagne",
+    "ref": "6ace422aa507b6b6be3fa82d22d627b7e881d5da",
+    "registrySha": "a0bec7e30249808163b2e2eb01f5f7fbcdcd193a",
+    "archiveSha256": "97f95cd302c7212772d27f80048dddae9ade3ae16e7baaeb2138627659bb8dae"
+  },
+  "decisions": [
+    {
+      "id": "CVA-SURFACE-B038-E01",
+      "signal": "LIKE",
+      "traits": [
+        "image treatment",
+        "composition",
+        "geometry",
+        "typography"
+      ],
+      "note": ""
+    },
+    {
+      "id": "CVA-SURFACE-B038-E03",
+      "signal": "LOVE",
+      "traits": [
+        "composition",
+        "colour",
+        "image treatment",
+        "geometry",
+        "typography"
+      ],
+      "note": ""
+    },
+    {
+      "id": "CVA-SURFACE-B038-E05",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "not sure about the wave"
+    },
+    {
+      "id": "CVA-SURFACE-B038-E06",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "composition",
+        "interaction",
+        "human warmth"
+      ],
+      "note": "but little washed out and my brand colours being lost, BUT i love this"
+    },
+    {
+      "id": "CVA-SURFACE-B038-E08",
+      "signal": "LOVE",
+      "traits": [
+        "composition",
+        "interaction",
+        "typography",
+        "geometry"
+      ],
+      "note": ""
+    },
+    {
+      "id": "CVA-PAGE-B018-E01",
+      "signal": "MAYBE",
+      "traits": [],
+      "note": "its not my brand but i love all the drawings and info"
+    },
+    {
+      "id": "CVA-PAGE-B021-E01",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "composition",
+        "image treatment",
+        "human warmth",
+        "geometry",
+        "typography"
+      ],
+      "note": "this is slowly becoming my brand feel, but needs the blockiness breaking up and more colour bought in thoughfully"
+    },
+    {
+      "id": "CVA-PAGE-B035-E01",
+      "signal": "LIKE",
+      "traits": [
+        "composition",
+        "image treatment",
+        "typography",
+        "geometry"
+      ],
+      "note": "little too generic and not my hero. looks like saas"
+    },
+    {
+      "id": "CVA-PAGE-B036-E01",
+      "signal": "LIKE",
+      "traits": [
+        "composition",
+        "typography",
+        "geometry",
+        "image treatment"
+      ],
+      "note": "again looking more saas and going too dark and not my hero "
+    },
+    {
+      "id": "CVA-PAGE-B023-E01",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "feels like a scrap book at moment but with a better layout and design could be nice.  I wanted a persian blue header and footer. my footer is supposed to have layers like my hero v2, not just a generic blue and gold. i want luxury"
+    },
+    {
+      "id": "CVA-PAGE-SACRED-HERO-E01",
+      "signal": "NOT_ME",
+      "traits": [],
+      "note": "just too dark"
+    },
+    {
+      "id": "CVA-SEQUENCE-B005-E01",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "image treatment",
+        "geometry",
+        "composition",
+        "wave"
+      ],
+      "note": "this is my wave background that is within my hero v2. i like this BUT not as a hero as too boring. "
+    },
+    {
+      "id": "CVA-SEQUENCE-B010-E01",
+      "signal": "LOVE",
+      "traits": [
+        "luminosity",
+        "composition",
+        "interaction",
+        "geometry"
+      ],
+      "note": "its the wrong perisan blue. this is my sacred hero v2 that is on every page at present. i still love it"
+    },
+    {
+      "id": "CVA-SEQUENCE-B017-E01",
+      "signal": "LIKE",
+      "traits": [
+        "composition",
+        "dark/light balance"
+      ],
+      "note": "i love it but dont think is my brand and could be too different, but if could be done in my actual brand colours and made lighter may be nice"
+    },
+    {
+      "id": "CVA-SEQUENCE-B009-E01",
+      "signal": "LOVE",
+      "traits": [
+        "composition",
+        "image treatment",
+        "interaction",
+        "typography",
+        "geometry"
+      ],
+      "note": "love these"
+    },
+    {
+      "id": "CVA-SECTION-B011-E01",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "image treatment",
+        "interaction",
+        "composition"
+      ],
+      "note": ""
+    },
+    {
+      "id": "CVA-SECTION-B011-E02",
+      "signal": "LOVE",
+      "traits": [
+        "image treatment",
+        "composition",
+        "dark/light balance",
+        "colour",
+        "luminosity"
+      ],
+      "note": "could be improved and made more my brand"
+    },
+    {
+      "id": "CVA-SECTION-B011-E03",
+      "signal": "LIKE",
+      "traits": [],
+      "note": ""
+    },
+    {
+      "id": "CVA-SECTION-B011-E08",
+      "signal": "NOT_ME",
+      "traits": [],
+      "note": "colours nOT my brand"
+    },
+    {
+      "id": "CVA-SECTION-B025-E01",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "nice luxurious feel"
+    },
+    {
+      "id": "CVA-SECTION-B025-E05",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "nice colour"
+    },
+    {
+      "id": "CVA-SECTION-B029-E03",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "i WANT this in my repo - love the diagram and would like more of these in repo"
+    },
+    {
+      "id": "CVA-SECTION-B034-E04",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "interaction"
+      ],
+      "note": "love this"
+    },
+    {
+      "id": "CVA-SECTION-B032-E01",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "image treatment",
+        "interaction",
+        "composition"
+      ],
+      "note": "love it and want more of these created and added"
+    },
+    {
+      "id": "CVA-MEDIA-B032-E01",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "want 3D models on every treatment page. we are alos planning small ines for the concierge"
+    },
+    {
+      "id": "CVA-CAPTAIN-B042-E01",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "nice but boring and needs more champagne brand"
+    },
+    {
+      "id": "CVA-BAND-B020-E05",
+      "signal": "LIKE",
+      "traits": [
+        "composition"
+      ],
+      "note": "ok"
+    },
+    {
+      "id": "CVA-BAND-B020-E03",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "THIS I LOVE"
+    },
+    {
+      "id": "CVA-CTA-B004-E01",
+      "signal": "MAYBE",
+      "traits": [],
+      "note": ""
+    },
+    {
+      "id": "CVA-CTA-B004-E03",
+      "signal": "MAYBE",
+      "traits": [],
+      "note": ""
+    },
+    {
+      "id": "CVA-FOOTER-F03-E02",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "love this"
+    },
+    {
+      "id": "CVA-FOOTER-F03-E03",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "needs some work as feels cramped but like the concept. colours not correct"
+    },
+    {
+      "id": "CVA-HERITAGE-B039-E01",
+      "signal": "LOVE",
+      "traits": [
+        "composition",
+        "image treatment"
+      ],
+      "note": "thats actrually the building my practice is inside. use sparingly"
+    },
+    {
+      "id": "CVA-HERITAGE-B040-E03",
+      "signal": "LOVE",
+      "traits": [
+        "image treatment",
+        "geometry"
+      ],
+      "note": "i do like this but still in the right position"
+    },
+    {
+      "id": "CVA-SECTION-B036-E03",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "little bland"
+    },
+    {
+      "id": "CVA-HERITAGE-B040-E06",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "its st marys.  "
+    }
+  ]
+}

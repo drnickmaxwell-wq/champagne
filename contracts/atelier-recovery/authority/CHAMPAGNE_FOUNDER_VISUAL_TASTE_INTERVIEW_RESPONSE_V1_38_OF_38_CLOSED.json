@@ -1,0 +1,41 @@
+{
+  "schema": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED",
+  "settledAt": "2026-08-10T16:45:00+01:00",
+  "founder": "Dr Nick Maxwell",
+  "status": "COMPLETE_38_OF_38",
+  "source": {
+    "atlas": "CHAMPAGNE_FOUNDER_VISUAL_DNA_DISCOVERY_AND_ATLAS_V1",
+    "repository": "drnickmaxwell-wq/champagne",
+    "ref": "6ace422aa507b6b6be3fa82d22d627b7e881d5da",
+    "registrySha": "a0bec7e30249808163b2e2eb01f5f7fbcdcd193a",
+    "archiveSha256": "97f95cd302c7212772d27f80048dddae9ade3ae16e7baaeb2138627659bb8dae"
+  },
+  "preservedDecisionAuthority": {
+    "path": "r413_handoff_ingest/CHAMPAGNE_R4_13_BRAND_INTELLIGENCE_HANDOFF_V1/responses/CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_36_OF_38.json",
+    "decisionCount": 36,
+    "preservationRule": "All 36 decisions, traits and notes are incorporated verbatim and remain unchanged. This closure record adds only the two previously unresolved decisions below."
+  },
+  "closureDecisions": [
+    {
+      "id": "CVA-SURFACE-B038-E02",
+      "title": "Porcelain Dot Constellation",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "Whole-reference LOVE. No individual trait is automatically approved without separate evidence."
+    },
+    {
+      "id": "CVA-SURFACE-B038-E04",
+      "title": "Persian Turquoise Orbit",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "Whole-reference LOVE. No individual trait is automatically approved without separate evidence."
+    }
+  ],
+  "counts": {
+    "preserved": 36,
+    "added": 2,
+    "total": 38,
+    "unresolved": 0
+  },
+  "interpretationLock": "LOVE or LIKE on a reference does not approve every constituent colour, material, composition, image, motion or interaction trait. Founder notes and separately selected traits outrank broad inference."
+}

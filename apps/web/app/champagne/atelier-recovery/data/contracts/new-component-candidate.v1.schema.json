@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ATELIER_NEW_COMPONENT_CANDIDATE_CONTRACT_V1",
+  "title": "Atelier New Component Candidate Contract V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "request", "evidence", "constraints", "outputPolicy"],
+  "properties": {
+    "schema": { "const": "ATELIER_NEW_COMPONENT_CANDIDATE_CONTRACT_V1" },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation", "semanticTask", "pageContext", "contentConstraints"],
+      "properties": {
+        "operation": { "enum": ["MORE_LIKE_THIS", "LESS_LIKE_THIS", "CHANGE_ONE_THING", "REMIX", "CREATE_NEW_CHAMPAGNE_COMPONENT"] },
+        "semanticTask": { "type": "string", "minLength": 1 },
+        "pageContext": { "type": "object" },
+        "contentConstraints": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brandAuthority", "antiDna", "positiveComponents", "negativeComponents", "traitPreferences", "grammarLibrary"],
+      "properties": {
+        "brandAuthority": { "const": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1@1.0.0" },
+        "antiDna": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "positiveComponents": { "type": "array", "items": { "type": "string" } },
+        "negativeComponents": { "type": "array", "items": { "type": "string" } },
+        "traitPreferences": { "type": "array", "items": { "type": "string" } },
+        "grammarLibrary": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["responsiveTargets", "accessibility", "mediaBoundary", "threeDBoundary", "genericFallback"],
+      "properties": {
+        "responsiveTargets": { "const": [1440, 1024, 768, 390] },
+        "accessibility": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "mediaBoundary": { "type": "string" },
+        "threeDBoundary": { "type": "string" },
+        "genericFallback": { "const": false }
+      }
+    },
+    "outputPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "requiredFields", "directProductionWrite", "missingGrammarResult"],
+      "properties": {
+        "kind": { "const": "EXPERIMENTAL_CANDIDATE" },
+        "requiredFields": { "const": ["lineage", "inheritedTraits", "novelTraits", "antiDnaEvaluation", "responsivePlan", "provenance", "comparisonRender"] },
+        "directProductionWrite": { "const": false },
+        "missingGrammarResult": { "const": "BRAND_COMPONENT_GAP" }
+      }
+    }
+  }
+}

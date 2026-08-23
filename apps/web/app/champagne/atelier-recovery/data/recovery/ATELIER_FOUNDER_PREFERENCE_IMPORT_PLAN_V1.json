@@ -1,0 +1,495 @@
+{
+  "schema": "ATELIER_FOUNDER_PREFERENCE_IMPORT_PLAN_V1",
+  "targetSchema": "ATELIER_FOUNDER_VISUAL_PREFERENCE_DATASET_V1",
+  "policy": {
+    "speculativeMappingsAllowed": false,
+    "parentApprovalPropagatesToChildren": false,
+    "browserLocalStorageAuthoritative": false
+  },
+  "sources": [
+    {
+      "id": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_36_OF_38",
+      "classification": "EXACT_IMPORTABLE",
+      "candidateCount": 36,
+      "reason": "Exact stable CVA IDs with explicit Founder signals, traits and notes."
+    },
+    {
+      "id": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED",
+      "classification": "EXACT_IMPORTABLE",
+      "candidateCount": 2,
+      "reason": "Two exact closure decisions with stable CVA IDs."
+    },
+    {
+      "id": "CHAMPAGNE_FOUNDER_BRAND_DNA_V1@1.0.0",
+      "classification": "TRAIT_ONLY",
+      "candidateCount": 0,
+      "reason": "Canonical cross-component Brand and Anti-DNA evidence; broad rules do not create child-item ratings."
+    },
+    {
+      "id": "FAMILY_F_F02_F06_F08_F09_F10",
+      "classification": "PARENT_ONLY_DO_NOT_PROPAGATE",
+      "candidateCount": 0,
+      "reason": "Approved family/component evidence lacks a proven one-to-one mapping to child CVA records."
+    },
+    {
+      "id": "FOUNDER_CTA_EXPLORATION_BOARD_RESPONSES",
+      "classification": "PARENT_ONLY_DO_NOT_PROPAGATE",
+      "candidateCount": 0,
+      "reason": "Board-level approval cannot be converted into child CTA decisions without exact stable identity evidence."
+    },
+    {
+      "id": "FOUNDER_FOOTER_EXPLORATION_BOARD_RESPONSES",
+      "classification": "PARENT_ONLY_DO_NOT_PROPAGATE",
+      "candidateCount": 0,
+      "reason": "Only exact footer CVA decisions already present in the 36-decision ledger are importable."
+    },
+    {
+      "id": "PROVISIONAL_12_OF_38_EVIDENCE",
+      "classification": "REJECTED_SOURCE",
+      "candidateCount": 0,
+      "reason": "Explicitly provisional and superseded by the settled 38-of-38 authority."
+    },
+    {
+      "id": "UNATTRIBUTED_CONVERSATION_SUMMARIES",
+      "classification": "AMBIGUOUS_REQUIRES_FOUNDER",
+      "candidateCount": 0,
+      "reason": "No immutable source artefact and stable item mapping; do not fabricate an import."
+    }
+  ],
+  "exactImports": [
+    {
+      "cvaId": "CVA-SURFACE-B038-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [
+        "image treatment",
+        "composition",
+        "geometry",
+        "typography"
+      ],
+      "note": "",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 0
+    },
+    {
+      "cvaId": "CVA-SURFACE-B038-E03",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "composition",
+        "colour",
+        "image treatment",
+        "geometry",
+        "typography"
+      ],
+      "note": "",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 1
+    },
+    {
+      "cvaId": "CVA-SURFACE-B038-E05",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "not sure about the wave",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 2
+    },
+    {
+      "cvaId": "CVA-SURFACE-B038-E06",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "composition",
+        "interaction",
+        "human warmth"
+      ],
+      "note": "but little washed out and my brand colours being lost, BUT i love this",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 3
+    },
+    {
+      "cvaId": "CVA-SURFACE-B038-E08",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "composition",
+        "interaction",
+        "typography",
+        "geometry"
+      ],
+      "note": "",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 4
+    },
+    {
+      "cvaId": "CVA-PAGE-B018-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "MAYBE",
+      "traits": [],
+      "note": "its not my brand but i love all the drawings and info",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 5
+    },
+    {
+      "cvaId": "CVA-PAGE-B021-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "composition",
+        "image treatment",
+        "human warmth",
+        "geometry",
+        "typography"
+      ],
+      "note": "this is slowly becoming my brand feel, but needs the blockiness breaking up and more colour bought in thoughfully",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 6
+    },
+    {
+      "cvaId": "CVA-PAGE-B035-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [
+        "composition",
+        "image treatment",
+        "typography",
+        "geometry"
+      ],
+      "note": "little too generic and not my hero. looks like saas",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 7
+    },
+    {
+      "cvaId": "CVA-PAGE-B036-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [
+        "composition",
+        "typography",
+        "geometry",
+        "image treatment"
+      ],
+      "note": "again looking more saas and going too dark and not my hero ",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 8
+    },
+    {
+      "cvaId": "CVA-PAGE-B023-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "feels like a scrap book at moment but with a better layout and design could be nice.  I wanted a persian blue header and footer. my footer is supposed to have layers like my hero v2, not just a generic blue and gold. i want luxury",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 9
+    },
+    {
+      "cvaId": "CVA-PAGE-SACRED-HERO-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "NOT_ME",
+      "traits": [],
+      "note": "just too dark",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 10
+    },
+    {
+      "cvaId": "CVA-SEQUENCE-B005-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "image treatment",
+        "geometry",
+        "composition",
+        "wave"
+      ],
+      "note": "this is my wave background that is within my hero v2. i like this BUT not as a hero as too boring. ",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 11
+    },
+    {
+      "cvaId": "CVA-SEQUENCE-B010-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "luminosity",
+        "composition",
+        "interaction",
+        "geometry"
+      ],
+      "note": "its the wrong perisan blue. this is my sacred hero v2 that is on every page at present. i still love it",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 12
+    },
+    {
+      "cvaId": "CVA-SEQUENCE-B017-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [
+        "composition",
+        "dark/light balance"
+      ],
+      "note": "i love it but dont think is my brand and could be too different, but if could be done in my actual brand colours and made lighter may be nice",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 13
+    },
+    {
+      "cvaId": "CVA-SEQUENCE-B009-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "composition",
+        "image treatment",
+        "interaction",
+        "typography",
+        "geometry"
+      ],
+      "note": "love these",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 14
+    },
+    {
+      "cvaId": "CVA-SECTION-B011-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "image treatment",
+        "interaction",
+        "composition"
+      ],
+      "note": "",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 15
+    },
+    {
+      "cvaId": "CVA-SECTION-B011-E02",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "image treatment",
+        "composition",
+        "dark/light balance",
+        "colour",
+        "luminosity"
+      ],
+      "note": "could be improved and made more my brand",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 16
+    },
+    {
+      "cvaId": "CVA-SECTION-B011-E03",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 17
+    },
+    {
+      "cvaId": "CVA-SECTION-B011-E08",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "NOT_ME",
+      "traits": [],
+      "note": "colours nOT my brand",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 18
+    },
+    {
+      "cvaId": "CVA-SECTION-B025-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "nice luxurious feel",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 19
+    },
+    {
+      "cvaId": "CVA-SECTION-B025-E05",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "nice colour",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 20
+    },
+    {
+      "cvaId": "CVA-SECTION-B029-E03",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "i WANT this in my repo - love the diagram and would like more of these in repo",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 21
+    },
+    {
+      "cvaId": "CVA-SECTION-B034-E04",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "interaction"
+      ],
+      "note": "love this",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 22
+    },
+    {
+      "cvaId": "CVA-SECTION-B032-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "colour",
+        "image treatment",
+        "interaction",
+        "composition"
+      ],
+      "note": "love it and want more of these created and added",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 23
+    },
+    {
+      "cvaId": "CVA-MEDIA-B032-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "want 3D models on every treatment page. we are alos planning small ines for the concierge",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 24
+    },
+    {
+      "cvaId": "CVA-CAPTAIN-B042-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "nice but boring and needs more champagne brand",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 25
+    },
+    {
+      "cvaId": "CVA-BAND-B020-E05",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [
+        "composition"
+      ],
+      "note": "ok",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 26
+    },
+    {
+      "cvaId": "CVA-BAND-B020-E03",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "THIS I LOVE",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 27
+    },
+    {
+      "cvaId": "CVA-CTA-B004-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "MAYBE",
+      "traits": [],
+      "note": "",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 28
+    },
+    {
+      "cvaId": "CVA-CTA-B004-E03",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "MAYBE",
+      "traits": [],
+      "note": "",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 29
+    },
+    {
+      "cvaId": "CVA-FOOTER-F03-E02",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "love this",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 30
+    },
+    {
+      "cvaId": "CVA-FOOTER-F03-E03",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "needs some work as feels cramped but like the concept. colours not correct",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 31
+    },
+    {
+      "cvaId": "CVA-HERITAGE-B039-E01",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "composition",
+        "image treatment"
+      ],
+      "note": "thats actrually the building my practice is inside. use sparingly",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 32
+    },
+    {
+      "cvaId": "CVA-HERITAGE-B040-E03",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [
+        "image treatment",
+        "geometry"
+      ],
+      "note": "i do like this but still in the right position",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 33
+    },
+    {
+      "cvaId": "CVA-SECTION-B036-E03",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LIKE",
+      "traits": [],
+      "note": "little bland",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 34
+    },
+    {
+      "cvaId": "CVA-HERITAGE-B040-E06",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "its st marys.  ",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1",
+      "sourceIndex": 35
+    },
+    {
+      "cvaId": "CVA-SURFACE-B038-E02",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "Whole-reference LOVE. No individual trait is automatically approved without separate evidence.",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED",
+      "sourceIndex": 0
+    },
+    {
+      "cvaId": "CVA-SURFACE-B038-E04",
+      "classification": "EXACT_IMPORTABLE",
+      "signal": "LOVE",
+      "traits": [],
+      "note": "Whole-reference LOVE. No individual trait is automatically approved without separate evidence.",
+      "source": "CHAMPAGNE_FOUNDER_VISUAL_TASTE_INTERVIEW_RESPONSE_V1_38_OF_38_CLOSED",
+      "sourceIndex": 1
+    }
+  ],
+  "counts": {
+    "exactImportable": 38,
+    "parentOnlyDoNotPropagate": 3,
+    "traitOnly": 1,
+    "ambiguousRequiresFounder": 1,
+    "rejectedSource": 1
+  }
+}
