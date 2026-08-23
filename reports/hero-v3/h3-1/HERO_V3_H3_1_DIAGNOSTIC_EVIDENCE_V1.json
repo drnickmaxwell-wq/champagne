@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "HERO_V3_H3_1_DIAGNOSTIC_EVIDENCE_V1",
+  "status": "DIAGNOSIS_COMPLETE_NO_REPAIR",
+  "repository": "drnickmaxwell-wq/champagne",
+  "base": "a00f718a93710028b364930566d7f6a44483bc25",
+  "productionBinding": false,
+  "publicHeroMutated": false,
+  "labRoute": "/champagne/hero-v3-diagnostic",
+  "layerInventory": {
+    "static": [
+      {"id": "gradient.base", "source": "var(--smh-gradient)", "prmSafe": true},
+      {"id": "field.waveBackdrop", "desktop": "waves/waves-bg-1920.webp", "mobile": "waves/waves-bg-768.webp", "prmSafe": true},
+      {"id": "field.waveRings", "source": "waves/wave-field.svg", "prmSafe": true},
+      {"id": "mask.waveHeader", "desktop": "waves/wave-mask-desktop.webp", "mobile": "waves/wave-mask-mobile.webp", "prmSafe": true, "finding": "BOTH_SOURCE_FILES_ZERO_BYTES"},
+      {"id": "field.dotGrid", "source": "waves/wave-dots.svg", "prmSafe": true},
+      {"id": "overlay.particles", "source": "particles/home-hero-particles.webp"},
+      {"id": "overlay.filmGrain", "desktop": "film-grain/film-grain-desktop.webp", "mobile": "film-grain/film-grain-mobile.webp", "prmSafe": true},
+      {"id": "overlay.lighting", "source": "renderer-generated lighting surface", "prmSafe": true},
+      {"id": "overlay.sacredBloom", "source": "conditional renderer-generated bloom", "prmSafe": true},
+      {"id": "hero.contentFrame", "source": "renderer content plane", "prmSafe": true}
+    ],
+    "motion": [
+      {"id": "sacred.motion.waveCaustics", "source": "motion/wave-caustics.webm", "blend": "screen", "manifestOpacity": 0.21},
+      {"id": "sacred.motion.glassShimmer", "source": "motion/glass-shimmer.webm", "blend": "soft-light", "manifestOpacity": 0.19},
+      {"id": "sacred.motion.particleDrift", "source": "motion/particles-drift.webm", "blend": "screen", "manifestOpacity": 0.1},
+      {"id": "sacred.motion.goldDust", "source": "motion/gold-dust-drift.webm", "blend": "soft-light", "manifestOpacity": 0.15}
+    ]
+  },
+  "mediaProbe": {
+    "codec": "vp9",
+    "dimensions": "1280x720",
+    "frameRate": "24/1",
+    "startTimeSeconds": 0,
+    "durationSeconds": 5.042,
+    "sameForAllFourMotionAssets": true,
+    "firstToLastFrameSsim": {
+      "glass-shimmer.webm": 0.726659,
+      "gold-dust-drift.webm": 0.886627,
+      "particles-drift.webm": 0.95283,
+      "wave-caustics.webm": 0.779068
+    }
+  },
+  "cssTiming": {
+    "heroMotionTide": {"durationSeconds": 42, "delaySeconds": 0, "iteration": "infinite", "endpointReturnsToStart": true},
+    "heroGoldDustPulse": {"durationSeconds": 24, "delaySeconds": 6, "iteration": "infinite", "endpointReturnsToStart": true},
+    "opacityRevealTransitionMilliseconds": 220,
+    "mediaReadyFallbackMilliseconds": 1200
+  },
+  "diagnosis": {
+    "primaryCause": "FOUR_INTRINSIC_NON_SEAMLESS_VIDEO_BOUNDARIES_WITH_IDENTICAL_DURATION_AND_SYNCHRONIZED_START",
+    "confidence": "HIGH_SOURCE_AND_ASSET_EVIDENCE",
+    "expectedCadenceSeconds": 5.042,
+    "secondaryContributors": [
+      "shared 42-second CSS transform phase across all media",
+      "gold-dust secondary 24-second pulse",
+      "simultaneous media ready/reveal when initial decode completes"
+    ],
+    "notPrimaryAtCurrentBase": [
+      "historical route-navigation stack remount",
+      "42-second CSS endpoint discontinuity"
+    ],
+    "browserRuntimeQualification": "A temporary Chromium runtime outside the repository captured the real V2 renderer in complete-static desktop and mobile states. Active VP9 motion captures showed headless text-compositing corruption and are not valid visual approval evidence; motion appearance still requires a normal GPU-capable browser or preview capture. The asset/timing loop diagnosis is unaffected."
+  },
+  "diagnosticControls": ["visibility", "opacity", "blend", "crop", "position", "focal X and Y", "media phase", "CSS phase", "playback rate"],
+  "presets": ["every static layer independently", "cumulative static builds", "complete static", "every motion layer independently", "complete motion", "reduced motion"],
+  "responsiveEvidence": ["real complete-static desktop browser capture at 1440px", "real complete-static mobile browser capture at 430px", "tablet frame available in the lab but not yet browser-captured", "motion appearance requires GPU-capable browser evidence"],
+  "visualEvidence": [
+    "evidence/HERO_V3_H3_1_STATIC_LAYER_CONTACT_SHEET_V1.jpg (raster-source inventory only; illustrative colour tile is not assembled-gradient evidence)",
+    "evidence/HERO_V3_H3_1_MOTION_FRAME_CONTACT_SHEET_V1.jpg",
+    "evidence/HERO_V3_H3_1_RESPONSIVE_ASSET_CONTACT_SHEET_V1.jpg"
+  ],
+  "repairPerformed": false
+}
